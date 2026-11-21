@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PanelWindow · The Quickshell Book</title>
+<meta name="description" content="PanelWindow — Quickshell: every property, function, signal and enum, with examples.">
+<link rel="stylesheet" href="../assets/style.css?v=e9cdfa8e">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details open><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod" open><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty active" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../ref/index.html">API Reference</a> › <a href="../ref/mod-quickshell.html">Quickshell</a> › PanelWindow</div><article><div class="ref-head"><div class="mod-line"><a href="../ref/mod-quickshell.html">Quickshell</a></div><h1>PanelWindow</h1><div class="badges"><span class="badge b-create">creatable</span></div></div>
+<p class="lede">Decorationless window attached to screen edges by anchors.</p>
+<div class="facts"><div><span>Import</span><div class="v"><code>import Quickshell</code></div></div><div><span>Inherits</span><div class="v"><code>PanelWindow</code> → <a href="../ref/QsWindow.html"><code>QsWindow</code></a> → <a href="../ref/Reloadable.html"><code>Reloadable</code></a></div></div><div><span>How to get one</span><div class="v">You <b>create</b> this type in QML: <code>PanelWindow { … }</code>.</div></div></div>
+<h2 id="overview">Overview<a class="hlink" href="#overview">#</a></h2>
+<p>A <strong>layer-shell</strong> window glued to screen edges: bars, docks, sidebars, OSDs, launchers, notifications, overlays, desktop widgets and wallpapers. The most-used Quickshell type. It also has every <a class="api" href="../ref/QsWindow.html"><code>QsWindow</code></a> property (size, color, screen, mask…), and the <a class="api" href="../ref/WlrLayershell.html"><code>WlrLayershell</code></a> attached properties set its layer, namespace and keyboard focus.</p>
+<h2 id="upstream">From the upstream documentation<a class="hlink" href="#upstream">#</a></h2>
+<div class="upstream"><h4>Example</h4>
+<p>The following snippet creates a white bar attached to the bottom of the screen.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+  anchors {
+    left: true
+    bottom: true
+    right: true
+  }
+
+  Text {
+    anchors.centerIn: parent
+    text: "Hello!"
+  }
+}</code></pre></div></div>
+<h2 id="example-using-every-property">Example: using every property<a class="hlink" href="#example-using-every-property">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>import Quickshell
+import Quickshell.Wayland
+import QtQuick
+
+PanelWindow {
+    id: bar
+    screen: Quickshell.screens[0]
+
+    anchors { top: true; left: true; right: true }    // which screen edges
+    margins { top: 6; left: 8; right: 8 }             // distance from anchored edges
+    implicitHeight: 36
+
+    exclusiveZone: 42                                  // reserve 42 px (sets mode to Normal-with-zone)
+    // exclusionMode: ExclusionMode.Auto               // default: reserve the window size
+    // exclusionMode: ExclusionMode.Ignore             // reserve nothing, overlap other panels
+    aboveWindows: true                                 // Top layer (false → Bottom layer)
+    focusable: false                                   // take keyboard focus when clicked?
+
+    color: "transparent"
+    WlrLayershell.namespace: "quickshell:bar"
+    WlrLayershell.layer: WlrLayer.Top
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
+
+    Rectangle { anchors.fill: parent; radius: 12; color: "#cc1e1e2e" }
+}</code></pre></div>
+<h2 id="properties">Properties<a class="hlink" href="#properties">#</a></h2>
+<p class="hint">Every property also emits a <code>&lt;name&gt;Changed</code> signal; handle it with <code>on&lt;Name&gt;Changed</code> (e.g. <code>onAnchorsChanged: …</code>).</p>
+<div class="tablewrap"><table class="members"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>Description</th></tr></thead><tbody><tr id="m-anchors" class="mrow"><td class="mn"><a href="#m-anchors">anchors</a></td><td class="mt">Anchors</td><td><span class="acc rw">read / write</span></td><td class="md"><p>Anchors attach a shell window to the sides of the screen.
+By default all anchors are disabled to avoid blocking the entire screen due to a misconfiguration.</p>
+<div class="box note"><div class="bt">When two opposite anchors are attached at the same time, the corresponding dimension</div><p>(width or height) will be forced to equal the screen width/height.
+Margins can be used to create anchored windows that are also disconnected from the monitor sides.</p></div><div class="mnote"><p>Four booleans: <code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code>. Anchoring two opposite edges stretches the window in that direction (no need to set that dimension). No anchors at all centers the window.</p></div></td></tr><tr id="m-margins" class="mrow"><td class="mn"><a href="#m-margins">margins</a></td><td class="mt">Margins</td><td><span class="acc rw">read / write</span></td><td class="md"><p>Offsets from the sides of the screen.</p>
+<div class="box note"><div class="bt">Only applies to edges with anchors</div></div></td></tr><tr id="m-exclusiveZone" class="mrow"><td class="mn"><a href="#m-exclusiveZone">exclusiveZone</a></td><td class="mt">int</td><td><span class="acc rw">read / write</span></td><td class="md"><p>The amount of space reserved for the shell layer relative to its anchors.
+Setting this property sets <a class="api" href="../ref/PanelWindow.html#m-exclusionMode"><code>exclusionMode</code></a> to <code>ExclusionMode.Normal</code>.</p>
+<div class="box note"><div class="bt">Note</div><p>Either 1 or 3 anchors are required for the zone to take effect.</p></div><div class="mnote"><p>Setting it switches to manual reservation. <code>0</code> reserves nothing. Animate it together with the bar for smooth auto-hide.</p></div></td></tr><tr id="m-exclusionMode" class="mrow"><td class="mn"><a href="#m-exclusionMode">exclusionMode</a></td><td class="mt"><a href="../ref/ExclusionMode.html">ExclusionMode</a></td><td><span class="acc rw">read / write</span></td><td class="md"><p>Defaults to <code>ExclusionMode.Auto</code>.</p><div class="mnote"><p>See <a class="api" href="../ref/ExclusionMode.html"><code>ExclusionMode</code></a>. Use <code>Ignore</code> for overlays, fullscreen click-through windows, OSDs and launchers.</p></div></td></tr><tr id="m-aboveWindows" class="mrow"><td class="mn"><a href="#m-aboveWindows">aboveWindows</a></td><td class="mt">bool</td><td><span class="acc rw">read / write</span></td><td class="md"><p>If the panel should render above standard windows. Defaults to true.</p>
+<p>Note: On Wayland this property corresponds to <a class="api" href="../ref/WlrLayershell.html#m-layer"><code>WlrLayershell.layer</code></a>.</p></td></tr><tr id="m-focusable" class="mrow"><td class="mn"><a href="#m-focusable">focusable</a></td><td class="mt">bool</td><td><span class="acc rw">read / write</span></td><td class="md"><p>If the panel should accept keyboard focus. Defaults to false.</p>
+<p>Note: On Wayland this property corresponds to <a class="api" href="../ref/WlrLayershell.html#m-keyboardFocus"><code>WlrLayershell.keyboardFocus</code></a>.</p><div class="mnote"><p>A portable shortcut for keyboard focus on demand. For precise control use <a class="api" href="../ref/WlrLayershell.html#m-keyboardFocus"><code>WlrLayershell.keyboardFocus</code></a>.</p></div></td></tr></tbody></table></div>
+<details class="inh"><summary>Inherited from <a href="../ref/QsWindow.html">QsWindow</a> (15 properties)</summary><div class="tablewrap"><table class="members"><tbody><tr id="m-contentItem" class="mrow"><td class="mn"><a href="#m-contentItem">contentItem</a></td><td class="mt">Item</td><td><span class="acc const">constant</span></td><td class="md"><span class="muted">No upstream description.</span></td></tr><tr id="m-visible" class="mrow"><td class="mn"><a href="#m-visible">visible</a></td><td class="mt">bool</td><td><span class="acc rw">read / write</span></td><td class="md"><p>If the window should be shown or hidden. Defaults to true.</p></td></tr><tr id="m-backingWindowVisible" class="mrow"><td class="mn"><a href="#m-backingWindowVisible">backingWindowVisible</a></td><td class="mt">bool</td><td><span class="acc ro">read-only</span></td><td class="md"><p>If the window is currently shown. You should generally prefer <a href="#m-visible">visible</a>.</p>
+<p>This property is useful for ensuring windows spawn in a specific order, and you should
+not use it in place of <a href="#m-visible">visible</a>.</p></td></tr><tr id="m-implicitWidth" class="mrow"><td class="mn"><a href="#m-implicitWidth">implicitWidth</a></td><td class="mt">int</td><td><span class="acc rw">read / write</span></td><td class="md"><p>The window's desired width.</p></td></tr><tr id="m-implicitHeight" class="mrow"><td class="mn"><a href="#m-implicitHeight">implicitHeight</a></td><td class="mt">int</td><td><span class="acc rw">read / write</span></td><td class="md"><p>The window's desired height.</p></td></tr><tr id="m-width" class="mrow"><td class="mn"><a href="#m-width">width</a></td><td class="mt">int</td><td><span class="acc rw">read / write</span></td><td class="md"><p>The window's actual width.</p>
+<p>Setting this property is deprecated. Set <a class="api" href="../ref/QsWindow.html#m-implicitWidth"><code>implicitWidth</code></a> instead.</p></td></tr><tr id="m-height" class="mrow"><td class="mn"><a href="#m-height">height</a></td><td class="mt">int</td><td><span class="acc rw">read / write</span></td><td class="md"><p>The window's actual height.</p>
+<p>Setting this property is deprecated. Set <a class="api" href="../ref/QsWindow.html#m-implicitHeight"><code>implicitHeight</code></a> instead.</p></td></tr><tr id="m-devicePixelRatio" class="mrow"><td class="mn"><a href="#m-devicePixelRatio">devicePixelRatio</a></td><td class="mt">real</td><td><span class="acc ro">read-only</span></td><td class="md"><p>The ratio between logical pixels and monitor pixels.</p>
+<p>Qt's coordinate system works in logical pixels, which equal N monitor pixels
+depending on scale factor. This property returns the amount of monitor pixels
+in a logical pixel for the current window.</p></td></tr><tr id="m-screen" class="mrow"><td class="mn"><a href="#m-screen">screen</a></td><td class="mt"><a href="../ref/ShellScreen.html">ShellScreen</a></td><td><span class="acc rw">read / write</span></td><td class="md"><p>The screen that the window currently occupies.</p>
+<p>This may be modified to move the window to the given screen.</p></td></tr><tr id="m-windowTransform" class="mrow"><td class="mn"><a href="#m-windowTransform">windowTransform</a></td><td class="mt">QtObject</td><td><span class="acc ro">read-only</span></td><td class="md"><p>Opaque property that will receive an update when factors that affect the window's position
+and transform changed.</p>
+<p>This property is intended to be used to force a binding update,
+along with map[To|From]Item (which is not reactive).</p></td></tr><tr id="m-color" class="mrow"><td class="mn"><a href="#m-color">color</a></td><td class="mt">color</td><td><span class="acc rw">read / write</span></td><td class="md"><p>The background color of the window. Defaults to white.</p>
+<div class="box warn"><div class="bt">Watch out</div><p>If the window color is opaque before it is made visible,
+it will not be able to become transparent later unless <a class="api" href="../ref/QsWindow.html#m-surfaceFormat"><code>surfaceFormat</code></a>
+is false.</p></div></td></tr><tr id="m-mask" class="mrow"><td class="mn"><a href="#m-mask">mask</a></td><td class="mt"><a href="../ref/Region.html">Region</a></td><td><span class="acc rw">read / write</span></td><td class="md"><p>The clickthrough mask. Defaults to null.</p>
+<p>If non null then the clickable areas of the window will be determined by the provided region.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>ShellWindow {
+  // The mask region is set to `rect`, meaning only `rect` is clickable.
+  // All other clicks pass through the window to ones behind it.
+  mask: Region { item: rect }
+
+  Rectangle {
+    id: rect
+
+    anchors.centerIn: parent
+    width: 100
+    height: 100
+  }
+}</code></pre></div>
+<p>If the provided region's intersection mode is <code>Combine</code> (the default),
+then the region will be used as is. Otherwise it will be applied on top of the window region.</p>
+<p>For example, setting the intersection mode to <code>Xor</code> will invert the mask and make everything in
+the mask region not clickable and pass through clicks inside it through the window.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>ShellWindow {
+  // The mask region is set to `rect`, but the intersection mode is set to `Xor`.
+  // This inverts the mask causing all clicks inside `rect` to be passed to the window
+  // behind this one.
+  mask: Region { item: rect; intersection: Intersection.Xor }
+
+  Rectangle {
+    id: rect
+
+    anchors.centerIn: parent
+    width: 100
+    height: 100
+  }
+}</code></pre></div></td></tr><tr id="m-surfaceFormat" class="mrow"><td class="mn"><a href="#m-surfaceFormat">surfaceFormat</a></td><td class="mt">QsSurfaceFormat</td><td><span class="acc rw">read / write</span></td><td class="md"><p>Set the surface format to request from the system.</p>
+<ul>
+<li><code>opaque</code> - If the requested surface should be opaque. Opaque windows allow
+the operating system to avoid drawing things behind them, or blending the window
+with those behind it, saving power and GPU load. If unset, this property defaults to
+true if <a class="api" href="../ref/QsWindow.html#m-color"><code>color</code></a> is opaque, or false if not. <em>You should not need to modify this
+property unless you create a surface that starts opaque and later becomes transparent.</em></li>
+</ul>
+<div class="box note"><div class="bt">Note</div><p>The surface format cannot be changed after the window is created.</p></div></td></tr><tr id="m-updatesEnabled" class="mrow"><td class="mn"><a href="#m-updatesEnabled">updatesEnabled</a></td><td class="mt">bool</td><td><span class="acc rw">read / write</span></td><td class="md"><p>If the window should receive render updates. Defaults to true.</p>
+<p>When set to false, the window will not re-render in response to animations
+or other visual updates from other windows. This is useful for static windows
+such as wallpapers that do not need to update frequently, saving GPU cycles.</p>
+<p>When set back to true, a new frame is rendered, including any changes made
+while updates were disabled.</p></td></tr><tr id="m-data" class="mrow"><td class="mn"><a href="#m-data">data</a></td><td class="mt">list&lt;QtObject&gt;</td><td><span class="acc ro">read-only</span></td><td class="md"><span class="muted">No upstream description.</span></td></tr></tbody></table></div></details>
+<details class="inh"><summary>Inherited from <a href="../ref/Reloadable.html">Reloadable</a> (1 properties)</summary><div class="tablewrap"><table class="members"><tbody><tr id="m-reloadableId" class="mrow"><td class="mn"><a href="#m-reloadableId">reloadableId</a></td><td class="mt">string</td><td><span class="acc rw">read / write</span></td><td class="md"><p>An additional identifier that can be used to try to match a reloadable object to its
+previous state.</p>
+<p>Simply keeping a stable identifier across config versions (saves) is
+enough to help the reloader figure out which object in the old revision corresponds to
+this object in the current revision, and facilitate smoother reloading.</p>
+<p>Note that identifiers are scoped, and will try to do the right thing in context.
+For example if you have a <a class="api" href="../ref/Variants.html"><code>Variants</code></a> wrapping an object with an identified element inside,
+a scope is created at the variant level.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>Variants {
+  // multiple variants of the same object tree
+  variants: [ { foo: 1 }, { foo: 2 } ]
+
+  // any non `Reloadable` object
+  QtObject {
+    FloatingWindow {
+      // this FloatingWindow will now be matched to the same one in the previous
+      // widget tree for its variant. "myFloatingWindow" refers to both the variant in
+      // `foo: 1` and `foo: 2` for each tree.
+      reloadableId: "myFloatingWindow"
+
+      // ...
+    }
+  }
+}</code></pre></div></td></tr></tbody></table></div></details>
+<h2 id="see-also">See also<a class="hlink" href="#see-also">#</a></h2><p><a class="xref" href="../ch/30-panel-windows.html">Windows: PanelWindow, Layers and Exclusive Zones</a> · <a class="api" href="../ref/WlrLayershell.html"><code>WlrLayershell</code></a> · <a class="api" href="../ref/QsWindow.html"><code>QsWindow</code></a></p></article><nav class="prevnext"><a class="pn-prev" href="../ref/ExclusionMode.html"><small>← Previous</small><span>ExclusionMode</span></a><a class="pn-next" href="../ref/FloatingWindow.html"><small>Next →</small><span>FloatingWindow</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#overview">Overview</a><a class="l2" href="#upstream">From the upstream documentation</a><a class="l2" href="#example-using-every-property">Example: using every property</a><a class="l2" href="#properties">Properties</a><a class="l2" href="#see-also">See also</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=e9cdfa8e"></script>
+</body></html>

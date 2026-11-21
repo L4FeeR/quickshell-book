@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Components, Files and Imports · The Quickshell Book</title>
+<meta name="description" content="Components, Files and Imports">
+<link rel="stylesheet" href="../assets/style.css?v=e9cdfa8e">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details open><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch active" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-ii">Part II: The QML Language</a> › Components, Files and Imports</div><article><div class="ch-head"><div class="ch-part">Part II · The QML Language</div><h1><span class="ch-num">12</span>Components, Files and Imports</h1></div><p>A rice is made of dozens of reusable pieces: buttons, pills, icons, cards, sliders. In QML, <strong>every file is a reusable type</strong>. This chapter teaches you to build your own components with clean APIs, the way big shells do.</p>
+<h2 id="one-file-one-type">One file = one type<a class="hlink" href="#one-file-one-type">#</a></h2>
+<p>Create a file whose name starts with a <strong>capital letter</strong>:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">~/.config/quickshell/playground/Pill.qml</span><code>import QtQuick
+
+Rectangle {
+    implicitWidth: 80
+    implicitHeight: 26
+    radius: height / 2
+    color: "#cba6f7"
+}</code></pre></div>
+<p>Now <code>Pill</code> is a type that any other file <strong>in the same folder</strong> can use:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">~/.config/quickshell/playground/shell.qml</span><code>import Quickshell
+import QtQuick
+
+PanelWindow {
+    anchors { top: true; left: true; right: true }
+    implicitHeight: 40
+    Row {
+        anchors.centerIn: parent
+        spacing: 8
+        Pill {}
+        Pill {}
+        Pill { color: "#a6e3a1" }       // override a property of the root object
+    }
+}</code></pre></div>
+<p>The type name is the filename without <code>.qml</code>. The file's root object (here a <code>Rectangle</code>) is what you get, so users can set any <code>Rectangle</code> property on a <code>Pill</code>.</p>
+<h2 id="giving-your-component-an-api">Giving your component an API<a class="hlink" href="#giving-your-component-an-api">#</a></h2>
+<p>A good component exposes a few <strong>properties</strong> (inputs) and <strong>signals</strong> (outputs) and hides everything else:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">Pill.qml</span><code>import QtQuick
+
+Rectangle {
+    id: root
+
+    // ---- public API ----
+    property string text: ""
+    property string icon: ""
+    property color accent: "#cba6f7"
+    property bool active: false
+    signal clicked()
+    signal rightClicked()
+
+    // ---- implementation ----
+    implicitWidth: row.implicitWidth + 20
+    implicitHeight: 28
+    radius: height / 2
+    color: active ? accent : mouse.containsMouse ? "#45475a" : "#313244"
+    Behavior on color { ColorAnimation { duration: 150 } }
+
+    Row {
+        id: row
+        anchors.centerIn: parent
+        spacing: 6
+        Text {
+            visible: root.icon !== ""
+            text: root.icon
+            font.family: "Material Symbols Rounded"
+            font.pixelSize: 16
+            color: root.active ? "#1e1e2e" : "#cdd6f4"
+        }
+        Text {
+            text: root.text
+            color: root.active ? "#1e1e2e" : "#cdd6f4"
+            font.pixelSize: 13
+        }
+    }
+
+    MouseArea {
+        id: mouse
+        anchors.fill: parent
+        hoverEnabled: true
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        cursorShape: Qt.PointingHandCursor
+        onClicked: m =&gt; m.button === Qt.RightButton ? root.rightClicked() : root.clicked()
+    }
+}</code></pre></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>Pill { icon: "wifi"; text: "Home-5G"; active: true }
+Pill { icon: "bluetooth"; text: "Off"; onClicked: console.log("toggle bt") }</code></pre></div>
+<h2 id="property-alias-exposing-an-inner-property">property alias: exposing an inner property<a class="hlink" href="#property-alias-exposing-an-inner-property">#</a></h2>
+<p>An <strong>alias</strong> makes an inner object's property available as if it were the component's own:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">Label.qml</span><code>import QtQuick
+
+Rectangle {
+    property alias text: inner.text          // Label.text IS inner.text
+    property alias textColor: inner.color
+    property alias font: inner.font          // expose the whole font group
+
+    implicitWidth: inner.implicitWidth + 16
+    implicitHeight: inner.implicitHeight + 8
+    radius: 6
+    color: "#313244"
+    Text { id: inner; anchors.centerIn: parent; color: "white" }
+}</code></pre></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>Label { text: "hello"; font.bold: true; textColor: "#f9e2af" }</code></pre></div>
+<p>Aliases are two-way: setting <code>Label.text</code> sets <code>inner.text</code> and vice versa.</p>
+<h2 id="required-properties">required properties<a class="hlink" href="#required-properties">#</a></h2>
+<p>Mark a property <code>required</code> when the component can't work without it. Forgetting it becomes an error instead of a silent bug:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">WorkspaceDot.qml</span><code>import QtQuick
+
+Rectangle {
+    required property int workspaceId
+    required property bool active
+    width: active ? 24 : 8; height: 8; radius: 4
+    color: active ? "#cba6f7" : "#585b70"
+}</code></pre></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>WorkspaceDot { workspaceId: 3; active: true }   // OK
+WorkspaceDot { }                                // ERROR: Required property workspaceId was not initialized</code></pre></div>
+<p><code>required</code> is also how delegates receive their data in Repeaters and ListViews (<a class="xref" href="../ch/20-models-views.html">Models, Repeater and ListView</a>).</p>
+<h2 id="default-property-components-that-take-children">default property: components that take children<a class="hlink" href="#default-property-components-that-take-children">#</a></h2>
+<p>To let users put children <em>inside</em> your component and have them land in the right place, use a default property:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">Card.qml</span><code>import QtQuick
+
+Rectangle {
+    default property alias content: column.data   // children go into the column
+    property string title: ""
+
+    implicitWidth: 260
+    implicitHeight: column.implicitHeight + 24
+    radius: 14
+    color: "#1e1e2e"
+    border.color: "#313244"
+
+    Column {
+        id: column
+        anchors { left: parent.left; right: parent.right; top: parent.top; margins: 12 }
+        spacing: 6
+        Text { text: title; color: "#cba6f7"; font.bold: true; visible: title !== "" }
+    }
+}</code></pre></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>Card {
+    title: "System"
+    Text { text: "CPU 12%"; color: "white" }      // these go into Card's column
+    Text { text: "RAM 41%"; color: "white" }
+}</code></pre></div>
+<h2 id="inline-components">Inline components<a class="hlink" href="#inline-components">#</a></h2>
+<p>For a small type used only inside one file, declare it inline with <code>component</code>:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>Item {
+    component Badge: Rectangle {
+        property string label
+        width: 22; height: 22; radius: 11
+        color: "#f38ba8"
+        Text { anchors.centerIn: parent; text: parent.label; color: "white"; font.pixelSize: 11 }
+    }
+
+    Row {
+        spacing: 4
+        Badge { label: "3" }
+        Badge { label: "9+" }
+    }
+}</code></pre></div>
+<h2 id="imports-using-components-from-other-folders">Imports: using components from other folders<a class="hlink" href="#imports-using-components-from-other-folders">#</a></h2>
+<p>Files in the <strong>same folder</strong> see each other automatically. For other folders:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>import "widgets"              // relative path: every Capitalized.qml in ./widgets
+import "../common"            // up one level
+import "widgets" as W         // namespaced: write W.Pill { }</code></pre></div>
+<h3 id="the-qs-import-root-recommended">The <code>qs</code> import root (recommended)<a class="hlink" href="#the-qs-import-root-recommended">#</a></h3>
+<p>Quickshell defines a module called <strong><code>qs</code></strong> that points at <strong>your config's root folder</strong>. Use it to import any folder with an absolute-style path that works from any depth:</p>
+<div class="codewrap"><pre class="code" data-lang="text"><code>~/.config/quickshell/myshell/
+├── shell.qml
+├── services/Audio.qml
+├── widgets/Pill.qml
+└── modules/bar/Bar.qml</code></pre></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">modules/bar/Bar.qml</span><code>import qs.widgets          // → myshell/widgets/   (Pill)
+import qs.services         // → myshell/services/  (Audio)</code></pre></div>
+<p>No <code>../../</code> chains, and moving a file doesn't break its imports. This is what modern rices use.</p>
+<div class="box warn"><div class="bt">Folder names must be valid identifiers for <code>qs.</code> imports</div><p><code>qs.modules.bar</code> works. A folder called <code>my-widgets</code> can't be written as <code>qs.my-widgets</code>, so use <code>myWidgets</code> or <code>my_widgets</code>. Relative string imports (<code>import "my-widgets"</code>) have no such restriction.</p></div>
+<h2 id="how-the-root-object-type-affects-your-component">How the root object type affects your component<a class="hlink" href="#how-the-root-object-type-affects-your-component">#</a></h2>
+<p>Your component <strong>is</strong> its root object, plus whatever you added:</p>
+<ul>
+<li>Root <code>Item</code>: an invisible container with your API, the most flexible.</li>
+<li>Root <code>Rectangle</code>: users can set <code>color</code>, <code>radius</code> and so on.</li>
+<li>Root <code>MouseArea</code>: the whole component is clickable.</li>
+<li>Root <code>PanelWindow</code>: your component is a window (e.g. <code>Bar.qml</code>).</li>
+<li>Root <code>Scope</code>: a non-visual group that can contain several windows (<a class="xref" href="../ch/29-shell-structure.html">Shell Structure, Pragmas and Reloading</a>).</li>
+</ul>
+<p>Choose the root carefully, because it's part of your public API: if <code>Pill</code>'s root is a <code>Rectangle</code>, someone can override <code>color</code> and break your styling. Wrap it in an <code>Item</code> root if you want to hide that.</p>
+<h2 id="designing-good-components">Designing good components<a class="hlink" href="#designing-good-components">#</a></h2>
+<ol>
+<li><strong>Size yourself from your content</strong> with <code>implicitWidth</code>/<code>implicitHeight</code> (<a class="xref" href="../ch/17-sizing.html">Sizing and Implicit Size</a>); never hard-code <code>width</code>/<code>height</code> on your root.</li>
+<li><strong>Expose state, not internals.</strong> <code>property bool active</code> beats <code>property color backgroundColor</code>.</li>
+<li><strong>Signals for events.</strong> Let the user decide what a click does.</li>
+<li><strong>Read colors and sizes from a theme singleton</strong> (<a class="xref" href="../ch/43-design-system.html">Building a Design System</a>) instead of hard-coding them.</li>
+<li><strong>One responsibility per file.</strong> If a file passes ~200 lines, split it.</li>
+</ol>
+<div class="box try"><div class="bt">Exercises</div><ol>
+<li>Build <code>IconButton.qml</code> with properties <code>icon</code> (Material Symbols name), <code>size</code>, <code>toggled</code>, and signals <code>clicked</code>/<code>rightClicked</code>. Use it three times in your bar.</li>
+<li>Build <code>Card.qml</code> with a default property and put two <code>Pill</code>s inside a card.</li>
+<li>Move your components into <code>widgets/</code> and import them with <code>import qs.widgets</code> (create <code>.qmlls.ini</code> and restart <code>qs</code> so your editor understands it).</li>
+</ol></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/11-javascript.html"><small>← Previous</small><span>The JavaScript You Need</span></a><a class="pn-next" href="../ch/13-attached-enums.html"><small>Next →</small><span>Attached, Grouped and Enum Properties</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#one-file-one-type">One file = one type</a><a class="l2" href="#giving-your-component-an-api">Giving your component an API</a><a class="l2" href="#property-alias-exposing-an-inner-property">property alias: exposing an inner property</a><a class="l2" href="#required-properties">required properties</a><a class="l2" href="#default-property-components-that-take-children">default property: components that take children</a><a class="l2" href="#inline-components">Inline components</a><a class="l2" href="#imports-using-components-from-other-folders">Imports: using components from other folders</a><a class="l3" href="#the-qs-import-root-recommended">The qs import root (recommended)</a><a class="l2" href="#how-the-root-object-type-affects-your-component">How the root object type affects your component</a><a class="l2" href="#designing-good-components">Designing good components</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=e9cdfa8e"></script>
+</body></html>

@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UPowerDevice · The Quickshell Book</title>
+<meta name="description" content="UPowerDevice — Quickshell.Services.UPower: every property, function, signal and enum, with examples.">
+<link rel="stylesheet" href="../assets/style.css?v=e9cdfa8e">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details open><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod" open><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty active" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../ref/index.html">API Reference</a> › <a href="../ref/mod-quickshell-services-upower.html">Quickshell.Services.UPower</a> › UPowerDevice</div><article><div class="ref-head"><div class="mod-line"><a href="../ref/mod-quickshell-services-upower.html">Quickshell.Services.UPower</a></div><h1>UPowerDevice</h1><div class="badges"><span class="badge b-prov">provided by Quickshell</span></div></div>
+<p class="lede">A device exposed through the UPower system service.</p>
+<div class="facts"><div><span>Import</span><div class="v"><code>import Quickshell.Services.UPower</code></div></div><div><span>Inherits</span><div class="v"><code>UPowerDevice</code> → <code>QtObject</code></div></div><div><span>How to get one</span><div class="v">You <b>cannot create</b> this type yourself (UPowerDevices can only be acquired from UPower). Quickshell gives you instances through: <a href="../ref/UPower.html#m-devices"><code>UPower.devices</code></a>, <a href="../ref/UPower.html#m-displayDevice"><code>UPower.displayDevice</code></a>.</div></div></div>
+<h2 id="overview">Overview<a class="hlink" href="#overview">#</a></h2>
+<p>A <code>UPowerDevice</code> is <strong>one thing that has a battery or supplies power</strong>: your laptop battery, the AC adapter, a wireless mouse, a Bluetooth headset, a game controller, a UPS. Quickshell reads these from the <strong>UPower</strong> system service over D-Bus, so you get live updates without running any command or polling anything.</p>
+<p>You never create a <code>UPowerDevice</code> yourself. You get them from the <a class="api" href="../ref/UPower.html"><code>UPower</code></a> singleton:</p>
+<table>
+<thead>
+<tr>
+<th>Where</th>
+<th>What you get</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="api" href="../ref/UPower.html#m-displayDevice"><code>UPower.displayDevice</code></a></td>
+<td>One combined "virtual" battery for your whole system. <strong>Use this for a bar battery icon.</strong> On laptops with two batteries it combines them.</td>
+</tr>
+<tr>
+<td><a class="api" href="../ref/UPower.html#m-devices"><code>UPower.devices</code></a></td>
+<td>Every real device UPower knows: each battery, the AC adapter, mice, keyboards, headsets…</td>
+</tr>
+</tbody>
+</table>
+<p>Everything on this page is <strong>read-only</strong>. You can read the numbers and react to changes, but you can't change them (you can't "set" a battery to 100%).</p>
+<div class="box tip"><div class="bt">Requirements</div><p>The <code>upower</code> daemon must be running (<code>systemctl status upower</code>). It ships with almost every desktop distro. Install it with <code>sudo pacman -S upower</code> if it's missing.</p></div>
+<h2 id="example-a-battery-widget-that-uses-every-property">Example: a battery widget that uses every property<a class="hlink" href="#example-a-battery-widget-that-uses-every-property">#</a></h2>
+<p>This complete file shows every property of <code>UPowerDevice</code> in a small dashboard card. Save it as <code>~/.config/quickshell/battery-test/shell.qml</code> and run <code>qs -c battery-test</code>.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">~/.config/quickshell/battery-test/shell.qml</span><code>import Quickshell
+import Quickshell.Services.UPower
+import QtQuick
+import QtQuick.Layouts
+
+FloatingWindow {
+    implicitWidth: 520
+    implicitHeight: 640
+    color: "#1e1e2e"
+
+    // The combined system battery. Swap this for any entry of UPower.devices.
+    readonly property UPowerDevice bat: UPower.displayDevice
+
+    // helper: seconds -&gt; "1 h 23 min"
+    function duration(sec: real): string {
+        if (sec &lt;= 0) return "—"
+        const h = Math.floor(sec / 3600), m = Math.round((sec % 3600) / 60)
+        return h &gt; 0 ? `${h} h ${m} min` : `${m} min`
+    }
+
+    ColumnLayout {
+        anchors.fill: parent
+        anchors.margins: 20
+        spacing: 6
+
+        component Row2: RowLayout {
+            property string label
+            property string value
+            Text { text: parent.label; color: "#a6adc8"; Layout.preferredWidth: 190 }
+            Text { text: parent.value; color: "#cdd6f4"; font.bold: true; Layout.fillWidth: true; elide: Text.ElideRight }
+        }
+
+        // --- is it real and ready? ----------------------------------------
+        Row2 { label: "ready";            value: bat.ready }             // statistics loaded yet?
+        Row2 { label: "isLaptopBattery";  value: bat.isLaptopBattery }   // true on laptops, false on desktops
+        Row2 { label: "isPresent";        value: bat.isPresent }         // battery physically inserted?
+        Row2 { label: "powerSupply";      value: bat.powerSupply }       // powers the computer itself?
+
+        // --- what kind of device ------------------------------------------
+        Row2 { label: "type";             value: UPowerDeviceType.toString(bat.type) }
+        Row2 { label: "model";            value: bat.model || "(none)" }
+        Row2 { label: "nativePath";       value: bat.nativePath || "(virtual)" }
+        Row2 { label: "iconName";         value: bat.iconName }
+
+        // --- charge level ---------------------------------------------------
+        Row2 { label: "percentage";       value: Math.round(bat.percentage * 100) + " %" }
+        Row2 { label: "energy";           value: bat.energy.toFixed(1) + " Wh" }
+        Row2 { label: "energyCapacity";   value: bat.energyCapacity.toFixed(1) + " Wh" }
+        Row2 { label: "changeRate";       value: bat.changeRate.toFixed(1) + " W" }
+
+        // --- state and time -------------------------------------------------
+        Row2 { label: "state";            value: UPowerDeviceState.toString(bat.state) }
+        Row2 { label: "timeToEmpty";      value: duration(bat.timeToEmpty) }
+        Row2 { label: "timeToFull";       value: duration(bat.timeToFull) }
+
+        // --- health -----------------------------------------------------------
+        Row2 { label: "healthSupported";  value: bat.healthSupported }
+        Row2 { label: "healthPercentage"; value: bat.healthSupported ? Math.round(bat.healthPercentage) + " %" : "n/a" }
+
+        // --- a visual bar driven by the same data ---------------------------
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.topMargin: 14
+            implicitHeight: 26
+            radius: 13
+            color: "#313244"
+            Rectangle {
+                width: parent.width * bat.percentage
+                height: parent.height
+                radius: 13
+                color: bat.state === UPowerDeviceState.Charging ? "#a6e3a1"
+                     : bat.percentage &lt; 0.15 ? "#f38ba8" : "#89b4fa"
+                Behavior on width { NumberAnimation { duration: 400 } }
+            }
+        }
+    }
+
+    // React to a change (every property has an xxxChanged signal):
+    Connections {
+        target: bat
+        function onStateChanged() {
+            console.log("battery state is now", UPowerDeviceState.toString(bat.state))
+        }
+    }
+}</code></pre></div>
+<p><strong>How it works, line by line:</strong></p>
+<ul>
+<li><code>import Quickshell.Services.UPower</code> makes <code>UPower</code>, <code>UPowerDevice</code>, <code>UPowerDeviceState</code> and <code>UPowerDeviceType</code> available.</li>
+<li><code>readonly property UPowerDevice bat: UPower.displayDevice</code> stores the device in a typed property, so the rest of the file can say <code>bat.percentage</code> instead of <code>UPower.displayDevice.percentage</code>.</li>
+<li><code>bat.percentage</code> is a number from <strong>0.0 to 1.0</strong>, so multiply by 100 to display it.</li>
+<li><code>bat.state</code> is an enum number. <code>UPowerDeviceState.toString()</code> turns it into text like <code>"Charging"</code>. Compare with <code>UPowerDeviceState.Charging</code> in conditions.</li>
+<li>Every <code>Text</code> uses a <a class="gloss" href="../glossary.html#g-binding">binding</a>: when UPower reports a new value, only that text updates. There's no timer anywhere.</li>
+</ul>
+<h2 id="example-the-bar-battery-icon-you-will-actually-use">Example: the bar battery icon you will actually use<a class="hlink" href="#example-the-bar-battery-icon-you-will-actually-use">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">modules/bar/BatteryIndicator.qml</span><code>import QtQuick
+import Quickshell.Services.UPower
+
+Row {
+    id: root
+    readonly property UPowerDevice bat: UPower.displayDevice
+    readonly property bool charging: bat.state === UPowerDeviceState.Charging
+                                  || bat.state === UPowerDeviceState.PendingCharge
+    readonly property bool full: bat.state === UPowerDeviceState.FullyCharged
+    readonly property int pct: Math.round(bat.percentage * 100)
+
+    visible: bat.isLaptopBattery          // hide completely on desktops
+    spacing: 4
+
+    Text {
+        // Material Symbols icon names: battery_0_bar … battery_6_bar, battery_full, battery_charging_full
+        font.family: "Material Symbols Rounded"
+        font.pixelSize: 18
+        text: root.charging ? "battery_charging_full"
+            : root.full ? "battery_full"
+            : "battery_" + Math.min(6, Math.floor(root.pct / 15)) + "_bar"
+        color: root.pct &lt;= 15 &amp;&amp; !root.charging ? "#f38ba8" : "#cdd6f4"
+    }
+    Text {
+        text: root.pct + "%"
+        color: "#cdd6f4"
+        anchors.verticalCenter: parent.verticalCenter
+    }
+}</code></pre></div>
+<h2 id="example-list-every-device-mouse-headset-controller-batteries">Example: list every device (mouse, headset, controller batteries)<a class="hlink" href="#example-list-every-device-mouse-headset-controller-batteries">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>import Quickshell
+import Quickshell.Services.UPower
+import QtQuick
+
+Column {
+    spacing: 4
+    Repeater {
+        // UPower.devices is an ObjectModel: pass it straight to a Repeater
+        model: UPower.devices
+        Text {
+            required property UPowerDevice modelData
+            // skip the AC adapter (LinePower) because it has no percentage
+            visible: modelData.type !== UPowerDeviceType.LinePower
+            text: `${UPowerDeviceType.toString(modelData.type)} ${modelData.model}: ${Math.round(modelData.percentage * 100)}%`
+            color: "white"
+        }
+    }
+}</code></pre></div>
+<h2 id="example-low-battery-notification">Example: low-battery notification<a class="hlink" href="#example-low-battery-notification">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>import Quickshell
+import Quickshell.Services.UPower
+import QtQuick
+
+Scope {
+    readonly property UPowerDevice bat: UPower.displayDevice
+    property bool warned: false
+
+    Connections {
+        target: bat
+        function onPercentageChanged() {
+            const discharging = bat.state === UPowerDeviceState.Discharging
+            if (discharging &amp;&amp; bat.percentage &lt;= 0.10 &amp;&amp; !warned) {
+                warned = true
+                Quickshell.execDetached(["notify-send", "-u", "critical", "Battery low",
+                                         Math.round(bat.percentage * 100) + "% remaining"])
+            }
+            if (bat.percentage &gt; 0.15) warned = false     // re-arm after charging
+        }
+    }
+}</code></pre></div>
+<h2 id="properties">Properties<a class="hlink" href="#properties">#</a></h2>
+<p class="hint">Every property also emits a <code>&lt;name&gt;Changed</code> signal; handle it with <code>on&lt;Name&gt;Changed</code> (e.g. <code>onTypeChanged: …</code>).</p>
+<div class="tablewrap"><table class="members"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>Description</th></tr></thead><tbody><tr id="m-type" class="mrow"><td class="mn"><a href="#m-type">type</a></td><td class="mt"><a href="../ref/UPowerDeviceType.html">UPowerDeviceType</a></td><td><span class="acc ro">read-only</span></td><td class="md"><p>The type of device.</p><div class="mnote"><p>Compare against <a class="api" href="../ref/UPowerDeviceType.html"><code>UPowerDeviceType</code></a> values, e.g. <code>UPowerDeviceType.Battery</code>, <code>UPowerDeviceType.Mouse</code>, <code>UPowerDeviceType.Headset</code>.</p></div></td></tr><tr id="m-powerSupply" class="mrow"><td class="mn"><a href="#m-powerSupply">powerSupply</a></td><td class="mt">bool</td><td><span class="acc ro">read-only</span></td><td class="md"><p>If the device is a power supply for your computer and can provide charge.</p></td></tr><tr id="m-energy" class="mrow"><td class="mn"><a href="#m-energy">energy</a></td><td class="mt">real</td><td><span class="acc ro">read-only</span></td><td class="md"><p>Current energy level of the device in watt-hours.</p></td></tr><tr id="m-energyCapacity" class="mrow"><td class="mn"><a href="#m-energyCapacity">energyCapacity</a></td><td class="mt">real</td><td><span class="acc ro">read-only</span></td><td class="md"><p>Maximum energy capacity of the device in watt-hours</p></td></tr><tr id="m-changeRate" class="mrow"><td class="mn"><a href="#m-changeRate">changeRate</a></td><td class="mt">real</td><td><span class="acc ro">read-only</span></td><td class="md"><p>Rate of energy change in watts (positive when charging, negative when discharging).</p></td></tr><tr id="m-timeToEmpty" class="mrow"><td class="mn"><a href="#m-timeToEmpty">timeToEmpty</a></td><td class="mt">real</td><td><span class="acc ro">read-only</span></td><td class="md"><p>Estimated time until the device is fully discharged, in seconds.</p>
+<p>Will be set to <code>0</code> if charging.</p><div class="mnote"><p>In <strong>seconds</strong>. <code>0</code> means "unknown" or "currently charging".</p></div></td></tr><tr id="m-timeToFull" class="mrow"><td class="mn"><a href="#m-timeToFull">timeToFull</a></td><td class="mt">real</td><td><span class="acc ro">read-only</span></td><td class="md"><p>Estimated time until the device is fully charged, in seconds.</p>
+<p>Will be set to <code>0</code> if discharging.</p><div class="mnote"><p>In <strong>seconds</strong>. <code>0</code> means "unknown" or "currently discharging".</p></div></td></tr><tr id="m-percentage" class="mrow"><td class="mn"><a href="#m-percentage">percentage</a></td><td class="mt">real</td><td><span class="acc ro">read-only</span></td><td class="md"><p>Current charge level as a percentage.</p>
+<p>This would be equivalent to <a class="api" href="../ref/UPowerDevice.html#m-energy"><code>energy</code></a> / <a class="api" href="../ref/UPowerDevice.html#m-energyCapacity"><code>energyCapacity</code></a>.</p><div class="mnote"><p>Range <strong>0.0 – 1.0</strong> (not 0–100). Show it with <code>Math.round(bat.percentage * 100) + "%"</code>.</p></div></td></tr><tr id="m-isPresent" class="mrow"><td class="mn"><a href="#m-isPresent">isPresent</a></td><td class="mt">bool</td><td><span class="acc ro">read-only</span></td><td class="md"><p>If the power source is present in the bay or slot, useful for hot-removable batteries.</p>
+<p>If the device <code>type</code> is not <code>Battery</code>, then the property will be invalid.</p></td></tr><tr id="m-state" class="mrow"><td class="mn"><a href="#m-state">state</a></td><td class="mt"><a href="../ref/UPowerDeviceState.html">UPowerDeviceState</a></td><td><span class="acc ro">read-only</span></td><td class="md"><p>Current state of the device.</p><div class="mnote"><p>Compare against <a class="api" href="../ref/UPowerDeviceState.html"><code>UPowerDeviceState</code></a> values: <code>bat.state === UPowerDeviceState.Charging</code>. Show text with <code>UPowerDeviceState.toString(bat.state)</code>.</p></div></td></tr><tr id="m-healthPercentage" class="mrow"><td class="mn"><a href="#m-healthPercentage">healthPercentage</a></td><td class="mt">real</td><td><span class="acc ro">read-only</span></td><td class="md"><p>Health of the device as a percentage of its original health.</p></td></tr><tr id="m-healthSupported" class="mrow"><td class="mn"><a href="#m-healthSupported">healthSupported</a></td><td class="mt">bool</td><td><span class="acc ro">read-only</span></td><td class="md"><span class="muted">No upstream description.</span></td></tr><tr id="m-iconName" class="mrow"><td class="mn"><a href="#m-iconName">iconName</a></td><td class="mt">string</td><td><span class="acc ro">read-only</span></td><td class="md"><p>Name of the icon representing the current state of the device, or an empty string if not provided.</p><div class="mnote"><p>A freedesktop icon name such as <code>battery-good-charging-symbolic</code>. Show it with <a class="api" href="../ref/IconImage.html"><code>IconImage</code></a>: <code>source: Quickshell.iconPath(bat.iconName)</code>.</p></div></td></tr><tr id="m-isLaptopBattery" class="mrow"><td class="mn"><a href="#m-isLaptopBattery">isLaptopBattery</a></td><td class="mt">bool</td><td><span class="acc ro">read-only</span></td><td class="md"><p>If the device is a laptop battery or not. Use this to check if your device is a valid battery.</p>
+<p>This will be equivalent to <a class="api" href="../ref/UPowerDevice.html#m-type"><code>type</code></a> == Battery &amp;&amp; <a class="api" href="../ref/UPowerDevice.html#m-powerSupply"><code>powerSupply</code></a> == true.</p><div class="mnote"><p>The safest single check for "should I show a battery icon at all?". It's <code>false</code> on desktop PCs.</p></div></td></tr><tr id="m-nativePath" class="mrow"><td class="mn"><a href="#m-nativePath">nativePath</a></td><td class="mt">string</td><td><span class="acc ro">read-only</span></td><td class="md"><p>Native path of the device specific to your OS.</p></td></tr><tr id="m-model" class="mrow"><td class="mn"><a href="#m-model">model</a></td><td class="mt">string</td><td><span class="acc ro">read-only</span></td><td class="md"><p>Model name of the device. Unlikely to be useful for internal devices.</p></td></tr><tr id="m-ready" class="mrow"><td class="mn"><a href="#m-ready">ready</a></td><td class="mt">bool</td><td><span class="acc ro">read-only</span></td><td class="md"><p>If device statistics have been queried for this device yet.
+This will be true for all devices returned from <a class="api" href="../ref/UPower.html#m-devices"><code>UPower.devices</code></a>, but not the default
+device, which may be returned before it is ready to avoid returning null.</p><div class="mnote"><p><code>UPower.displayDevice</code> is returned immediately (never <code>null</code>), but its numbers may still be zero for a split second at startup. Check <code>ready</code> if a flash of "0%" bothers you.</p></div></td></tr></tbody></table></div>
+<h2 id="notes">Notes, tips and gotchas<a class="hlink" href="#notes">#</a></h2>
+<ul>
+<li><strong>Desktop PCs:</strong> <code>UPower.displayDevice</code> still exists but <code>isLaptopBattery</code> is <code>false</code> and <code>percentage</code> is <code>0</code>. Always gate your UI on <code>isLaptopBattery</code>.</li>
+<li><strong>The AC adapter</strong> is a separate device of type <code>LinePower</code>. To know if you're plugged in, check <a class="api" href="../ref/UPower.html#m-onBattery"><code>UPower.onBattery</code></a> instead.</li>
+<li><strong>Wireless peripherals</strong> (Logitech mice, many Bluetooth headsets, Xbox/PlayStation controllers) show up in <code>UPower.devices</code> only if their driver reports battery to the kernel.</li>
+<li><strong>Values update at the rate UPower polls the hardware</strong>, usually every 30–120 seconds for batteries. That's normal and very cheap.</li>
+</ul>
+<h2 id="used-by">Where this type appears<a class="hlink" href="#used-by">#</a></h2><ul class="usedby"><li><a href="../ref/UPower.html#m-devices"><code>UPower.devices</code></a> <span class="muted">(property)</span></li><li><a href="../ref/UPower.html#m-displayDevice"><code>UPower.displayDevice</code></a> <span class="muted">(property)</span></li></ul>
+<h2 id="see-also">See also<a class="hlink" href="#see-also">#</a></h2><ul>
+<li><a class="api" href="../ref/UPower.html"><code>UPower</code></a>, the singleton that gives you devices</li>
+<li><a class="api" href="../ref/UPowerDeviceState.html"><code>UPowerDeviceState</code></a>, <a class="api" href="../ref/UPowerDeviceType.html"><code>UPowerDeviceType</code></a>, the enums used by <code>state</code> and <code>type</code></li>
+<li><a class="api" href="../ref/PowerProfiles.html"><code>PowerProfiles</code></a>, for power-saver/balanced/performance switching</li>
+<li><a class="xref" href="../ch/41-services-tour.html">Chapter 41: A Tour of the System Services</a></li>
+</ul></article><nav class="prevnext"><a class="pn-prev" href="../ref/UPowerDeviceType.html"><small>← Previous</small><span>UPowerDeviceType</span></a><a class="pn-next" href="../ref/PowerProfile.html"><small>Next →</small><span>PowerProfile</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#overview">Overview</a><a class="l2" href="#example-a-battery-widget-that-uses-every-property">Example: a battery widget that uses every property</a><a class="l2" href="#example-the-bar-battery-icon-you-will-actually-use">Example: the bar battery icon you will actually use</a><a class="l2" href="#example-list-every-device-mouse-headset-controller-batteries">Example: list every device (mouse, headset, controller batteries)</a><a class="l2" href="#example-low-battery-notification">Example: low-battery notification</a><a class="l2" href="#properties">Properties</a><a class="l2" href="#notes">Notes, tips and gotchas</a><a class="l2" href="#used-by">Where this type appears</a><a class="l2" href="#see-also">See also</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=e9cdfa8e"></script>
+</body></html>

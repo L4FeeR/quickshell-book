@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Models, Repeater and ListView · The Quickshell Book</title>
+<meta name="description" content="Models, Repeater and ListView">
+<link rel="stylesheet" href="../assets/style.css?v=e9cdfa8e">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details open><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch active" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-iii">Part III: Qt Quick: Drawing Things</a> › Models, Repeater and ListView</div><article><div class="ch-head"><div class="ch-part">Part III · Qt Quick: Drawing Things</div><h1><span class="ch-num">20</span>Models, Repeater and ListView</h1></div><p>Workspaces, tray icons, notifications, apps, Wi-Fi networks, media players: shells are full of <strong>lists of things</strong>. QML handles them with <strong>models</strong> (the data), <strong>delegates</strong> (a template per item) and <strong>views</strong> (Repeater, ListView, GridView) that combine the two.</p>
+<div class="diagram"><svg viewBox="0 0 780 150" role="img" aria-label="model delegate view">
+<rect class="g" x="20" y="40" width="200" height="70" rx="10"/><text x="40" y="70">Model</text><text class="sm" x="40" y="90">the data: [a, b, c]</text>
+<rect class="a" x="290" y="40" width="200" height="70" rx="10"/><text x="310" y="70">Delegate</text><text class="sm" x="310" y="90">template for ONE item</text>
+<rect class="n" x="560" y="40" width="200" height="70" rx="10"/><text x="580" y="70">View</text><text class="sm" x="580" y="90">stamps delegate per item</text>
+<path class="ln" d="M220 75 H290 M490 75 H560"/>
+</svg></div>
+
+<h2 id="repeater">Repeater<a class="hlink" href="#repeater">#</a></h2>
+<p><code>Repeater</code> creates one delegate per model entry, places them in its parent, and keeps them in sync with the model.</p>
+<h3 id="model-a-number">Model = a number<a class="hlink" href="#model-a-number">#</a></h3>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>Row {
+    spacing: 6
+    Repeater {
+        model: 5                                  // 5 copies, index 0..4
+        Rectangle {
+            required property int index           // provided by the Repeater
+            width: 24; height: 24; radius: 12
+            color: index === 2 ? "#cba6f7" : "#45475a"
+            Text { anchors.centerIn: parent; text: parent.index + 1; color: "white" }
+        }
+    }
+}</code></pre></div>
+<h3 id="model-a-js-array">Model = a JS array<a class="hlink" href="#model-a-js-array">#</a></h3>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>Column {
+    Repeater {
+        model: ["Firefox", "Kitty", "Spotify"]
+        Text {
+            required property string modelData    // the array element
+            required property int index
+            text: (index + 1) + ". " + modelData
+            color: "white"
+        }
+    }
+}</code></pre></div>
+<h3 id="model-an-array-of-objects">Model = an array of objects<a class="hlink" href="#model-an-array-of-objects">#</a></h3>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>Repeater {
+    model: [
+        { icon: "wifi",       label: "Wi-Fi",     on: true },
+        { icon: "bluetooth",  label: "Bluetooth", on: false }
+    ]
+    Row {
+        required property var modelData
+        spacing: 6
+        Text { text: modelData.icon; font.family: "Material Symbols Rounded"; color: modelData.on ? "#a6e3a1" : "#6c7086" }
+        Text { text: modelData.label; color: "white" }
+    }
+}</code></pre></div>
+<h3 id="model-a-quickshell-objectmodel">Model = a Quickshell ObjectModel<a class="hlink" href="#model-a-quickshell-objectmodel">#</a></h3>
+<p>Quickshell's lists (workspaces, tray items, players, devices, notifications) are <a class="api" href="../ref/ObjectModel.html"><code>ObjectModel</code></a>s. Pass them directly:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>import Quickshell.Services.SystemTray
+import Quickshell.Widgets
+
+Row {
+    Repeater {
+        model: SystemTray.items
+        IconImage {
+            required property SystemTrayItem modelData    // each element is a SystemTrayItem
+            implicitSize: 18
+            source: modelData.icon
+        }
+    }
+}</code></pre></div>
+<h3 id="required-properties-in-delegates">required properties in delegates<a class="hlink" href="#required-properties-in-delegates">#</a></h3>
+<p>A delegate receives its data through these names:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Available when</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>index</code></td>
+<td>always</td>
+<td>position in the model</td>
+</tr>
+<tr>
+<td><code>modelData</code></td>
+<td>arrays, ObjectModels, numbers</td>
+<td>the element itself</td>
+</tr>
+<tr>
+<td><em>role names</em></td>
+<td><code>ListModel</code> / C++ models</td>
+<td>each field directly (e.g. <code>title</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>Always <strong>declare</strong> them with <code>required property</code>. That makes the data explicit, gives you types and autocomplete, and is required for some models in Qt 6.</p>
+<h3 id="repeater-properties">Repeater properties<a class="hlink" href="#repeater-properties">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Property / method</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model</code></td>
+<td>The data</td>
+</tr>
+<tr>
+<td><code>delegate</code></td>
+<td>The template (implicit when you write a child)</td>
+</tr>
+<tr>
+<td><code>count</code></td>
+<td>Number of created items</td>
+</tr>
+<tr>
+<td><code>itemAt(i)</code></td>
+<td>The delegate object at index i</td>
+</tr>
+<tr>
+<td><code>onItemAdded(index, item)</code> / <code>onItemRemoved</code></td>
+<td>Signals</td>
+</tr>
+</tbody>
+</table>
+<h2 id="listmodel-a-mutable-list-you-control">ListModel: a mutable list you control<a class="hlink" href="#listmodel-a-mutable-list-you-control">#</a></h2>
+<p>When <em>you</em> own the list (history, todo items, a custom menu) and want to add or remove entries with nice animations:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>ListModel {
+    id: todos
+    ListElement { title: "Rice the bar"; done: true }
+    ListElement { title: "Lock screen"; done: false }
+}
+
+// later, in JS:
+todos.append({ title: "Launcher", done: false })
+todos.insert(0, { title: "First!", done: false })
+todos.remove(1)
+todos.setProperty(0, "done", true)
+todos.move(0, 2, 1)
+todos.clear()
+todos.count        // number of entries
+todos.get(0).title // read an entry</code></pre></div>
+<p>Delegates receive role names directly: <code>required property string title</code>, <code>required property bool done</code>.</p>
+<h2 id="listview-scrolling-lists">ListView: scrolling lists<a class="hlink" href="#listview-scrolling-lists">#</a></h2>
+<p><code>Repeater</code> creates <strong>everything</strong> at once. <code>ListView</code> creates only the delegates that are <strong>visible</strong>, scrolls, and supports keyboard navigation, highlights and transitions. Use it for anything that might be long (apps, notifications, clipboard history).</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>ListView {
+    id: list
+    width: 300; height: 400
+    clip: true                                 // don't draw outside the view
+    spacing: 4
+    model: DesktopEntries.applications         // ObjectModel of DesktopEntry
+    delegate: Rectangle {
+        required property DesktopEntry modelData
+        required property int index
+        width: ListView.view.width             // attached: the view this delegate is in
+        height: 40; radius: 8
+        color: ListView.isCurrentItem ? "#45475a" : "transparent"
+        Text { anchors.verticalCenter: parent.verticalCenter; x: 12; text: modelData.name; color: "white" }
+        MouseArea { anchors.fill: parent; onClicked: list.currentIndex = index }
+    }
+}</code></pre></div>
+<h3 id="important-listview-properties">Important ListView properties<a class="hlink" href="#important-listview-properties">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model</code>, <code>delegate</code></td>
+<td>Data and template</td>
+</tr>
+<tr>
+<td><code>orientation</code></td>
+<td><code>ListView.Vertical</code> (default) or <code>ListView.Horizontal</code></td>
+</tr>
+<tr>
+<td><code>spacing</code></td>
+<td>Gap between delegates</td>
+</tr>
+<tr>
+<td><code>currentIndex</code>, <code>currentItem</code></td>
+<td>Selection</td>
+</tr>
+<tr>
+<td><code>highlight</code>, <code>highlightFollowsCurrentItem</code>, <code>highlightMoveDuration</code></td>
+<td>A moving selection rectangle</td>
+</tr>
+<tr>
+<td><code>keyNavigationEnabled</code>, <code>keyNavigationWraps</code></td>
+<td>Arrow keys move the selection</td>
+</tr>
+<tr>
+<td><code>clip</code></td>
+<td>Cut delegates at the view's edges (almost always <code>true</code>)</td>
+</tr>
+<tr>
+<td><code>interactive</code></td>
+<td>Allow drag/flick scrolling</td>
+</tr>
+<tr>
+<td><code>boundsBehavior</code></td>
+<td><code>Flickable.StopAtBounds</code> stops the "rubber band" overscroll</td>
+</tr>
+<tr>
+<td><code>cacheBuffer</code></td>
+<td>Pixels of off-screen delegates to keep alive</td>
+</tr>
+<tr>
+<td><code>header</code>, <code>footer</code>, <code>section.*</code></td>
+<td>Extra items and grouping</td>
+</tr>
+<tr>
+<td><code>verticalLayoutDirection</code></td>
+<td><code>ListView.BottomToTop</code> for chat-like lists</td>
+</tr>
+<tr>
+<td><code>add</code>, <code>remove</code>, <code>displaced</code>, <code>move</code></td>
+<td>Transitions for model changes</td>
+</tr>
+<tr>
+<td><code>contentY</code>, <code>contentHeight</code>, <code>atYEnd</code></td>
+<td>Scroll state</td>
+</tr>
+</tbody>
+</table>
+<p>Methods: <code>positionViewAtIndex(i, ListView.Contain)</code>, <code>positionViewAtEnd()</code>, <code>incrementCurrentIndex()</code>, <code>decrementCurrentIndex()</code>, <code>indexAt(x, y)</code>, <code>itemAtIndex(i)</code>.</p>
+<p>Attached in delegates: <code>ListView.view</code>, <code>ListView.isCurrentItem</code>, <code>ListView.onAdd</code>, <code>ListView.onRemove</code>.</p>
+<h3 id="a-keyboard-driven-list-with-highlight">A keyboard-driven list with highlight<a class="hlink" href="#a-keyboard-driven-list-with-highlight">#</a></h3>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>ListView {
+    id: list
+    focus: true
+    keyNavigationEnabled: true
+    highlight: Rectangle { radius: 10; color: "#45475a" }
+    highlightMoveDuration: 120
+    Keys.onReturnPressed: console.log("chose", model[currentIndex])
+    model: ["one", "two", "three"]
+    delegate: Text { required property string modelData; text: modelData; color: "white"; padding: 10 }
+}</code></pre></div>
+<h3 id="animating-additions-and-removals">Animating additions and removals<a class="hlink" href="#animating-additions-and-removals">#</a></h3>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>ListView {
+    add: Transition { NumberAnimation { properties: "opacity"; from: 0; to: 1; duration: 200 }
+                      NumberAnimation { properties: "x"; from: 100; duration: 250; easing.type: Easing.OutCubic } }
+    remove: Transition { NumberAnimation { properties: "opacity"; to: 0; duration: 150 } }
+    displaced: Transition { NumberAnimation { properties: "y"; duration: 200; easing.type: Easing.OutCubic } }
+}</code></pre></div>
+<p>These transitions only work when the model reports <em>which</em> items changed (<code>ListModel</code>, Quickshell <code>ObjectModel</code>, <a class="api" href="../ref/ScriptModel.html"><code>ScriptModel</code></a>). A plain JS array that you reassign replaces everything at once; <a class="xref" href="../ch/36-models.html">ObjectModel and ScriptModel</a> shows how ScriptModel fixes that.</p>
+<h2 id="gridview">GridView<a class="hlink" href="#gridview">#</a></h2>
+<p>Like ListView, but in a grid. Good for wallpaper pickers and app grids:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>GridView {
+    width: 600; height: 400; clip: true
+    cellWidth: 150; cellHeight: 100
+    model: wallpapers
+    delegate: Image {
+        required property string modelData
+        width: 140; height: 90
+        source: "file://" + modelData
+        fillMode: Image.PreserveAspectCrop
+        sourceSize: Qt.size(280, 180)
+        asynchronous: true
+    }
+}</code></pre></div>
+<h2 id="flickable-and-scrollview">Flickable and ScrollView<a class="hlink" href="#flickable-and-scrollview">#</a></h2>
+<p>To scroll arbitrary content (not a list), wrap it in a <code>Flickable</code>:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>Flickable {
+    width: 300; height: 400; clip: true
+    contentWidth: column.width; contentHeight: column.height
+    boundsBehavior: Flickable.StopAtBounds
+    Column { id: column; width: 300 /* lots of content */ }
+}</code></pre></div>
+<p><code>ScrollView</code> (from Controls) is a Flickable with styled scrollbars.</p>
+<h2 id="never-store-state-in-delegates">Never store state in delegates<a class="hlink" href="#never-store-state-in-delegates">#</a></h2>
+<p>Delegates are created and destroyed as you scroll or as the model changes. A <code>property bool expanded</code> inside a delegate is <strong>lost</strong> when it scrolls away. Store per-item state in the model, or in a JS object keyed by id in a parent or singleton.</p>
+<div class="box try"><div class="bt">Exercises</div><ol>
+<li>Show workspaces 1–10 with a <code>Repeater</code> and <code>model: 10</code>, highlighting number 3.</li>
+<li>Build a <code>ListModel</code> todo list with a button that appends entries, and animate additions.</li>
+<li>Show all installed apps in a <code>ListView</code> (<code>DesktopEntries.applications</code>) with arrow-key navigation and a highlight.</li>
+</ol></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/19-layouts.html"><small>← Previous</small><span>Positioners and Layouts</span></a><a class="pn-next" href="../ch/21-input.html"><small>Next →</small><span>Mouse, Touchpad and Keyboard Input</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#repeater">Repeater</a><a class="l3" href="#model-a-number">Model = a number</a><a class="l3" href="#model-a-js-array">Model = a JS array</a><a class="l3" href="#model-an-array-of-objects">Model = an array of objects</a><a class="l3" href="#model-a-quickshell-objectmodel">Model = a Quickshell ObjectModel</a><a class="l3" href="#required-properties-in-delegates">required properties in delegates</a><a class="l3" href="#repeater-properties">Repeater properties</a><a class="l2" href="#listmodel-a-mutable-list-you-control">ListModel: a mutable list you control</a><a class="l2" href="#listview-scrolling-lists">ListView: scrolling lists</a><a class="l3" href="#important-listview-properties">Important ListView properties</a><a class="l3" href="#a-keyboard-driven-list-with-highlight">A keyboard-driven list with highlight</a><a class="l3" href="#animating-additions-and-removals">Animating additions and removals</a><a class="l2" href="#gridview">GridView</a><a class="l2" href="#flickable-and-scrollview">Flickable and ScrollView</a><a class="l2" href="#never-store-state-in-delegates">Never store state in delegates</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=e9cdfa8e"></script>
+</body></html>

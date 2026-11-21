@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Ricing Is (and How a Linux Desktop Works) · The Quickshell Book</title>
+<meta name="description" content="What Ricing Is (and How a Linux Desktop Works)">
+<link rel="stylesheet" href="../assets/style.css?v=e9cdfa8e">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details open><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch active" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-i">Part I: Welcome to Ricing</a> › What Ricing Is (and How a Linux Desktop Works)</div><article><div class="ch-head"><div class="ch-part">Part I · Welcome to Ricing</div><h1><span class="ch-num">01</span>What Ricing Is (and How a Linux Desktop Works)</h1></div><p>Welcome. This book assumes you know <strong>nothing</strong>: not Linux internals, not Qt, not programming. By the last page you'll be able to design a desktop in your head (or on paper, or from a screenshot you love) and build it, piece by piece, with Quickshell.</p>
+<p>This first chapter has no code. It gives you the mental map. Every later chapter hangs off it, so don't skip it.</p>
+<h2 id="what-ricing-means">What "ricing" means<a class="hlink" href="#what-ricing-means">#</a></h2>
+<p><strong>Ricing</strong> is customizing how your desktop looks and behaves: bars, colors, fonts, widgets, animations, wallpapers, lock screens. The word comes from car culture (making a car look fast with body kits). In the Linux world it simply means <em>making your desktop yours</em>. Communities like r/unixporn are full of "rices".</p>
+<p>A rice usually has these parts:</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>What it is</th>
+<th>Examples of tools</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Compositor / window manager</strong></td>
+<td>Places windows on the screen, handles workspaces and keybinds</td>
+<td>Hyprland, Sway, niri, river, KDE's KWin</td>
+</tr>
+<tr>
+<td><strong>Bar / panel</strong></td>
+<td>The strip with workspaces, clock, battery, tray</td>
+<td>Waybar, Polybar, <strong>Quickshell</strong></td>
+</tr>
+<tr>
+<td><strong>Launcher</strong></td>
+<td>Search box to open apps</td>
+<td>rofi, wofi, fuzzel, <strong>Quickshell</strong></td>
+</tr>
+<tr>
+<td><strong>Notification daemon</strong></td>
+<td>Shows popups when apps send notifications</td>
+<td>dunst, mako, swaync, <strong>Quickshell</strong></td>
+</tr>
+<tr>
+<td><strong>Lock screen</strong></td>
+<td>Asks for your password</td>
+<td>swaylock, hyprlock, <strong>Quickshell</strong></td>
+</tr>
+<tr>
+<td><strong>Widgets</strong></td>
+<td>Clocks, music players, system monitors on the desktop</td>
+<td>eww, conky, <strong>Quickshell</strong></td>
+</tr>
+<tr>
+<td><strong>Theme</strong></td>
+<td>Colors, fonts, icons, cursor</td>
+<td>matugen, pywal, GTK/Qt themes</td>
+</tr>
+</tbody>
+</table>
+<p>Notice how often <strong>Quickshell</strong> appears. That's the point: Quickshell isn't "a bar". It's a <strong>toolkit for building every one of those shell components</strong>, all in one language, sharing one set of colors and one state. A single Quickshell config can replace Waybar + rofi + dunst + swaylock + eww.</p>
+<h2 id="how-a-linux-desktop-is-put-together">How a Linux desktop is put together<a class="hlink" href="#how-a-linux-desktop-is-put-together">#</a></h2>
+<p>When you look at your screen, several programs are cooperating. Here is the stack from the hardware up:</p>
+<div class="diagram"><svg viewBox="0 0 860 330" role="img" aria-label="Linux desktop stack">
+<rect class="n" x="10" y="270" width="840" height="46" rx="10"/><text x="30" y="299">Kernel + drivers: GPU, input devices, battery, backlight, audio hardware</text>
+<rect class="n" x="10" y="214" width="410" height="46" rx="10"/><text x="30" y="243">System services: PipeWire, UPower, NetworkManager, BlueZ</text>
+<rect class="n" x="440" y="214" width="410" height="46" rx="10"/><text x="460" y="243">D-Bus: the message bus they all talk over</text>
+<rect class="a" x="10" y="158" width="840" height="46" rx="10"/><text x="30" y="187">Compositor (Hyprland / Sway / niri …): draws everything, owns the screen and the keyboard</text>
+<rect class="n" x="10" y="102" width="410" height="46" rx="10"/><text x="30" y="131">Normal apps: Firefox, kitty, Spotify</text>
+<rect class="g" x="440" y="102" width="410" height="46" rx="10"/><text x="460" y="131">Shell layer: Quickshell (bar, popups, lock…)</text>
+<rect class="n" x="10" y="20" width="840" height="70" rx="10"/><text x="30" y="50">What you see: windows + your bar + your widgets, composited into one image</text><text class="sm" x="30" y="72">Quickshell sits next to normal apps but uses special Wayland protocols to become bars, overlays and lock screens.</text>
+</svg></div>
+
+<h3 id="the-kernel-and-drivers">The kernel and drivers<a class="hlink" href="#the-kernel-and-drivers">#</a></h3>
+<p>The very bottom. It talks to the hardware: your GPU, keyboard, battery, speakers. You rarely touch it while ricing, but files like <code>/sys/class/backlight/</code> (screen brightness) and <code>/sys/class/power_supply/</code> (battery) come from here.</p>
+<h3 id="system-services-and-d-bus">System services and D-Bus<a class="hlink" href="#system-services-and-d-bus">#</a></h3>
+<p>Background programs (daemons) that manage things:</p>
+<ul>
+<li><strong>PipeWire</strong> (with WirePlumber) handles all audio: volume, which speaker, per-app streams.</li>
+<li><strong>UPower</strong> watches batteries and power.</li>
+<li><strong>NetworkManager</strong> handles Wi-Fi and Ethernet.</li>
+<li><strong>BlueZ</strong> handles Bluetooth.</li>
+<li><strong>MPRIS</strong> isn't a daemon but a <em>standard</em>: every media player (Spotify, Firefox, mpv) announces itself on D-Bus so others can control it.</li>
+</ul>
+<p><strong>D-Bus</strong> is the "telephone network" these programs use to talk. When your bar shows the volume, it's really asking PipeWire over its own protocol, or asking UPower over D-Bus. Quickshell has these connections <strong>built in</strong>, which is why it can show live battery and volume without running scripts.</p>
+<h3 id="the-compositor">The compositor<a class="hlink" href="#the-compositor">#</a></h3>
+<p>On modern Linux (<strong>Wayland</strong>), the compositor is the most important program. It:</p>
+<ul>
+<li>receives every frame from every app and <em>composes</em> them into the final image,</li>
+<li>decides where windows go (tiling, floating, workspaces),</li>
+<li>owns the keyboard and mouse and sends input to the right window,</li>
+<li>runs your keybinds.</li>
+</ul>
+<p>Hyprland, Sway, niri and river are compositors. If you used Linux years ago you might know <strong>X11</strong>, the older system, where the "X server" did this job and a separate "window manager" placed windows. On Wayland, compositor and window manager are one program.</p>
+<div class="box note"><div class="bt">Wayland vs X11</div><p>Quickshell is built for <strong>Wayland</strong>. Most of its special features (bars that reserve space, lock screens, overlays) use Wayland protocols. It can show plain windows on X11, but this book assumes Wayland, and every modern ricing compositor is Wayland.</p></div>
+<h3 id="apps-and-the-shell-layer">Apps and the shell layer<a class="hlink" href="#apps-and-the-shell-layer">#</a></h3>
+<p>Normal apps make normal windows. A <strong>shell</strong> (in the desktop sense, not the terminal sense) is the set of programs that make up <em>the desktop itself</em>: the bar, the dock, the launcher, notifications. On GNOME this is gnome-shell; on KDE it's Plasma. When you rice a compositor like Hyprland, <strong>you build your own shell</strong>, and Quickshell is the tool for that.</p>
+<div class="box warn"><div class="bt">Two meanings of "shell"</div><p>In this book, <strong>shell</strong> almost always means <em>desktop shell</em> (bars, panels, widgets). The <em>terminal shell</em> (bash, zsh, fish) is the program in your terminal that runs commands. When we mean that one, we'll say "terminal" or "bash".</p></div>
+<h2 id="layer-shell-how-a-bar-becomes-a-bar">Layer shell: how a bar becomes a bar<a class="hlink" href="#layer-shell-how-a-bar-becomes-a-bar">#</a></h2>
+<p>A normal app window can be moved and tiled by the compositor. A bar mustn't be: it has to stick to the top edge, stay above windows, and push tiled windows down so they don't cover it. Wayland solves this with the <strong>layer shell</strong> protocol (<code>wlr-layer-shell</code>). A program asks the compositor for a <em>layer surface</em> and says:</p>
+<ul>
+<li><strong>anchor me</strong> to the top/bottom/left/right edges,</li>
+<li>put me on <strong>layer</strong> Background, Bottom, Top or Overlay,</li>
+<li><strong>reserve</strong> N pixels (the <em>exclusive zone</em>) so windows avoid me,</li>
+<li>give me (or don't give me) <strong>keyboard focus</strong>.</li>
+</ul>
+<div class="diagram"><svg viewBox="0 0 860 210" role="img" aria-label="Layer shell layers">
+<rect class="n" x="40" y="160" width="780" height="34" rx="8"/><text x="60" y="182">Background layer: wallpaper, desktop icons</text>
+<rect class="n" x="70" y="122" width="720" height="34" rx="8"/><text x="90" y="144">Bottom layer: desktop widgets (below windows)</text>
+<rect class="a" x="100" y="84" width="660" height="34" rx="8"/><text x="120" y="106">Normal windows (Firefox, terminal…)</text>
+<rect class="n" x="130" y="46" width="600" height="34" rx="8"/><text x="150" y="68">Top layer: bars, docks</text>
+<rect class="g" x="160" y="8" width="540" height="34" rx="8"/><text x="180" y="30">Overlay layer: launchers, OSDs, notifications (even above fullscreen)</text>
+</svg></div>
+
+<p>In Quickshell this is the <a class="api" href="../ref/PanelWindow.html"><code>PanelWindow</code></a> type plus the <a class="api" href="../ref/WlrLayershell.html"><code>WlrLayershell</code></a> settings. You'll use it constantly from <a class="xref" href="../ch/04-first-shell.html">Your First Shell and the Dev Loop</a> onward.</p>
+<h2 id="what-quickshell-actually-is">What Quickshell actually is<a class="hlink" href="#what-quickshell-actually-is">#</a></h2>
+<p>Quickshell is a program (<code>quickshell</code>, also installed as <code>qs</code>) that:</p>
+<ol>
+<li>Reads a folder of <strong>QML files</strong> you write (your "config").</li>
+<li>Creates the windows, widgets and connections those files describe.</li>
+<li><strong>Watches the files</strong>: when you save, it reloads instantly (<em>hot reload</em>).</li>
+<li>Gives your QML extra building blocks that plain Qt doesn't have:
+   - <strong>Windows</strong>: <a class="api" href="../ref/PanelWindow.html"><code>PanelWindow</code></a>, <a class="api" href="../ref/FloatingWindow.html"><code>FloatingWindow</code></a>, <a class="api" href="../ref/PopupWindow.html"><code>PopupWindow</code></a>, and per-monitor copies with <a class="api" href="../ref/Variants.html"><code>Variants</code></a>.
+   - <strong>System services</strong>: <a class="api" href="../ref/Pipewire.html"><code>Pipewire</code></a> audio, <a class="api" href="../ref/Mpris.html"><code>Mpris</code></a> media, <a class="api" href="../ref/UPower.html"><code>UPower</code></a> battery, <a class="api" href="../ref/SystemTray.html"><code>SystemTray</code></a>, <a class="api" href="../ref/NotificationServer.html"><code>NotificationServer</code></a>, <a class="api" href="../ref/Bluetooth.html"><code>Bluetooth</code></a>, <a class="api" href="../ref/Networking.html"><code>Networking</code></a>, <a class="api" href="../ref/PamContext.html"><code>PamContext</code></a> passwords, <a class="api" href="../ref/PolkitAgent.html"><code>PolkitAgent</code></a>, <a class="api" href="../ref/Greetd.html"><code>Greetd</code></a>.
+   - <strong>Compositor integration</strong>: <a class="api" href="../ref/Hyprland.html"><code>Hyprland</code></a>, <a class="api" href="../ref/I3.html"><code>I3</code></a> (Sway), <a class="api" href="../ref/Niri.html"><code>Niri</code></a>, plus generic <a class="api" href="../ref/ToplevelManager.html"><code>ToplevelManager</code></a>.
+   - <strong>I/O</strong>: run commands with <a class="api" href="../ref/Process.html"><code>Process</code></a>, read and write files with <a class="api" href="../ref/FileView.html"><code>FileView</code></a>, expose commands with <a class="api" href="../ref/IpcHandler.html"><code>IpcHandler</code></a>.</li>
+</ol>
+<h3 id="what-qml-is">What QML is<a class="hlink" href="#what-qml-is">#</a></h3>
+<p><strong>QML</strong> (Qt Modeling Language) is a <em>declarative</em> language for user interfaces. Instead of writing steps ("create a box, then set its color, then when the volume changes update the box…"), you <strong>describe what things are</strong>:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    width: 200
+    height: 20
+    color: Audio.muted ? "red" : "green"
+}</code></pre></div>
+<p>That rectangle is <em>always</em> red when muted and green otherwise. You never write "update the color": QML tracks it for you. This idea, the <strong>binding</strong>, is why QML is so good for live desktop widgets. <a class="xref" href="../ch/09-bindings.html">Bindings: The Heart of QML</a> is devoted to it.</p>
+<p>QML comes from <strong>Qt</strong> (pronounced "cute"), a huge, mature toolkit used by KDE Plasma, many embedded screens and car dashboards. Quickshell runs on Qt 6, so everything in Qt Quick (animations, effects, layouts, text rendering) is available to you.</p>
+<h3 id="quickshell-vs-the-alternatives">Quickshell vs the alternatives<a class="hlink" href="#quickshell-vs-the-alternatives">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Language</th>
+<th>What it can build</th>
+<th>Live data</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Waybar</td>
+<td>JSON + CSS</td>
+<td>Bars only</td>
+<td>Built-in modules + scripts</td>
+<td>Easy, but limited to what modules exist</td>
+</tr>
+<tr>
+<td>eww</td>
+<td>Yuck + GTK CSS</td>
+<td>Widgets, bars</td>
+<td>Mostly polling scripts</td>
+<td>Flexible but scripts everywhere</td>
+</tr>
+<tr>
+<td>AGS / Astal</td>
+<td>JS/TS + GTK</td>
+<td>Everything</td>
+<td>Native libraries</td>
+<td>Powerful, heavier toolchain</td>
+</tr>
+<tr>
+<td><strong>Quickshell</strong></td>
+<td><strong>QML + JS</strong></td>
+<td><strong>Everything</strong></td>
+<td><strong>Native services, no polling</strong></td>
+<td>Hot reload, GPU animations, compositor integrations</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-rices-you-ll-learn-from">The rices you'll learn from<a class="hlink" href="#the-rices-you-ll-learn-from">#</a></h2>
+<p>These popular configs are built with Quickshell. You'll recognize their techniques as the book goes on, and <a class="xref" href="../ch/68-reading-rices.html">Reading Other People's Rices</a> shows you how to read their source.</p>
+<ul>
+<li><strong>end-4 / dots-hyprland ("illogical-impulse")</strong> — a Material You desktop with a bar, left and right sidebars (AI chat, quick settings, notifications), an overview with live window previews, a dock, OSDs, a cheatsheet and a lock screen.</li>
+<li><strong>Caelestia</strong> — a shell built from "drawers" that slide out of the screen edges, with smooth shape morphing, a media dashboard and an audio visualizer.</li>
+<li><strong>Noctalia</strong> and <strong>DankMaterialShell</strong> — complete, distributable shells with settings apps, aimed at being installed by others.</li>
+<li><strong>JaKooLit's Hyprland-Dots</strong> — a popular all-in-one Hyprland setup that mixes classic tools (Waybar, rofi) with Quickshell components, a good model for adopting Quickshell gradually.</li>
+</ul>
+<h2 id="how-this-book-is-organized">How this book is organized<a class="hlink" href="#how-this-book-is-organized">#</a></h2>
+<ul>
+<li><strong>Part I (you are here):</strong> Linux basics, installing, your first shell, editor setup.</li>
+<li><strong>Part II: the QML language.</strong> Every concept, from one property to components and imports.</li>
+<li><strong>Part III: Qt Quick.</strong> Drawing, layout, input, animation, effects.</li>
+<li><strong>Part IV: Quickshell concepts.</strong> Windows, monitors, popups, singletons, processes, files, IPC, compositors, services.</li>
+<li><strong>Part V: design and architecture.</strong> How big rices are organized, theming from wallpapers, motion design.</li>
+<li><strong>Part VI: build-along projects.</strong> Nineteen real components, start to finish.</li>
+<li><strong>Part VII: mastery.</strong> Debugging, performance, a recipe cookbook.</li>
+<li><strong>Qt reference:</strong> the Qt types you'll use, with their important properties.</li>
+<li><strong>API reference:</strong> <em>every</em> Quickshell type, with every property, function, signal and enum, plus complete examples.</li>
+<li><strong>Glossary and A–Z index:</strong> look up any word.</li>
+</ul>
+<div class="box tip"><div class="bt">How to read</div><p>Read Parts I–III in order and type every example yourself; copying and pasting teaches far less. From Part IV on, read in order <em>or</em> jump to what you need, using the API reference as your dictionary. Press <kbd>/</kbd> anywhere to search.</p></div>
+<div class="box try"><div class="bt">Before the next chapter</div><p>Open a terminal and run <code>echo $XDG_SESSION_TYPE</code>. If it prints <code>wayland</code>, you're ready. If it prints <code>x11</code>, log out and choose a Wayland session (Hyprland, Sway, niri…) on your login screen.</p></div></article><nav class="prevnext"><span></span><a class="pn-next" href="../ch/02-linux-survival.html"><small>Next →</small><span>Linux Survival Kit for Ricers</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#what-ricing-means">What "ricing" means</a><a class="l2" href="#how-a-linux-desktop-is-put-together">How a Linux desktop is put together</a><a class="l3" href="#the-kernel-and-drivers">The kernel and drivers</a><a class="l3" href="#system-services-and-d-bus">System services and D-Bus</a><a class="l3" href="#the-compositor">The compositor</a><a class="l3" href="#apps-and-the-shell-layer">Apps and the shell layer</a><a class="l2" href="#layer-shell-how-a-bar-becomes-a-bar">Layer shell: how a bar becomes a bar</a><a class="l2" href="#what-quickshell-actually-is">What Quickshell actually is</a><a class="l3" href="#what-qml-is">What QML is</a><a class="l3" href="#quickshell-vs-the-alternatives">Quickshell vs the alternatives</a><a class="l2" href="#the-rices-you-ll-learn-from">The rices you'll learn from</a><a class="l2" href="#how-this-book-is-organized">How this book is organized</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=e9cdfa8e"></script>
+</body></html>

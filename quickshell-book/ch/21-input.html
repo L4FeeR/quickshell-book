@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mouse, Touchpad and Keyboard Input · The Quickshell Book</title>
+<meta name="description" content="Mouse, Touchpad and Keyboard Input">
+<link rel="stylesheet" href="../assets/style.css?v=e9cdfa8e">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details open><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch active" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-iii">Part III: Qt Quick: Drawing Things</a> › Mouse, Touchpad and Keyboard Input</div><article><div class="ch-head"><div class="ch-part">Part III · Qt Quick: Drawing Things</div><h1><span class="ch-num">21</span>Mouse, Touchpad and Keyboard Input</h1></div><p>A rice that only <em>shows</em> things is a wallpaper. This chapter covers clicks, hover, scrolling, dragging and keyboard input, and the Quickshell-specific rule about keyboard focus.</p>
+<h2 id="mousearea-the-classic">MouseArea: the classic<a class="hlink" href="#mousearea-the-classic">#</a></h2>
+<p><code>MouseArea</code> is an invisible item that receives mouse events inside its bounds. Usually you fill a parent with it:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: btn
+    width: 120; height: 36; radius: 10
+    color: area.pressed ? "#585b70" : area.containsMouse ? "#45475a" : "#313244"
+
+    MouseArea {
+        id: area
+        anchors.fill: parent
+        hoverEnabled: true                     // REQUIRED for containsMouse / onEntered without pressing
+        cursorShape: Qt.PointingHandCursor     // hand cursor on hover
+        acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
+
+        onClicked: mouse =&gt; {
+            if (mouse.button === Qt.LeftButton) console.log("left")
+            else if (mouse.button === Qt.RightButton) console.log("right")
+            else console.log("middle")
+        }
+        onDoubleClicked: console.log("double")
+        onPressAndHold: console.log("long press")       // after pressAndHoldInterval ms
+        onEntered: console.log("mouse in")
+        onExited: console.log("mouse out")
+        onWheel: wheel =&gt; console.log("scroll", wheel.angleDelta.y)
+    }
+}</code></pre></div>
+<h3 id="mousearea-properties">MouseArea properties<a class="hlink" href="#mousearea-properties">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hoverEnabled</code></td>
+<td>Track hover without a button pressed</td>
+</tr>
+<tr>
+<td><code>containsMouse</code></td>
+<td>Pointer is inside (needs <code>hoverEnabled</code> unless pressed)</td>
+</tr>
+<tr>
+<td><code>pressed</code>, <code>pressedButtons</code></td>
+<td>Currently held</td>
+</tr>
+<tr>
+<td><code>acceptedButtons</code></td>
+<td>Which buttons to react to</td>
+</tr>
+<tr>
+<td><code>cursorShape</code></td>
+<td><code>Qt.PointingHandCursor</code>, <code>Qt.IBeamCursor</code>, <code>Qt.SizeHorCursor</code>…</td>
+</tr>
+<tr>
+<td><code>mouseX</code>, <code>mouseY</code></td>
+<td>Pointer position inside the area</td>
+</tr>
+<tr>
+<td><code>drag.target</code>, <code>drag.axis</code>, <code>drag.minimumX</code>…</td>
+<td>Built-in dragging</td>
+</tr>
+<tr>
+<td><code>propagateComposedEvents</code></td>
+<td>Let clicks pass to areas underneath</td>
+</tr>
+<tr>
+<td><code>preventStealing</code></td>
+<td>Keep the grab during drags</td>
+</tr>
+<tr>
+<td><code>pressAndHoldInterval</code></td>
+<td>Long-press time in ms</td>
+</tr>
+<tr>
+<td><code>scrollGestureEnabled</code></td>
+<td>Accept touchpad scroll gestures</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-event-objects">The event objects<a class="hlink" href="#the-event-objects">#</a></h3>
+<ul>
+<li><code>MouseEvent</code> (clicked, pressed…): <code>button</code>, <code>buttons</code>, <code>modifiers</code>, <code>x</code>, <code>y</code>, <code>wasHeld</code>, <code>accepted</code></li>
+<li><code>WheelEvent</code> (wheel): <code>angleDelta.x/.y</code> (mouse wheel, 120 per notch), <code>pixelDelta</code> (touchpads), <code>modifiers</code>, <code>inverted</code></li>
+</ul>
+<h3 id="scrolling-to-change-a-value-mouse-and-touchpad">Scrolling to change a value (mouse and touchpad)<a class="hlink" href="#scrolling-to-change-a-value-mouse-and-touchpad">#</a></h3>
+<p>A wheel notch is <code>angleDelta.y = ±120</code>, while touchpads send many small values. Normalize:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>MouseArea {
+    anchors.fill: parent
+    property real acc: 0
+    onWheel: w =&gt; {
+        acc += w.angleDelta.y
+        while (Math.abs(acc) &gt;= 120) {                 // one "step" per notch-equivalent
+            Audio.setVolume(Audio.volume + (acc &gt; 0 ? 0.05 : -0.05))
+            acc -= 120 * Math.sign(acc)
+        }
+    }
+}</code></pre></div>
+<h2 id="pointer-handlers-the-modern-way">Pointer handlers: the modern way<a class="hlink" href="#pointer-handlers-the-modern-way">#</a></h2>
+<p>Handlers are lighter than MouseArea and <strong>combine</strong>: several handlers on one item don't block each other.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    width: 100; height: 40; radius: 8
+    color: hover.hovered ? "#45475a" : "#313244"
+
+    HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+    TapHandler { onTapped: console.log("left tap") }
+    TapHandler { acceptedButtons: Qt.RightButton; onTapped: console.log("right tap") }
+    TapHandler { onDoubleTapped: console.log("double"); onLongPressed: console.log("hold") }
+    WheelHandler { onWheel: e =&gt; console.log(e.angleDelta.y) }
+    DragHandler { target: parent }                    // drag the rectangle around
+}</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Handler</th>
+<th>Key properties / signals</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HoverHandler</code></td>
+<td><code>hovered</code>, <code>point.position</code>, <code>cursorShape</code>, <code>acceptedDevices</code></td>
+</tr>
+<tr>
+<td><code>TapHandler</code></td>
+<td><code>onTapped(eventPoint, button)</code>, <code>onDoubleTapped</code>, <code>onLongPressed</code>, <code>pressed</code>, <code>acceptedButtons</code>, <code>gesturePolicy</code></td>
+</tr>
+<tr>
+<td><code>WheelHandler</code></td>
+<td><code>onWheel(event)</code>, <code>property</code>/<code>target</code> to auto-adjust a property, <code>rotationScale</code></td>
+</tr>
+<tr>
+<td><code>DragHandler</code></td>
+<td><code>target</code>, <code>xAxis.minimum/maximum</code>, <code>active</code>, <code>translation</code></td>
+</tr>
+<tr>
+<td><code>PinchHandler</code></td>
+<td>touchpad/touch pinch zoom and rotate</td>
+</tr>
+<tr>
+<td><code>PointHandler</code></td>
+<td>low-level pointer tracking</td>
+</tr>
+</tbody>
+</table>
+<div class="box tip"><div class="bt">Which to use?</div><p>Use <code>HoverHandler</code> for hover effects (it never steals clicks), <code>TapHandler</code> for clicks, <code>WheelHandler</code> for scroll. Fall back to <code>MouseArea</code> when you need <code>containsMouse</code> and <code>pressed</code> together, propagation control, or the built-in <code>drag</code>.</p></div>
+<h2 id="drag-and-drop">Drag and drop<a class="hlink" href="#drag-and-drop">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: card
+    width: 80; height: 50; color: "#cba6f7"
+    Drag.active: dragArea.drag.active
+    Drag.hotSpot: Qt.point(width / 2, height / 2)
+    Drag.keys: ["window"]
+    property string payload: "0x55d1a2"
+    MouseArea { id: dragArea; anchors.fill: parent; drag.target: parent
+                onReleased: parent.Drag.drop() }
+}
+
+DropArea {
+    width: 200; height: 120
+    keys: ["window"]
+    Rectangle { anchors.fill: parent; color: parent.containsDrag ? "#45475a" : "#313244" }
+    onDropped: drop =&gt; console.log("dropped", drop.source.payload)
+}</code></pre></div>
+<p>You'll use this to move windows between workspaces in the overview (<a class="xref" href="../ch/58-proj-overview.html">Project: Workspace Overview</a>).</p>
+<h2 id="keyboard-input">Keyboard input<a class="hlink" href="#keyboard-input">#</a></h2>
+<p>Keys go to the item with <strong>active focus</strong>:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>Item {
+    focus: true                                     // ask for focus within this window
+    Keys.onPressed: event =&gt; {
+        if (event.key === Qt.Key_Escape) close()
+        else if (event.key === Qt.Key_K &amp;&amp; (event.modifiers &amp; Qt.ControlModifier)) up()
+        else return
+        event.accepted = true                       // stop propagation
+    }
+    Keys.onReturnPressed: launch()
+    Keys.onUpPressed: list.decrementCurrentIndex()
+    Keys.onDownPressed: list.incrementCurrentIndex()
+    Keys.onTabPressed: next()
+}</code></pre></div>
+<p>Common keys: <code>Qt.Key_Escape</code>, <code>Key_Return</code>, <code>Key_Enter</code>, <code>Key_Tab</code>, <code>Key_Backtab</code>, <code>Key_Up/Down/Left/Right</code>, <code>Key_Backspace</code>, <code>Key_Delete</code>, <code>Key_Home</code>, <code>Key_End</code>, <code>Key_PageUp/PageDown</code>, <code>Key_Space</code>, <code>Key_A</code>…<code>Key_Z</code>, <code>Key_0</code>…<code>Key_9</code>, <code>Key_F1</code>… Modifiers: <code>Qt.ShiftModifier</code>, <code>ControlModifier</code>, <code>AltModifier</code>, <code>MetaModifier</code> (Super).</p>
+<p><code>event.text</code> gives the typed character, useful for "press the first letter" shortcuts.</p>
+<h3 id="focus">Focus<a class="hlink" href="#focus">#</a></h3>
+<ul>
+<li><code>focus: true</code> requests focus <strong>within its focus scope</strong>; <code>activeFocus</code> is true when it actually has it.</li>
+<li><code>forceActiveFocus()</code> grabs focus immediately (call it when a popup opens).</li>
+<li><code>FocusScope</code> groups items so a component can manage focus internally.</li>
+<li><code>KeyNavigation.tab: otherItem</code> / <code>KeyNavigation.down</code> define arrow and tab order.</li>
+</ul>
+<h2 id="text-input">Text input<a class="hlink" href="#text-input">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>import QtQuick
+import QtQuick.Controls
+
+TextField {                           // styled, from Controls
+    placeholderText: "Search…"
+    onTextChanged: search(text)
+    onAccepted: launch()              // Enter pressed
+}
+
+TextInput {                           // bare, unstyled (style it yourself)
+    width: 300
+    color: "white"
+    font.pixelSize: 16
+    focus: true
+    echoMode: TextInput.Password      // Normal, Password, NoEcho, PasswordEchoOnEdit
+    passwordCharacter: "●"
+    selectByMouse: true
+    validator: IntValidator { bottom: 0; top: 100 }   // only numbers 0–100
+    Keys.onEscapePressed: text = ""
+}</code></pre></div>
+<p>For multi-line input use <code>TextArea</code> (Controls) or <code>TextEdit</code>.</p>
+<h2 id="quickshell-rule-windows-need-keyboard-focus">Quickshell rule: windows need keyboard focus<a class="hlink" href="#quickshell-rule-windows-need-keyboard-focus">#</a></h2>
+<p>This catches everyone once. <strong>A layer-shell window doesn't receive keyboard input unless it asks for it.</strong> Even with <code>focus: true</code> on a TextInput, typing goes to the app behind it until you set:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>import Quickshell.Wayland
+
+PanelWindow {
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive   // grab all keys while open (launchers, lock-like UIs)
+    // or WlrKeyboardFocus.OnDemand: focus when clicked (search box in a sidebar)
+    // default WlrKeyboardFocus.None: never takes keys (bars)
+    TextInput { focus: true }
+}</code></pre></div>
+<p><a class="api" href="../ref/PanelWindow.html"><code>PanelWindow</code></a> also has a simpler <code>focusable</code> property, and <a class="api" href="../ref/WlrLayershell.html"><code>WlrLayershell</code></a> documents the exact behavior of each mode.</p>
+<div class="box warn"><div class="bt">Don't leave Exclusive on</div><p>A window with <code>Exclusive</code> keyboard focus blocks typing into every other app. Only use it while the window is visible and open (launchers, power menus), and make sure <kbd>Esc</kbd> closes it.</p></div>
+<h2 id="closing-popups-by-clicking-outside">Closing popups by clicking outside<a class="hlink" href="#closing-popups-by-clicking-outside">#</a></h2>
+<p>Clicks outside your window go to other apps, so your window never sees them. Options:</p>
+<ul>
+<li>On Hyprland: <a class="api" href="../ref/HyprlandFocusGrab.html"><code>HyprlandFocusGrab</code></a> tells you when the user clicks outside a set of windows.</li>
+<li>Anywhere: a fullscreen transparent <a class="api" href="../ref/PanelWindow.html"><code>PanelWindow</code></a> behind the popup that closes it on click.</li>
+</ul>
+<div class="box try"><div class="bt">Exercises</div><ol>
+<li>Make a button with hover, press and right-click behavior using handlers only.</li>
+<li>Make a slider-like bar you can scroll to change a value, normalized for touchpads.</li>
+<li>Make a fullscreen overlay window with <code>Exclusive</code> keyboard focus that shows the name of every key you press and closes on <kbd>Esc</kbd>.</li>
+</ol></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/20-models-views.html"><small>← Previous</small><span>Models, Repeater and ListView</span></a><a class="pn-next" href="../ch/22-controls.html"><small>Next →</small><span>Qt Quick Controls and Restyling Them</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#mousearea-the-classic">MouseArea: the classic</a><a class="l3" href="#mousearea-properties">MouseArea properties</a><a class="l3" href="#the-event-objects">The event objects</a><a class="l3" href="#scrolling-to-change-a-value-mouse-and-touchpad">Scrolling to change a value (mouse and touchpad)</a><a class="l2" href="#pointer-handlers-the-modern-way">Pointer handlers: the modern way</a><a class="l2" href="#drag-and-drop">Drag and drop</a><a class="l2" href="#keyboard-input">Keyboard input</a><a class="l3" href="#focus">Focus</a><a class="l2" href="#text-input">Text input</a><a class="l2" href="#quickshell-rule-windows-need-keyboard-focus">Quickshell rule: windows need keyboard focus</a><a class="l2" href="#closing-popups-by-clicking-outside">Closing popups by clicking outside</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=e9cdfa8e"></script>
+</body></html>

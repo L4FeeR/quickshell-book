@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Quickshell Book · The Quickshell Book</title>
+<meta name="description" content="A complete beginner-to-expert book on Quickshell and QML for Linux ricing.">
+<link rel="stylesheet" href="assets/style.css?v=e9cdfa8e">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home active" href="index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="ref/Scope.html">Scope</a>
+<a class="ty" href="ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="ref/Variants.html">Variants</a>
+<a class="ty" href="ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/Region.html">Region</a>
+<a class="ty" href="ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="ref/Singleton.html">Singleton</a>
+<a class="ty" href="ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="ref/Retainable.html">Retainable</a>
+<a class="ty" href="ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="ref/DataStream.html">DataStream</a>
+<a class="ty" href="ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="ref/Socket.html">Socket</a>
+<a class="ty" href="ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="ref/Process.html">Process</a>
+<a class="ty" href="ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/FileView.html">FileView</a>
+<a class="ty" href="ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="ref/IconImage.html">IconImage</a>
+<a class="ty" href="ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="ref/I3Event.html">I3Event</a>
+<a class="ty" href="ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="ref/Windowset.html">Windowset</a>
+<a class="ty" href="ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="ref/PwNode.html">PwNode</a>
+<a class="ty" href="ref/PwLink.html">PwLink</a>
+<a class="ty" href="ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/Notification.html">Notification</a>
+<a class="ty" href="ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="ref/Network.html">Network</a>
+<a class="ty" href="ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="ref/PamContext.html">PamContext</a>
+<a class="ty" href="ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="qt-index.html">Qt Type Index</a>
+<a class="ch" href="glossary.html">Glossary</a>
+<a class="ch" href="az.html">A–Z Index</a>
+<a class="ch" href="cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><article><div class="cover">
+<div class="ch-part">From zero to shell author</div>
+<h1>The <em>Quickshell</em> Book</h1>
+<p class="lede">A complete, beginner-first guide to building your own Linux desktop with Quickshell and QML. You start knowing nothing about Linux ricing, Qt or programming, and finish able to build any bar, panel, launcher, lock screen or widget you can imagine.</p>
+<div class="stats">
+<div class="stat"><b>79</b><span>chapters</span></div>
+<div class="stat"><b>157</b><span>API types documented</span></div>
+<div class="stat"><b>19</b><span>complete projects</span></div>
+<div class="stat"><b>60</b><span>cookbook recipes</span></div>
+</div>
+</div>
+
+<h2>How to use this book</h2>
+<p><strong>If you're new to everything</strong>, read Parts I → III in order and type every example. Keep <code>qs -c playground</code> running in a terminal while you read: Quickshell reloads on every save, so you see each change instantly.</p>
+<p><strong>If you know some QML</strong>, skim Part II, then start at Part IV (Quickshell concepts).</p>
+<p><strong>If you want to build something specific now</strong>, jump to Part VI (projects) and use the <strong>API Reference</strong> as your dictionary: every Quickshell type has a page listing every property, function, signal and enum value, how to get the object, and complete examples.</p>
+<table>
+<thead>
+<tr>
+<th>You want to…</th>
+<th>Go to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Understand what all the words mean</td>
+<td><a class="xref" href="ch/01-what-is-ricing.html">What Ricing Is (and How a Linux Desktop Works)</a> and the <a href="glossary.html">Glossary</a></td>
+</tr>
+<tr>
+<td>Put something on screen right now</td>
+<td><a class="xref" href="ch/04-first-shell.html">Your First Shell and the Dev Loop</a></td>
+</tr>
+<tr>
+<td>Learn the language properly</td>
+<td><a class="xref" href="ch/06-objects-properties.html">Objects and Properties</a> → <a class="xref" href="ch/14-lifecycle.html">Object Lifecycle and Dynamic Creation</a></td>
+</tr>
+<tr>
+<td>Make things look good and move nicely</td>
+<td><a class="xref" href="ch/16-rect-text-image.html">Rectangle, Text and Image</a>, <a class="xref" href="ch/23-animation-basics.html">Animation I: Behaviors and Easing</a>, <a class="xref" href="ch/25-effects.html">Effects: Shadows, Blur, Masks, Tints</a></td>
+</tr>
+<tr>
+<td>Show workspaces, battery, volume, media</td>
+<td><a class="xref" href="ch/40-compositors.html">Talking to Your Compositor</a>, <a class="xref" href="ch/41-services-tour.html">A Tour of the System Services</a></td>
+</tr>
+<tr>
+<td>Organize a big config like end-4 or Caelestia</td>
+<td><a class="xref" href="ch/42-project-layout.html">Project Layout of a Real Shell</a> → <a class="xref" href="ch/46-state.html">Orchestrating Panels and State</a></td>
+</tr>
+<tr>
+<td>Theme everything from your wallpaper</td>
+<td><a class="xref" href="ch/44-theming.html">Colors and Wallpaper Theming</a></td>
+</tr>
+<tr>
+<td>Build a bar / launcher / lock screen …</td>
+<td>Part VI</td>
+</tr>
+<tr>
+<td>Look up any property or method</td>
+<td><a href="ref/index.html">API Reference</a> or press <kbd>/</kbd></td>
+</tr>
+</tbody>
+</table>
+<h2>Navigation</h2>
+<ul>
+<li><strong>Sidebar</strong>: every part, chapter and API type. Modules expand to show their types; <span class="tb tb-S">S</span> marks singletons, <span class="tb tb-E">E</span> marks enums.</li>
+<li><strong>Search</strong> (<kbd>/</kbd>): types, properties, functions, signals, enum values, chapter sections and glossary terms.</li>
+<li><strong>On this page</strong> (right side): headings of the current page.</li>
+<li><kbd>Alt</kbd>+<kbd>←</kbd> / <kbd>Alt</kbd>+<kbd>→</kbd>: previous / next page.</li>
+<li><a href="az.html">A–Z Index</a>: every entry alphabetically. <a href="cheatsheet.html">Cheat Sheet</a>: one-page summary. <a href="print.html">Whole book</a>: everything on one page, ready to print or save as PDF.</li>
+</ul>
+<h2>Conventions</h2>
+<ul>
+<li>Code blocks show their <strong>file path</strong> in the top-right corner. Hover a block to get a <strong>copy</strong> button.</li>
+<li><code>inline code</code> is something you type exactly. <kbd>Keys</kbd> are keys to press.</li>
+<li>Callout boxes: <strong>Tip</strong> (a good idea), <strong>Note</strong> (background), <strong>Watch out</strong> (a common mistake), <strong>Danger</strong> (could break your session), <strong>Try it yourself</strong> (exercises), <strong>In the wild</strong> (how popular rices do it).</li>
+<li>Links like <a class="api" href="ref/PanelWindow.html"><code>PanelWindow</code></a> go to the API reference; links like <a class="xref" href="ch/09-bindings.html">Bindings: The Heart of QML</a> go to chapters.</li>
+</ul>
+<h2>About versions</h2>
+<p>The API reference is generated from the Quickshell source (version 0.3.x), so every property listed exists in that version. Types marked <strong>noctalia-qs fork only</strong> (the <code>Quickshell.Niri</code> and <code>Quickshell.DWL</code> modules) come from the noctalia-qs fork. If something doesn't exist on your system, run <code>qs --version</code> and check the upstream docs at quickshell.org.</p>
+<h2 id="contents">Contents</h2>
+<div class="toc-part" id="part-i"><div class="tp-h"><span>Part I</span>Welcome to Ricing</div><ol class="toc-ch">
+<li><a class="tc" href="ch/01-what-is-ricing.html"><span>01</span>What Ricing Is (and How a Linux Desktop Works)</a><div class="subs"><a href="ch/01-what-is-ricing.html#what-ricing-means">What "ricing" means</a><a href="ch/01-what-is-ricing.html#how-a-linux-desktop-is-put-together">How a Linux desktop is put together</a><a href="ch/01-what-is-ricing.html#layer-shell-how-a-bar-becomes-a-bar">Layer shell: how a bar becomes a bar</a><a href="ch/01-what-is-ricing.html#what-quickshell-actually-is">What Quickshell actually is</a><a href="ch/01-what-is-ricing.html#the-rices-you-ll-learn-from">The rices you'll learn from</a><a href="ch/01-what-is-ricing.html#how-this-book-is-organized">How this book is organized</a></div></li>
+<li><a class="tc" href="ch/02-linux-survival.html"><span>02</span>Linux Survival Kit for Ricers</a><div class="subs"><a href="ch/02-linux-survival.html#the-terminal-in-five-minutes">The terminal in five minutes</a><a href="ch/02-linux-survival.html#paths-where-things-live">Paths: where things live</a><a href="ch/02-linux-survival.html#files-permissions-and-scripts">Files, permissions and scripts</a><a href="ch/02-linux-survival.html#packages">Packages</a><a href="ch/02-linux-survival.html#processes">Processes</a><a href="ch/02-linux-survival.html#environment-variables">Environment variables</a><a href="ch/02-linux-survival.html#d-bus-briefly">D-Bus, briefly</a><a href="ch/02-linux-survival.html#systemd-user-services">systemd user services</a><a href="ch/02-linux-survival.html#your-compositor-s-config">Your compositor's config</a><a href="ch/02-linux-survival.html#fonts-and-icons">Fonts and icons</a><a href="ch/02-linux-survival.html#backups-and-git">Backups and git</a></div></li>
+<li><a class="tc" href="ch/03-install.html"><span>03</span>Installing Quickshell and Your Toolbox</a><div class="subs"><a href="ch/03-install.html#installing-quickshell">Installing Quickshell</a><a href="ch/03-install.html#fonts">Fonts</a><a href="ch/03-install.html#icon-theme">Icon theme</a><a href="ch/03-install.html#qt-modules">Qt modules</a><a href="ch/03-install.html#helper-tools-used-in-this-book">Helper tools used in this book</a><a href="ch/03-install.html#make-sure-services-are-running">Make sure services are running</a><a href="ch/03-install.html#stop-the-things-quickshell-will-replace">Stop the things Quickshell will replace</a></div></li>
+<li><a class="tc" href="ch/04-first-shell.html"><span>04</span>Your First Shell and the Dev Loop</a><div class="subs"><a href="ch/04-first-shell.html#where-configs-live">Where configs live</a><a href="ch/04-first-shell.html#step-1-the-smallest-possible-shell">Step 1: the smallest possible shell</a><a href="ch/04-first-shell.html#step-2-hot-reload">Step 2: hot reload</a><a href="ch/04-first-shell.html#step-3-make-it-look-like-a-rice">Step 3: make it look like a rice</a><a href="ch/04-first-shell.html#the-qs-command-line">The qs command line</a><a href="ch/04-first-shell.html#logging-from-qml">Logging from QML</a><a href="ch/04-first-shell.html#running-it-for-real">Running it for real</a><a href="ch/04-first-shell.html#common-first-day-problems">Common first-day problems</a></div></li>
+<li><a class="tc" href="ch/05-editor.html"><span>05</span>Setting Up Your Editor</a><div class="subs"><a href="ch/05-editor.html#step-1-tell-quickshell-to-help-qmlls">Step 1: tell Quickshell to help qmlls</a><a href="ch/05-editor.html#step-2-install-qmlls">Step 2: install qmlls</a><a href="ch/05-editor.html#step-3-configure-your-editor">Step 3: configure your editor</a><a href="ch/05-editor.html#what-you-get">What you get</a><a href="ch/05-editor.html#formatting">Formatting</a><a href="ch/05-editor.html#a-comfortable-layout">A comfortable layout</a></div></li>
+</ol></div>
+<div class="toc-part" id="part-ii"><div class="tp-h"><span>Part II</span>The QML Language</div><ol class="toc-ch">
+<li><a class="tc" href="ch/06-objects-properties.html"><span>06</span>Objects and Properties</a><div class="subs"><a href="ch/06-objects-properties.html#objects">Objects</a><a href="ch/06-objects-properties.html#properties">Properties</a><a href="ch/06-objects-properties.html#every-object-has-a-type-and-every-type-has-a-fixed-set-of-properties">Every object has a type, and every type has a fixed set of properties</a><a href="ch/06-objects-properties.html#nesting-children">Nesting: children</a><a href="ch/06-objects-properties.html#declaring-your-own-properties">Declaring your own properties</a><a href="ch/06-objects-properties.html#comments">Comments</a><a href="ch/06-objects-properties.html#imports">Imports</a><a href="ch/06-objects-properties.html#putting-it-together">Putting it together</a></div></li>
+<li><a class="tc" href="ch/07-value-types.html"><span>07</span>Value Types in Depth</a><div class="subs"><a href="ch/07-value-types.html#overview">Overview</a><a href="ch/07-value-types.html#bool">bool</a><a href="ch/07-value-types.html#int-and-real">int and real</a><a href="ch/07-value-types.html#string">string</a><a href="ch/07-value-types.html#color">color</a><a href="ch/07-value-types.html#url">url</a><a href="ch/07-value-types.html#date">date</a><a href="ch/07-value-types.html#point-size-rect">point, size, rect</a><a href="ch/07-value-types.html#var-anything-at-all">var: anything at all</a><a href="ch/07-value-types.html#list-t">list&lt;T&gt;</a><a href="ch/07-value-types.html#object-types-references-to-other-objects">Object types: references to other objects</a><a href="ch/07-value-types.html#null-and-undefined-and-optional-chaining">null and undefined, and optional chaining</a><a href="ch/07-value-types.html#type-conversion-cheatsheet">Type conversion cheatsheet</a></div></li>
+<li><a class="tc" href="ch/08-ids-scope.html"><span>08</span>ids, parent and Scope</a><div class="subs"><a href="ch/08-ids-scope.html#ids">ids</a><a href="ch/08-ids-scope.html#parent">parent</a><a href="ch/08-ids-scope.html#this">this</a><a href="ch/08-ids-scope.html#how-bare-names-are-found-scope-lookup">How bare names are found (scope lookup)</a><a href="ch/08-ids-scope.html#talking-between-files-properties-in-signals-out">Talking between files: properties in, signals out</a><a href="ch/08-ids-scope.html#global-state-singletons">Global state: singletons</a></div></li>
+<li><a class="tc" href="ch/09-bindings.html"><span>09</span>Bindings: The Heart of QML</a><div class="subs"><a href="ch/09-bindings.html#the-idea">The idea</a><a href="ch/09-bindings.html#what-can-go-in-a-binding">What can go in a binding</a><a href="ch/09-bindings.html#bindings-vs-assignments">Bindings vs assignments</a><a href="ch/09-bindings.html#binding-loops">Binding loops</a><a href="ch/09-bindings.html#performance-notes">Performance notes</a><a href="ch/09-bindings.html#the-binding-object-conditional-bindings">The Binding object (conditional bindings)</a><a href="ch/09-bindings.html#a-complete-example-everything-flows-from-one-value">A complete example: everything flows from one value</a></div></li>
+<li><a class="tc" href="ch/10-signals.html"><span>10</span>Signals, Handlers and Connections</a><div class="subs"><a href="ch/10-signals.html#signals-and-handlers">Signals and handlers</a><a href="ch/10-signals.html#signal-arguments">Signal arguments</a><a href="ch/10-signals.html#property-change-signals">Property change signals</a><a href="ch/10-signals.html#declaring-your-own-signals">Declaring your own signals</a><a href="ch/10-signals.html#component-oncompleted-and-ondestruction">Component.onCompleted and onDestruction</a><a href="ch/10-signals.html#connections-handling-another-object-s-signals">Connections: handling another object's signals</a><a href="ch/10-signals.html#connecting-in-javascript">Connecting in JavaScript</a><a href="ch/10-signals.html#signals-vs-bindings-which-to-use">Signals vs bindings: which to use?</a><a href="ch/10-signals.html#complete-example">Complete example</a></div></li>
+<li><a class="tc" href="ch/11-javascript.html"><span>11</span>The JavaScript You Need</a><div class="subs"><a href="ch/11-javascript.html#where-javascript-appears">Where JavaScript appears</a><a href="ch/11-javascript.html#variables">Variables</a><a href="ch/11-javascript.html#conditions">Conditions</a><a href="ch/11-javascript.html#strings">Strings</a><a href="ch/11-javascript.html#arrays">Arrays</a><a href="ch/11-javascript.html#objects">Objects</a><a href="ch/11-javascript.html#functions">Functions</a><a href="ch/11-javascript.html#json">JSON</a><a href="ch/11-javascript.html#math">Math</a><a href="ch/11-javascript.html#dates">Dates</a><a href="ch/11-javascript.html#shared-javascript-files">Shared JavaScript files</a><a href="ch/11-javascript.html#debugging-javascript">Debugging JavaScript</a></div></li>
+<li><a class="tc" href="ch/12-components.html"><span>12</span>Components, Files and Imports</a><div class="subs"><a href="ch/12-components.html#one-file-one-type">One file = one type</a><a href="ch/12-components.html#giving-your-component-an-api">Giving your component an API</a><a href="ch/12-components.html#property-alias-exposing-an-inner-property">property alias: exposing an inner property</a><a href="ch/12-components.html#required-properties">required properties</a><a href="ch/12-components.html#default-property-components-that-take-children">default property: components that take children</a><a href="ch/12-components.html#inline-components">Inline components</a><a href="ch/12-components.html#imports-using-components-from-other-folders">Imports: using components from other folders</a><a href="ch/12-components.html#how-the-root-object-type-affects-your-component">How the root object type affects your component</a><a href="ch/12-components.html#designing-good-components">Designing good components</a></div></li>
+<li><a class="tc" href="ch/13-attached-enums.html"><span>13</span>Attached, Grouped and Enum Properties</a><div class="subs"><a href="ch/13-attached-enums.html#grouped-properties">Grouped properties</a><a href="ch/13-attached-enums.html#attached-properties">Attached properties</a><a href="ch/13-attached-enums.html#enums">Enums</a><a href="ch/13-attached-enums.html#telling-them-apart">Telling them apart</a></div></li>
+<li><a class="tc" href="ch/14-lifecycle.html"><span>14</span>Object Lifecycle and Dynamic Creation</a><div class="subs"><a href="ch/14-lifecycle.html#lifecycle-of-an-object">Lifecycle of an object</a><a href="ch/14-lifecycle.html#component-a-blueprint-not-an-object">Component: a blueprint, not an object</a><a href="ch/14-lifecycle.html#loader-create-and-destroy-on-demand">Loader: create and destroy on demand</a><a href="ch/14-lifecycle.html#repeater-and-views-create-and-destroy-too">Repeater and views create and destroy too</a><a href="ch/14-lifecycle.html#creating-objects-from-javascript">Creating objects from JavaScript</a><a href="ch/14-lifecycle.html#objects-and-hot-reload">Objects and hot reload</a></div></li>
+</ol></div>
+<div class="toc-part" id="part-iii"><div class="tp-h"><span>Part III</span>Qt Quick: Drawing Things</div><ol class="toc-ch">
+<li><a class="tc" href="ch/15-item.html"><span>15</span>Item and the Visual Tree</a><div class="subs"><a href="ch/15-item.html#item-the-invisible-base">Item: the invisible base</a><a href="ch/15-item.html#complete-item-property-reference-the-ones-you-ll-use">Complete Item property reference (the ones you'll use)</a><a href="ch/15-item.html#coordinates">Coordinates</a><a href="ch/15-item.html#stacking-order-who-s-on-top">Stacking order: who's on top</a><a href="ch/15-item.html#visible-vs-opacity-vs-enabled">visible vs opacity vs enabled</a><a href="ch/15-item.html#clip">clip</a><a href="ch/15-item.html#transforms">Transforms</a><a href="ch/15-item.html#the-visual-tree-vs-the-object-tree">The visual tree vs the object tree</a><a href="ch/15-item.html#inside-a-quickshell-window">Inside a Quickshell window</a></div></li>
+<li><a class="tc" href="ch/16-rect-text-image.html"><span>16</span>Rectangle, Text and Image</a><div class="subs"><a href="ch/16-rect-text-image.html#rectangle">Rectangle</a><a href="ch/16-rect-text-image.html#text">Text</a><a href="ch/16-rect-text-image.html#image">Image</a><a href="ch/16-rect-text-image.html#putting-it-together-a-media-card">Putting it together: a media card</a></div></li>
+<li><a class="tc" href="ch/17-sizing.html"><span>17</span>Sizing and Implicit Size</a><div class="subs"><a href="ch/17-sizing.html#two-sizes-for-every-item">Two sizes for every item</a><a href="ch/17-sizing.html#which-types-have-an-implicit-size">Which types have an implicit size?</a><a href="ch/17-sizing.html#rule-1-components-size-themselves-with-implicit-size">Rule 1: components size themselves with implicit size</a><a href="ch/17-sizing.html#rule-2-users-of-a-component-set-the-actual-size">Rule 2: users of a component set the actual size</a><a href="ch/17-sizing.html#rule-3-quickshell-windows-use-implicit-size">Rule 3: Quickshell windows use implicit size</a><a href="ch/17-sizing.html#sizing-a-window-to-its-content">Sizing a window to its content</a><a href="ch/17-sizing.html#binding-loops-and-how-to-avoid-them">Binding loops and how to avoid them</a><a href="ch/17-sizing.html#childrenrect">childrenRect</a><a href="ch/17-sizing.html#pixel-snapping-and-hidpi">Pixel snapping and HiDPI</a></div></li>
+<li><a class="tc" href="ch/18-anchors.html"><span>18</span>Anchors</a><div class="subs"><a href="ch/18-anchors.html#anchor-lines">Anchor lines</a><a href="ch/18-anchors.html#all-anchor-properties">All anchor properties</a><a href="ch/18-anchors.html#stretching-with-two-anchors">Stretching with two anchors</a><a href="ch/18-anchors.html#rules">Rules</a><a href="ch/18-anchors.html#changing-anchors-at-runtime">Changing anchors at runtime</a><a href="ch/18-anchors.html#the-truly-centered-clock">The truly centered clock</a><a href="ch/18-anchors.html#quickshell-window-anchors-are-different">Quickshell window "anchors" are different</a></div></li>
+<li><a class="tc" href="ch/19-layouts.html"><span>19</span>Positioners and Layouts</a><div class="subs"><a href="ch/19-layouts.html#positioners-row-column-grid-flow">Positioners: Row, Column, Grid, Flow</a><a href="ch/19-layouts.html#layouts-rowlayout-columnlayout-gridlayout">Layouts: RowLayout, ColumnLayout, GridLayout</a><a href="ch/19-layouts.html#positioners-or-layouts">Positioners or layouts?</a><a href="ch/19-layouts.html#a-full-bar-layout">A full bar layout</a></div></li>
+<li><a class="tc" href="ch/20-models-views.html"><span>20</span>Models, Repeater and ListView</a><div class="subs"><a href="ch/20-models-views.html#repeater">Repeater</a><a href="ch/20-models-views.html#listmodel-a-mutable-list-you-control">ListModel: a mutable list you control</a><a href="ch/20-models-views.html#listview-scrolling-lists">ListView: scrolling lists</a><a href="ch/20-models-views.html#gridview">GridView</a><a href="ch/20-models-views.html#flickable-and-scrollview">Flickable and ScrollView</a><a href="ch/20-models-views.html#never-store-state-in-delegates">Never store state in delegates</a></div></li>
+<li><a class="tc" href="ch/21-input.html"><span>21</span>Mouse, Touchpad and Keyboard Input</a><div class="subs"><a href="ch/21-input.html#mousearea-the-classic">MouseArea: the classic</a><a href="ch/21-input.html#pointer-handlers-the-modern-way">Pointer handlers: the modern way</a><a href="ch/21-input.html#drag-and-drop">Drag and drop</a><a href="ch/21-input.html#keyboard-input">Keyboard input</a><a href="ch/21-input.html#text-input">Text input</a><a href="ch/21-input.html#quickshell-rule-windows-need-keyboard-focus">Quickshell rule: windows need keyboard focus</a><a href="ch/21-input.html#closing-popups-by-clicking-outside">Closing popups by clicking outside</a></div></li>
+<li><a class="tc" href="ch/22-controls.html"><span>22</span>Qt Quick Controls and Restyling Them</a><div class="subs"><a href="ch/22-controls.html#choosing-a-style">Choosing a style</a><a href="ch/22-controls.html#the-anatomy-of-a-control">The anatomy of a control</a><a href="ch/22-controls.html#slider">Slider</a><a href="ch/22-controls.html#switch">Switch</a><a href="ch/22-controls.html#button">Button</a><a href="ch/22-controls.html#textfield">TextField</a><a href="ch/22-controls.html#other-controls-you-ll-use">Other controls you'll use</a><a href="ch/22-controls.html#make-your-own-styled-controls-once">Make your own styled controls once</a></div></li>
+<li><a class="tc" href="ch/23-animation-basics.html"><span>23</span>Animation I: Behaviors and Easing</a><div class="subs"><a href="ch/23-animation-basics.html#behavior-animate-every-change">Behavior: animate every change</a><a href="ch/23-animation-basics.html#animation-types">Animation types</a><a href="ch/23-animation-basics.html#duration-and-easing">Duration and easing</a><a href="ch/23-animation-basics.html#standalone-animations">Standalone animations</a><a href="ch/23-animation-basics.html#hover-effects-cookbook">Hover effects cookbook</a><a href="ch/23-animation-basics.html#performance">Performance</a></div></li>
+<li><a class="tc" href="ch/24-animation-advanced.html"><span>24</span>Animation II: States, Transitions, Sequences</a><div class="subs"><a href="ch/24-animation-advanced.html#grouped-animations">Grouped animations</a><a href="ch/24-animation-advanced.html#states">States</a><a href="ch/24-animation-advanced.html#transitions">Transitions</a><a href="ch/24-animation-advanced.html#behaviors-vs-states-and-transitions">Behaviors vs states and transitions</a><a href="ch/24-animation-advanced.html#animating-windows-opening-and-closing">Animating windows opening and closing</a><a href="ch/24-animation-advanced.html#view-transitions">View transitions</a><a href="ch/24-animation-advanced.html#animators-animations-off-the-main-thread">Animators: animations off the main thread</a><a href="ch/24-animation-advanced.html#choreography-a-complete-expanding-card">Choreography: a complete expanding card</a></div></li>
+<li><a class="tc" href="ch/25-effects.html"><span>25</span>Effects: Shadows, Blur, Masks, Tints</a><div class="subs"><a href="ch/25-effects.html#clippingrectangle-rounded-clipping-the-easy-way">ClippingRectangle: rounded clipping, the easy way</a><a href="ch/25-effects.html#multieffect">MultiEffect</a><a href="ch/25-effects.html#layer-render-an-item-offscreen">layer: render an item offscreen</a><a href="ch/25-effects.html#blur-behind-your-window-glass">Blur behind your window (glass)</a><a href="ch/25-effects.html#qt5compat-graphicaleffects-legacy">Qt5Compat.GraphicalEffects (legacy)</a><a href="ch/25-effects.html#custom-shaders-advanced">Custom shaders (advanced)</a></div></li>
+<li><a class="tc" href="ch/26-shapes-canvas.html"><span>26</span>Shapes and Canvas</a><div class="subs"><a href="ch/26-shapes-canvas.html#shape-basics">Shape basics</a><a href="ch/26-shapes-canvas.html#recipe-inverted-corner-screen-corners">Recipe: inverted corner (screen corners)</a><a href="ch/26-shapes-canvas.html#recipe-circular-progress-ring">Recipe: circular progress ring</a><a href="ch/26-shapes-canvas.html#recipe-a-panel-that-melts-into-the-bar">Recipe: a panel that melts into the bar</a><a href="ch/26-shapes-canvas.html#canvas-draw-with-javascript">Canvas: draw with JavaScript</a><a href="ch/26-shapes-canvas.html#shape-or-canvas">Shape or Canvas?</a></div></li>
+<li><a class="tc" href="ch/27-fonts-icons.html"><span>27</span>Fonts and Icons</a><div class="subs"><a href="ch/27-fonts-icons.html#using-installed-fonts">Using installed fonts</a><a href="ch/27-fonts-icons.html#bundling-a-font-with-your-config">Bundling a font with your config</a><a href="ch/27-fonts-icons.html#icon-fonts">Icon fonts</a><a href="ch/27-fonts-icons.html#app-icons-icon-themes">App icons: icon themes</a><a href="ch/27-fonts-icons.html#svg-icons-of-your-own">SVG icons of your own</a><a href="ch/27-fonts-icons.html#a-reusable-materialicon-component">A reusable MaterialIcon component</a></div></li>
+<li><a class="tc" href="ch/28-timers-time.html"><span>28</span>Timers, Dates and Time</a><div class="subs"><a href="ch/28-timers-time.html#timer">Timer</a><a href="ch/28-timers-time.html#systemclock-the-right-way-to-show-time">SystemClock: the right way to show time</a><a href="ch/28-timers-time.html#formatting-dates-and-times">Formatting dates and times</a><a href="ch/28-timers-time.html#date-arithmetic">Date arithmetic</a><a href="ch/28-timers-time.html#durations-1-23-45-3-min-left">Durations ("1:23:45", "3 min left")</a><a href="ch/28-timers-time.html#elapsedtimer-measuring-time">ElapsedTimer: measuring time</a><a href="ch/28-timers-time.html#a-countdown-pomodoro-widget">A countdown / pomodoro widget</a></div></li>
+</ol></div>
+<div class="toc-part" id="part-iv"><div class="tp-h"><span>Part IV</span>Quickshell Concepts</div><ol class="toc-ch">
+<li><a class="tc" href="ch/29-shell-structure.html"><span>29</span>Shell Structure, Pragmas and Reloading</a><div class="subs"><a href="ch/29-shell-structure.html#the-entry-point-shell-qml">The entry point: shell.qml</a><a href="ch/29-shell-structure.html#scope-grouping-non-visual-things">Scope: grouping non-visual things</a><a href="ch/29-shell-structure.html#shellroot-and-settings">ShellRoot and settings</a><a href="ch/29-shell-structure.html#pragmas">Pragmas</a><a href="ch/29-shell-structure.html#hot-reloading-in-detail">Hot reloading in detail</a><a href="ch/29-shell-structure.html#version-checks">Version checks</a><a href="ch/29-shell-structure.html#multiple-instances">Multiple instances</a></div></li>
+<li><a class="tc" href="ch/30-panel-windows.html"><span>30</span>Windows: PanelWindow, Layers and Exclusive Zones</a><div class="subs"><a href="ch/30-panel-windows.html#panelwindow-in-depth">PanelWindow in depth</a><a href="ch/30-panel-windows.html#floatingwindow">FloatingWindow</a><a href="ch/30-panel-windows.html#which-screen-screen">Which screen? screen</a><a href="ch/30-panel-windows.html#useful-qswindow-members">Useful QsWindow members</a><a href="ch/30-panel-windows.html#common-window-recipes">Common window recipes</a></div></li>
+<li><a class="tc" href="ch/31-multi-monitor.html"><span>31</span>Multiple Monitors with Variants</a><div class="subs"><a href="ch/31-multi-monitor.html#screens">Screens</a><a href="ch/31-multi-monitor.html#variants-one-copy-per-model-entry">Variants: one copy per model entry</a><a href="ch/31-multi-monitor.html#only-some-monitors">Only some monitors</a><a href="ch/31-multi-monitor.html#per-monitor-differences">Per-monitor differences</a><a href="ch/31-multi-monitor.html#per-screen-compositor-data">Per-screen compositor data</a><a href="ch/31-multi-monitor.html#a-single-window-on-the-focused-monitor">A single window on the focused monitor</a><a href="ch/31-multi-monitor.html#hidpi-notes">HiDPI notes</a></div></li>
+<li><a class="tc" href="ch/32-popups-menus.html"><span>32</span>Popups, Anchors and Menus</a><div class="subs"><a href="ch/32-popups-menus.html#why-not-just-a-bigger-rectangle">Why not just a bigger rectangle?</a><a href="ch/32-popups-menus.html#popupwindow-basics">PopupWindow basics</a><a href="ch/32-popups-menus.html#popupanchor-where-the-popup-goes">PopupAnchor: where the popup goes</a><a href="ch/32-popups-menus.html#hover-tooltips">Hover tooltips</a><a href="ch/32-popups-menus.html#menus">Menus</a><a href="ch/32-popups-menus.html#popups-from-deep-inside-components">Popups from deep inside components</a><a href="ch/32-popups-menus.html#popups-vs-separate-panels">Popups vs separate panels</a></div></li>
+<li><a class="tc" href="ch/33-singletons.html"><span>33</span>Singletons and Global State</a><div class="subs"><a href="ch/33-singletons.html#what-a-singleton-is">What a singleton is</a><a href="ch/33-singletons.html#writing-a-singleton">Writing a singleton</a><a href="ch/33-singletons.html#rules">Rules</a><a href="ch/33-singletons.html#singletons-are-lazy">Singletons are lazy</a><a href="ch/33-singletons.html#the-service-pattern">The service pattern</a><a href="ch/33-singletons.html#singletons-that-use-each-other">Singletons that use each other</a><a href="ch/33-singletons.html#what-belongs-in-a-singleton">What belongs in a singleton?</a><a href="ch/33-singletons.html#alternatives">Alternatives</a></div></li>
+<li><a class="tc" href="ch/34-lazy-loading.html"><span>34</span>Lazy Loading and Memory</a><div class="subs"><a href="ch/34-lazy-loading.html#lazyloader">LazyLoader</a><a href="ch/34-lazy-loading.html#loader-for-items-inside-a-window">Loader (for items inside a window)</a><a href="ch/34-lazy-loading.html#visible-vs-lazyloader-vs-loader">visible vs LazyLoader vs Loader</a><a href="ch/34-lazy-loading.html#keeping-state-across-loads">Keeping state across loads</a><a href="ch/34-lazy-loading.html#other-memory-tips">Other memory tips</a></div></li>
+<li><a class="tc" href="ch/35-masks.html"><span>35</span>Masks, Regions and Click-Through</a><div class="subs"><a href="ch/35-masks.html#mask-and-region">mask and Region</a><a href="ch/35-masks.html#region-properties">Region properties</a><a href="ch/35-masks.html#combining-regions">Combining regions</a><a href="ch/35-masks.html#the-fullscreen-shell-architecture-caelestia-style">The fullscreen-shell architecture (Caelestia style)</a><a href="ch/35-masks.html#hyprlandwindow-visiblemask">HyprlandWindow.visibleMask</a><a href="ch/35-masks.html#masks-and-blur">Masks and blur</a></div></li>
+<li><a class="tc" href="ch/36-models.html"><span>36</span>ObjectModel and ScriptModel</a><div class="subs"><a href="ch/36-models.html#objectmodel-live-lists-from-services">ObjectModel: live lists from services</a><a href="ch/36-models.html#the-problem-with-filtered-arrays">The problem with filtered arrays</a><a href="ch/36-models.html#scriptmodel-a-diffing-model">ScriptModel: a diffing model</a><a href="ch/36-models.html#when-to-use-which">When to use which</a><a href="ch/36-models.html#sorting-workspaces-and-other-gotchas">Sorting workspaces and other gotchas</a></div></li>
+<li><a class="tc" href="ch/37-processes.html"><span>37</span>Running Commands with Process</a><div class="subs"><a href="ch/37-processes.html#your-first-process">Your first Process</a><a href="ch/37-processes.html#shell-features-need-a-shell">Shell features need a shell</a><a href="ch/37-processes.html#re-running-polling">Re-running: polling</a><a href="ch/37-processes.html#streaming-output-splitparser">Streaming output: SplitParser</a><a href="ch/37-processes.html#handling-errors-and-exit-codes">Handling errors and exit codes</a><a href="ch/37-processes.html#sending-input-stdin">Sending input: stdin</a><a href="ch/37-processes.html#other-process-members">Other Process members</a><a href="ch/37-processes.html#fire-and-forget-quickshell-execdetached">Fire and forget: Quickshell.execDetached</a><a href="ch/37-processes.html#launching-apps-properly">Launching apps properly</a><a href="ch/37-processes.html#a-complete-example-cpu-and-ram-usage">A complete example: CPU and RAM usage</a></div></li>
+<li><a class="tc" href="ch/38-files-json.html"><span>38</span>Files, Watching and JSON Config</a><div class="subs"><a href="ch/38-files-json.html#reading-a-file">Reading a file</a><a href="ch/38-files-json.html#watching-for-changes">Watching for changes</a><a href="ch/38-files-json.html#paths">Paths</a><a href="ch/38-files-json.html#writing-a-file">Writing a file</a><a href="ch/38-files-json.html#loading-behavior">Loading behavior</a><a href="ch/38-files-json.html#jsonadapter-settings-as-properties">JsonAdapter: settings as properties</a><a href="ch/38-files-json.html#persisting-state-not-settings">Persisting state (not settings)</a><a href="ch/38-files-json.html#reading-other-formats">Reading other formats</a></div></li>
+<li><a class="tc" href="ch/39-ipc-keybinds.html"><span>39</span>IPC, Keybinds and Sockets</a><div class="subs"><a href="ch/39-ipc-keybinds.html#ipchandler">IpcHandler</a><a href="ch/39-ipc-keybinds.html#binding-keys-to-ipc">Binding keys to IPC</a><a href="ch/39-ipc-keybinds.html#globalshortcut-hyprland">GlobalShortcut (Hyprland)</a><a href="ch/39-ipc-keybinds.html#sockets">Sockets</a><a href="ch/39-ipc-keybinds.html#talking-the-other-way-shell-compositor">Talking the other way: shell → compositor</a></div></li>
+<li><a class="tc" href="ch/40-compositors.html"><span>40</span>Talking to Your Compositor</a><div class="subs"><a href="ch/40-compositors.html#hyprland">Hyprland</a><a href="ch/40-compositors.html#sway-and-i3">Sway and i3</a><a href="ch/40-compositors.html#niri-noctalia-qs-fork">niri (noctalia-qs fork)</a><a href="ch/40-compositors.html#dwl-noctalia-qs-fork">dwl (noctalia-qs fork)</a><a href="ch/40-compositors.html#compositor-independent-toplevelmanager">Compositor-independent: ToplevelManager</a><a href="ch/40-compositors.html#compositor-independent-workspaces-windowmanager">Compositor-independent workspaces: WindowManager</a><a href="ch/40-compositors.html#live-previews-screencopyview">Live previews: ScreencopyView</a><a href="ch/40-compositors.html#writing-compositor-portable-code">Writing compositor-portable code</a></div></li>
+<li><a class="tc" href="ch/41-services-tour.html"><span>41</span>A Tour of the System Services</a><div class="subs"><a href="ch/41-services-tour.html#audio-pipewire">Audio: Pipewire</a><a href="ch/41-services-tour.html#media-mpris">Media: Mpris</a><a href="ch/41-services-tour.html#battery-and-power-upower-and-powerprofiles">Battery and power: UPower and PowerProfiles</a><a href="ch/41-services-tour.html#system-tray-systemtray">System tray: SystemTray</a><a href="ch/41-services-tour.html#notifications-notificationserver">Notifications: NotificationServer</a><a href="ch/41-services-tour.html#bluetooth">Bluetooth</a><a href="ch/41-services-tour.html#network-networking">Network: Networking</a><a href="ch/41-services-tour.html#authentication-pamcontext">Authentication: PamContext</a><a href="ch/41-services-tour.html#polkit-agent-polkitagent">Polkit agent: PolkitAgent</a><a href="ch/41-services-tour.html#login-greeter-greetd">Login greeter: Greetd</a><a href="ch/41-services-tour.html#applications-desktopentries">Applications: DesktopEntries</a><a href="ch/41-services-tour.html#things-without-a-module">Things without a module</a></div></li>
+</ol></div>
+<div class="toc-part" id="part-v"><div class="tp-h"><span>Part V</span>Design and Architecture</div><ol class="toc-ch">
+<li><a class="tc" href="ch/42-project-layout.html"><span>42</span>Project Layout of a Real Shell</a><div class="subs"><a href="ch/42-project-layout.html#the-layout">The layout</a><a href="ch/42-project-layout.html#the-three-layers">The three layers</a><a href="ch/42-project-layout.html#shell-qml-the-table-of-contents">shell.qml: the table of contents</a><a href="ch/42-project-layout.html#naming-conventions">Naming conventions</a><a href="ch/42-project-layout.html#module-folder-structure">Module folder structure</a><a href="ch/42-project-layout.html#version-control-and-sharing">Version control and sharing</a><a href="ch/42-project-layout.html#growing-pains-to-avoid">Growing pains to avoid</a></div></li>
+<li><a class="tc" href="ch/43-design-system.html"><span>43</span>Building a Design System</a><div class="subs"><a href="ch/43-design-system.html#tokens-appearance-qml">Tokens: Appearance.qml</a><a href="ch/43-design-system.html#primitive-widgets">Primitive widgets</a><a href="ch/43-design-system.html#using-the-system">Using the system</a><a href="ch/43-design-system.html#design-tips-for-beginners">Design tips for beginners</a></div></li>
+<li><a class="tc" href="ch/44-theming.html"><span>44</span>Colors and Wallpaper Theming</a><div class="subs"><a href="ch/44-theming.html#the-pipeline">The pipeline</a><a href="ch/44-theming.html#material-3-color-roles-quick-primer">Material 3 color roles (quick primer)</a><a href="ch/44-theming.html#step-1-matugen">Step 1: matugen</a><a href="ch/44-theming.html#step-2-the-wallpaper-script">Step 2: the wallpaper script</a><a href="ch/44-theming.html#step-3-the-colors-singleton">Step 3: the Colors singleton</a><a href="ch/44-theming.html#static-themes-as-an-alternative">Static themes as an alternative</a><a href="ch/44-theming.html#light-and-dark-mode">Light and dark mode</a><a href="ch/44-theming.html#quick-colors-without-matugen-colorquantizer">Quick colors without matugen: ColorQuantizer</a><a href="ch/44-theming.html#theming-everything-else">Theming everything else</a></div></li>
+<li><a class="tc" href="ch/45-motion.html"><span>45</span>Motion Design</a><div class="subs"><a href="ch/45-motion.html#principles">Principles</a><a href="ch/45-motion.html#duration-and-curve-table">Duration and curve table</a><a href="ch/45-motion.html#techniques">Techniques</a><a href="ch/45-motion.html#respecting-performance">Respecting performance</a><a href="ch/45-motion.html#respecting-users">Respecting users</a></div></li>
+<li><a class="tc" href="ch/46-state.html"><span>46</span>Orchestrating Panels and State</a><div class="subs"><a href="ch/46-state.html#the-globalstates-singleton">The GlobalStates singleton</a><a href="ch/46-state.html#each-panel-follows-the-same-pattern">Each panel follows the same pattern</a><a href="ch/46-state.html#the-bar-reflects-state-too">The bar reflects state too</a><a href="ch/46-state.html#dimming-the-background-when-a-panel-is-open">Dimming the background when a panel is open</a><a href="ch/46-state.html#remembering-state-across-reloads-and-restarts">Remembering state across reloads and restarts</a><a href="ch/46-state.html#idle-lock-and-caffeine-together">Idle, lock and caffeine together</a></div></li>
+</ol></div>
+<div class="toc-part" id="part-vi"><div class="tp-h"><span>Part VI</span>Build-Along Projects</div><ol class="toc-ch">
+<li><a class="tc" href="ch/47-proj-bar.html"><span>47</span>Project: The Bar</a><div class="subs"><a href="ch/47-proj-bar.html#services-this-bar-needs">Services this bar needs</a><a href="ch/47-proj-bar.html#the-bar-entry-point">The bar entry point</a><a href="ch/47-proj-bar.html#active-window-title">Active window title</a><a href="ch/47-proj-bar.html#status-icons">Status icons</a><a href="ch/47-proj-bar.html#media-chip">Media chip</a><a href="ch/47-proj-bar.html#the-remaining-pieces">The remaining pieces</a><a href="ch/47-proj-bar.html#making-it-yours">Making it yours</a></div></li>
+<li><a class="tc" href="ch/48-proj-workspaces.html"><span>48</span>Project: Workspace Indicators (All Compositors)</a><div class="subs"><a href="ch/48-proj-workspaces.html#design">Design</a><a href="ch/48-proj-workspaces.html#a-compositor-neutral-service">A compositor-neutral service</a><a href="ch/48-proj-workspaces.html#the-widget">The widget</a><a href="ch/48-proj-workspaces.html#variant-numbered-workspaces">Variant: numbered workspaces</a><a href="ch/48-proj-workspaces.html#variant-app-icons-per-workspace-hyprland">Variant: app icons per workspace (Hyprland)</a><a href="ch/48-proj-workspaces.html#variant-niri-with-the-fork-module">Variant: niri with the fork module</a><a href="ch/48-proj-workspaces.html#special-workspaces-hyprland-scratchpads">Special workspaces (Hyprland scratchpads)</a></div></li>
+<li><a class="tc" href="ch/49-proj-clock-calendar.html"><span>49</span>Project: Clock and Calendar Popup</a><div class="subs"><a href="ch/49-proj-clock-calendar.html#time-service">Time service</a><a href="ch/49-proj-clock-calendar.html#the-clock-button">The clock button</a><a href="ch/49-proj-clock-calendar.html#the-calendar-grid">The calendar grid</a><a href="ch/49-proj-clock-calendar.html#optional-events-from-khal">Optional: events from khal</a><a href="ch/49-proj-clock-calendar.html#optional-world-clocks">Optional: world clocks</a></div></li>
+<li><a class="tc" href="ch/50-proj-tray.html"><span>50</span>Project: System Tray with Custom Menus</a><div class="subs"><a href="ch/50-proj-tray.html#the-tray-row">The tray row</a><a href="ch/50-proj-tray.html#one-tray-icon">One tray icon</a><a href="ch/50-proj-tray.html#option-a-native-looking-menu-one-line">Option A: native-looking menu (one line)</a><a href="ch/50-proj-tray.html#option-b-a-fully-custom-menu">Option B: a fully custom menu</a><a href="ch/50-proj-tray.html#how-it-works">How it works</a></div></li>
+<li><a class="tc" href="ch/51-proj-notifications.html"><span>51</span>Project: Notification Daemon</a><div class="subs"><a href="ch/51-proj-notifications.html#the-service">The service</a><a href="ch/51-proj-notifications.html#the-popup-window">The popup window</a><a href="ch/51-proj-notifications.html#the-notification-card">The notification card</a><a href="ch/51-proj-notifications.html#testing">Testing</a><a href="ch/51-proj-notifications.html#grouping-by-app-history">Grouping by app (history)</a><a href="ch/51-proj-notifications.html#sounds">Sounds</a></div></li>
+<li><a class="tc" href="ch/52-proj-launcher.html"><span>52</span>Project: App Launcher</a><div class="subs"><a href="ch/52-proj-launcher.html#fuzzy-matching">Fuzzy matching</a><a href="ch/52-proj-launcher.html#usage-frequency-service">Usage-frequency service</a><a href="ch/52-proj-launcher.html#the-launcher-window">The launcher window</a><a href="ch/52-proj-launcher.html#one-result-row-with-desktop-actions">One result row, with desktop actions</a><a href="ch/52-proj-launcher.html#keybinds">Keybinds</a><a href="ch/52-proj-launcher.html#ideas-for-more-modes">Ideas for more modes</a></div></li>
+<li><a class="tc" href="ch/53-proj-osd.html"><span>53</span>Project: Volume and Brightness OSD</a><div class="subs"><a href="ch/53-proj-osd.html#brightness-service">Brightness service</a><a href="ch/53-proj-osd.html#the-osd">The OSD</a><a href="ch/53-proj-osd.html#media-keys">Media keys</a><a href="ch/53-proj-osd.html#variants">Variants</a></div></li>
+<li><a class="tc" href="ch/54-proj-media.html"><span>54</span>Project: Media Player</a><div class="subs"><a href="ch/54-proj-media.html#the-popup">The popup</a><a href="ch/54-proj-media.html#a-visualizer-with-cava">A visualizer with cava</a></div></li>
+<li><a class="tc" href="ch/55-proj-control-center.html"><span>55</span>Project: Control Center</a><div class="subs"><a href="ch/55-proj-control-center.html#structure">Structure</a><a href="ch/55-proj-control-center.html#the-window">The window</a><a href="ch/55-proj-control-center.html#header">Header</a><a href="ch/55-proj-control-center.html#quick-toggle-tile">Quick toggle tile</a><a href="ch/55-proj-control-center.html#slider-row">Slider row</a><a href="ch/55-proj-control-center.html#wi-fi-page-networking-module">Wi-Fi page (Networking module)</a><a href="ch/55-proj-control-center.html#bluetooth-page">Bluetooth page</a><a href="ch/55-proj-control-center.html#notification-history">Notification history</a><a href="ch/55-proj-control-center.html#audio-output-picker-extra">Audio output picker (extra)</a></div></li>
+<li><a class="tc" href="ch/56-proj-session.html"><span>56</span>Project: Power Menu</a><div class="subs"><a href="ch/56-proj-session.html#logout-per-compositor">Logout per compositor</a><a href="ch/56-proj-session.html#blur-behind">Blur behind</a></div></li>
+<li><a class="tc" href="ch/57-proj-lock.html"><span>57</span>Project: Lock Screen</a><div class="subs"><a href="ch/57-proj-lock.html#how-session-lock-works">How session lock works</a><a href="ch/57-proj-lock.html#the-lock-controller">The lock controller</a><a href="ch/57-proj-lock.html#the-per-screen-surface">The per-screen surface</a><a href="ch/57-proj-lock.html#fingerprint-fprintd">Fingerprint (fprintd)</a><a href="ch/57-proj-lock.html#locking-idle-lid-sleep">Locking: idle, lid, sleep</a></div></li>
+<li><a class="tc" href="ch/58-proj-overview.html"><span>58</span>Project: Workspace Overview</a><div class="subs"><a href="ch/58-proj-overview.html#how-it-works">How it works</a><a href="ch/58-proj-overview.html#performance">Performance</a><a href="ch/58-proj-overview.html#keybind">Keybind</a></div></li>
+<li><a class="tc" href="ch/59-proj-dock.html"><span>59</span>Project: Dock</a><div class="subs"><a href="ch/59-proj-dock.html#pinned-apps-in-config">Pinned apps in config</a><a href="ch/59-proj-dock.html#the-dock">The dock</a><a href="ch/59-proj-dock.html#right-click-menu">Right-click menu</a><a href="ch/59-proj-dock.html#matching-windows-to-apps">Matching windows to apps</a><a href="ch/59-proj-dock.html#minimize-animations">Minimize animations</a></div></li>
+<li><a class="tc" href="ch/60-proj-wallpaper.html"><span>60</span>Project: Wallpaper and Theme Switcher</a><div class="subs"><a href="ch/60-proj-wallpaper.html#wallpaper-service">Wallpaper service</a><a href="ch/60-proj-wallpaper.html#the-background-layer-with-crossfade">The background layer with crossfade</a><a href="ch/60-proj-wallpaper.html#the-picker">The picker</a><a href="ch/60-proj-wallpaper.html#thumbnail-cache-large-folders">Thumbnail cache (large folders)</a><a href="ch/60-proj-wallpaper.html#video-and-animated-wallpapers">Video and animated wallpapers</a></div></li>
+<li><a class="tc" href="ch/61-proj-clipboard.html"><span>61</span>Project: Clipboard Manager</a><div class="subs"><a href="ch/61-proj-clipboard.html#setup">Setup</a><a href="ch/61-proj-clipboard.html#the-service">The service</a><a href="ch/61-proj-clipboard.html#image-previews">Image previews</a><a href="ch/61-proj-clipboard.html#the-window">The window</a></div></li>
+<li><a class="tc" href="ch/62-proj-desktop.html"><span>62</span>Project: Desktop Widgets and Screen Corners</a><div class="subs"><a href="ch/62-proj-desktop.html#rounded-screen-corners">Rounded screen corners</a><a href="ch/62-proj-desktop.html#a-desktop-widget-base-with-dragging-and-saved-position">A desktop widget base with dragging and saved position</a><a href="ch/62-proj-desktop.html#desktop-clock">Desktop clock</a><a href="ch/62-proj-desktop.html#system-monitor-widget">System monitor widget</a><a href="ch/62-proj-desktop.html#weather-card">Weather card</a></div></li>
+<li><a class="tc" href="ch/63-proj-polkit.html"><span>63</span>Project: Polkit Authentication Agent</a><div class="subs"><a href="ch/63-proj-polkit.html#how-a-polkit-request-flows">How a polkit request flows</a><a href="ch/63-proj-polkit.html#the-agent-and-dialog">The agent and dialog</a><a href="ch/63-proj-polkit.html#test-it">Test it</a></div></li>
+<li><a class="tc" href="ch/64-proj-greeter.html"><span>64</span>Project: Login Greeter</a><div class="subs"><a href="ch/64-proj-greeter.html#how-greetd-works">How greetd works</a><a href="ch/64-proj-greeter.html#install">Install</a><a href="ch/64-proj-greeter.html#the-greeter-config">The greeter config</a><a href="ch/64-proj-greeter.html#notes">Notes</a></div></li>
+<li><a class="tc" href="ch/65-proj-drawers.html"><span>65</span>Project: Edge Drawers (Caelestia Style)</a><div class="subs"><a href="ch/65-proj-drawers.html#architecture">Architecture</a><a href="ch/65-proj-drawers.html#the-exclusion-window">The exclusion window</a><a href="ch/65-proj-drawers.html#a-drawer-a-size-that-animates">A drawer = a size that animates</a><a href="ch/65-proj-drawers.html#the-connecting-background-shape">The connecting background shape</a><a href="ch/65-proj-drawers.html#the-drawers-window">The drawers window</a><a href="ch/65-proj-drawers.html#making-content-components">Making content components</a><a href="ch/65-proj-drawers.html#why-this-architecture-is-powerful">Why this architecture is powerful</a></div></li>
+</ol></div>
+<div class="toc-part" id="part-vii"><div class="tp-h"><span>Part VII</span>Mastery</div><ol class="toc-ch">
+<li><a class="tc" href="ch/66-debugging.html"><span>66</span>Debugging</a><div class="subs"><a href="ch/66-debugging.html#read-the-error-properly">Read the error properly</a><a href="ch/66-debugging.html#logging">Logging</a><a href="ch/66-debugging.html#inspecting-live-state-from-outside">Inspecting live state from outside</a><a href="ch/66-debugging.html#visual-debugging">Visual debugging</a><a href="ch/66-debugging.html#symptom-fix-table">Symptom → fix table</a><a href="ch/66-debugging.html#bisecting-a-broken-config">Bisecting a broken config</a><a href="ch/66-debugging.html#crash-reports">Crash reports</a></div></li>
+<li><a class="tc" href="ch/67-performance.html"><span>67</span>Performance</a><div class="subs"><a href="ch/67-performance.html#measure-first">Measure first</a><a href="ch/67-performance.html#the-big-wins">The big wins</a><a href="ch/67-performance.html#memory-checklist">Memory checklist</a><a href="ch/67-performance.html#startup-time">Startup time</a><a href="ch/67-performance.html#a-performance-budget">A performance budget</a></div></li>
+<li><a class="tc" href="ch/68-reading-rices.html"><span>68</span>Reading Other People's Rices</a><div class="subs"><a href="ch/68-reading-rices.html#how-to-read-a-big-config">How to read a big config</a><a href="ch/68-reading-rices.html#end-4-dots-hyprland-illogical-impulse">end-4 / dots-hyprland (illogical-impulse)</a><a href="ch/68-reading-rices.html#caelestia-shell">Caelestia shell</a><a href="ch/68-reading-rices.html#noctalia-and-dankmaterialshell">Noctalia and DankMaterialShell</a><a href="ch/68-reading-rices.html#jakoolit-hyprland-dots">JaKooLit Hyprland-Dots</a><a href="ch/68-reading-rices.html#upstream-examples-and-docs">Upstream examples and docs</a><a href="ch/68-reading-rices.html#etiquette">Etiquette</a></div></li>
+<li><a class="tc" href="ch/69-cookbook.html"><span>69</span>Cookbook: 60 Small Recipes</a><div class="subs"><a href="ch/69-cookbook.html#windows-and-layout">Windows and layout</a><a href="ch/69-cookbook.html#text-and-icons">Text and icons</a><a href="ch/69-cookbook.html#interaction">Interaction</a><a href="ch/69-cookbook.html#system">System</a><a href="ch/69-cookbook.html#data-and-state">Data and state</a><a href="ch/69-cookbook.html#visual-polish">Visual polish</a></div></li>
+<li><a class="tc" href="ch/70-beyond.html"><span>70</span>Beyond QML: Plugins and Helpers</a><div class="subs"><a href="ch/70-beyond.html#1-helper-programs-over-stdout-easiest">1. Helper programs over stdout (easiest)</a><a href="ch/70-beyond.html#2-sockets-and-d-bus">2. Sockets and D-Bus</a><a href="ch/70-beyond.html#3-c-qml-plugins-most-powerful">3. C++ QML plugins (most powerful)</a><a href="ch/70-beyond.html#4-contributing-to-quickshell">4. Contributing to Quickshell</a></div></li>
+<li><a class="tc" href="ch/71-sharing.html"><span>71</span>Sharing and Maintaining Your Rice</a><div class="subs"><a href="ch/71-sharing.html#run-it-reliably">Run it reliably</a><a href="ch/71-sharing.html#version-control">Version control</a><a href="ch/71-sharing.html#dotfiles-layout">Dotfiles layout</a><a href="ch/71-sharing.html#make-it-work-on-other-machines">Make it work on other machines</a><a href="ch/71-sharing.html#a-good-readme">A good README</a><a href="ch/71-sharing.html#licensing">Licensing</a><a href="ch/71-sharing.html#keeping-up-with-quickshell">Keeping up with Quickshell</a><a href="ch/71-sharing.html#final-words">Final words</a></div></li>
+</ol></div>
+<div class="toc-part" id="part-q"><div class="tp-h"><span>Part Q</span>Qt Quick Reference</div><ol class="toc-ch">
+<li><a class="tc" href="ch/q1-qt-visual.html"><span>q1</span>Qt Reference: Visual Types</a><div class="subs"><a href="ch/q1-qt-visual.html#item">Item</a><a href="ch/q1-qt-visual.html#rectangle">Rectangle</a><a href="ch/q1-qt-visual.html#text">Text</a><a href="ch/q1-qt-visual.html#image">Image</a><a href="ch/q1-qt-visual.html#textinput">TextInput</a><a href="ch/q1-qt-visual.html#canvas">Canvas</a><a href="ch/q1-qt-visual.html#other-visual-types">Other visual types</a></div></li>
+<li><a class="tc" href="ch/q2-qt-layout.html"><span>q2</span>Qt Reference: Positioning and Layouts</a><div class="subs"><a href="ch/q2-qt-layout.html#anchors-on-every-item">Anchors (on every Item)</a><a href="ch/q2-qt-layout.html#row">Row</a><a href="ch/q2-qt-layout.html#column">Column</a><a href="ch/q2-qt-layout.html#grid">Grid</a><a href="ch/q2-qt-layout.html#flow">Flow</a><a href="ch/q2-qt-layout.html#layouts-import-qtquick-layouts">Layouts (import QtQuick.Layouts)</a><a href="ch/q2-qt-layout.html#flickable">Flickable</a><a href="ch/q2-qt-layout.html#positioning-helpers">Positioning helpers</a></div></li>
+<li><a class="tc" href="ch/q3-qt-input.html"><span>q3</span>Qt Reference: Input Types</a><div class="subs"><a href="ch/q3-qt-input.html#mousearea">MouseArea</a><a href="ch/q3-qt-input.html#pointer-handlers">Pointer handlers</a><a href="ch/q3-qt-input.html#keyboard">Keyboard</a><a href="ch/q3-qt-input.html#drag-and-drop">Drag and drop</a><a href="ch/q3-qt-input.html#validators">Validators</a></div></li>
+<li><a class="tc" href="ch/q4-qt-views.html"><span>q4</span>Qt Reference: Models and Views</a><div class="subs"><a href="ch/q4-qt-views.html#repeater">Repeater</a><a href="ch/q4-qt-views.html#listview">ListView</a><a href="ch/q4-qt-views.html#gridview">GridView</a><a href="ch/q4-qt-views.html#pathview">PathView</a><a href="ch/q4-qt-views.html#listmodel-listelement">ListModel / ListElement</a><a href="ch/q4-qt-views.html#objectmodel-qtqml-models">ObjectModel (QtQml.Models)</a><a href="ch/q4-qt-views.html#delegatemodel-delegatemodelgroup">DelegateModel, DelegateModelGroup</a><a href="ch/q4-qt-views.html#instantiator">Instantiator</a><a href="ch/q4-qt-views.html#workerscript">WorkerScript</a></div></li>
+<li><a class="tc" href="ch/q5-qt-animation.html"><span>q5</span>Qt Reference: Animation Types</a><div class="subs"><a href="ch/q5-qt-animation.html#common-animation-properties-animation-base">Common animation properties (Animation base)</a><a href="ch/q5-qt-animation.html#propertyanimation-and-friends">PropertyAnimation and friends</a><a href="ch/q5-qt-animation.html#easing-types">Easing types</a><a href="ch/q5-qt-animation.html#physics-like">Physics-like</a><a href="ch/q5-qt-animation.html#grouping-and-helpers">Grouping and helpers</a><a href="ch/q5-qt-animation.html#behavior">Behavior</a><a href="ch/q5-qt-animation.html#animators-render-thread">Animators (render thread)</a><a href="ch/q5-qt-animation.html#states-and-transitions">States and transitions</a><a href="ch/q5-qt-animation.html#view-transitions-attached-viewtransition">View transitions (attached ViewTransition)</a><a href="ch/q5-qt-animation.html#timing">Timing</a></div></li>
+<li><a class="tc" href="ch/q6-qt-controls.html"><span>q6</span>Qt Reference: Controls</a><div class="subs"><a href="ch/q6-qt-controls.html#control-base-of-all-controls">Control (base of all controls)</a><a href="ch/q6-qt-controls.html#buttons-abstractbutton">Buttons (AbstractButton)</a><a href="ch/q6-qt-controls.html#value-controls">Value controls</a><a href="ch/q6-qt-controls.html#text-controls">Text controls</a><a href="ch/q6-qt-controls.html#containers-and-navigation">Containers and navigation</a><a href="ch/q6-qt-controls.html#popups-inside-a-window">Popups (inside a window)</a></div></li>
+<li><a class="tc" href="ch/q7-qt-effects.html"><span>q7</span>Qt Reference: Effects, Shapes, Canvas</a><div class="subs"><a href="ch/q7-qt-effects.html#multieffect-import-qtquick-effects">MultiEffect (import QtQuick.Effects)</a><a href="ch/q7-qt-effects.html#rectangularshadow-qt-6-9">RectangularShadow (Qt 6.9+)</a><a href="ch/q7-qt-effects.html#shape-import-qtquick-shapes">Shape (import QtQuick.Shapes)</a><a href="ch/q7-qt-effects.html#canvas-2d-context-getcontext-2d">Canvas 2D context (getContext("2d"))</a><a href="ch/q7-qt-effects.html#legacy-qt5compat-graphicaleffects">Legacy: Qt5Compat.GraphicalEffects</a><a href="ch/q7-qt-effects.html#quickshell-visual-helpers">Quickshell visual helpers</a></div></li>
+<li><a class="tc" href="ch/q8-qt-globals.html"><span>q8</span>Qt Reference: The Qt Object and JS Globals</a><div class="subs"><a href="ch/q8-qt-globals.html#the-qt-global-object">The Qt global object</a><a href="ch/q8-qt-globals.html#enums-on-qt">Enums on Qt</a><a href="ch/q8-qt-globals.html#console">console</a><a href="ch/q8-qt-globals.html#javascript-built-ins-available-in-qml">JavaScript built-ins available in QML</a><a href="ch/q8-qt-globals.html#qml-only-value-type-methods">QML-only value type methods</a></div></li>
+</ol></div>
+<div class="toc-part"><div class="tp-h"><span>API</span>Quickshell API Reference</div><div class="pills"><a class="pill" href="ref/mod-quickshell.html">Quickshell</a><a class="pill" href="ref/mod-quickshell-io.html">Quickshell.Io</a><a class="pill" href="ref/mod-quickshell-widgets.html">Quickshell.Widgets</a><a class="pill" href="ref/mod-quickshell-wayland.html">Quickshell.Wayland</a><a class="pill" href="ref/mod-quickshell-hyprland.html">Quickshell.Hyprland</a><a class="pill" href="ref/mod-quickshell-i3.html">Quickshell.I3</a><a class="pill" href="ref/mod-quickshell-niri.html">Quickshell.Niri</a><a class="pill" href="ref/mod-quickshell-dwl.html">Quickshell.DWL</a><a class="pill" href="ref/mod-quickshell-windowmanager.html">Quickshell.WindowManager</a><a class="pill" href="ref/mod-quickshell-services-pipewire.html">Quickshell.Services.Pipewire</a><a class="pill" href="ref/mod-quickshell-services-mpris.html">Quickshell.Services.Mpris</a><a class="pill" href="ref/mod-quickshell-services-upower.html">Quickshell.Services.UPower</a><a class="pill" href="ref/mod-quickshell-services-systemtray.html">Quickshell.Services.SystemTray</a><a class="pill" href="ref/mod-quickshell-services-notifications.html">Quickshell.Services.Notifications</a><a class="pill" href="ref/mod-quickshell-bluetooth.html">Quickshell.Bluetooth</a><a class="pill" href="ref/mod-quickshell-networking.html">Quickshell.Networking</a><a class="pill" href="ref/mod-quickshell-services-pam.html">Quickshell.Services.Pam</a><a class="pill" href="ref/mod-quickshell-services-polkit.html">Quickshell.Services.Polkit</a><a class="pill" href="ref/mod-quickshell-services-greetd.html">Quickshell.Services.Greetd</a><a class="pill" href="ref/mod-quickshell-dbusmenu.html">Quickshell.DBusMenu</a></div></div>
+<div class="toc-part"><div class="tp-h"><span>+</span>Appendices</div><div class="pills"><a class="pill" href="qt-index.html">Qt Type Index</a><a class="pill" href="glossary.html">Glossary</a><a class="pill" href="az.html">A–Z Index</a><a class="pill" href="cheatsheet.html">Cheat Sheet</a><a class="pill" href="print.html">Whole book for printing</a></div></div></article>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/book.js?v=e9cdfa8e"></script>
+</body></html>
