@@ -1,0 +1,1305 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>end-4 2: Appearance, Config and Common Widgets · The Quickshell Book</title>
+<meta name="description" content="end-4 2: Appearance, Config and Common Widgets">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details open><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch active" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-f">Part F: Rebuilding Famous Rices</a> › end-4 2: Appearance, Config and Common Widgets</div><article><div class="ch-head"><div class="ch-part">Part F · Rebuilding Famous Rices</div><h1><span class="ch-num">ii2</span>end-4 2: Appearance, Config and Common Widgets</h1></div><p>illogical-impulse is built on one big design file, <code>Appearance.qml</code>, plus a nested JSON config and a set of shared widgets. This chapter builds all three, and the two singletons that hold global state and load colours.</p>
+<div class="codewrap"><pre class="code" data-lang="text"><code>modules/common/           Appearance  Config  functions/ColorUtils
+modules/common/widgets/   StyledText  MaterialSymbol  RippleButton  RoundCorner  CircularProgress
+services/                 GlobalStates  MaterialThemeLoader  Hypr</code></pre></div>
+<h2 id="module-1-colour-helpers">Module 1: Colour helpers<a class="hlink" href="#module-1-colour-helpers">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/modules/common/functions/ColorUtils.qml</span><code>pragma Singleton
+import Quickshell
+import QtQuick
+
+// Colour helpers used to build the layered palette.
+Singleton {
+    // p = 1 gives c1, p = 0 gives c2
+    function mix(c1: color, c2: color, p: real): color {
+        return Qt.rgba(c1.r * p + c2.r * (1 - p), c1.g * p + c2.g * (1 - p), c1.b * p + c2.b * (1 - p), c1.a * p + c2.a * (1 - p));
+    }
+    // amount = 0 keeps the colour, 1 makes it fully transparent
+    function transparentize(c: color, amount: real): color {
+        return Qt.rgba(c.r, c.g, c.b, c.a * (1 - amount));
+    }
+    function applyAlpha(c: color, a: real): color {
+        return Qt.rgba(c.r, c.g, c.b, a);
+    }
+}</code></pre></div>
+<p>Two operations build every derived colour in ii:</p>
+<ul>
+<li><code>mix(a, b, p)</code> blends two colours: <code>mix(layer, text, 0.92)</code> is the layer with 8% of the text colour mixed in, which is a Material <strong>hover</strong> colour.</li>
+<li><code>transparentize(c, amount)</code> makes a colour more see-through.</li>
+</ul>
+<h2 id="module-2-appearance">Module 2: Appearance<a class="hlink" href="#module-2-appearance">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/modules/common/Appearance.qml</span><code>pragma Singleton
+import Quickshell
+import QtQuick
+import qs.modules.common
+import qs.modules.common.functions
+
+// end-4's design system: the raw Material 3 colours (m3colors), "layers" built on top of them
+// (colLayer0 = bar/panel background, colLayer1 = cards on it, colLayer2 = controls on cards...),
+// rounding, fonts, animation presets and sizes.
+Singleton {
+    id: root
+
+    property real transparency: Config.options.appearance.transparency ? 0.15 : 0
+    readonly property M3Colors m3colors: M3Colors {}
+
+    readonly property QtObject colors: QtObject {
+        readonly property color colSubtext: root.m3colors.m3outline
+        // layer 0: the bar and panel backgrounds
+        readonly property color colLayer0: ColorUtils.transparentize(root.m3colors.m3background, root.transparency)
+        readonly property color colOnLayer0: root.m3colors.m3onBackground
+        readonly property color colLayer0Border: ColorUtils.mix(root.m3colors.m3outlineVariant, root.m3colors.m3background, 0.4)
+        // layer 1: groups and cards sitting on layer 0
+        readonly property color colLayer1: root.m3colors.m3surfaceContainerLow
+        readonly property color colOnLayer1: root.m3colors.m3onSurfaceVariant
+        readonly property color colLayer1Hover: ColorUtils.mix(colLayer1, colOnLayer1, 0.92)
+        readonly property color colLayer1Active: ColorUtils.mix(colLayer1, colOnLayer1, 0.85)
+        // layer 2: buttons and fields inside cards
+        readonly property color colLayer2: root.m3colors.m3surfaceContainer
+        readonly property color colOnLayer2: root.m3colors.m3onSurface
+        readonly property color colLayer2Hover: ColorUtils.mix(colLayer2, colOnLayer2, 0.90)
+        readonly property color colLayer2Active: ColorUtils.mix(colLayer2, colOnLayer2, 0.80)
+        // accents
+        readonly property color colPrimary: root.m3colors.m3primary
+        readonly property color colOnPrimary: root.m3colors.m3onPrimary
+        readonly property color colPrimaryHover: ColorUtils.mix(colPrimary, colOnPrimary, 0.87)
+        readonly property color colSecondaryContainer: root.m3colors.m3secondaryContainer
+        readonly property color colOnSecondaryContainer: root.m3colors.m3onSecondaryContainer
+        readonly property color colSecondaryContainerHover: ColorUtils.mix(colSecondaryContainer, colOnSecondaryContainer, 0.90)
+        readonly property color colTooltip: root.m3colors.m3inverseSurface
+        readonly property color colOnTooltip: root.m3colors.m3inverseOnSurface
+        readonly property color colShadow: ColorUtils.transparentize(root.m3colors.m3shadow, 0.7)
+    }
+
+    readonly property QtObject rounding: QtObject {
+        readonly property int unsharpen: 2
+        readonly property int verysmall: 8
+        readonly property int small: 12
+        readonly property int normal: 17
+        readonly property int large: 23
+        readonly property int verylarge: 30
+        readonly property int full: 9999
+        readonly property int screenRounding: large
+    }
+
+    readonly property QtObject font: QtObject {
+        readonly property QtObject family: QtObject {
+            readonly property string main: "Rubik"
+            readonly property string title: "Gabarito"
+            readonly property string iconMaterial: "Material Symbols Rounded"
+            readonly property string monospace: "JetBrains Mono NF"
+        }
+        readonly property QtObject pixelSize: QtObject {
+            readonly property int smallest: 10
+            readonly property int smaller: 12
+            readonly property int small: 15
+            readonly property int normal: 16
+            readonly property int large: 17
+            readonly property int larger: 19
+            readonly property int huge: 22
+            readonly property int title: huge
+        }
+    }
+
+    // Animation presets. Each one also carries a ready-made NumberAnimation Component, so a
+    // Behavior can say: animation: Appearance.animation.elementMove.numberAnimation.createObject(this)
+    readonly property QtObject animationCurves: QtObject {
+        readonly property list&lt;real&gt; expressiveFastSpatial: [0.42, 1.67, 0.21, 0.90, 1, 1]
+        readonly property list&lt;real&gt; expressiveDefaultSpatial: [0.38, 1.21, 0.22, 1.00, 1, 1]
+        readonly property list&lt;real&gt; expressiveEffects: [0.34, 0.80, 0.34, 1.00, 1, 1]
+        readonly property list&lt;real&gt; emphasizedDecel: [0.05, 0.7, 0.1, 1, 1, 1]
+        readonly property list&lt;real&gt; emphasizedAccel: [0.3, 0, 0.8, 0.15, 1, 1]
+    }
+    readonly property QtObject animation: QtObject {
+        readonly property AnimPreset elementMove: AnimPreset { duration: 500; bezierCurve: root.animationCurves.expressiveDefaultSpatial }
+        readonly property AnimPreset elementMoveFast: AnimPreset { duration: 200; bezierCurve: root.animationCurves.expressiveEffects }
+        readonly property AnimPreset elementMoveSmall: AnimPreset { duration: 350; bezierCurve: root.animationCurves.expressiveFastSpatial }
+        readonly property AnimPreset elementMoveEnter: AnimPreset { duration: 400; bezierCurve: root.animationCurves.emphasizedDecel }
+        readonly property AnimPreset elementMoveExit: AnimPreset { duration: 200; bezierCurve: root.animationCurves.emphasizedAccel }
+    }
+
+    readonly property QtObject sizes: QtObject {
+        readonly property real barHeight: 40
+        readonly property real hyprlandGapsOut: 5
+        readonly property real elevationMargin: 10
+        readonly property real sidebarWidth: 460
+        readonly property real notificationPopupWidth: 410
+        readonly property real osdWidth: 200
+        readonly property real workspaceButton: 26
+    }
+
+    component AnimPreset: QtObject {
+        id: preset
+        property int duration: 300
+        property list&lt;real&gt; bezierCurve: [0.2, 0, 0, 1, 1, 1]
+        readonly property Component numberAnimation: Component {
+            NumberAnimation {
+                duration: preset.duration
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: preset.bezierCurve
+            }
+        }
+        readonly property Component colorAnimation: Component {
+            ColorAnimation {
+                duration: preset.duration
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: preset.bezierCurve
+            }
+        }
+    }
+
+    component M3Colors: QtObject {
+        property bool darkmode: true
+        property color m3background: "#141218"
+        property color m3onBackground: "#e6e0e9"
+        property color m3surface: "#141218"
+        property color m3surfaceContainerLow: "#1d1b20"
+        property color m3surfaceContainer: "#211f26"
+        property color m3surfaceContainerHigh: "#2b2930"
+        property color m3surfaceContainerHighest: "#36343b"
+        property color m3onSurface: "#e6e0e9"
+        property color m3onSurfaceVariant: "#cac4d0"
+        property color m3outline: "#938f99"
+        property color m3outlineVariant: "#49454f"
+        property color m3primary: "#d0bcff"
+        property color m3onPrimary: "#381e72"
+        property color m3primaryContainer: "#4f378b"
+        property color m3onPrimaryContainer: "#eaddff"
+        property color m3secondary: "#ccc2dc"
+        property color m3secondaryContainer: "#4a4458"
+        property color m3onSecondaryContainer: "#e8def8"
+        property color m3tertiary: "#efb8c8"
+        property color m3error: "#f2b8b5"
+        property color m3onError: "#601410"
+        property color m3errorContainer: "#8c1d18"
+        property color m3onErrorContainer: "#f9dedc"
+        property color m3inverseSurface: "#e6e0e9"
+        property color m3inverseOnSurface: "#322f35"
+        property color m3shadow: "#000000"
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–14</span><b>Raw colours and transparency</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property real transparency: Config.options.appearance.transparency ? 0.15 : 0
+readonly property M3Colors m3colors: M3Colors {}</code></pre></div><div class="seg-e"><p><code>m3colors</code> holds the Material palette exactly as the theme generator produces it (Module 6 loads it). <code>transparency</code> is applied to the panel background when enabled.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 16–21</span><b>Layer 0: panel backgrounds</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property QtObject colors: QtObject {
+    readonly property color colSubtext: root.m3colors.m3outline
+    // layer 0: the bar and panel backgrounds
+    readonly property color colLayer0: ColorUtils.transparentize(root.m3colors.m3background, root.transparency)
+    readonly property color colOnLayer0: root.m3colors.m3onBackground
+    readonly property color colLayer0Border: ColorUtils.mix(root.m3colors.m3outlineVariant, root.m3colors.m3background, 0.4)</code></pre></div><div class="seg-e"><p>The <strong>layers</strong> are ii's key idea. Instead of using Material roles directly everywhere, it defines what each depth of the UI uses. Layer 0 is the bar and the sidebars' background, plus its text colour and a subtle border.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 22–31</span><b>Layers 1 and 2</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// layer 1: groups and cards sitting on layer 0
+readonly property color colLayer1: root.m3colors.m3surfaceContainerLow
+readonly property color colOnLayer1: root.m3colors.m3onSurfaceVariant
+readonly property color colLayer1Hover: ColorUtils.mix(colLayer1, colOnLayer1, 0.92)
+readonly property color colLayer1Active: ColorUtils.mix(colLayer1, colOnLayer1, 0.85)
+// layer 2: buttons and fields inside cards
+readonly property color colLayer2: root.m3colors.m3surfaceContainer
+readonly property color colOnLayer2: root.m3colors.m3onSurface
+readonly property color colLayer2Hover: ColorUtils.mix(colLayer2, colOnLayer2, 0.90)
+readonly property color colLayer2Active: ColorUtils.mix(colLayer2, colOnLayer2, 0.80)</code></pre></div><div class="seg-e"><p>Layer 1 is a group or card sitting on layer 0 (the bar's rounded groups, the sidebar's cards); layer 2 is a control inside a card. Each layer has hover and active versions, made by mixing a little of its text colour into it. A widget never asks "which Material role?", only "which layer am I on?".</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 32–41</span><b>Accents</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// accents
+readonly property color colPrimary: root.m3colors.m3primary
+readonly property color colOnPrimary: root.m3colors.m3onPrimary
+readonly property color colPrimaryHover: ColorUtils.mix(colPrimary, colOnPrimary, 0.87)
+readonly property color colSecondaryContainer: root.m3colors.m3secondaryContainer
+readonly property color colOnSecondaryContainer: root.m3colors.m3onSecondaryContainer
+readonly property color colSecondaryContainerHover: ColorUtils.mix(colSecondaryContainer, colOnSecondaryContainer, 0.90)
+readonly property color colTooltip: root.m3colors.m3inverseSurface
+readonly property color colOnTooltip: root.m3colors.m3inverseOnSurface
+readonly property color colShadow: ColorUtils.transparentize(root.m3colors.m3shadow, 0.7)</code></pre></div><div class="seg-e"><p>Primary for active things, secondary container for selected/occupied things, inverse surface for tooltips.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 44–53</span><b>Rounding</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property QtObject rounding: QtObject {
+    readonly property int unsharpen: 2
+    readonly property int verysmall: 8
+    readonly property int small: 12
+    readonly property int normal: 17
+    readonly property int large: 23
+    readonly property int verylarge: 30
+    readonly property int full: 9999
+    readonly property int screenRounding: large
+}</code></pre></div><div class="seg-e"><p>ii's rounding scale, from <code>unsharpen</code> (2 px, barely rounded) to <code>full</code>. <code>screenRounding</code> is used for the bar's hanging corners and the screen corners.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 55–72</span><b>Fonts</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property QtObject font: QtObject {
+    readonly property QtObject family: QtObject {
+        readonly property string main: "Rubik"
+        readonly property string title: "Gabarito"
+        readonly property string iconMaterial: "Material Symbols Rounded"
+        readonly property string monospace: "JetBrains Mono NF"
+    }
+    readonly property QtObject pixelSize: QtObject {
+        readonly property int smallest: 10
+        readonly property int smaller: 12
+        readonly property int small: 15
+        readonly property int normal: 16
+        readonly property int large: 17
+        readonly property int larger: 19
+        readonly property int huge: 22
+        readonly property int title: huge
+    }
+}</code></pre></div><div class="seg-e"><p>Rubik for the UI, Gabarito for titles, Material Symbols for icons. Sizes are named, so changing <code>normal</code> adjusts every normal text.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 76–89</span><b>Animation presets</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property QtObject animationCurves: QtObject {
+    readonly property list&lt;real&gt; expressiveFastSpatial: [0.42, 1.67, 0.21, 0.90, 1, 1]
+    readonly property list&lt;real&gt; expressiveDefaultSpatial: [0.38, 1.21, 0.22, 1.00, 1, 1]
+    readonly property list&lt;real&gt; expressiveEffects: [0.34, 0.80, 0.34, 1.00, 1, 1]
+    readonly property list&lt;real&gt; emphasizedDecel: [0.05, 0.7, 0.1, 1, 1, 1]
+    readonly property list&lt;real&gt; emphasizedAccel: [0.3, 0, 0.8, 0.15, 1, 1]
+}
+readonly property QtObject animation: QtObject {
+    readonly property AnimPreset elementMove: AnimPreset { duration: 500; bezierCurve: root.animationCurves.expressiveDefaultSpatial }
+    readonly property AnimPreset elementMoveFast: AnimPreset { duration: 200; bezierCurve: root.animationCurves.expressiveEffects }
+    readonly property AnimPreset elementMoveSmall: AnimPreset { duration: 350; bezierCurve: root.animationCurves.expressiveFastSpatial }
+    readonly property AnimPreset elementMoveEnter: AnimPreset { duration: 400; bezierCurve: root.animationCurves.emphasizedDecel }
+    readonly property AnimPreset elementMoveExit: AnimPreset { duration: 200; bezierCurve: root.animationCurves.emphasizedAccel }
+}</code></pre></div><div class="seg-e"><p>The same Material 3 expressive curves as Caelestia. Each preset (<code>elementMove</code>, <code>elementMoveFast</code>…) bundles a duration and a curve.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 101–119</span><b>Ready-made animations</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>component AnimPreset: QtObject {
+    id: preset
+    property int duration: 300
+    property list&lt;real&gt; bezierCurve: [0.2, 0, 0, 1, 1, 1]
+    readonly property Component numberAnimation: Component {
+        NumberAnimation {
+            duration: preset.duration
+            easing.type: Easing.BezierSpline
+            easing.bezierCurve: preset.bezierCurve
+        }
+    }
+    readonly property Component colorAnimation: Component {
+        ColorAnimation {
+            duration: preset.duration
+            easing.type: Easing.BezierSpline
+            easing.bezierCurve: preset.bezierCurve
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>Each preset also carries a <code>Component</code> of a <code>NumberAnimation</code> (and a <code>ColorAnimation</code>) with its settings. A widget can then write <code>Behavior on x { animation: Appearance.animation.elementMove.numberAnimation.createObject(this) }</code>. <code>createObject(this)</code> creates a fresh animation owned by that widget. This is exactly how ii applies motion everywhere, and it means changing one preset changes every animation that uses it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 121–149</span><b>Default palette</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>component M3Colors: QtObject {
+    property bool darkmode: true
+    property color m3background: "#141218"
+    property color m3onBackground: "#e6e0e9"
+    property color m3surface: "#141218"
+    property color m3surfaceContainerLow: "#1d1b20"
+    property color m3surfaceContainer: "#211f26"
+    property color m3surfaceContainerHigh: "#2b2930"
+    property color m3surfaceContainerHighest: "#36343b"
+    property color m3onSurface: "#e6e0e9"
+    property color m3onSurfaceVariant: "#cac4d0"
+    property color m3outline: "#938f99"
+    property color m3outlineVariant: "#49454f"
+    property color m3primary: "#d0bcff"
+    property color m3onPrimary: "#381e72"
+    property color m3primaryContainer: "#4f378b"
+    property color m3onPrimaryContainer: "#eaddff"
+    property color m3secondary: "#ccc2dc"
+    property color m3secondaryContainer: "#4a4458"
+    property color m3onSecondaryContainer: "#e8def8"
+    property color m3tertiary: "#efb8c8"
+    property color m3error: "#f2b8b5"
+    property color m3onError: "#601410"
+    property color m3errorContainer: "#8c1d18"
+    property color m3onErrorContainer: "#f9dedc"
+    property color m3inverseSurface: "#e6e0e9"
+    property color m3inverseOnSurface: "#322f35"
+    property color m3shadow: "#000000"
+}</code></pre></div><div class="seg-e"><p>A dark Material palette until the theme file is loaded.</p></div></div></div>
+<div class="box note"><div class="bt">In the original</div><p><code>modules/common/Appearance.qml</code> (~420 lines) has more layers (0–4), "solved" overlay colours that look right even when transparent, an automatic transparency based on the wallpaper's vibrancy (using a <a class="api" href="../ref/ColorQuantizer.html"><code>ColorQuantizer</code></a>), terminal colours, and many more sizes. The structure is the same.</p></div>
+<h2 id="module-3-config">Module 3: Config<a class="hlink" href="#module-3-config">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/modules/common/Config.qml</span><code>pragma Singleton
+import Quickshell
+import Quickshell.Io
+import QtQuick
+
+// Options from ~/.config/impulse/config.json, as nested JSON objects. Use them as
+// Config.options.bar.bottom. Change one from a terminal:  qs -c impulse ipc call config set bar.bottom true
+Singleton {
+    id: root
+
+    readonly property string dir: (Quickshell.env("XDG_CONFIG_HOME") || Quickshell.env("HOME") + "/.config") + "/impulse"
+    property alias options: adapter
+    property bool ready: false
+
+    // "bar.autoHide.enable" -&gt; options.bar.autoHide.enable = value (strings like "true"/"3" are parsed)
+    function setNestedValue(key: string, value: var): void {
+        const keys = key.split(".");
+        let obj = root.options;
+        for (let i = 0; i &lt; keys.length - 1; i++)
+            obj = obj[keys[i]];
+        let v = value;
+        if (typeof v === "string" &amp;&amp; (v === "true" || v === "false" || !isNaN(Number(v))))
+            v = JSON.parse(v);
+        obj[keys[keys.length - 1]] = v;
+    }
+
+    FileView {
+        path: root.dir + "/config.json"
+        watchChanges: true
+        onFileChanged: reload()
+        onAdapterUpdated: writeAdapter()
+        onLoaded: root.ready = true
+        onLoadFailed: err =&gt; {
+            if (err === FileViewError.FileNotFound) {
+                Quickshell.execDetached(["mkdir", "-p", root.dir]);
+                writeAdapter();
+            }
+            root.ready = true;
+        }
+
+        JsonAdapter {
+            id: adapter
+
+            property JsonObject appearance: JsonObject {
+                property bool transparency: false
+            }
+            property JsonObject bar: JsonObject {
+                property bool bottom: false
+                property int cornerStyle: 0            // 0 = hug (rounded corners under the bar), 1 = float, 2 = plain
+                property JsonObject autoHide: JsonObject {
+                    property bool enable: false
+                }
+                property JsonObject workspaces: JsonObject {
+                    property int shown: 10
+                    property bool showAppIcons: true
+                }
+            }
+            property JsonObject background: JsonObject {
+                property string wallpaperPath: ""
+                property bool showClock: true
+            }
+            property JsonObject osd: JsonObject {
+                property int timeout: 1000
+            }
+            property JsonObject overview: JsonObject {
+                property int rows: 2
+                property int columns: 5
+                property real scale: 0.18
+            }
+            property JsonObject apps: JsonObject {
+                property string terminal: "kitty"
+            }
+        }
+    }
+
+    IpcHandler {
+        target: "config"
+        function set(key: string, value: string): void { root.setNestedValue(key, value) }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 11–13</span><b>Folder, options and ready</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property string dir: (Quickshell.env("XDG_CONFIG_HOME") || Quickshell.env("HOME") + "/.config") + "/impulse"
+property alias options: adapter
+property bool ready: false</code></pre></div><div class="seg-e"><p><code>options</code> is the whole config as nested objects: <code>Config.options.bar.autoHide.enable</code>. <code>ready</code> becomes true once the file has been read (or created), so panels can wait for real settings instead of flashing with defaults.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–25</span><b>Setting a nested key</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// "bar.autoHide.enable" -&gt; options.bar.autoHide.enable = value (strings like "true"/"3" are parsed)
+function setNestedValue(key: string, value: var): void {
+    const keys = key.split(".");
+    let obj = root.options;
+    for (let i = 0; i &lt; keys.length - 1; i++)
+        obj = obj[keys[i]];
+    let v = value;
+    if (typeof v === "string" &amp;&amp; (v === "true" || v === "false" || !isNaN(Number(v))))
+        v = JSON.parse(v);
+    obj[keys[keys.length - 1]] = v;
+}</code></pre></div><div class="seg-e"><p><code>setNestedValue("bar.cornerStyle", "1")</code> walks the dots to the right object and assigns. Text like <code>"true"</code> or <code>"3"</code> is turned into a real boolean or number, which matters when the value comes from a terminal.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 27–39</span><b>The file</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FileView {
+    path: root.dir + "/config.json"
+    watchChanges: true
+    onFileChanged: reload()
+    onAdapterUpdated: writeAdapter()
+    onLoaded: root.ready = true
+    onLoadFailed: err =&gt; {
+        if (err === FileViewError.FileNotFound) {
+            Quickshell.execDetached(["mkdir", "-p", root.dir]);
+            writeAdapter();
+        }
+        root.ready = true;
+    }</code></pre></div><div class="seg-e"><p>Same pattern as Caelestia's config: watch and reload on change, save on adapter updates, create on first run, and mark <code>ready</code> in every case.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 41–73</span><b>The options</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>JsonAdapter {
+    id: adapter
+
+    property JsonObject appearance: JsonObject {
+        property bool transparency: false
+    }
+    property JsonObject bar: JsonObject {
+        property bool bottom: false
+        property int cornerStyle: 0            // 0 = hug (rounded corners under the bar), 1 = float, 2 = plain
+        property JsonObject autoHide: JsonObject {
+            property bool enable: false
+        }
+        property JsonObject workspaces: JsonObject {
+            property int shown: 10
+            property bool showAppIcons: true
+        }
+    }
+    property JsonObject background: JsonObject {
+        property string wallpaperPath: ""
+        property bool showClock: true
+    }
+    property JsonObject osd: JsonObject {
+        property int timeout: 1000
+    }
+    property JsonObject overview: JsonObject {
+        property int rows: 2
+        property int columns: 5
+        property real scale: 0.18
+    }
+    property JsonObject apps: JsonObject {
+        property string terminal: "kitty"
+    }
+}</code></pre></div><div class="seg-e"><p><code>bar.cornerStyle</code> picks the bar style (0 = hug the screen with hanging corners, 1 = floating, 2 = plain). <code>overview.rows</code>/<code>columns</code>/<code>scale</code> shape the overview grid.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 76–79</span><b>Changing options from the terminal</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>IpcHandler {
+    target: "config"
+    function set(key: string, value: string): void { root.setNestedValue(key, value) }
+}</code></pre></div><div class="seg-e"><p><code>qs -c impulse ipc call config set bar.bottom true</code> moves the bar to the bottom, live.</p></div></div></div>
+<h2 id="module-4-global-state">Module 4: Global state<a class="hlink" href="#module-4-global-state">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/services/GlobalStates.qml</span><code>pragma Singleton
+import Quickshell
+import Quickshell.Hyprland
+import QtQuick
+
+// Which panels are open, shared by the whole shell. Holding Super shows workspace numbers.
+Singleton {
+    id: root
+
+    property bool barOpen: true
+    property bool sidebarLeftOpen: false
+    property bool sidebarRightOpen: false
+    property bool overviewOpen: false
+    property bool sessionOpen: false
+    property bool osdVolumeOpen: false
+    property bool osdBrightnessOpen: false
+    property bool screenLocked: false
+    property bool superDown: false
+
+    GlobalShortcut {
+        appid: "impulse"
+        name: "workspaceNumber"
+        description: "Hold to show workspace numbers"
+        onPressed: root.superDown = true
+        onReleased: root.superDown = false
+    }
+}</code></pre></div>
+<p>One boolean per panel. Panels read their flag (<code>visible: GlobalStates.sidebarRightOpen</code>) and buttons, keybinds and IPC write it. The <code>GlobalShortcut</code> sets <code>superDown</code> while Super is held; the workspace indicator uses it to show numbers instead of icons.</p>
+<div class="box note"><div class="bt">In the original</div><p><code>GlobalStates.qml</code> sits in the config's root folder and has more flags (OSK, overlay, region selector, screen translator…). Its <code>onSidebarRightOpenChanged</code> marks notifications as read; the rebuild does that in the sidebar itself.</p></div>
+<h2 id="module-5-hyprland-commands">Module 5: Hyprland commands<a class="hlink" href="#module-5-hyprland-commands">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/services/Hypr.qml</span><code>pragma Singleton
+import Quickshell
+import Quickshell.Hyprland
+import QtQuick
+
+// Hyprland commands that work with both config styles. Newer Hyprland can be configured in Lua,
+// and then dispatchers use Lua syntax (hl.dsp.focus({ workspace = 3 })) instead of "workspace 3".
+// Hyprland.usingLua says which one is active (undefined on older Quickshell = classic).
+Singleton {
+    readonly property bool lua: Hyprland.usingLua ?? false
+
+    function workspace(id: var): void {
+        Hyprland.dispatch(lua ? `hl.dsp.focus({ workspace = "${id}" })` : `workspace ${id}`);
+    }
+    // relative move: +1 / -1 across existing workspaces
+    function workspaceRelative(delta: int): void {
+        workspace(delta &gt; 0 ? "r+1" : "r-1");
+    }
+    function focusWindow(address: string): void {
+        Hyprland.dispatch(lua ? `hl.dsp.focus({ window = "address:${address}" })` : `focuswindow address:${address}`);
+    }
+    function moveWindowToWorkspace(address: string, id: int): void {
+        Hyprland.dispatch(lua ? `hl.dsp.window.move({ workspace = ${id}, follow = false, window = "address:${address}" })`
+                              : `movetoworkspacesilent ${id},address:${address}`);
+    }
+}</code></pre></div>
+<p>The same helper as in the Caelestia rebuild. ii's real code writes the Lua form directly (<code>hl.dsp.focus({workspace = …})</code>) because its own Hyprland config is Lua; the helper keeps the rebuild working with both styles.</p>
+<h2 id="module-6-loading-the-theme">Module 6: Loading the theme<a class="hlink" href="#module-6-loading-the-theme">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/services/MaterialThemeLoader.qml</span><code>pragma Singleton
+import Quickshell
+import Quickshell.Io
+import QtQuick
+import qs.modules.common
+
+// Loads colors.json (generated by matugen from the wallpaper) into Appearance.m3colors.
+// matugen writes snake_case keys ("on_primary"); they become "m3onPrimary".
+Singleton {
+    id: root
+
+    readonly property string path: (Quickshell.env("XDG_STATE_HOME") || Quickshell.env("HOME") + "/.local/state") + "/impulse/colors.json"
+
+    function applyColors(text: string): void {
+        const json = JSON.parse(text);
+        for (const key in json) {
+            const m3Key = "m3" + key.replace(/_([a-z])/g, g =&gt; g[1].toUpperCase());
+            if (Appearance.m3colors.hasOwnProperty(m3Key))
+                Appearance.m3colors[m3Key] = json[key];
+        }
+        Appearance.m3colors.darkmode = Appearance.m3colors.m3background.hslLightness &lt; 0.5;
+    }
+
+    function reapply(): void {
+        file.reload();
+    }
+
+    FileView {
+        id: file
+        path: root.path
+        watchChanges: true
+        printErrors: false
+        onFileChanged: reload()
+        onLoaded: root.applyColors(text())
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">line 12</span><b>Where colours come from</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property string path: (Quickshell.env("XDG_STATE_HOME") || Quickshell.env("HOME") + "/.local/state") + "/impulse/colors.json"</code></pre></div><div class="seg-e"><p>matugen writes <code>~/.local/state/impulse/colors.json</code> from the template in <code>extras/</code> (the original's file is <code>~/.local/state/quickshell/user/generated/colors.json</code>, written by its <code>switchwall.sh</code> script).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–22</span><b>snake_case to m3camelCase</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function applyColors(text: string): void {
+    const json = JSON.parse(text);
+    for (const key in json) {
+        const m3Key = "m3" + key.replace(/_([a-z])/g, g =&gt; g[1].toUpperCase());
+        if (Appearance.m3colors.hasOwnProperty(m3Key))
+            Appearance.m3colors[m3Key] = json[key];
+    }
+    Appearance.m3colors.darkmode = Appearance.m3colors.m3background.hslLightness &lt; 0.5;
+}</code></pre></div><div class="seg-e"><p>The file has keys like <code>on_primary_container</code>. A regex turns <code>_x</code> into <code>X</code> (<code>onPrimaryContainer</code>) and the <code>m3</code> prefix is added, matching the property names in <code>Appearance.m3colors</code>. Unknown keys are skipped. <code>darkmode</code> is worked out from the background's lightness.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 24–26</span><b>Reapply</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function reapply(): void {
+    file.reload();
+}</code></pre></div><div class="seg-e"><p>Singletons load lazily, so <code>shell.qml</code> calls <code>reapply()</code> at startup to read the file immediately.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 28–35</span><b>Watching</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FileView {
+    id: file
+    path: root.path
+    watchChanges: true
+    printErrors: false
+    onFileChanged: reload()
+    onLoaded: root.applyColors(text())
+}</code></pre></div><div class="seg-e"><p>Every time matugen rewrites the file, the colours update everywhere.</p></div></div></div>
+<h2 id="module-7-common-widgets">Module 7: Common widgets<a class="hlink" href="#module-7-common-widgets">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/modules/common/widgets/StyledText.qml</span><code>import QtQuick
+import qs.modules.common
+
+Text {
+    color: Appearance.colors.colOnLayer1
+    font.family: Appearance.font.family.main
+    font.pixelSize: Appearance.font.pixelSize.small
+    renderType: Text.NativeRendering
+    verticalAlignment: Text.AlignVCenter
+}</code></pre></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/modules/common/widgets/MaterialSymbol.qml</span><code>import QtQuick
+import qs.modules.common
+
+// A Material Symbols icon. `iconSize` sets the size, `fill` animates outlined -&gt; filled.
+StyledText {
+    property real iconSize: Appearance.font.pixelSize.normal
+    property real fill: 0
+
+    font.family: Appearance.font.family.iconMaterial
+    font.pixelSize: iconSize
+    font.variableAxes: ({ "FILL": fill })
+
+    Behavior on fill {
+        animation: Appearance.animation.elementMoveFast.numberAnimation.createObject(this)
+    }
+}</code></pre></div>
+<p><code>MaterialSymbol</code> animates its <code>fill</code> with the <code>elementMoveFast</code> preset, using the <code>createObject(this)</code> pattern from Module 2.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/modules/common/widgets/RippleButton.qml</span><code>import QtQuick
+import QtQuick.Controls
+import qs.modules.common
+
+// end-4's universal button: a rounded background that changes on hover/press and a ripple
+// that grows from the click point. `toggled` switches to the primary colour.
+Button {
+    id: root
+
+    property bool toggled: false
+    property real buttonRadius: Appearance.rounding.small
+    property color colBackground: "transparent"
+    property color colBackgroundHover: Appearance.colors.colLayer1Hover
+    property color colBackgroundToggled: Appearance.colors.colPrimary
+    property color colBackgroundToggledHover: Appearance.colors.colPrimaryHover
+    property color colRipple: Appearance.colors.colLayer1Active
+
+    hoverEnabled: true
+    padding: 0
+
+    background: Rectangle {
+        id: bg
+        radius: root.buttonRadius
+        clip: true
+        color: root.toggled ? (root.hovered ? root.colBackgroundToggledHover : root.colBackgroundToggled)
+                            : (root.hovered ? root.colBackgroundHover : root.colBackground)
+
+        Behavior on color {
+            animation: Appearance.animation.elementMoveFast.colorAnimation.createObject(this)
+        }
+
+        Rectangle {
+            id: ripple
+            property real cx: 0
+            property real cy: 0
+            x: cx - width / 2
+            y: cy - height / 2
+            width: 0
+            height: width
+            radius: width / 2
+            opacity: 0
+            color: root.colRipple
+        }
+    }
+
+    onPressed: {
+        ripple.cx = pressX;
+        ripple.cy = pressY;
+        rippleAnim.restart();
+    }
+
+    ParallelAnimation {
+        id: rippleAnim
+        NumberAnimation { target: ripple; property: "width"; from: 0; to: Math.hypot(root.width, root.height) * 2; duration: 500; easing.type: Easing.OutCubic }
+        SequentialAnimation {
+            NumberAnimation { target: ripple; property: "opacity"; to: 0.6; duration: 60 }
+            NumberAnimation { target: ripple; property: "opacity"; to: 0; duration: 500 }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–16</span><b>Configurable colours</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool toggled: false
+property real buttonRadius: Appearance.rounding.small
+property color colBackground: "transparent"
+property color colBackgroundHover: Appearance.colors.colLayer1Hover
+property color colBackgroundToggled: Appearance.colors.colPrimary
+property color colBackgroundToggledHover: Appearance.colors.colPrimaryHover
+property color colRipple: Appearance.colors.colLayer1Active</code></pre></div><div class="seg-e"><p>Every colour has a default from the layers but can be overridden per button: <code>colBackground</code> for a group button, <code>toggled</code> colours for active toggles.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 21–30</span><b>The background</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>background: Rectangle {
+    id: bg
+    radius: root.buttonRadius
+    clip: true
+    color: root.toggled ? (root.hovered ? root.colBackgroundToggledHover : root.colBackgroundToggled)
+                        : (root.hovered ? root.colBackgroundHover : root.colBackground)
+
+    Behavior on color {
+        animation: Appearance.animation.elementMoveFast.colorAnimation.createObject(this)
+    }</code></pre></div><div class="seg-e"><p>A rounded rectangle whose colour depends on toggled/hovered. <code>clip: true</code> keeps the ripple inside.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 32–43</span><b>The ripple circle</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: ripple
+    property real cx: 0
+    property real cy: 0
+    x: cx - width / 2
+    y: cy - height / 2
+    width: 0
+    height: width
+    radius: width / 2
+    opacity: 0
+    color: root.colRipple
+}</code></pre></div><div class="seg-e"><p>A circle centred on the press point, starting at width 0 and invisible.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 46–50</span><b>Starting the ripple</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>onPressed: {
+    ripple.cx = pressX;
+    ripple.cy = pressY;
+    rippleAnim.restart();
+}</code></pre></div><div class="seg-e"><p><code>pressX</code>/<code>pressY</code> (from <code>Button</code>) give the press position inside the button.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 52–59</span><b>Spreading and fading</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ParallelAnimation {
+    id: rippleAnim
+    NumberAnimation { target: ripple; property: "width"; from: 0; to: Math.hypot(root.width, root.height) * 2; duration: 500; easing.type: Easing.OutCubic }
+    SequentialAnimation {
+        NumberAnimation { target: ripple; property: "opacity"; to: 0.6; duration: 60 }
+        NumberAnimation { target: ripple; property: "opacity"; to: 0; duration: 500 }
+    }
+}</code></pre></div><div class="seg-e"><p>The circle grows to twice the button's diagonal while it flashes in and fades out: the Material ripple.</p></div></div></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/modules/common/widgets/RoundCorner.qml</span><code>import QtQuick
+import QtQuick.Shapes
+
+// One concave corner: a square minus a quarter circle. Used under the bar and at screen corners
+// so flat surfaces look like they melt into the screen edge.
+Shape {
+    id: root
+
+    enum CornerEnum { TopLeft, TopRight, BottomLeft, BottomRight }
+    property int corner: RoundCorner.CornerEnum.TopLeft
+    property real size: 25
+    property color color: "black"
+
+    width: size
+    height: size
+    preferredRendererType: Shape.CurveRenderer
+    // draw the top-left version, then mirror it for the others
+    transform: Scale {
+        origin.x: root.size / 2
+        origin.y: root.size / 2
+        xScale: root.corner === RoundCorner.CornerEnum.TopRight || root.corner === RoundCorner.CornerEnum.BottomRight ? -1 : 1
+        yScale: root.corner === RoundCorner.CornerEnum.BottomLeft || root.corner === RoundCorner.CornerEnum.BottomRight ? -1 : 1
+    }
+
+    ShapePath {
+        fillColor: root.color
+        strokeWidth: -1
+        startX: 0
+        startY: 0
+        PathLine { x: root.size; y: 0 }
+        PathArc { x: 0; y: root.size; radiusX: root.size; radiusY: root.size; direction: PathArc.Counterclockwise }
+        PathLine { x: 0; y: 0 }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 9–12</span><b>Which corner</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>enum CornerEnum { TopLeft, TopRight, BottomLeft, BottomRight }
+property int corner: RoundCorner.CornerEnum.TopLeft
+property real size: 25
+property color color: "black"</code></pre></div><div class="seg-e"><p>An <code>enum</code> for the four corners and a size.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–23</span><b>One drawing, four corners</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>width: size
+height: size
+preferredRendererType: Shape.CurveRenderer
+// draw the top-left version, then mirror it for the others
+transform: Scale {
+    origin.x: root.size / 2
+    origin.y: root.size / 2
+    xScale: root.corner === RoundCorner.CornerEnum.TopRight || root.corner === RoundCorner.CornerEnum.BottomRight ? -1 : 1
+    yScale: root.corner === RoundCorner.CornerEnum.BottomLeft || root.corner === RoundCorner.CornerEnum.BottomRight ? -1 : 1
+}</code></pre></div><div class="seg-e"><p>The shape is drawn once as a top-left corner. A <code>Scale</code> transform with <code>-1</code> flips it horizontally for right corners and vertically for bottom corners, around the shape's centre.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 25–33</span><b>The concave shape</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ShapePath {
+    fillColor: root.color
+    strokeWidth: -1
+    startX: 0
+    startY: 0
+    PathLine { x: root.size; y: 0 }
+    PathArc { x: 0; y: root.size; radiusX: root.size; radiusY: root.size; direction: PathArc.Counterclockwise }
+    PathLine { x: 0; y: 0 }
+}</code></pre></div><div class="seg-e"><p>A square minus a quarter circle: from the top-left go right along the top, then arc counter-clockwise down to the left side. Filled with the bar's colour and placed under the bar, it makes the bar look like it melts into the screen.</p></div></div></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/modules/common/widgets/CircularProgress.qml</span><code>import QtQuick
+import QtQuick.Shapes
+import qs.modules.common
+
+// A small ring gauge, used by the bar's resource indicators.
+Item {
+    id: root
+
+    property real value: 0
+    property real size: 26
+    property real lineWidth: 2.5
+    property color colPrimary: Appearance.colors.colOnSecondaryContainer
+    property color colSecondary: Appearance.colors.colSecondaryContainer
+    default property alias content: inner.data
+
+    implicitWidth: size
+    implicitHeight: size
+
+    Shape {
+        anchors.fill: parent
+        preferredRendererType: Shape.CurveRenderer
+        ShapePath {
+            strokeColor: root.colSecondary; strokeWidth: root.lineWidth; fillColor: "transparent"
+            PathAngleArc { centerX: root.size / 2; centerY: root.size / 2; radiusX: root.size / 2 - root.lineWidth; radiusY: radiusX; sweepAngle: 360 }
+        }
+        ShapePath {
+            strokeColor: root.colPrimary; strokeWidth: root.lineWidth; fillColor: "transparent"; capStyle: ShapePath.RoundCap
+            PathAngleArc { centerX: root.size / 2; centerY: root.size / 2; radiusX: root.size / 2 - root.lineWidth; radiusY: radiusX; startAngle: -90; sweepAngle: 360 * Math.min(1, root.value) }
+        }
+    }
+    Item { id: inner; anchors.fill: parent }
+}</code></pre></div>
+<p>A small ring for the bar's resource indicators and media progress, with a slot for content in the middle (<code>default property alias</code>).</p>
+<h2 id="module-8-system-services">Module 8: System services<a class="hlink" href="#module-8-system-services">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/services/Audio.qml</span><code>pragma Singleton
+import Quickshell
+import Quickshell.Services.Pipewire
+import QtQuick
+
+Singleton {
+    id: root
+
+    readonly property PwNode sink: Pipewire.defaultAudioSink
+    readonly property PwNode source: Pipewire.defaultAudioSource
+    readonly property real volume: sink?.audio?.volume ?? 0
+    readonly property bool muted: sink?.audio?.muted ?? false
+    readonly property bool micMuted: source?.audio?.muted ?? false
+
+    function setVolume(v: real): void {
+        if (sink?.ready) sink.audio.volume = Math.max(0, Math.min(1, v));
+    }
+    function toggleMute(): void { if (sink?.ready) sink.audio.muted = !muted }
+    function toggleMicMute(): void { if (source?.ready) source.audio.muted = !micMuted }
+
+    PwObjectTracker { objects: [root.sink, root.source] }
+}</code></pre></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/services/Brightness.qml</span><code>pragma Singleton
+import Quickshell
+import Quickshell.Io
+import QtQuick
+
+Singleton {
+    id: root
+
+    property string device: ""
+    property real max: 1
+    property real current: 0
+    readonly property bool available: device !== ""
+    readonly property real value: max &gt; 0 ? current / max : 0
+
+    function set(v: real): void {
+        Quickshell.execDetached(["brightnessctl", "set", Math.round(Math.max(0.01, Math.min(1, v)) * 100) + "%"]);
+    }
+
+    Process {
+        running: true
+        command: ["sh", "-c", "ls /sys/class/backlight | head -n1"]
+        stdout: StdioCollector { onStreamFinished: root.device = text.trim() }
+    }
+    FileView {
+        path: root.available ? `/sys/class/backlight/${root.device}/max_brightness` : ""
+        onLoaded: root.max = parseInt(text())
+    }
+    FileView {
+        path: root.available ? `/sys/class/backlight/${root.device}/brightness` : ""
+        watchChanges: true
+        onFileChanged: reload()
+        onLoaded: root.current = parseInt(text())
+    }
+}</code></pre></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/services/MprisController.qml</span><code>pragma Singleton
+import Quickshell
+import Quickshell.Services.Mpris
+import QtQuick
+
+Singleton {
+    id: root
+    readonly property MprisPlayer activePlayer: Mpris.players.values.find(p =&gt; p.isPlaying) ?? Mpris.players.values[0] ?? null
+
+    Timer {
+        running: root.activePlayer?.isPlaying ?? false
+        interval: 1000
+        repeat: true
+        onTriggered: root.activePlayer.positionChanged()
+    }
+}</code></pre></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/services/ResourceUsage.qml</span><code>pragma Singleton
+import Quickshell
+import Quickshell.Io
+import QtQuick
+
+Singleton {
+    id: root
+
+    property real cpuUsage: 0
+    property real memoryUsedPercentage: 0
+    property real swapUsedPercentage: 0
+    property var last: null
+
+    Timer {
+        running: true
+        interval: 3000
+        repeat: true
+        triggeredOnStart: true
+        onTriggered: {
+            stat.reload(); mem.reload();
+            const f = stat.text().split("\n")[0].trim().split(/\s+/).slice(1).map(Number);
+            const idle = f[3] + f[4], total = f.reduce((a, b) =&gt; a + b, 0);
+            if (root.last) root.cpuUsage = 1 - (idle - root.last.idle) / Math.max(1, total - root.last.total);
+            root.last = { idle, total };
+            const t = mem.text();
+            const get = k =&gt; parseInt((t.match(new RegExp(k + ":\\s+(\\d+)")) ?? [0, 0])[1]);
+            root.memoryUsedPercentage = 1 - get("MemAvailable") / Math.max(1, get("MemTotal"));
+            root.swapUsedPercentage = get("SwapTotal") &gt; 0 ? 1 - get("SwapFree") / get("SwapTotal") : 0;
+        }
+    }
+    FileView { id: stat; path: "/proc/stat" }
+    FileView { id: mem; path: "/proc/meminfo" }
+}</code></pre></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/services/DateTime.qml</span><code>pragma Singleton
+import Quickshell
+import Quickshell.Io
+import QtQuick
+
+Singleton {
+    id: root
+    readonly property string time: Qt.formatDateTime(clock.date, "hh:mm")
+    readonly property string date: Qt.formatDateTime(clock.date, "dddd, dd/MM")
+    readonly property date now: clock.date
+    property string uptime: ""
+
+    SystemClock { id: clock; precision: SystemClock.Minutes }
+
+    Timer {
+        running: true; interval: 60000; repeat: true; triggeredOnStart: true
+        onTriggered: { up.reload(); const s = parseFloat(up.text()); root.uptime = (s &gt;= 86400 ? Math.floor(s / 86400) + "d, " : "") + Math.floor(s % 86400 / 3600) + "h, " + Math.floor(s % 3600 / 60) + "m" }
+    }
+    FileView { id: up; path: "/proc/uptime" }
+}</code></pre></div>
+<p>These mirror the Caelestia rebuild's services (<a class="xref" href="../ch/cae2-foundations.html">Caelestia 2: Tokens, Colours and Building Blocks</a>) with ii's names: <code>MprisController.activePlayer</code>, <code>ResourceUsage.cpuUsage</code> / <code>memoryUsedPercentage</code>, <code>DateTime.time</code> / <code>date</code> / <code>uptime</code>. ii's real services folder has about fifty of these, from <code>Battery</code> and <code>Network</code> to <code>Weather</code>, <code>Todo</code> and <code>Ai</code>; each is a good template for adding your own.</p>
+<h2 id="practice">Practice<a class="hlink" href="#practice">#</a></h2>
+<div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Warm-up</span><b>A layer 3</b></div><div class="ex-b"><p>Add <code>colLayer3</code> (from <code>m3surfaceContainerHigh</code>) with hover/active variants to Appearance, for controls inside layer-2 items.</p></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Snappier shell</b></div><div class="ex-b"><p>Make every "elementMove" animation 30% faster by changing one place.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><p><code>elementMove: AnimPreset { duration: 350; … }</code>. Every <code>Behavior</code> that uses <code>elementMove.numberAnimation</code> follows, because each one creates its animation from the preset.</p></div></details></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>Light mode</b></div><div class="ex-b"><p>matugen can generate light schemes (<code>matugen image file.jpg -m light</code>). Generate one and check that <code>Appearance.m3colors.darkmode</code> becomes false (log it in <code>MaterialThemeLoader.applyColors</code>).</p></div></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Challenge</span><b>Automatic transparency</b></div><div class="ex-b"><p>Like the original, compute the transparency from the wallpaper: use a <a class="api" href="../ref/ColorQuantizer.html"><code>ColorQuantizer</code></a> with <code>depth: 0</code> on the wallpaper, take the vibrancy <code>(saturation + lightness) / 2</code>, and map it to 0–0.2.</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/ii1-overview.html"><small>← Previous</small><span>end-4 1: What illogical-impulse Is and How It's Built</span></a><a class="pn-next" href="../ch/ii3-bar.html"><small>Next →</small><span>end-4 3: The Bar</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#module-1-colour-helpers">Module 1: Colour helpers</a><a class="l2" href="#module-2-appearance">Module 2: Appearance</a><a class="l2" href="#module-3-config">Module 3: Config</a><a class="l2" href="#module-4-global-state">Module 4: Global state</a><a class="l2" href="#module-5-hyprland-commands">Module 5: Hyprland commands</a><a class="l2" href="#module-6-loading-the-theme">Module 6: Loading the theme</a><a class="l2" href="#module-7-common-widgets">Module 7: Common widgets</a><a class="l2" href="#module-8-system-services">Module 8: System services</a><a class="l2" href="#practice">Practice</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

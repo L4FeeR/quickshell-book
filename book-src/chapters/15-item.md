@@ -135,7 +135,57 @@ Item {
 
 A [[PanelWindow]] isn't an Item itself. It's a window that **contains** an Item tree. Children you write inside it go into its `contentItem`, which fills the window. So `anchors.fill: parent` on a window's child means "fill the window".
 
-> [!TRY] Exercises
-> 1. Stack three overlapping circles (`radius: width/2`) and make the middle one come to the front when hovered (`z`).
-> 2. Make an item that fades to `opacity: 0.3` when `enabled` is false.
-> 3. Rotate a Material Symbols `refresh` icon continuously while a `property bool busy` is true (hint: `RotationAnimation on rotation { running: busy; loops: Animation.Infinite; from: 0; to: 360; duration: 1000 }`).
+## Practice
+
+::: exercise warm | Bring to front
+Stack three overlapping circles and make the one under the mouse come to the front (`z`).
+--- solution
+```qml
+Item {
+    width: 200; height: 100
+    Repeater {
+        model: ["#f38ba8", "#a6e3a1", "#89b4fa"]
+        Rectangle {
+            required property string modelData
+            required property int index
+            x: index * 50; width: 90; height: 90; radius: 45; color: modelData
+            z: hov.hovered ? 10 : index
+            HoverHandler { id: hov }
+        }
+    }
+}
+```
+:::
+
+::: exercise practice | Disabled look
+Make an item that fades to `opacity: 0.3` when `enabled` is false, with a click elsewhere toggling `enabled`.
+--- solution
+```qml
+Rectangle { id: box; width: 80; height: 40; color: "#cba6f7"; opacity: enabled ? 1 : 0.3
+            Behavior on opacity { NumberAnimation { duration: 150 } } }
+MouseArea { x: 100; width: 80; height: 40; onClicked: box.enabled = !box.enabled }
+```
+:::
+
+::: exercise practice | Spinner
+Rotate a Material Symbols `refresh` icon continuously while `property bool busy` is true.
+--- hint
+`RotationAnimation on rotation { running: busy; loops: Animation.Infinite; from: 0; to: 360; duration: 1000 }`
+--- solution
+```qml
+Text {
+    text: "refresh"; font.family: "Material Symbols Rounded"; font.pixelSize: 24; color: "white"
+    RotationAnimation on rotation { running: busy; loops: Animation.Infinite; from: 0; to: 360; duration: 1000 }
+}
+```
+:::
+
+::: exercise challenge | Mapping coordinates
+Put a small dot in a nested item and print its position relative to the window with `mapToItem(null, 0, 0)` when clicked.
+--- solution
+```qml
+Rectangle { x: 40; y: 30; width: 100; height: 60; color: "#313244"
+    Rectangle { id: dot; x: 20; y: 10; width: 8; height: 8; radius: 4; color: "red"
+        TapHandler { onTapped: console.log(dot.mapToItem(null, 0, 0)) } } }       // QPointF(60, 40)
+```
+:::

@@ -179,7 +179,23 @@ bindl  = , XF86AudioPrev,         exec, playerctl previous
 - **Media OSD:** show album art and title when the track changes (`Connections { target: Media.active; function onTrackChanged() {…} }`).
 - **Caps Lock / keyboard layout OSD:** Hyprland `activelayout` events.
 
-> [!TRY] Exercises
-> 1. Add a keyboard-layout OSD.
-> 2. Show which output device changed when `Pipewire.defaultAudioSink` changes (headphones plugged in).
-> 3. Scroll on the OSD to adjust the shown value (remove the empty mask first).
+## Practice
+
+::: exercise warm | Keyboard layout OSD
+Add a keyboard-layout OSD that shows a label instead of a bar.
+:::
+
+::: exercise practice | Device changed
+Show which output device changed when `Pipewire.defaultAudioSink` changes (headphones plugged in).
+--- solution
+```qml
+Connections { target: Pipewire
+    function onDefaultAudioSinkChanged() { osd.show("device", 0, "headphones", false, Pipewire.defaultAudioSink?.description ?? "") } }
+```
+:::
+
+::: exercise challenge | Scroll on the OSD
+Let the user scroll on the OSD to adjust the shown value.
+--- hint
+Remove the empty `mask` so the OSD can receive input, add a `WheelHandler`, and restart the hide timer on each scroll.
+:::

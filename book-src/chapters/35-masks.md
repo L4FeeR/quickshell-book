@@ -128,7 +128,38 @@ PanelWindow {
 
 With compositor blur (Hyprland `layerrule = blur`), blur applies to the whole layer surface, minus fully transparent pixels when `ignorealpha` is set. On fullscreen transparent windows, always use `ignorealpha`, otherwise the entire screen may get blurred.
 
-> [!TRY] Exercises
-> 1. Make a fullscreen overlay with a draggable card where only the card catches clicks (`DragHandler` + `mask: Region { item: card }`).
-> 2. Make the clickable region a circle with `shape: RegionShape.Ellipse`.
-> 3. Build a mask that's a bar region plus an animated drawer region, and confirm clicks pass through everywhere else.
+## Practice
+
+::: exercise warm | Click-through overlay
+Make a fullscreen transparent overlay where only a 200×100 card catches clicks.
+--- solution
+```qml
+PanelWindow { anchors { top: true; bottom: true; left: true; right: true }
+    color: "transparent"; exclusionMode: ExclusionMode.Ignore
+    mask: Region { item: card }
+    Rectangle { id: card; x: 100; y: 100; width: 200; height: 100; radius: 12; color: "#1e1e2e" } }
+```
+:::
+
+::: exercise practice | Draggable card
+Make the card draggable while the rest stays click-through.
+--- solution
+Add `DragHandler {}` inside the card. The mask follows the card because `Region { item: card }` tracks the item's position.
+:::
+
+::: exercise practice | Round region
+Make the clickable region a circle with `shape: RegionShape.Ellipse`.
+--- solution
+```qml
+mask: Region { item: card; shape: RegionShape.Ellipse }
+```
+:::
+
+::: exercise challenge | Bar + drawer
+Build a mask that is the bar **plus** an animated drawer below it, and confirm clicks pass through everywhere else.
+--- solution
+```qml
+mask: Region { item: bar
+    Region { item: drawer } }          // child regions are added (union) by default
+```
+:::

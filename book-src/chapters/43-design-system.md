@@ -286,7 +286,31 @@ No colors, no sizes, no easing curves in feature code: it's all tokens.
 6. **Consistent motion.** Same durations and curves everywhere, via `Anim`.
 7. **Steal from the greats**: study end-4's `modules/common/widgets/` and Caelestia's `components/` for ideas, then re-implement them in your own tokens.
 
-> [!TRY] Exercises
-> 1. Create `Appearance.qml` and the widgets above. Replace hard-coded values in your bar with tokens.
-> 2. Change `rounding.normal` from 14 to 4 and watch the whole shell go sharp.
-> 3. Add `widgets/Chip.qml` (icon + text pill) using only tokens.
+## Practice
+
+::: exercise warm | Tokens
+Create `Appearance.qml` with rounding, spacing and font tokens, and replace hard-coded values in your bar with them.
+:::
+
+::: exercise practice | Change one token
+Change `rounding.normal` from 14 to 4 and watch the whole shell go sharp.
+--- why
+This is the payoff of a design system: one number controls every corner. If something didn't change, it still has a hard-coded radius; find it and replace it with a token.
+:::
+
+::: exercise challenge | Token-only Chip
+Add `widgets/Chip.qml` (icon + text pill) that uses **only** tokens: no literal colors, sizes or durations.
+--- solution
+```qml
+import QtQuick
+import qs.services
+Rectangle {
+    property string icon; property string text
+    implicitWidth: row.implicitWidth + Appearance.spacing.normal * 2; implicitHeight: Appearance.sizes.chip
+    radius: Appearance.rounding.full; color: Colors.surfaceContainerHigh
+    Row { id: row; anchors.centerIn: parent; spacing: Appearance.spacing.small
+        Text { text: parent.parent.icon; font.family: Appearance.font.icons; color: Colors.primary }
+        Text { text: parent.parent.text; font.family: Appearance.font.sans; color: Colors.onSurface } } }
+```
+Adjust the token names to the ones in your `Appearance.qml`.
+:::

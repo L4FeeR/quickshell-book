@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Theming 3: The Theme Service · The Quickshell Book</title>
+<meta name="description" content="Theming 3: The Theme Service">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details open><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch active" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-t">Part T: Theming</a> › Theming 3: The Theme Service</div><article><div class="ch-head"><div class="ch-part">Part T · Theming</div><h1><span class="ch-num">th3</span>Theming 3: The Theme Service</h1></div><p>The <code>Theme</code> singleton is the heart of the switcher. It loads the theme files, turns roles into colours, measures contrast, switches themes, remembers your choice, follows a day/night schedule and answers commands from the terminal. Every widget in the shell talks to it, and only to it.</p>
+<p>This chapter walks through the whole file, every line, in order.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">theming/services/Theme.qml</span><code>pragma Singleton
+import Quickshell
+import Quickshell.Io
+import QtQuick
+import qs.services
+
+// The theme service. It loads every theme file, remembers your choice, and exposes the
+// current theme's colours as properties. Widgets only ever use Theme.colors.&lt;role&gt;.
+Singleton {
+    id: root
+
+    // ---- which theme is active ----
+    property var themes: ({})                     // id -&gt; theme object, filled by load()
+    property string previewId: ""                 // set while hovering a card in the picker
+    readonly property string chosenId: saved.autoSwitch ? scheduledId : saved.theme
+    readonly property string activeId: previewId !== "" ? previewId : chosenId
+    readonly property var theme: themes[activeId] ?? themes["catppuccin-mocha"] ?? fallback
+    readonly property bool dark: theme.variant !== "light"
+
+    // all themes, sorted by family, then name (for the picker)
+    readonly property var list: Object.values(themes).sort((a, b) =&gt; a.family.localeCompare(b.family) || a.name.localeCompare(b.name))
+
+    // ---- automatic day/night switching ----
+    readonly property bool isDay: clock.hours &gt;= saved.dayStart &amp;&amp; clock.hours &lt; saved.nightStart
+    readonly property string scheduledId: isDay ? saved.dayTheme : saved.nightTheme
+
+    // ---- the colours every widget uses ----
+    readonly property QtObject colors: QtObject {
+        readonly property color background: root.role("background")
+        readonly property color surface: root.role("surface")
+        readonly property color surfaceHigh: root.role("surfaceHigh")
+        readonly property color border: root.role("border")
+        readonly property color text: root.role("text")
+        readonly property color textMuted: root.role("textMuted")
+        readonly property color textFaint: root.role("textFaint")
+        readonly property color primary: root.role("primary")
+        readonly property color onPrimary: root.role("onPrimary")
+        readonly property color secondary: root.role("secondary")
+        readonly property color red: root.role("red")
+        readonly property color orange: root.role("orange")
+        readonly property color yellow: root.role("yellow")
+        readonly property color green: root.role("green")
+        readonly property color cyan: root.role("cyan")
+        readonly property color blue: root.role("blue")
+        readonly property color magenta: root.role("magenta")
+        // meanings built from the accents
+        readonly property color success: green
+        readonly property color warning: yellow
+        readonly property color error: red
+    }
+
+    // ---- looking up colours ----
+    // A role's value is a palette name ("mauve") or a literal colour ("#cba6f7").
+    function resolve(t: var, roleName: string): string {
+        const v = t?.roles?.[roleName] ?? "";
+        if (v.startsWith("#")) return v;
+        return t?.palette?.[v] ?? "#ff00ff";          // bright pink = a mistake in the theme file
+    }
+    function role(roleName: string): color {
+        return resolve(theme, roleName);
+    }
+
+    // ---- colour helpers ----
+    function alpha(c: color, a: real): color {
+        return Qt.rgba(c.r, c.g, c.b, a);
+    }
+    function mix(a: color, b: color, amount: real): color {      // amount 0 = a, 1 = b
+        return Qt.rgba(a.r + (b.r - a.r) * amount, a.g + (b.g - a.g) * amount, a.b + (b.b - a.b) * amount, 1);
+    }
+    // WCAG contrast ratio between two colours: 1 (none) .. 21 (black on white). 4.5+ is good for text.
+    function contrast(a: color, b: color): real {
+        const lum = c =&gt; {
+            const ch = x =&gt; x &lt;= 0.03928 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4);
+            return 0.2126 * ch(c.r) + 0.7152 * ch(c.g) + 0.0722 * ch(c.b);
+        };
+        const l1 = lum(a), l2 = lum(b);
+        return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+    }
+    // the more readable of the theme's text and background colours on top of `bg`
+    function readableOn(bg: color): color {
+        return contrast(colors.text, bg) &gt;= contrast(colors.background, bg) ? colors.text : colors.background;
+    }
+
+    // ---- switching ----
+    function set(id: string): void {
+        if (!themes[id]) return;
+        previewId = "";
+        saved.autoSwitch = false;
+        saved.theme = id;
+    }
+    function step(delta: int): void {
+        const ids = list.map(t =&gt; t.id);
+        set(ids[(ids.indexOf(chosenId) + delta + ids.length) % ids.length]);
+    }
+    // jump to the same family's light or dark version (e.g. Mocha &lt;-&gt; Latte)
+    function toggleVariant(): void {
+        const wanted = dark ? "light" : "dark";
+        const twin = list.find(t =&gt; t.family === theme.family &amp;&amp; t.variant === wanted);
+        if (twin) set(twin.id);
+    }
+
+    // ---- loading theme files ----
+    // Built-in themes live in &lt;config&gt;/themes, your own in ~/.config/theming/themes.
+    readonly property string userDir: (Quickshell.env("XDG_CONFIG_HOME") || Quickshell.env("HOME") + "/.config") + "/theming/themes"
+
+    function load(): void {
+        loader.running = true;
+    }
+
+    Component.onCompleted: load()
+
+    Process {
+        id: loader
+        // print every theme file, separated by a line with a single ASCII "record separator"
+        command: ["sh", "-c", 'for f in "$1"/*.json "$2"/*.json; do [ -f "$f" ] &amp;&amp; cat "$f" &amp;&amp; printf "\\n\\036\\n"; done',
+                  "sh", Quickshell.shellPath("themes"), root.userDir]
+        stdout: StdioCollector {
+            onStreamFinished: {
+                const found = {};
+                for (const chunk of text.split("\u001e")) {
+                    if (!chunk.trim()) continue;
+                    try {
+                        const t = JSON.parse(chunk);
+                        if (t.id &amp;&amp; t.palette &amp;&amp; t.roles) found[t.id] = t;
+                    } catch (e) {
+                        console.warn("Theme: skipping a file that isn't valid JSON");
+                    }
+                }
+                root.themes = found;               // user themes with the same id replace built-ins
+            }
+        }
+    }
+
+    // ---- remembering the choice ----
+    FileView {
+        path: Quickshell.statePath("theme.json")
+        printErrors: false
+        onAdapterUpdated: writeAdapter()
+        onLoadFailed: writeAdapter()
+
+        JsonAdapter {
+            id: saved
+            property string theme: "catppuccin-mocha"
+            property bool autoSwitch: false
+            property string dayTheme: "catppuccin-latte"
+            property string nightTheme: "catppuccin-mocha"
+            property int dayStart: 7
+            property int nightStart: 19
+        }
+    }
+    readonly property alias settings: saved
+
+    SystemClock {
+        id: clock
+        precision: SystemClock.Minutes
+    }
+
+    // ---- shell commands: qs -c theming ipc call theme &lt;function&gt; ----
+    IpcHandler {
+        target: "theme"
+        function set(id: string): void { root.set(id) }
+        function next(): void { root.step(1) }
+        function previous(): void { root.step(-1) }
+        function toggleVariant(): void { root.toggleVariant() }
+        function list(): string { return root.list.map(t =&gt; t.id).join("\n") }
+        function get(): string { return root.chosenId }
+        function reload(): void { root.load() }
+        function auto(on: bool): void { saved.autoSwitch = on }
+    }
+
+    // used before the theme files have loaded (Catppuccin Mocha)
+    readonly property var fallback: ({
+        id: "fallback", name: "Fallback", family: "Fallback", variant: "dark",
+        palette: {},
+        roles: { background: "#1e1e2e", surface: "#181825", surfaceHigh: "#313244", border: "#45475a", text: "#cdd6f4",
+                 textMuted: "#a6adc8", textFaint: "#6c7086", primary: "#cba6f7", onPrimary: "#1e1e2e", secondary: "#89b4fa",
+                 red: "#f38ba8", orange: "#fab387", yellow: "#f9e2af", green: "#a6e3a1", cyan: "#94e2d5", blue: "#89b4fa", magenta: "#f5c2e7" }
+    })
+}</code></pre></div>
+<h2 id="line-by-line">Line by line<a class="hlink" href="#line-by-line">#</a></h2>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">line 1</span><b>A singleton</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>pragma Singleton</code></pre></div><div class="seg-e"><p><code>pragma Singleton</code> makes exactly one <code>Theme</code> for the whole shell. Any file that writes <code>import qs.services</code> can use <code>Theme.colors.primary</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 2–5</span><b>Imports</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>import Quickshell
+import Quickshell.Io
+import QtQuick
+import qs.services</code></pre></div><div class="seg-e"><p><code>Quickshell</code> for <code>Singleton</code>, <code>SystemClock</code> and <code>Quickshell.shellPath</code>; <code>Quickshell.Io</code> for <code>Process</code>, <code>FileView</code>, <code>JsonAdapter</code> and <code>IpcHandler</code>; <code>QtQuick</code> for the basics. <code>qs.services</code> is the file's own folder: importing it explicitly keeps tools like qmllint happy about other singletons there.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 13</span><b>All loaded themes</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property var themes: ({})                     // id -&gt; theme object, filled by load()</code></pre></div><div class="seg-e"><p>An object from id to theme, like <code>{ "nord": {…}, "dracula": {…} }</code>. It starts empty and is filled by <code>load()</code> at the bottom. <code>var</code> because it's plain JavaScript data.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 14</span><b>The preview</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property string previewId: ""                 // set while hovering a card in the picker</code></pre></div><div class="seg-e"><p>While you hover a card in the picker, its id goes here and the whole shell shows that theme. It's never saved.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 15</span><b>The chosen theme</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property string chosenId: saved.autoSwitch ? scheduledId : saved.theme</code></pre></div><div class="seg-e"><p>What you picked, or, when automatic switching is on, the theme the schedule says (<code>scheduledId</code>, line 25). Because this is a binding, flipping <code>autoSwitch</code> immediately changes the chosen theme.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 16</span><b>The active theme</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property string activeId: previewId !== "" ? previewId : chosenId</code></pre></div><div class="seg-e"><p>The preview if there is one, otherwise the chosen theme. Everything visible follows <code>activeId</code>; saving and exporting follow <code>chosenId</code>. Keeping the two apart is what makes previews safe.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 17</span><b>The theme object</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var theme: themes[activeId] ?? themes["catppuccin-mocha"] ?? fallback</code></pre></div><div class="seg-e"><p>Look up the active id. If it doesn't exist (a typo, or the files haven't loaded yet), use Catppuccin Mocha, and if even that's missing, the built-in fallback at the end of the file. The <code>??</code> operator means "if the left side is null or undefined, use the right side".</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 18</span><b>Dark or light</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property bool dark: theme.variant !== "light"</code></pre></div><div class="seg-e"><p>A convenience: <code>true</code> unless the theme says <code>"variant": "light"</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 21</span><b>The sorted list</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var list: Object.values(themes).sort((a, b) =&gt; a.family.localeCompare(b.family) || a.name.localeCompare(b.name))</code></pre></div><div class="seg-e"><p>All themes as an array, sorted by family, then by name. <code>localeCompare</code> sorts text properly (accents included). The picker and next/previous use this order.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 24–25</span><b>Day or night</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property bool isDay: clock.hours &gt;= saved.dayStart &amp;&amp; clock.hours &lt; saved.nightStart
+readonly property string scheduledId: isDay ? saved.dayTheme : saved.nightTheme</code></pre></div><div class="seg-e"><p><code>isDay</code> is true between <code>dayStart</code> and <code>nightStart</code> (7:00 and 19:00 by default). <code>scheduledId</code> picks the day or night theme. <code>clock</code> is the <code>SystemClock</code> near the bottom; with minute precision, the binding re-checks every minute, so the switch happens by itself at 7:00 and 19:00.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 28–50</span><b>The colours</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property QtObject colors: QtObject {
+    readonly property color background: root.role("background")
+    readonly property color surface: root.role("surface")
+    readonly property color surfaceHigh: root.role("surfaceHigh")
+    readonly property color border: root.role("border")
+    readonly property color text: root.role("text")
+    readonly property color textMuted: root.role("textMuted")
+    readonly property color textFaint: root.role("textFaint")
+    readonly property color primary: root.role("primary")
+    readonly property color onPrimary: root.role("onPrimary")
+    readonly property color secondary: root.role("secondary")
+    readonly property color red: root.role("red")
+    readonly property color orange: root.role("orange")
+    readonly property color yellow: root.role("yellow")
+    readonly property color green: root.role("green")
+    readonly property color cyan: root.role("cyan")
+    readonly property color blue: root.role("blue")
+    readonly property color magenta: root.role("magenta")
+    // meanings built from the accents
+    readonly property color success: green
+    readonly property color warning: yellow
+    readonly property color error: red
+}</code></pre></div><div class="seg-e"><p>One property per role. Each calls <code>role("…")</code>, which reads the active theme. Because <code>role()</code> uses <code>theme</code>, which uses <code>activeId</code>, changing the theme re-evaluates all 17 bindings at once, and every widget bound to them updates. <code>success</code>, <code>warning</code> and <code>error</code> are aliases of green, yellow and red, so widgets can say what they <em>mean</em>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 54–58</span><b>Resolving a role</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function resolve(t: var, roleName: string): string {
+    const v = t?.roles?.[roleName] ?? "";
+    if (v.startsWith("#")) return v;
+    return t?.palette?.[v] ?? "#ff00ff";          // bright pink = a mistake in the theme file
+}</code></pre></div><div class="seg-e"><p>Take the role's value from the theme. If it starts with <code>#</code>, it's already a colour. Otherwise it's a palette name, so look it up in the palette. If anything is missing, return <code>#ff00ff</code> (bright pink) so a broken theme file is easy to spot. The <code>?.</code> operator means "stop and give <code>undefined</code> if the left side is null", so a half-written theme can't crash the shell.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 59–61</span><b>role()</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function role(roleName: string): color {
+    return resolve(theme, roleName);
+}</code></pre></div><div class="seg-e"><p><code>resolve</code> for the active theme. Declaring the return type <code>color</code> converts the hex string into a real colour.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 64–66</span><b>alpha()</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function alpha(c: color, a: real): color {
+    return Qt.rgba(c.r, c.g, c.b, a);
+}</code></pre></div><div class="seg-e"><p>The same colour with a different opacity: <code>Theme.alpha(Theme.colors.primary, 0.2)</code> for a soft tint.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 67–69</span><b>mix()</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function mix(a: color, b: color, amount: real): color {      // amount 0 = a, 1 = b
+    return Qt.rgba(a.r + (b.r - a.r) * amount, a.g + (b.g - a.g) * amount, a.b + (b.b - a.b) * amount, 1);
+}</code></pre></div><div class="seg-e"><p>Blends two colours: <code>mix(background, primary, 0.1)</code> is the background with 10% of the accent, handy for subtle hover colours that suit every theme.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 71–78</span><b>contrast()</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function contrast(a: color, b: color): real {
+    const lum = c =&gt; {
+        const ch = x =&gt; x &lt;= 0.03928 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4);
+        return 0.2126 * ch(c.r) + 0.7152 * ch(c.g) + 0.0722 * ch(c.b);
+    };
+    const l1 = lum(a), l2 = lum(b);
+    return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+}</code></pre></div><div class="seg-e"><p>The WCAG contrast ratio from <a class="xref" href="../ch/th1-colour-basics.html">Theming 1: Colours, Palettes and Roles</a>. <code>lum</code> computes a colour's <strong>relative luminance</strong>: each channel is converted from screen values to light intensity (the <code>ch</code> function), then weighted by how sensitive our eyes are to red, green and blue (green counts most). The ratio is (lighter + 0.05) / (darker + 0.05).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 80–82</span><b>readableOn()</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function readableOn(bg: color): color {
+    return contrast(colors.text, bg) &gt;= contrast(colors.background, bg) ? colors.text : colors.background;
+}</code></pre></div><div class="seg-e"><p>For a background you don't control (an album cover's colour, a tag colour), pick whichever of the theme's text or background colour is more readable on it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 85–90</span><b>set()</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function set(id: string): void {
+    if (!themes[id]) return;
+    previewId = "";
+    saved.autoSwitch = false;
+    saved.theme = id;
+}</code></pre></div><div class="seg-e"><p>Choose a theme for good: ignore unknown ids, end any preview, turn off automatic switching (you've made a manual choice), and store the id in the saved settings, which writes it to disk.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 91–94</span><b>step()</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function step(delta: int): void {
+    const ids = list.map(t =&gt; t.id);
+    set(ids[(ids.indexOf(chosenId) + delta + ids.length) % ids.length]);
+}</code></pre></div><div class="seg-e"><p>Next (+1) or previous (−1) theme in the sorted list, wrapping around at both ends. Adding <code>ids.length</code> before <code>%</code> keeps the index positive when going back from the first theme.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 96–100</span><b>toggleVariant()</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function toggleVariant(): void {
+    const wanted = dark ? "light" : "dark";
+    const twin = list.find(t =&gt; t.family === theme.family &amp;&amp; t.variant === wanted);
+    if (twin) set(twin.id);
+}</code></pre></div><div class="seg-e"><p>Find a theme with the same family and the opposite variant (Mocha → Latte, Tokyo Night → Tokyo Night Day) and switch to it. Families without a twin (Nord, Dracula) simply don't change.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 104</span><b>Your themes folder</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property string userDir: (Quickshell.env("XDG_CONFIG_HOME") || Quickshell.env("HOME") + "/.config") + "/theming/themes"</code></pre></div><div class="seg-e"><p><code>~/.config/theming/themes</code> (respecting <code>XDG_CONFIG_HOME</code> if set). Themes you write or download go here, outside the kit's own folder, so updating the kit never deletes them.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 106–110</span><b>Loading</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function load(): void {
+    loader.running = true;
+}
+
+Component.onCompleted: load()</code></pre></div><div class="seg-e"><p><code>load()</code> starts the loader process; it runs once at startup and again when you call <code>reload</code> over IPC.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 112–116</span><b>Reading every file at once</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Process {
+    id: loader
+    // print every theme file, separated by a line with a single ASCII "record separator"
+    command: ["sh", "-c", 'for f in "$1"/*.json "$2"/*.json; do [ -f "$f" ] &amp;&amp; cat "$f" &amp;&amp; printf "\\n\\036\\n"; done',
+              "sh", Quickshell.shellPath("themes"), root.userDir]</code></pre></div><div class="seg-e"><p>One small shell loop prints every <code>.json</code> file from the built-in folder (<code>Quickshell.shellPath("themes")</code> is <code>themes/</code> inside this config) and then from your folder. After each file it prints a line containing the ASCII "record separator" character (code 30, written <code>\036</code>), which never appears in JSON, so the output can be split back into files. Both folder paths are passed as arguments (<code>$1</code>, <code>$2</code>), never pasted into the command, so unusual folder names can't break anything.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 117–131</span><b>Parsing</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>stdout: StdioCollector {
+    onStreamFinished: {
+        const found = {};
+        for (const chunk of text.split("\u001e")) {
+            if (!chunk.trim()) continue;
+            try {
+                const t = JSON.parse(chunk);
+                if (t.id &amp;&amp; t.palette &amp;&amp; t.roles) found[t.id] = t;
+            } catch (e) {
+                console.warn("Theme: skipping a file that isn't valid JSON");
+            }
+        }
+        root.themes = found;               // user themes with the same id replace built-ins
+    }
+}</code></pre></div><div class="seg-e"><p>Split the output on the separator, parse each piece, and keep it if it has an id, a palette and roles. A broken file is skipped with a warning instead of breaking the whole switcher. Your folder is read last, so a file of yours with a built-in's id replaces the built-in. Assigning <code>root.themes</code> once at the end updates the list and the picker in one step.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 135–150</span><b>Saving your choice</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FileView {
+    path: Quickshell.statePath("theme.json")
+    printErrors: false
+    onAdapterUpdated: writeAdapter()
+    onLoadFailed: writeAdapter()
+
+    JsonAdapter {
+        id: saved
+        property string theme: "catppuccin-mocha"
+        property bool autoSwitch: false
+        property string dayTheme: "catppuccin-latte"
+        property string nightTheme: "catppuccin-mocha"
+        property int dayStart: 7
+        property int nightStart: 19
+    }
+}</code></pre></div><div class="seg-e"><p>A <code>FileView</code> + <code>JsonAdapter</code> pair stores six settings in the shell's state folder (<code>Quickshell.statePath</code>, under <code>~/.local/state/quickshell/</code>): the theme, whether automatic switching is on, the day and night themes, and the two switch hours. <code>onAdapterUpdated: writeAdapter()</code> saves every change; <code>onLoadFailed: writeAdapter()</code> creates the file on the first run.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 151</span><b>Exposing the settings</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property alias settings: saved</code></pre></div><div class="seg-e"><p><code>Theme.settings.autoSwitch</code> and friends can be read and changed from widgets (the picker's schedule button does).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 153–156</span><b>The clock</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>SystemClock {
+    id: clock
+    precision: SystemClock.Minutes
+}</code></pre></div><div class="seg-e"><p>Used by <code>isDay</code>. Minute precision is plenty for a schedule.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 159–169</span><b>Terminal commands</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>IpcHandler {
+    target: "theme"
+    function set(id: string): void { root.set(id) }
+    function next(): void { root.step(1) }
+    function previous(): void { root.step(-1) }
+    function toggleVariant(): void { root.toggleVariant() }
+    function list(): string { return root.list.map(t =&gt; t.id).join("\n") }
+    function get(): string { return root.chosenId }
+    function reload(): void { root.load() }
+    function auto(on: bool): void { saved.autoSwitch = on }
+}</code></pre></div><div class="seg-e"><p>Each function becomes a command: <code>qs -c theming ipc call theme set nord</code>, <code>… theme next</code>, <code>… theme list</code> (prints every id), <code>… theme get</code>, <code>… theme reload</code> (after adding a file), <code>… theme auto true</code>. Scripts, keybinds and cron jobs can drive the theme this way.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 172–178</span><b>The fallback</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var fallback: ({
+    id: "fallback", name: "Fallback", family: "Fallback", variant: "dark",
+    palette: {},
+    roles: { background: "#1e1e2e", surface: "#181825", surfaceHigh: "#313244", border: "#45475a", text: "#cdd6f4",
+             textMuted: "#a6adc8", textFaint: "#6c7086", primary: "#cba6f7", onPrimary: "#1e1e2e", secondary: "#89b4fa",
+             red: "#f38ba8", orange: "#fab387", yellow: "#f9e2af", green: "#a6e3a1", cyan: "#94e2d5", blue: "#89b4fa", magenta: "#f5c2e7" }
+})</code></pre></div><div class="seg-e"><p>Catppuccin Mocha written directly as role colours, so the very first frame, before the files are read, already looks right.</p></div></div></div>
+<h2 id="trying-it-from-a-terminal">Trying it from a terminal<a class="hlink" href="#trying-it-from-a-terminal">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="sh"><code>qs -c theming ipc call theme list            # every theme id
+qs -c theming ipc call theme set tokyo-night
+qs -c theming ipc call theme toggleVariant   # Tokyo Night -&gt; Tokyo Night Day
+qs -c theming ipc call theme next
+qs -c theming ipc call theme auto true       # follow the day/night schedule</code></pre></div>
+<p>Change the schedule by editing <code>~/.local/state/quickshell/by-shell/&lt;id&gt;/theme.json</code> (or from the exercises below).</p>
+<div class="box note"><div class="bt">Compared to Caelestia and end-4</div><p>Caelestia's <code>Colours</code> service (<a class="xref" href="../ch/cae2-foundations.html">Caelestia 2: Tokens, Colours and Building Blocks</a>) and end-4's <code>MaterialThemeLoader</code> (<a class="xref" href="../ch/ii2-foundations.html">end-4 2: Appearance, Config and Common Widgets</a>) load a <strong>single generated scheme</strong> (from the wallpaper or a preset) into Material roles. This service keeps a <strong>library</strong> of named themes and switches between them; <a class="xref" href="../ch/th7-beyond-the-shell.html">Theming 7: Theming Your Whole Desktop</a> adds a wallpaper-generated theme to the same library.</p></div>
+<h2 id="practice">Practice<a class="hlink" href="#practice">#</a></h2>
+<div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Warm-up</span><b>A new IPC command</b></div><div class="ex-b"><p>Add <code>function random(): void</code> that picks a random theme.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><div class="codewrap"><pre class="code" data-lang="qml"><code>function random(): void { root.set(root.list[Math.floor(Math.random() * root.list.length)].id) }</code></pre></div></div></details></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Schedule from the terminal</b></div><div class="ex-b"><p>Add IPC functions <code>setDay(id: string)</code> and <code>setNight(id: string)</code> that change <code>saved.dayTheme</code> and <code>saved.nightTheme</code>.</p></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>A contrast warning</b></div><div class="ex-b"><p>Log a warning when a theme loads whose <code>text</code> has less than 4.5:1 contrast on its <code>background</code>.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>In the loader's handler, after parsing <code>t</code>, compute <code>root.contrast(root.resolve(t, "text"), root.resolve(t, "background"))</code>. (<code>contrast</code> takes colours; QML converts the hex strings when you pass them to a <code>color</code> parameter.)</p></div></details></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Challenge</span><b>Watch the folder</b></div><div class="ex-b"><p>Make new theme files appear without calling <code>reload</code>: run <code>inotifywait -m -e close_write,moved_to,delete ~/.config/theming/themes</code> as a long-running <code>Process</code> and call <code>load()</code> on each line it prints.</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/th2-theme-files.html"><small>← Previous</small><span>Theming 2: Theme Files and the 19 Built-in Themes</span></a><a class="pn-next" href="../ch/th4-themed-widgets.html"><small>Next →</small><span>Theming 4: Making Widgets Themeable</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#line-by-line">Line by line</a><a class="l2" href="#trying-it-from-a-terminal">Trying it from a terminal</a><a class="l2" href="#practice">Practice</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

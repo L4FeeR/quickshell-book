@@ -205,7 +205,45 @@ Set `renderTarget: Canvas.FramebufferObject` and `renderStrategy: Canvas.Coopera
 | Animating | animate properties, smooth | must repaint each frame |
 | Best for | static or animated geometry: corners, rings, outlines | data-driven drawings: graphs, visualizers |
 
-> [!TRY] Exercises
-> 1. Draw all four inverted screen corners in a 200×200 test item.
-> 2. Build a battery ring gauge with the percentage text in the middle.
-> 3. Make a Canvas CPU graph fed with random values, then (after [[ch:37-processes]]) with real `/proc/stat` data.
+## Practice
+
+::: exercise warm | One inverted corner
+Draw one inverted (concave) corner, 24×24, filled dark: a square minus a quarter circle.
+--- solution
+```qml
+Shape { width: 24; height: 24; preferredRendererType: Shape.CurveRenderer
+    ShapePath { fillColor: "#1e1e2e"; strokeColor: "transparent"; startX: 0; startY: 0
+        PathLine { x: 24; y: 0 }
+        PathArc { x: 0; y: 24; radiusX: 24; radiusY: 24; direction: PathArc.Counterclockwise }
+        PathLine { x: 0; y: 0 } } }
+```
+Rotate copies by 90°, 180° and 270° for the other three corners.
+:::
+
+::: exercise practice | Battery ring
+Build a ring gauge for `property real level` (0–1) with the percentage in the middle.
+--- solution
+```qml
+Item { width: 80; height: 80
+    Shape { anchors.fill: parent; preferredRendererType: Shape.CurveRenderer
+        ShapePath { strokeColor: "#313244"; strokeWidth: 8; fillColor: "transparent"
+            PathAngleArc { centerX: 40; centerY: 40; radiusX: 34; radiusY: 34; startAngle: 0; sweepAngle: 360 } }
+        ShapePath { strokeColor: "#a6e3a1"; strokeWidth: 8; fillColor: "transparent"; capStyle: ShapePath.RoundCap
+            PathAngleArc { centerX: 40; centerY: 40; radiusX: 34; radiusY: 34; startAngle: -90; sweepAngle: 360 * level } } }
+    Text { anchors.centerIn: parent; text: Math.round(level * 100) + "%"; color: "white" } }
+```
+:::
+
+::: exercise challenge | Canvas graph
+Make a `Canvas` line graph of the last 30 random values (0–1), adding one every 500 ms.
+--- solution
+```qml
+Canvas { id: g; width: 200; height: 60
+    property var values: []
+    Timer { interval: 500; running: true; repeat: true
+        onTriggered: { g.values = [...g.values, Math.random()].slice(-30); g.requestPaint() } }
+    onPaint: { const c = getContext("2d"); c.reset(); c.strokeStyle = "#89b4fa"; c.lineWidth = 2; c.beginPath()
+        values.forEach((v, i) => { const x = i * width / 29, y = height - v * height; i ? c.lineTo(x, y) : c.moveTo(x, y) }); c.stroke() } }
+```
+After [[ch:37-processes]], feed it real CPU usage instead of `Math.random()`.
+:::

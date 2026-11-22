@@ -1,0 +1,1375 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery: Desktop Widgets · The Quickshell Book</title>
+<meta name="description" content="Gallery: Desktop Widgets">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details open><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch active" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-g">Part G: Widget Gallery</a> › Gallery: Desktop Widgets</div><article><div class="ch-head"><div class="ch-part">Part G · Widget Gallery</div><h1><span class="ch-num">g5</span>Gallery: Desktop Widgets</h1></div><p>Widgets that sit on your wallpaper, below your windows: clocks, weather, system rings, graphs, a visualizer, a pomodoro timer. They all use the same recipe: a <a class="api" href="../ref/PanelWindow.html"><code>PanelWindow</code></a> on the <strong>Bottom</strong> layer, <code>ExclusionMode.Ignore</code>, a transparent background, and usually <code>mask: Region {}</code> so clicks pass through to the desktop.</p>
+<div class="box tip"><div class="bt">A reusable base</div><p><a class="xref" href="../ch/62-proj-desktop.html">Project: Desktop Widgets and Screen Corners</a> builds a <code>DesktopWidget.qml</code> base with <kbd>Super</kbd>+drag to move and positions saved to disk. Every widget here can use it instead of a raw PanelWindow.</p></div>
+<h2 id="big-desktop-clock">Big Desktop Clock<a class="hlink" href="#big-desktop-clock">#</a></h2>
+<div class="preview"><svg style="width:min(100%,630px)" width="420" height="170" viewBox="0 0 420 170"><text x="40" y="100" fill="#cba6f7" font-size="88" font-weight="900" letter-spacing="-3">14:32</text><text x="46" y="136" fill="#cdd6f4" font-size="20">Friday, 21 November</text><text x="300" y="100" fill="#cba6f7" font-size="22" font-weight="700" opacity=".6">47<animate attributeName="opacity" values=".6;.2;.6" dur="1s" repeatCount="indefinite"/></text></svg></div>
+
+<p><strong>What it is.</strong> A huge clock and date on the desktop, with a soft shadow so it's readable on any wallpaper. Seconds are shown small and fade with each tick.</p>
+<p><strong>Kind:</strong> desktop widget · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/desktop/DesktopClock.qml</span><code>import Quickshell
+import Quickshell.Wayland
+import QtQuick
+import QtQuick.Effects
+
+PanelWindow {
+    anchors { top: true; left: true }
+    margins { top: 140; left: 90 }
+    implicitWidth: 520; implicitHeight: 200
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    mask: Region {}                                  // click-through
+    WlrLayershell.layer: WlrLayer.Bottom             // above wallpaper, below windows
+    WlrLayershell.namespace: "quickshell:desktop-clock"
+
+    SystemClock { id: clock; precision: SystemClock.Seconds }
+
+    Item {
+        id: content
+        anchors.fill: parent
+        Row {
+            id: timeRow
+            spacing: 8
+            Text {
+                text: Qt.formatDateTime(clock.date, "hh:mm")
+                color: "#cba6f7"
+                font { family: "Inter"; pixelSize: 110; weight: Font.Black; letterSpacing: -4 }
+                font.features: ({ "tnum": 1 })
+            }
+            Text {
+                anchors.baseline: parent.children[0].baseline
+                text: String(clock.seconds).padStart(2, "0")
+                color: "#cba6f7"; opacity: 0.55
+                font { pixelSize: 28; bold: true }
+                // fade on each tick
+                onTextChanged: tick.restart()
+                NumberAnimation on opacity { id: tick; from: 0.9; to: 0.4; duration: 900; running: false }
+            }
+        }
+        Text {
+            anchors { top: timeRow.bottom; left: parent.left; leftMargin: 6; topMargin: -12 }
+            text: Qt.formatDateTime(clock.date, "dddd, d MMMM")
+            color: "#cdd6f4"; font.pixelSize: 24
+        }
+        layer.enabled: true
+        layer.effect: MultiEffect { shadowEnabled: true; shadowBlur: 0.8; shadowOpacity: 0.55; shadowVerticalOffset: 3 }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 6–14</span><b>A desktop-layer window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    anchors { top: true; left: true }
+    margins { top: 140; left: 90 }
+    implicitWidth: 520; implicitHeight: 200
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    mask: Region {}                                  // click-through
+    WlrLayershell.layer: WlrLayer.Bottom             // above wallpaper, below windows
+    WlrLayershell.namespace: "quickshell:desktop-clock"</code></pre></div><div class="seg-e"><ul>
+<li>Anchored top-left with margins: the clock's position on screen.</li>
+<li><code>ExclusionMode.Ignore</code>: windows aren't pushed away by it.</li>
+<li><code>mask: Region {}</code>: an empty input region, so clicks pass through to the desktop.</li>
+<li><code>WlrLayer.Bottom</code>: above the wallpaper (<code>Background</code>) but below normal windows. Open a window and it covers the clock.</li>
+</ul></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 16</span><b>Seconds precision</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>SystemClock { id: clock; precision: SystemClock.Seconds }</code></pre></div><div class="seg-e"><p>This clock shows seconds, so it updates every second.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 21–29</span><b>Big time</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Row {
+    id: timeRow
+    spacing: 8
+    Text {
+        text: Qt.formatDateTime(clock.date, "hh:mm")
+        color: "#cba6f7"
+        font { family: "Inter"; pixelSize: 110; weight: Font.Black; letterSpacing: -4 }
+        font.features: ({ "tnum": 1 })
+    }</code></pre></div><div class="seg-e"><p>Inter Black at 110 px with negative letter spacing (<code>-4</code>) pulls the big digits together for a poster-like look. Tabular numbers keep the width constant.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 30–38</span><b>Seconds that pulse</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    anchors.baseline: parent.children[0].baseline
+    text: String(clock.seconds).padStart(2, "0")
+    color: "#cba6f7"; opacity: 0.55
+    font { pixelSize: 28; bold: true }
+    // fade on each tick
+    onTextChanged: tick.restart()
+    NumberAnimation on opacity { id: tick; from: 0.9; to: 0.4; duration: 900; running: false }
+}</code></pre></div><div class="seg-e"><p><code>anchors.baseline</code> aligns the small seconds with the bottom of the big digits, the way magazines set mixed sizes. Every time the text changes (once a second), <code>tick.restart()</code> fades it from 0.9 to 0.4: a gentle heartbeat.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 40–44</span><b>Date</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    anchors { top: timeRow.bottom; left: parent.left; leftMargin: 6; topMargin: -12 }
+    text: Qt.formatDateTime(clock.date, "dddd, d MMMM")
+    color: "#cdd6f4"; font.pixelSize: 24
+}</code></pre></div><div class="seg-e"><p>Placed under the time with a negative top margin to tuck it closer: big fonts have lots of empty space below the digits.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 45–46</span><b>One shadow for everything</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>layer.enabled: true
+layer.effect: MultiEffect { shadowEnabled: true; shadowBlur: 0.8; shadowOpacity: 0.55; shadowVerticalOffset: 3 }</code></pre></div><div class="seg-e"><p><code>layer.enabled</code> renders the whole group into a texture, and <code>MultiEffect</code> adds a soft drop shadow to it. This keeps the text readable on bright wallpapers and costs one effect instead of one per text.</p></div></div></div>
+<p><strong>Customize</strong>
+- Vertical stacked style: <code>"hh"</code> and <code>"mm"</code> on two lines with a large <code>lineHeight</code> of 0.8.
+- Per-monitor: wrap in <code>Variants { model: Quickshell.screens }</code> (<a class="xref" href="../ch/31-multi-monitor.html">Multiple Monitors with Variants</a>).</p>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Practice</span><b>12-hour mode</b></div><div class="ex-b"><p>Add <code>property bool use12h</code> that shows <code>h:mm</code> plus a small <code>AM/PM</code> instead of the seconds.</p></div></div>
+<h2 id="analog-clock">Analog Clock<a class="hlink" href="#analog-clock">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="200" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="#1e1e2e" stroke="#45475a" stroke-width="2"/><g stroke="#585b70" stroke-width="3" stroke-linecap="round"><path d="M100 28v8M100 164v8M28 100h8M164 100h8"/></g><line x1="100" y1="100" x2="100" y2="58" stroke="#cdd6f4" stroke-width="6" stroke-linecap="round" transform="rotate(45 100 100)"/><line x1="100" y1="100" x2="100" y2="38" stroke="#cdd6f4" stroke-width="4" stroke-linecap="round" transform="rotate(192 100 100)"/><line x1="100" y1="112" x2="100" y2="32" stroke="#f38ba8" stroke-width="2" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="60s" repeatCount="indefinite"/></line><circle cx="100" cy="100" r="5" fill="#f38ba8"/></svg></div>
+
+<p><strong>What it is.</strong> A classic clock face with hour, minute and a smoothly sweeping second hand.</p>
+<p><strong>Kind:</strong> desktop widget · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/desktop/AnalogClock.qml</span><code>import Quickshell
+import Quickshell.Wayland
+import QtQuick
+
+PanelWindow {
+    anchors { top: true; right: true }
+    margins { top: 120; right: 120 }
+    implicitWidth: 220; implicitHeight: 220
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    mask: Region {}
+    WlrLayershell.layer: WlrLayer.Bottom
+
+    SystemClock { id: clock; precision: SystemClock.Seconds }
+
+    component Hand: Rectangle {                          // rotated by a `transform` at each use
+        property real len
+        x: face.width / 2 - width / 2
+        y: face.height / 2 - len
+        height: len + 10                                  // a bit of tail past the center
+        radius: width / 2
+    }
+
+    Rectangle {
+        id: face
+        anchors.fill: parent
+        anchors.margins: 10
+        radius: width / 2
+        color: "#1e1e2e"; border.color: "#45475a"; border.width: 2
+
+        Repeater {                                        // hour ticks
+            model: 12
+            Rectangle {
+                required property int index
+                x: face.width / 2 - width / 2; y: 8
+                width: index % 3 === 0 ? 4 : 2; height: index % 3 === 0 ? 12 : 6; radius: 2
+                color: "#585b70"
+                transform: Rotation { origin.x: width / 2; origin.y: face.height / 2 - 8; angle: index * 30 }
+            }
+        }
+        Hand { width: 7; len: face.width * 0.26; color: "#cdd6f4"
+               transform: Rotation { origin.x: 3.5; origin.y: face.width * 0.26; angle: (clock.hours % 12 + clock.minutes / 60) * 30 } }
+        Hand { width: 5; len: face.width * 0.38; color: "#cdd6f4"
+               transform: Rotation { origin.x: 2.5; origin.y: face.width * 0.38; angle: (clock.minutes + clock.seconds / 60) * 6 } }
+        Hand {
+            id: sec
+            width: 2; len: face.width * 0.42; color: "#f38ba8"
+            property real a: clock.seconds * 6
+            Behavior on a { NumberAnimation { duration: 300; easing.type: Easing.OutBack } }   // "tick" with a little bounce
+            transform: Rotation { origin.x: 1; origin.y: face.width * 0.42; angle: sec.a }
+        }
+        Rectangle { anchors.centerIn: parent; width: 10; height: 10; radius: 5; color: "#f38ba8" }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 5–14</span><b>Window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    anchors { top: true; right: true }
+    margins { top: 120; right: 120 }
+    implicitWidth: 220; implicitHeight: 220
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    mask: Region {}
+    WlrLayershell.layer: WlrLayer.Bottom
+
+    SystemClock { id: clock; precision: SystemClock.Seconds }</code></pre></div><div class="seg-e"><p>Top-right desktop window, click-through, updated every second.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 16–22</span><b>A hand component</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>component Hand: Rectangle {                          // rotated by a `transform` at each use
+    property real len
+    x: face.width / 2 - width / 2
+    y: face.height / 2 - len
+    height: len + 10                                  // a bit of tail past the center
+    radius: width / 2
+}</code></pre></div><div class="seg-e"><p>A hand is a thin rounded rectangle. It's positioned so its <strong>base</strong> sits at the center of the face (<code>y: face.height / 2 - len</code>), and it extends 10 px past the center as a tail. The rotation is added where each hand is used, because each needs a different angle.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 24–29</span><b>Face</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: face
+    anchors.fill: parent
+    anchors.margins: 10
+    radius: width / 2
+    color: "#1e1e2e"; border.color: "#45475a"; border.width: 2</code></pre></div><div class="seg-e"><p>A circle (radius = half the width) with a subtle border.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 31–40</span><b>Hour ticks</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Repeater {                                        // hour ticks
+    model: 12
+    Rectangle {
+        required property int index
+        x: face.width / 2 - width / 2; y: 8
+        width: index % 3 === 0 ? 4 : 2; height: index % 3 === 0 ? 12 : 6; radius: 2
+        color: "#585b70"
+        transform: Rotation { origin.x: width / 2; origin.y: face.height / 2 - 8; angle: index * 30 }
+    }
+}</code></pre></div><div class="seg-e"><p>Twelve small rectangles at the top, each rotated around the <strong>center of the face</strong> (<code>origin.y</code> is the distance from the tick to the center) by <code>index * 30°</code>. Every third one (12, 3, 6, 9) is thicker and longer.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 41–44</span><b>Hour and minute hands</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Hand { width: 7; len: face.width * 0.26; color: "#cdd6f4"
+       transform: Rotation { origin.x: 3.5; origin.y: face.width * 0.26; angle: (clock.hours % 12 + clock.minutes / 60) * 30 } }
+Hand { width: 5; len: face.width * 0.38; color: "#cdd6f4"
+       transform: Rotation { origin.x: 2.5; origin.y: face.width * 0.38; angle: (clock.minutes + clock.seconds / 60) * 6 } }</code></pre></div><div class="seg-e"><p>The origin of the rotation is the hand's base. Angles: the hour hand moves 30° per hour <strong>plus</strong> a fraction for the minutes, so at 2:30 it sits halfway between 2 and 3. The minute hand moves 6° per minute plus a fraction for the seconds.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 45–51</span><b>Second hand with a tick</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Hand {
+    id: sec
+    width: 2; len: face.width * 0.42; color: "#f38ba8"
+    property real a: clock.seconds * 6
+    Behavior on a { NumberAnimation { duration: 300; easing.type: Easing.OutBack } }   // "tick" with a little bounce
+    transform: Rotation { origin.x: 1; origin.y: face.width * 0.42; angle: sec.a }
+}</code></pre></div><div class="seg-e"><p>Instead of binding the rotation directly, the angle goes through a property <code>a</code> with a <code>Behavior</code> using <code>OutBack</code>: each second it jumps forward with a tiny overshoot, like a mechanical watch.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 52</span><b>Center cap</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle { anchors.centerIn: parent; width: 10; height: 10; radius: 5; color: "#f38ba8" }</code></pre></div><div class="seg-e"><p>A dot covering the point where the hands meet.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Fix the wrap-around</b></div><div class="ex-b"><p>Follow the note below: use an ever-increasing seconds counter so the second hand never spins backwards at :00.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><div class="codewrap"><pre class="code" data-lang="qml"><code>property int total: 0
+Timer { interval: 1000; running: true; repeat: true; onTriggered: total++ }
+property real a: total * 6</code></pre></div>
+<p>Initialize <code>total</code> from <code>clock.seconds</code> once in <code>Component.onCompleted</code>.</p></div></details></div>
+<h2 id="weather-card">Weather Card<a class="hlink" href="#weather-card">#</a></h2>
+<div class="preview"><svg style="width:min(100%,450px)" width="300" height="160" viewBox="0 0 300 160"><rect x="20" y="15" width="260" height="130" rx="22" fill="#1e1e2e" opacity=".85"/><circle cx="76" cy="66" r="20" fill="#f9e2af"><animate attributeName="r" values="19;22;19" dur="3s" repeatCount="indefinite"/></circle><path d="M70 82h40a14 14 0 0 0 0-28 20 20 0 0 0-38 6 11 11 0 0 0-2 22z" fill="#cdd6f4" opacity=".9"/><text x="140" y="70" fill="#cdd6f4" font-size="34" font-weight="800">28°</text><text x="140" y="92" fill="#a6adc8" font-size="12">Partly cloudy · Kochi</text><g fill="#a6adc8" font-size="11"><text x="44" y="126">Sat 30°</text><text x="114" y="126">Sun 27°</text><text x="184" y="126">Mon 29°</text></g></svg></div>
+
+<p><strong>What it is.</strong> A translucent card with the current weather, location, and a three-day forecast.</p>
+<p><strong>Kind:</strong> desktop widget · <strong>Needs:</strong> <code>curl</code> (uses wttr.in, no key)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/desktop/WeatherCard.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import QtQuick
+import QtQuick.Layouts
+
+PanelWindow {
+    id: root
+    property string city: ""
+    property var wx: null
+
+    anchors { bottom: true; left: true }
+    margins { bottom: 80; left: 80 }
+    implicitWidth: 300; implicitHeight: 170
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Bottom
+
+    function icon(code: int): string {
+        if (code === 113) return "sunny"
+        if (code === 116) return "partly_cloudy_day"
+        if (code === 119 || code === 122) return "cloud"
+        if ([143, 248, 260].includes(code)) return "foggy"
+        if (code &gt;= 386) return "thunderstorm"
+        if ([179, 227, 230, 323, 326, 329, 332, 335, 338, 368, 371].includes(code)) return "weather_snowy"
+        return "rainy"
+    }
+
+    Process {
+        id: fetch
+        command: ["curl", "-sf", "--max-time", "10", "https://wttr.in/" + encodeURIComponent(root.city) + "?format=j1"]
+        stdout: StdioCollector { onStreamFinished: { try { root.wx = JSON.parse(text) } catch (e) {} } }
+    }
+    Timer { interval: 30 * 60 * 1000; running: true; repeat: true; triggeredOnStart: true; onTriggered: fetch.running = true }
+
+    readonly property var now: wx?.current_condition?.[0] ?? null
+    readonly property string place: wx?.nearest_area?.[0]?.areaName?.[0]?.value ?? root.city
+
+    Rectangle {
+        anchors.fill: parent
+        radius: 24; color: "#cc1e1e2e"; border.color: "#33ffffff"
+        ColumnLayout {
+            anchors { fill: parent; margins: 18 }
+            spacing: 6
+            RowLayout {
+                spacing: 14
+                Text { text: root.icon(parseInt(root.now?.weatherCode ?? 113)); font.family: "Material Symbols Rounded"
+                       font.pixelSize: 56; font.variableAxes: ({ "FILL": 1 }); color: "#f9e2af" }
+                ColumnLayout {
+                    spacing: 0
+                    Text { text: (root.now?.temp_C ?? "--") + "°"; color: "#cdd6f4"; font.pixelSize: 40; font.weight: Font.Black }
+                    Text { text: (root.now?.weatherDesc?.[0]?.value ?? "") + " · " + root.place; color: "#a6adc8"; font.pixelSize: 12 }
+                }
+            }
+            RowLayout {
+                spacing: 18
+                Repeater {
+                    model: root.wx?.weather ?? []
+                    Text {
+                        required property var modelData
+                        text: Qt.formatDate(new Date(modelData.date), "ddd") + "  " + modelData.maxtempC + "° / " + modelData.mintempC + "°"
+                        color: "#a6adc8"; font.pixelSize: 11
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 7–17</span><b>Window and data</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    id: root
+    property string city: ""
+    property var wx: null
+
+    anchors { bottom: true; left: true }
+    margins { bottom: 80; left: 80 }
+    implicitWidth: 300; implicitHeight: 170
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Bottom</code></pre></div><div class="seg-e"><p><code>wx</code> holds the whole wttr.in JSON response, or <code>null</code> before it arrives. The card is a desktop-layer window at the bottom-left.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 19–27</span><b>Code → icon</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function icon(code: int): string {
+    if (code === 113) return "sunny"
+    if (code === 116) return "partly_cloudy_day"
+    if (code === 119 || code === 122) return "cloud"
+    if ([143, 248, 260].includes(code)) return "foggy"
+    if (code &gt;= 386) return "thunderstorm"
+    if ([179, 227, 230, 323, 326, 329, 332, 335, 338, 368, 371].includes(code)) return "weather_snowy"
+    return "rainy"
+}</code></pre></div><div class="seg-e"><p>Same mapping as the weather chip, with a snow icon.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 29–34</span><b>Fetch every 30 minutes</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Process {
+    id: fetch
+    command: ["curl", "-sf", "--max-time", "10", "https://wttr.in/" + encodeURIComponent(root.city) + "?format=j1"]
+    stdout: StdioCollector { onStreamFinished: { try { root.wx = JSON.parse(text) } catch (e) {} } }
+}
+Timer { interval: 30 * 60 * 1000; running: true; repeat: true; triggeredOnStart: true; onTriggered: fetch.running = true }</code></pre></div><div class="seg-e"><p>The whole response is stored; <code>try/catch</code> ignores failures (the card keeps showing the last good data).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 36–37</span><b>Convenience properties</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var now: wx?.current_condition?.[0] ?? null
+readonly property string place: wx?.nearest_area?.[0]?.areaName?.[0]?.value ?? root.city</code></pre></div><div class="seg-e"><p><code>now</code> is the current conditions and <code>place</code> the nearest area's name. The <code>?.</code> / <code>?.[0]</code> chains return <code>undefined</code> instead of throwing while <code>wx</code> is still <code>null</code>, so the card shows placeholders instead of errors.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 45–54</span><b>Current weather</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    spacing: 14
+    Text { text: root.icon(parseInt(root.now?.weatherCode ?? 113)); font.family: "Material Symbols Rounded"
+           font.pixelSize: 56; font.variableAxes: ({ "FILL": 1 }); color: "#f9e2af" }
+    ColumnLayout {
+        spacing: 0
+        Text { text: (root.now?.temp_C ?? "--") + "°"; color: "#cdd6f4"; font.pixelSize: 40; font.weight: Font.Black }
+        Text { text: (root.now?.weatherDesc?.[0]?.value ?? "") + " · " + root.place; color: "#a6adc8"; font.pixelSize: 12 }
+    }
+}</code></pre></div><div class="seg-e"><p>A big filled weather icon next to the temperature (in a heavy font) and "description · place".</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 55–65</span><b>Three-day forecast</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    spacing: 18
+    Repeater {
+        model: root.wx?.weather ?? []
+        Text {
+            required property var modelData
+            text: Qt.formatDate(new Date(modelData.date), "ddd") + "  " + modelData.maxtempC + "° / " + modelData.mintempC + "°"
+            color: "#a6adc8"; font.pixelSize: 11
+        }
+    }
+}</code></pre></div><div class="seg-e"><p><code>wx.weather</code> is an array of days. Each shows the short weekday and max/min temperatures.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>Click to refresh</b></div><div class="ex-b"><p>Make a click on the card fetch new data immediately, with a small spinning refresh icon while loading.</p></div></div>
+<h2 id="system-rings-dashboard">System Rings Dashboard<a class="hlink" href="#system-rings-dashboard">#</a></h2>
+<div class="preview"><svg style="width:min(100%,570px)" width="380" height="150" viewBox="0 0 380 150"><rect x="10" y="10" width="360" height="130" rx="22" fill="#1e1e2e" opacity=".85"/><g fill="none" stroke-width="8" stroke-linecap="round"><circle cx="80" cy="70" r="34" stroke="#313244"/><circle cx="80" cy="70" r="34" stroke="#cba6f7" stroke-dasharray="70 214" transform="rotate(-90 80 70)"><animate attributeName="stroke-dasharray" values="50 214;110 214;50 214" dur="4s" repeatCount="indefinite"/></circle><circle cx="190" cy="70" r="34" stroke="#313244"/><circle cx="190" cy="70" r="34" stroke="#94e2d5" stroke-dasharray="130 214" transform="rotate(-90 190 70)"/><circle cx="300" cy="70" r="34" stroke="#313244"/><circle cx="300" cy="70" r="34" stroke="#a6e3a1" stroke-dasharray="170 214" transform="rotate(-90 300 70)"/></g><g fill="#cdd6f4" font-size="14" font-weight="700" text-anchor="middle"><text x="80" y="75">33%</text><text x="190" y="75">61%</text><text x="300" y="75">80%</text></g><g fill="#a6adc8" font-size="11" text-anchor="middle"><text x="80" y="126">CPU</text><text x="190" y="126">RAM</text><text x="300" y="126">BATTERY</text></g></svg></div>
+
+<p><strong>What it is.</strong> Three animated rings for CPU, RAM and battery (or disk) on a translucent card.</p>
+<p><strong>Kind:</strong> desktop widget · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/desktop/SystemRings.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import Quickshell.Services.UPower
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Shapes
+
+PanelWindow {
+    id: root
+    anchors { bottom: true; right: true }
+    margins { bottom: 80; right: 80 }
+    implicitWidth: 380; implicitHeight: 160
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    mask: Region {}
+    WlrLayershell.layer: WlrLayer.Bottom
+
+    property real cpu: 0
+    property real ram: 0
+    property var last: null
+
+    FileView { id: stat; path: "/proc/stat" }
+    FileView { id: mem; path: "/proc/meminfo" }
+    Timer {
+        interval: 2000; running: true; repeat: true; triggeredOnStart: true
+        onTriggered: {
+            stat.reload(); mem.reload()
+            const f = stat.text().split("\n")[0].trim().split(/\s+/).slice(1).map(Number)
+            const idle = f[3] + f[4], total = f.reduce((a, b) =&gt; a + b, 0)
+            if (root.last) root.cpu = 1 - (idle - root.last.idle) / Math.max(1, total - root.last.total)
+            root.last = { idle, total }
+            const t = mem.text()
+            const get = k =&gt; parseInt((t.match(new RegExp(k + ":\\s+(\\d+)")) ?? [0, 0])[1])
+            root.ram = 1 - get("MemAvailable") / Math.max(1, get("MemTotal"))
+        }
+    }
+
+    component Ring: Item {
+        id: ring
+        property real value
+        property color tint
+        property string label
+        implicitWidth: 100; implicitHeight: 120
+        property real shown: value
+        Behavior on shown { NumberAnimation { duration: 800; easing.type: Easing.OutCubic } }
+        Shape {
+            width: 90; height: 90; anchors.horizontalCenter: parent.horizontalCenter
+            preferredRendererType: Shape.CurveRenderer
+            ShapePath { fillColor: "transparent"; strokeColor: "#313244"; strokeWidth: 9
+                PathAngleArc { centerX: 45; centerY: 45; radiusX: 38; radiusY: 38; sweepAngle: 360 } }
+            ShapePath { fillColor: "transparent"; strokeColor: ring.tint; strokeWidth: 9; capStyle: ShapePath.RoundCap
+                PathAngleArc { centerX: 45; centerY: 45; radiusX: 38; radiusY: 38; startAngle: -90; sweepAngle: 360 * ring.shown } }
+            Text { anchors.centerIn: parent; text: Math.round(ring.value * 100) + "%"; color: "#cdd6f4"; font.pixelSize: 17; font.bold: true }
+        }
+        Text { anchors { bottom: parent.bottom; horizontalCenter: parent.horizontalCenter }
+               text: ring.label; color: "#a6adc8"; font.pixelSize: 11; font.letterSpacing: 1.5 }
+    }
+
+    Rectangle {
+        anchors.fill: parent
+        radius: 24; color: "#cc1e1e2e"
+        RowLayout {
+            anchors.centerIn: parent
+            spacing: 18
+            Ring { value: root.cpu; tint: "#cba6f7"; label: "CPU" }
+            Ring { value: root.ram; tint: "#94e2d5"; label: "RAM" }
+            Ring { visible: UPower.displayDevice.isLaptopBattery; value: UPower.displayDevice.percentage; tint: "#a6e3a1"; label: "BATTERY" }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 19–21</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property real cpu: 0
+property real ram: 0
+property var last: null</code></pre></div><div class="seg-e"><p>CPU and RAM as 0–1, and the previous CPU counters.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 23–37</span><b>One timer, two sources</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FileView { id: stat; path: "/proc/stat" }
+FileView { id: mem; path: "/proc/meminfo" }
+Timer {
+    interval: 2000; running: true; repeat: true; triggeredOnStart: true
+    onTriggered: {
+        stat.reload(); mem.reload()
+        const f = stat.text().split("\n")[0].trim().split(/\s+/).slice(1).map(Number)
+        const idle = f[3] + f[4], total = f.reduce((a, b) =&gt; a + b, 0)
+        if (root.last) root.cpu = 1 - (idle - root.last.idle) / Math.max(1, total - root.last.total)
+        root.last = { idle, total }
+        const t = mem.text()
+        const get = k =&gt; parseInt((t.match(new RegExp(k + ":\\s+(\\d+)")) ?? [0, 0])[1])
+        root.ram = 1 - get("MemAvailable") / Math.max(1, get("MemTotal"))
+    }
+}</code></pre></div><div class="seg-e"><p>Every 2 seconds both files are re-read. CPU usage uses the same counter-difference method as the CPU sparkline. For RAM, <code>get(k)</code> is a tiny helper that finds <code>k: &lt;number&gt;</code> in meminfo; <code>?? [0, 0]</code> avoids a crash if a field is missing. <code>Math.max(1, …)</code> avoids dividing by zero.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 39–46</span><b>Ring component with smoothing</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>component Ring: Item {
+    id: ring
+    property real value
+    property color tint
+    property string label
+    implicitWidth: 100; implicitHeight: 120
+    property real shown: value
+    Behavior on shown { NumberAnimation { duration: 800; easing.type: Easing.OutCubic } }</code></pre></div><div class="seg-e"><p><code>shown</code> follows <code>value</code> through an 800 ms <code>Behavior</code>, so the arc glides to new values instead of jumping every 2 seconds. The text shows the exact <code>value</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 47–55</span><b>Drawing the ring</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Shape {
+    width: 90; height: 90; anchors.horizontalCenter: parent.horizontalCenter
+    preferredRendererType: Shape.CurveRenderer
+    ShapePath { fillColor: "transparent"; strokeColor: "#313244"; strokeWidth: 9
+        PathAngleArc { centerX: 45; centerY: 45; radiusX: 38; radiusY: 38; sweepAngle: 360 } }
+    ShapePath { fillColor: "transparent"; strokeColor: ring.tint; strokeWidth: 9; capStyle: ShapePath.RoundCap
+        PathAngleArc { centerX: 45; centerY: 45; radiusX: 38; radiusY: 38; startAngle: -90; sweepAngle: 360 * ring.shown } }
+    Text { anchors.centerIn: parent; text: Math.round(ring.value * 100) + "%"; color: "#cdd6f4"; font.pixelSize: 17; font.bold: true }
+}</code></pre></div><div class="seg-e"><p>A track circle and a colored arc from 12 o'clock, plus the percentage in the middle.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 56–57</span><b>Label</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text { anchors { bottom: parent.bottom; horizontalCenter: parent.horizontalCenter }
+       text: ring.label; color: "#a6adc8"; font.pixelSize: 11; font.letterSpacing: 1.5 }</code></pre></div><div class="seg-e"><p>Small, wide-spaced caps under the ring: a common dashboard style.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 60–70</span><b>Card with three rings</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    anchors.fill: parent
+    radius: 24; color: "#cc1e1e2e"
+    RowLayout {
+        anchors.centerIn: parent
+        spacing: 18
+        Ring { value: root.cpu; tint: "#cba6f7"; label: "CPU" }
+        Ring { value: root.ram; tint: "#94e2d5"; label: "RAM" }
+        Ring { visible: UPower.displayDevice.isLaptopBattery; value: UPower.displayDevice.percentage; tint: "#a6e3a1"; label: "BATTERY" }
+    }
+}</code></pre></div><div class="seg-e"><p>The battery ring only appears on laptops.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Practice</span><b>Temperature ring</b></div><div class="ex-b"><p>Add a fourth ring for CPU temperature (0–100 °C mapped to 0–1), using the sensor search from the CPU Temperature widget.</p></div></div>
+<h2 id="cpu-history-graph">CPU History Graph<a class="hlink" href="#cpu-history-graph">#</a></h2>
+<div class="preview"><svg style="width:min(100%,540px)" width="360" height="150" viewBox="0 0 360 150"><rect x="10" y="10" width="340" height="130" rx="20" fill="#1e1e2e" opacity=".85"/><text x="28" y="34" fill="#cba6f7" font-size="12" font-weight="700">CPU · 60s</text><text x="330" y="34" fill="#cdd6f4" font-size="12" text-anchor="end">42%</text><path d="M28 120 L28 90 L58 96 L88 70 L118 82 L148 60 L178 74 L208 50 L238 66 L268 58 L298 80 L330 64 L330 120 Z" fill="#cba6f7" opacity=".2"/><polyline fill="none" stroke="#cba6f7" stroke-width="2.5" stroke-linejoin="round" points="28,90 58,96 88,70 118,82 148,60 178,74 208,50 238,66 268,58 298,80 330,64"/><g stroke="#313244"><path d="M28 70h302M28 95h302"/></g></svg></div>
+
+<p><strong>What it is.</strong> A smooth area chart of CPU usage over the last minute, with grid lines and the current value.</p>
+<p><strong>Kind:</strong> desktop widget · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/desktop/CpuGraph.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import QtQuick
+
+PanelWindow {
+    id: root
+    anchors { top: true; right: true }
+    margins { top: 380; right: 80 }
+    implicitWidth: 360; implicitHeight: 150
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    mask: Region {}
+    WlrLayershell.layer: WlrLayer.Bottom
+
+    property var points: []          // last 60 samples, 0..1
+    property var last: null
+    FileView { id: stat; path: "/proc/stat" }
+    Timer {
+        interval: 1000; running: true; repeat: true
+        onTriggered: {
+            stat.reload()
+            const f = stat.text().split("\n")[0].trim().split(/\s+/).slice(1).map(Number)
+            const idle = f[3] + f[4], total = f.reduce((a, b) =&gt; a + b, 0)
+            if (root.last) root.points = [...root.points, 1 - (idle - root.last.idle) / Math.max(1, total - root.last.total)].slice(-60)
+            root.last = { idle, total }
+        }
+    }
+
+    Rectangle {
+        anchors.fill: parent
+        radius: 20; color: "#cc1e1e2e"
+        Text { x: 18; y: 14; text: "CPU · 60s"; color: "#cba6f7"; font.pixelSize: 12; font.bold: true }
+        Text { anchors.right: parent.right; anchors.rightMargin: 18; y: 14
+               text: Math.round((root.points[root.points.length - 1] ?? 0) * 100) + "%"; color: "#cdd6f4"; font.pixelSize: 12 }
+        Canvas {
+            id: c
+            anchors { fill: parent; margins: 18; topMargin: 40 }
+            onPaint: {
+                const ctx = getContext("2d"); ctx.reset()
+                ctx.strokeStyle = "#313244"; ctx.lineWidth = 1
+                for (const g of [0.33, 0.66]) { ctx.beginPath(); ctx.moveTo(0, height * g); ctx.lineTo(width, height * g); ctx.stroke() }
+                const p = root.points; if (p.length &lt; 2) return
+                const step = width / 59, x0 = width - (p.length - 1) * step
+                const xy = i =&gt; [x0 + i * step, height - p[i] * height]
+                ctx.beginPath(); ctx.moveTo(...xy(0))
+                for (let i = 1; i &lt; p.length; i++) {                    // smooth curve through midpoints
+                    const [x1, y1] = xy(i - 1), [x2, y2] = xy(i)
+                    ctx.quadraticCurveTo(x1, y1, (x1 + x2) / 2, (y1 + y2) / 2)
+                }
+                ctx.lineTo(...xy(p.length - 1))
+                ctx.strokeStyle = "#cba6f7"; ctx.lineWidth = 2.5; ctx.lineJoin = "round"; ctx.stroke()
+                ctx.lineTo(width, height); ctx.lineTo(x0, height); ctx.closePath()
+                const grad = ctx.createLinearGradient(0, 0, 0, height)
+                grad.addColorStop(0, "#66cba6f7"); grad.addColorStop(1, "#00cba6f7")
+                ctx.fillStyle = grad; ctx.fill()
+            }
+            Connections { target: root; function onPointsChanged() { c.requestPaint() } }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 16–28</span><b>Collecting 60 samples</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property var points: []          // last 60 samples, 0..1
+property var last: null
+FileView { id: stat; path: "/proc/stat" }
+Timer {
+    interval: 1000; running: true; repeat: true
+    onTriggered: {
+        stat.reload()
+        const f = stat.text().split("\n")[0].trim().split(/\s+/).slice(1).map(Number)
+        const idle = f[3] + f[4], total = f.reduce((a, b) =&gt; a + b, 0)
+        if (root.last) root.points = [...root.points, 1 - (idle - root.last.idle) / Math.max(1, total - root.last.total)].slice(-60)
+        root.last = { idle, total }
+    }
+}</code></pre></div><div class="seg-e"><p>Same CPU calculation as before; each new value is appended to <code>points</code> and the array is trimmed to the last 60 (one minute).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 33–35</span><b>Header</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text { x: 18; y: 14; text: "CPU · 60s"; color: "#cba6f7"; font.pixelSize: 12; font.bold: true }
+Text { anchors.right: parent.right; anchors.rightMargin: 18; y: 14
+       text: Math.round((root.points[root.points.length - 1] ?? 0) * 100) + "%"; color: "#cdd6f4"; font.pixelSize: 12 }</code></pre></div><div class="seg-e"><p>Title on the left, the latest value on the right (<code>points[points.length - 1]</code>).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 39–42</span><b>Grid lines</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>onPaint: {
+    const ctx = getContext("2d"); ctx.reset()
+    ctx.strokeStyle = "#313244"; ctx.lineWidth = 1
+    for (const g of [0.33, 0.66]) { ctx.beginPath(); ctx.moveTo(0, height * g); ctx.lineTo(width, height * g); ctx.stroke() }</code></pre></div><div class="seg-e"><p>Two faint horizontal lines at one-third and two-thirds of the height make the graph easier to read.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 43–46</span><b>Coordinates</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>const p = root.points; if (p.length &lt; 2) return
+const step = width / 59, x0 = width - (p.length - 1) * step
+const xy = i =&gt; [x0 + i * step, height - p[i] * height]
+ctx.beginPath(); ctx.moveTo(...xy(0))</code></pre></div><div class="seg-e"><p><code>step</code> spreads 60 samples across the width; <code>x0</code> right-aligns them while fewer than 60 exist. <code>xy(i)</code> converts sample <code>i</code> into canvas coordinates.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 47–52</span><b>Smooth line</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>for (let i = 1; i &lt; p.length; i++) {                    // smooth curve through midpoints
+    const [x1, y1] = xy(i - 1), [x2, y2] = xy(i)
+    ctx.quadraticCurveTo(x1, y1, (x1 + x2) / 2, (y1 + y2) / 2)
+}
+ctx.lineTo(...xy(p.length - 1))
+ctx.strokeStyle = "#cba6f7"; ctx.lineWidth = 2.5; ctx.lineJoin = "round"; ctx.stroke()</code></pre></div><div class="seg-e"><p>Instead of straight segments, each step draws a quadratic curve to the <strong>midpoint</strong> between two samples, using the sample itself as the control point. The result is a smooth line that still passes near every value.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 53–56</span><b>Gradient fill</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ctx.lineTo(width, height); ctx.lineTo(x0, height); ctx.closePath()
+const grad = ctx.createLinearGradient(0, 0, 0, height)
+grad.addColorStop(0, "#66cba6f7"); grad.addColorStop(1, "#00cba6f7")
+ctx.fillStyle = grad; ctx.fill()</code></pre></div><div class="seg-e"><p>Close the shape along the bottom, then fill it with a vertical gradient from 40% accent to fully transparent.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 58</span><b>Repaint on new data</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Connections { target: root; function onPointsChanged() { c.requestPaint() } }</code></pre></div><div class="seg-e"></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 5</span><span class="ex-lvl">Practice</span><b>RAM line</b></div><div class="ex-b"><p>Draw a second line for RAM in another color on the same canvas.</p></div></div>
+<h2 id="pomodoro-timer">Pomodoro Timer<a class="hlink" href="#pomodoro-timer">#</a></h2>
+<div class="preview"><svg style="width:min(100%,360px)" width="240" height="210" viewBox="0 0 240 210"><rect x="20" y="10" width="200" height="190" rx="26" fill="#1e1e2e" opacity=".9"/><circle cx="120" cy="92" r="60" fill="none" stroke="#313244" stroke-width="10"/><circle cx="120" cy="92" r="60" fill="none" stroke="#f38ba8" stroke-width="10" stroke-linecap="round" stroke-dasharray="250 377" transform="rotate(-90 120 92)"><animate attributeName="stroke-dasharray" values="377 377;0 377" dur="20s" repeatCount="indefinite"/></circle><text x="120" y="100" fill="#cdd6f4" font-size="26" font-weight="800" text-anchor="middle">18:42</text><text x="120" y="122" fill="#f38ba8" font-size="11" text-anchor="middle">FOCUS</text><text x="120" y="182" fill="#a6adc8" font-size="11" text-anchor="middle">click: pause · right: reset</text></svg></div>
+
+<p><strong>What it is.</strong> A focus timer: 25 minutes of work, then a 5-minute break (15 after every fourth). The ring empties as time passes, and a notification fires on each switch.</p>
+<p><strong>Kind:</strong> desktop widget (clickable) · <strong>Needs:</strong> <code>libnotify</code> (<code>notify-send</code>)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/desktop/Pomodoro.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import QtQuick
+import QtQuick.Shapes
+
+PanelWindow {
+    id: root
+    anchors { top: true; left: true }
+    margins { top: 380; left: 90 }
+    implicitWidth: 220; implicitHeight: 220
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Bottom
+
+    property int work: 25 * 60
+    property int shortBreak: 5 * 60
+    property int longBreak: 15 * 60
+    property bool onBreak: false
+    property int round: 1
+    property int length: work
+    property int left: work
+    property bool running: false
+
+    function next(): void {
+        if (!onBreak) { onBreak = true; length = round % 4 === 0 ? longBreak : shortBreak }
+        else { onBreak = false; round++; length = work }
+        left = length
+        Quickshell.execDetached(["notify-send", "-u", "critical", "Pomodoro", onBreak ? "Break time ☕" : "Back to focus 🎯"])
+    }
+    Timer { interval: 1000; repeat: true; running: root.running; onTriggered: { root.left--; if (root.left &lt;= 0) root.next() } }
+    IpcHandler { target: "pomodoro"; function toggle(): void { root.running = !root.running } }
+
+    readonly property color tint: onBreak ? "#a6e3a1" : "#f38ba8"
+
+    Rectangle {
+        anchors.fill: parent
+        radius: 28; color: "#e61e1e2e"
+        Shape {
+            anchors.centerIn: parent; anchors.verticalCenterOffset: -8
+            width: 150; height: 150
+            preferredRendererType: Shape.CurveRenderer
+            ShapePath { fillColor: "transparent"; strokeColor: "#313244"; strokeWidth: 10
+                PathAngleArc { centerX: 75; centerY: 75; radiusX: 64; radiusY: 64; sweepAngle: 360 } }
+            ShapePath { fillColor: "transparent"; strokeColor: root.tint; strokeWidth: 10; capStyle: ShapePath.RoundCap
+                PathAngleArc { centerX: 75; centerY: 75; radiusX: 64; radiusY: 64; startAngle: -90; sweepAngle: 360 * root.left / root.length } }
+            Column {
+                anchors.centerIn: parent
+                Text { anchors.horizontalCenter: parent.horizontalCenter
+                       text: Math.floor(root.left / 60) + ":" + String(root.left % 60).padStart(2, "0")
+                       color: "#cdd6f4"; font.pixelSize: 30; font.weight: Font.Black; font.features: ({ "tnum": 1 }) }
+                Text { anchors.horizontalCenter: parent.horizontalCenter
+                       text: (root.onBreak ? "BREAK" : "FOCUS") + (root.running ? "" : " · paused") + "  #" + root.round
+                       color: root.tint; font.pixelSize: 11; font.letterSpacing: 1.2 }
+            }
+        }
+        TapHandler { onTapped: root.running = !root.running }
+        TapHandler { acceptedButtons: Qt.RightButton; onTapped: { root.running = false; root.onBreak = false; root.round = 1; root.length = root.work; root.left = root.work } }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 16–23</span><b>Settings and state</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property int work: 25 * 60
+property int shortBreak: 5 * 60
+property int longBreak: 15 * 60
+property bool onBreak: false
+property int round: 1
+property int length: work
+property int left: work
+property bool running: false</code></pre></div><div class="seg-e"><p>Durations in seconds, whether we're on a break, which round (every 4th break is long), the current phase's <code>length</code>, seconds <code>left</code>, and <code>running</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 25–30</span><b>Switching phases</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function next(): void {
+    if (!onBreak) { onBreak = true; length = round % 4 === 0 ? longBreak : shortBreak }
+    else { onBreak = false; round++; length = work }
+    left = length
+    Quickshell.execDetached(["notify-send", "-u", "critical", "Pomodoro", onBreak ? "Break time ☕" : "Back to focus 🎯"])
+}</code></pre></div><div class="seg-e"><p>From focus to break (long every 4th round), or from break back to focus (next round). It resets <code>left</code> and sends a critical notification so you notice even with a fullscreen app.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 31–32</span><b>Ticking and IPC</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Timer { interval: 1000; repeat: true; running: root.running; onTriggered: { root.left--; if (root.left &lt;= 0) root.next() } }
+IpcHandler { target: "pomodoro"; function toggle(): void { root.running = !root.running } }</code></pre></div><div class="seg-e"><p>One-second timer while running; at zero it moves to the next phase. IPC lets a keybind start/pause it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 34</span><b>Phase color</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property color tint: onBreak ? "#a6e3a1" : "#f38ba8"</code></pre></div><div class="seg-e"><p>Red for focus, green for breaks.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 39–46</span><b>Shrinking ring</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Shape {
+    anchors.centerIn: parent; anchors.verticalCenterOffset: -8
+    width: 150; height: 150
+    preferredRendererType: Shape.CurveRenderer
+    ShapePath { fillColor: "transparent"; strokeColor: "#313244"; strokeWidth: 10
+        PathAngleArc { centerX: 75; centerY: 75; radiusX: 64; radiusY: 64; sweepAngle: 360 } }
+    ShapePath { fillColor: "transparent"; strokeColor: root.tint; strokeWidth: 10; capStyle: ShapePath.RoundCap
+        PathAngleArc { centerX: 75; centerY: 75; radiusX: 64; radiusY: 64; startAngle: -90; sweepAngle: 360 * root.left / root.length } }</code></pre></div><div class="seg-e"><p><code>sweepAngle: 360 * left / length</code> shrinks from a full circle to nothing over the phase.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 47–55</span><b>Center text</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Column {
+    anchors.centerIn: parent
+    Text { anchors.horizontalCenter: parent.horizontalCenter
+           text: Math.floor(root.left / 60) + ":" + String(root.left % 60).padStart(2, "0")
+           color: "#cdd6f4"; font.pixelSize: 30; font.weight: Font.Black; font.features: ({ "tnum": 1 }) }
+    Text { anchors.horizontalCenter: parent.horizontalCenter
+           text: (root.onBreak ? "BREAK" : "FOCUS") + (root.running ? "" : " · paused") + "  #" + root.round
+           color: root.tint; font.pixelSize: 11; font.letterSpacing: 1.2 }
+}</code></pre></div><div class="seg-e"><p><code>m:ss</code> with a padded seconds part, then "FOCUS"/"BREAK", a paused marker and the round number.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 57–58</span><b>Mouse controls</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TapHandler { onTapped: root.running = !root.running }
+TapHandler { acceptedButtons: Qt.RightButton; onTapped: { root.running = false; root.onBreak = false; root.round = 1; root.length = root.work; root.left = root.work } }</code></pre></div><div class="seg-e"><p>Left click pauses/resumes. Right click resets everything to round 1. This window has no empty mask, so it does receive clicks.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 6</span><span class="ex-lvl">Practice</span><b>Save progress</b></div><div class="ex-b"><p>Save <code>left</code>, <code>round</code> and <code>onBreak</code> to a state file so a shell reload doesn't reset your session.</p></div></div>
+<h2 id="quote-of-the-day">Quote of the Day<a class="hlink" href="#quote-of-the-day">#</a></h2>
+<div class="preview"><svg style="width:min(100%,630px)" width="420" height="130" viewBox="0 0 420 130"><text x="30" y="60" fill="#cba6f7" font-size="60" font-weight="900" opacity=".5">“</text><text x="70" y="58" fill="#cdd6f4" font-size="17" font-style="italic">Simplicity is the soul of efficiency.</text><text x="70" y="88" fill="#a6adc8" font-size="12">— Austin Freeman</text></svg></div>
+
+<p><strong>What it is.</strong> A quote on the desktop that changes daily (or on click), from a local list, so it works offline.</p>
+<p><strong>Kind:</strong> desktop widget · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/desktop/Quote.qml</span><code>import Quickshell
+import Quickshell.Wayland
+import QtQuick
+import QtQuick.Effects
+
+PanelWindow {
+    id: root
+    anchors { bottom: true }
+    margins.bottom: 140
+    implicitWidth: 720; implicitHeight: 120
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Bottom
+
+    readonly property var quotes: [
+        ["Simplicity is the soul of efficiency.", "Austin Freeman"],
+        ["Talk is cheap. Show me the code.", "Linus Torvalds"],
+        ["Make it work, make it right, make it fast.", "Kent Beck"],
+        ["The details are not the details. They make the design.", "Charles Eames"],
+        ["Less, but better.", "Dieter Rams"],
+        ["First, solve the problem. Then, write the code.", "John Johnson"]
+    ]
+    SystemClock { id: clock; precision: SystemClock.Hours }
+    property int offset: 0
+    // a new quote every day: days since epoch modulo the list length
+    readonly property var q: quotes[(Math.floor(clock.date.getTime() / 86400000) + offset) % quotes.length]
+
+    Item {
+        anchors.fill: parent
+        Column {
+            id: col
+            anchors.centerIn: parent
+            spacing: 6
+            Text {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "“" + root.q[0] + "”"
+                color: "#cdd6f4"; font.pixelSize: 22; font.italic: true
+                opacity: 0
+                Component.onCompleted: opacity = 1
+                Behavior on opacity { NumberAnimation { duration: 600 } }
+            }
+            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "— " + root.q[1]; color: "#a6adc8"; font.pixelSize: 13 }
+        }
+        layer.enabled: true
+        layer.effect: MultiEffect { shadowEnabled: true; shadowBlur: 0.7; shadowOpacity: 0.6 }
+        TapHandler { onTapped: root.offset++ }
+    }
+}</code></pre></div>
+<p><strong>Customize</strong>
+- Online quotes: <code>curl -s https://zenquotes.io/api/today</code> returns JSON <code>[{ q, a }]</code>.</p>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–22</span><b>Quotes as data</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var quotes: [
+    ["Simplicity is the soul of efficiency.", "Austin Freeman"],
+    ["Talk is cheap. Show me the code.", "Linus Torvalds"],
+    ["Make it work, make it right, make it fast.", "Kent Beck"],
+    ["The details are not the details. They make the design.", "Charles Eames"],
+    ["Less, but better.", "Dieter Rams"],
+    ["First, solve the problem. Then, write the code.", "John Johnson"]
+]</code></pre></div><div class="seg-e"><p>Each entry is <code>[text, author]</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 23–26</span><b>One quote per day</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>SystemClock { id: clock; precision: SystemClock.Hours }
+property int offset: 0
+// a new quote every day: days since epoch modulo the list length
+readonly property var q: quotes[(Math.floor(clock.date.getTime() / 86400000) + offset) % quotes.length]</code></pre></div><div class="seg-e"><p><code>getTime() / 86400000</code> is the number of days since 1970. Taking it modulo the list length picks a different quote each day, the same one all day. <code>offset</code> lets you skip ahead by clicking. The clock has <code>Hours</code> precision, so the binding re-checks every hour and changes after midnight.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 34–41</span><b>Fade in</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    anchors.horizontalCenter: parent.horizontalCenter
+    text: "“" + root.q[0] + "”"
+    color: "#cdd6f4"; font.pixelSize: 22; font.italic: true
+    opacity: 0
+    Component.onCompleted: opacity = 1
+    Behavior on opacity { NumberAnimation { duration: 600 } }
+}</code></pre></div><div class="seg-e"><p>The quote starts invisible and fades in when created.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 44–46</span><b>Shadow and click</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>layer.enabled: true
+layer.effect: MultiEffect { shadowEnabled: true; shadowBlur: 0.7; shadowOpacity: 0.6 }
+TapHandler { onTapped: root.offset++ }</code></pre></div><div class="seg-e"><p>A soft shadow for readability, and a tap to show the next quote.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 7</span><span class="ex-lvl">Practice</span><b>Quotes from a file</b></div><div class="ex-b"><p>Load quotes from a JSON file in your config folder with <code>FileView</code> + <code>JSON.parse</code>.</p></div></div>
+<h2 id="audio-visualizer-bars">Audio Visualizer Bars<a class="hlink" href="#audio-visualizer-bars">#</a></h2>
+<div class="preview"><svg style="width:min(100%,630px)" width="420" height="140" viewBox="0 0 420 140"><g fill="#cba6f7"><rect x="30" width="10" rx="4" y="60" height="60"><animate attributeName="height" values="20;80;35;60;20" dur="1.1s" repeatCount="indefinite"/><animate attributeName="y" values="100;40;85;60;100" dur="1.1s" repeatCount="indefinite"/></rect><rect x="48" width="10" rx="4" y="60" height="60"><animate attributeName="height" values="70;30;90;40;70" dur="0.9s" repeatCount="indefinite"/><animate attributeName="y" values="50;90;30;80;50" dur="0.9s" repeatCount="indefinite"/></rect><rect x="66" width="10" rx="4" y="60" height="60"><animate attributeName="height" values="40;95;50;75;40" dur="1.3s" repeatCount="indefinite"/><animate attributeName="y" values="80;25;70;45;80" dur="1.3s" repeatCount="indefinite"/></rect><rect x="84" width="10" rx="4" y="60" height="60" fill="#b4befe"><animate attributeName="height" values="90;45;70;30;90" dur="1s" repeatCount="indefinite"/><animate attributeName="y" values="30;75;50;90;30" dur="1s" repeatCount="indefinite"/></rect><rect x="102" width="10" rx="4" y="60" height="60" fill="#b4befe"><animate attributeName="height" values="30;70;100;55;30" dur="1.2s" repeatCount="indefinite"/><animate attributeName="y" values="90;50;20;65;90" dur="1.2s" repeatCount="indefinite"/></rect><rect x="120" width="10" rx="4" y="60" height="60" fill="#89b4fa"><animate attributeName="height" values="60;20;80;40;60" dur="0.8s" repeatCount="indefinite"/><animate attributeName="y" values="60;100;40;80;60" dur="0.8s" repeatCount="indefinite"/></rect><rect x="138" width="10" rx="4" y="60" height="60" fill="#89b4fa"><animate attributeName="height" values="85;50;30;75;85" dur="1.15s" repeatCount="indefinite"/><animate attributeName="y" values="35;70;90;45;35" dur="1.15s" repeatCount="indefinite"/></rect><rect x="156" width="10" rx="4" y="60" height="60" fill="#89b4fa"><animate attributeName="height" values="45;90;60;25;45" dur="0.95s" repeatCount="indefinite"/><animate attributeName="y" values="75;30;60;95;75" dur="0.95s" repeatCount="indefinite"/></rect><rect x="174" width="10" rx="4" y="60" height="60" fill="#94e2d5"><animate attributeName="height" values="25;65;95;50;25" dur="1.05s" repeatCount="indefinite"/><animate attributeName="y" values="95;55;25;70;95" dur="1.05s" repeatCount="indefinite"/></rect><rect x="192" width="10" rx="4" y="60" height="60" fill="#94e2d5"><animate attributeName="height" values="75;35;55;90;75" dur="1.25s" repeatCount="indefinite"/><animate attributeName="y" values="45;85;65;30;45" dur="1.25s" repeatCount="indefinite"/></rect></g><text x="230" y="80" fill="#a6adc8" font-size="12">… 32 bars, gradient by frequency</text></svg></div>
+
+<p><strong>What it is.</strong> Real-time bars that dance to whatever's playing, using <code>cava</code>. Colors run from mauve (bass) to teal (treble).</p>
+<p><strong>Kind:</strong> desktop widget · <strong>Needs:</strong> <code>cava</code></p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/desktop/Visualizer.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import Quickshell.Services.Mpris
+import QtQuick
+
+PanelWindow {
+    id: root
+    anchors { bottom: true; left: true; right: true }
+    implicitHeight: 160
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    mask: Region {}
+    WlrLayershell.layer: WlrLayer.Bottom
+
+    property int bars: 32
+    property var values: []
+    readonly property bool playing: Mpris.players.values.some(p =&gt; p.isPlaying)
+
+    // write a tiny raw-output config to the runtime dir, then run cava with it
+    Process {
+        running: root.playing
+        command: ["sh", "-c", `conf="$XDG_RUNTIME_DIR/qs-cava.conf"
+printf '[general]\\nbars = %s\\nframerate = 50\\n[output]\\nmethod = raw\\nraw_target = /dev/stdout\\ndata_format = ascii\\nascii_max_range = 100\\nbar_delimiter = 59\\n' "${root.bars}" &gt; "$conf"
+exec cava -p "$conf"`]
+        stdout: SplitParser { onRead: line =&gt; root.values = line.split(";").filter(s =&gt; s !== "").map(Number) }
+        onRunningChanged: if (!running) root.values = []
+    }
+
+    Row {
+        anchors { bottom: parent.bottom; horizontalCenter: parent.horizontalCenter; bottomMargin: 10 }
+        spacing: 6
+        Repeater {
+            model: root.bars
+            Rectangle {
+                required property int index
+                anchors.bottom: parent.bottom
+                width: 12; radius: 5
+                height: Math.max(4, 140 * (root.values[index] ?? 0) / 100)
+                // gradient from mauve to teal across the bars
+                color: Qt.hsla(0.75 - 0.27 * index / root.bars, 0.75, 0.78, 0.9)
+                Behavior on height { NumberAnimation { duration: 60 } }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 7–14</span><b>Full-width bottom window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    id: root
+    anchors { bottom: true; left: true; right: true }
+    implicitHeight: 160
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    mask: Region {}
+    WlrLayershell.layer: WlrLayer.Bottom</code></pre></div><div class="seg-e"><p>A 160 px tall, click-through strip along the bottom of the screen, under windows.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 16–18</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property int bars: 32
+property var values: []
+readonly property bool playing: Mpris.players.values.some(p =&gt; p.isPlaying)</code></pre></div><div class="seg-e"><p><code>bars</code> is the number of bars, <code>values</code> the current levels (0–100), and <code>playing</code> whether any player is playing.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 21–27</span><b>Running cava</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>    Process {
+        running: root.playing
+        command: ["sh", "-c", `conf="$XDG_RUNTIME_DIR/qs-cava.conf"
+printf '[general]\\nbars = %s\\nframerate = 50\\n[output]\\nmethod = raw\\nraw_target = /dev/stdout\\ndata_format = ascii\\nascii_max_range = 100\\nbar_delimiter = 59\\n' "${root.bars}" &gt; "$conf"
+exec cava -p "$conf"`]
+        stdout: SplitParser { onRead: line =&gt; root.values = line.split(";").filter(s =&gt; s !== "").map(Number) }
+        onRunningChanged: if (!running) root.values = []</code></pre></div><div class="seg-e"><p>cava is a terminal audio visualizer that can print raw numbers. The shell script writes a small config to the runtime directory (raw ASCII output, values 0–100, separated by <code>;</code> which is character 59), then <code>exec</code>s cava with it. The process only runs while music plays. <a class="api" href="../ref/SplitParser.html"><code>SplitParser</code></a> receives one line per frame (50 per second) and splits it into numbers. When the process stops, the bars reset to zero.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 30–45</span><b>The bars</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Row {
+    anchors { bottom: parent.bottom; horizontalCenter: parent.horizontalCenter; bottomMargin: 10 }
+    spacing: 6
+    Repeater {
+        model: root.bars
+        Rectangle {
+            required property int index
+            anchors.bottom: parent.bottom
+            width: 12; radius: 5
+            height: Math.max(4, 140 * (root.values[index] ?? 0) / 100)
+            // gradient from mauve to teal across the bars
+            color: Qt.hsla(0.75 - 0.27 * index / root.bars, 0.75, 0.78, 0.9)
+            Behavior on height { NumberAnimation { duration: 60 } }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>A <code>Repeater</code> creates the bars; each reads its value by index (<code>?? 0</code> before data arrives). Heights scale to 140 px with a 4 px minimum, so silent bars stay visible as dots. The color shifts hue across the bars (<code>Qt.hsla</code> with a hue that decreases from mauve toward teal), giving a gradient without any gradient object. A 60 ms <code>Behavior</code> smooths between frames.</p></div></div></div>
+<p><strong>Customize</strong>
+- Mirror the bars (center outward), or draw a curved line with Canvas.
+- Lighter option without cava: a single level meter from <a class="api" href="../ref/PwNodePeakMonitor.html"><code>PwNodePeakMonitor</code></a>.</p>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 8</span><span class="ex-lvl">Practice</span><b>Mirrored</b></div><div class="ex-b"><p>Make the bars grow from the vertical center in both directions (mirrored), like a waveform.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Anchor each bar to <code>parent.verticalCenter</code> and use <code>y: -height / 2</code> relative positioning, or place two Repeaters (one flipped with <code>transform: Scale { yScale: -1 }</code>).</p></div></details></div>
+<h2 id="spinning-vinyl-now-playing">Spinning Vinyl Now Playing<a class="hlink" href="#spinning-vinyl-now-playing">#</a></h2>
+<div class="preview"><svg style="width:min(100%,570px)" width="380" height="170" viewBox="0 0 380 170"><g><animateTransform attributeName="transform" type="rotate" from="0 85 85" to="360 85 85" dur="6s" repeatCount="indefinite"/><circle cx="85" cy="85" r="65" fill="#11111b"/><g fill="none" stroke="#313244"><circle cx="85" cy="85" r="55"/><circle cx="85" cy="85" r="45"/><circle cx="85" cy="85" r="35"/></g><circle cx="85" cy="85" r="24" fill="#cba6f7"/><path d="M85 61a24 24 0 0 1 20 12" stroke="#f5c2e7" stroke-width="6" fill="none"/><circle cx="85" cy="85" r="4" fill="#11111b"/></g><text x="170" y="74" fill="#cdd6f4" font-size="17" font-weight="800">Midnight City</text><text x="170" y="96" fill="#a6adc8" font-size="12">M83 · Hurry Up, We're Dreaming</text><rect x="170" y="112" width="180" height="4" rx="2" fill="#313244"/><rect x="170" y="112" width="80" height="4" rx="2" fill="#cba6f7"><animate attributeName="width" values="20;180" dur="20s" repeatCount="indefinite"/></rect></svg></div>
+
+<p><strong>What it is.</strong> A desktop "record player": album art as the label of a spinning vinyl that stops when paused, with title, artist and progress.</p>
+<p><strong>Kind:</strong> desktop widget (clickable) · <strong>Needs:</strong> MPRIS</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/desktop/Vinyl.qml</span><code>import Quickshell
+import Quickshell.Wayland
+import Quickshell.Widgets
+import Quickshell.Services.Mpris
+import QtQuick
+import QtQuick.Layouts
+
+PanelWindow {
+    id: root
+    readonly property MprisPlayer p: Mpris.players.values.find(pl =&gt; pl.isPlaying) ?? Mpris.players.values[0] ?? null
+    visible: p !== null
+    anchors { bottom: true; left: true }
+    margins { bottom: 80; left: 420 }
+    implicitWidth: 420; implicitHeight: 180
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Bottom
+
+    Timer { running: root.p?.isPlaying ?? false; interval: 1000; repeat: true; onTriggered: root.p.positionChanged() }
+
+    RowLayout {
+        anchors.fill: parent
+        spacing: 20
+        Item {
+            implicitWidth: 160; implicitHeight: 160
+            Rectangle {                                       // the record
+                id: disc
+                anchors.fill: parent
+                radius: width / 2
+                color: "#11111b"
+                Repeater { model: 4; Rectangle {               // grooves
+                    required property int index
+                    anchors.centerIn: parent
+                    width: 150 - index * 20; height: width; radius: width / 2
+                    color: "transparent"; border.color: "#24243a" } }
+                ClippingRectangle {                           // label = album art
+                    anchors.centerIn: parent
+                    width: 64; height: 64; radius: 32
+                    color: "#cba6f7"
+                    Image { anchors.fill: parent; source: root.p?.trackArtUrl ?? ""; fillMode: Image.PreserveAspectCrop; sourceSize: Qt.size(128, 128) }
+                }
+                Rectangle { anchors.centerIn: parent; width: 8; height: 8; radius: 4; color: "#11111b" }
+                RotationAnimator on rotation {
+                    from: 0; to: 360; duration: 5000; loops: Animation.Infinite
+                    running: root.p?.isPlaying ?? false
+                }
+            }
+            TapHandler { onTapped: root.p.togglePlaying() }
+        }
+        ColumnLayout {
+            Layout.fillWidth: true
+            spacing: 4
+            Text { Layout.fillWidth: true; text: root.p?.trackTitle ?? ""; color: "#cdd6f4"; font.pixelSize: 20; font.weight: Font.Black; elide: Text.ElideRight }
+            Text { Layout.fillWidth: true; text: (root.p?.trackArtist ?? "") + (root.p?.trackAlbum ? " · " + root.p.trackAlbum : ""); color: "#a6adc8"; font.pixelSize: 13; elide: Text.ElideRight }
+            Rectangle {
+                Layout.fillWidth: true; Layout.topMargin: 8; implicitHeight: 4; radius: 2; color: "#313244"
+                Rectangle { width: parent.width * (root.p?.position ?? 0) / Math.max(1, root.p?.length ?? 1); height: parent.height; radius: 2; color: "#cba6f7" }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–17</span><b>Player and window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property MprisPlayer p: Mpris.players.values.find(pl =&gt; pl.isPlaying) ?? Mpris.players.values[0] ?? null
+visible: p !== null
+anchors { bottom: true; left: true }
+margins { bottom: 80; left: 420 }
+implicitWidth: 420; implicitHeight: 180
+exclusionMode: ExclusionMode.Ignore
+color: "transparent"
+WlrLayershell.layer: WlrLayer.Bottom</code></pre></div><div class="seg-e"><p>Hidden when there's no player.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 19</span><b>Live progress</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Timer { running: root.p?.isPlaying ?? false; interval: 1000; repeat: true; onTriggered: root.p.positionChanged() }</code></pre></div><div class="seg-e"><p>Asks the player to refresh <code>position</code> every second while playing.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 26–35</span><b>The record and grooves</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {                                       // the record
+    id: disc
+    anchors.fill: parent
+    radius: width / 2
+    color: "#11111b"
+    Repeater { model: 4; Rectangle {               // grooves
+        required property int index
+        anchors.centerIn: parent
+        width: 150 - index * 20; height: width; radius: width / 2
+        color: "transparent"; border.color: "#24243a" } }</code></pre></div><div class="seg-e"><p>A black circle with four concentric transparent circles whose thin borders look like grooves.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 36–42</span><b>Label = album art</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ClippingRectangle {                           // label = album art
+    anchors.centerIn: parent
+    width: 64; height: 64; radius: 32
+    color: "#cba6f7"
+    Image { anchors.fill: parent; source: root.p?.trackArtUrl ?? ""; fillMode: Image.PreserveAspectCrop; sourceSize: Qt.size(128, 128) }
+}
+Rectangle { anchors.centerIn: parent; width: 8; height: 8; radius: 4; color: "#11111b" }</code></pre></div><div class="seg-e"><p>Round album art in the center, and a small dark spindle hole on top.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 43–46</span><b>Spinning on the render thread</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RotationAnimator on rotation {
+    from: 0; to: 360; duration: 5000; loops: Animation.Infinite
+    running: root.p?.isPlaying ?? false
+}</code></pre></div><div class="seg-e"><p><code>RotationAnimator</code> (an <em>Animator</em>, not an Animation) runs on Qt's render thread, so it stays perfectly smooth even if the shell is busy. It runs only while playing.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 48</span><b>Click the record</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TapHandler { onTapped: root.p.togglePlaying() }</code></pre></div><div class="seg-e"><p>Toggles play/pause.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 50–58</span><b>Text and progress</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ColumnLayout {
+    Layout.fillWidth: true
+    spacing: 4
+    Text { Layout.fillWidth: true; text: root.p?.trackTitle ?? ""; color: "#cdd6f4"; font.pixelSize: 20; font.weight: Font.Black; elide: Text.ElideRight }
+    Text { Layout.fillWidth: true; text: (root.p?.trackArtist ?? "") + (root.p?.trackAlbum ? " · " + root.p.trackAlbum : ""); color: "#a6adc8"; font.pixelSize: 13; elide: Text.ElideRight }
+    Rectangle {
+        Layout.fillWidth: true; Layout.topMargin: 8; implicitHeight: 4; radius: 2; color: "#313244"
+        Rectangle { width: parent.width * (root.p?.position ?? 0) / Math.max(1, root.p?.length ?? 1); height: parent.height; radius: 2; color: "#cba6f7" }
+    }</code></pre></div><div class="seg-e"><p>Title in a heavy font, "artist · album", and a thin progress bar.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 9</span><span class="ex-lvl">Practice</span><b>Tonearm</b></div><div class="ex-b"><p>Add a tonearm (a rotated rectangle at the top-right of the record) that rotates onto the record when playing and away when paused.</p></div></div>
+<h2 id="sticky-note">Sticky Note<a class="hlink" href="#sticky-note">#</a></h2>
+<div class="preview"><svg style="width:min(100%,360px)" width="240" height="200" viewBox="0 0 240 200"><g transform="rotate(-3 120 100)"><rect x="40" y="20" width="160" height="160" rx="6" fill="#f9e2af"/><rect x="40" y="20" width="160" height="22" rx="6" fill="#f5d48a"/><g fill="#45475a" font-size="13"><text x="54" y="66">☐ rice the lock screen</text><text x="54" y="90">☑ dynamic island</text><text x="54" y="114">☐ buy coffee</text></g></g></svg></div>
+
+<p><strong>What it is.</strong> An editable sticky note on the desktop whose text is saved to a file automatically.</p>
+<p><strong>Kind:</strong> desktop widget (editable) · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/desktop/StickyNote.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import QtQuick
+
+PanelWindow {
+    id: root
+    anchors { top: true; right: true }
+    margins { top: 120; right: 380 }
+    implicitWidth: 240; implicitHeight: 240
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Bottom
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.OnDemand        // focus when clicked, so you can type
+
+    FileView {
+        id: file
+        path: Quickshell.statePath("sticky-note.txt")
+        printErrors: false
+        onLoaded: if (edit.text !== text()) edit.text = text()
+    }
+    Timer { id: save; interval: 600; onTriggered: file.setText(edit.text) }    // save shortly after typing stops
+
+    Rectangle {
+        anchors.fill: parent; anchors.margins: 10
+        rotation: -2
+        radius: 6; color: "#f9e2af"
+        Rectangle { width: parent.width; height: 22; radius: 6; color: "#f5d48a" }
+        TextEdit {
+            id: edit
+            anchors { fill: parent; margins: 14; topMargin: 30 }
+            wrapMode: TextEdit.Wrap
+            color: "#45475a"; font.pixelSize: 14
+            selectByMouse: true
+            onTextChanged: save.restart()
+            Text { visible: !parent.text &amp;&amp; !parent.activeFocus; text: "Click to write…"; color: "#8a7f60"; font: parent.font }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 6–14</span><b>Clickable desktop window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    id: root
+    anchors { top: true; right: true }
+    margins { top: 120; right: 380 }
+    implicitWidth: 240; implicitHeight: 240
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Bottom
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.OnDemand        // focus when clicked, so you can type</code></pre></div><div class="seg-e"><p>Unlike other desktop widgets, the note has no empty mask: it needs clicks. <code>OnDemand</code> keyboard focus means it only takes the keyboard when you click into it, so it doesn't steal typing from your apps.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 16–21</span><b>Loading</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FileView {
+    id: file
+    path: Quickshell.statePath("sticky-note.txt")
+    printErrors: false
+    onLoaded: if (edit.text !== text()) edit.text = text()
+}</code></pre></div><div class="seg-e"><p>The text is stored in the shell's state directory. When the file loads, it's copied into the editor (only if different, to avoid moving the cursor).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 22</span><b>Saving (debounced)</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Timer { id: save; interval: 600; onTriggered: file.setText(edit.text) }    // save shortly after typing stops</code></pre></div><div class="seg-e"><p>Every keystroke restarts a 600 ms timer; the file is written only when you pause. <code>setText()</code> writes the whole file.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 24–28</span><b>Paper look</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    anchors.fill: parent; anchors.margins: 10
+    rotation: -2
+    radius: 6; color: "#f9e2af"
+    Rectangle { width: parent.width; height: 22; radius: 6; color: "#f5d48a" }</code></pre></div><div class="seg-e"><p>A yellow card rotated −2° (slightly crooked, like a real note) with a darker strip at the top.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 29–37</span><b>Editing</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TextEdit {
+    id: edit
+    anchors { fill: parent; margins: 14; topMargin: 30 }
+    wrapMode: TextEdit.Wrap
+    color: "#45475a"; font.pixelSize: 14
+    selectByMouse: true
+    onTextChanged: save.restart()
+    Text { visible: !parent.text &amp;&amp; !parent.activeFocus; text: "Click to write…"; color: "#8a7f60"; font: parent.font }
+}</code></pre></div><div class="seg-e"><p><code>TextEdit</code> is a multi-line text editor. A placeholder appears only when empty and not focused.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 10</span><span class="ex-lvl">Practice</span><b>Color picker</b></div><div class="ex-b"><p>Right-click the note to cycle through yellow, pink and green paper colors, and remember the choice.</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/g4-panels.html"><small>← Previous</small><span>Gallery: Panels and Menus</span></a><a class="pn-next" href="../ch/g6-effects.html"><small>Next →</small><span>Gallery: Effects, Decorations and Interactions</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#big-desktop-clock">Big Desktop Clock</a><a class="l2" href="#analog-clock">Analog Clock</a><a class="l2" href="#weather-card">Weather Card</a><a class="l2" href="#system-rings-dashboard">System Rings Dashboard</a><a class="l2" href="#cpu-history-graph">CPU History Graph</a><a class="l2" href="#pomodoro-timer">Pomodoro Timer</a><a class="l2" href="#quote-of-the-day">Quote of the Day</a><a class="l2" href="#audio-visualizer-bars">Audio Visualizer Bars</a><a class="l2" href="#spinning-vinyl-now-playing">Spinning Vinyl Now Playing</a><a class="l2" href="#sticky-note">Sticky Note</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

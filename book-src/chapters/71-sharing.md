@@ -107,3 +107,21 @@ You've gone from "what is a property?" to building every major component of a de
 - Build one piece at a time, using the API reference as your dictionary.
 
 There's no layout Quickshell can't draw. Go rice something nobody has seen before.
+
+## Practice
+
+::: exercise warm | A README
+Write a README for your config: screenshot, dependencies, install steps, keybinds.
+:::
+
+::: exercise practice | Install script
+Write an install script that checks dependencies (`command -v qs matugen …`) and symlinks the config into `~/.config/quickshell/`.
+--- solution
+```bash
+#!/usr/bin/env bash
+set -e
+for dep in qs matugen; do command -v "$dep" >/dev/null || { echo "missing: $dep"; exit 1; }; done
+ln -sfn "$(pwd)" ~/.config/quickshell/myshell
+echo "run: qs -c myshell"
+```
+:::

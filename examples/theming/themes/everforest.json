@@ -1,0 +1,43 @@
+{
+  "id": "everforest",
+  "name": "Everforest Dark",
+  "family": "Everforest",
+  "variant": "dark",
+  "author": "sainnhe",
+  "url": "https://github.com/sainnhe/everforest",
+  "palette": {
+    "bg0": "#2d353b",
+    "bg1": "#343f44",
+    "bg2": "#3d484d",
+    "bg3": "#475258",
+    "fg": "#d3c6aa",
+    "grey1": "#859289",
+    "grey0": "#7a8478",
+    "red": "#e67e80",
+    "orange": "#e69875",
+    "yellow": "#dbbc7f",
+    "green": "#a7c080",
+    "aqua": "#83c092",
+    "blue": "#7fbbb3",
+    "purple": "#d699b6"
+  },
+  "roles": {
+    "background": "bg0",
+    "surface": "bg1",
+    "surfaceHigh": "bg2",
+    "border": "bg3",
+    "text": "fg",
+    "textMuted": "grey1",
+    "textFaint": "grey0",
+    "primary": "green",
+    "onPrimary": "bg0",
+    "secondary": "aqua",
+    "red": "red",
+    "orange": "orange",
+    "yellow": "yellow",
+    "green": "green",
+    "cyan": "aqua",
+    "blue": "blue",
+    "magenta": "purple"
+  }
+}

@@ -211,7 +211,55 @@ PanelWindow {
 }
 ```
 
-> [!TRY] Exercises
-> 1. Add a `Timer` that resets `clicks` to 0 if you don't click for 3 seconds (hint: `restart()` it in `onClicked`).
-> 2. Create `Toggle.qml` with `property bool checked` and `signal toggled(bool checked)`, and use it in the bar.
-> 3. Use `Connections` to log every time the window's `width` changes (target: `win`).
+## Practice
+
+::: exercise warm | Log a signal
+Log "hovered!" every time the mouse enters a rectangle, using a `HoverHandler` and its `hoveredChanged` signal.
+--- solution
+```qml
+HoverHandler { onHoveredChanged: if (hovered) console.log("hovered!") }
+```
+:::
+
+::: exercise practice | Reset after a pause
+Count clicks, but reset `clicks` to 0 if you don't click for 3 seconds.
+--- hint
+`restart()` a `Timer` in `onClicked`.
+--- solution
+```qml
+property int clicks: 0
+Timer { id: idle; interval: 3000; onTriggered: clicks = 0 }
+MouseArea { anchors.fill: parent; onClicked: { clicks++; idle.restart() } }
+```
+:::
+
+::: exercise practice | Your own signal
+Create `Toggle.qml` with `property bool checked` and `signal toggled(bool checked)`, and use it in the bar to log the new state.
+--- solution
+```qml
+// Toggle.qml
+import QtQuick
+Rectangle {
+    id: t
+    property bool checked: false
+    signal toggled(bool checked)
+    width: 40; height: 22; radius: 11
+    color: checked ? "#a6e3a1" : "#45475a"
+    MouseArea { anchors.fill: parent; onClicked: { t.checked = !t.checked; t.toggled(t.checked) } }
+}
+```
+```qml
+Toggle { onToggled: checked => console.log("now", checked) }
+```
+:::
+
+::: exercise challenge | Connections
+Use `Connections` to log every time the window's `width` changes (target: the window's id).
+--- solution
+```qml
+Connections {
+    target: win
+    function onWidthChanged() { console.log("width is now", win.width) }
+}
+```
+:::

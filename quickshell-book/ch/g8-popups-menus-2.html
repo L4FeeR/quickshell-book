@@ -1,0 +1,1958 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery: Popups, Menus and Pickers · The Quickshell Book</title>
+<meta name="description" content="Gallery: Popups, Menus and Pickers">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details open><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch active" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-g">Part G: Widget Gallery</a> › Gallery: Popups, Menus and Pickers</div><article><div class="ch-head"><div class="ch-part">Part G · Widget Gallery</div><h1><span class="ch-num">g8</span>Gallery: Popups, Menus and Pickers</h1></div><p>Things that open on top of your desktop: a calendar, an audio mixer, a device picker, reusable tooltips and context menus, a confirmation dialog, clipboard history, a screenshot menu, an Alt+Tab switcher and a battery details popup. The files live in <code>galleryshell/popups/</code>.</p>
+<p>There are two shapes here:</p>
+<ul>
+<li><strong>Chip with a popup</strong>: a bar module that opens a <a class="api" href="../ref/PopupWindow.html"><code>PopupWindow</code></a> under itself (calendar, mixer, devices, battery). Drop it in your bar like any chip.</li>
+<li><strong>Overlay with IPC</strong>: a <code>Scope</code> with an <code>open</code> flag, an <a class="api" href="../ref/IpcHandler.html"><code>IpcHandler</code></a> and a window that only exists while open (clipboard, screenshot, Alt+Tab, confirm). Put one anywhere in <code>shell.qml</code> and bind a key to <code>qs ipc call &lt;target&gt; toggle</code>.</li>
+</ul>
+<h2 id="calendar-popup">Calendar Popup<a class="hlink" href="#calendar-popup">#</a></h2>
+<div class="preview"><svg style="width:min(100%,510px)" width="340" height="290" viewBox="0 0 340 290"><rect x="120" y="8" width="100" height="26" rx="13" fill="#45475a"/><text x="170" y="25" fill="#cdd6f4" font-size="12" text-anchor="middle">Sat 22 Nov</text><rect x="30" y="44" width="280" height="236" rx="16" fill="#1e1e2e" stroke="#313244"/><text x="46" y="72" fill="#cdd6f4" font-size="15" font-weight="700">November 2026</text><text x="236" y="72" fill="#a6adc8" font-size="14">‹  ◎  ›</text><g font-size="11" text-anchor="middle" font-weight="700"><text x="58" y="96" fill="#6c7086">Mo</text><text x="94" y="96" fill="#6c7086">Tu</text><text x="130" y="96" fill="#6c7086">We</text><text x="166" y="96" fill="#6c7086">Th</text><text x="202" y="96" fill="#6c7086">Fr</text><text x="238" y="96" fill="#f38ba8">Sa</text><text x="274" y="96" fill="#f38ba8">Su</text></g><g font-size="12" text-anchor="middle" fill="#cdd6f4"><text x="58" y="122" fill="#585b70">26</text><text x="94" y="122" fill="#585b70">27</text><text x="130" y="122" fill="#585b70">28</text><text x="166" y="122" fill="#585b70">29</text><text x="202" y="122" fill="#585b70">30</text><text x="238" y="122" fill="#585b70">31</text><text x="274" y="122">1</text><text x="58" y="152">2</text><text x="94" y="152">3</text><text x="130" y="152">4</text><text x="166" y="152">5</text><text x="202" y="152">6</text><text x="238" y="152">7</text><text x="274" y="152">8</text><text x="58" y="182">9</text><text x="94" y="182">10</text><text x="130" y="182">11</text><text x="166" y="182">12</text><text x="202" y="182">13</text><text x="238" y="182">14</text><text x="274" y="182">15</text><text x="58" y="212">16</text><text x="94" y="212">17</text><text x="130" y="212">18</text><text x="166" y="212">19</text><text x="202" y="212">20</text><text x="274" y="212">22</text><text x="58" y="242">23</text><text x="94" y="242">24</text><text x="130" y="242">25</text><text x="166" y="242">26</text><text x="202" y="242">27</text><text x="238" y="242">28</text><text x="274" y="242">29</text></g><rect x="222" y="196" width="32" height="24" rx="8" fill="#cba6f7"/><text x="238" y="212" fill="#1e1e2e" font-size="12" font-weight="700" text-anchor="middle">21</text></svg></div>
+
+<p><strong>What it is.</strong> A date chip; click it for a month calendar with today highlighted. Arrows or the scroll wheel move between months, the middle button jumps back to today.</p>
+<p><strong>Kind:</strong> bar module with popup · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/popups/CalendarPopup.qml</span><code>import Quickshell
+import QtQuick
+import QtQuick.Layouts
+
+// A date chip for the bar. Click it for a month calendar; scroll the calendar to change month.
+Rectangle {
+    id: root
+    property bool open: false
+    property int monthOffset: 0                    // 0 = this month, -1 = last month…
+    SystemClock { id: clock; precision: SystemClock.Minutes }
+
+    // the first day of the month being shown
+    readonly property date shownMonth: new Date(clock.date.getFullYear(), clock.date.getMonth() + monthOffset, 1)
+    // 42 cells (6 weeks), starting on the Monday on or before the 1st
+    readonly property var cells: {
+        const first = shownMonth
+        const lead = (first.getDay() + 6) % 7      // Monday = 0
+        const out = []
+        for (let i = 0; i &lt; 42; i++)
+            out.push(new Date(first.getFullYear(), first.getMonth(), 1 - lead + i))
+        return out
+    }
+    function sameDay(a: date, b: date): bool {
+        return a.getFullYear() === b.getFullYear() &amp;&amp; a.getMonth() === b.getMonth() &amp;&amp; a.getDate() === b.getDate()
+    }
+
+    implicitWidth: label.implicitWidth + 24
+    implicitHeight: 26
+    radius: height / 2
+    color: open ? "#45475a" : hover.hovered ? "#45475a" : "#313244"
+    Text { id: label; anchors.centerIn: parent; text: Qt.formatDateTime(clock.date, "ddd d MMM"); color: "#cdd6f4"; font.pixelSize: 12 }
+    HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+    TapHandler { onTapped: { root.monthOffset = 0; root.open = !root.open } }
+
+    PopupWindow {
+        visible: root.open
+        anchor.item: root
+        anchor.edges: Edges.Bottom
+        anchor.gravity: Edges.Bottom
+        anchor.margins.top: 8
+        implicitWidth: 280; implicitHeight: 300
+        color: "transparent"
+
+        Rectangle {
+            anchors.fill: parent
+            radius: 16; color: "#1e1e2e"; border.color: "#313244"
+
+            ColumnLayout {
+                anchors { fill: parent; margins: 14 }
+                spacing: 8
+                RowLayout {
+                    Text {
+                        Layout.fillWidth: true
+                        text: Qt.formatDateTime(root.shownMonth, "MMMM yyyy")
+                        color: "#cdd6f4"; font.pixelSize: 15; font.bold: true
+                    }
+                    Repeater {
+                        model: [["chevron_left", -1], ["today", 0], ["chevron_right", 1]]
+                        Text {
+                            required property var modelData
+                            text: modelData[0]; font.family: "Material Symbols Rounded"; font.pixelSize: 20; color: "#a6adc8"
+                            TapHandler { onTapped: root.monthOffset = parent.modelData[1] === 0 ? 0 : root.monthOffset + parent.modelData[1] }
+                        }
+                    }
+                }
+                GridLayout {
+                    Layout.fillWidth: true; Layout.fillHeight: true
+                    columns: 7; rowSpacing: 2; columnSpacing: 2
+                    Repeater {                                           // weekday header
+                        model: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
+                        Text {
+                            required property string modelData
+                            required property int index
+                            Layout.fillWidth: true
+                            horizontalAlignment: Text.AlignHCenter
+                            text: modelData; font.pixelSize: 11; font.bold: true
+                            color: index &gt;= 5 ? "#f38ba8" : "#6c7086"
+                        }
+                    }
+                    Repeater {
+                        model: root.cells
+                        Rectangle {
+                            id: cell
+                            required property var modelData
+                            readonly property bool today: root.sameDay(modelData, clock.date)
+                            readonly property bool inMonth: modelData.getMonth() === root.shownMonth.getMonth()
+                            Layout.fillWidth: true; Layout.fillHeight: true
+                            radius: 8
+                            color: today ? "#cba6f7" : cellHover.hovered ? "#313244" : "transparent"
+                            Text {
+                                anchors.centerIn: parent
+                                text: cell.modelData.getDate()
+                                font.pixelSize: 12; font.bold: cell.today
+                                color: cell.today ? "#1e1e2e" : cell.inMonth ? "#cdd6f4" : "#585b70"
+                            }
+                            HoverHandler { id: cellHover }
+                        }
+                    }
+                }
+            }
+            WheelHandler { onWheel: e =&gt; root.monthOffset += e.angleDelta.y &gt; 0 ? -1 : 1 }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 8–10</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool open: false
+property int monthOffset: 0                    // 0 = this month, -1 = last month…
+SystemClock { id: clock; precision: SystemClock.Minutes }</code></pre></div><div class="seg-e"><p>Whether the popup is open, which month is shown relative to the current one, and a clock. Minute precision is enough; the date changes at midnight and the binding follows.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 12–13</span><b>The shown month</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// the first day of the month being shown
+readonly property date shownMonth: new Date(clock.date.getFullYear(), clock.date.getMonth() + monthOffset, 1)</code></pre></div><div class="seg-e"><p>JavaScript's <code>Date</code> handles overflow for us: month 13 of 2026 is January 2027, so adding <code>monthOffset</code> to the month just works.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–22</span><b>42 cells</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// 42 cells (6 weeks), starting on the Monday on or before the 1st
+readonly property var cells: {
+    const first = shownMonth
+    const lead = (first.getDay() + 6) % 7      // Monday = 0
+    const out = []
+    for (let i = 0; i &lt; 42; i++)
+        out.push(new Date(first.getFullYear(), first.getMonth(), 1 - lead + i))
+    return out
+}</code></pre></div><div class="seg-e"><p>A month grid is always 6 rows of 7 days. <code>getDay()</code> is 0 for Sunday, so <code>(getDay() + 6) % 7</code> makes Monday 0. Starting <code>lead</code> days before the 1st fills the first row with the end of the previous month. Day numbers like 0 or −2 are fine; <code>Date</code> turns them into the right days of the previous month.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 23–25</span><b>Same day?</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function sameDay(a: date, b: date): bool {
+    return a.getFullYear() === b.getFullYear() &amp;&amp; a.getMonth() === b.getMonth() &amp;&amp; a.getDate() === b.getDate()
+}</code></pre></div><div class="seg-e"><p>Compares year, month and date, ignoring the time.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 27–33</span><b>The chip</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>implicitWidth: label.implicitWidth + 24
+implicitHeight: 26
+radius: height / 2
+color: open ? "#45475a" : hover.hovered ? "#45475a" : "#313244"
+Text { id: label; anchors.centerIn: parent; text: Qt.formatDateTime(clock.date, "ddd d MMM"); color: "#cdd6f4"; font.pixelSize: 12 }
+HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+TapHandler { onTapped: { root.monthOffset = 0; root.open = !root.open } }</code></pre></div><div class="seg-e"><p>Shows "Sat 22 Nov". A click resets to the current month and toggles the popup.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 35–42</span><b>The popup window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PopupWindow {
+    visible: root.open
+    anchor.item: root
+    anchor.edges: Edges.Bottom
+    anchor.gravity: Edges.Bottom
+    anchor.margins.top: 8
+    implicitWidth: 280; implicitHeight: 300
+    color: "transparent"</code></pre></div><div class="seg-e"><p>A <a class="api" href="../ref/PopupWindow.html"><code>PopupWindow</code></a> anchored to the chip, opening downward with an 8 px gap.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 51–65</span><b>Header</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    Text {
+        Layout.fillWidth: true
+        text: Qt.formatDateTime(root.shownMonth, "MMMM yyyy")
+        color: "#cdd6f4"; font.pixelSize: 15; font.bold: true
+    }
+    Repeater {
+        model: [["chevron_left", -1], ["today", 0], ["chevron_right", 1]]
+        Text {
+            required property var modelData
+            text: modelData[0]; font.family: "Material Symbols Rounded"; font.pixelSize: 20; color: "#a6adc8"
+            TapHandler { onTapped: root.monthOffset = parent.modelData[1] === 0 ? 0 : root.monthOffset + parent.modelData[1] }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>Month and year, then three buttons from a small model of <code>[icon, step]</code> pairs. Step 0 means "back to today".</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 66–79</span><b>Weekday names</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>GridLayout {
+    Layout.fillWidth: true; Layout.fillHeight: true
+    columns: 7; rowSpacing: 2; columnSpacing: 2
+    Repeater {                                           // weekday header
+        model: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
+        Text {
+            required property string modelData
+            required property int index
+            Layout.fillWidth: true
+            horizontalAlignment: Text.AlignHCenter
+            text: modelData; font.pixelSize: 11; font.bold: true
+            color: index &gt;= 5 ? "#f38ba8" : "#6c7086"
+        }
+    }</code></pre></div><div class="seg-e"><p>The first seven grid cells. Weekends are red.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 80–98</span><b>Day cells</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Repeater {
+    model: root.cells
+    Rectangle {
+        id: cell
+        required property var modelData
+        readonly property bool today: root.sameDay(modelData, clock.date)
+        readonly property bool inMonth: modelData.getMonth() === root.shownMonth.getMonth()
+        Layout.fillWidth: true; Layout.fillHeight: true
+        radius: 8
+        color: today ? "#cba6f7" : cellHover.hovered ? "#313244" : "transparent"
+        Text {
+            anchors.centerIn: parent
+            text: cell.modelData.getDate()
+            font.pixelSize: 12; font.bold: cell.today
+            color: cell.today ? "#1e1e2e" : cell.inMonth ? "#cdd6f4" : "#585b70"
+        }
+        HoverHandler { id: cellHover }
+    }
+}</code></pre></div><div class="seg-e"><p>Each cell knows whether it's today and whether it belongs to the shown month (others are greyed). Cells fill the grid evenly with <code>Layout.fillWidth/fillHeight</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 101</span><b>Scroll to change month</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>WheelHandler { onWheel: e =&gt; root.monthOffset += e.angleDelta.y &gt; 0 ? -1 : 1 }</code></pre></div><div class="seg-e"></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Practice</span><b>Week numbers</b></div><div class="ex-b"><p>Add an eighth column on the left with ISO week numbers.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>The ISO week of a date is the week of its Thursday: take the Monday of each row, add 3 days, and count weeks since the first Thursday of that year.</p></div></details></div>
+<h2 id="per-app-volume-mixer">Per-App Volume Mixer<a class="hlink" href="#per-app-volume-mixer">#</a></h2>
+<div class="preview"><svg style="width:min(100%,540px)" width="360" height="180" viewBox="0 0 360 180"><rect x="160" y="6" width="30" height="26" rx="13" fill="#45475a"/><text x="168" y="24" fill="#cdd6f4" font-size="13">≋</text><rect x="20" y="40" width="320" height="130" rx="16" fill="#1e1e2e" stroke="#313244"/><g font-size="12"><circle cx="46" cy="70" r="11" fill="#a6e3a1"/><text x="66" y="64" fill="#cdd6f4">Spotify · Instant Crush</text><rect x="66" y="74" width="230" height="4" rx="2" fill="#45475a"/><rect x="66" y="74" width="170" height="4" rx="2" fill="#cba6f7"/><circle cx="236" cy="76" r="7" fill="#cdd6f4"/><text x="308" y="76" fill="#a6adc8">🔊</text><circle cx="46" cy="110" r="11" fill="#fab387"/><text x="66" y="104" fill="#cdd6f4">Firefox · YouTube</text><rect x="66" y="114" width="230" height="4" rx="2" fill="#45475a"/><rect x="66" y="114" width="90" height="4" rx="2" fill="#cba6f7"/><circle cx="156" cy="116" r="7" fill="#cdd6f4"/><text x="308" y="116" fill="#a6adc8">🔊</text><circle cx="46" cy="150" r="11" fill="#89b4fa"/><text x="66" y="144" fill="#cdd6f4">Discord</text><rect x="66" y="154" width="230" height="4" rx="2" fill="#45475a"/><text x="308" y="156" fill="#f38ba8">🔇</text></g></svg></div>
+
+<p><strong>What it is.</strong> One slider per app that is playing sound, so you can turn the game down without touching the music.</p>
+<p><strong>Kind:</strong> bar module with popup · <strong>Needs:</strong> PipeWire</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/popups/AudioMixer.qml</span><code>import Quickshell
+import Quickshell.Services.Pipewire
+import Quickshell.Widgets
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+
+// A bar icon that opens a per-application volume mixer.
+Rectangle {
+    id: root
+    property bool open: false
+    // playback streams: nodes that are streams, carry audio and go to a sink (i.e. apps playing sound)
+    readonly property var streams: Pipewire.nodes.values.filter(n =&gt; n.isStream &amp;&amp; n.isSink &amp;&amp; n.audio)
+
+    PwObjectTracker { objects: root.streams }     // needed to read and change their volume
+
+    implicitWidth: 30; implicitHeight: 26
+    radius: height / 2
+    color: open || hover.hovered ? "#45475a" : "#313244"
+    Text { anchors.centerIn: parent; text: "graphic_eq"; font.family: "Material Symbols Rounded"; font.pixelSize: 18; color: "#cdd6f4" }
+    HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+    TapHandler { onTapped: root.open = !root.open }
+
+    PopupWindow {
+        visible: root.open
+        anchor.item: root
+        anchor.edges: Edges.Bottom
+        anchor.gravity: Edges.Bottom
+        anchor.margins.top: 8
+        implicitWidth: 320
+        implicitHeight: Math.max(80, list.implicitHeight + 28)
+        color: "transparent"
+
+        Rectangle {
+            anchors.fill: parent
+            radius: 16; color: "#1e1e2e"; border.color: "#313244"
+
+            Text {
+                visible: root.streams.length === 0
+                anchors.centerIn: parent
+                text: "Nothing is playing"; color: "#6c7086"; font.pixelSize: 13
+            }
+            ColumnLayout {
+                id: list
+                anchors { left: parent.left; right: parent.right; top: parent.top; margins: 14 }
+                spacing: 12
+                Repeater {
+                    model: root.streams
+                    RowLayout {
+                        id: stream
+                        required property PwNode modelData
+                        // apps put their name and icon into the node's properties
+                        readonly property string app: modelData.properties["application.name"] ?? modelData.description ?? modelData.name
+                        readonly property string iconName: modelData.properties["application.icon-name"] ?? "audio-x-generic"
+                        Layout.fillWidth: true
+                        spacing: 10
+                        IconImage { implicitSize: 24; source: Quickshell.iconPath(stream.iconName, "audio-x-generic") }
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            spacing: 0
+                            Text {
+                                Layout.fillWidth: true
+                                text: stream.app + (stream.modelData.properties["media.name"] ? " · " + stream.modelData.properties["media.name"] : "")
+                                color: "#cdd6f4"; font.pixelSize: 12; elide: Text.ElideRight
+                            }
+                            Slider {
+                                Layout.fillWidth: true
+                                from: 0; to: 1
+                                value: stream.modelData.audio.volume
+                                onMoved: stream.modelData.audio.volume = value
+                            }
+                        }
+                        Text {
+                            text: stream.modelData.audio.muted ? "volume_off" : "volume_up"
+                            font.family: "Material Symbols Rounded"; font.pixelSize: 18
+                            color: stream.modelData.audio.muted ? "#f38ba8" : "#a6adc8"
+                            TapHandler { onTapped: stream.modelData.audio.muted = !stream.modelData.audio.muted }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 12–13</span><b>Which nodes are apps</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// playback streams: nodes that are streams, carry audio and go to a sink (i.e. apps playing sound)
+readonly property var streams: Pipewire.nodes.values.filter(n =&gt; n.isStream &amp;&amp; n.isSink &amp;&amp; n.audio)</code></pre></div><div class="seg-e"><p>In PipeWire every sound source and destination is a node. An app playing sound is a <strong>stream</strong> that is a <strong>sink</strong>-side node with audio. Speakers are sinks but not streams; microphone recorders are streams but not sinks.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 15</span><b>Track them all</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PwObjectTracker { objects: root.streams }     // needed to read and change their volume</code></pre></div><div class="seg-e"><p><a class="api" href="../ref/PwObjectTracker.html"><code>PwObjectTracker</code></a> takes a list, so one tracker covers every stream. Without it, <code>audio.volume</code> would read 0.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 17–22</span><b>The chip</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>implicitWidth: 30; implicitHeight: 26
+radius: height / 2
+color: open || hover.hovered ? "#45475a" : "#313244"
+Text { anchors.centerIn: parent; text: "graphic_eq"; font.family: "Material Symbols Rounded"; font.pixelSize: 18; color: "#cdd6f4" }
+HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+TapHandler { onTapped: root.open = !root.open }</code></pre></div><div class="seg-e"><p>An equaliser icon that toggles the popup.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 24–32</span><b>The popup</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PopupWindow {
+    visible: root.open
+    anchor.item: root
+    anchor.edges: Edges.Bottom
+    anchor.gravity: Edges.Bottom
+    anchor.margins.top: 8
+    implicitWidth: 320
+    implicitHeight: Math.max(80, list.implicitHeight + 28)
+    color: "transparent"</code></pre></div><div class="seg-e"><p>It grows with the number of streams, but is at least 80 px tall for the "Nothing is playing" message.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 49–54</span><b>App name and icon</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    id: stream
+    required property PwNode modelData
+    // apps put their name and icon into the node's properties
+    readonly property string app: modelData.properties["application.name"] ?? modelData.description ?? modelData.name
+    readonly property string iconName: modelData.properties["application.icon-name"] ?? "audio-x-generic"</code></pre></div><div class="seg-e"><p>Apps describe themselves in the node's <code>properties</code> map: <code>application.name</code>, <code>application.icon-name</code> and <code>media.name</code> (the song or tab title). Each has a fallback, because not every app sets them.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 58–72</span><b>Name and slider</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ColumnLayout {
+    Layout.fillWidth: true
+    spacing: 0
+    Text {
+        Layout.fillWidth: true
+        text: stream.app + (stream.modelData.properties["media.name"] ? " · " + stream.modelData.properties["media.name"] : "")
+        color: "#cdd6f4"; font.pixelSize: 12; elide: Text.ElideRight
+    }
+    Slider {
+        Layout.fillWidth: true
+        from: 0; to: 1
+        value: stream.modelData.audio.volume
+        onMoved: stream.modelData.audio.volume = value
+    }
+}</code></pre></div><div class="seg-e"><p>The slider shows the stream's volume. <code>onMoved</code> (not <code>onValueChanged</code>) only fires for user drags, so the binding isn't fought by its own updates.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 73–78</span><b>Mute</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    text: stream.modelData.audio.muted ? "volume_off" : "volume_up"
+    font.family: "Material Symbols Rounded"; font.pixelSize: 18
+    color: stream.modelData.audio.muted ? "#f38ba8" : "#a6adc8"
+    TapHandler { onTapped: stream.modelData.audio.muted = !stream.modelData.audio.muted }
+}</code></pre></div><div class="seg-e"></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Show a level meter</b></div><div class="ex-b"><p>Add a thin live level bar under each slider.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p><code>PwNodePeakMonitor { node: stream.modelData }</code> has a <code>peak</code> property from 0 to 1 (check your Quickshell version's docs).</p></div></details></div>
+<h2 id="output-and-input-picker">Output and Input Picker<a class="hlink" href="#output-and-input-picker">#</a></h2>
+<div class="preview"><svg style="width:min(100%,540px)" width="360" height="220" viewBox="0 0 360 220"><rect x="20" y="10" width="320" height="200" rx="16" fill="#1e1e2e" stroke="#313244"/><g font-size="12"><text x="36" y="36" fill="#6c7086" font-size="11" font-weight="700">OUTPUT</text><rect x="32" y="44" width="296" height="32" rx="10" fill="#45365e"/><text x="44" y="65" fill="#cba6f7">◉</text><text x="66" y="65" fill="#cdd6f4">Built-in Audio Analog Stereo</text><text x="44" y="97" fill="#6c7086">○</text><text x="66" y="97" fill="#cdd6f4">WH-1000XM4</text><text x="44" y="127" fill="#6c7086">○</text><text x="66" y="127" fill="#cdd6f4">HDMI / DisplayPort 1</text><text x="36" y="158" fill="#6c7086" font-size="11" font-weight="700">INPUT</text><rect x="32" y="166" width="296" height="32" rx="10" fill="#45365e"/><text x="44" y="187" fill="#cba6f7">◉</text><text x="66" y="187" fill="#cdd6f4">Built-in Audio Digital Microphone</text></g></svg></div>
+
+<p><strong>What it is.</strong> Switch between speakers, headphones and HDMI (and between microphones) with one click. Running apps move to the new device.</p>
+<p><strong>Kind:</strong> bar module with popup · <strong>Needs:</strong> PipeWire</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/popups/AudioDevices.qml</span><code>import Quickshell
+import Quickshell.Services.Pipewire
+import QtQuick
+import QtQuick.Layouts
+
+// Pick the output (speakers, headphones, HDMI…) and input device from a popup.
+Rectangle {
+    id: root
+    property bool open: false
+    readonly property var sinks: Pipewire.nodes.values.filter(n =&gt; !n.isStream &amp;&amp; n.isSink &amp;&amp; n.audio)
+    readonly property var sources: Pipewire.nodes.values.filter(n =&gt; !n.isStream &amp;&amp; !n.isSink &amp;&amp; n.audio)
+
+    implicitWidth: 30; implicitHeight: 26
+    radius: height / 2
+    color: open || hover.hovered ? "#45475a" : "#313244"
+    Text { anchors.centerIn: parent; text: "headphones"; font.family: "Material Symbols Rounded"; font.pixelSize: 18; color: "#cdd6f4" }
+    HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+    TapHandler { onTapped: root.open = !root.open }
+
+    // one titled list of devices; `current` is highlighted, `pick` makes one the default
+    component DeviceList: ColumnLayout {
+        id: dl
+        property string title
+        property var devices: []
+        property var current: null
+        signal pick(var node)
+        Layout.fillWidth: true
+        spacing: 4
+        Text { text: dl.title; color: "#6c7086"; font.pixelSize: 11; font.bold: true; font.capitalization: Font.AllUppercase }
+        Repeater {
+            model: dl.devices
+            Rectangle {
+                id: item
+                required property PwNode modelData
+                readonly property bool chosen: modelData === dl.current
+                Layout.fillWidth: true
+                implicitHeight: 34; radius: 10
+                color: chosen ? "#45365e" : itemHover.hovered ? "#313244" : "transparent"
+                RowLayout {
+                    anchors { fill: parent; leftMargin: 10; rightMargin: 10 }
+                    Text {
+                        text: item.chosen ? "radio_button_checked" : "radio_button_unchecked"
+                        font.family: "Material Symbols Rounded"; font.pixelSize: 16
+                        color: item.chosen ? "#cba6f7" : "#6c7086"
+                    }
+                    Text {
+                        Layout.fillWidth: true
+                        text: item.modelData.description || item.modelData.nickname || item.modelData.name
+                        color: "#cdd6f4"; font.pixelSize: 12; elide: Text.ElideRight
+                    }
+                }
+                HoverHandler { id: itemHover; cursorShape: Qt.PointingHandCursor }
+                TapHandler { onTapped: dl.pick(item.modelData) }
+            }
+        }
+    }
+
+    PopupWindow {
+        visible: root.open
+        anchor.item: root
+        anchor.edges: Edges.Bottom
+        anchor.gravity: Edges.Bottom
+        anchor.margins.top: 8
+        implicitWidth: 320
+        implicitHeight: col.implicitHeight + 28
+        color: "transparent"
+        Rectangle {
+            anchors.fill: parent
+            radius: 16; color: "#1e1e2e"; border.color: "#313244"
+            ColumnLayout {
+                id: col
+                anchors { left: parent.left; right: parent.right; top: parent.top; margins: 14 }
+                spacing: 12
+                DeviceList {
+                    title: "Output"
+                    devices: root.sinks
+                    current: Pipewire.defaultAudioSink
+                    onPick: node =&gt; Pipewire.preferredDefaultAudioSink = node
+                }
+                DeviceList {
+                    title: "Input"
+                    devices: root.sources
+                    current: Pipewire.defaultAudioSource
+                    onPick: node =&gt; Pipewire.preferredDefaultAudioSource = node
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–11</span><b>Devices, not apps</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var sinks: Pipewire.nodes.values.filter(n =&gt; !n.isStream &amp;&amp; n.isSink &amp;&amp; n.audio)
+readonly property var sources: Pipewire.nodes.values.filter(n =&gt; !n.isStream &amp;&amp; !n.isSink &amp;&amp; n.audio)</code></pre></div><div class="seg-e"><p>The opposite filter from the mixer: real devices are nodes that are <strong>not</strong> streams. Sinks are outputs, the rest are inputs.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 20–28</span><b>A reusable list</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// one titled list of devices; `current` is highlighted, `pick` makes one the default
+component DeviceList: ColumnLayout {
+    id: dl
+    property string title
+    property var devices: []
+    property var current: null
+    signal pick(var node)
+    Layout.fillWidth: true
+    spacing: 4</code></pre></div><div class="seg-e"><p><code>DeviceList</code> is an inline component with a title, a device list, the current device and a <code>pick</code> signal. Both sections use it, with different data.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 32–38</span><b>One row</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: item
+    required property PwNode modelData
+    readonly property bool chosen: modelData === dl.current
+    Layout.fillWidth: true
+    implicitHeight: 34; radius: 10
+    color: chosen ? "#45365e" : itemHover.hovered ? "#313244" : "transparent"</code></pre></div><div class="seg-e"><p><code>chosen</code> compares the row's node with the current default. A highlighted background and a filled radio icon mark it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 46–50</span><b>Device name</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    Layout.fillWidth: true
+    text: item.modelData.description || item.modelData.nickname || item.modelData.name
+    color: "#cdd6f4"; font.pixelSize: 12; elide: Text.ElideRight
+}</code></pre></div><div class="seg-e"><p><code>description</code> is the friendly name ("Built-in Audio Analog Stereo"); <code>nickname</code> and <code>name</code> are fallbacks.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 53</span><b>Picking</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TapHandler { onTapped: dl.pick(item.modelData) }</code></pre></div><div class="seg-e"><p>The row doesn't change anything itself; it emits <code>pick</code> and lets the user of the component decide what that means.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 74–85</span><b>Output and input</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>DeviceList {
+    title: "Output"
+    devices: root.sinks
+    current: Pipewire.defaultAudioSink
+    onPick: node =&gt; Pipewire.preferredDefaultAudioSink = node
+}
+DeviceList {
+    title: "Input"
+    devices: root.sources
+    current: Pipewire.defaultAudioSource
+    onPick: node =&gt; Pipewire.preferredDefaultAudioSource = node
+}</code></pre></div><div class="seg-e"><p>Setting <code>Pipewire.preferredDefaultAudioSink</code> asks PipeWire to make that node the default. <code>defaultAudioSink</code> then updates, and so does the highlight.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>Merge it into the volume chip</b></div><div class="ex-b"><p>Open this popup with a right-click on the volume chip from <a class="xref" href="../ch/g1-bar-modules.html">Gallery: Bar Modules</a> instead of a separate icon.</p></div></div>
+<h2 id="reusable-tooltip">Reusable Tooltip<a class="hlink" href="#reusable-tooltip">#</a></h2>
+<div class="preview"><svg style="width:min(100%,390px)" width="260" height="90" viewBox="0 0 260 90"><rect x="110" y="12" width="34" height="26" rx="13" fill="#45475a"/><text x="119" y="30" fill="#cdd6f4" font-size="14">🔊</text><rect x="82" y="46" width="90" height="26" rx="8" fill="#11111b" stroke="#45475a"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.3;.4;.9;1" dur="3s" repeatCount="indefinite"/></rect><text x="127" y="63" fill="#cdd6f4" font-size="12" text-anchor="middle">Volume 40%<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.3;.4;.9;1" dur="3s" repeatCount="indefinite"/></text></svg></div>
+
+<p><strong>What it is.</strong> A tooltip you can attach to anything in your bar with one line. It appears after a short hover, fades, and moves to stay on screen.</p>
+<p><strong>Kind:</strong> component · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/popups/Tooltip.qml</span><code>import Quickshell
+import QtQuick
+
+// Reusable tooltip. Put one next to any widget:
+//   Tooltip { target: myIcon; text: "Volume 40%"; show: myHover.hovered }
+PopupWindow {
+    id: root
+    required property Item target
+    property string text: ""
+    property bool show: false
+    property int delay: 500                       // ms of hovering before it appears
+
+    anchor.item: target
+    anchor.edges: Edges.Bottom
+    anchor.gravity: Edges.Bottom
+    anchor.margins.top: 6
+    anchor.adjustment: PopupAdjustment.Slide | PopupAdjustment.Flip   // stay on screen
+    implicitWidth: label.implicitWidth + 20
+    implicitHeight: label.implicitHeight + 12
+    color: "transparent"
+
+    // visible after `delay`, hidden immediately; stays mapped during the fade-out
+    property bool wanted: false
+    visible: wanted || box.opacity &gt; 0
+    Timer { id: wait; interval: root.delay; onTriggered: root.wanted = true }
+    onShowChanged: { if (show &amp;&amp; text) wait.restart(); else { wait.stop(); wanted = false } }
+
+    Rectangle {
+        id: box
+        anchors.fill: parent
+        radius: 8
+        color: "#11111b"; border.color: "#45475a"
+        opacity: root.wanted ? 1 : 0
+        Behavior on opacity { NumberAnimation { duration: 120 } }
+        Text {
+            id: label
+            anchors.centerIn: parent
+            text: root.text
+            color: "#cdd6f4"; font.pixelSize: 12
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 4–5</span><b>Usage</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// Reusable tooltip. Put one next to any widget:
+//   Tooltip { target: myIcon; text: "Volume 40%"; show: myHover.hovered }</code></pre></div><div class="seg-e"><p>Place it next to the widget it describes and bind <code>show</code> to that widget's hover state.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 8–11</span><b>Inputs</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>required property Item target
+property string text: ""
+property bool show: false
+property int delay: 500                       // ms of hovering before it appears</code></pre></div><div class="seg-e"><p><code>target</code> is required: a tooltip without something to point at makes no sense, and <code>required</code> makes QML complain if you forget it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–17</span><b>Placement</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>anchor.item: target
+anchor.edges: Edges.Bottom
+anchor.gravity: Edges.Bottom
+anchor.margins.top: 6
+anchor.adjustment: PopupAdjustment.Slide | PopupAdjustment.Flip   // stay on screen</code></pre></div><div class="seg-e"><p>Below the target, centred. <code>PopupAdjustment.Slide | Flip</code> lets the compositor slide it sideways or flip it above the target when it would leave the screen, so tooltips on the far right of a bar stay readable.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 22–26</span><b>Delay and fade-out</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// visible after `delay`, hidden immediately; stays mapped during the fade-out
+property bool wanted: false
+visible: wanted || box.opacity &gt; 0
+Timer { id: wait; interval: root.delay; onTriggered: root.wanted = true }
+onShowChanged: { if (show &amp;&amp; text) wait.restart(); else { wait.stop(); wanted = false } }</code></pre></div><div class="seg-e"><p><code>wanted</code> becomes true only after the delay. The window stays mapped while the box is still fading out (<code>opacity &gt; 0</code>), so the fade can be seen. Leaving the target cancels a pending show at once.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 28–41</span><b>The box</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: box
+    anchors.fill: parent
+    radius: 8
+    color: "#11111b"; border.color: "#45475a"
+    opacity: root.wanted ? 1 : 0
+    Behavior on opacity { NumberAnimation { duration: 120 } }
+    Text {
+        id: label
+        anchors.centerIn: parent
+        text: root.text
+        color: "#cdd6f4"; font.pixelSize: 12
+    }
+}</code></pre></div><div class="seg-e"><p>A dark rounded box; its opacity follows <code>wanted</code> with a 120 ms fade.</p></div></div></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>// in any bar module
+HoverHandler { id: hover }
+Tooltip { target: root; text: "Battery " + Math.round(pct * 100) + "%"; show: hover.hovered }</code></pre></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Practice</span><b>Multi-line tooltips</b></div><div class="ex-b"><p>Allow <code>\n</code> in the text and limit the width to 300 px with wrapping.</p></div></div>
+<h2 id="context-menu">Context Menu<a class="hlink" href="#context-menu">#</a></h2>
+<div class="preview"><svg style="width:min(100%,390px)" width="260" height="170" viewBox="0 0 260 170"><rect x="30" y="10" width="34" height="26" rx="13" fill="#313244"/><rect x="30" y="44" width="200" height="118" rx="12" fill="#1e1e2e" stroke="#45475a"/><g font-size="13"><rect x="36" y="50" width="188" height="30" rx="8" fill="#313244"/><text x="48" y="70" fill="#a6adc8">⧉</text><text x="72" y="70" fill="#cdd6f4">Copy</text><text x="48" y="102" fill="#a6adc8">↗</text><text x="72" y="102" fill="#cdd6f4">Open</text><rect x="42" y="116" width="176" height="1" fill="#313244"/><text x="48" y="146" fill="#f38ba8">🗑</text><text x="72" y="146" fill="#f38ba8">Delete</text></g></svg></div>
+
+<p><strong>What it is.</strong> A styled right-click menu you fill with a plain JavaScript list: icons, separators and red "danger" entries.</p>
+<p><strong>Kind:</strong> component · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/popups/ContextMenu.qml</span><code>import Quickshell
+import QtQuick
+import QtQuick.Layouts
+
+// A styled right-click menu. Give it a list of entries and open it at an item:
+//   ContextMenu {
+//       id: menu
+//       entries: [ { icon: "content_copy", text: "Copy", action: () =&gt; … },
+//                  { separator: true },
+//                  { icon: "delete", text: "Delete", danger: true, action: () =&gt; … } ]
+//   }
+//   TapHandler { acceptedButtons: Qt.RightButton; onTapped: menu.popup(someItem) }
+PopupWindow {
+    id: root
+    property var entries: []
+    property Item at: null
+
+    function popup(item: Item): void { at = item; visible = true }
+    function close(): void { visible = false }
+
+    anchor.item: at
+    anchor.edges: Edges.Bottom
+    anchor.gravity: Edges.Bottom
+    anchor.margins.top: 6
+    anchor.adjustment: PopupAdjustment.Slide | PopupAdjustment.Flip
+    implicitWidth: 200
+    implicitHeight: col.implicitHeight + 12
+    color: "transparent"
+
+    Rectangle {
+        anchors.fill: parent
+        radius: 12; color: "#1e1e2e"; border.color: "#45475a"
+        ColumnLayout {
+            id: col
+            anchors { left: parent.left; right: parent.right; top: parent.top; margins: 6 }
+            spacing: 2
+            Repeater {
+                model: root.entries
+                Item {
+                    id: entry
+                    required property var modelData
+                    Layout.fillWidth: true
+                    implicitHeight: modelData.separator ? 9 : 32
+                    Rectangle {                                  // separator line
+                        visible: entry.modelData.separator === true
+                        anchors.centerIn: parent
+                        width: parent.width - 12; height: 1; color: "#313244"
+                    }
+                    Rectangle {                                  // normal entry
+                        visible: !entry.modelData.separator
+                        anchors.fill: parent
+                        radius: 8
+                        color: entryHover.hovered ? (entry.modelData.danger ? "#4d2a35" : "#313244") : "transparent"
+                        RowLayout {
+                            anchors { fill: parent; leftMargin: 10; rightMargin: 10 }
+                            spacing: 10
+                            Text {
+                                text: entry.modelData.icon ?? ""
+                                font.family: "Material Symbols Rounded"; font.pixelSize: 17
+                                color: entry.modelData.danger ? "#f38ba8" : "#a6adc8"
+                            }
+                            Text {
+                                Layout.fillWidth: true
+                                text: entry.modelData.text ?? ""
+                                color: entry.modelData.danger ? "#f38ba8" : "#cdd6f4"; font.pixelSize: 13
+                            }
+                        }
+                        HoverHandler { id: entryHover; cursorShape: Qt.PointingHandCursor }
+                        TapHandler {
+                            onTapped: {
+                                root.close()
+                                entry.modelData.action?.()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 5–12</span><b>Usage</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// A styled right-click menu. Give it a list of entries and open it at an item:
+//   ContextMenu {
+//       id: menu
+//       entries: [ { icon: "content_copy", text: "Copy", action: () =&gt; … },
+//                  { separator: true },
+//                  { icon: "delete", text: "Delete", danger: true, action: () =&gt; … } ]
+//   }
+//   TapHandler { acceptedButtons: Qt.RightButton; onTapped: menu.popup(someItem) }</code></pre></div><div class="seg-e"><p>Each entry is an object. <code>action</code> is a function, so any code can run when it's picked.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–19</span><b>Opening and closing</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property var entries: []
+property Item at: null
+
+function popup(item: Item): void { at = item; visible = true }
+function close(): void { visible = false }</code></pre></div><div class="seg-e"><p><code>popup(item)</code> sets where the menu appears and shows it. Using a function (rather than setting two properties from outside) means you can't forget one of them.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 21–25</span><b>Placement</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>anchor.item: at
+anchor.edges: Edges.Bottom
+anchor.gravity: Edges.Bottom
+anchor.margins.top: 6
+anchor.adjustment: PopupAdjustment.Slide | PopupAdjustment.Flip</code></pre></div><div class="seg-e"><p>Below the item, kept on screen by the compositor.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 39–48</span><b>Separators</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Item {
+    id: entry
+    required property var modelData
+    Layout.fillWidth: true
+    implicitHeight: modelData.separator ? 9 : 32
+    Rectangle {                                  // separator line
+        visible: entry.modelData.separator === true
+        anchors.centerIn: parent
+        width: parent.width - 12; height: 1; color: "#313244"
+    }</code></pre></div><div class="seg-e"><p>An entry with <code>separator: true</code> becomes a thin 9 px line instead of a button.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 49–67</span><b>Normal entries</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {                                  // normal entry
+    visible: !entry.modelData.separator
+    anchors.fill: parent
+    radius: 8
+    color: entryHover.hovered ? (entry.modelData.danger ? "#4d2a35" : "#313244") : "transparent"
+    RowLayout {
+        anchors { fill: parent; leftMargin: 10; rightMargin: 10 }
+        spacing: 10
+        Text {
+            text: entry.modelData.icon ?? ""
+            font.family: "Material Symbols Rounded"; font.pixelSize: 17
+            color: entry.modelData.danger ? "#f38ba8" : "#a6adc8"
+        }
+        Text {
+            Layout.fillWidth: true
+            text: entry.modelData.text ?? ""
+            color: entry.modelData.danger ? "#f38ba8" : "#cdd6f4"; font.pixelSize: 13
+        }
+    }</code></pre></div><div class="seg-e"><p>Icon and text; danger entries are red and get a reddish hover.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 69–74</span><b>Running the action</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TapHandler {
+    onTapped: {
+        root.close()
+        entry.modelData.action?.()
+    }
+}</code></pre></div><div class="seg-e"><p>Close first, then run. <code>?.()</code> calls the function only if there is one, so entries without an action are harmless.</p></div></div></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 5</span><span class="ex-lvl">Challenge</span><b>Submenus</b></div><div class="ex-b"><p>Allow <code>children: [...]</code> on an entry. Hovering it opens a second <code>ContextMenu</code> to the right.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Use <code>anchor.edges: Edges.Right</code> and <code>anchor.gravity: Edges.Right</code> for the child menu, anchored to the hovered entry.</p></div></details></div>
+<h2 id="confirmation-dialog">Confirmation Dialog<a class="hlink" href="#confirmation-dialog">#</a></h2>
+<div class="preview"><svg style="width:min(100%,630px)" width="420" height="230" viewBox="0 0 420 230"><rect width="420" height="230" fill="#000" opacity=".55"/><rect x="40" y="20" width="340" height="190" rx="22" fill="#1e1e2e" stroke="#313244"/><text x="62" y="62" fill="#f9e2af" font-size="26">⚠</text><text x="62" y="96" fill="#cdd6f4" font-size="18" font-weight="700">Shut down?</text><text x="62" y="118" fill="#a6adc8" font-size="12">Continuing in 7 s</text><rect x="152" y="158" width="100" height="36" rx="18" fill="#313244"/><text x="202" y="181" fill="#cdd6f4" text-anchor="middle" font-weight="700">Cancel</text><rect x="260" y="158" width="100" height="36" rx="18" fill="#f38ba8"/><text x="310" y="181" fill="#1e1e2e" text-anchor="middle" font-weight="700">Confirm</text></svg></div>
+
+<p><strong>What it is.</strong> "Are you sure?" for dangerous actions. The screen dims, Enter confirms, Esc or a click outside cancels, and after a countdown it confirms by itself (like most desktops' shutdown dialog).</p>
+<p><strong>Kind:</strong> overlay with IPC · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/popups/ConfirmDialog.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import QtQuick
+import QtQuick.Layouts
+
+// "Are you sure?" over a dimmed screen, with an automatic yes after a countdown.
+//   qs ipc call confirm ask "Shut down?" "systemctl poweroff"
+// Call root.ask() from QML too, e.g. from the power menu.
+Scope {
+    id: root
+    property bool open: false
+    property string question: ""
+    property var command: []
+    property int seconds: 10                      // 0 = never confirm automatically
+    property int remaining: 0
+
+    function ask(q: string, cmd: var): void {
+        question = q
+        command = typeof cmd === "string" ? ["sh", "-c", cmd] : cmd
+        remaining = seconds
+        open = true
+    }
+    function accept(): void { open = false; Quickshell.execDetached(command) }
+
+    IpcHandler { target: "confirm"; function ask(q: string, cmd: string): void { root.ask(q, cmd) } }
+
+    Timer {
+        interval: 1000; repeat: true
+        running: root.open &amp;&amp; root.seconds &gt; 0
+        onTriggered: if (--root.remaining &lt;= 0) root.accept()
+    }
+
+    LazyLoader {
+        active: root.open
+        PanelWindow {
+            anchors { top: true; bottom: true; left: true; right: true }
+            exclusionMode: ExclusionMode.Ignore
+            color: "#99000000"                           // dims everything below
+            WlrLayershell.layer: WlrLayer.Overlay
+            WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+
+            MouseArea { anchors.fill: parent; onClicked: root.open = false }   // click outside = cancel
+
+            Rectangle {
+                anchors.centerIn: parent
+                width: 380; height: 190
+                radius: 22; color: "#1e1e2e"; border.color: "#313244"
+                focus: true
+                Keys.onEscapePressed: root.open = false
+                Keys.onReturnPressed: root.accept()
+                MouseArea { anchors.fill: parent }                             // swallow clicks on the card
+
+                ColumnLayout {
+                    anchors { fill: parent; margins: 22 }
+                    spacing: 10
+                    Text { text: "warning"; font.family: "Material Symbols Rounded"; font.pixelSize: 32; color: "#f9e2af" }
+                    Text { text: root.question; color: "#cdd6f4"; font.pixelSize: 18; font.bold: true }
+                    Text {
+                        visible: root.seconds &gt; 0
+                        text: "Continuing in " + root.remaining + " s"; color: "#a6adc8"; font.pixelSize: 12
+                    }
+                    Item { Layout.fillHeight: true }
+                    RowLayout {
+                        Layout.alignment: Qt.AlignRight
+                        spacing: 8
+                        Repeater {
+                            model: [{ t: "Cancel", yes: false }, { t: "Confirm", yes: true }]
+                            Rectangle {
+                                required property var modelData
+                                implicitWidth: 100; implicitHeight: 36; radius: 18
+                                color: modelData.yes ? "#f38ba8" : btnHover.hovered ? "#45475a" : "#313244"
+                                Text { anchors.centerIn: parent; text: parent.modelData.t; color: parent.modelData.yes ? "#1e1e2e" : "#cdd6f4"; font.bold: true }
+                                HoverHandler { id: btnHover; cursorShape: Qt.PointingHandCursor }
+                                TapHandler { onTapped: parent.modelData.yes ? root.accept() : (root.open = false) }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 12–16</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool open: false
+property string question: ""
+property var command: []
+property int seconds: 10                      // 0 = never confirm automatically
+property int remaining: 0</code></pre></div><div class="seg-e"><p>The question, the command to run, how long the countdown lasts (0 turns it off) and how much is left.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 18–23</span><b>Asking</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function ask(q: string, cmd: var): void {
+    question = q
+    command = typeof cmd === "string" ? ["sh", "-c", cmd] : cmd
+    remaining = seconds
+    open = true
+}</code></pre></div><div class="seg-e"><p><code>ask</code> takes either a list (<code>["systemctl", "poweroff"]</code>) or a string, which is run with <code>sh -c</code>. It resets the countdown and opens.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 24</span><b>Accepting</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function accept(): void { open = false; Quickshell.execDetached(command) }</code></pre></div><div class="seg-e"><p>Close first, then run the command detached so it outlives the dialog.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 26</span><b>From the terminal</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>IpcHandler { target: "confirm"; function ask(q: string, cmd: string): void { root.ask(q, cmd) } }</code></pre></div><div class="seg-e"><p><code>qs ipc call confirm ask "Reboot?" "systemctl reboot"</code>. Handy in keybinds and scripts.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 28–32</span><b>The countdown</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Timer {
+    interval: 1000; repeat: true
+    running: root.open &amp;&amp; root.seconds &gt; 0
+    onTriggered: if (--root.remaining &lt;= 0) root.accept()
+}</code></pre></div><div class="seg-e"><p><code>--root.remaining</code> decrements and then compares, so after <code>seconds</code> ticks it accepts.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 36–43</span><b>The dim layer</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    anchors { top: true; bottom: true; left: true; right: true }
+    exclusionMode: ExclusionMode.Ignore
+    color: "#99000000"                           // dims everything below
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+
+    MouseArea { anchors.fill: parent; onClicked: root.open = false }   // click outside = cancel</code></pre></div><div class="seg-e"><p>A fullscreen overlay window with a half-transparent black background. It takes the keyboard so Enter and Esc reach the dialog. The full-window <code>MouseArea</code> cancels on any click outside the card.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 45–52</span><b>The card</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    anchors.centerIn: parent
+    width: 380; height: 190
+    radius: 22; color: "#1e1e2e"; border.color: "#313244"
+    focus: true
+    Keys.onEscapePressed: root.open = false
+    Keys.onReturnPressed: root.accept()
+    MouseArea { anchors.fill: parent }                             // swallow clicks on the card</code></pre></div><div class="seg-e"><p>Its own <code>MouseArea</code> swallows clicks so they don't fall through to the cancel area behind it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 64–78</span><b>Buttons</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    Layout.alignment: Qt.AlignRight
+    spacing: 8
+    Repeater {
+        model: [{ t: "Cancel", yes: false }, { t: "Confirm", yes: true }]
+        Rectangle {
+            required property var modelData
+            implicitWidth: 100; implicitHeight: 36; radius: 18
+            color: modelData.yes ? "#f38ba8" : btnHover.hovered ? "#45475a" : "#313244"
+            Text { anchors.centerIn: parent; text: parent.modelData.t; color: parent.modelData.yes ? "#1e1e2e" : "#cdd6f4"; font.bold: true }
+            HoverHandler { id: btnHover; cursorShape: Qt.PointingHandCursor }
+            TapHandler { onTapped: parent.modelData.yes ? root.accept() : (root.open = false) }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>Two buttons from a model. Confirm is red, because the action is destructive.</p></div></div></div>
+<p>To guard the power menu from <a class="xref" href="../ch/g4-panels.html">Gallery: Panels and Menus</a>, replace its <code>run</code> with <code>confirm.ask(actions[i].name + "?", actions[i].cmd)</code> for reboot and shutdown.</p>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 6</span><span class="ex-lvl">Practice</span><b>No countdown for some questions</b></div><div class="ex-b"><p>Add an optional third IPC argument with the number of seconds.</p></div></div>
+<h2 id="clipboard-history">Clipboard History<a class="hlink" href="#clipboard-history">#</a></h2>
+<div class="preview"><svg style="width:min(100%,630px)" width="420" height="260" viewBox="0 0 420 260"><rect x="10" y="6" width="400" height="248" rx="20" fill="#1e1e2e" stroke="#313244"/><rect x="24" y="20" width="372" height="38" rx="19" fill="#313244"/><text x="40" y="44" fill="#a6adc8" font-size="14">⌕</text><text x="62" y="44" fill="#cdd6f4" font-size="14">git</text><g font-size="13"><rect x="24" y="68" width="372" height="38" rx="10" fill="#45365e"/><text x="38" y="92" fill="#6c7086">≡</text><text x="62" y="92" fill="#cdd6f4">git push origin main</text><text x="38" y="132" fill="#6c7086">≡</text><text x="62" y="132" fill="#cdd6f4">git rebase -i HEAD~3</text><text x="38" y="172" fill="#6c7086">≡</text><text x="62" y="172" fill="#cdd6f4">https://github.com/quickshell-mirror/quickshell</text><text x="38" y="212" fill="#6c7086">▣</text><text x="62" y="212" fill="#cdd6f4">&#91;&#91; binary data 210 KiB png 1920x1080 &#93;&#93;</text></g><text x="24" y="242" fill="#6c7086" font-size="11">↑↓ move   Enter copy   Del remove   Esc close</text></svg></div>
+
+<p><strong>What it is.</strong> Everything you copied, searchable. Type to filter, Enter copies the entry back to the clipboard, Delete removes it. Images are listed too.</p>
+<p><strong>Kind:</strong> overlay with IPC · <strong>Needs:</strong> <code>cliphist</code>, <code>wl-clipboard</code>, and <code>exec-once = wl-paste --watch cliphist store</code></p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/popups/ClipboardHistory.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import QtQuick
+import QtQuick.Layouts
+
+// Clipboard history from cliphist: type to search, Enter to copy, Delete to remove an entry.
+// Needs: cliphist, wl-clipboard, and `exec-once = wl-paste --watch cliphist store` in Hyprland.
+Scope {
+    id: root
+    property bool open: false
+    property var entries: []                       // [{ id, text }]
+    IpcHandler { target: "clipboard"; function toggle(): void { root.open = !root.open } }
+
+    // `cliphist list` prints "ID&lt;TAB&gt;preview" lines, newest first
+    Process {
+        id: list
+        command: ["cliphist", "list"]
+        stdout: StdioCollector {
+            onStreamFinished: root.entries = text.split("\n").filter(l =&gt; l.includes("\t")).map(l =&gt; {
+                const tab = l.indexOf("\t")
+                return { id: l.slice(0, tab), text: l.slice(tab + 1) }
+            })
+        }
+    }
+    onOpenChanged: if (open) list.running = true
+
+    // the id and the full line are passed as arguments, never pasted into the shell command
+    function copy(e: var): void {
+        Quickshell.execDetached(["sh", "-c", 'printf "%s\\t%s" "$1" "$2" | cliphist decode | wl-copy', "sh", e.id, e.text])
+        open = false
+    }
+    function remove(e: var): void {
+        Quickshell.execDetached(["sh", "-c", 'printf "%s\\t%s" "$1" "$2" | cliphist delete', "sh", e.id, e.text])
+        entries = entries.filter(x =&gt; x.id !== e.id)
+    }
+
+    LazyLoader {
+        active: root.open
+        PanelWindow {
+            id: win
+            implicitWidth: 520; implicitHeight: 460
+            exclusionMode: ExclusionMode.Ignore
+            color: "transparent"
+            WlrLayershell.layer: WlrLayer.Overlay
+            WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+
+            readonly property var shown: root.entries.filter(e =&gt; e.text.toLowerCase().includes(search.text.toLowerCase()))
+
+            Rectangle {
+                anchors.fill: parent
+                radius: 20; color: "#1e1e2e"; border.color: "#313244"
+                ColumnLayout {
+                    anchors { fill: parent; margins: 14 }
+                    spacing: 10
+                    Rectangle {
+                        Layout.fillWidth: true; implicitHeight: 40; radius: 20; color: "#313244"
+                        RowLayout {
+                            anchors { fill: parent; leftMargin: 14; rightMargin: 14 }
+                            Text { text: "content_paste_search"; font.family: "Material Symbols Rounded"; font.pixelSize: 20; color: "#a6adc8" }
+                            TextInput {
+                                id: search
+                                Layout.fillWidth: true
+                                color: "#cdd6f4"; font.pixelSize: 14; focus: true
+                                onTextChanged: view.currentIndex = 0
+                                Keys.onEscapePressed: root.open = false
+                                Keys.onDownPressed: view.incrementCurrentIndex()
+                                Keys.onUpPressed: view.decrementCurrentIndex()
+                                Keys.onReturnPressed: if (view.currentItem) root.copy(view.currentItem.modelData)
+                                Keys.onDeletePressed: if (view.currentItem) root.remove(view.currentItem.modelData)
+                            }
+                        }
+                    }
+                    ListView {
+                        id: view
+                        Layout.fillWidth: true; Layout.fillHeight: true
+                        clip: true; spacing: 4
+                        model: win.shown
+                        highlightMoveDuration: 100
+                        delegate: Rectangle {
+                            id: row
+                            required property var modelData
+                            required property int index
+                            width: ListView.view.width
+                            implicitHeight: 40; radius: 10
+                            color: ListView.isCurrentItem ? "#45365e" : rowHover.hovered ? "#313244" : "transparent"
+                            readonly property bool isImage: modelData.text.startsWith("[[ binary data")
+                            RowLayout {
+                                anchors { fill: parent; leftMargin: 12; rightMargin: 12 }
+                                Text {
+                                    text: row.isImage ? "image" : "notes"
+                                    font.family: "Material Symbols Rounded"; font.pixelSize: 18; color: "#6c7086"
+                                }
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: row.modelData.text
+                                    color: "#cdd6f4"; font.pixelSize: 13
+                                    elide: Text.ElideRight; maximumLineCount: 1
+                                }
+                            }
+                            HoverHandler { id: rowHover; cursorShape: Qt.PointingHandCursor }
+                            TapHandler { onTapped: root.copy(row.modelData) }
+                        }
+                    }
+                    Text {
+                        text: "↑↓ move   Enter copy   Del remove   Esc close"
+                        color: "#6c7086"; font.pixelSize: 11
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 11–13</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool open: false
+property var entries: []                       // [{ id, text }]
+IpcHandler { target: "clipboard"; function toggle(): void { root.open = !root.open } }</code></pre></div><div class="seg-e"><p><code>entries</code> holds <code>{ id, text }</code> objects. <code>qs ipc call clipboard toggle</code> opens it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–26</span><b>Reading the history</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// `cliphist list` prints "ID&lt;TAB&gt;preview" lines, newest first
+Process {
+    id: list
+    command: ["cliphist", "list"]
+    stdout: StdioCollector {
+        onStreamFinished: root.entries = text.split("\n").filter(l =&gt; l.includes("\t")).map(l =&gt; {
+            const tab = l.indexOf("\t")
+            return { id: l.slice(0, tab), text: l.slice(tab + 1) }
+        })
+    }
+}
+onOpenChanged: if (open) list.running = true</code></pre></div><div class="seg-e"><p><code>cliphist list</code> prints one line per entry: an id, a tab, and a one-line preview. Splitting at the first tab gives both parts. The list is reloaded every time the window opens, so it is always current.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 28–32</span><b>Copying back</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// the id and the full line are passed as arguments, never pasted into the shell command
+function copy(e: var): void {
+    Quickshell.execDetached(["sh", "-c", 'printf "%s\\t%s" "$1" "$2" | cliphist decode | wl-copy', "sh", e.id, e.text])
+    open = false
+}</code></pre></div><div class="seg-e"><p><code>cliphist decode</code> wants the original line on its input. The id and text go to <code>sh</code> as <strong>arguments</strong> (<code>$1</code>, <code>$2</code>) and are printed back with <code>printf</code>, so text with quotes or <code>$</code> can't break or inject anything. The decoded data goes to <code>wl-copy</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 33–36</span><b>Removing</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function remove(e: var): void {
+    Quickshell.execDetached(["sh", "-c", 'printf "%s\\t%s" "$1" "$2" | cliphist delete', "sh", e.id, e.text])
+    entries = entries.filter(x =&gt; x.id !== e.id)
+}</code></pre></div><div class="seg-e"><p>The same trick with <code>cliphist delete</code>, then the entry is dropped from the list straight away.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 40–48</span><b>The window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    id: win
+    implicitWidth: 520; implicitHeight: 460
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+
+    readonly property var shown: root.entries.filter(e =&gt; e.text.toLowerCase().includes(search.text.toLowerCase()))</code></pre></div><div class="seg-e"><p>An overlay that takes the keyboard. <code>shown</code> is the search-filtered list.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 61–70</span><b>Keyboard control</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TextInput {
+    id: search
+    Layout.fillWidth: true
+    color: "#cdd6f4"; font.pixelSize: 14; focus: true
+    onTextChanged: view.currentIndex = 0
+    Keys.onEscapePressed: root.open = false
+    Keys.onDownPressed: view.incrementCurrentIndex()
+    Keys.onUpPressed: view.decrementCurrentIndex()
+    Keys.onReturnPressed: if (view.currentItem) root.copy(view.currentItem.modelData)
+    Keys.onDeletePressed: if (view.currentItem) root.remove(view.currentItem.modelData)</code></pre></div><div class="seg-e"><p>Focus stays in the search field; the arrow keys move the list's selection, Enter copies and Delete removes the selected entry.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 74–103</span><b>The list</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ListView {
+    id: view
+    Layout.fillWidth: true; Layout.fillHeight: true
+    clip: true; spacing: 4
+    model: win.shown
+    highlightMoveDuration: 100
+    delegate: Rectangle {
+        id: row
+        required property var modelData
+        required property int index
+        width: ListView.view.width
+        implicitHeight: 40; radius: 10
+        color: ListView.isCurrentItem ? "#45365e" : rowHover.hovered ? "#313244" : "transparent"
+        readonly property bool isImage: modelData.text.startsWith("[[ binary data")
+        RowLayout {
+            anchors { fill: parent; leftMargin: 12; rightMargin: 12 }
+            Text {
+                text: row.isImage ? "image" : "notes"
+                font.family: "Material Symbols Rounded"; font.pixelSize: 18; color: "#6c7086"
+            }
+            Text {
+                Layout.fillWidth: true
+                text: row.modelData.text
+                color: "#cdd6f4"; font.pixelSize: 13
+                elide: Text.ElideRight; maximumLineCount: 1
+            }
+        }
+        HoverHandler { id: rowHover; cursorShape: Qt.PointingHandCursor }
+        TapHandler { onTapped: root.copy(row.modelData) }
+    }</code></pre></div><div class="seg-e"><p>Each row shows an image or text icon (cliphist previews images as <code>[[ binary data … ]]</code>) and the elided text. The current row is highlighted; clicking also copies.</p></div></div></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 7</span><span class="ex-lvl">Challenge</span><b>Image previews</b></div><div class="ex-b"><p>Show a thumbnail for image entries.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Decode the entry to a temporary file (<code>cliphist decode &gt; /tmp/qs-clip-ID.png</code>) in a <code>Process</code>, then show it with an <code>Image</code> whose <code>sourceSize.height</code> is 32.</p></div></details></div>
+<h2 id="screenshot-menu">Screenshot Menu<a class="hlink" href="#screenshot-menu">#</a></h2>
+<div class="preview"><svg style="width:min(100%,660px)" width="440" height="160" viewBox="0 0 440 160"><rect x="10" y="5" width="420" height="150" rx="24" fill="#1e1e2e" stroke="#313244"/><g font-size="11" text-anchor="middle"><rect x="26" y="21" width="124" height="74" rx="16" fill="#cba6f7"/><text x="88" y="56" fill="#1e1e2e" font-size="24">⬚</text><text x="88" y="82" fill="#1e1e2e">Region  (R)</text><rect x="158" y="21" width="124" height="74" rx="16" fill="#313244"/><text x="220" y="56" fill="#cdd6f4" font-size="24">▢</text><text x="220" y="82" fill="#a6adc8">Window  (W)</text><rect x="290" y="21" width="124" height="74" rx="16" fill="#313244"/><text x="352" y="56" fill="#cdd6f4" font-size="24">⛶</text><text x="352" y="82" fill="#a6adc8">Screen  (S)</text></g><text x="26" y="127" fill="#a6adc8" font-size="12">Delay</text><g font-size="11" text-anchor="middle"><rect x="66" y="112" width="44" height="24" rx="12" fill="#cba6f7"/><text x="88" y="128" fill="#1e1e2e">off</text><rect x="116" y="112" width="44" height="24" rx="12" fill="#313244"/><text x="138" y="128" fill="#cdd6f4">3 s</text><rect x="166" y="112" width="44" height="24" rx="12" fill="#313244"/><text x="188" y="128" fill="#cdd6f4">5 s</text><rect x="216" y="112" width="44" height="24" rx="12" fill="#313244"/><text x="238" y="128" fill="#cdd6f4">10 s</text></g></svg></div>
+
+<p><strong>What it is.</strong> Press Print and choose: a region, the focused window or the whole screen, with an optional delay. The picture is saved, copied to the clipboard and announced with a notification showing it.</p>
+<p><strong>Kind:</strong> overlay with IPC · <strong>Needs:</strong> <code>grim</code>, <code>slurp</code>, <code>wl-clipboard</code>, <code>jq</code>, Hyprland (for "window")</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/popups/ScreenshotMenu.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import QtQuick
+import QtQuick.Layouts
+
+// Region, window or whole-screen screenshots with an optional delay.
+// Saves to ~/Pictures/Screenshots, copies to the clipboard and shows a notification.
+// Needs: grim, slurp, wl-clipboard, jq (for "window").
+Scope {
+    id: root
+    property bool open: false
+    property int delay: 0                              // seconds
+    IpcHandler {
+        target: "screenshot"
+        function toggle(): void { root.open = !root.open }
+        function region(): void { root.take("region") }      // for a keybind that skips the menu
+    }
+
+    // The shell script gets the mode and delay as arguments.
+    // The menu is closed first, so it never appears in the picture.
+    readonly property string script: '
+        mode="$1"; delay="$2"
+        dir="${XDG_PICTURES_DIR:-$HOME/Pictures}/Screenshots"; mkdir -p "$dir"
+        file="$dir/$(date +%Y-%m-%d_%H-%M-%S).png"
+        sleep 0.2; sleep "$delay"
+        case "$mode" in
+          region) geo=$(slurp) || exit 0; grim -g "$geo" "$file" ;;
+          window) geo=$(hyprctl activewindow -j | jq -r "\"\\(.at[0]),\\(.at[1]) \\(.size[0])x\\(.size[1])\"")
+                  grim -g "$geo" "$file" ;;
+          *)      grim "$file" ;;
+        esac
+        wl-copy &lt; "$file"
+        notify-send -i "$file" "Screenshot saved" "$(basename "$file")"'
+
+    function take(mode: string): void {
+        open = false
+        Quickshell.execDetached(["sh", "-c", script, "sh", mode, String(delay)])
+    }
+
+    LazyLoader {
+        active: root.open
+        PanelWindow {
+            anchors.bottom: true
+            margins.bottom: 60
+            implicitWidth: 420; implicitHeight: 150
+            exclusionMode: ExclusionMode.Ignore
+            color: "transparent"
+            WlrLayershell.layer: WlrLayer.Overlay
+            WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+
+            Rectangle {
+                anchors.fill: parent
+                radius: 24; color: "#1e1e2e"; border.color: "#313244"
+                focus: true
+                Keys.onEscapePressed: root.open = false
+                Keys.onPressed: e =&gt; {
+                    if (e.key === Qt.Key_R) root.take("region")
+                    else if (e.key === Qt.Key_W) root.take("window")
+                    else if (e.key === Qt.Key_S) root.take("screen")
+                }
+
+                ColumnLayout {
+                    anchors { fill: parent; margins: 16 }
+                    spacing: 12
+                    RowLayout {
+                        Layout.fillWidth: true
+                        spacing: 10
+                        Repeater {
+                            model: [
+                                { mode: "region", icon: "screenshot_region", label: "Region", key: "R" },
+                                { mode: "window", icon: "select_window", label: "Window", key: "W" },
+                                { mode: "screen", icon: "fullscreen", label: "Screen", key: "S" }
+                            ]
+                            Rectangle {
+                                id: btn
+                                required property var modelData
+                                Layout.fillWidth: true
+                                implicitHeight: 74; radius: 16
+                                color: btnHover.hovered ? "#cba6f7" : "#313244"
+                                Behavior on color { ColorAnimation { duration: 120 } }
+                                ColumnLayout {
+                                    anchors.centerIn: parent
+                                    spacing: 2
+                                    Text {
+                                        Layout.alignment: Qt.AlignHCenter
+                                        text: btn.modelData.icon; font.family: "Material Symbols Rounded"; font.pixelSize: 28
+                                        color: btnHover.hovered ? "#1e1e2e" : "#cdd6f4"
+                                    }
+                                    Text {
+                                        Layout.alignment: Qt.AlignHCenter
+                                        text: btn.modelData.label + "  (" + btn.modelData.key + ")"
+                                        color: btnHover.hovered ? "#1e1e2e" : "#a6adc8"; font.pixelSize: 11
+                                    }
+                                }
+                                HoverHandler { id: btnHover; cursorShape: Qt.PointingHandCursor }
+                                TapHandler { onTapped: root.take(btn.modelData.mode) }
+                            }
+                        }
+                    }
+                    RowLayout {
+                        spacing: 6
+                        Text { text: "Delay"; color: "#a6adc8"; font.pixelSize: 12 }
+                        Repeater {
+                            model: [0, 3, 5, 10]
+                            Rectangle {
+                                required property int modelData
+                                implicitWidth: 44; implicitHeight: 24; radius: 12
+                                color: root.delay === modelData ? "#cba6f7" : "#313244"
+                                Text {
+                                    anchors.centerIn: parent
+                                    text: parent.modelData ? parent.modelData + " s" : "off"
+                                    color: root.delay === parent.modelData ? "#1e1e2e" : "#cdd6f4"; font.pixelSize: 11
+                                }
+                                TapHandler { onTapped: root.delay = parent.modelData }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 12–18</span><b>State and commands</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool open: false
+property int delay: 0                              // seconds
+IpcHandler {
+    target: "screenshot"
+    function toggle(): void { root.open = !root.open }
+    function region(): void { root.take("region") }      // for a keybind that skips the menu
+}</code></pre></div><div class="seg-e"><p><code>toggle</code> opens the menu; <code>region</code> skips it, for a Shift+Print bind that goes straight to region selection.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 20–26</span><b>The script's setup</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// The shell script gets the mode and delay as arguments.
+// The menu is closed first, so it never appears in the picture.
+readonly property string script: '
+    mode="$1"; delay="$2"
+    dir="${XDG_PICTURES_DIR:-$HOME/Pictures}/Screenshots"; mkdir -p "$dir"
+    file="$dir/$(date +%Y-%m-%d_%H-%M-%S).png"
+    sleep 0.2; sleep "$delay"</code></pre></div><div class="seg-e"><p>One shell script does the work. The mode and delay arrive as arguments. It makes the folder, names the file after the date and time, and waits 0.2 s so the menu has disappeared before the picture is taken.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 27–32</span><b>Three ways to capture</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>case "$mode" in
+  region) geo=$(slurp) || exit 0; grim -g "$geo" "$file" ;;
+  window) geo=$(hyprctl activewindow -j | jq -r "\"\\(.at[0]),\\(.at[1]) \\(.size[0])x\\(.size[1])\"")
+          grim -g "$geo" "$file" ;;
+  *)      grim "$file" ;;
+esac</code></pre></div><div class="seg-e"><p><code>slurp</code> lets you drag a region and prints its geometry (it exits with an error if you press Esc, and then the script stops). For the window, Hyprland's <code>activewindow</code> JSON gives position and size, which <code>jq</code> formats as <code>X,Y WxH</code>. Without a geometry, <code>grim</code> captures every screen.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 33–34</span><b>Afterwards</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>wl-copy &lt; "$file"
+notify-send -i "$file" "Screenshot saved" "$(basename "$file")"'</code></pre></div><div class="seg-e"><p>Copy the file to the clipboard and send a notification with the screenshot as its icon.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 36–39</span><b>Taking it</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function take(mode: string): void {
+    open = false
+    Quickshell.execDetached(["sh", "-c", script, "sh", mode, String(delay)])
+}</code></pre></div><div class="seg-e"><p>Close the menu and run the script detached, so it keeps running after the menu window is gone.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 52–61</span><b>Keyboard shortcuts</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    anchors.fill: parent
+    radius: 24; color: "#1e1e2e"; border.color: "#313244"
+    focus: true
+    Keys.onEscapePressed: root.open = false
+    Keys.onPressed: e =&gt; {
+        if (e.key === Qt.Key_R) root.take("region")
+        else if (e.key === Qt.Key_W) root.take("window")
+        else if (e.key === Qt.Key_S) root.take("screen")
+    }</code></pre></div><div class="seg-e"><p>R, W and S pick a mode without the mouse.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 69–99</span><b>The three buttons</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Repeater {
+    model: [
+        { mode: "region", icon: "screenshot_region", label: "Region", key: "R" },
+        { mode: "window", icon: "select_window", label: "Window", key: "W" },
+        { mode: "screen", icon: "fullscreen", label: "Screen", key: "S" }
+    ]
+    Rectangle {
+        id: btn
+        required property var modelData
+        Layout.fillWidth: true
+        implicitHeight: 74; radius: 16
+        color: btnHover.hovered ? "#cba6f7" : "#313244"
+        Behavior on color { ColorAnimation { duration: 120 } }
+        ColumnLayout {
+            anchors.centerIn: parent
+            spacing: 2
+            Text {
+                Layout.alignment: Qt.AlignHCenter
+                text: btn.modelData.icon; font.family: "Material Symbols Rounded"; font.pixelSize: 28
+                color: btnHover.hovered ? "#1e1e2e" : "#cdd6f4"
+            }
+            Text {
+                Layout.alignment: Qt.AlignHCenter
+                text: btn.modelData.label + "  (" + btn.modelData.key + ")"
+                color: btnHover.hovered ? "#1e1e2e" : "#a6adc8"; font.pixelSize: 11
+            }
+        }
+        HoverHandler { id: btnHover; cursorShape: Qt.PointingHandCursor }
+        TapHandler { onTapped: root.take(btn.modelData.mode) }
+    }
+}</code></pre></div><div class="seg-e"><p>Built from a model; hover turns a button purple.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 101–118</span><b>Delay chips</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    spacing: 6
+    Text { text: "Delay"; color: "#a6adc8"; font.pixelSize: 12 }
+    Repeater {
+        model: [0, 3, 5, 10]
+        Rectangle {
+            required property int modelData
+            implicitWidth: 44; implicitHeight: 24; radius: 12
+            color: root.delay === modelData ? "#cba6f7" : "#313244"
+            Text {
+                anchors.centerIn: parent
+                text: parent.modelData ? parent.modelData + " s" : "off"
+                color: root.delay === parent.modelData ? "#1e1e2e" : "#cdd6f4"; font.pixelSize: 11
+            }
+            TapHandler { onTapped: root.delay = parent.modelData }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>Four choices; the selected one is highlighted.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 8</span><span class="ex-lvl">Practice</span><b>Edit after capture</b></div><div class="ex-b"><p>Add an "Edit" toggle that opens the picture in <code>satty</code> (or <code>swappy</code>) after taking it.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Add a third argument to the script and end it with <code>[ "$3" = 1 ] &amp;&amp; satty --filename "$file"</code>.</p></div></details></div>
+<h2 id="alt-tab-switcher">Alt+Tab Switcher<a class="hlink" href="#alt-tab-switcher">#</a></h2>
+<div class="preview"><svg style="width:min(100%,690px)" width="460" height="180" viewBox="0 0 460 180"><rect x="10" y="5" width="440" height="170" rx="24" fill="#1e1e2e" stroke="#313244"/><g font-size="11" text-anchor="middle"><rect x="26" y="20" width="120" height="130" rx="16" fill="none"/><circle cx="86" cy="66" r="26" fill="#fab387"/><text x="86" y="118" fill="#cdd6f4">Firefox</text><rect x="160" y="20" width="120" height="130" rx="16" fill="#45365e" stroke="#cba6f7" stroke-width="2"/><circle cx="220" cy="66" r="26" fill="#89b4fa"/><text x="220" y="118" fill="#cdd6f4">kitty — ~/src</text><circle cx="354" cy="66" r="26" fill="#a6e3a1"/><text x="354" y="118" fill="#cdd6f4">Code — shell.qml</text></g></svg></div>
+
+<p><strong>What it is.</strong> Hold Alt and press Tab to cycle through windows, most recently used first; release Alt to switch. Shift goes backwards.</p>
+<p><strong>Kind:</strong> overlay with IPC · <strong>Needs:</strong> Hyprland binds (any compositor that can run commands on key press and release)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/popups/AltTabSwitcher.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import Quickshell.Widgets
+import QtQuick
+import QtQuick.Layouts
+
+// Alt+Tab window switcher. Hyprland binds (classic config):
+//   bind  = ALT, Tab, exec, qs ipc call alttab next
+//   bind  = ALT SHIFT, Tab, exec, qs ipc call alttab prev
+//   bindr = ALT, ALT_L, exec, qs ipc call alttab commit     # releasing Alt switches
+Scope {
+    id: root
+    property bool open: false
+    property int index: 0
+    property var order: []                         // window list frozen while the switcher is open
+
+    // most recently focused first: remember focus order as it happens
+    property var history: []
+    Connections {
+        target: ToplevelManager
+        function onActiveToplevelChanged(): void {
+            const t = ToplevelManager.activeToplevel
+            if (t) root.history = [t].concat(root.history.filter(x =&gt; x !== t &amp;&amp; !x.closed))
+        }
+    }
+    function sorted(): var {
+        const all = ToplevelManager.toplevels.values
+        const known = history.filter(t =&gt; all.includes(t))
+        return known.concat(all.filter(t =&gt; !known.includes(t)))
+    }
+
+    function step(d: int): void {
+        if (!open) { order = sorted(); if (order.length === 0) return; index = 0; open = true }
+        index = (index + d + order.length) % order.length
+    }
+    function commit(): void {
+        if (!open) return
+        open = false
+        order[index]?.activate()
+    }
+    IpcHandler {
+        target: "alttab"
+        function next(): void { root.step(1) }
+        function prev(): void { root.step(-1) }
+        function commit(): void { root.commit() }
+        function cancel(): void { root.open = false }
+    }
+
+    LazyLoader {
+        active: root.open
+        PanelWindow {
+            implicitWidth: Math.min(screen.width - 80, row.implicitWidth + 32)
+            implicitHeight: 170
+            exclusionMode: ExclusionMode.Ignore
+            color: "transparent"
+            WlrLayershell.layer: WlrLayer.Overlay
+
+            Rectangle {
+                anchors.fill: parent
+                radius: 24; color: "#e61e1e2e"; border.color: "#313244"
+                RowLayout {
+                    id: row
+                    anchors.centerIn: parent
+                    spacing: 10
+                    Repeater {
+                        model: root.order
+                        Rectangle {
+                            id: card
+                            required property var modelData
+                            required property int index
+                            readonly property bool current: index === root.index
+                            implicitWidth: 120; implicitHeight: 130; radius: 16
+                            color: current ? "#45365e" : "transparent"
+                            border.color: current ? "#cba6f7" : "transparent"; border.width: 2
+                            ColumnLayout {
+                                anchors { fill: parent; margins: 10 }
+                                IconImage {
+                                    Layout.alignment: Qt.AlignHCenter
+                                    implicitSize: 56
+                                    source: Quickshell.iconPath(DesktopEntries.heuristicLookup(card.modelData.appId)?.icon ?? card.modelData.appId, "application-x-executable")
+                                }
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: card.modelData.title
+                                    color: "#cdd6f4"; font.pixelSize: 11
+                                    horizontalAlignment: Text.AlignHCenter
+                                    wrapMode: Text.Wrap; maximumLineCount: 2; elide: Text.ElideRight
+                                }
+                            }
+                            TapHandler { onTapped: { root.index = card.index; root.commit() } }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 8–11</span><b>The binds</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// Alt+Tab window switcher. Hyprland binds (classic config):
+//   bind  = ALT, Tab, exec, qs ipc call alttab next
+//   bind  = ALT SHIFT, Tab, exec, qs ipc call alttab prev
+//   bindr = ALT, ALT_L, exec, qs ipc call alttab commit     # releasing Alt switches</code></pre></div><div class="seg-e"><p><code>bindr</code> runs on key <strong>release</strong>: letting go of Alt commits the choice. That's the whole trick behind a "hold Alt" switcher.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–16</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool open: false
+property int index: 0
+property var order: []                         // window list frozen while the switcher is open</code></pre></div><div class="seg-e"><p><code>order</code> is a frozen copy of the window list made when the switcher opens, so windows appearing meanwhile don't shift the selection.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 18–26</span><b>Remembering focus</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// most recently focused first: remember focus order as it happens
+property var history: []
+Connections {
+    target: ToplevelManager
+    function onActiveToplevelChanged(): void {
+        const t = ToplevelManager.activeToplevel
+        if (t) root.history = [t].concat(root.history.filter(x =&gt; x !== t &amp;&amp; !x.closed))
+    }
+}</code></pre></div><div class="seg-e"><p>Wayland doesn't say which window was used before which, so the switcher records it: every time the active window changes, that window moves to the front of <code>history</code>. Closed windows are dropped along the way.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 27–31</span><b>Most recent first</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function sorted(): var {
+    const all = ToplevelManager.toplevels.values
+    const known = history.filter(t =&gt; all.includes(t))
+    return known.concat(all.filter(t =&gt; !known.includes(t)))
+}</code></pre></div><div class="seg-e"><p>Windows from the history first (in order), then any it never saw focused.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 33–36</span><b>Stepping</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function step(d: int): void {
+    if (!open) { order = sorted(); if (order.length === 0) return; index = 0; open = true }
+    index = (index + d + order.length) % order.length
+}</code></pre></div><div class="seg-e"><p>The first press opens the switcher and moves to index 1, which is the <strong>previous</strong> window, so a quick Alt+Tab flips between your two latest windows. Further presses move on, wrapping around.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 37–41</span><b>Committing</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function commit(): void {
+    if (!open) return
+    open = false
+    order[index]?.activate()
+}</code></pre></div><div class="seg-e"><p>Close and focus the selected window.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 52–57</span><b>The window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    implicitWidth: Math.min(screen.width - 80, row.implicitWidth + 32)
+    implicitHeight: 170
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Overlay</code></pre></div><div class="seg-e"><p>Centred (no anchors), as wide as its cards but never wider than the screen.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 68–91</span><b>Cards</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: card
+    required property var modelData
+    required property int index
+    readonly property bool current: index === root.index
+    implicitWidth: 120; implicitHeight: 130; radius: 16
+    color: current ? "#45365e" : "transparent"
+    border.color: current ? "#cba6f7" : "transparent"; border.width: 2
+    ColumnLayout {
+        anchors { fill: parent; margins: 10 }
+        IconImage {
+            Layout.alignment: Qt.AlignHCenter
+            implicitSize: 56
+            source: Quickshell.iconPath(DesktopEntries.heuristicLookup(card.modelData.appId)?.icon ?? card.modelData.appId, "application-x-executable")
+        }
+        Text {
+            Layout.fillWidth: true
+            text: card.modelData.title
+            color: "#cdd6f4"; font.pixelSize: 11
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.Wrap; maximumLineCount: 2; elide: Text.ElideRight
+        }
+    }
+    TapHandler { onTapped: { root.index = card.index; root.commit() } }</code></pre></div><div class="seg-e"><p>Icon and title; the current card has an outline. Clicking a card switches to it directly.</p></div></div></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 9</span><span class="ex-lvl">Challenge</span><b>Live previews</b></div><div class="ex-b"><p>Show a live thumbnail of each window instead of only the icon.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p><code>ScreencopyView { captureSource: card.modelData; live: true }</code> from <code>Quickshell.Wayland</code> captures a toplevel. Keep it small, it costs GPU time.</p></div></details></div>
+<h2 id="battery-details">Battery Details<a class="hlink" href="#battery-details">#</a></h2>
+<div class="preview"><svg style="width:min(100%,510px)" width="340" height="300" viewBox="0 0 340 300"><rect x="150" y="6" width="70" height="26" rx="13" fill="#45475a"/><text x="185" y="24" fill="#cdd6f4" font-size="12" text-anchor="middle">🔋 76%</text><rect x="25" y="40" width="290" height="250" rx="18" fill="#1e1e2e" stroke="#313244"/><text x="41" y="82" fill="#cdd6f4" font-size="30" font-weight="700">76%</text><text x="120" y="80" fill="#a6adc8" font-size="13">On battery</text><rect x="41" y="96" width="258" height="8" rx="4" fill="#313244"/><rect x="41" y="96" width="196" height="8" rx="4" fill="#cba6f7"/><g font-size="12"><text x="41" y="132" fill="#a6adc8">◷  Time left</text><text x="299" y="132" fill="#cdd6f4" text-anchor="end" font-weight="700">4 h 12 min</text><text x="41" y="158" fill="#a6adc8">ϟ  Power draw</text><text x="299" y="158" fill="#cdd6f4" text-anchor="end" font-weight="700">8.4 W</text><text x="41" y="184" fill="#a6adc8">♥  Health</text><text x="299" y="184" fill="#cdd6f4" text-anchor="end" font-weight="700">91%</text></g><g font-size="10" text-anchor="middle"><rect x="41" y="206" width="80" height="52" rx="12" fill="#313244"/><text x="81" y="246" fill="#a6adc8">Saver</text><rect x="130" y="206" width="80" height="52" rx="12" fill="#cba6f7"/><text x="170" y="246" fill="#1e1e2e">Balanced</text><rect x="219" y="206" width="80" height="52" rx="12" fill="#313244"/><text x="259" y="246" fill="#a6adc8">Performance</text></g></svg></div>
+
+<p><strong>What it is.</strong> A battery chip whose popup shows time left (or until full), power draw and battery health, with buttons for the three power profiles.</p>
+<p><strong>Kind:</strong> bar module with popup · <strong>Needs:</strong> UPower, power-profiles-daemon (for the profile buttons)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/popups/BatteryPopup.qml</span><code>import Quickshell
+import Quickshell.Services.UPower
+import QtQuick
+import QtQuick.Layouts
+
+// Battery chip with a details popup: time left, power draw, health, and power profile buttons.
+Rectangle {
+    id: root
+    property bool open: false
+    readonly property var bat: UPower.displayDevice
+    readonly property real pct: bat?.percentage ?? 0           // 0..1
+    readonly property bool charging: bat?.state === UPowerDeviceState.Charging
+    readonly property bool full: bat?.state === UPowerDeviceState.FullyCharged
+
+    function duration(s: real): string {
+        if (s &lt;= 0) return "—"
+        const h = Math.floor(s / 3600), m = Math.round(s / 60) % 60
+        return h &gt; 0 ? h + " h " + m + " min" : m + " min"
+    }
+
+    visible: bat?.isLaptopBattery ?? false
+    implicitWidth: row.implicitWidth + 20
+    implicitHeight: 26
+    radius: height / 2
+    color: open || hover.hovered ? "#45475a" : "#313244"
+
+    RowLayout {
+        id: row
+        anchors.centerIn: parent
+        spacing: 4
+        Text {
+            text: root.charging ? "battery_charging_full" : root.pct &gt; 0.9 ? "battery_full" : root.pct &gt; 0.5 ? "battery_5_bar"
+                : root.pct &gt; 0.2 ? "battery_3_bar" : "battery_alert"
+            font.family: "Material Symbols Rounded"; font.pixelSize: 18
+            color: root.charging ? "#a6e3a1" : root.pct &lt;= 0.2 ? "#f38ba8" : "#cdd6f4"
+        }
+        Text { text: Math.round(root.pct * 100) + "%"; color: "#cdd6f4"; font.pixelSize: 12 }
+    }
+    HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+    TapHandler { onTapped: root.open = !root.open }
+
+    component Stat: RowLayout {
+        property string icon
+        property string label
+        property string value
+        Layout.fillWidth: true
+        Text { text: parent.icon; font.family: "Material Symbols Rounded"; font.pixelSize: 18; color: "#a6adc8" }
+        Text { Layout.fillWidth: true; text: parent.label; color: "#a6adc8"; font.pixelSize: 12 }
+        Text { text: parent.value; color: "#cdd6f4"; font.pixelSize: 12; font.bold: true }
+    }
+
+    PopupWindow {
+        visible: root.open
+        anchor.item: root
+        anchor.edges: Edges.Bottom
+        anchor.gravity: Edges.Bottom
+        anchor.margins.top: 8
+        implicitWidth: 290
+        implicitHeight: col.implicitHeight + 32
+        color: "transparent"
+        Rectangle {
+            anchors.fill: parent
+            radius: 18; color: "#1e1e2e"; border.color: "#313244"
+            ColumnLayout {
+                id: col
+                anchors { left: parent.left; right: parent.right; top: parent.top; margins: 16 }
+                spacing: 10
+                RowLayout {
+                    Text { text: Math.round(root.pct * 100) + "%"; color: "#cdd6f4"; font.pixelSize: 30; font.bold: true }
+                    Text {
+                        Layout.fillWidth: true
+                        text: root.full ? "Fully charged" : root.charging ? "Charging" : "On battery"
+                        color: "#a6adc8"; font.pixelSize: 13
+                    }
+                }
+                Rectangle {                                       // level bar
+                    Layout.fillWidth: true; implicitHeight: 8; radius: 4; color: "#313244"
+                    Rectangle {
+                        width: parent.width * root.pct; height: parent.height; radius: 4
+                        color: root.charging ? "#a6e3a1" : root.pct &lt;= 0.2 ? "#f38ba8" : "#cba6f7"
+                    }
+                }
+                Stat {
+                    icon: "schedule"
+                    label: root.charging ? "Until full" : "Time left"
+                    value: root.duration(root.charging ? root.bat.timeToFull : root.bat.timeToEmpty)
+                }
+                Stat { icon: "bolt"; label: "Power draw"; value: Math.abs(root.bat?.changeRate ?? 0).toFixed(1) + " W" }
+                Stat {
+                    icon: "health_metrics"; label: "Health"
+                    value: root.bat?.healthSupported ? Math.round(root.bat.healthPercentage) + "%" : "unknown"
+                }
+                RowLayout {                                       // power profiles
+                    Layout.fillWidth: true
+                    spacing: 6
+                    Repeater {
+                        model: [
+                            { p: PowerProfile.PowerSaver, icon: "eco", t: "Saver" },
+                            { p: PowerProfile.Balanced, icon: "balance", t: "Balanced" },
+                            { p: PowerProfile.Performance, icon: "speed", t: "Performance" }
+                        ]
+                        Rectangle {
+                            id: prof
+                            required property var modelData
+                            readonly property bool active: PowerProfiles.profile === modelData.p
+                            visible: modelData.p !== PowerProfile.Performance || PowerProfiles.hasPerformanceProfile
+                            Layout.fillWidth: true
+                            implicitHeight: 52; radius: 12
+                            color: active ? "#cba6f7" : profHover.hovered ? "#45475a" : "#313244"
+                            ColumnLayout {
+                                anchors.centerIn: parent
+                                spacing: 0
+                                Text { Layout.alignment: Qt.AlignHCenter; text: prof.modelData.icon; font.family: "Material Symbols Rounded"; font.pixelSize: 20; color: prof.active ? "#1e1e2e" : "#cdd6f4" }
+                                Text { Layout.alignment: Qt.AlignHCenter; text: prof.modelData.t; font.pixelSize: 10; color: prof.active ? "#1e1e2e" : "#a6adc8" }
+                            }
+                            HoverHandler { id: profHover; cursorShape: Qt.PointingHandCursor }
+                            TapHandler { onTapped: PowerProfiles.profile = prof.modelData.p }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–13</span><b>The battery</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var bat: UPower.displayDevice
+readonly property real pct: bat?.percentage ?? 0           // 0..1
+readonly property bool charging: bat?.state === UPowerDeviceState.Charging
+readonly property bool full: bat?.state === UPowerDeviceState.FullyCharged</code></pre></div><div class="seg-e"><p><code>UPower.displayDevice</code> combines all batteries into one. <code>state</code> says charging, discharging or full.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–19</span><b>Durations</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function duration(s: real): string {
+    if (s &lt;= 0) return "—"
+    const h = Math.floor(s / 3600), m = Math.round(s / 60) % 60
+    return h &gt; 0 ? h + " h " + m + " min" : m + " min"
+}</code></pre></div><div class="seg-e"><p>UPower gives seconds; this turns them into "4 h 12 min". 0 means UPower doesn't know yet, shown as a dash.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 21</span><b>Only on laptops</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>visible: bat?.isLaptopBattery ?? false</code></pre></div><div class="seg-e"><p>Desktops have no laptop battery, so the chip hides itself.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 27–38</span><b>The chip</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    id: row
+    anchors.centerIn: parent
+    spacing: 4
+    Text {
+        text: root.charging ? "battery_charging_full" : root.pct &gt; 0.9 ? "battery_full" : root.pct &gt; 0.5 ? "battery_5_bar"
+            : root.pct &gt; 0.2 ? "battery_3_bar" : "battery_alert"
+        font.family: "Material Symbols Rounded"; font.pixelSize: 18
+        color: root.charging ? "#a6e3a1" : root.pct &lt;= 0.2 ? "#f38ba8" : "#cdd6f4"
+    }
+    Text { text: Math.round(root.pct * 100) + "%"; color: "#cdd6f4"; font.pixelSize: 12 }
+}</code></pre></div><div class="seg-e"><p>Icon by level and charging state, plus the percentage.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 42–50</span><b>A stat row</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>component Stat: RowLayout {
+    property string icon
+    property string label
+    property string value
+    Layout.fillWidth: true
+    Text { text: parent.icon; font.family: "Material Symbols Rounded"; font.pixelSize: 18; color: "#a6adc8" }
+    Text { Layout.fillWidth: true; text: parent.label; color: "#a6adc8"; font.pixelSize: 12 }
+    Text { text: parent.value; color: "#cdd6f4"; font.pixelSize: 12; font.bold: true }
+}</code></pre></div><div class="seg-e"><p>An inline component: icon, label on the left, value on the right.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 68–82</span><b>Big number and level bar</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    Text { text: Math.round(root.pct * 100) + "%"; color: "#cdd6f4"; font.pixelSize: 30; font.bold: true }
+    Text {
+        Layout.fillWidth: true
+        text: root.full ? "Fully charged" : root.charging ? "Charging" : "On battery"
+        color: "#a6adc8"; font.pixelSize: 13
+    }
+}
+Rectangle {                                       // level bar
+    Layout.fillWidth: true; implicitHeight: 8; radius: 4; color: "#313244"
+    Rectangle {
+        width: parent.width * root.pct; height: parent.height; radius: 4
+        color: root.charging ? "#a6e3a1" : root.pct &lt;= 0.2 ? "#f38ba8" : "#cba6f7"
+    }
+}</code></pre></div><div class="seg-e"></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 83–92</span><b>Details</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Stat {
+    icon: "schedule"
+    label: root.charging ? "Until full" : "Time left"
+    value: root.duration(root.charging ? root.bat.timeToFull : root.bat.timeToEmpty)
+}
+Stat { icon: "bolt"; label: "Power draw"; value: Math.abs(root.bat?.changeRate ?? 0).toFixed(1) + " W" }
+Stat {
+    icon: "health_metrics"; label: "Health"
+    value: root.bat?.healthSupported ? Math.round(root.bat.healthPercentage) + "%" : "unknown"
+}</code></pre></div><div class="seg-e"><p>Time to full while charging, time to empty otherwise. <code>changeRate</code> is the power flowing in or out in watts. Health is the current capacity compared with the design capacity, when the battery reports it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 93–120</span><b>Power profiles</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {                                       // power profiles
+    Layout.fillWidth: true
+    spacing: 6
+    Repeater {
+        model: [
+            { p: PowerProfile.PowerSaver, icon: "eco", t: "Saver" },
+            { p: PowerProfile.Balanced, icon: "balance", t: "Balanced" },
+            { p: PowerProfile.Performance, icon: "speed", t: "Performance" }
+        ]
+        Rectangle {
+            id: prof
+            required property var modelData
+            readonly property bool active: PowerProfiles.profile === modelData.p
+            visible: modelData.p !== PowerProfile.Performance || PowerProfiles.hasPerformanceProfile
+            Layout.fillWidth: true
+            implicitHeight: 52; radius: 12
+            color: active ? "#cba6f7" : profHover.hovered ? "#45475a" : "#313244"
+            ColumnLayout {
+                anchors.centerIn: parent
+                spacing: 0
+                Text { Layout.alignment: Qt.AlignHCenter; text: prof.modelData.icon; font.family: "Material Symbols Rounded"; font.pixelSize: 20; color: prof.active ? "#1e1e2e" : "#cdd6f4" }
+                Text { Layout.alignment: Qt.AlignHCenter; text: prof.modelData.t; font.pixelSize: 10; color: prof.active ? "#1e1e2e" : "#a6adc8" }
+            }
+            HoverHandler { id: profHover; cursorShape: Qt.PointingHandCursor }
+            TapHandler { onTapped: PowerProfiles.profile = prof.modelData.p }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p><a class="api" href="../ref/PowerProfiles.html"><code>PowerProfiles</code></a> talks to power-profiles-daemon. The active profile is highlighted; clicking sets it. Performance is hidden on machines that don't offer it.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 10</span><span class="ex-lvl">Practice</span><b>Charge limit</b></div><div class="ex-b"><p>Many laptops can stop charging at 80% to protect the battery. Add a toggle that writes <code>80</code> or <code>100</code> to <code>/sys/class/power_supply/BAT0/charge_control_end_threshold</code> (it needs root: run it through <code>pkexec</code>).</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/g7-bar-modules-2.html"><small>← Previous</small><span>Gallery: More Bar Modules</span></a><a class="pn-next" href="../ch/g9-system.html"><small>Next →</small><span>Gallery: System Pieces</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#calendar-popup">Calendar Popup</a><a class="l2" href="#per-app-volume-mixer">Per-App Volume Mixer</a><a class="l2" href="#output-and-input-picker">Output and Input Picker</a><a class="l2" href="#reusable-tooltip">Reusable Tooltip</a><a class="l2" href="#context-menu">Context Menu</a><a class="l2" href="#confirmation-dialog">Confirmation Dialog</a><a class="l2" href="#clipboard-history">Clipboard History</a><a class="l2" href="#screenshot-menu">Screenshot Menu</a><a class="l2" href="#alt-tab-switcher">Alt+Tab Switcher</a><a class="l2" href="#battery-details">Battery Details</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

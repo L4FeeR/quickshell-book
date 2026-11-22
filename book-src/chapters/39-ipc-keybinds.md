@@ -186,7 +186,45 @@ Quickshell.execDetached(["hyprctl", "keyword", "general:gaps_out", "20"])   // a
 > [!WILD] In the wild
 > Caelestia's `caelestia` CLI is a wrapper around `qs ipc call`: `caelestia shell drawers toggle launcher` and similar. JaKooLit-style setups bind keys to `qs ipc call` so Quickshell components coexist with Waybar and rofi.
 
-> [!TRY] Exercises
-> 1. Add an IpcHandler `bar` with `toggle(): void` that hides or shows your bar, bound to <kbd>Super</kbd>+<kbd>B</kbd>.
-> 2. Add `setTheme(name: string): void` and call it from the terminal.
-> 3. On Hyprland, make a GlobalShortcut that shows a cheatsheet only while the key is held.
+## Practice
+
+::: exercise warm | Toggle the bar
+Add an `IpcHandler` named `bar` with `toggle(): void` that hides or shows your bar. Call it from a terminal.
+--- solution
+```qml
+IpcHandler { target: "bar"; function toggle(): void { barWin.visible = !barWin.visible } }
+```
+```bash
+qs -c myshell ipc call bar toggle
+```
+:::
+
+::: exercise practice | Keybind
+Bind <kbd>Super</kbd>+<kbd>B</kbd> to that call in Hyprland.
+--- solution
+```ini
+bind = SUPER, B, exec, qs -c myshell ipc call bar toggle
+```
+:::
+
+::: exercise practice | Arguments
+Add `setColor(name: string): void` that changes the bar color, and call it with `"#f38ba8"`.
+--- solution
+```qml
+function setColor(name: string): void { barWin.color = name }
+```
+```bash
+qs -c myshell ipc call bar setColor "#f38ba8"
+```
+:::
+
+::: exercise challenge | Hold to show
+On Hyprland, make a `GlobalShortcut` that shows a cheatsheet only while the key is held.
+--- solution
+```qml
+GlobalShortcut { name: "cheatsheet"; onPressed: sheet.visible = true; onReleased: sheet.visible = false }
+```
+```ini
+bind = SUPER, slash, global, quickshell:cheatsheet
+```
+:::

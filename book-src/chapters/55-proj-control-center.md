@@ -491,7 +491,31 @@ ComboBox {
 }
 ```
 
-> [!TRY] Exercises
-> 1. Add a microphone slider for `Pipewire.defaultAudioSource` (remember the tracker).
-> 2. Add a per-app volume mixer page.
-> 3. Add a media card at the top using [[ch:54-proj-media]].
+## Practice
+
+::: exercise warm | Mic slider
+Add a microphone slider for `Pipewire.defaultAudioSource`.
+--- solution
+```qml
+PwObjectTracker { objects: [Pipewire.defaultAudioSource] }
+Slider { value: Pipewire.defaultAudioSource?.audio.volume ?? 0; onMoved: Pipewire.defaultAudioSource.audio.volume = value }
+```
+Without the tracker, the volume stays 0 and changes are ignored.
+:::
+
+::: exercise practice | Media card
+Add a media card at the top using [[ch:54-proj-media]].
+:::
+
+::: exercise challenge | Per-app mixer
+Add a page with one slider per playing app.
+--- solution
+```qml
+readonly property var streams: Pipewire.nodes.values.filter(n => n.isStream && n.audio && !n.isSink)
+PwObjectTracker { objects: streams }
+Repeater { model: streams
+    Row { required property PwNode modelData
+        Text { text: modelData.properties["application.name"] ?? modelData.name }
+        Slider { value: modelData.audio.volume; onMoved: modelData.audio.volume = value } } }
+```
+:::

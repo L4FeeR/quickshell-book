@@ -235,7 +235,46 @@ Flickable {
 
 Delegates are created and destroyed as you scroll or as the model changes. A `property bool expanded` inside a delegate is **lost** when it scrolls away. Store per-item state in the model, or in a JS object keyed by id in a parent or singleton.
 
-> [!TRY] Exercises
-> 1. Show workspaces 1–10 with a `Repeater` and `model: 10`, highlighting number 3.
-> 2. Build a `ListModel` todo list with a button that appends entries, and animate additions.
-> 3. Show all installed apps in a `ListView` (`DesktopEntries.applications`) with arrow-key navigation and a highlight.
+## Practice
+
+::: exercise warm | Workspaces 1–10
+Show workspaces 1–10 with a `Repeater` and `model: 10`, highlighting number 3.
+--- solution
+```qml
+Row { spacing: 4
+    Repeater { model: 10
+        Rectangle { required property int index
+            width: 22; height: 22; radius: 11; color: index + 1 === 3 ? "#cba6f7" : "#313244"
+            Text { anchors.centerIn: parent; text: parent.index + 1; color: "white" } } } }
+```
+:::
+
+::: exercise practice | Todo list
+Build a `ListModel` todo list with a button that appends entries, and animate additions.
+--- solution
+```qml
+ListModel { id: todos }
+Column {
+    Rectangle { width: 80; height: 28; color: "#313244"
+        TapHandler { onTapped: todos.append({ title: "Task " + (todos.count + 1) }) } }
+    ListView { width: 200; height: 200; model: todos
+        delegate: Text { required property string title; text: title; color: "white" }
+        add: Transition { NumberAnimation { property: "opacity"; from: 0; to: 1; duration: 250 } } }
+}
+```
+:::
+
+::: exercise challenge | App list with keys
+Show all installed apps (`DesktopEntries.applications`) in a `ListView` with arrow-key navigation and a highlight.
+--- solution
+```qml
+ListView {
+    width: 300; height: 400; focus: true; clip: true
+    model: DesktopEntries.applications
+    highlight: Rectangle { color: "#45475a"; radius: 6 }
+    delegate: Text { required property DesktopEntry modelData; text: modelData.name; color: "white"; padding: 6 }
+    Keys.onReturnPressed: model.values[currentIndex].execute()
+}
+```
+The window needs keyboard focus (`WlrLayershell.keyboardFocus`) for arrow keys to arrive, see [[ch:21-input]].
+:::

@@ -176,7 +176,38 @@ TextField {
 
 Write `StyledSlider.qml`, `StyledSwitch.qml`, `StyledTextField.qml` in `widgets/`, reading colors from your theme singleton, then use them everywhere. That's exactly what end-4 (`modules/common/widgets/`) and Caelestia (`components/`) do. [[ch:43-design-system]] builds this library.
 
-> [!TRY] Exercises
-> 1. Build a restyled `Slider` and bind it to a `property real level`. Show `Math.round(level*100)%` next to it.
-> 2. Build a restyled `Switch` with an animated knob.
-> 3. Build a `ComboBox` listing `["Speakers", "Headphones", "HDMI"]` and print the chosen one.
+## Practice
+
+::: exercise warm | Restyled slider
+Build a restyled `Slider` bound to `property real level`, with `Math.round(level*100)%` next to it.
+--- solution
+```qml
+Row { spacing: 10
+    Slider { id: s; width: 180; value: level; onMoved: level = value
+        background: Rectangle { y: (s.height - 6) / 2; width: s.width; height: 6; radius: 3; color: "#313244"
+            Rectangle { width: s.visualPosition * parent.width; height: 6; radius: 3; color: "#cba6f7" } }
+        handle: Rectangle { x: s.visualPosition * (s.width - 16); y: (s.height - 16) / 2; width: 16; height: 16; radius: 8 } }
+    Text { text: Math.round(level * 100) + "%"; color: "white" } }
+```
+:::
+
+::: exercise practice | Animated switch
+Build a restyled `Switch` with an animated knob.
+--- solution
+```qml
+Switch { id: sw
+    indicator: Rectangle { width: 44; height: 24; radius: 12; color: sw.checked ? "#a6e3a1" : "#45475a"
+        Rectangle { width: 18; height: 18; radius: 9; y: 3; x: sw.checked ? 23 : 3
+            Behavior on x { NumberAnimation { duration: 180; easing.type: Easing.OutCubic } } } }
+    contentItem: Item {} }
+```
+:::
+
+::: exercise challenge | Device picker
+Build a `ComboBox` listing `["Speakers", "Headphones", "HDMI"]` and print the chosen one.
+--- solution
+```qml
+ComboBox { model: ["Speakers", "Headphones", "HDMI"]; onActivated: i => console.log(model[i]) }
+```
+Set `//@ pragma Env QT_QUICK_CONTROLS_STYLE=Basic` so restyling works predictably.
+:::

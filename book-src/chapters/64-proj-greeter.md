@@ -148,7 +148,21 @@ ShellRoot {
 - [[Greetd.available]] is false when not started by greetd, useful for testing the UI as a normal user (`qs -p /etc/greetd/quickshell`) without logging in for real.
 - `launch(command, environment, quit)` lets you pass extra environment variables such as `XDG_SESSION_TYPE=wayland`.
 
-> [!TRY] Exercises
-> 1. Read available sessions from `/usr/share/wayland-sessions/*.desktop` instead of hard-coding them.
-> 2. Show user avatars from `/var/lib/AccountsService/icons/<user>`.
-> 3. Theme the greeter with the same colors.json as your shell (copy it at wallpaper change).
+## Practice
+
+::: exercise warm | Avatars
+Show user avatars from `/var/lib/AccountsService/icons/<user>`.
+:::
+
+::: exercise practice | Read sessions
+Read available sessions from `/usr/share/wayland-sessions/*.desktop` instead of hard-coding them.
+--- solution
+```qml
+Process { running: true; command: ["sh", "-c", "grep -h '^Exec=\\|^Name=' /usr/share/wayland-sessions/*.desktop"]
+    stdout: StdioCollector { onStreamFinished: { /* pair Name= and Exec= lines */ } } }
+```
+:::
+
+::: exercise challenge | Shared theme
+Theme the greeter with the same colors as your shell by copying your `colors.json` somewhere the greeter user can read when the wallpaper changes.
+:::

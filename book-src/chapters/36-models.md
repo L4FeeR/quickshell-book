@@ -116,7 +116,36 @@ ListView {
 - Elements can be **destroyed** while you hold them (a player quits). Always use `?.` on references you keep.
 - Don't mutate `.values` (`push`/`splice`); it's a read-only view.
 
-> [!TRY] Exercises
-> 1. Show the number of open windows (`Hyprland.toplevels.values.length` or `ToplevelManager.toplevels.values.length`).
-> 2. Build an app list filtered by a TextField with ScriptModel and add/remove transitions.
-> 3. Log every time a tray icon appears using `Connections` on `SystemTray.items`.
+## Practice
+
+::: exercise warm | Count windows
+Show the number of open windows.
+--- solution
+```qml
+Text { text: ToplevelManager.toplevels.values.length + " windows"; color: "white" }
+```
+:::
+
+::: exercise practice | Filtered app list
+Build an app list filtered by a `TextField` with `ScriptModel` and add/remove transitions.
+--- solution
+```qml
+Column {
+    TextField { id: q; width: 300 }
+    ListView { width: 300; height: 300; clip: true
+        model: ScriptModel { values: DesktopEntries.applications.values.filter(a => a.name.toLowerCase().includes(q.text.toLowerCase())) }
+        delegate: Text { required property DesktopEntry modelData; text: modelData.name; color: "white" }
+        add: Transition { NumberAnimation { property: "opacity"; from: 0; to: 1; duration: 150 } }
+        remove: Transition { NumberAnimation { property: "opacity"; to: 0; duration: 150 } } } }
+```
+:::
+
+::: exercise challenge | Watch the tray
+Log every time a tray icon appears or disappears.
+--- solution
+```qml
+Connections { target: SystemTray.items
+    function onObjectInsertedPost(obj, index) { console.log("tray +", obj.id) }
+    function onObjectRemovedPre(obj, index) { console.log("tray -", obj.id) } }
+```
+:::

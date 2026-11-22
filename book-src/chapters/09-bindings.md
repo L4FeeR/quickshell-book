@@ -198,7 +198,42 @@ PanelWindow {
 
 Scroll on the bar: the fill, its color, the label and the bold text all follow `level`. That one assignment in `onWheel` is the only imperative line in the file.
 
-> [!TRY] Exercises
-> 1. In the example, add a second bar below that shows `1 - level`.
-> 2. Break a binding on purpose: add a button that assigns the fill's `width = 30`, then scroll. Fix it with `Qt.binding`.
-> 3. Rewrite it so a click toggles a `property bool muted`, and when muted the fill is grey and the label says "muted", without assigning to any visual property.
+## Practice
+
+::: exercise warm | The inverse bar
+In the example, add a second bar below the first that shows `1 - level`.
+--- solution
+```qml
+Rectangle { width: parent.width * (1 - level); height: 6; color: "#f38ba8" }
+```
+It updates automatically because it's a binding on `level`.
+:::
+
+::: exercise practice | Break and repair a binding
+Add a button that assigns the fill's `width = 30`, then scroll. The bar stops following the level. Fix it with `Qt.binding`.
+--- solution
+```qml
+onClicked: fill.width = Qt.binding(() => track.width * level)
+```
+A plain assignment replaces the binding with a fixed number; `Qt.binding` installs a new binding instead.
+:::
+
+::: exercise practice | State, not pixels
+Make a click toggle a `property bool muted`. When muted, the fill is grey and the label says "muted", **without** assigning to any visual property in the click handler.
+--- solution
+```qml
+property bool muted: false
+// fill:
+color: muted ? "#6c7086" : "#cba6f7"
+// label:
+text: muted ? "muted" : Math.round(level * 100) + "%"
+// handler:
+onClicked: muted = !muted
+```
+:::
+
+::: exercise challenge | Spot the loop
+Write `width: height * 2` on a rectangle and `height: width / 2` on the same one. Read the warning, then explain in one sentence why it happens.
+--- why
+Each property depends on the other, so updating one re-evaluates the other forever. QML detects this and prints "Binding loop detected". Fix it by making one of them the source (a fixed number or the parent's size).
+:::

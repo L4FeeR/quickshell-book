@@ -78,5 +78,28 @@ Most editor QML extensions can run it on save. Consistent formatting makes brace
 
 Put your editor and a terminal running `qs -c playground` side by side, with the bar visible on screen. Edit, save, glance. That loop, measured in seconds, is how every rice in this book was built.
 
-> [!TRY] Check your setup
-> In `shell.qml`, type `PanelW` and confirm autocomplete offers `PanelWindow`. Then type a wrong property name like `colr: "red"` and confirm both your editor and `qs` complain.
+## Practice
+
+::: exercise warm | Autocomplete works
+In `shell.qml`, type `PanelW` and confirm autocomplete offers `PanelWindow`.
+--- hint
+If nothing appears: is `qmlls` installed and is there a `.qmlls.ini` next to `shell.qml`? Restart the editor's language server after creating it.
+:::
+
+::: exercise practice | Errors in the editor
+Type a wrong property name like `colr: "red"` and confirm **both** your editor and `qs` complain.
+--- why
+Your editor catches typos before you save; `qs` catches everything at load time. Having both makes learning much faster.
+:::
+
+::: exercise challenge | A snippet
+Create an editor snippet (VS Code / Neovim) that expands `pw` into a full `PanelWindow` with anchors, `implicitHeight` and `color`.
+--- solution
+VS Code (`qml.json` snippets):
+```json
+"PanelWindow": {
+  "prefix": "pw",
+  "body": ["PanelWindow {", "\tanchors { top: true; left: true; right: true }", "\timplicitHeight: ${1:36}", "\tcolor: \"${2:#1e1e2e}\"", "\t$0", "}"]
+}
+```
+:::

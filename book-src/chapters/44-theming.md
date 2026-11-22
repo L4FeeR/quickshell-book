@@ -264,7 +264,24 @@ Rectangle { color: q.colors.length ? q.colors[0] : Colors.secondaryContainer }
 > [!WILD] In the wild
 > end-4 runs matugen plus its own Python scripts (`switchwall.sh`) to produce Material colors, and its `Appearance.qml` reads the result. Caelestia's `caelestia scheme` command writes a scheme file that its `Colours` service loads, supporting both dynamic and static schemes. Same pipeline, different tools.
 
-> [!TRY] Exercises
-> 1. Set up matugen, the template and `Colors.qml`, and run the script on two different wallpapers.
-> 2. Replace every hard-coded color in your bar with `Colors.*`.
-> 3. Add a Catppuccin static theme and a Config option to switch between dynamic and static.
+## Practice
+
+::: exercise warm | Run matugen
+Set up matugen, the template and `Colors.qml`, and run the script on two different wallpapers. Check that the colors file changes.
+:::
+
+::: exercise practice | No hard-coded colors
+Replace every hard-coded color in your bar with `Colors.*`.
+--- hint
+`grep -rn '"#' modules/` finds leftovers.
+:::
+
+::: exercise challenge | Static or dynamic
+Add a Catppuccin static theme and a Config option to switch between dynamic and static.
+--- solution
+In `Colors.qml`, choose the source object based on the option:
+```qml
+readonly property var c: Config.appearance.dynamic ? matugenAdapter : catppuccin
+readonly property var catppuccin: ({ primary: "#cba6f7", onPrimary: "#1e1e2e", surface: "#1e1e2e", onSurface: "#cdd6f4" /* … */ })
+```
+:::

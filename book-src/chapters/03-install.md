@@ -105,8 +105,35 @@ pkill waybar; pkill dunst; pkill mako; pkill swaync
 > [!TIP] Learn safely
 > You can run Quickshell **next to** your existing bar. Your experiments live in `~/.config/quickshell/<name>/` and start with `qs -c <name>`. Nothing changes permanently until you edit your compositor's autostart.
 
-> [!TRY] Checklist
-> - `qs --version` prints a version.
-> - `fc-list | grep -i "material symbols rounded"` prints something.
-> - `wpctl status` shows your speakers.
-> - `upower -e` lists devices (on a laptop you should see a battery).
+## Practice
+
+::: exercise warm | Check the install
+Print Quickshell's version and list the configs it can see.
+--- solution
+```bash
+qs --version
+qs list --all
+```
+If `qs` isn't found, the package isn't installed or isn't on your `PATH`.
+:::
+
+::: exercise practice | Run a named config
+Create a config called `hello` with a `shell.qml` that only contains `import Quickshell` and `ShellRoot {}`, then start it by name.
+--- solution
+```bash
+mkdir -p ~/.config/quickshell/hello
+printf 'import Quickshell\nShellRoot {}\n' > ~/.config/quickshell/hello/shell.qml
+qs -c hello
+```
+Nothing appears (an empty shell), but no errors means everything works.
+:::
+
+::: exercise challenge | Fonts and icons
+Install a Nerd Font or Material Symbols font, then confirm with `fc-list` that the system sees it.
+--- solution
+```bash
+fc-list | grep -i "material symbols"
+fc-list | grep -i "nerd"
+```
+If nothing prints, the font isn't installed in a folder fontconfig scans (`~/.local/share/fonts` works; run `fc-cache -f` afterwards).
+:::

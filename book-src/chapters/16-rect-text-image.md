@@ -259,7 +259,49 @@ Rectangle {
 }
 ```
 
-> [!TRY] Exercises
-> 1. Make a pill-shaped badge with an outline only (`color: "transparent"`).
-> 2. Make a Text that shows at most two lines of a long string and ends with "…".
-> 3. Show your wallpaper as a 300×170 rounded thumbnail with `PreserveAspectCrop` and a proper `sourceSize`.
+## Practice
+
+::: exercise warm | Outline badge
+Make a pill-shaped badge with only an outline.
+--- solution
+```qml
+Rectangle { width: 70; height: 24; radius: 12; color: "transparent"; border.width: 1.5; border.color: "#cba6f7"
+    Text { anchors.centerIn: parent; text: "beta"; color: "#cba6f7" } }
+```
+:::
+
+::: exercise practice | Two lines max
+Make a `Text` that shows at most two lines of a long string and ends with "…".
+--- solution
+```qml
+Text { width: 220; wrapMode: Text.Wrap; maximumLineCount: 2; elide: Text.ElideRight
+       text: "A very long notification body that keeps going and going far beyond two lines of text." }
+```
+:::
+
+::: exercise practice | Wallpaper thumbnail
+Show your wallpaper as a 300×170 rounded thumbnail with `PreserveAspectCrop` and a proper `sourceSize`.
+--- hint
+`Image` itself can't round its corners: wrap it in a `ClippingRectangle` from `Quickshell.Widgets`.
+--- solution
+```qml
+ClippingRectangle {
+    width: 300; height: 170; radius: 14
+    Image { anchors.fill: parent; source: "file:///home/you/Pictures/wall.jpg"
+            fillMode: Image.PreserveAspectCrop; sourceSize: Qt.size(600, 340); asynchronous: true }
+}
+```
+:::
+
+::: exercise challenge | Gradient card
+Make a 260×120 card with a diagonal two-color gradient and white text, using `gradient` with `orientation: Gradient.Horizontal`, then rotate the look with a second stop color.
+--- solution
+```qml
+Rectangle {
+    width: 260; height: 120; radius: 18
+    gradient: Gradient { orientation: Gradient.Horizontal
+        GradientStop { position: 0; color: "#cba6f7" } GradientStop { position: 1; color: "#89b4fa" } }
+    Text { anchors.centerIn: parent; text: "Now Playing"; color: "white"; font.pixelSize: 20; font.bold: true }
+}
+```
+:::

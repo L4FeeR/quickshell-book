@@ -195,8 +195,49 @@ To restart it while developing: `qs kill -c myshell; qs -c myshell -d`.
 | Windows don't move out of the way | The compositor ignores the exclusive zone for floating windows; tiled ones move. |
 | Text is invisible | Default text color is black: on a black background set `color`. |
 
-> [!TRY] Exercises
-> 1. Move the bar to the **bottom** of the screen.
-> 2. Make a **vertical** bar: anchor `left`, `top` and `bottom`, and use `implicitWidth: 44` instead of `implicitHeight`.
-> 3. Add a third `Text` on the right side showing your username. Hint: `anchors.right: parent.right` and `Quickshell.env("USER")`.
-> 4. Break the file in three different ways and read each error message.
+## Practice
+
+::: exercise warm | Move the bar
+Move the bar to the **bottom** of the screen.
+--- hint
+Only the `anchors` group of the `PanelWindow` changes.
+--- solution
+```qml
+anchors { bottom: true; left: true; right: true }
+```
+:::
+
+::: exercise practice | Vertical bar
+Make a **vertical** bar on the left edge, 44 px wide.
+--- hint
+Anchor `left`, `top` and `bottom`, and set `implicitWidth` instead of `implicitHeight`.
+--- solution
+```qml
+PanelWindow {
+    anchors { left: true; top: true; bottom: true }
+    implicitWidth: 44
+    color: "#1e1e2e"
+    Text { anchors.centerIn: parent; text: "Q"; color: "white" }
+}
+```
+:::
+
+::: exercise practice | Username on the right
+Add a third `Text` on the right side showing your username.
+--- hint
+`anchors.right: parent.right` plus a margin, and `Quickshell.env("USER")`.
+--- solution
+```qml
+Text {
+    anchors { right: parent.right; rightMargin: 12; verticalCenter: parent.verticalCenter }
+    text: Quickshell.env("USER")
+    color: "#cdd6f4"
+}
+```
+:::
+
+::: exercise challenge | Learn the errors
+Break the file in three different ways (a missing `}`, a misspelled type like `Txt`, a property that doesn't exist) and read each error message. Note the **line number** it reports.
+--- why
+Reading errors quickly is the most valuable skill in this book. Quickshell prints the file, line and column; the first error is usually the real one, and later ones are side effects.
+:::

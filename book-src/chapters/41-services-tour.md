@@ -254,8 +254,50 @@ ListView {
 | Idle and lock timing | [[IdleMonitor]], [[IdleInhibitor]] |
 | Clipboard text | [[Quickshell.clipboardText]] (needs a focused Quickshell window on Wayland) |
 
-> [!TRY] Exercises
-> 1. Show the volume and a mute icon, scrollable, using the Audio service from [[ch:33-singletons]].
-> 2. Show the current song title and a play/pause button.
-> 3. Show battery percentage and charging state, hidden on desktops.
-> 4. Count connected Bluetooth devices.
+## Practice
+
+::: exercise warm | Volume chip
+Show the volume and a mute icon, scrollable.
+--- solution
+```qml
+PwObjectTracker { objects: [Pipewire.defaultAudioSink] }
+Row {
+    readonly property var audio: Pipewire.defaultAudioSink?.audio
+    Text { text: parent.audio?.muted ? "volume_off" : "volume_up"; font.family: "Material Symbols Rounded"; color: "white" }
+    Text { text: Math.round((parent.audio?.volume ?? 0) * 100) + "%"; color: "white" }
+    WheelHandler { onWheel: e => parent.audio.volume = Math.max(0, Math.min(1, parent.audio.volume + e.angleDelta.y / 120 * 0.05)) }
+    TapHandler { onTapped: parent.audio.muted = !parent.audio.muted } }
+```
+:::
+
+::: exercise practice | Now playing
+Show the current song title and a play/pause button.
+--- solution
+```qml
+Row { readonly property MprisPlayer p: Mpris.players.values[0] ?? null
+    visible: p !== null
+    Text { text: parent.p?.trackTitle ?? ""; color: "white" }
+    Text { text: parent.p?.isPlaying ? "pause" : "play_arrow"; font.family: "Material Symbols Rounded"; color: "white"
+        TapHandler { onTapped: parent.parent.p.togglePlaying() } } }
+```
+:::
+
+::: exercise practice | Battery
+Show battery percentage and charging state, hidden on desktops.
+--- solution
+```qml
+Text { readonly property var dev: UPower.displayDevice
+    visible: dev.isLaptopBattery
+    text: Math.round(dev.percentage * 100) + "%" + (dev.state === UPowerDeviceState.Charging ? " ⚡" : "")
+    color: "white" }
+```
+`percentage` is 0–1 here (see [[UPowerDevice.percentage]]).
+:::
+
+::: exercise challenge | Bluetooth count
+Count connected Bluetooth devices.
+--- solution
+```qml
+Text { text: Bluetooth.devices.values.filter(d => d.connected).length + " connected"; color: "white" }
+```
+:::

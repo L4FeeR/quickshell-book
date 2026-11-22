@@ -138,7 +138,16 @@ ShellRoot { Counter { onValueChanged: console.log(value) } }
 
 If what you built is generally useful (a protocol, a service), consider contributing upstream. The source uses the same `Q_PROPERTY` + doc-comment style shown above; the API reference in this book is generated from those comments.
 
-> [!TRY] Exercises
-> 1. Write a helper in any language that prints the number of unread emails as JSON lines, and show it in your bar.
-> 2. Lock the screen before suspend using the `gdbus monitor` snippet.
-> 3. Build the minimal C++ plugin and use `Counter` in a test config.
+## Practice
+
+::: exercise practice | External helper
+Write a helper script in any language that prints the number of unread emails as JSON lines, and show it in your bar with a `SplitParser`.
+:::
+
+::: exercise practice | Lock before suspend
+Lock the screen before suspend using the `gdbus monitor` snippet from this chapter.
+:::
+
+::: exercise challenge | C++ plugin
+Build the minimal C++ plugin and use `Counter` in a test config.
+:::

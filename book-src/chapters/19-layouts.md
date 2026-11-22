@@ -169,7 +169,42 @@ PanelWindow {
 }
 ```
 
-> [!TRY] Exercises
-> 1. Make a `ColumnLayout` sidebar: a header with fixed height, a list area that fills, and a footer with fixed height.
-> 2. Build a 3×2 `GridLayout` of toggle tiles that stretch to the window width.
-> 3. Hide one chip in the right group with `visible: false` and watch the others close the gap.
+## Practice
+
+::: exercise warm | Sidebar column
+Make a `ColumnLayout` sidebar: a header with fixed height, a list area that fills, and a footer with fixed height.
+--- solution
+```qml
+ColumnLayout { anchors.fill: parent; spacing: 0
+    Rectangle { Layout.fillWidth: true; Layout.preferredHeight: 48; color: "#313244" }
+    Rectangle { Layout.fillWidth: true; Layout.fillHeight: true; color: "#1e1e2e" }
+    Rectangle { Layout.fillWidth: true; Layout.preferredHeight: 36; color: "#313244" } }
+```
+:::
+
+::: exercise practice | Tile grid
+Build a 3×2 `GridLayout` of toggle tiles that stretch to the window width and toggle color on click.
+--- solution
+```qml
+GridLayout { anchors.fill: parent; anchors.margins: 10; columns: 3; rowSpacing: 8; columnSpacing: 8
+    Repeater { model: 6
+        Rectangle { property bool on: false
+            Layout.fillWidth: true; Layout.preferredHeight: 50; radius: 12
+            color: on ? "#cba6f7" : "#313244"
+            TapHandler { onTapped: parent.on = !parent.on } } } }
+```
+:::
+
+::: exercise practice | Close the gap
+Hide one chip in a `RowLayout` with `visible: false` and watch the others close the gap. Then use `opacity: 0` instead and compare.
+--- why
+Layouts skip invisible items entirely, but an item with `opacity: 0` still takes its space. Use `visible` to remove a module from the bar; use opacity when you want to fade it while keeping the layout steady.
+:::
+
+::: exercise challenge | Responsive
+Make a `GridLayout` whose `columns` is 1 when the window is narrower than 400 px and 3 otherwise.
+--- solution
+```qml
+GridLayout { anchors.fill: parent; columns: width < 400 ? 1 : 3 }
+```
+:::

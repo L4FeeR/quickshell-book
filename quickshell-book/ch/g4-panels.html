@@ -1,0 +1,1241 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery: Panels and Menus · The Quickshell Book</title>
+<meta name="description" content="Gallery: Panels and Menus">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details open><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch active" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-g">Part G: Widget Gallery</a> › Gallery: Panels and Menus</div><article><div class="ch-head"><div class="ch-part">Part G · Widget Gallery</div><h1><span class="ch-num">g4</span>Gallery: Panels and Menus</h1></div><p>Bigger pieces of UI that open on demand: quick settings, an app grid, a power menu, pickers. Each is shown standalone with an IPC toggle so you can open it with <code>qs -c gallery ipc call &lt;name&gt; toggle</code>. For the full versions wired into a complete shell, see Part VI.</p>
+<h2 id="quick-settings-tiles">Quick Settings Tiles<a class="hlink" href="#quick-settings-tiles">#</a></h2>
+<div class="preview"><svg style="width:min(100%,510px)" width="340" height="180" viewBox="0 0 340 180"><rect x="10" y="10" width="320" height="160" rx="22" fill="#1e1e2e"/><g font-size="12"><rect x="26" y="26" width="140" height="52" rx="16" fill="#cba6f7"/><text x="48" y="57" fill="#1e1e2e" font-weight="700">📶  Home-5G</text><rect x="174" y="26" width="140" height="52" rx="26" fill="#313244"><animate attributeName="rx" values="26;26;16;16;26" keyTimes="0;.4;.5;.9;1" dur="4s" repeatCount="indefinite"/><animate attributeName="fill" values="#313244;#313244;#cba6f7;#cba6f7;#313244" keyTimes="0;.4;.5;.9;1" dur="4s" repeatCount="indefinite"/></rect><text x="196" y="57" fill="#cdd6f4">ᛒ  Bluetooth</text><rect x="26" y="86" width="140" height="52" rx="26" fill="#313244"/><text x="48" y="117" fill="#cdd6f4">🌙  Night light</text><rect x="174" y="86" width="140" height="52" rx="16" fill="#cba6f7"/><text x="196" y="117" fill="#1e1e2e" font-weight="700">☕  Caffeine</text></g><rect x="26" y="148" width="288" height="10" rx="5" fill="#313244"/><rect x="26" y="148" width="190" height="10" rx="5" fill="#cba6f7"/></svg></div>
+
+<p><strong>What it is.</strong> A grid of toggle tiles (Wi-Fi, Bluetooth, DND, night light, caffeine, mic) plus volume and brightness sliders. Active tiles fill with the accent color and morph from pill to rounded square.</p>
+<p><strong>Kind:</strong> its own window · <strong>Needs:</strong> NetworkManager, BlueZ, PipeWire (each tile hides itself if its service is missing)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/panels/QuickSettings.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import Quickshell.Bluetooth
+import Quickshell.Networking
+import Quickshell.Services.Pipewire
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
+
+Scope {
+    id: root
+    property bool open: false
+    property bool dnd: false
+    property bool caffeine: false
+    readonly property PwNode sink: Pipewire.defaultAudioSink
+    readonly property PwNode mic: Pipewire.defaultAudioSource
+    PwObjectTracker { objects: [root.sink, root.mic] }
+
+    IpcHandler { target: "quicksettings"; function toggle(): void { root.open = !root.open } }
+
+    component Tile: Rectangle {
+        id: tile
+        property string icon
+        property string label
+        property bool active
+        signal toggled()
+        Layout.fillWidth: true
+        implicitHeight: 56
+        radius: active ? 16 : height / 2
+        color: active ? "#cba6f7" : "#313244"
+        Behavior on radius { NumberAnimation { duration: 250; easing.type: Easing.OutCubic } }
+        Behavior on color { ColorAnimation { duration: 200 } }
+        RowLayout {
+            anchors { fill: parent; leftMargin: 16; rightMargin: 12 }
+            spacing: 10
+            Text { text: tile.icon; font.family: "Material Symbols Rounded"; font.pixelSize: 20
+                   font.variableAxes: ({ "FILL": tile.active ? 1 : 0 }); color: tile.active ? "#1e1e2e" : "#cdd6f4" }
+            Text { Layout.fillWidth: true; text: tile.label; elide: Text.ElideRight; font.pixelSize: 13
+                   color: tile.active ? "#1e1e2e" : "#cdd6f4"; font.bold: tile.active }
+        }
+        TapHandler { onTapped: tile.toggled() }
+    }
+
+    component SliderRow: RowLayout {
+        id: sr
+        property string icon
+        property real value
+        signal moved(real v)
+        Layout.fillWidth: true
+        spacing: 10
+        Text { text: sr.icon; font.family: "Material Symbols Rounded"; font.pixelSize: 20; color: "#cdd6f4" }
+        Slider {
+            id: s
+            Layout.fillWidth: true
+            from: 0; to: 1; value: sr.value
+            onMoved: sr.moved(value)
+            background: Rectangle {
+                y: s.topPadding + s.availableHeight / 2 - height / 2
+                width: s.availableWidth; height: 20; radius: 10; color: "#313244"
+                Rectangle { width: Math.max(height, s.visualPosition * parent.width); height: parent.height; radius: 10; color: "#cba6f7" }
+            }
+            handle: Item {}
+        }
+    }
+
+    PanelWindow {
+        id: panel; anchors { top: true; right: true }
+        margins { top: 54; right: 10 }
+        implicitWidth: 360; implicitHeight: col.implicitHeight + 32
+        exclusionMode: ExclusionMode.Ignore
+        color: "transparent"
+        visible: root.open
+        WlrLayershell.layer: WlrLayer.Overlay
+        WlrLayershell.namespace: "quickshell:quicksettings"
+
+        Rectangle {
+            anchors.fill: parent
+            radius: 24; color: "#1e1e2e"; border.color: "#313244"
+            ColumnLayout {
+                id: col
+                anchors { left: parent.left; right: parent.right; top: parent.top; margins: 16 }
+                spacing: 10
+                GridLayout {
+                    Layout.fillWidth: true
+                    columns: 2; rowSpacing: 8; columnSpacing: 8
+                    Tile {
+                        readonly property var net: Networking.devices.values.find(d =&gt; d.type === DeviceType.Wifi)?.networks.values.find(n =&gt; n.connected)
+                        icon: "wifi"; label: net?.name ?? "Wi-Fi"
+                        active: Networking.wifiEnabled
+                        onToggled: Networking.wifiEnabled = !Networking.wifiEnabled
+                    }
+                    Tile {
+                        visible: Bluetooth.defaultAdapter !== null
+                        icon: "bluetooth"; label: Bluetooth.devices.values.find(d =&gt; d.connected)?.name ?? "Bluetooth"
+                        active: Bluetooth.defaultAdapter?.enabled ?? false
+                        onToggled: Bluetooth.defaultAdapter.enabled = !Bluetooth.defaultAdapter.enabled
+                    }
+                    Tile { icon: "do_not_disturb_on"; label: "Do not disturb"; active: root.dnd; onToggled: root.dnd = !root.dnd }
+                    Tile {
+                        icon: "nightlight"; label: "Night light"; active: night.running
+                        onToggled: night.running = !night.running
+                        Process { id: night; command: ["hyprsunset", "-t", "4200"] }
+                    }
+                    Tile {
+                        icon: "coffee"; label: "Caffeine"; active: root.caffeine
+                        onToggled: root.caffeine = !root.caffeine
+                    }
+                    Tile {
+                        icon: root.mic?.audio?.muted ? "mic_off" : "mic"; label: "Microphone"
+                        active: !(root.mic?.audio?.muted ?? true)
+                        onToggled: if (root.mic?.ready) root.mic.audio.muted = !root.mic.audio.muted
+                    }
+                }
+                SliderRow {
+                    icon: "volume_up"
+                    value: root.sink?.audio?.volume ?? 0
+                    onMoved: v =&gt; { if (root.sink?.ready) root.sink.audio.volume = v }
+                }
+            }
+            IdleInhibitor { window: panel; enabled: root.caffeine }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 11–18</span><b>Panel state and audio objects</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Scope {
+    id: root
+    property bool open: false
+    property bool dnd: false
+    property bool caffeine: false
+    readonly property PwNode sink: Pipewire.defaultAudioSink
+    readonly property PwNode mic: Pipewire.defaultAudioSource
+    PwObjectTracker { objects: [root.sink, root.mic] }</code></pre></div><div class="seg-e"><p><code>open</code> shows the panel. <code>dnd</code> and <code>caffeine</code> are local toggles (in a real shell they'd live in <code>GlobalStates</code>). Both the speaker (<code>sink</code>) and microphone (<code>source</code>) are tracked so their volume and mute state are live.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 20</span><b>Open from a keybind</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>IpcHandler { target: "quicksettings"; function toggle(): void { root.open = !root.open } }</code></pre></div><div class="seg-e"><p><code>qs ipc call quicksettings toggle</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 22–33</span><b>An inline component</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>component Tile: Rectangle {
+    id: tile
+    property string icon
+    property string label
+    property bool active
+    signal toggled()
+    Layout.fillWidth: true
+    implicitHeight: 56
+    radius: active ? 16 : height / 2
+    color: active ? "#cba6f7" : "#313244"
+    Behavior on radius { NumberAnimation { duration: 250; easing.type: Easing.OutCubic } }
+    Behavior on color { ColorAnimation { duration: 200 } }</code></pre></div><div class="seg-e"><p><code>component Tile: Rectangle { … }</code> defines a reusable type <strong>inside this file</strong>, without creating <code>Tile.qml</code>. Each tile has an icon, a label, an <code>active</code> state and a <code>toggled</code> signal. When active, its corners morph from a pill (<code>height / 2</code>) to a rounded square (16) and the color fills: Material You's toggle style.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 34–42</span><b>Tile content</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    anchors { fill: parent; leftMargin: 16; rightMargin: 12 }
+    spacing: 10
+    Text { text: tile.icon; font.family: "Material Symbols Rounded"; font.pixelSize: 20
+           font.variableAxes: ({ "FILL": tile.active ? 1 : 0 }); color: tile.active ? "#1e1e2e" : "#cdd6f4" }
+    Text { Layout.fillWidth: true; text: tile.label; elide: Text.ElideRight; font.pixelSize: 13
+           color: tile.active ? "#1e1e2e" : "#cdd6f4"; font.bold: tile.active }
+}
+TapHandler { onTapped: tile.toggled() }</code></pre></div><div class="seg-e"><p>Icon (filled when active) and label, both switching to a dark color on the accent background. The tap handler only <em>emits</em> <code>toggled()</code>: the tile doesn't know what it controls. Each usage decides.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 45–65</span><b>Slider row component</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>component SliderRow: RowLayout {
+    id: sr
+    property string icon
+    property real value
+    signal moved(real v)
+    Layout.fillWidth: true
+    spacing: 10
+    Text { text: sr.icon; font.family: "Material Symbols Rounded"; font.pixelSize: 20; color: "#cdd6f4" }
+    Slider {
+        id: s
+        Layout.fillWidth: true
+        from: 0; to: 1; value: sr.value
+        onMoved: sr.moved(value)
+        background: Rectangle {
+            y: s.topPadding + s.availableHeight / 2 - height / 2
+            width: s.availableWidth; height: 20; radius: 10; color: "#313244"
+            Rectangle { width: Math.max(height, s.visualPosition * parent.width); height: parent.height; radius: 10; color: "#cba6f7" }
+        }
+        handle: Item {}
+    }
+}</code></pre></div><div class="seg-e"><p>An icon and a restyled <code>Slider</code>. <code>background</code> draws a thick track with a fill whose width follows <code>visualPosition</code> (0–1); <code>Math.max(height, …)</code> keeps at least a circle at 0%. <code>handle: Item {}</code> removes the knob for a clean "pill fill" look. The component re-emits <code>moved(v)</code> so the user decides what the value controls.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 67–75</span><b>Window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    id: panel; anchors { top: true; right: true }
+    margins { top: 54; right: 10 }
+    implicitWidth: 360; implicitHeight: col.implicitHeight + 32
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    visible: root.open
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.namespace: "quickshell:quicksettings"</code></pre></div><div class="seg-e"><p>Top-right, under a 54 px bar. It grows with its content (<code>col.implicitHeight + 32</code>).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 84–86</span><b>Two-column grid</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>GridLayout {
+    Layout.fillWidth: true
+    columns: 2; rowSpacing: 8; columnSpacing: 8</code></pre></div><div class="seg-e"><p>Tiles fill the width (<code>Layout.fillWidth</code> inside <code>Tile</code>), so two columns split it evenly.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 87–92</span><b>Wi-Fi tile</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Tile {
+    readonly property var net: Networking.devices.values.find(d =&gt; d.type === DeviceType.Wifi)?.networks.values.find(n =&gt; n.connected)
+    icon: "wifi"; label: net?.name ?? "Wi-Fi"
+    active: Networking.wifiEnabled
+    onToggled: Networking.wifiEnabled = !Networking.wifiEnabled
+}</code></pre></div><div class="seg-e"><p>Finds the connected network to show its name as the label. Active means Wi-Fi radio on; tapping flips it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 93–98</span><b>Bluetooth tile</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Tile {
+    visible: Bluetooth.defaultAdapter !== null
+    icon: "bluetooth"; label: Bluetooth.devices.values.find(d =&gt; d.connected)?.name ?? "Bluetooth"
+    active: Bluetooth.defaultAdapter?.enabled ?? false
+    onToggled: Bluetooth.defaultAdapter.enabled = !Bluetooth.defaultAdapter.enabled
+}</code></pre></div><div class="seg-e"><p>Hidden on machines without an adapter. The label shows a connected device's name when there is one.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 99–108</span><b>DND, night light, caffeine</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Tile { icon: "do_not_disturb_on"; label: "Do not disturb"; active: root.dnd; onToggled: root.dnd = !root.dnd }
+Tile {
+    icon: "nightlight"; label: "Night light"; active: night.running
+    onToggled: night.running = !night.running
+    Process { id: night; command: ["hyprsunset", "-t", "4200"] }
+}
+Tile {
+    icon: "coffee"; label: "Caffeine"; active: root.caffeine
+    onToggled: root.caffeine = !root.caffeine
+}</code></pre></div><div class="seg-e"><p>Night light is a <code>Process</code> running <code>hyprsunset</code>: <code>running: true</code> starts it, <code>false</code> kills it, and killing it restores normal colors. So "is the process running?" is exactly "is night light on?".</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 109–113</span><b>Microphone tile</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Tile {
+    icon: root.mic?.audio?.muted ? "mic_off" : "mic"; label: "Microphone"
+    active: !(root.mic?.audio?.muted ?? true)
+    onToggled: if (root.mic?.ready) root.mic.audio.muted = !root.mic.audio.muted
+}</code></pre></div><div class="seg-e"><p>Active when <strong>not</strong> muted (<code>?? true</code> treats "no mic" as muted).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 115–119</span><b>Volume slider</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>SliderRow {
+    icon: "volume_up"
+    value: root.sink?.audio?.volume ?? 0
+    onMoved: v =&gt; { if (root.sink?.ready) root.sink.audio.volume = v }
+}</code></pre></div><div class="seg-e"><p>Binds the slider to the sink's volume and writes back on <code>moved</code>. Using <code>moved</code> (user drags) instead of <code>valueChanged</code> avoids a feedback loop with the binding.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 121</span><b>Caffeine</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>IdleInhibitor { window: panel; enabled: root.caffeine }</code></pre></div><div class="seg-e"><p>The <a class="api" href="../ref/IdleInhibitor.html"><code>IdleInhibitor</code></a> is attached to this panel's window (<code>panel</code>, the id on line 68) and enabled by the caffeine tile. The compositor only honours an inhibitor while its window is on screen, so this one works while the panel is open. To keep it working after you close the panel, move it to a window that is always visible, such as your bar. In the assembled shell (<a class="xref" href="../ch/g10-full-shell.html">Gallery: Build a Whole Shell from the Gallery</a>), the tile also sets <code>Session.caffeine</code>, which pauses the shell's own idle timers.</p></div></div></div>
+<p><strong>Customize</strong>
+- Right-click a tile to open a details page (Wi-Fi networks, Bluetooth devices): see <a class="xref" href="../ch/55-proj-control-center.html">Project: Control Center</a>.
+- Add a brightness slider using the Brightness service from <a class="xref" href="../ch/53-proj-osd.html">Project: Volume and Brightness OSD</a>.</p>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Practice</span><b>Brightness slider</b></div><div class="ex-b"><p>Add a brightness <code>SliderRow</code> that runs <code>brightnessctl set &lt;n&gt;%</code> on <code>moved</code>.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><div class="codewrap"><pre class="code" data-lang="qml"><code>SliderRow { icon: "light_mode"; value: 0.5
+            onMoved: v =&gt; Quickshell.execDetached(["brightnessctl", "set", Math.round(v * 100) + "%"]) }</code></pre></div>
+<p>For a live value, read <code>/sys/class/backlight/*/brightness</code> as the Circular OSD widget does.</p></div></details></div>
+<h2 id="app-grid-launcher">App Grid Launcher<a class="hlink" href="#app-grid-launcher">#</a></h2>
+<div class="preview"><svg style="width:min(100%,570px)" width="380" height="220" viewBox="0 0 380 220"><rect x="10" y="10" width="360" height="200" rx="22" fill="#1e1e2e"/><rect x="30" y="26" width="320" height="34" rx="17" fill="#313244"/><text x="50" y="48" fill="#a6adc8" font-size="12">🔍  fi|</text><g><rect x="44" y="76" width="44" height="44" rx="12" fill="#fab387"/><rect x="118" y="76" width="44" height="44" rx="12" fill="#89b4fa"/><rect x="192" y="76" width="44" height="44" rx="12" fill="#a6e3a1"/><rect x="266" y="76" width="44" height="44" rx="12" fill="#f38ba8"/><rect x="44" y="144" width="44" height="44" rx="12" fill="#cba6f7"/><rect x="118" y="144" width="44" height="44" rx="12" fill="#94e2d5"/></g><rect x="36" y="70" width="60" height="64" rx="14" fill="none" stroke="#cba6f7" stroke-width="2"><animate attributeName="x" values="36;110;184;258;36" dur="4s" repeatCount="indefinite"/></rect><g fill="#a6adc8" font-size="9" text-anchor="middle"><text x="66" y="131">Firefox</text><text x="140" y="131">Files</text><text x="214" y="131">Fish</text><text x="288" y="131">Figma</text></g></svg></div>
+
+<p><strong>What it is.</strong> A full-screen-style launcher showing installed apps as a grid of big icons; type to filter, use arrow keys to move, Enter to launch.</p>
+<p><strong>Kind:</strong> its own window · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/panels/AppGrid.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import Quickshell.Widgets
+import QtQuick
+import QtQuick.Layouts
+
+Scope {
+    id: root
+    property bool open: false
+    IpcHandler { target: "appgrid"; function toggle(): void { root.open = !root.open } }
+
+    LazyLoader {
+        active: root.open
+        PanelWindow {
+            id: win
+            implicitWidth: 760; implicitHeight: 560
+            exclusionMode: ExclusionMode.Ignore
+            color: "transparent"
+            WlrLayershell.layer: WlrLayer.Overlay
+            WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+
+            readonly property var apps: DesktopEntries.applications.values
+                .filter(a =&gt; a.name.toLowerCase().includes(search.text.toLowerCase())
+                          || (a.genericName ?? "").toLowerCase().includes(search.text.toLowerCase()))
+                .sort((a, b) =&gt; a.name.localeCompare(b.name))
+            function launch(e) { Quickshell.execDetached(e.command); root.open = false }
+
+            Rectangle {
+                anchors.fill: parent
+                radius: 28; color: "#ee1e1e2e"; border.color: "#313244"
+                ColumnLayout {
+                    anchors { fill: parent; margins: 24 }
+                    spacing: 16
+                    Rectangle {
+                        Layout.fillWidth: true; implicitHeight: 46; radius: 23; color: "#313244"
+                        TextInput {
+                            id: search
+                            anchors { fill: parent; leftMargin: 20; rightMargin: 20 }
+                            verticalAlignment: TextInput.AlignVCenter
+                            color: "#cdd6f4"; font.pixelSize: 16; focus: true
+                            Text { visible: !parent.text; text: "Search apps…"; color: "#6c7086"; font: parent.font; anchors.verticalCenter: parent.verticalCenter }
+                            onTextChanged: grid.currentIndex = 0
+                            Keys.onEscapePressed: root.open = false
+                            Keys.onReturnPressed: if (grid.currentIndex &gt;= 0) win.launch(grid.model.values[grid.currentIndex])
+                            Keys.forwardTo: [grid]                          // arrows move the grid selection
+                        }
+                    }
+                    GridView {
+                        id: grid
+                        Layout.fillWidth: true; Layout.fillHeight: true
+                        clip: true
+                        cellWidth: width / 6; cellHeight: 112
+                        keyNavigationEnabled: true
+                        model: ScriptModel { values: win.apps }
+                        highlight: Rectangle { radius: 18; color: "#313244" }
+                        highlightMoveDuration: 100
+                        delegate: Item {
+                            required property DesktopEntry modelData
+                            required property int index
+                            width: grid.cellWidth; height: grid.cellHeight
+                            Column {
+                                anchors.centerIn: parent
+                                spacing: 8
+                                IconImage {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    implicitSize: 52
+                                    source: Quickshell.iconPath(modelData.icon, "application-x-executable")
+                                    asynchronous: true
+                                    scale: ma.containsMouse ? 1.12 : 1
+                                    Behavior on scale { NumberAnimation { duration: 150; easing.type: Easing.OutBack } }
+                                }
+                                Text {
+                                    width: grid.cellWidth - 12
+                                    horizontalAlignment: Text.AlignHCenter
+                                    text: modelData.name; color: "#cdd6f4"; font.pixelSize: 12; elide: Text.ElideRight
+                                }
+                            }
+                            MouseArea {
+                                id: ma; anchors.fill: parent; hoverEnabled: true
+                                onEntered: grid.currentIndex = index
+                                onClicked: { Quickshell.execDetached(modelData.command); root.open = false }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 8–11</span><b>Open state and IPC</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Scope {
+    id: root
+    property bool open: false
+    IpcHandler { target: "appgrid"; function toggle(): void { root.open = !root.open } }</code></pre></div><div class="seg-e"><p>The grid exists only while <code>open</code> (see the <code>LazyLoader</code> below).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–14</span><b>Build on demand</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>LazyLoader {
+    active: root.open</code></pre></div><div class="seg-e"><p><code>LazyLoader { active: root.open }</code> creates the window when opened and destroys it when closed: no memory used for hundreds of icons while hidden.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–21</span><b>Keyboard focus</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    id: win
+    implicitWidth: 760; implicitHeight: 560
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive</code></pre></div><div class="seg-e"><p><code>WlrKeyboardFocus.Exclusive</code> gives the launcher all keyboard input so you can type immediately.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 23–26</span><b>Filtering and sorting</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var apps: DesktopEntries.applications.values
+    .filter(a =&gt; a.name.toLowerCase().includes(search.text.toLowerCase())
+              || (a.genericName ?? "").toLowerCase().includes(search.text.toLowerCase()))
+    .sort((a, b) =&gt; a.name.localeCompare(b.name))</code></pre></div><div class="seg-e"><p>Takes every installed app, keeps those whose name or generic name ("Web Browser") contains the search text (case-insensitive), and sorts alphabetically with <code>localeCompare</code> (correct for accents and other languages).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 27</span><b>Launching</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function launch(e) { Quickshell.execDetached(e.command); root.open = false }</code></pre></div><div class="seg-e"><p><code>execDetached(e.command)</code> starts the app independent of the shell, then the launcher closes.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 35–47</span><b>Search field</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    Layout.fillWidth: true; implicitHeight: 46; radius: 23; color: "#313244"
+    TextInput {
+        id: search
+        anchors { fill: parent; leftMargin: 20; rightMargin: 20 }
+        verticalAlignment: TextInput.AlignVCenter
+        color: "#cdd6f4"; font.pixelSize: 16; focus: true
+        Text { visible: !parent.text; text: "Search apps…"; color: "#6c7086"; font: parent.font; anchors.verticalCenter: parent.verticalCenter }
+        onTextChanged: grid.currentIndex = 0
+        Keys.onEscapePressed: root.open = false
+        Keys.onReturnPressed: if (grid.currentIndex &gt;= 0) win.launch(grid.model.values[grid.currentIndex])
+        Keys.forwardTo: [grid]                          // arrows move the grid selection
+    }</code></pre></div><div class="seg-e"><ul>
+<li>A placeholder <code>Text</code> shows only while the input is empty.</li>
+<li>Typing resets the selection to the first result.</li>
+<li>Enter launches the selected app; Esc closes.</li>
+<li><code>Keys.forwardTo: [grid]</code> passes keys the input doesn't use (arrows) to the grid, so you can type and navigate without switching focus.</li>
+</ul></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 49–57</span><b>The grid</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>GridView {
+    id: grid
+    Layout.fillWidth: true; Layout.fillHeight: true
+    clip: true
+    cellWidth: width / 6; cellHeight: 112
+    keyNavigationEnabled: true
+    model: ScriptModel { values: win.apps }
+    highlight: Rectangle { radius: 18; color: "#313244" }
+    highlightMoveDuration: 100</code></pre></div><div class="seg-e"><p>Six columns (<code>cellWidth: width / 6</code>). <code>keyNavigationEnabled</code> makes arrow keys move <code>currentIndex</code>. <a class="api" href="../ref/ScriptModel.html"><code>ScriptModel</code></a> wraps the filtered array so items that stay in the list are kept instead of rebuilt on every keystroke. The <code>highlight</code> is drawn behind the current item and slides between cells in 100 ms.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 58–84</span><b>One app cell</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>delegate: Item {
+    required property DesktopEntry modelData
+    required property int index
+    width: grid.cellWidth; height: grid.cellHeight
+    Column {
+        anchors.centerIn: parent
+        spacing: 8
+        IconImage {
+            anchors.horizontalCenter: parent.horizontalCenter
+            implicitSize: 52
+            source: Quickshell.iconPath(modelData.icon, "application-x-executable")
+            asynchronous: true
+            scale: ma.containsMouse ? 1.12 : 1
+            Behavior on scale { NumberAnimation { duration: 150; easing.type: Easing.OutBack } }
+        }
+        Text {
+            width: grid.cellWidth - 12
+            horizontalAlignment: Text.AlignHCenter
+            text: modelData.name; color: "#cdd6f4"; font.pixelSize: 12; elide: Text.ElideRight
+        }
+    }
+    MouseArea {
+        id: ma; anchors.fill: parent; hoverEnabled: true
+        onEntered: grid.currentIndex = index
+        onClicked: { Quickshell.execDetached(modelData.command); root.open = false }
+    }
+}</code></pre></div><div class="seg-e"><p>An icon (loaded asynchronously so the grid opens fast) that grows slightly on hover with a bounce, and an eliding name. Hovering also moves the keyboard selection, so mouse and keyboard never disagree.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Frequent apps first</b></div><div class="ex-b"><p>Sort apps you launch often first: keep a <code>{ appId: count }</code> object in a <code>JsonAdapter</code>, increment it in <code>launch()</code>, and sort by count before name.</p></div></div>
+<h2 id="power-menu-bubbles">Power Menu Bubbles<a class="hlink" href="#power-menu-bubbles">#</a></h2>
+<div class="preview"><svg style="width:min(100%,630px)" width="420" height="140" viewBox="0 0 420 140"><rect width="420" height="140" fill="#000" opacity=".35"/><g font-size="22" text-anchor="middle"><circle cx="70" cy="62" r="30" fill="#313244"/><text x="70" y="70" fill="#cdd6f4">🔒</text><circle cx="140" cy="62" r="30" fill="#313244"/><text x="140" y="70" fill="#cdd6f4">⏾</text><circle cx="210" cy="62" r="30" fill="#313244"/><text x="210" y="70" fill="#cdd6f4">↪</text><rect x="250" y="32" width="60" height="60" rx="18" fill="#cba6f7"><animate attributeName="rx" values="30;18;18;30" dur="3s" repeatCount="indefinite"/></rect><text x="280" y="70" fill="#1e1e2e">⟳</text><circle cx="350" cy="62" r="30" fill="#313244"/><text x="350" y="70" fill="#f38ba8">⏻</text></g><g fill="#cdd6f4" font-size="11" text-anchor="middle"><text x="70" y="114">Lock</text><text x="140" y="114">Sleep</text><text x="210" y="114">Logout</text><text x="280" y="114">Reboot</text><text x="350" y="114">Shutdown</text></g></svg></div>
+
+<p><strong>What it is.</strong> A dimmed full-screen overlay with round action buttons. The hovered button morphs into a rounded square; letter shortcuts (L, S, E, R, P) and arrow keys work too.</p>
+<p><strong>Kind:</strong> its own window · <strong>Needs:</strong> systemd (<code>systemctl</code>), <code>loginctl</code></p>
+<p>A complete version with confirmation for destructive actions is in <a class="xref" href="../ch/56-proj-session.html">Project: Power Menu</a>. This is the minimal form:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/panels/PowerBubbles.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import QtQuick
+import QtQuick.Layouts
+
+Scope {
+    id: root
+    property bool open: false
+    IpcHandler { target: "power"; function toggle(): void { root.open = !root.open } }
+
+    readonly property var actions: [
+        { k: "l", icon: "lock",               name: "Lock",     cmd: ["loginctl", "lock-session"] },
+        { k: "s", icon: "bedtime",            name: "Sleep",    cmd: ["systemctl", "suspend"] },
+        { k: "e", icon: "logout",             name: "Logout",   cmd: ["loginctl", "terminate-user", Quickshell.env("USER")] },
+        { k: "r", icon: "restart_alt",        name: "Reboot",   cmd: ["systemctl", "reboot"] },
+        { k: "p", icon: "power_settings_new", name: "Shutdown", cmd: ["systemctl", "poweroff"] }
+    ]
+    property int sel: 0
+    function run(i: int): void { root.open = false; Quickshell.execDetached(actions[i].cmd) }
+
+    LazyLoader {
+        active: root.open
+        PanelWindow {
+            anchors { top: true; bottom: true; left: true; right: true }
+            exclusionMode: ExclusionMode.Ignore
+            color: "#88000000"
+            WlrLayershell.layer: WlrLayer.Overlay
+            WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+
+            MouseArea { anchors.fill: parent; onClicked: root.open = false }
+            RowLayout {
+                anchors.centerIn: parent
+                spacing: 20
+                focus: true
+                Keys.onEscapePressed: root.open = false
+                Keys.onLeftPressed: root.sel = (root.sel + 4) % 5
+                Keys.onRightPressed: root.sel = (root.sel + 1) % 5
+                Keys.onReturnPressed: root.run(root.sel)
+                Keys.onPressed: e =&gt; { const i = root.actions.findIndex(a =&gt; a.k === e.text); if (i &gt;= 0) root.run(i) }
+
+                Repeater {
+                    model: root.actions
+                    ColumnLayout {
+                        id: cell; required property var modelData
+                        required property int index
+                        readonly property bool hot: root.sel === index
+                        spacing: 10
+                        Rectangle {
+                            Layout.alignment: Qt.AlignHCenter
+                            implicitWidth: 84; implicitHeight: 84
+                            radius: cell.hot ? 24 : 42
+                            color: cell.hot ? "#cba6f7" : "#313244"
+                            scale: cell.hot ? 1.08 : 1
+                            Behavior on radius { NumberAnimation { duration: 220 } }
+                            Behavior on scale { NumberAnimation { duration: 220; easing.type: Easing.OutBack } }
+                            Text { anchors.centerIn: parent; text: modelData.icon; font.family: "Material Symbols Rounded"; font.pixelSize: 34
+                                   color: cell.hot ? "#1e1e2e" : (modelData.k === "p" ? "#f38ba8" : "#cdd6f4") }
+                            MouseArea { anchors.fill: parent; hoverEnabled: true; onEntered: root.sel = index; onClicked: root.run(index) }
+                        }
+                        Text { Layout.alignment: Qt.AlignHCenter; text: modelData.name; color: "white"; font.pixelSize: 13 }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 12–18</span><b>Actions as data</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var actions: [
+    { k: "l", icon: "lock",               name: "Lock",     cmd: ["loginctl", "lock-session"] },
+    { k: "s", icon: "bedtime",            name: "Sleep",    cmd: ["systemctl", "suspend"] },
+    { k: "e", icon: "logout",             name: "Logout",   cmd: ["loginctl", "terminate-user", Quickshell.env("USER")] },
+    { k: "r", icon: "restart_alt",        name: "Reboot",   cmd: ["systemctl", "reboot"] },
+    { k: "p", icon: "power_settings_new", name: "Shutdown", cmd: ["systemctl", "poweroff"] }
+]</code></pre></div><div class="seg-e"><p>Each action is an object with a keyboard shortcut letter, an icon, a name and the command to run. Adding an action is adding one line. Logout uses <code>loginctl terminate-user</code> with your username from the environment.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 19–20</span><b>Selection and running</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property int sel: 0
+function run(i: int): void { root.open = false; Quickshell.execDetached(actions[i].cmd) }</code></pre></div><div class="seg-e"><p><code>sel</code> is the highlighted bubble. <code>run()</code> closes the menu <strong>first</strong>, then starts the command (closing after a shutdown command would be pointless).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 24–31</span><b>Fullscreen dim</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    anchors { top: true; bottom: true; left: true; right: true }
+    exclusionMode: ExclusionMode.Ignore
+    color: "#88000000"
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+
+    MouseArea { anchors.fill: parent; onClicked: root.open = false }</code></pre></div><div class="seg-e"><p>The window covers the whole screen with 53% black (<code>#88000000</code>). A full-size <code>MouseArea</code> closes the menu when clicking the background.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 32–40</span><b>Keyboard</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    anchors.centerIn: parent
+    spacing: 20
+    focus: true
+    Keys.onEscapePressed: root.open = false
+    Keys.onLeftPressed: root.sel = (root.sel + 4) % 5
+    Keys.onRightPressed: root.sel = (root.sel + 1) % 5
+    Keys.onReturnPressed: root.run(root.sel)
+    Keys.onPressed: e =&gt; { const i = root.actions.findIndex(a =&gt; a.k === e.text); if (i &gt;= 0) root.run(i) }</code></pre></div><div class="seg-e"><p>The row has focus. Left/right move the selection with wrap-around (<code>+ 4 % 5</code> is "−1" without going negative). Enter runs the selection; a letter key runs its action directly.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 42–62</span><b>Bubbles</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Repeater {
+    model: root.actions
+    ColumnLayout {
+        id: cell; required property var modelData
+        required property int index
+        readonly property bool hot: root.sel === index
+        spacing: 10
+        Rectangle {
+            Layout.alignment: Qt.AlignHCenter
+            implicitWidth: 84; implicitHeight: 84
+            radius: cell.hot ? 24 : 42
+            color: cell.hot ? "#cba6f7" : "#313244"
+            scale: cell.hot ? 1.08 : 1
+            Behavior on radius { NumberAnimation { duration: 220 } }
+            Behavior on scale { NumberAnimation { duration: 220; easing.type: Easing.OutBack } }
+            Text { anchors.centerIn: parent; text: modelData.icon; font.family: "Material Symbols Rounded"; font.pixelSize: 34
+                   color: cell.hot ? "#1e1e2e" : (modelData.k === "p" ? "#f38ba8" : "#cdd6f4") }
+            MouseArea { anchors.fill: parent; hoverEnabled: true; onEntered: root.sel = index; onClicked: root.run(index) }
+        }
+        Text { Layout.alignment: Qt.AlignHCenter; text: modelData.name; color: "white"; font.pixelSize: 13 }
+    }</code></pre></div><div class="seg-e"><p>For each action: a circle that morphs into a rounded square and grows when selected (shape + scale + color, all animated). The shutdown icon is red so it stands out. Hovering selects; clicking runs.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>Confirm shutdown</b></div><div class="ex-b"><p>Require pressing Enter twice for reboot and shutdown: the first press turns the label into "Press again".</p></div></div>
+<h2 id="emoji-picker">Emoji Picker<a class="hlink" href="#emoji-picker">#</a></h2>
+<div class="preview"><svg style="width:min(100%,450px)" width="300" height="190" viewBox="0 0 300 190"><rect x="10" y="10" width="280" height="170" rx="20" fill="#1e1e2e"/><rect x="26" y="24" width="248" height="30" rx="15" fill="#313244"/><text x="42" y="44" fill="#a6adc8" font-size="12">🔍  heart</text><g font-size="22"><text x="34" y="92">❤️</text><text x="80" y="92">💜</text><text x="126" y="92">💙</text><text x="172" y="92">💚</text><text x="218" y="92">🧡</text><text x="34" y="140">💛</text><text x="80" y="140">🖤</text><text x="126" y="140">🤍</text><text x="172" y="140">💖</text><text x="218" y="140">💕</text></g><rect x="28" y="64" width="40" height="40" rx="10" fill="none" stroke="#cba6f7" stroke-width="2"/></svg></div>
+
+<p><strong>What it is.</strong> A searchable emoji grid. Pick one to copy it to the clipboard and close.</p>
+<p><strong>Kind:</strong> its own window · <strong>Needs:</strong> <code>wl-clipboard</code>; an emoji font (<code>noto-fonts-emoji</code>)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/panels/EmojiPicker.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import QtQuick
+import QtQuick.Layouts
+
+Scope {
+    id: root
+    property bool open: false
+    IpcHandler { target: "emoji"; function toggle(): void { root.open = !root.open } }
+
+    // a small built-in list: [emoji, keywords]. Load a full list from a JSON file for production.
+    readonly property var emojis: [
+        ["😀","grin happy smile"],["😂","joy laugh tears"],["😍","love heart eyes"],["🥺","pleading puppy"],["😎","cool sunglasses"],
+        ["🤔","thinking hmm"],["😭","cry sob"],["😡","angry mad"],["👍","thumbs up yes ok"],["👎","thumbs down no"],
+        ["🙏","pray please thanks"],["👏","clap"],["🔥","fire lit hot"],["✨","sparkles shine"],["🎉","party tada"],
+        ["❤️","heart love red"],["💜","heart purple"],["💙","heart blue"],["💚","heart green"],["🖤","heart black"],
+        ["✅","check done yes"],["❌","cross no wrong"],["⚠️","warning"],["💡","idea bulb"],["🚀","rocket launch ship"],
+        ["🐧","penguin linux"],["☕","coffee"],["🍕","pizza food"],["🎵","music note"],["💻","laptop computer"]
+    ]
+    function pick(e) { Quickshell.execDetached(["wl-copy", e]); root.open = false }
+
+    LazyLoader {
+        active: root.open
+        PanelWindow {
+            id: win
+            implicitWidth: 380; implicitHeight: 360
+            exclusionMode: ExclusionMode.Ignore
+            color: "transparent"
+            WlrLayershell.layer: WlrLayer.Overlay
+            WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+            readonly property var shown: root.emojis.filter(e =&gt; !q.text || e[1].includes(q.text.toLowerCase()))
+
+            Rectangle {
+                anchors.fill: parent; radius: 22; color: "#1e1e2e"; border.color: "#313244"
+                ColumnLayout {
+                    anchors { fill: parent; margins: 16 }
+                    spacing: 12
+                    Rectangle {
+                        Layout.fillWidth: true; implicitHeight: 38; radius: 19; color: "#313244"
+                        TextInput {
+                            id: q; anchors { fill: parent; leftMargin: 16; rightMargin: 16 }
+                            verticalAlignment: TextInput.AlignVCenter; color: "#cdd6f4"; font.pixelSize: 14; focus: true
+                            Keys.onEscapePressed: root.open = false
+                            Keys.onReturnPressed: if (win.shown.length) root.pick(win.shown[g.currentIndex][0])
+                            Keys.forwardTo: [g]
+                            onTextChanged: g.currentIndex = 0
+                        }
+                    }
+                    GridView {
+                        id: g
+                        Layout.fillWidth: true; Layout.fillHeight: true
+                        clip: true; cellWidth: width / 7; cellHeight: cellWidth
+                        keyNavigationEnabled: true
+                        model: win.shown
+                        highlight: Rectangle { radius: 10; color: "#45475a" }
+                        delegate: Item {
+                            required property var modelData
+                            required property int index
+                            width: g.cellWidth; height: g.cellHeight
+                            Text { anchors.centerIn: parent; text: modelData[0]; font.pixelSize: 26; font.family: "Noto Color Emoji" }
+                            MouseArea { anchors.fill: parent; hoverEnabled: true; onEntered: g.currentIndex = index; onClicked: root.pick(modelData[0]) }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<p><strong>Customize</strong>
+- Load the full Unicode list: download a JSON (e.g. <code>emoji.json</code> from the gemoji project) into your config and read it with <a class="api" href="../ref/FileView.html"><code>FileView</code></a> + <code>JSON.parse</code>.
+- Type the emoji directly into the focused app: <code>wtype</code> instead of <code>wl-copy</code>.</p>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 12–20</span><b>The data</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// a small built-in list: [emoji, keywords]. Load a full list from a JSON file for production.
+readonly property var emojis: [
+    ["😀","grin happy smile"],["😂","joy laugh tears"],["😍","love heart eyes"],["🥺","pleading puppy"],["😎","cool sunglasses"],
+    ["🤔","thinking hmm"],["😭","cry sob"],["😡","angry mad"],["👍","thumbs up yes ok"],["👎","thumbs down no"],
+    ["🙏","pray please thanks"],["👏","clap"],["🔥","fire lit hot"],["✨","sparkles shine"],["🎉","party tada"],
+    ["❤️","heart love red"],["💜","heart purple"],["💙","heart blue"],["💚","heart green"],["🖤","heart black"],
+    ["✅","check done yes"],["❌","cross no wrong"],["⚠️","warning"],["💡","idea bulb"],["🚀","rocket launch ship"],
+    ["🐧","penguin linux"],["☕","coffee"],["🍕","pizza food"],["🎵","music note"],["💻","laptop computer"]
+]</code></pre></div><div class="seg-e"><p>Each entry is <code>[emoji, keywords]</code>. Searching keywords means typing "laugh" finds 😂. For a full set, load a JSON file of all emojis instead.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 21</span><b>Picking</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function pick(e) { Quickshell.execDetached(["wl-copy", e]); root.open = false }</code></pre></div><div class="seg-e"><p>Copies the emoji to the clipboard with <code>wl-copy</code> and closes. Paste it anywhere with <kbd>Ctrl</kbd>+<kbd>V</kbd>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 32</span><b>Filtering</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var shown: root.emojis.filter(e =&gt; !q.text || e[1].includes(q.text.toLowerCase()))</code></pre></div><div class="seg-e"><p>With no query, everything; otherwise entries whose keywords contain the query.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 39–49</span><b>Search</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    Layout.fillWidth: true; implicitHeight: 38; radius: 19; color: "#313244"
+    TextInput {
+        id: q; anchors { fill: parent; leftMargin: 16; rightMargin: 16 }
+        verticalAlignment: TextInput.AlignVCenter; color: "#cdd6f4"; font.pixelSize: 14; focus: true
+        Keys.onEscapePressed: root.open = false
+        Keys.onReturnPressed: if (win.shown.length) root.pick(win.shown[g.currentIndex][0])
+        Keys.forwardTo: [g]
+        onTextChanged: g.currentIndex = 0
+    }
+}</code></pre></div><div class="seg-e"><p>Same pattern as the app grid: focus on the input, Esc closes, Enter picks the selected one, arrows go to the grid.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 50–63</span><b>Grid</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>GridView {
+    id: g
+    Layout.fillWidth: true; Layout.fillHeight: true
+    clip: true; cellWidth: width / 7; cellHeight: cellWidth
+    keyNavigationEnabled: true
+    model: win.shown
+    highlight: Rectangle { radius: 10; color: "#45475a" }
+    delegate: Item {
+        required property var modelData
+        required property int index
+        width: g.cellWidth; height: g.cellHeight
+        Text { anchors.centerIn: parent; text: modelData[0]; font.pixelSize: 26; font.family: "Noto Color Emoji" }
+        MouseArea { anchors.fill: parent; hoverEnabled: true; onEntered: g.currentIndex = index; onClicked: root.pick(modelData[0]) }
+    }</code></pre></div><div class="seg-e"><p>Seven square cells (<code>cellHeight: cellWidth</code>). <code>font.family: "Noto Color Emoji"</code> makes sure emojis render in color.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Practice</span><b>Recent emojis</b></div><div class="ex-b"><p>Show the last 7 picked emojis in a row above the grid, saved in a state file.</p></div></div>
+<h2 id="calculator-popup">Calculator Popup<a class="hlink" href="#calculator-popup">#</a></h2>
+<div class="preview"><svg style="width:min(100%,480px)" width="320" height="130" viewBox="0 0 320 130"><rect x="10" y="10" width="300" height="110" rx="20" fill="#1e1e2e"/><rect x="26" y="24" width="268" height="34" rx="17" fill="#313244"/><text x="44" y="46" fill="#cdd6f4" font-size="13">sqrt(2) * 15 in mm|</text><text x="34" y="96" fill="#cba6f7" font-size="22" font-weight="700">= 21.2132 mm</text></svg></div>
+
+<p><strong>What it is.</strong> A small floating calculator: type any expression (units and currencies included) and see the result live. Enter copies the result.</p>
+<p><strong>Kind:</strong> its own window · <strong>Needs:</strong> <code>libqalculate</code> (<code>qalc</code>), <code>wl-clipboard</code></p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/panels/Calculator.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import QtQuick
+import QtQuick.Layouts
+
+Scope {
+    id: root
+    property bool open: false
+    property string result: ""
+    IpcHandler { target: "calc"; function toggle(): void { root.open = !root.open } }
+
+    LazyLoader {
+        active: root.open
+        PanelWindow {
+            implicitWidth: 420; implicitHeight: 140
+            exclusionMode: ExclusionMode.Ignore
+            color: "transparent"
+            WlrLayershell.layer: WlrLayer.Overlay
+            WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+
+            Process {
+                id: qalc
+                command: ["qalc", "-t", expr.text]          // -t: terse, only the result
+                stdout: StdioCollector { onStreamFinished: root.result = text.trim() }
+            }
+            Timer { id: debounce; interval: 150; onTriggered: if (expr.text.trim()) qalc.running = true; else root.result = "" }
+
+            Rectangle {
+                anchors.fill: parent; radius: 22; color: "#1e1e2e"; border.color: "#313244"
+                ColumnLayout {
+                    anchors { fill: parent; margins: 16 }
+                    Rectangle {
+                        Layout.fillWidth: true; implicitHeight: 40; radius: 20; color: "#313244"
+                        TextInput {
+                            id: expr
+                            anchors { fill: parent; leftMargin: 18; rightMargin: 18 }
+                            verticalAlignment: TextInput.AlignVCenter
+                            color: "#cdd6f4"; font.pixelSize: 15; focus: true
+                            onTextChanged: debounce.restart()
+                            Keys.onEscapePressed: root.open = false
+                            Keys.onReturnPressed: { Quickshell.execDetached(["wl-copy", root.result]); root.open = false }
+                        }
+                    }
+                    Text {
+                        Layout.fillWidth: true
+                        text: root.result ? "= " + root.result : "Try: 2^10, 5 USD to EUR, 30 min + 1.5 h"
+                        color: root.result ? "#cba6f7" : "#6c7086"
+                        font.pixelSize: root.result ? 24 : 13
+                        font.bold: root.result !== ""
+                        elide: Text.ElideRight
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 22–26</span><b>qalc</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Process {
+    id: qalc
+    command: ["qalc", "-t", expr.text]          // -t: terse, only the result
+    stdout: StdioCollector { onStreamFinished: root.result = text.trim() }
+}</code></pre></div><div class="seg-e"><p><code>qalc</code> (from libqalculate) understands math, units and currencies: <code>5 USD to EUR</code>, <code>30 min + 1.5 h</code>. <code>-t</code> prints only the result. The command includes <code>expr.text</code>, so it always uses the current input.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 27</span><b>Debounce</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Timer { id: debounce; interval: 150; onTriggered: if (expr.text.trim()) qalc.running = true; else root.result = "" }</code></pre></div><div class="seg-e"><p>Starting a process on every keystroke would be wasteful. Each keystroke <strong>restarts</strong> a 150 ms timer, so <code>qalc</code> only runs when you pause typing. Empty input clears the result.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 35–43</span><b>Input</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TextInput {
+    id: expr
+    anchors { fill: parent; leftMargin: 18; rightMargin: 18 }
+    verticalAlignment: TextInput.AlignVCenter
+    color: "#cdd6f4"; font.pixelSize: 15; focus: true
+    onTextChanged: debounce.restart()
+    Keys.onEscapePressed: root.open = false
+    Keys.onReturnPressed: { Quickshell.execDetached(["wl-copy", root.result]); root.open = false }
+}</code></pre></div><div class="seg-e"><p><code>onTextChanged</code> restarts the debounce. Enter copies the result and closes.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 45–52</span><b>Result</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    Layout.fillWidth: true
+    text: root.result ? "= " + root.result : "Try: 2^10, 5 USD to EUR, 30 min + 1.5 h"
+    color: root.result ? "#cba6f7" : "#6c7086"
+    font.pixelSize: root.result ? 24 : 13
+    font.bold: root.result !== ""
+    elide: Text.ElideRight
+}</code></pre></div><div class="seg-e"><p>Big and colored when there's a result; a small gray hint with examples when empty.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 5</span><span class="ex-lvl">Practice</span><b>History</b></div><div class="ex-b"><p>Keep the last 5 calculations (expression = result) in a list under the input; click one to copy it.</p></div></div>
+<h2 id="wi-fi-network-picker">Wi-Fi Network Picker<a class="hlink" href="#wi-fi-network-picker">#</a></h2>
+<div class="preview"><svg style="width:min(100%,450px)" width="300" height="200" viewBox="0 0 300 200"><rect x="10" y="10" width="280" height="180" rx="20" fill="#1e1e2e"/><text x="28" y="38" fill="#cdd6f4" font-size="14" font-weight="700">Wi-Fi</text><rect x="232" y="24" width="38" height="20" rx="10" fill="#cba6f7"/><circle cx="260" cy="34" r="7" fill="#1e1e2e"/><g font-size="12"><rect x="24" y="54" width="252" height="34" rx="12" fill="#45365e"/><text x="40" y="76" fill="#cdd6f4" font-weight="700">📶 Home-5G</text><text x="230" y="76" fill="#a6e3a1" font-size="10">connected</text><rect x="24" y="94" width="252" height="34" rx="12" fill="#313244"/><text x="40" y="116" fill="#cdd6f4">📶 Neighbor 🔒</text><rect x="24" y="134" width="252" height="34" rx="12" fill="#313244"/><text x="40" y="156" fill="#cdd6f4">📶 Cafe_Free</text></g></svg></div>
+
+<p><strong>What it is.</strong> A list of nearby Wi-Fi networks sorted by signal; click one to connect, with a password field for new secured networks.</p>
+<p><strong>Kind:</strong> its own window · <strong>Needs:</strong> NetworkManager</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/panels/WifiPicker.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import Quickshell.Networking
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
+
+Scope {
+    id: root
+    property bool open: false
+    IpcHandler { target: "wifi"; function toggle(): void { root.open = !root.open } }
+
+    LazyLoader {
+        active: root.open
+        PanelWindow {
+            id: win
+            anchors { top: true; right: true }
+            margins { top: 54; right: 10 }
+            implicitWidth: 340; implicitHeight: 420
+            exclusionMode: ExclusionMode.Ignore
+            color: "transparent"
+            WlrLayershell.layer: WlrLayer.Overlay
+            WlrLayershell.keyboardFocus: WlrKeyboardFocus.OnDemand
+
+            readonly property var dev: Networking.devices.values.find(d =&gt; d.type === DeviceType.Wifi) ?? null
+            property var pending: null
+            Component.onCompleted: if (dev) dev.scannerEnabled = true
+            Component.onDestruction: if (dev) dev.scannerEnabled = false
+
+            Rectangle {
+                anchors.fill: parent; radius: 22; color: "#1e1e2e"; border.color: "#313244"
+                ColumnLayout {
+                    anchors { fill: parent; margins: 16 }
+                    spacing: 10
+                    RowLayout {
+                        Text { text: "Wi-Fi"; color: "#cdd6f4"; font.pixelSize: 16; font.bold: true; Layout.fillWidth: true }
+                        Switch { checked: Networking.wifiEnabled; onToggled: Networking.wifiEnabled = checked }
+                    }
+                    ListView {
+                        Layout.fillWidth: true; Layout.fillHeight: true
+                        clip: true; spacing: 6
+                        model: ScriptModel {
+                            values: (win.dev?.networks.values ?? []).slice()
+                                .sort((a, b) =&gt; (b.connected - a.connected) || (b.signalStrength - a.signalStrength))
+                        }
+                        delegate: Rectangle {
+                            required property WifiNetwork modelData
+                            width: ListView.view.width; implicitHeight: 44; radius: 12
+                            color: modelData.connected ? "#45365e" : ma.containsMouse ? "#45475a" : "#313244"
+                            RowLayout {
+                                anchors { fill: parent; leftMargin: 14; rightMargin: 14 }
+                                Text { text: modelData.signalStrength &gt; 0.66 ? "signal_wifi_4_bar" : modelData.signalStrength &gt; 0.33 ? "network_wifi_2_bar" : "network_wifi_1_bar"
+                                       font.family: "Material Symbols Rounded"; font.pixelSize: 18; color: "#cdd6f4" }
+                                Text { Layout.fillWidth: true; text: modelData.name; color: "#cdd6f4"; font.bold: modelData.connected; elide: Text.ElideRight }
+                                Text { text: modelData.stateChanging ? "…" : modelData.connected ? "connected" : modelData.security !== WifiSecurityType.Open ? "lock" : ""
+                                       font.family: modelData.connected || modelData.stateChanging ? "" : "Material Symbols Rounded"
+                                       color: modelData.connected ? "#a6e3a1" : "#a6adc8"; font.pixelSize: modelData.connected ? 11 : 15 }
+                            }
+                            MouseArea {
+                                id: ma; anchors.fill: parent; hoverEnabled: true
+                                onClicked: {
+                                    const n = parent.modelData
+                                    if (n.connected) n.disconnect()
+                                    else if (n.known || n.security === WifiSecurityType.Open) n.connect()
+                                    else win.pending = n
+                                }
+                            }
+                        }
+                    }
+                    TextField {
+                        Layout.fillWidth: true
+                        visible: win.pending !== null
+                        placeholderText: "Password for " + (win.pending?.name ?? "")
+                        echoMode: TextInput.Password
+                        onAccepted: { win.pending.connectWithPsk(text); text = ""; win.pending = null }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 16–24</span><b>Window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    id: win
+    anchors { top: true; right: true }
+    margins { top: 54; right: 10 }
+    implicitWidth: 340; implicitHeight: 420
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.OnDemand</code></pre></div><div class="seg-e"><p>Top-right panel. <code>OnDemand</code> keyboard focus: the panel only takes the keyboard when you click into its password field, so it doesn't steal typing from your apps.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 26–29</span><b>Scanning</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var dev: Networking.devices.values.find(d =&gt; d.type === DeviceType.Wifi) ?? null
+property var pending: null
+Component.onCompleted: if (dev) dev.scannerEnabled = true
+Component.onDestruction: if (dev) dev.scannerEnabled = false</code></pre></div><div class="seg-e"><p>Finds the Wi-Fi device. Scanning for nearby networks uses power, so it's enabled when the picker is created and disabled when it's destroyed.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 36–39</span><b>Header</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    Text { text: "Wi-Fi"; color: "#cdd6f4"; font.pixelSize: 16; font.bold: true; Layout.fillWidth: true }
+    Switch { checked: Networking.wifiEnabled; onToggled: Networking.wifiEnabled = checked }
+}</code></pre></div><div class="seg-e"><p>Title and a switch bound to the Wi-Fi radio.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 40–46</span><b>Sorted network list</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ListView {
+    Layout.fillWidth: true; Layout.fillHeight: true
+    clip: true; spacing: 6
+    model: ScriptModel {
+        values: (win.dev?.networks.values ?? []).slice()
+            .sort((a, b) =&gt; (b.connected - a.connected) || (b.signalStrength - a.signalStrength))
+    }</code></pre></div><div class="seg-e"><p><code>.slice()</code> copies the list (never sort the service's own list in place), then sorts: connected first, then by signal strength. <code>b.connected - a.connected</code> works because booleans become 1/0 in subtraction.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 47–59</span><b>One network row</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>delegate: Rectangle {
+    required property WifiNetwork modelData
+    width: ListView.view.width; implicitHeight: 44; radius: 12
+    color: modelData.connected ? "#45365e" : ma.containsMouse ? "#45475a" : "#313244"
+    RowLayout {
+        anchors { fill: parent; leftMargin: 14; rightMargin: 14 }
+        Text { text: modelData.signalStrength &gt; 0.66 ? "signal_wifi_4_bar" : modelData.signalStrength &gt; 0.33 ? "network_wifi_2_bar" : "network_wifi_1_bar"
+               font.family: "Material Symbols Rounded"; font.pixelSize: 18; color: "#cdd6f4" }
+        Text { Layout.fillWidth: true; text: modelData.name; color: "#cdd6f4"; font.bold: modelData.connected; elide: Text.ElideRight }
+        Text { text: modelData.stateChanging ? "…" : modelData.connected ? "connected" : modelData.security !== WifiSecurityType.Open ? "lock" : ""
+               font.family: modelData.connected || modelData.stateChanging ? "" : "Material Symbols Rounded"
+               color: modelData.connected ? "#a6e3a1" : "#a6adc8"; font.pixelSize: modelData.connected ? 11 : 15 }
+    }</code></pre></div><div class="seg-e"><p>Highlighted when connected. The signal icon has 3 levels. On the right: "…" while connecting, "connected", or a lock icon for secured networks. The font switches between text and the icon font depending on what is shown.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 60–68</span><b>Clicking a network</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>MouseArea {
+    id: ma; anchors.fill: parent; hoverEnabled: true
+    onClicked: {
+        const n = parent.modelData
+        if (n.connected) n.disconnect()
+        else if (n.known || n.security === WifiSecurityType.Open) n.connect()
+        else win.pending = n
+    }
+}</code></pre></div><div class="seg-e"><p>Connected → disconnect. Known (saved) or open → connect directly. Otherwise remember it as <code>pending</code>, which shows the password field.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 71–77</span><b>Password</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TextField {
+    Layout.fillWidth: true
+    visible: win.pending !== null
+    placeholderText: "Password for " + (win.pending?.name ?? "")
+    echoMode: TextInput.Password
+    onAccepted: { win.pending.connectWithPsk(text); text = ""; win.pending = null }
+}</code></pre></div><div class="seg-e"><p>Appears only when a network is pending. <code>echoMode: Password</code> hides the characters. Enter connects with the password (<code>connectWithPsk</code>, which also saves the profile) and resets.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 6</span><span class="ex-lvl">Practice</span><b>Forget network</b></div><div class="ex-b"><p>Right-click a known network to forget it (look up the forget function on <a class="api" href="../ref/WifiNetwork.html"><code>WifiNetwork</code></a>).</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/g3-islands-popups.html"><small>← Previous</small><span>Gallery: Dynamic Islands, Popups and OSDs</span></a><a class="pn-next" href="../ch/g5-desktop.html"><small>Next →</small><span>Gallery: Desktop Widgets</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#quick-settings-tiles">Quick Settings Tiles</a><a class="l2" href="#app-grid-launcher">App Grid Launcher</a><a class="l2" href="#power-menu-bubbles">Power Menu Bubbles</a><a class="l2" href="#emoji-picker">Emoji Picker</a><a class="l2" href="#calculator-popup">Calculator Popup</a><a class="l2" href="#wi-fi-network-picker">Wi-Fi Network Picker</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

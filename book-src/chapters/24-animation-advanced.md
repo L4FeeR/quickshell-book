@@ -179,7 +179,57 @@ Rectangle {
 }
 ```
 
-> [!TRY] Exercises
-> 1. Turn the expanding card into states (`"collapsed"`, `"expanded"`) with different open and close transitions.
-> 2. Make a Row of chips where new chips scale in (`add`) and the others slide over (`move`).
-> 3. Build a sidebar window that slides in from the right and stays mapped until its slide-out finishes.
+## Practice
+
+::: exercise warm | States
+Turn an expanding card into two `states` (`"collapsed"`, `"expanded"`) that change its height.
+--- solution
+```qml
+Rectangle { id: card; width: 240; radius: 12; color: "#313244"; state: "collapsed"
+    states: [ State { name: "collapsed"; PropertyChanges { card.height: 50 } },
+              State { name: "expanded";  PropertyChanges { card.height: 160 } } ]
+    transitions: Transition { NumberAnimation { property: "height"; duration: 250; easing.type: Easing.OutCubic } }
+    TapHandler { onTapped: card.state = card.state === "collapsed" ? "expanded" : "collapsed" } }
+```
+:::
+
+::: exercise practice | Different in and out
+Give the card different transitions: opening uses `OutBack` (with overshoot), closing uses a quick `InCubic`.
+--- solution
+```qml
+transitions: [
+    Transition { from: "collapsed"; to: "expanded"; NumberAnimation { property: "height"; duration: 350; easing.type: Easing.OutBack } },
+    Transition { from: "expanded"; to: "collapsed"; NumberAnimation { property: "height"; duration: 160; easing.type: Easing.InCubic } } ]
+```
+:::
+
+::: exercise practice | Chips that slide
+Make a `Row` of chips where new chips scale in (`add`) and the others slide over (`move`).
+--- solution
+```qml
+Row { spacing: 6
+    add: Transition { NumberAnimation { property: "scale"; from: 0; to: 1; duration: 250; easing.type: Easing.OutBack } }
+    move: Transition { NumberAnimation { property: "x"; duration: 250; easing.type: Easing.OutCubic } }
+    Repeater { model: count; Rectangle { width: 40; height: 24; radius: 12; color: "#89b4fa" } } }
+```
+Increase a `property int count` with a click to see it.
+:::
+
+::: exercise challenge | Slide-out sidebar
+Build a sidebar window that slides in from the right and stays mapped until its slide-out finishes.
+--- hint
+Keep the window `visible` while either `open` is true **or** the animation is running.
+--- solution
+```qml
+PanelWindow {
+    id: w
+    property bool open: false
+    visible: open || slide.running
+    anchors { top: true; bottom: true; right: true }
+    implicitWidth: 320; color: "transparent"
+    Rectangle { width: parent.width; height: parent.height; color: "#1e1e2e"
+        x: w.open ? 0 : width
+        Behavior on x { NumberAnimation { id: slide; duration: 300; easing.type: Easing.OutCubic } } }
+}
+```
+:::

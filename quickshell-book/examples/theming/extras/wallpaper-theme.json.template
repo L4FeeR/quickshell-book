@@ -1,0 +1,28 @@
+{
+  "id": "wallpaper",
+  "name": "From wallpaper",
+  "family": "Wallpaper",
+  "variant": "dark",
+  "author": "matugen",
+  "palette": {
+    "background": "{{colors.surface.default.hex}}",
+    "surface": "{{colors.surface_container_low.default.hex}}",
+    "surfaceHigh": "{{colors.surface_container_high.default.hex}}",
+    "outline": "{{colors.outline_variant.default.hex}}",
+    "text": "{{colors.on_surface.default.hex}}",
+    "textMuted": "{{colors.on_surface_variant.default.hex}}",
+    "textFaint": "{{colors.outline.default.hex}}",
+    "primary": "{{colors.primary.default.hex}}",
+    "onPrimary": "{{colors.on_primary.default.hex}}",
+    "secondary": "{{colors.secondary.default.hex}}",
+    "tertiary": "{{colors.tertiary.default.hex}}",
+    "error": "{{colors.error.default.hex}}"
+  },
+  "roles": {
+    "background": "background", "surface": "surface", "surfaceHigh": "surfaceHigh", "border": "outline",
+    "text": "text", "textMuted": "textMuted", "textFaint": "textFaint",
+    "primary": "primary", "onPrimary": "onPrimary", "secondary": "secondary",
+    "red": "error", "orange": "tertiary", "yellow": "tertiary", "green": "secondary",
+    "cyan": "secondary", "blue": "primary", "magenta": "tertiary"
+  }
+}

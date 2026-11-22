@@ -97,7 +97,34 @@ TabBar { currentIndex: GlobalStates.sidebarTab; onCurrentIndexChanged: GlobalSta
 > [!WILD] In the wild
 > end-4 loads its sidebars, overview, session screen and cheatsheet lazily, controlled by `GlobalStates`. Caelestia keeps its drawers mostly loaded so they animate out of the bar instantly, a deliberate memory-for-smoothness trade.
 
-> [!TRY] Exercises
-> 1. Wrap a big test window in a `LazyLoader` toggled by a bar button. Add `Component.onCompleted`/`onDestruction` logs and watch them.
-> 2. Switch it to `loading: true` and notice that it opens instantly.
-> 3. Keep it alive during a 300 ms fade-out using `active: open || fade.running`.
+## Practice
+
+::: exercise warm | Lazy window
+Wrap a big test window in a `LazyLoader` toggled by a bar button. Log `Component.onCompleted`/`onDestruction` inside it.
+--- solution
+```qml
+LazyLoader { id: big; active: false
+    PanelWindow { implicitWidth: 600; implicitHeight: 400
+        Component.onCompleted: console.log("made"); Component.onDestruction: console.log("gone") } }
+// button: onTapped: big.active = !big.active
+```
+:::
+
+::: exercise practice | Preload
+Switch it to `loading: true` and notice it opens instantly.
+--- why
+`loading: true` builds the window in the background ahead of time without showing it. When you activate it, the work is already done. Use it for the launcher, which must feel instant.
+:::
+
+::: exercise challenge | Keep alive for the fade
+Keep it alive during a 300 ms fade-out using `active: open || fade.running`.
+--- solution
+```qml
+property bool open: false
+LazyLoader { active: open || fade.running
+    PanelWindow { implicitWidth: 400; implicitHeight: 200; color: "transparent"
+        Rectangle { anchors.fill: parent; color: "#1e1e2e"; opacity: open ? 1 : 0
+            Behavior on opacity { NumberAnimation { id: fade; duration: 300 } } } } }
+```
+The animation lives inside the loaded window; `fade` is still reachable by id from the same file while the window exists.
+:::

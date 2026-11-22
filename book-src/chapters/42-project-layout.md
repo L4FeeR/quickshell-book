@@ -165,5 +165,14 @@ ln -s ~/dotfiles/quickshell/myshell ~/.config/quickshell/myshell
 | Copy-pasted button code | `widgets/IconButton.qml` |
 | Panels fighting over the screen | central `GlobalStates.toggle()` ([[ch:46-state]]) |
 
-> [!TRY] Exercise
-> Create this folder structure, move your existing bar into `modules/bar/Bar.qml`, write `services/GlobalStates.qml`, and make `shell.qml` a short `ShellRoot` listing modules. Confirm everything still works.
+## Practice
+
+::: exercise practice | Reorganize
+Create the folder structure from this chapter, move your bar into `modules/bar/Bar.qml`, write `services/GlobalStates.qml`, and make `shell.qml` a short `ShellRoot` listing modules. Confirm everything still works.
+--- hint
+Every folder becomes a module: `modules/bar/` → `import qs.modules.bar`. Restart `qs` after creating `.qmlls.ini` so the editor sees the new modules.
+:::
+
+::: exercise challenge | Optional modules
+Make the dock optional with a `Config.modules.dock` switch: `LazyLoader { active: Config.modules.dock; Dock {} }`. Flip it in `config.json` and watch the dock appear and disappear.
+:::

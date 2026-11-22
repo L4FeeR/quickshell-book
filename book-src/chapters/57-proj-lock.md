@@ -305,7 +305,23 @@ general {
 }
 ```
 
-> [!TRY] Exercises
-> 1. Remove the safety timer only after testing wrong passwords, correct passwords and multiple monitors.
-> 2. Show the number of unread notifications on the lock screen (but not their content).
-> 3. Add a "Sleep" button that runs `systemctl suspend`.
+## Practice
+
+::: exercise warm | Sleep button
+Add a "Sleep" button to the lock screen that runs `systemctl suspend`.
+:::
+
+::: exercise practice | Unread count
+Show the number of unread notifications on the lock screen, but not their content.
+--- solution
+```qml
+Text { visible: Notifs.count > 0; text: Notifs.count + " notifications" }
+```
+Never show summaries or bodies on a lock screen: anyone near your computer could read them.
+:::
+
+::: exercise challenge | Test before trusting
+Remove the safety timer only after testing: wrong password, correct password, two monitors, and killing `qs` while locked (`pkill qs`).
+--- why
+With `WlSessionLock`, the compositor keeps the screen locked if the shell crashes (you'll need to unlock from a TTY). That's the safe behavior; test it once while you still have the safety timer as a fallback.
+:::

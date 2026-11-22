@@ -220,7 +220,52 @@ PopupWindow {
 | it should follow that element | it has its own position (screen edge, center) |
 | it's small and transient | it needs exclusive keyboard focus or its own layer |
 
-> [!TRY] Exercises
-> 1. Add a calendar popup under your clock with `grabFocus: true`.
-> 2. Build `Tooltip.qml` and add tooltips to three bar modules.
-> 3. Make the calendar open **upward** if the bar is at the bottom (bind `edges`/`gravity` to a `property bool bottomBar`).
+## Practice
+
+::: exercise warm | Calendar popup
+Add a popup under your clock that toggles on click and closes when you click elsewhere.
+--- solution
+```qml
+Text { id: clockText; text: "12:00"; color: "white"; TapHandler { onTapped: cal.visible = !cal.visible } }
+PopupWindow { id: cal
+    anchor.item: clockText; anchor.edges: Edges.Bottom; anchor.gravity: Edges.Bottom
+    implicitWidth: 260; implicitHeight: 220; grabFocus: true; color: "#1e1e2e" }
+```
+:::
+
+::: exercise practice | Tooltip component
+Build `Tooltip.qml` (a `PopupWindow` with text) and add tooltips to three bar modules, shown after hovering 500 ms.
+--- solution
+```qml
+// Tooltip.qml
+import Quickshell
+import QtQuick
+PopupWindow {
+    id: tip
+    required property Item target
+    property string text
+    property bool show: false
+    anchor.item: target; anchor.edges: Edges.Bottom; anchor.gravity: Edges.Bottom; anchor.margins.top: 6
+    visible: show
+    implicitWidth: label.implicitWidth + 16; implicitHeight: 26; color: "transparent"
+    Rectangle { anchors.fill: parent; radius: 6; color: "#313244"
+        Text { id: label; anchors.centerIn: parent; text: tip.text; color: "white" } }
+}
+```
+```qml
+Item { id: vol; width: 30; height: 30
+    HoverHandler { id: h }
+    Timer { running: h.hovered; interval: 500; onTriggered: t.show = true }
+    Connections { target: h; function onHoveredChanged() { if (!h.hovered) t.show = false } }
+    Tooltip { id: t; target: vol; text: "Volume" } }
+```
+:::
+
+::: exercise challenge | Open upward
+Make the calendar open **upward** when `property bool bottomBar` is true.
+--- solution
+```qml
+anchor.edges: bottomBar ? Edges.Top : Edges.Bottom
+anchor.gravity: bottomBar ? Edges.Top : Edges.Bottom
+```
+:::

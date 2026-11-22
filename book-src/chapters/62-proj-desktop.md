@@ -270,7 +270,20 @@ StyledRect {
 }
 ```
 
-> [!TRY] Exercises
-> 1. Add a CPU history graph (Canvas) to the system monitor.
-> 2. Add a "now playing" desktop widget that only shows while music plays.
-> 3. Add a Config toggle for each widget.
+## Practice
+
+::: exercise warm | Toggle each widget
+Add a Config toggle for each desktop widget (`LazyLoader { active: Config.desktop.clock; DesktopClock {} }`).
+:::
+
+::: exercise practice | Now playing widget
+Add a "now playing" desktop widget that only shows while music plays.
+--- hint
+`visible: Media.active?.isPlaying ?? false`. The ricing guide's `DeskMedia` ([[ch:r8-desktop]]) is a full version.
+:::
+
+::: exercise challenge | CPU history graph
+Add a CPU history graph (Canvas) to the system monitor.
+--- hint
+Reuse the Canvas graph from [[ch:26-shapes-canvas]]'s practice, appending `SystemUsage.cpu` in `onCpuChanged`.
+:::

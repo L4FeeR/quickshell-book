@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ricing the Control Center, Module by Module · The Quickshell Book</title>
+<meta name="description" content="Ricing the Control Center, Module by Module">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details open><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch active" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-r">Part R: Ricing Guides</a> › Ricing the Control Center, Module by Module</div><article><div class="ch-head"><div class="ch-part">Part R · Ricing Guides</div><h1><span class="ch-num">r5</span>Ricing the Control Center, Module by Module</h1></div><p>The control center (quick settings plus notification history) is where many rices show off. Done well, it looks like a polished phone UI. This guide builds it from modules: header, toggle tiles, big sliders, a media card, a calendar strip and notification history, then arranges them as a right sidebar, a top dropdown, or a two-column dashboard.</p>
+<p><strong>Services:</strong> <code>Audio</code>, <code>Brightness</code>, <code>Network</code>, <code>Media</code>, <code>Notifs</code>, <code>GlobalStates</code> (<a class="xref" href="../ch/55-proj-control-center.html">Project: Control Center</a> has the full logic, including the Wi-Fi and Bluetooth pages).</p>
+<h2 id="anatomy">Anatomy<a class="hlink" href="#anatomy">#</a></h2>
+<div class="preview"><svg style="width:min(100%,570px)" width="380" height="460" viewBox="0 0 380 460"><rect x="20" y="10" width="340" height="440" rx="26" fill="#1e1e2e"/><circle cx="56" cy="46" r="18" fill="#cba6f7"/><text x="84" y="44" fill="#cdd6f4" font-size="13" font-weight="700">Good evening</text><text x="84" y="60" fill="#a6adc8" font-size="10">up 3h 12m · 81%</text><circle cx="306" cy="46" r="14" fill="#313244"/><circle cx="336" cy="46" r="0" fill="#313244"/><g font-size="11"><rect x="40" y="80" width="146" height="54" rx="16" fill="#cba6f7"/><text x="60" y="112" fill="#1e1e2e" font-weight="700">📶  Home-5G</text><rect x="194" y="80" width="146" height="54" rx="27" fill="#313244"/><text x="214" y="112" fill="#cdd6f4">ᛒ  Bluetooth</text><rect x="40" y="142" width="146" height="54" rx="27" fill="#313244"/><text x="60" y="174" fill="#cdd6f4">🌙  Do not disturb</text><rect x="194" y="142" width="146" height="54" rx="16" fill="#cba6f7"/><text x="214" y="174" fill="#1e1e2e" font-weight="700">☕  Caffeine</text></g><rect x="40" y="208" width="300" height="34" rx="17" fill="#313244"/><rect x="40" y="208" width="200" height="34" rx="17" fill="#cba6f7"/><text x="56" y="230" font-size="13">🔊</text><rect x="40" y="250" width="300" height="34" rx="17" fill="#313244"/><rect x="40" y="250" width="140" height="34" rx="17" fill="#f9e2af"/><text x="56" y="272" font-size="13">☀</text><rect x="40" y="296" width="300" height="70" rx="18" fill="#313244"/><rect x="50" y="306" width="50" height="50" rx="12" fill="#f5c2e7"/><text x="112" y="326" fill="#cdd6f4" font-size="12" font-weight="700">Midnight City</text><text x="112" y="342" fill="#a6adc8" font-size="10">M83</text><text x="300" y="338" fill="#cdd6f4" font-size="14">⏸</text><text x="40" y="390" fill="#cdd6f4" font-size="12" font-weight="700">Notifications</text><rect x="40" y="398" width="300" height="40" rx="12" fill="#313244"/></svg></div>
+
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>File</th>
+<th>Job</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Header</td>
+<td><code>CCHeader.qml</code></td>
+<td>avatar, greeting, uptime, settings and power buttons</td>
+</tr>
+<tr>
+<td>Tile</td>
+<td><code>CCTile.qml</code></td>
+<td>toggle tile (icon, label, sublabel, details arrow)</td>
+</tr>
+<tr>
+<td>Tile grid</td>
+<td><code>CCTiles.qml</code></td>
+<td>the set of tiles</td>
+</tr>
+<tr>
+<td>Big slider</td>
+<td><code>CCSlider.qml</code></td>
+<td>thick slider with an icon inside</td>
+</tr>
+<tr>
+<td>Media card</td>
+<td><code>CCMedia.qml</code></td>
+<td>art, title, controls, progress</td>
+</tr>
+<tr>
+<td>Calendar strip</td>
+<td><code>CCWeek.qml</code></td>
+<td>the current week with today highlighted</td>
+</tr>
+<tr>
+<td>History</td>
+<td><code>CCHistory.qml</code></td>
+<td>notification list grouped by app</td>
+</tr>
+<tr>
+<td>Window</td>
+<td><code>ControlCenter.qml</code></td>
+<td>position, slide animation, layouts</td>
+</tr>
+</tbody>
+</table>
+<h2 id="module-1-header">Module 1: Header<a class="hlink" href="#module-1-header">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">rice/controlcenter/CCHeader.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Widgets
+import QtQuick
+import QtQuick.Layouts
+import qs.services
+import qs.widgets
+
+RowLayout {
+    spacing: 12
+    property string uptime: ""
+    Process { running: GlobalStates.controlCenterOpen; command: ["uptime", "-p"]
+              stdout: StdioCollector { onStreamFinished: uptime = text.trim().replace(/^up /, "").replace(/ hours?/, "h").replace(/ minutes?/, "m") } }
+    SystemClock { id: clock; precision: SystemClock.Minutes }
+
+    ClippingRectangle {
+        implicitWidth: 44; implicitHeight: 44; radius: Theme.style === "neon" ? 0 : 22; color: Theme.accent
+        Image { anchors.fill: parent; source: "file://" + Quickshell.env("HOME") + "/.face"; fillMode: Image.PreserveAspectCrop; sourceSize: Qt.size(88, 88) }
+    }
+    ColumnLayout {
+        Layout.fillWidth: true; spacing: 0
+        TText { text: (clock.hours &lt; 12 ? "Good morning" : clock.hours &lt; 18 ? "Good afternoon" : "Good evening"); font.bold: true; font.pixelSize: Theme.textLarge }
+        TText { text: "up " + parent.parent.uptime + (Battery.available ? " · " + Math.round(Battery.percent * 100) + "%" : ""); color: Theme.fgDim; font.pixelSize: Theme.textSmall }
+    }
+    TButton { icon: "settings"; size: 34 }
+    TButton { icon: "power_settings_new"; size: 34; onClicked: GlobalStates.open("session") }
+}</code></pre></div>
+<!-- ex:## Module 1 -->
+
+<div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Warm-up</span><b>Weather in the header</b></div><div class="ex-b"><p>Add the current temperature next to the uptime using the Weather service from <a class="xref" href="../ch/62-proj-desktop.html">Project: Desktop Widgets and Screen Corners</a>.</p></div></div>
+<h2 id="module-2-toggle-tile">Module 2: Toggle tile<a class="hlink" href="#module-2-toggle-tile">#</a></h2>
+<div class="preview"><svg style="width:min(100%,540px)" width="360" height="90" viewBox="0 0 360 90"><rect x="20" y="18" width="150" height="54" rx="27" fill="#313244"><animate attributeName="rx" values="27;16;16;27" keyTimes="0;.2;.7;.9" dur="3s" repeatCount="indefinite"/><animate attributeName="fill" values="#313244;#cba6f7;#cba6f7;#313244" keyTimes="0;.2;.7;.9" dur="3s" repeatCount="indefinite"/></rect><text x="40" y="50" font-size="12" fill="#cdd6f4">ᛒ Bluetooth</text><rect x="190" y="18" width="150" height="54" rx="16" fill="#cba6f7"/><text x="210" y="42" font-size="12" fill="#1e1e2e" font-weight="700">📶 Wi-Fi</text><text x="210" y="58" font-size="10" fill="#1e1e2e">Home-5G</text><text x="320" y="50" font-size="12" fill="#1e1e2e">›</text></svg></div>
+
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">rice/controlcenter/CCTile.qml</span><code>import QtQuick
+import QtQuick.Layouts
+import qs.services
+import qs.widgets
+
+Rectangle {
+    id: tile
+    property string icon
+    property string label
+    property string sublabel: ""
+    property bool active: false
+    property bool hasDetails: false
+    signal toggled()
+    signal details()
+
+    Layout.fillWidth: true
+    implicitHeight: 58
+    radius: Theme.style === "neon" ? 0 : active ? Theme.radius : height / 2     // M3 shape morph
+    color: active ? Theme.accent : hover.hovered ? Theme.surfaceHi : Theme.surface
+    border.width: Theme.border
+    border.color: active ? Theme.accent : Theme.borderColor
+    Behavior on radius { NumberAnimation { duration: Theme.normal; easing.type: Easing.OutCubic } }
+    Behavior on color { ColorAnimation { duration: Theme.normal } }
+
+    RowLayout {
+        anchors { fill: parent; leftMargin: 16; rightMargin: 8 }
+        spacing: 10
+        TIcon { icon: tile.icon; size: 20; fill: tile.active ? 1 : 0; color: tile.active ? Theme.onAccent : Theme.fg }
+        ColumnLayout {
+            Layout.fillWidth: true; spacing: 0
+            TText { Layout.fillWidth: true; text: tile.label; font.bold: tile.active; color: tile.active ? Theme.onAccent : Theme.fg }
+            TText { Layout.fillWidth: true; visible: text !== ""; text: tile.sublabel; font.pixelSize: Theme.textSmall
+                    color: tile.active ? Theme.alpha(Theme.onAccent, 0.75) : Theme.fgDim }
+        }
+        TIcon { visible: tile.hasDetails; icon: "chevron_right"; size: 18; color: tile.active ? Theme.onAccent : Theme.fgDim
+                TapHandler { onTapped: tile.details() } }
+    }
+    HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+    TapHandler { onTapped: tile.toggled() }
+    TapHandler { acceptedButtons: Qt.RightButton; onTapped: tile.details() }
+    scale: press.pressed ? 0.97 : 1
+    Behavior on scale { NumberAnimation { duration: 100 } }
+    TapHandler { id: press }
+}</code></pre></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">rice/controlcenter/CCTiles.qml</span><code>import Quickshell.Bluetooth
+import QtQuick
+import QtQuick.Layouts
+import qs.services
+
+GridLayout {
+    signal openPage(string name)
+    columns: 2; rowSpacing: 8; columnSpacing: 8
+    CCTile { icon: Network.icon; label: "Wi-Fi"; sublabel: Network.ssid || (Network.wifiEnabled ? "Not connected" : "Off")
+             active: Network.wifiEnabled; hasDetails: true; onToggled: Network.toggleWifi(); onDetails: parent.openPage("wifi") }
+    CCTile { icon: "bluetooth"; label: "Bluetooth"; sublabel: Bluetooth.devices.values.find(d =&gt; d.connected)?.name ?? ""
+             active: Bluetooth.defaultAdapter?.enabled ?? false; hasDetails: true
+             onToggled: Bluetooth.defaultAdapter.enabled = !Bluetooth.defaultAdapter.enabled; onDetails: parent.openPage("bt") }
+    CCTile { icon: GlobalStates.dnd ? "do_not_disturb_on" : "do_not_disturb_off"; label: "Do not disturb"
+             active: GlobalStates.dnd; onToggled: GlobalStates.dnd = !GlobalStates.dnd }
+    CCTile { icon: "coffee"; label: "Caffeine"; active: GlobalStates.caffeine; onToggled: GlobalStates.caffeine = !GlobalStates.caffeine }
+}</code></pre></div>
+<!-- ex:## Module 2 -->
+
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Night light tile</b></div><div class="ex-b"><p>Add a "Night light" tile that runs <code>hyprsunset -t 4000</code> when on and kills it when off.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><div class="codewrap"><pre class="code" data-lang="qml"><code>CCTile { icon: "nightlight"; label: "Night light"; active: night.running; onToggled: night.running = !night.running }
+Process { id: night; command: ["hyprsunset", "-t", "4000"] }</code></pre></div>
+<p>Setting <code>running: false</code> stops the process, which restores normal colors.</p></div></details></div>
+<h2 id="module-3-big-slider">Module 3: Big slider<a class="hlink" href="#module-3-big-slider">#</a></h2>
+<div class="preview"><svg style="width:min(100%,510px)" width="340" height="70" viewBox="0 0 340 70"><rect x="20" y="15" width="300" height="40" rx="20" fill="#313244"/><rect x="20" y="15" height="40" rx="20" fill="#cba6f7"><animate attributeName="width" values="80;240;160;80" dur="4s" repeatCount="indefinite"/></rect><text x="38" y="41" font-size="16" fill="#1e1e2e">🔊</text></svg></div>
+
+<p>The icon sits inside the fill, a phone-style "thick" slider. The icon flips color depending on whether the fill reaches it.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">rice/controlcenter/CCSlider.qml</span><code>import QtQuick
+import QtQuick.Controls
+import qs.services
+import qs.widgets
+
+Slider {
+    id: s
+    property string icon: "volume_up"
+    property color tint: Theme.accent
+    signal iconClicked()
+    from: 0; to: 1
+    implicitHeight: 42
+    background: Rectangle {
+        anchors.fill: parent
+        radius: Theme.style === "neon" ? 0 : height / 2
+        color: Theme.surface
+        border.width: Theme.border; border.color: Theme.borderColor
+        Rectangle {
+            width: Math.max(parent.height, s.visualPosition * parent.width)
+            height: parent.height
+            radius: parent.radius
+            color: s.tint
+            Behavior on width { enabled: !s.pressed; NumberAnimation { duration: Theme.fast } }
+        }
+        TIcon {
+            x: 13; anchors.verticalCenter: parent.verticalCenter
+            icon: s.icon; size: 20; fill: 1
+            color: s.visualPosition * parent.width &gt; 34 ? Theme.onAccent : Theme.fg
+            TapHandler { onTapped: s.iconClicked() }
+        }
+        TText {
+            anchors { right: parent.right; rightMargin: 14; verticalCenter: parent.verticalCenter }
+            text: Math.round(s.value * 100); font.pixelSize: Theme.textSmall
+            color: s.visualPosition &gt; 0.9 ? Theme.onAccent : Theme.fgDim
+            font.features: ({ "tnum": 1 })
+        }
+    }
+    handle: Item {}
+}</code></pre></div>
+<!-- ex:## Module 3 -->
+
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>Click the icon to mute</b></div><div class="ex-b"><p><code>CCSlider</code> already emits <code>iconClicked</code>. Make the volume slider's icon mute, and show the fill in <code>Theme.fgDim</code> while muted.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><div class="codewrap"><pre class="code" data-lang="qml"><code>CCSlider { icon: Audio.icon; tint: Audio.muted ? Theme.fgDim : Theme.accent
+           value: Audio.volume; onMoved: Audio.setVolume(value); onIconClicked: Audio.toggleMute() }</code></pre></div></div></details></div>
+<h2 id="module-4-media-card">Module 4: Media card<a class="hlink" href="#module-4-media-card">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">rice/controlcenter/CCMedia.qml</span><code>import Quickshell
+import Quickshell.Widgets
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Effects
+import qs.services
+import qs.widgets
+
+ClippingRectangle {
+    id: card
+    readonly property var p: Media.active
+    visible: p !== null
+    implicitHeight: 92
+    radius: Theme.radius
+    color: Theme.surface
+
+    // album art as a blurred, tinted background
+    Image { id: art; anchors.fill: parent; source: card.p?.trackArtUrl ?? ""; fillMode: Image.PreserveAspectCrop; sourceSize: Qt.size(200, 100); visible: false }
+    MultiEffect { anchors.fill: art; source: art; blurEnabled: true; blur: 1; blurMax: 40; brightness: -0.35; saturation: 0.2; visible: art.status === Image.Ready }
+
+    RowLayout {
+        anchors { fill: parent; margins: 12 }
+        spacing: 12
+        ClippingRectangle { implicitWidth: 68; implicitHeight: 68; radius: Theme.radiusSmall + 2; color: Theme.accent
+            Image { anchors.fill: parent; source: card.p?.trackArtUrl ?? ""; fillMode: Image.PreserveAspectCrop; sourceSize: Qt.size(136, 136) } }
+        ColumnLayout {
+            Layout.fillWidth: true; spacing: 2
+            TText { Layout.fillWidth: true; text: card.p?.trackTitle ?? ""; font.bold: true; color: "white" }
+            TText { Layout.fillWidth: true; text: card.p?.trackArtist ?? ""; color: "#ffffffbb"; font.pixelSize: Theme.textSmall }
+            Rectangle { Layout.fillWidth: true; Layout.topMargin: 6; implicitHeight: 3; radius: 1.5; color: "#ffffff33"
+                Rectangle { width: parent.width * (card.p?.position ?? 0) / Math.max(1, card.p?.length ?? 1); height: parent.height; radius: 1.5; color: "white" } }
+        }
+        TButton { icon: "skip_previous"; size: 30; onClicked: card.p.previous() }
+        TButton { icon: card.p?.isPlaying ? "pause" : "play_arrow"; size: 38; toggled: true; onClicked: card.p.togglePlaying() }
+        TButton { icon: "skip_next"; size: 30; onClicked: card.p.next() }
+    }
+}</code></pre></div>
+<!-- ex:## Module 4 -->
+
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Practice</span><b>Seek by clicking</b></div><div class="ex-b"><p>Click on the progress line to seek to that position.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><div class="codewrap"><pre class="code" data-lang="qml"><code>TapHandler { onTapped: ev =&gt; card.p.position = card.p.length * ev.position.x / parent.width }</code></pre></div>
+<p>Only works when <code>card.p.canSeek</code> is true; hide the handler otherwise.</p></div></details></div>
+<h2 id="module-5-week-strip">Module 5: Week strip<a class="hlink" href="#module-5-week-strip">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">rice/controlcenter/CCWeek.qml</span><code>import Quickshell
+import QtQuick
+import qs.services
+import qs.widgets
+
+Row {
+    spacing: 6
+    SystemClock { id: clock; precision: SystemClock.Hours }
+    readonly property date monday: { const d = new Date(clock.date); d.setDate(d.getDate() - (d.getDay() + 6) % 7); return d }
+    Repeater {
+        model: 7
+        Rectangle {
+            required property int index
+            readonly property date day: new Date(parent.monday.getFullYear(), parent.monday.getMonth(), parent.monday.getDate() + index)
+            readonly property bool today: day.toDateString() === clock.date.toDateString()
+            width: 38; height: 52; radius: Theme.style === "neon" ? 0 : 19
+            color: today ? Theme.accent : Theme.surface
+            Column {
+                anchors.centerIn: parent
+                TText { anchors.horizontalCenter: parent.horizontalCenter; text: Qt.formatDate(parent.parent.day, "ddd").slice(0, 2)
+                        font.pixelSize: 10; color: parent.parent.today ? Theme.onAccent : Theme.fgDim }
+                TText { anchors.horizontalCenter: parent.horizontalCenter; text: parent.parent.day.getDate()
+                        font.bold: true; color: parent.parent.today ? Theme.onAccent : Theme.fg }
+            }
+        }
+    }
+}</code></pre></div>
+<!-- ex:## Module 5 -->
+
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 5</span><span class="ex-lvl">Practice</span><b>Click a day</b></div><div class="ex-b"><p>Clicking a day of the week strip opens your calendar app (<code>gnome-calendar</code>, <code>khal</code> in a terminal…) on that date.</p></div></div>
+<h2 id="module-6-notification-history-grouped-by-app">Module 6: Notification history (grouped by app)<a class="hlink" href="#module-6-notification-history-grouped-by-app">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">rice/controlcenter/CCHistory.qml</span><code>import Quickshell
+import QtQuick
+import QtQuick.Layouts
+import qs.services
+import qs.widgets
+import qs.rice.notifications
+
+ColumnLayout {
+    id: hist
+    spacing: 8
+    readonly property var groups: {
+        const g = {}
+        for (const n of [...Notifs.list].reverse()) (g[n.appName] = g[n.appName] ?? []).push(n)
+        return Object.keys(g).map(k =&gt; ({ app: k, items: g[k] }))
+    }
+    RowLayout {
+        TText { text: "Notifications"; font.bold: true; Layout.fillWidth: true }
+        TButton { icon: "clear_all"; size: 30; onClicked: Notifs.clearAll() }
+    }
+    Flickable {
+        Layout.fillWidth: true; Layout.fillHeight: true
+        clip: true
+        contentHeight: groupCol.implicitHeight
+        boundsBehavior: Flickable.StopAtBounds
+        Column {
+            id: groupCol
+            width: parent.width
+            spacing: 12
+            Repeater {
+                model: hist.groups
+                Column {
+                    required property var modelData
+                    width: groupCol.width
+                    spacing: 6
+                    property bool open: modelData.items.length &lt;= 2
+                    RowLayout {
+                        width: parent.width
+                        TText { text: modelData.app + "  (" + modelData.items.length + ")"; color: Theme.fgDim; font.pixelSize: Theme.textSmall; Layout.fillWidth: true }
+                        TIcon { icon: parent.parent.open ? "expand_less" : "expand_more"; size: 18; color: Theme.fgDim
+                                TapHandler { onTapped: parent.parent.parent.open = !parent.parent.parent.open } }
+                    }
+                    Repeater {
+                        model: parent.open ? modelData.items : modelData.items.slice(0, 1)   // collapsed: show newest only
+                        NotifCard { required property var modelData; notif: modelData; popup: false; width: groupCol.width }
+                    }
+                }
+            }
+        }
+        TText { anchors.centerIn: parent; visible: Notifs.count === 0; text: "All caught up ✨"; color: Theme.fgDim }
+    }
+}</code></pre></div>
+<!-- ex:## Module 6 -->
+
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 6</span><span class="ex-lvl">Practice</span><b>Swipe a group away</b></div><div class="ex-b"><p>Add a ✕ to each group header that dismisses every notification of that app.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><div class="codewrap"><pre class="code" data-lang="qml"><code>TIcon { icon: "close"; size: 16; TapHandler { onTapped: modelData.items.forEach(n =&gt; n.dismiss()) } }</code></pre></div></div></details></div>
+<h2 id="assembly-three-layouts">Assembly: three layouts<a class="hlink" href="#assembly-three-layouts">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">rice/controlcenter/ControlCenter.qml</span><code>import Quickshell
+import Quickshell.Wayland
+import Quickshell.Hyprland
+import QtQuick
+import QtQuick.Layouts
+import qs.services
+import qs.widgets
+
+Scope {
+    id: root
+    property string layout: "sidebar"          // "sidebar" | "dropdown" | "dashboard"
+
+    PanelWindow {
+        id: win
+        readonly property bool open: GlobalStates.controlCenterOpen
+        screen: Quickshell.screens.find(s =&gt; s.name === GlobalStates.activeScreen) ?? null
+        visible: open || slide.running
+        anchors {
+            top: true
+            right: root.layout !== "dashboard"
+            bottom: root.layout === "sidebar"
+        }
+        margins { top: Theme.barHeight + 14; right: 8; bottom: 8 }
+        implicitWidth: root.layout === "dashboard" ? 760 : 400
+        implicitHeight: root.layout === "dropdown" ? 520 : root.layout === "dashboard" ? 460 : 0
+        exclusionMode: ExclusionMode.Ignore
+        color: "transparent"
+        WlrLayershell.layer: WlrLayer.Top
+        WlrLayershell.namespace: "quickshell:controlcenter"
+        HyprlandFocusGrab { windows: [win]; active: win.open; onCleared: GlobalStates.controlCenterOpen = false }
+
+        TSurface {
+            id: panel
+            width: parent.width; height: parent.height
+            color: Theme.bg
+            radius: Theme.radius + 6
+            raised: true
+            // sidebar slides from the right, dropdown/dashboard drop from the top
+            x: root.layout === "sidebar" &amp;&amp; !win.open ? width + 20 : 0
+            y: root.layout !== "sidebar" &amp;&amp; !win.open ? -height - 20 : 0
+            opacity: win.open ? 1 : 0
+            Behavior on x { NumberAnimation { id: slide; duration: Theme.slow; easing.type: Easing.OutCubic } }
+            Behavior on y { NumberAnimation { duration: Theme.slow; easing.type: Easing.OutCubic } }
+            Behavior on opacity { NumberAnimation { duration: Theme.normal } }
+
+            // one column (sidebar / dropdown)
+            ColumnLayout {
+                visible: root.layout !== "dashboard"
+                anchors { fill: parent; margins: 16 }
+                spacing: 14
+                CCHeader { Layout.fillWidth: true }
+                CCTiles { Layout.fillWidth: true }
+                CCSlider { Layout.fillWidth: true; icon: Audio.icon; value: Audio.volume; onMoved: Audio.setVolume(value); onIconClicked: Audio.toggleMute() }
+                CCSlider { Layout.fillWidth: true; icon: "light_mode"; tint: Theme.warn; visible: Brightness.available; value: Brightness.value; onMoved: Brightness.set(value) }
+                CCMedia { Layout.fillWidth: true }
+                CCHistory { Layout.fillWidth: true; Layout.fillHeight: true; visible: root.layout === "sidebar" }
+            }
+
+            // two columns (dashboard)
+            RowLayout {
+                visible: root.layout === "dashboard"
+                anchors { fill: parent; margins: 18 }
+                spacing: 18
+                ColumnLayout {
+                    Layout.preferredWidth: 340; Layout.fillHeight: true; spacing: 14
+                    CCHeader { Layout.fillWidth: true }
+                    CCWeek {}
+                    CCTiles { Layout.fillWidth: true }
+                    CCSlider { Layout.fillWidth: true; icon: Audio.icon; value: Audio.volume; onMoved: Audio.setVolume(value) }
+                    Item { Layout.fillHeight: true }
+                }
+                ColumnLayout {
+                    Layout.fillWidth: true; Layout.fillHeight: true; spacing: 14
+                    CCMedia { Layout.fillWidth: true }
+                    CCHistory { Layout.fillWidth: true; Layout.fillHeight: true }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="preview"><svg style="width:min(100%,990px)" width="660" height="200" viewBox="0 0 660 200"><g font-size="10"><g transform="translate(5 5)"><rect width="210" height="170" rx="8" fill="#26233a"/><rect x="120" y="8" width="84" height="156" rx="12" fill="#1e1e2e"/><rect x="128" y="20" width="32" height="18" rx="8" fill="#cba6f7"/><rect x="164" y="20" width="32" height="18" rx="9" fill="#313244"/><rect x="128" y="46" width="68" height="10" rx="5" fill="#cba6f7"/><rect x="128" y="62" width="68" height="24" rx="8" fill="#313244"/><rect x="128" y="94" width="68" height="60" rx="8" fill="#313244" opacity=".6"/><text x="105" y="190" fill="#a6adc8" text-anchor="middle">sidebar</text></g><g transform="translate(225 5)"><rect width="210" height="170" rx="8" fill="#26233a"/><rect x="110" y="8" width="94" height="110" rx="12" fill="#1e1e2e"/><rect x="118" y="20" width="36" height="18" rx="8" fill="#cba6f7"/><rect x="158" y="20" width="36" height="18" rx="9" fill="#313244"/><rect x="118" y="46" width="76" height="10" rx="5" fill="#cba6f7"/><rect x="118" y="64" width="76" height="40" rx="8" fill="#313244"/><text x="105" y="190" fill="#a6adc8" text-anchor="middle">dropdown</text></g><g transform="translate(445 5)"><rect width="210" height="170" rx="8" fill="#26233a"/><rect x="15" y="8" width="180" height="120" rx="12" fill="#1e1e2e"/><rect x="24" y="18" width="72" height="18" rx="8" fill="#cba6f7"/><rect x="24" y="42" width="72" height="18" rx="9" fill="#313244"/><rect x="24" y="66" width="72" height="10" rx="5" fill="#cba6f7"/><rect x="104" y="18" width="82" height="36" rx="8" fill="#313244"/><rect x="104" y="60" width="82" height="58" rx="8" fill="#313244" opacity=".6"/><text x="105" y="190" fill="#a6adc8" text-anchor="middle">dashboard</text></g></g></svg></div>
+
+<!-- ex:## Assembly -->
+
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 7</span><span class="ex-lvl">Challenge</span><b>Pages</b></div><div class="ex-b"><p>Add a page system: tapping the Wi-Fi tile's arrow slides the content left to a Wi-Fi list page with a back button.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Wrap the column in a <code>StackView</code>, or put both pages in a <code>Row</code> inside a clipped <code>Item</code> and animate the row's <code>x</code> between <code>0</code> and <code>-width</code>.</p></div></details></div>
+<h2 id="polish-checklist">Polish checklist<a class="hlink" href="#polish-checklist">#</a></h2>
+<ul>
+<li>[ ] Tiles show <strong>state</strong> in their sublabel (network name, connected device), not just on/off.</li>
+<li>[ ] Active tiles change both color <strong>and</strong> shape (accessible to color-blind users).</li>
+<li>[ ] Sliders follow external changes (media keys) smoothly but stick to the cursor while dragging.</li>
+<li>[ ] Media card hides when nothing plays.</li>
+<li>[ ] Opening the panel doesn't steal focus from your app unless you click in a text field (<code>OnDemand</code> focus).</li>
+<li>[ ] Notification groups collapse when an app sends many.</li>
+<li>[ ] Closing: Esc, click outside, or the bar button again.</li>
+</ul>
+<!-- ex:## Polish checklist -->
+<h2 id="practice">Practice<a class="hlink" href="#practice">#</a></h2>
+<div class="ex ex-project"><div class="ex-h"><span class="ex-n">Exercise 8</span><span class="ex-lvl">Mini project</span><b>Tile editor</b></div><div class="ex-b"><p>Store the list of tiles in <code>Config</code> (<code>["wifi", "bt", "dnd", "caffeine"]</code>) and build them with a <code>Repeater</code> and a lookup table, so users can reorder and remove tiles in <code>config.json</code>.</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/r4-notifications.html"><small>← Previous</small><span>Ricing Notifications, Module by Module</span></a><a class="pn-next" href="../ch/r6-osd-power.html"><small>Next →</small><span>Ricing OSDs and the Power Menu</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#anatomy">Anatomy</a><a class="l2" href="#module-1-header">Module 1: Header</a><a class="l2" href="#module-2-toggle-tile">Module 2: Toggle tile</a><a class="l2" href="#module-3-big-slider">Module 3: Big slider</a><a class="l2" href="#module-4-media-card">Module 4: Media card</a><a class="l2" href="#module-5-week-strip">Module 5: Week strip</a><a class="l2" href="#module-6-notification-history-grouped-by-app">Module 6: Notification history (grouped by app)</a><a class="l2" href="#assembly-three-layouts">Assembly: three layouts</a><a class="l2" href="#polish-checklist">Polish checklist</a><a class="l2" href="#practice">Practice</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

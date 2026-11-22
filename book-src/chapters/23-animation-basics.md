@@ -172,7 +172,53 @@ scale: area.pressed ? 0.92 : 1
 - Animating `width`/`height` re-lays out children every frame. It's fine for small items, but be careful with big layouts.
 - Infinite animations keep the shell redrawing at 60+ fps. **Bind `running` to visibility** so they stop when hidden.
 
-> [!TRY] Exercises
-> 1. Make a workspace indicator: 5 dots, where the active one is a wide pill. Clicking a dot activates it, and the width changes animate with `OutCubic`.
-> 2. Make a "recording" dot that pulses only while `property bool recording` is true.
-> 3. Make a notification bell icon that wiggles (`SequentialAnimation` of rotations) when you click it.
+## Practice
+
+::: exercise warm | Animated width
+Make a rectangle that grows from 40 to 160 px wide when hovered, with `Behavior on width` and `Easing.OutCubic`.
+--- solution
+```qml
+Rectangle { height: 30; radius: 15; color: "#cba6f7"; width: hov.hovered ? 160 : 40
+    Behavior on width { NumberAnimation { duration: 250; easing.type: Easing.OutCubic } }
+    HoverHandler { id: hov } }
+```
+:::
+
+::: exercise practice | Workspace pill
+Make 5 dots where the active one is a wide pill. Clicking a dot activates it, and widths animate.
+--- solution
+```qml
+Row { spacing: 6; property int active: 0
+    Repeater { model: 5
+        Rectangle { required property int index
+            height: 10; radius: 5; width: parent.active === index ? 28 : 10
+            color: parent.active === index ? "#cba6f7" : "#585b70"
+            Behavior on width { NumberAnimation { duration: 250; easing.type: Easing.OutCubic } }
+            TapHandler { onTapped: parent.parent.active = parent.index } } } }
+```
+:::
+
+::: exercise practice | Recording dot
+Make a red dot that pulses only while `property bool recording` is true.
+--- solution
+```qml
+Rectangle { width: 12; height: 12; radius: 6; color: "#f38ba8"
+    SequentialAnimation on opacity { running: recording; loops: Animation.Infinite
+        NumberAnimation { to: 0.3; duration: 600 } NumberAnimation { to: 1; duration: 600 } } }
+```
+When `recording` turns false the animation stops wherever it is; add `onRunningChanged: if (!running) opacity = 1` to reset.
+:::
+
+::: exercise challenge | Bell wiggle
+Make a bell icon that wiggles when clicked.
+--- solution
+```qml
+Text { id: bell; text: "notifications"; font.family: "Material Symbols Rounded"; font.pixelSize: 24; color: "white"
+    SequentialAnimation { id: wiggle
+        RotationAnimation { target: bell; to: 18; duration: 70 }
+        RotationAnimation { target: bell; to: -14; duration: 90 }
+        RotationAnimation { target: bell; to: 8; duration: 90 }
+        RotationAnimation { target: bell; to: 0; duration: 120 } }
+    TapHandler { onTapped: wiggle.restart() } }
+```
+:::

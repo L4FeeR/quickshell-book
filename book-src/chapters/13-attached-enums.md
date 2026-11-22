@@ -143,7 +143,48 @@ Item {
 | `Keys.onPressed:` | attached signal handler | capitalized type + `on…` |
 | `Hyprland.focusedMonitor` | singleton property | capitalized name that is a singleton |
 
-> [!TRY] Exercises
-> 1. In a `RowLayout`, make three rectangles where the middle one fills the leftover width (`Layout.fillWidth`) and the others are 40 px wide.
-> 2. Set a `Text`'s `elide` to `Text.ElideMiddle` with a narrow width and a long string.
-> 3. Make a `MouseArea` that logs "shift+click" only when <kbd>Shift</kbd> is held.
+## Practice
+
+::: exercise warm | Fill the middle
+In a `RowLayout`, make three rectangles where the middle one fills the leftover width and the others are 40 px wide.
+--- solution
+```qml
+RowLayout {
+    anchors.fill: parent
+    Rectangle { Layout.preferredWidth: 40; Layout.fillHeight: true; color: "#f38ba8" }
+    Rectangle { Layout.fillWidth: true; Layout.fillHeight: true; color: "#313244" }
+    Rectangle { Layout.preferredWidth: 40; Layout.fillHeight: true; color: "#a6e3a1" }
+}
+```
+:::
+
+::: exercise practice | Elide in the middle
+Set a `Text`'s `elide` to `Text.ElideMiddle` with a narrow width and a long file path.
+--- solution
+```qml
+Text { width: 140; elide: Text.ElideMiddle; text: "/home/alex/.config/quickshell/myshell/modules/bar/Workspaces.qml" }
+```
+:::
+
+::: exercise practice | Shift+click
+Make a `MouseArea` that logs "shift+click" only when <kbd>Shift</kbd> is held.
+--- solution
+```qml
+MouseArea { anchors.fill: parent; onClicked: m => { if (m.modifiers & Qt.ShiftModifier) console.log("shift+click") } }
+```
+:::
+
+::: exercise challenge | Enums as state
+Make a click that cycles a wide `Text` through `AlignLeft → AlignHCenter → AlignRight`, using its `horizontalAlignment`.
+--- solution
+```qml
+Text {
+    id: t
+    width: 300
+    text: "aligned"
+    horizontalAlignment: [Text.AlignLeft, Text.AlignHCenter, Text.AlignRight][step]
+    property int step: 0
+    MouseArea { anchors.fill: parent; onClicked: t.step = (t.step + 1) % 3 }
+}
+```
+:::

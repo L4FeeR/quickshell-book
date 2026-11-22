@@ -1,0 +1,24 @@
+{
+  "border": { "thickness": 10, "rounding": 25 },
+  "bar": {
+    "persistent": true,
+    "entries": ["logo", "workspaces", "spacer", "activeWindow", "spacer", "tray", "clock", "statusIcons", "power"],
+    "workspacesShown": 5,
+    "workspaceWindows": true
+  },
+  "dashboard": { "showOnHover": true },
+  "launcher": { "actionPrefix": ">", "maxShown": 7 },
+  "notifs": { "defaultExpire": 5000 },
+  "osd": { "hideDelay": 2000 },
+  "sidebar": { "showOnHover": true },
+  "appearance": {
+    "transparency": false,
+    "transparencyBase": 0.85,
+    "mode": "dark",
+    "font": "Rubik",
+    "roundingScale": 1,
+    "animationSpeed": 1
+  },
+  "paths": { "wallpaperDir": "~/Pictures/Wallpapers", "face": "~/.face" },
+  "services": { "audioStep": 0.05, "brightnessStep": 0.05, "terminal": "kitty" }
+}

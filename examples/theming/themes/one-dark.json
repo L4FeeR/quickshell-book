@@ -1,0 +1,43 @@
+{
+  "id": "one-dark",
+  "name": "One Dark",
+  "family": "One",
+  "variant": "dark",
+  "author": "Atom",
+  "url": "https://github.com/atom/one-dark-syntax",
+  "palette": {
+    "bg": "#282c34",
+    "bgDark": "#21252b",
+    "bgLight": "#2c313a",
+    "selection": "#3e4451",
+    "gutter": "#4b5263",
+    "fg": "#abb2bf",
+    "comment": "#5c6370",
+    "red": "#e06c75",
+    "green": "#98c379",
+    "yellow": "#e5c07b",
+    "blue": "#61afef",
+    "purple": "#c678dd",
+    "cyan": "#56b6c2",
+    "orange": "#d19a66"
+  },
+  "roles": {
+    "background": "bg",
+    "surface": "bgDark",
+    "surfaceHigh": "selection",
+    "border": "gutter",
+    "text": "fg",
+    "textMuted": "#8b929e",
+    "textFaint": "comment",
+    "primary": "blue",
+    "onPrimary": "bg",
+    "secondary": "purple",
+    "red": "red",
+    "orange": "orange",
+    "yellow": "yellow",
+    "green": "green",
+    "cyan": "cyan",
+    "blue": "blue",
+    "magenta": "purple"
+  }
+}

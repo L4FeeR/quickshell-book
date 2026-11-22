@@ -145,7 +145,43 @@ readonly property QtObject anim: QtObject {
 
 Durations of 0 make every Behavior instant.
 
-> [!TRY] Exercises
-> 1. Build a 5-tab bar with a stretchy sliding indicator.
-> 2. Make an IconButton whose shape morphs when toggled.
-> 3. Make a popup that scales from 0.9 to 1 from the top, opening in 300 ms and closing in 180 ms.
+## Practice
+
+::: exercise warm | Sliding tab indicator
+Build a 5-tab bar with an indicator that slides to the selected tab.
+--- solution
+```qml
+Item { width: 400; height: 36; property int current: 0
+    Rectangle { width: 80; height: 3; y: 33; color: "#cba6f7"; x: parent.current * 80
+        Behavior on x { NumberAnimation { duration: 300; easing.type: Easing.OutCubic } } }
+    Row { Repeater { model: 5
+        Text { required property int index; width: 80; height: 33; horizontalAlignment: Text.AlignHCenter
+               verticalAlignment: Text.AlignVCenter; text: "Tab " + (index + 1); color: "white"
+               TapHandler { onTapped: parent.parent.parent.current = parent.index } } } } }
+```
+:::
+
+::: exercise practice | Stretchy indicator
+Make the indicator stretch while moving: the leading edge moves fast, the trailing edge slower.
+--- hint
+Animate `left` and `right` edges separately with different durations instead of animating `x`.
+:::
+
+::: exercise practice | Shape morph
+Make an IconButton whose corner radius morphs from round to a rounded square when toggled.
+--- solution
+```qml
+radius: toggled ? 10 : height / 2
+Behavior on radius { NumberAnimation { duration: 250; easing.type: Easing.OutCubic } }
+```
+:::
+
+::: exercise challenge | Asymmetric popup
+Make a popup that scales from 0.9 to 1 from the top, opening in 300 ms and closing in 180 ms.
+--- solution
+```qml
+Rectangle { transformOrigin: Item.Top; scale: open ? 1 : 0.9; opacity: open ? 1 : 0
+    Behavior on scale { NumberAnimation { duration: open ? 300 : 180; easing.type: open ? Easing.OutCubic : Easing.InCubic } }
+    Behavior on opacity { NumberAnimation { duration: open ? 300 : 180 } } }
+```
+:::

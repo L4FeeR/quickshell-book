@@ -73,6 +73,12 @@ A large classic setup (Waybar, rofi, swaync, many scripts) that adopted Quickshe
 - Credit ideas you borrow in your README.
 - Report bugs upstream with minimal reproductions; don't open issues for your own modifications.
 
-> [!TRY] Exercises
-> 1. Clone one of the shells above, run it as a named config, and list all its IPC targets with `qs ipc show`.
-> 2. Pick one widget from it and rebuild it from scratch in your shell using your own design tokens.
+## Practice
+
+::: exercise practice | Explore a real shell
+Clone one of the shells above, run it as a named config, and list all its IPC targets with `qs -c <name> ipc show`.
+:::
+
+::: exercise challenge | Rebuild a widget
+Pick one widget from it and rebuild it from scratch in your shell using your own design tokens. Compare your version with theirs afterwards.
+:::

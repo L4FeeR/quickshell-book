@@ -146,7 +146,22 @@ pkexec echo "it works"          # should show your dialog
 > [!NOTE] Fingerprint
 > polkit uses the PAM stack in `/etc/pam.d/polkit-1`. If that includes `pam_fprintd.so`, `supplementaryMessage` will say something like "Swipe your finger" and you may not need to type anything.
 
-> [!TRY] Exercises
-> 1. Show the requesting program's details (inspect `flow` properties in the reference).
-> 2. Blur the background with a layerrule.
-> 3. Add a short success animation before the window closes.
+## Practice
+
+::: exercise warm | Blur
+Blur the background behind the polkit window with a layerrule.
+--- solution
+```ini
+layerrule = blur, quickshell:polkit
+```
+:::
+
+::: exercise practice | Request details
+Show the requesting program's details. Inspect the flow's properties in the [[PolkitAgent]] reference and display the action id and message.
+:::
+
+::: exercise challenge | Success animation
+Add a short success animation (a check mark that scales in) before the window closes.
+--- hint
+On `onAuthenticationSucceeded`, set a `success` flag, play the animation, and close in its `onFinished`.
+:::

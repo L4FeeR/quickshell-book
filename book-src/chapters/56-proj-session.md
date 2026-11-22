@@ -169,7 +169,31 @@ layerrule = blur, quickshell:session
 layerrule = ignorealpha 0, quickshell:session
 ```
 
-> [!TRY] Exercises
-> 1. Add an uptime line and the battery level under the greeting.
-> 2. Add a 10-second countdown that auto-confirms shutdown, cancelled by any key.
-> 3. Add a "Restart to firmware" action (`systemctl reboot --firmware-setup`).
+## Practice
+
+::: exercise warm | Uptime and battery
+Add an uptime line and the battery level under the greeting.
+--- hint
+Use a `Process` running `uptime -p` when the menu opens; battery from `UPower.displayDevice.percentage`.
+:::
+
+::: exercise practice | Firmware restart
+Add a "Restart to firmware" action.
+--- solution
+```js
+Quickshell.execDetached(["systemctl", "reboot", "--firmware-setup"])
+```
+:::
+
+::: exercise challenge | Auto-confirm countdown
+Add a 10-second countdown that auto-confirms shutdown, cancelled by any key.
+--- solution
+```qml
+property int left: 10
+property bool counting: true
+Timer { running: GlobalStates.sessionOpen && counting; interval: 1000; repeat: true
+        onTriggered: if (--left === 0) Quickshell.execDetached(["systemctl", "poweroff"]) }
+Keys.onPressed: counting = false            // any key cancels; reset both when the menu opens
+```
+Show `"Shutting down in " + left + " s"` while it runs.
+:::

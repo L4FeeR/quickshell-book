@@ -210,8 +210,50 @@ PanelWindow {
 }
 ```
 
-> [!TRY] Exercises
-> 1. Make a 44 px **left** vertical bar that reserves space.
-> 2. Make a centered 500×300 overlay window that closes on <kbd>Esc</kbd> (keyboard focus Exclusive + `Keys.onEscapePressed`).
-> 3. Make a desktop clock on the Bottom layer and confirm windows cover it.
-> 4. Add a blur layerrule for your bar's namespace (Hyprland).
+## Practice
+
+::: exercise warm | Left bar that reserves space
+Make a 44 px left vertical bar that pushes windows aside.
+--- solution
+```qml
+PanelWindow { anchors { left: true; top: true; bottom: true }; implicitWidth: 44; color: "#1e1e2e" }
+```
+The default `exclusionMode` (`Normal`) reserves its width automatically.
+:::
+
+::: exercise practice | Escapable overlay
+Make a centered 500×300 overlay that closes on <kbd>Esc</kbd>.
+--- solution
+```qml
+PanelWindow { id: ov
+    implicitWidth: 500; implicitHeight: 300; color: "#1e1e2e"
+    exclusionMode: ExclusionMode.Ignore
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+    Item { anchors.fill: parent; focus: true; Keys.onEscapePressed: ov.visible = false } }
+```
+With no anchors set, a layer-shell window is centered.
+:::
+
+::: exercise practice | Under the windows
+Make a desktop clock on the `Bottom` layer and confirm windows cover it.
+--- solution
+```qml
+PanelWindow { anchors { top: true; left: true }; margins { top: 100; left: 100 }
+    implicitWidth: 300; implicitHeight: 120; color: "transparent"
+    exclusionMode: ExclusionMode.Ignore; WlrLayershell.layer: WlrLayer.Bottom
+    Text { text: "12:00"; color: "white"; font.pixelSize: 72 } }
+```
+:::
+
+::: exercise challenge | Floating bar
+Turn your bar into a floating bar: 8 px from the screen edges, rounded, with a transparent window and a still-correct exclusive zone.
+--- solution
+```qml
+PanelWindow { anchors { top: true; left: true; right: true }
+    margins { top: 8; left: 8; right: 8 }
+    implicitHeight: 38; color: "transparent"
+    Rectangle { anchors.fill: parent; radius: 12; color: "#1e1e2e" } }
+```
+The exclusive zone covers the bar's height; Hyprland adds its own `gaps_out` on top, so lower those if the gap looks doubled.
+:::

@@ -151,7 +151,30 @@ Component.onCompleted: {
 
 You can run several configs at once (`qs -c bar` and `qs -c widgets`). Each is independent. Most people run one config that contains everything, which makes sharing state trivial. Some setups (like JaKooLit's) run small single-purpose configs alongside other tools.
 
-> [!TRY] Exercises
-> 1. Convert your playground `shell.qml` into a `ShellRoot` that contains a `Bar {}` from `Bar.qml`.
-> 2. Add `//@ pragma IconTheme Papirus-Dark` and `//@ pragma Env QS_NO_RELOAD_POPUP=1`.
-> 3. Add a `PersistentProperties` with a `property int counter`, increment it with a click, save the file, and see the counter survive the reload.
+## Practice
+
+::: exercise warm | ShellRoot + Bar
+Convert your playground `shell.qml` into a `ShellRoot` that contains a `Bar {}` from `Bar.qml`.
+--- solution
+```qml
+// shell.qml
+import Quickshell
+ShellRoot { Bar {} }
+```
+`Bar.qml` holds the `PanelWindow` you wrote earlier. Files in the same folder are available automatically.
+:::
+
+::: exercise practice | Pragmas
+Add `//@ pragma IconTheme Papirus-Dark` and `//@ pragma Env QS_NO_RELOAD_POPUP=1` and confirm the reload popup disappears.
+--- hint
+Pragmas must be at the very top of `shell.qml`, before any `import`. Changing them needs a full restart, not a reload.
+:::
+
+::: exercise challenge | Survive reloads
+Add `PersistentProperties` with `property int counter`, increment it with a click, save the file, and see the counter survive the reload.
+--- solution
+```qml
+PersistentProperties { id: keep; reloadableId: "playground"; property int counter: 0 }
+Text { text: keep.counter; color: "white"; TapHandler { onTapped: keep.counter++ } }
+```
+:::

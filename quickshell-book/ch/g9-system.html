@@ -1,0 +1,2496 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery: System Pieces · The Quickshell Book</title>
+<meta name="description" content="Gallery: System Pieces">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details open><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch active" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-g">Part G: Widget Gallery</a> › Gallery: System Pieces</div><article><div class="ch-head"><div class="ch-part">Part G · Widget Gallery</div><h1><span class="ch-num">g9</span>Gallery: System Pieces</h1></div><p>The parts that turn a bar into a <strong>desktop shell</strong>: a notification daemon with popups and a notification center, a lock screen, a polkit agent, battery warnings, an idle manager, a launcher, a dock, a wallpaper with a picker, a workspace OSD and a region selector. With these, the shell can replace mako/dunst, hyprlock, hypridle, hyprpolkitagent, swww, slurp and rofi.</p>
+<p>The files are in <code>galleryshell/system/</code>, plus two small singletons in <code>galleryshell/services/</code> that several pieces share.</p>
+<div class="box warn"><div class="bt">Only one of each</div><p>Some of these take over a system role that only <strong>one</strong> program can hold: the notification server, the polkit agent and the session lock. Stop mako/dunst/swaync, polkit-gnome/hyprpolkitagent and hyprlock/hypridle from autostarting before using these, or the shell will log that the role is already taken (and keep trying in the background).</p></div>
+<h2 id="the-notification-service">The Notification Service<a class="hlink" href="#the-notification-service">#</a></h2>
+<p><strong>What it is.</strong> The notification daemon itself: it receives every notification apps send, keeps the open ones, and decides which to show as popups. It's a singleton, so the popups, the notification center and any bell or island in your bar all share it.</p>
+<p><strong>Kind:</strong> service (singleton) · <strong>Needs:</strong> nothing extra (no other notification daemon running)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/services/Notifs.qml</span><code>pragma Singleton
+import Quickshell
+import Quickshell.Io
+import Quickshell.Services.Notifications
+import QtQuick
+
+// The notification daemon. Only ONE NotificationServer may exist, so it lives in a singleton
+// and every notification widget (popups, center, bell, island) reads from here.
+Singleton {
+    id: root
+    property bool dnd: false
+    // every notification still open, oldest first (the history / notification center)
+    readonly property var list: server.trackedNotifications.values
+    readonly property int count: list.length
+    // the ones currently shown as popups (a subset of `list`)
+    property var popups: []
+
+    signal arrived(Notification n)                   // for extra reactions (sounds, the dynamic island…)
+
+    NotificationServer {
+        id: server
+        keepOnReload: true                           // survive config reloads
+        actionsSupported: true
+        imageSupported: true
+        bodyMarkupSupported: true
+        persistenceSupported: true
+
+        onNotification: n =&gt; {
+            n.tracked = true                         // keep it: without this it is dropped immediately
+            n.closed.connect(() =&gt; root.hidePopup(n))
+            if (!root.dnd || n.urgency === NotificationUrgency.Critical)
+                root.popups = root.popups.concat([n])
+            root.arrived(n)
+        }
+    }
+
+    function hidePopup(n: var): void { popups = popups.filter(x =&gt; x !== n) }
+    function clearAll(): void { for (const n of list.slice()) n.dismiss() }
+
+    IpcHandler {
+        target: "notifs"
+        function toggleDnd(): void { root.dnd = !root.dnd }
+        function clear(): void { root.clearAll() }
+        function count(): int { return root.count }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">line 1</span><b>A singleton</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>pragma Singleton</code></pre></div><div class="seg-e"><p><code>pragma Singleton</code> plus the <code>Singleton</code> root: one instance, available as <code>Notifs</code> to any file that writes <code>import qs.services</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 7–8</span><b>Why a service</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// The notification daemon. Only ONE NotificationServer may exist, so it lives in a singleton
+// and every notification widget (popups, center, bell, island) reads from here.</code></pre></div><div class="seg-e"><p>The freedesktop notification protocol allows <strong>one</strong> server per session. Putting it in a singleton means any number of widgets can display notifications without fighting over the server.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 11–16</span><b>Public state</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool dnd: false
+// every notification still open, oldest first (the history / notification center)
+readonly property var list: server.trackedNotifications.values
+readonly property int count: list.length
+// the ones currently shown as popups (a subset of `list`)
+property var popups: []</code></pre></div><div class="seg-e"><p><code>dnd</code> (do not disturb), the full <code>list</code> of open notifications (oldest first), its <code>count</code> for badges, and <code>popups</code>, the subset currently shown as popups.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 18</span><b>A hook</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>signal arrived(Notification n)                   // for extra reactions (sounds, the dynamic island…)</code></pre></div><div class="seg-e"><p>Other parts can react to new notifications with <code>Connections { target: Notifs; function onArrived(n) {…} }</code>, for example to play a sound or flash the dynamic island from <a class="xref" href="../ch/g3-islands-popups.html">Gallery: Dynamic Islands, Popups and OSDs</a>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 20–26</span><b>The server</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>NotificationServer {
+    id: server
+    keepOnReload: true                           // survive config reloads
+    actionsSupported: true
+    imageSupported: true
+    bodyMarkupSupported: true
+    persistenceSupported: true</code></pre></div><div class="seg-e"><p><code>keepOnReload</code> keeps notifications across config reloads. The <code>…Supported</code> flags tell apps what the shell can show; apps then send actions, images and simple markup.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 28–34</span><b>A new notification</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>onNotification: n =&gt; {
+    n.tracked = true                         // keep it: without this it is dropped immediately
+    n.closed.connect(() =&gt; root.hidePopup(n))
+    if (!root.dnd || n.urgency === NotificationUrgency.Critical)
+        root.popups = root.popups.concat([n])
+    root.arrived(n)
+}</code></pre></div><div class="seg-e"><p>Setting <code>tracked</code> is essential: an untracked notification is discarded as soon as this handler returns. When it closes later (dismissed, expired, or closed by the app), it's removed from the popups. In do-not-disturb mode only critical notifications pop up; the rest go quietly into the list.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 37–38</span><b>Helpers</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function hidePopup(n: var): void { popups = popups.filter(x =&gt; x !== n) }
+function clearAll(): void { for (const n of list.slice()) n.dismiss() }</code></pre></div><div class="seg-e"><p><code>hidePopup</code> removes a notification from the popups but keeps it in the list. <code>clearAll</code> dismisses everything; <code>slice()</code> copies the list first, because dismissing changes it while we loop.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 40–45</span><b>Terminal commands</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>IpcHandler {
+    target: "notifs"
+    function toggleDnd(): void { root.dnd = !root.dnd }
+    function clear(): void { root.clearAll() }
+    function count(): int { return root.count }
+}</code></pre></div><div class="seg-e"><p><code>qs ipc call notifs toggleDnd</code>, <code>clear</code> and <code>count</code>.</p></div></div></div>
+<p>And a tiny second service for session state:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/services/Session.qml</span><code>pragma Singleton
+import Quickshell
+import Quickshell.Io
+import QtQuick
+
+// Small shared state for session things: is the screen locked, should idle be ignored.
+Singleton {
+    id: root
+    property bool locked: false
+    property bool caffeine: false                    // true = never dim, lock or suspend on idle
+
+    function lock(): void { locked = true }
+
+    IpcHandler {
+        target: "session"
+        function lock(): void { root.lock() }
+        function toggleCaffeine(): void { root.caffeine = !root.caffeine }
+    }
+}</code></pre></div>
+<p><code>Session.locked</code> drives the lock screen and <code>Session.caffeine</code> pauses the idle manager. Any widget, keybind or script can lock the screen with <code>Session.lock()</code> or <code>qs ipc call session lock</code>.</p>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Practice</span><b>Notification sounds</b></div><div class="ex-b"><p>Play a sound for every new notification, except in do-not-disturb mode.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><div class="codewrap"><pre class="code" data-lang="qml"><code>Connections {
+    target: Notifs
+    function onArrived(n): void {
+        if (!Notifs.dnd) Quickshell.execDetached(["pw-play", "/usr/share/sounds/freedesktop/stereo/message.oga"])
+    }
+}</code></pre></div></div></details></div>
+<h2 id="notification-popups">Notification Popups<a class="hlink" href="#notification-popups">#</a></h2>
+<div class="preview"><svg style="width:min(100%,630px)" width="420" height="230" viewBox="0 0 420 230"><g><rect x="20" y="10" width="380" height="96" rx="16" fill="#1e1e2e" stroke="#313244"><animateTransform attributeName="transform" type="translate" values="400 0;0 0;0 0" keyTimes="0;.12;1" dur="6s" repeatCount="indefinite"/></rect></g><rect x="32" y="22" width="44" height="44" rx="10" fill="#a6e3a1"/><text x="88" y="38" fill="#cdd6f4" font-size="14" font-weight="700">Spotify</text><text x="300" y="38" fill="#6c7086" font-size="11">spotify   ✕</text><text x="88" y="56" fill="#a6adc8" font-size="12">Instant Crush — Daft Punk</text><rect x="88" y="66" width="140" height="26" rx="13" fill="#313244"/><text x="158" y="83" fill="#cdd6f4" font-size="12" text-anchor="middle">Skip</text><rect x="234" y="66" width="140" height="26" rx="13" fill="#313244"/><text x="304" y="83" fill="#cdd6f4" font-size="12" text-anchor="middle">Like</text><rect x="30" y="102" height="2" rx="1" fill="#cba6f7"><animate attributeName="width" values="360;0" dur="6s" repeatCount="indefinite"/></rect><rect x="20" y="116" width="380" height="72" rx="16" fill="#1e1e2e" stroke="#f38ba8" stroke-width="2"/><circle cx="54" cy="146" r="16" fill="#f38ba8"/><text x="88" y="142" fill="#cdd6f4" font-size="14" font-weight="700">Battery critical</text><text x="88" y="162" fill="#a6adc8" font-size="12">5% remaining. Plug in now.</text></svg></div>
+
+<p><strong>What it is.</strong> Popups in the top-right corner. Each shows the image or app icon, title, body, action buttons, and a thin line counting down its time. Hovering holds a popup open; clicking runs its default action. Critical notifications get a red outline and stay until dismissed.</p>
+<p><strong>Kind:</strong> own window · <strong>Needs:</strong> the notification service above</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/system/NotificationPopups.qml</span><code>import Quickshell
+import Quickshell.Wayland
+import Quickshell.Widgets
+import Quickshell.Services.Notifications
+import QtQuick
+import QtQuick.Layouts
+import qs.services
+
+// Notification popups in the top-right corner: icon or image, text, action buttons, timeout bar.
+// Hovering a card holds it open; clicking runs its default action.
+PanelWindow {
+    id: root
+    anchors { top: true; right: true }
+    margins { top: 8; right: 8 }
+    implicitWidth: 380
+    implicitHeight: Math.max(1, stack.implicitHeight)
+    visible: Notifs.popups.length &gt; 0
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.namespace: "quickshell:notifications"
+
+    ColumnLayout {
+        id: stack
+        width: parent.width
+        spacing: 8
+
+        Repeater {
+            model: Notifs.popups
+            Rectangle {
+                id: card
+                required property Notification modelData
+                readonly property bool critical: modelData.urgency === NotificationUrgency.Critical
+                // the app's timeout, 5 s if it didn't give one, never for critical ones
+                readonly property int timeout: critical ? 0 : modelData.expireTimeout &gt; 0 ? modelData.expireTimeout : 5000
+                readonly property var defaultAction: modelData.actions.find(a =&gt; a.identifier === "default") ?? null
+
+                Layout.fillWidth: true
+                implicitHeight: body.implicitHeight + 24
+                radius: 16
+                color: "#1e1e2e"
+                border.color: critical ? "#f38ba8" : "#313244"; border.width: critical ? 2 : 1
+
+                // slide in from the right (a transform, because the layout owns x)
+                transform: Translate {
+                    NumberAnimation on x { from: 400; to: 0; duration: 260; easing.type: Easing.OutCubic }
+                }
+
+                Timer {
+                    id: life
+                    interval: card.timeout
+                    running: card.timeout &gt; 0 &amp;&amp; !cardHover.hovered
+                    onTriggered: Notifs.hidePopup(card.modelData)        // stays in the history
+                }
+
+                RowLayout {
+                    id: body
+                    anchors { left: parent.left; right: parent.right; top: parent.top; margins: 12 }
+                    spacing: 12
+
+                    // an image sent with the notification (album art, avatar), else the app icon
+                    Item {
+                        Layout.alignment: Qt.AlignTop
+                        implicitWidth: 44; implicitHeight: 44
+                        ClippingRectangle {
+                            anchors.fill: parent; radius: 10; color: "#313244"
+                            visible: card.modelData.image !== ""
+                            Image { anchors.fill: parent; source: card.modelData.image; fillMode: Image.PreserveAspectCrop }
+                        }
+                        IconImage {
+                            visible: card.modelData.image === ""
+                            anchors.centerIn: parent; implicitSize: 36
+                            source: Quickshell.iconPath(card.modelData.appIcon || card.modelData.desktopEntry, "dialog-information")
+                        }
+                    }
+
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        spacing: 3
+                        RowLayout {
+                            Text {
+                                Layout.fillWidth: true
+                                text: card.modelData.summary
+                                color: "#cdd6f4"; font.pixelSize: 14; font.bold: true
+                                elide: Text.ElideRight
+                            }
+                            Text { text: card.modelData.appName; color: "#6c7086"; font.pixelSize: 11 }
+                            Text {
+                                text: "close"; font.family: "Material Symbols Rounded"; font.pixelSize: 16; color: "#a6adc8"
+                                TapHandler { onTapped: card.modelData.dismiss() }
+                            }
+                        }
+                        Text {
+                            Layout.fillWidth: true
+                            visible: text !== ""
+                            text: card.modelData.body
+                            textFormat: Text.StyledText          // apps may send &lt;b&gt;, &lt;i&gt;, &lt;a&gt;
+                            color: "#a6adc8"; font.pixelSize: 12
+                            wrapMode: Text.Wrap; maximumLineCount: 4; elide: Text.ElideRight
+                        }
+                        RowLayout {                              // action buttons (except the default one)
+                            visible: card.modelData.actions.length &gt; (card.defaultAction ? 1 : 0)
+                            Layout.topMargin: 4
+                            spacing: 6
+                            Repeater {
+                                model: card.modelData.actions.filter(a =&gt; a.identifier !== "default")
+                                Rectangle {
+                                    required property NotificationAction modelData
+                                    Layout.fillWidth: true
+                                    implicitHeight: 28; radius: 14
+                                    color: actHover.hovered ? "#45475a" : "#313244"
+                                    Text { anchors.centerIn: parent; text: parent.modelData.text; color: "#cdd6f4"; font.pixelSize: 12 }
+                                    HoverHandler { id: actHover; cursorShape: Qt.PointingHandCursor }
+                                    TapHandler { onTapped: parent.modelData.invoke() }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // time left, as a thin line along the bottom
+                Rectangle {
+                    visible: card.timeout &gt; 0
+                    anchors { left: parent.left; bottom: parent.bottom; margins: 10 }
+                    height: 2; radius: 1; color: "#cba6f7"
+                    width: (parent.width - 20)
+                    NumberAnimation on width {
+                        from: card.width - 20; to: 0
+                        duration: card.timeout
+                        running: card.timeout &gt; 0 &amp;&amp; !cardHover.hovered     // restarts with the timer
+                    }
+                }
+
+                HoverHandler { id: cardHover }
+                TapHandler {
+                    onTapped: {
+                        if (card.defaultAction) card.defaultAction.invoke()
+                        else Notifs.hidePopup(card.modelData)
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 11–21</span><b>The window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    id: root
+    anchors { top: true; right: true }
+    margins { top: 8; right: 8 }
+    implicitWidth: 380
+    implicitHeight: Math.max(1, stack.implicitHeight)
+    visible: Notifs.popups.length &gt; 0
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.namespace: "quickshell:notifications"</code></pre></div><div class="seg-e"><p>A <a class="api" href="../ref/PanelWindow.html"><code>PanelWindow</code></a> in the top-right corner, exactly as tall as its popups, and hidden when there are none. It's on the overlay layer, above normal windows, and doesn't reserve space.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 23–29</span><b>The stack</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ColumnLayout {
+    id: stack
+    width: parent.width
+    spacing: 8
+
+    Repeater {
+        model: Notifs.popups</code></pre></div><div class="seg-e"><p>A <code>ColumnLayout</code> with one card per entry in <code>Notifs.popups</code>. New notifications are added at the end, so they appear at the bottom.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 32–36</span><b>Per-card values</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>required property Notification modelData
+readonly property bool critical: modelData.urgency === NotificationUrgency.Critical
+// the app's timeout, 5 s if it didn't give one, never for critical ones
+readonly property int timeout: critical ? 0 : modelData.expireTimeout &gt; 0 ? modelData.expireTimeout : 5000
+readonly property var defaultAction: modelData.actions.find(a =&gt; a.identifier === "default") ?? null</code></pre></div><div class="seg-e"><p><code>critical</code> from the urgency. The timeout is the app's own, or 5 seconds, or none for critical ones. <code>defaultAction</code> is the action with identifier <code>"default"</code>, which by convention is "what clicking the notification does".</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 38–42</span><b>The card</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Layout.fillWidth: true
+implicitHeight: body.implicitHeight + 24
+radius: 16
+color: "#1e1e2e"
+border.color: critical ? "#f38ba8" : "#313244"; border.width: critical ? 2 : 1</code></pre></div><div class="seg-e"><p>Height follows its content. Critical cards get a thicker red border.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 44–47</span><b>Sliding in</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// slide in from the right (a transform, because the layout owns x)
+transform: Translate {
+    NumberAnimation on x { from: 400; to: 0; duration: 260; easing.type: Easing.OutCubic }
+}</code></pre></div><div class="seg-e"><p>A layout controls its children's <code>x</code>, so animating <code>x</code> directly would be overridden. A <code>Translate</code> transform moves the card visually without the layout noticing: it starts 400 px to the right and glides in.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 49–54</span><b>Lifetime</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Timer {
+    id: life
+    interval: card.timeout
+    running: card.timeout &gt; 0 &amp;&amp; !cardHover.hovered
+    onTriggered: Notifs.hidePopup(card.modelData)        // stays in the history
+}</code></pre></div><div class="seg-e"><p>When the timer fires, the popup is hidden but the notification stays in the list (and the notification center). The timer stops while hovered; when the pointer leaves, it starts again from the full timeout.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 61–75</span><b>Image or icon</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// an image sent with the notification (album art, avatar), else the app icon
+Item {
+    Layout.alignment: Qt.AlignTop
+    implicitWidth: 44; implicitHeight: 44
+    ClippingRectangle {
+        anchors.fill: parent; radius: 10; color: "#313244"
+        visible: card.modelData.image !== ""
+        Image { anchors.fill: parent; source: card.modelData.image; fillMode: Image.PreserveAspectCrop }
+    }
+    IconImage {
+        visible: card.modelData.image === ""
+        anchors.centerIn: parent; implicitSize: 36
+        source: Quickshell.iconPath(card.modelData.appIcon || card.modelData.desktopEntry, "dialog-information")
+    }
+}</code></pre></div><div class="seg-e"><p>An image sent with the notification (album art, an avatar) is shown in a rounded clip. Otherwise the app icon is looked up from <code>appIcon</code> or the app's desktop entry.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 80–92</span><b>Title row</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    Text {
+        Layout.fillWidth: true
+        text: card.modelData.summary
+        color: "#cdd6f4"; font.pixelSize: 14; font.bold: true
+        elide: Text.ElideRight
+    }
+    Text { text: card.modelData.appName; color: "#6c7086"; font.pixelSize: 11 }
+    Text {
+        text: "close"; font.family: "Material Symbols Rounded"; font.pixelSize: 16; color: "#a6adc8"
+        TapHandler { onTapped: card.modelData.dismiss() }
+    }
+}</code></pre></div><div class="seg-e"><p>The summary, the app name, and a close button that dismisses the notification (removing it everywhere).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 93–100</span><b>Body</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    Layout.fillWidth: true
+    visible: text !== ""
+    text: card.modelData.body
+    textFormat: Text.StyledText          // apps may send &lt;b&gt;, &lt;i&gt;, &lt;a&gt;
+    color: "#a6adc8"; font.pixelSize: 12
+    wrapMode: Text.Wrap; maximumLineCount: 4; elide: Text.ElideRight
+}</code></pre></div><div class="seg-e"><p>Apps may send simple HTML like <code>&lt;b&gt;</code>; <code>StyledText</code> renders it. Long bodies are cut after four lines.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 101–117</span><b>Action buttons</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {                              // action buttons (except the default one)
+    visible: card.modelData.actions.length &gt; (card.defaultAction ? 1 : 0)
+    Layout.topMargin: 4
+    spacing: 6
+    Repeater {
+        model: card.modelData.actions.filter(a =&gt; a.identifier !== "default")
+        Rectangle {
+            required property NotificationAction modelData
+            Layout.fillWidth: true
+            implicitHeight: 28; radius: 14
+            color: actHover.hovered ? "#45475a" : "#313244"
+            Text { anchors.centerIn: parent; text: parent.modelData.text; color: "#cdd6f4"; font.pixelSize: 12 }
+            HoverHandler { id: actHover; cursorShape: Qt.PointingHandCursor }
+            TapHandler { onTapped: parent.modelData.invoke() }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>Every action except the default one becomes a button. <code>invoke()</code> tells the app which was chosen.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 121–132</span><b>The countdown line</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// time left, as a thin line along the bottom
+Rectangle {
+    visible: card.timeout &gt; 0
+    anchors { left: parent.left; bottom: parent.bottom; margins: 10 }
+    height: 2; radius: 1; color: "#cba6f7"
+    width: (parent.width - 20)
+    NumberAnimation on width {
+        from: card.width - 20; to: 0
+        duration: card.timeout
+        running: card.timeout &gt; 0 &amp;&amp; !cardHover.hovered     // restarts with the timer
+    }
+}</code></pre></div><div class="seg-e"><p>It shrinks from full width to zero over the timeout, and restarts together with the timer after a hover.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 134–140</span><b>Clicking the card</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>HoverHandler { id: cardHover }
+TapHandler {
+    onTapped: {
+        if (card.defaultAction) card.defaultAction.invoke()
+        else Notifs.hidePopup(card.modelData)
+    }
+}</code></pre></div><div class="seg-e"><p>Runs the default action if there is one, otherwise just hides the popup.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Limit the stack</b></div><div class="ex-b"><p>Show at most three popups. When a fourth arrives, hide the oldest one.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>In the service's <code>onNotification</code>, after adding: <code>if (root.popups.length &gt; 3) root.popups = root.popups.slice(-3)</code>.</p></div></details></div>
+<h2 id="notification-center">Notification Center<a class="hlink" href="#notification-center">#</a></h2>
+<div class="preview"><svg style="width:min(100%,630px)" width="420" height="320" viewBox="0 0 420 320"><rect x="10" y="6" width="400" height="308" rx="20" fill="#1e1e2e" stroke="#313244"/><text x="26" y="40" fill="#cdd6f4" font-size="18" font-weight="700">Notifications</text><rect x="268" y="20" width="34" height="30" rx="15" fill="#313244"/><text x="278" y="40" fill="#cdd6f4" font-size="13">🔔</text><rect x="308" y="20" width="86" height="30" rx="15" fill="#313244"/><text x="351" y="40" fill="#cdd6f4" font-size="12" text-anchor="middle">Clear all</text><g font-size="12"><circle cx="34" cy="72" r="7" fill="#89b4fa"/><text x="48" y="76" fill="#a6adc8" font-weight="700">Discord</text><text x="370" y="76" fill="#6c7086" font-size="11">Clear</text><rect x="26" y="86" width="368" height="54" rx="12" fill="#181825"/><text x="38" y="106" fill="#cdd6f4" font-weight="700" font-size="13">Alex</text><text x="38" y="126" fill="#a6adc8">are you coming tonight?</text><rect x="26" y="146" width="368" height="54" rx="12" fill="#181825"/><text x="38" y="166" fill="#cdd6f4" font-weight="700" font-size="13">#ricing</text><text x="38" y="186" fill="#a6adc8">Sam posted a screenshot</text><circle cx="34" cy="222" r="7" fill="#a6e3a1"/><text x="48" y="226" fill="#a6adc8" font-weight="700">Updates</text><rect x="26" y="236" width="368" height="54" rx="12" fill="#313244"/><text x="38" y="256" fill="#cdd6f4" font-weight="700" font-size="13">12 updates available</text><text x="370" y="256" fill="#a6adc8">✕</text><text x="38" y="276" fill="#a6adc8">linux, mesa, firefox and 9 more</text></g></svg></div>
+
+<p><strong>What it is.</strong> A side panel with every open notification, grouped by app, newest first. It has a do-not-disturb toggle, "clear all", per-app "clear", and closes when you click outside it or press Esc.</p>
+<p><strong>Kind:</strong> own window · <strong>Needs:</strong> the notification service, Hyprland (for click-outside-to-close)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/system/NotificationCenter.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Hyprland
+import Quickshell.Wayland
+import Quickshell.Widgets
+import Quickshell.Services.Notifications
+import QtQuick
+import QtQuick.Layouts
+import qs.services
+
+// A side panel with every notification that is still open, grouped by app, newest first.
+Scope {
+    id: root
+    property bool open: false
+    IpcHandler { target: "notifcenter"; function toggle(): void { root.open = !root.open } }
+
+    // [{ app, items: [newest … oldest] }], apps ordered by their newest notification
+    readonly property var groups: {
+        const map = {}
+        const order = []
+        for (const n of Notifs.list.slice().reverse()) {
+            const key = n.appName || "Other"
+            if (!map[key]) { map[key] = { app: key, icon: n.appIcon || n.desktopEntry, items: [] }; order.push(key) }
+            map[key].items.push(n)
+        }
+        return order.map(k =&gt; map[k])
+    }
+
+    LazyLoader {
+        active: root.open
+        PanelWindow {
+            id: win
+            anchors { top: true; bottom: true; right: true }
+            margins { top: 8; bottom: 8; right: 8 }
+            implicitWidth: 400
+            exclusionMode: ExclusionMode.Ignore
+            color: "transparent"
+            WlrLayershell.layer: WlrLayer.Overlay
+            WlrLayershell.keyboardFocus: WlrKeyboardFocus.OnDemand
+
+            // clicking anywhere outside the panel closes it
+            HyprlandFocusGrab { active: true; windows: [win]; onCleared: root.open = false }
+
+            Rectangle {
+                anchors.fill: parent
+                radius: 20; color: "#1e1e2e"; border.color: "#313244"
+                focus: true
+                Keys.onEscapePressed: root.open = false
+
+                ColumnLayout {
+                    anchors { fill: parent; margins: 16 }
+                    spacing: 12
+
+                    RowLayout {
+                        Text { Layout.fillWidth: true; text: "Notifications"; color: "#cdd6f4"; font.pixelSize: 18; font.bold: true }
+                        Rectangle {
+                            implicitWidth: 34; implicitHeight: 30; radius: 15
+                            color: Notifs.dnd ? "#cba6f7" : "#313244"
+                            Text { anchors.centerIn: parent; text: Notifs.dnd ? "notifications_off" : "notifications"; font.family: "Material Symbols Rounded"; font.pixelSize: 18; color: Notifs.dnd ? "#1e1e2e" : "#cdd6f4" }
+                            TapHandler { onTapped: Notifs.dnd = !Notifs.dnd }
+                        }
+                        Rectangle {
+                            visible: Notifs.count &gt; 0
+                            implicitWidth: clearTxt.implicitWidth + 20; implicitHeight: 30; radius: 15; color: "#313244"
+                            Text { id: clearTxt; anchors.centerIn: parent; text: "Clear all"; color: "#cdd6f4"; font.pixelSize: 12 }
+                            TapHandler { onTapped: Notifs.clearAll() }
+                        }
+                    }
+
+                    ColumnLayout {                               // empty state
+                        visible: Notifs.count === 0
+                        Layout.fillWidth: true; Layout.fillHeight: true
+                        Item { Layout.fillHeight: true }
+                        Text { Layout.alignment: Qt.AlignHCenter; text: "notifications_paused"; font.family: "Material Symbols Rounded"; font.pixelSize: 48; color: "#45475a" }
+                        Text { Layout.alignment: Qt.AlignHCenter; text: "You're all caught up"; color: "#6c7086"; font.pixelSize: 13 }
+                        Item { Layout.fillHeight: true }
+                    }
+
+                    ListView {
+                        visible: Notifs.count &gt; 0
+                        Layout.fillWidth: true; Layout.fillHeight: true
+                        clip: true; spacing: 12
+                        model: root.groups
+                        delegate: ColumnLayout {
+                            id: group
+                            required property var modelData
+                            width: ListView.view.width
+                            spacing: 6
+                            RowLayout {                          // group header
+                                IconImage { implicitSize: 16; source: Quickshell.iconPath(group.modelData.icon, "dialog-information") }
+                                Text { Layout.fillWidth: true; text: group.modelData.app; color: "#a6adc8"; font.pixelSize: 12; font.bold: true }
+                                Text {
+                                    text: "Clear"; color: "#6c7086"; font.pixelSize: 11
+                                    TapHandler { onTapped: group.modelData.items.forEach(n =&gt; n.dismiss()) }
+                                }
+                            }
+                            Repeater {
+                                model: group.modelData.items
+                                Rectangle {
+                                    id: item
+                                    required property Notification modelData
+                                    Layout.fillWidth: true
+                                    implicitHeight: col.implicitHeight + 20
+                                    radius: 12
+                                    color: itemHover.hovered ? "#313244" : "#181825"
+                                    ColumnLayout {
+                                        id: col
+                                        anchors { left: parent.left; right: parent.right; top: parent.top; margins: 10 }
+                                        spacing: 2
+                                        RowLayout {
+                                            Text { Layout.fillWidth: true; text: item.modelData.summary; color: "#cdd6f4"; font.pixelSize: 13; font.bold: true; elide: Text.ElideRight }
+                                            Text {
+                                                visible: itemHover.hovered
+                                                text: "close"; font.family: "Material Symbols Rounded"; font.pixelSize: 16; color: "#a6adc8"
+                                                TapHandler { onTapped: item.modelData.dismiss() }
+                                            }
+                                        }
+                                        Text {
+                                            Layout.fillWidth: true
+                                            visible: text !== ""
+                                            text: item.modelData.body; textFormat: Text.StyledText
+                                            color: "#a6adc8"; font.pixelSize: 12; wrapMode: Text.Wrap; maximumLineCount: 3; elide: Text.ElideRight
+                                        }
+                                    }
+                                    HoverHandler { id: itemHover }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–15</span><b>Opening</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool open: false
+IpcHandler { target: "notifcenter"; function toggle(): void { root.open = !root.open } }</code></pre></div><div class="seg-e"><p><code>open</code> toggles the panel; <code>qs ipc call notifcenter toggle</code> does it from a keybind. The bar bell in <a class="xref" href="../ch/g10-full-shell.html">Gallery: Build a Whole Shell from the Gallery</a> sets <code>open</code> directly.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 17–27</span><b>Grouping</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// [{ app, items: [newest … oldest] }], apps ordered by their newest notification
+readonly property var groups: {
+    const map = {}
+    const order = []
+    for (const n of Notifs.list.slice().reverse()) {
+        const key = n.appName || "Other"
+        if (!map[key]) { map[key] = { app: key, icon: n.appIcon || n.desktopEntry, items: [] }; order.push(key) }
+        map[key].items.push(n)
+    }
+    return order.map(k =&gt; map[k])
+}</code></pre></div><div class="seg-e"><p>Walk the list newest first. The first time an app is seen it gets a group (remembering its order), and every notification is pushed into its app's group. The result is a list of groups, ordered by each app's latest notification.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 29–39</span><b>The panel</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>LazyLoader {
+    active: root.open
+    PanelWindow {
+        id: win
+        anchors { top: true; bottom: true; right: true }
+        margins { top: 8; bottom: 8; right: 8 }
+        implicitWidth: 400
+        exclusionMode: ExclusionMode.Ignore
+        color: "transparent"
+        WlrLayershell.layer: WlrLayer.Overlay
+        WlrLayershell.keyboardFocus: WlrKeyboardFocus.OnDemand</code></pre></div><div class="seg-e"><p>Created only while open. It's anchored to the top, bottom and right edges, so it's as tall as the screen minus the margins. <code>OnDemand</code> keyboard focus lets Esc work without stealing the keyboard permanently.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 41–42</span><b>Click outside to close</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// clicking anywhere outside the panel closes it
+HyprlandFocusGrab { active: true; windows: [win]; onCleared: root.open = false }</code></pre></div><div class="seg-e"><p><a class="api" href="../ref/HyprlandFocusGrab.html"><code>HyprlandFocusGrab</code></a> makes Hyprland send <code>cleared</code> when you click anywhere outside the listed windows.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 54–68</span><b>Header</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    Text { Layout.fillWidth: true; text: "Notifications"; color: "#cdd6f4"; font.pixelSize: 18; font.bold: true }
+    Rectangle {
+        implicitWidth: 34; implicitHeight: 30; radius: 15
+        color: Notifs.dnd ? "#cba6f7" : "#313244"
+        Text { anchors.centerIn: parent; text: Notifs.dnd ? "notifications_off" : "notifications"; font.family: "Material Symbols Rounded"; font.pixelSize: 18; color: Notifs.dnd ? "#1e1e2e" : "#cdd6f4" }
+        TapHandler { onTapped: Notifs.dnd = !Notifs.dnd }
+    }
+    Rectangle {
+        visible: Notifs.count &gt; 0
+        implicitWidth: clearTxt.implicitWidth + 20; implicitHeight: 30; radius: 15; color: "#313244"
+        Text { id: clearTxt; anchors.centerIn: parent; text: "Clear all"; color: "#cdd6f4"; font.pixelSize: 12 }
+        TapHandler { onTapped: Notifs.clearAll() }
+    }
+}</code></pre></div><div class="seg-e"><p>Title, a do-not-disturb button that flips <code>Notifs.dnd</code>, and "Clear all" when there is something to clear.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 70–77</span><b>Empty state</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ColumnLayout {                               // empty state
+    visible: Notifs.count === 0
+    Layout.fillWidth: true; Layout.fillHeight: true
+    Item { Layout.fillHeight: true }
+    Text { Layout.alignment: Qt.AlignHCenter; text: "notifications_paused"; font.family: "Material Symbols Rounded"; font.pixelSize: 48; color: "#45475a" }
+    Text { Layout.alignment: Qt.AlignHCenter; text: "You're all caught up"; color: "#6c7086"; font.pixelSize: 13 }
+    Item { Layout.fillHeight: true }
+}</code></pre></div><div class="seg-e"><p>A friendly message when the list is empty, centred with spacers.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 79–96</span><b>Groups</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ListView {
+    visible: Notifs.count &gt; 0
+    Layout.fillWidth: true; Layout.fillHeight: true
+    clip: true; spacing: 12
+    model: root.groups
+    delegate: ColumnLayout {
+        id: group
+        required property var modelData
+        width: ListView.view.width
+        spacing: 6
+        RowLayout {                          // group header
+            IconImage { implicitSize: 16; source: Quickshell.iconPath(group.modelData.icon, "dialog-information") }
+            Text { Layout.fillWidth: true; text: group.modelData.app; color: "#a6adc8"; font.pixelSize: 12; font.bold: true }
+            Text {
+                text: "Clear"; color: "#6c7086"; font.pixelSize: 11
+                TapHandler { onTapped: group.modelData.items.forEach(n =&gt; n.dismiss()) }
+            }
+        }</code></pre></div><div class="seg-e"><p>A <code>ListView</code> of groups, each with the app's icon and name and a "Clear" that dismisses the whole group.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 97–127</span><b>Notifications</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Repeater {
+    model: group.modelData.items
+    Rectangle {
+        id: item
+        required property Notification modelData
+        Layout.fillWidth: true
+        implicitHeight: col.implicitHeight + 20
+        radius: 12
+        color: itemHover.hovered ? "#313244" : "#181825"
+        ColumnLayout {
+            id: col
+            anchors { left: parent.left; right: parent.right; top: parent.top; margins: 10 }
+            spacing: 2
+            RowLayout {
+                Text { Layout.fillWidth: true; text: item.modelData.summary; color: "#cdd6f4"; font.pixelSize: 13; font.bold: true; elide: Text.ElideRight }
+                Text {
+                    visible: itemHover.hovered
+                    text: "close"; font.family: "Material Symbols Rounded"; font.pixelSize: 16; color: "#a6adc8"
+                    TapHandler { onTapped: item.modelData.dismiss() }
+                }
+            }
+            Text {
+                Layout.fillWidth: true
+                visible: text !== ""
+                text: item.modelData.body; textFormat: Text.StyledText
+                color: "#a6adc8"; font.pixelSize: 12; wrapMode: Text.Wrap; maximumLineCount: 3; elide: Text.ElideRight
+            }
+        }
+        HoverHandler { id: itemHover }
+    }
+}</code></pre></div><div class="seg-e"><p>Each notification is a card with its summary, a close button that appears on hover, and up to three lines of body text.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>Time stamps</b></div><div class="ex-b"><p>Show how long ago each notification arrived ("2 min", "1 h").</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Notifications don't carry a time. Record <code>Date.now()</code> in a map keyed by <code>n.id</code> inside the service's <code>onNotification</code>, and expose a helper <code>Notifs.age(n)</code>.</p></div></details></div>
+<h2 id="lock-screen">Lock Screen<a class="hlink" href="#lock-screen">#</a></h2>
+<div class="preview"><svg style="width:min(100%,660px)" width="440" height="260" viewBox="0 0 440 260"><rect width="440" height="260" rx="12" fill="#11111b"/><text x="220" y="100" fill="#cdd6f4" font-size="64" font-weight="700" text-anchor="middle">14:32</text><text x="220" y="130" fill="#a6adc8" font-size="15" text-anchor="middle">Saturday, 22 November</text><g><rect x="100" y="164" width="240" height="44" rx="22" fill="#1e1e2e" stroke="#f38ba8" stroke-width="2"><animateTransform attributeName="transform" type="translate" values="0 0;-8 0;8 0;-8 0;8 0;0 0;0 0" keyTimes="0;.05;.1;.15;.2;.25;1" dur="4s" repeatCount="indefinite"/></rect></g><text x="220" y="191" fill="#cdd6f4" font-size="16" text-anchor="middle" letter-spacing="4">●●●●●●</text><text x="220" y="232" fill="#f38ba8" font-size="12" text-anchor="middle">Wrong password</text></svg></div>
+
+<p><strong>What it is.</strong> A real, secure lock screen: a big clock and a password field on every screen. It checks your normal login password, shakes on a wrong one, and also responds to <code>loginctl lock-session</code>, so power menus and suspend hooks lock with it.</p>
+<p><strong>Kind:</strong> session · <strong>Needs:</strong> a compositor with ext-session-lock (Hyprland, Sway, niri…), PAM</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/system/LockScreen.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import Quickshell.Services.Pam
+import QtQuick
+import QtQuick.Layouts
+import qs.services
+
+// A real lock screen: ext-session-lock (the compositor guarantees nothing else is shown)
+// and PAM (your normal login password). Lock with: qs ipc call session lock
+Scope {
+    id: root
+    property string password: ""
+    property string error: ""
+    property bool busy: false
+
+    function tryUnlock(): void {
+        if (busy || password === "") return
+        busy = true; error = ""
+        pam.start()
+    }
+
+    // `loginctl lock-session` (used by power menus, hypridle, `systemctl suspend` hooks…) sends
+    // logind's Lock signal. Listening for it makes all of those lock with this screen.
+    Process {
+        running: true
+        command: ["gdbus", "monitor", "--system", "--dest", "org.freedesktop.login1"]
+        stdout: SplitParser {
+            onRead: line =&gt; { if (line.includes("org.freedesktop.login1.Session.Lock ")) Session.locked = true }
+        }
+    }
+
+    PamContext {
+        id: pam
+        // PAM asks for the password; answer with what was typed
+        onPamMessage: if (responseRequired) respond(root.password)
+        onCompleted: result =&gt; {
+            root.busy = false
+            if (result === PamResult.Success) { root.password = ""; Session.locked = false }
+            else { root.password = ""; root.error = "Wrong password" }
+        }
+    }
+
+    WlSessionLock {
+        locked: Session.locked
+
+        // one surface per screen
+        WlSessionLockSurface {
+            color: "#11111b"
+
+            SystemClock { id: clock; precision: SystemClock.Seconds }
+
+            ColumnLayout {
+                anchors.centerIn: parent
+                spacing: 14
+
+                Text {
+                    Layout.alignment: Qt.AlignHCenter
+                    text: Qt.formatDateTime(clock.date, "hh:mm")
+                    color: "#cdd6f4"; font.pixelSize: 96; font.bold: true
+                }
+                Text {
+                    Layout.alignment: Qt.AlignHCenter
+                    text: Qt.formatDateTime(clock.date, "dddd, d MMMM")
+                    color: "#a6adc8"; font.pixelSize: 18
+                }
+                Rectangle {
+                    id: field
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.topMargin: 30
+                    implicitWidth: 300; implicitHeight: 48; radius: 24
+                    color: "#1e1e2e"
+                    border.color: root.error ? "#f38ba8" : input.activeFocus ? "#cba6f7" : "#313244"; border.width: 2
+
+                    // shake on a wrong password
+                    transform: Translate { id: shake }
+                    SequentialAnimation {
+                        id: shakeAnim
+                        loops: 2
+                        NumberAnimation { target: shake; property: "x"; to: -10; duration: 50 }
+                        NumberAnimation { target: shake; property: "x"; to: 10; duration: 100 }
+                        NumberAnimation { target: shake; property: "x"; to: 0; duration: 50 }
+                    }
+                    Connections { target: root; function onErrorChanged(): void { if (root.error) shakeAnim.restart() } }
+
+                    TextInput {
+                        id: input
+                        anchors { fill: parent; leftMargin: 20; rightMargin: 20 }
+                        verticalAlignment: TextInput.AlignVCenter
+                        horizontalAlignment: TextInput.AlignHCenter
+                        echoMode: TextInput.Password; passwordCharacter: "●"
+                        color: "#cdd6f4"; font.pixelSize: 16
+                        focus: true
+                        enabled: !root.busy
+                        text: root.password
+                        onTextEdited: { root.password = text; root.error = "" }
+                        Keys.onReturnPressed: root.tryUnlock()
+                    }
+                    Text {
+                        anchors.centerIn: parent
+                        visible: input.text === ""
+                        text: root.busy ? "Checking…" : "Password"
+                        color: "#6c7086"; font.pixelSize: 14
+                    }
+                }
+                Text {
+                    Layout.alignment: Qt.AlignHCenter
+                    text: root.error
+                    color: "#f38ba8"; font.pixelSize: 13
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 9–10</span><b>Why this is secure</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// A real lock screen: ext-session-lock (the compositor guarantees nothing else is shown)
+// and PAM (your normal login password). Lock with: qs ipc call session lock</code></pre></div><div class="seg-e"><p><a class="api" href="../ref/WlSessionLock.html"><code>WlSessionLock</code></a> uses the ext-session-lock protocol: the <strong>compositor</strong> hides everything else and sends all input to the lock surfaces. If the shell crashed while locked, the compositor would keep the screen locked (showing a blank or red screen) instead of revealing your desktop.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–15</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property string password: ""
+property string error: ""
+property bool busy: false</code></pre></div><div class="seg-e"><p>The typed password, an error message, and <code>busy</code> while PAM is checking.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 17–21</span><b>Trying to unlock</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function tryUnlock(): void {
+    if (busy || password === "") return
+    busy = true; error = ""
+    pam.start()
+}</code></pre></div><div class="seg-e"><p>Ignore Enter while already checking or with an empty field, then start a PAM conversation.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 23–31</span><b>Listening to logind</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// `loginctl lock-session` (used by power menus, hypridle, `systemctl suspend` hooks…) sends
+// logind's Lock signal. Listening for it makes all of those lock with this screen.
+Process {
+    running: true
+    command: ["gdbus", "monitor", "--system", "--dest", "org.freedesktop.login1"]
+    stdout: SplitParser {
+        onRead: line =&gt; { if (line.includes("org.freedesktop.login1.Session.Lock ")) Session.locked = true }
+    }
+}</code></pre></div><div class="seg-e"><p><code>loginctl lock-session</code> doesn't lock anything by itself; it sends a <code>Lock</code> signal on the system bus and expects a locker to react. <code>gdbus monitor</code> prints every signal from logind as a line; when a <code>Session.Lock</code> line appears, we lock. Now any tool that uses the standard way of locking (power menus, <code>systemctl suspend</code> hooks, idle daemons) locks with this screen.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 33–42</span><b>PAM</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PamContext {
+    id: pam
+    // PAM asks for the password; answer with what was typed
+    onPamMessage: if (responseRequired) respond(root.password)
+    onCompleted: result =&gt; {
+        root.busy = false
+        if (result === PamResult.Success) { root.password = ""; Session.locked = false }
+        else { root.password = ""; root.error = "Wrong password" }
+    }
+}</code></pre></div><div class="seg-e"><p><a class="api" href="../ref/PamContext.html"><code>PamContext</code></a> runs the same authentication as your login (the <code>login</code> PAM service by default). When PAM asks a question that needs an answer, we reply with the typed password. On success, the password is cleared and <code>Session.locked</code> becomes false; otherwise the error is set.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 44–49</span><b>One surface per screen</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>WlSessionLock {
+    locked: Session.locked
+
+    // one surface per screen
+    WlSessionLockSurface {
+        color: "#11111b"</code></pre></div><div class="seg-e"><p><code>WlSessionLock</code> creates a <code>WlSessionLockSurface</code> for every screen automatically.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 57–66</span><b>Clock and date</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    Layout.alignment: Qt.AlignHCenter
+    text: Qt.formatDateTime(clock.date, "hh:mm")
+    color: "#cdd6f4"; font.pixelSize: 96; font.bold: true
+}
+Text {
+    Layout.alignment: Qt.AlignHCenter
+    text: Qt.formatDateTime(clock.date, "dddd, d MMMM")
+    color: "#a6adc8"; font.pixelSize: 18
+}</code></pre></div><div class="seg-e"><p>Updated every second.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 67–73</span><b>The field</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: field
+    Layout.alignment: Qt.AlignHCenter
+    Layout.topMargin: 30
+    implicitWidth: 300; implicitHeight: 48; radius: 24
+    color: "#1e1e2e"
+    border.color: root.error ? "#f38ba8" : input.activeFocus ? "#cba6f7" : "#313244"; border.width: 2</code></pre></div><div class="seg-e"><p>Its outline is red after an error and purple while focused.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 75–84</span><b>Shaking</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// shake on a wrong password
+transform: Translate { id: shake }
+SequentialAnimation {
+    id: shakeAnim
+    loops: 2
+    NumberAnimation { target: shake; property: "x"; to: -10; duration: 50 }
+    NumberAnimation { target: shake; property: "x"; to: 10; duration: 100 }
+    NumberAnimation { target: shake; property: "x"; to: 0; duration: 50 }
+}
+Connections { target: root; function onErrorChanged(): void { if (root.error) shakeAnim.restart() } }</code></pre></div><div class="seg-e"><p>A <code>Translate</code> transform with a short left-right animation. It's started whenever <code>error</code> changes to something non-empty.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 86–98</span><b>The input</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TextInput {
+    id: input
+    anchors { fill: parent; leftMargin: 20; rightMargin: 20 }
+    verticalAlignment: TextInput.AlignVCenter
+    horizontalAlignment: TextInput.AlignHCenter
+    echoMode: TextInput.Password; passwordCharacter: "●"
+    color: "#cdd6f4"; font.pixelSize: 16
+    focus: true
+    enabled: !root.busy
+    text: root.password
+    onTextEdited: { root.password = text; root.error = "" }
+    Keys.onReturnPressed: root.tryUnlock()
+}</code></pre></div><div class="seg-e"><p>Dots instead of characters. Every screen's input is bound to the same <code>root.password</code>, so typing on one monitor shows on all. Typing clears the error; Enter tries to unlock.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 99–110</span><b>Hint and error</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>    Text {
+        anchors.centerIn: parent
+        visible: input.text === ""
+        text: root.busy ? "Checking…" : "Password"
+        color: "#6c7086"; font.pixelSize: 14
+    }
+}
+Text {
+    Layout.alignment: Qt.AlignHCenter
+    text: root.error
+    color: "#f38ba8"; font.pixelSize: 13
+}</code></pre></div><div class="seg-e"><p>"Password" (or "Checking…") while the field is empty, and the error message below.</p></div></div></div>
+<div class="box warn"><div class="bt">Test it safely first</div><p>Before relying on it, test with a second way back in: keep a TTY login available (Ctrl+Alt+F3), or temporarily add an IPC function that unlocks. A typo in a lock screen can lock you out of your session.</p></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Practice</span><b>Show the user and avatar</b></div><div class="ex-b"><p>Show <code>Quickshell.env("USER")</code> and the image at <code>~/.face</code> above the field, in a round clip.</p></div></div>
+<h2 id="polkit-agent">Polkit Agent<a class="hlink" href="#polkit-agent">#</a></h2>
+<div class="preview"><svg style="width:min(100%,690px)" width="460" height="270" viewBox="0 0 460 270"><rect width="460" height="270" fill="#000" opacity=".55"/><rect x="20" y="10" width="420" height="250" rx="22" fill="#1e1e2e" stroke="#313244"/><text x="44" y="56" fill="#cba6f7" font-size="30">🛡</text><text x="88" y="52" fill="#cdd6f4" font-size="18" font-weight="700">Authentication required</text><text x="44" y="86" fill="#a6adc8" font-size="13">Authentication is needed to run `/usr/bin/gparted'</text><text x="44" y="104" fill="#585b70" font-size="10">org.archlinux.pkexec.gparted</text><rect x="44" y="118" width="372" height="44" rx="22" fill="#313244" stroke="#cba6f7" stroke-width="2"/><text x="64" y="146" fill="#6c7086" font-size="14">Password:</text><rect x="196" y="200" width="100" height="36" rx="18" fill="#313244"/><text x="246" y="223" fill="#cdd6f4" text-anchor="middle">Cancel</text><rect x="304" y="200" width="120" height="36" rx="18" fill="#cba6f7"/><text x="364" y="223" fill="#1e1e2e" font-weight="700" text-anchor="middle">Authenticate</text></svg></div>
+
+<p><strong>What it is.</strong> The dialog that appears when an app needs administrator rights (GParted, <code>pkexec</code>, installing a package from a GUI store). It shows what the app wants to do and asks for your password, styled like the rest of your shell.</p>
+<p><strong>Kind:</strong> session · <strong>Needs:</strong> polkit (no other polkit agent running)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/system/PolkitAgent.qml</span><code>import Quickshell
+import Quickshell.Wayland
+import Quickshell.Services.Polkit
+import QtQuick
+import QtQuick.Layouts
+
+// The "authentication required" dialog that apps like GParted, pkexec or systemctl ask for.
+// Replaces polkit-gnome / hyprpolkitagent: stop those from autostarting, only one agent can register.
+Scope {
+    id: root
+
+    PolkitAgent { id: agent }
+
+    LazyLoader {
+        active: agent.isActive                            // a request is in progress
+        PanelWindow {
+            id: win
+            readonly property var flow: agent.flow
+            anchors { top: true; bottom: true; left: true; right: true }
+            exclusionMode: ExclusionMode.Ignore
+            color: "#99000000"
+            WlrLayershell.layer: WlrLayer.Overlay
+            WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+
+            Rectangle {
+                anchors.centerIn: parent
+                width: 420; height: col.implicitHeight + 48
+                radius: 22; color: "#1e1e2e"; border.color: "#313244"
+
+                ColumnLayout {
+                    id: col
+                    anchors { left: parent.left; right: parent.right; top: parent.top; margins: 24 }
+                    spacing: 12
+
+                    RowLayout {
+                        spacing: 12
+                        Text { text: "admin_panel_settings"; font.family: "Material Symbols Rounded"; font.pixelSize: 36; color: "#cba6f7" }
+                        Text { Layout.fillWidth: true; text: "Authentication required"; color: "#cdd6f4"; font.pixelSize: 18; font.bold: true }
+                    }
+                    Text {                                    // what the app wants to do
+                        Layout.fillWidth: true
+                        text: win.flow?.message ?? ""
+                        color: "#a6adc8"; font.pixelSize: 13; wrapMode: Text.Wrap
+                    }
+                    Text {                                    // the action id, small, for the curious
+                        Layout.fillWidth: true
+                        text: win.flow?.actionId ?? ""
+                        color: "#585b70"; font.pixelSize: 10; elide: Text.ElideMiddle
+                    }
+                    Rectangle {
+                        Layout.fillWidth: true
+                        implicitHeight: 44; radius: 22; color: "#313244"
+                        border.color: win.flow?.failed ? "#f38ba8" : pw.activeFocus ? "#cba6f7" : "transparent"; border.width: 2
+                        TextInput {
+                            id: pw
+                            anchors { fill: parent; leftMargin: 18; rightMargin: 18 }
+                            verticalAlignment: TextInput.AlignVCenter
+                            color: "#cdd6f4"; font.pixelSize: 14
+                            // the prompt says if the answer is secret (a password) or not
+                            echoMode: win.flow?.responseVisible ? TextInput.Normal : TextInput.Password
+                            focus: true
+                            Keys.onReturnPressed: { win.flow.submit(text); text = "" }
+                            Keys.onEscapePressed: win.flow.cancelAuthenticationRequest()
+                        }
+                        Text {
+                            anchors { left: parent.left; leftMargin: 18; verticalCenter: parent.verticalCenter }
+                            visible: pw.text === ""
+                            text: win.flow?.inputPrompt || "Password"
+                            color: "#6c7086"; font.pixelSize: 14
+                        }
+                    }
+                    Text {                                    // "Sorry, try again" and similar
+                        Layout.fillWidth: true
+                        visible: text !== ""
+                        text: win.flow?.failed ? "Wrong password, try again" : (win.flow?.supplementaryMessage ?? "")
+                        color: win.flow?.failed || win.flow?.supplementaryIsError ? "#f38ba8" : "#a6adc8"; font.pixelSize: 12
+                    }
+                    RowLayout {
+                        Layout.alignment: Qt.AlignRight
+                        spacing: 8
+                        Rectangle {
+                            implicitWidth: 100; implicitHeight: 36; radius: 18; color: "#313244"
+                            Text { anchors.centerIn: parent; text: "Cancel"; color: "#cdd6f4" }
+                            TapHandler { onTapped: win.flow.cancelAuthenticationRequest() }
+                        }
+                        Rectangle {
+                            implicitWidth: 120; implicitHeight: 36; radius: 18; color: "#cba6f7"
+                            Text { anchors.centerIn: parent; text: "Authenticate"; color: "#1e1e2e"; font.bold: true }
+                            TapHandler { onTapped: { win.flow.submit(pw.text); pw.text = "" } }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 7–8</span><b>One agent per session</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// The "authentication required" dialog that apps like GParted, pkexec or systemctl ask for.
+// Replaces polkit-gnome / hyprpolkitagent: stop those from autostarting, only one agent can register.</code></pre></div><div class="seg-e"><p>polkit asks a registered <strong>agent</strong> to talk to the user. Only one can be registered, so remove <code>exec-once = /usr/lib/polkit-gnome/...</code> or <code>hyprpolkitagent</code> from your config.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 12</span><b>Registering</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PolkitAgent { id: agent }</code></pre></div><div class="seg-e"><p>Creating a <a class="api" href="../ref/PolkitAgent.html"><code>PolkitAgent</code></a> registers the shell as the session's agent.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–23</span><b>Only while asked</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>LazyLoader {
+    active: agent.isActive                            // a request is in progress
+    PanelWindow {
+        id: win
+        readonly property var flow: agent.flow
+        anchors { top: true; bottom: true; left: true; right: true }
+        exclusionMode: ExclusionMode.Ignore
+        color: "#99000000"
+        WlrLayershell.layer: WlrLayer.Overlay
+        WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive</code></pre></div><div class="seg-e"><p><code>isActive</code> is true while a request is in progress, so the dialog exists only then. It dims the screen and takes the keyboard. <code>flow</code> is the current request.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 40–49</span><b>What and who</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {                                    // what the app wants to do
+    Layout.fillWidth: true
+    text: win.flow?.message ?? ""
+    color: "#a6adc8"; font.pixelSize: 13; wrapMode: Text.Wrap
+}
+Text {                                    // the action id, small, for the curious
+    Layout.fillWidth: true
+    text: win.flow?.actionId ?? ""
+    color: "#585b70"; font.pixelSize: 10; elide: Text.ElideMiddle
+}</code></pre></div><div class="seg-e"><p><code>message</code> is the human-readable request from the app. <code>actionId</code> names the exact permission, useful when you wonder what is asking.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 50–71</span><b>The answer field</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    Layout.fillWidth: true
+    implicitHeight: 44; radius: 22; color: "#313244"
+    border.color: win.flow?.failed ? "#f38ba8" : pw.activeFocus ? "#cba6f7" : "transparent"; border.width: 2
+    TextInput {
+        id: pw
+        anchors { fill: parent; leftMargin: 18; rightMargin: 18 }
+        verticalAlignment: TextInput.AlignVCenter
+        color: "#cdd6f4"; font.pixelSize: 14
+        // the prompt says if the answer is secret (a password) or not
+        echoMode: win.flow?.responseVisible ? TextInput.Normal : TextInput.Password
+        focus: true
+        Keys.onReturnPressed: { win.flow.submit(text); text = "" }
+        Keys.onEscapePressed: win.flow.cancelAuthenticationRequest()
+    }
+    Text {
+        anchors { left: parent.left; leftMargin: 18; verticalCenter: parent.verticalCenter }
+        visible: pw.text === ""
+        text: win.flow?.inputPrompt || "Password"
+        color: "#6c7086"; font.pixelSize: 14
+    }
+}</code></pre></div><div class="seg-e"><p><code>responseVisible</code> tells you whether the expected answer is secret (a password) or not (some PAM setups ask other questions). The placeholder shows polkit's own prompt, such as "Password:". Enter submits, Esc cancels.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 72–77</span><b>Feedback</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {                                    // "Sorry, try again" and similar
+    Layout.fillWidth: true
+    visible: text !== ""
+    text: win.flow?.failed ? "Wrong password, try again" : (win.flow?.supplementaryMessage ?? "")
+    color: win.flow?.failed || win.flow?.supplementaryIsError ? "#f38ba8" : "#a6adc8"; font.pixelSize: 12
+}</code></pre></div><div class="seg-e"><p>After a wrong password <code>failed</code> is set and polkit asks again; extra messages from PAM (like "fingerprint not recognised") are shown too.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 78–91</span><b>Buttons</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    Layout.alignment: Qt.AlignRight
+    spacing: 8
+    Rectangle {
+        implicitWidth: 100; implicitHeight: 36; radius: 18; color: "#313244"
+        Text { anchors.centerIn: parent; text: "Cancel"; color: "#cdd6f4" }
+        TapHandler { onTapped: win.flow.cancelAuthenticationRequest() }
+    }
+    Rectangle {
+        implicitWidth: 120; implicitHeight: 36; radius: 18; color: "#cba6f7"
+        Text { anchors.centerIn: parent; text: "Authenticate"; color: "#1e1e2e"; font.bold: true }
+        TapHandler { onTapped: { win.flow.submit(pw.text); pw.text = "" } }
+    }
+}</code></pre></div><div class="seg-e"><p>Cancel tells the app it was refused; Authenticate submits.</p></div></div></div>
+<p>Test it with <code>pkexec true</code>: the dialog should appear, and a correct password ends with no output.</p>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 5</span><span class="ex-lvl">Practice</span><b>Choose the identity</b></div><div class="ex-b"><p>When several users are allowed (say, a second admin account), <code>flow.identities</code> lists them. Add a dropdown that sets <code>flow.selectedIdentity</code>.</p></div></div>
+<h2 id="battery-warnings">Battery Warnings<a class="hlink" href="#battery-warnings">#</a></h2>
+<div class="preview"><svg style="width:min(100%,690px)" width="460" height="80" viewBox="0 0 460 80"><rect x="8" y="8" width="444" height="48" rx="16" fill="#f38ba8"><animate attributeName="opacity" values="1;.75;1" dur="1.2s" repeatCount="indefinite"/></rect><text x="28" y="40" fill="#1e1e2e" font-size="20">🪫</text><text x="62" y="38" fill="#1e1e2e" font-size="13" font-weight="700">Battery critical: 5%. Plug in now, the computer will suspend at 3%.</text></svg></div>
+
+<p><strong>What it is.</strong> A notification at 15%, a pulsing red banner on every screen at 5%, and an automatic suspend at 3%, so your laptop never just dies with unsaved work. Plugging in resets it.</p>
+<p><strong>Kind:</strong> background service with windows · <strong>Needs:</strong> UPower</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/system/BatteryWarning.qml</span><code>import Quickshell
+import Quickshell.Wayland
+import Quickshell.Services.UPower
+import QtQuick
+import QtQuick.Layouts
+
+// Warns once at 15% and again at 5% while discharging; at 3% it suspends the machine.
+Scope {
+    id: root
+    property real warnAt: 0.15
+    property real criticalAt: 0.05
+    property real suspendAt: 0.03
+    readonly property var bat: UPower.displayDevice
+    readonly property real pct: bat?.percentage ?? 1
+    readonly property bool discharging: UPower.onBattery
+
+    property string level: ""                         // "", "low", "critical": what has been shown already
+    property bool bannerOpen: false
+
+    onPctChanged: check()
+    onDischargingChanged: { if (!discharging) { level = ""; bannerOpen = false } else check() }
+
+    function check(): void {
+        if (!discharging || !(bat?.isLaptopBattery ?? false)) return
+        if (pct &lt;= suspendAt) Quickshell.execDetached(["systemctl", "suspend"])
+        else if (pct &lt;= criticalAt &amp;&amp; level !== "critical") { level = "critical"; bannerOpen = true }
+        else if (pct &lt;= warnAt &amp;&amp; level === "") {
+            level = "low"
+            Quickshell.execDetached(["notify-send", "-u", "normal", "-i", "battery-low", "Battery low", Math.round(pct * 100) + "% left"])
+        }
+    }
+
+    // the critical warning is a banner across the top of every screen
+    Variants {
+        model: root.bannerOpen ? Quickshell.screens : []
+        PanelWindow {
+            required property var modelData
+            screen: modelData
+            anchors { top: true; left: true; right: true }
+            implicitHeight: 64
+            exclusionMode: ExclusionMode.Ignore
+            color: "transparent"
+            WlrLayershell.layer: WlrLayer.Overlay
+
+            Rectangle {
+                anchors { fill: parent; margins: 8 }
+                radius: 16; color: "#f38ba8"
+                SequentialAnimation on opacity {             // pulse
+                    loops: Animation.Infinite
+                    NumberAnimation { to: 0.75; duration: 600 }
+                    NumberAnimation { to: 1; duration: 600 }
+                }
+                RowLayout {
+                    anchors { fill: parent; leftMargin: 18; rightMargin: 18 }
+                    spacing: 12
+                    Text { text: "battery_alert"; font.family: "Material Symbols Rounded"; font.pixelSize: 28; color: "#1e1e2e" }
+                    Text {
+                        Layout.fillWidth: true
+                        text: "Battery critical: " + Math.round(root.pct * 100) + "%. Plug in now, the computer will suspend at " + Math.round(root.suspendAt * 100) + "%."
+                        color: "#1e1e2e"; font.pixelSize: 14; font.bold: true; elide: Text.ElideRight
+                    }
+                    Text {
+                        text: "close"; font.family: "Material Symbols Rounded"; font.pixelSize: 22; color: "#1e1e2e"
+                        TapHandler { onTapped: root.bannerOpen = false }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–15</span><b>Thresholds and state</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property real warnAt: 0.15
+property real criticalAt: 0.05
+property real suspendAt: 0.03
+readonly property var bat: UPower.displayDevice
+readonly property real pct: bat?.percentage ?? 1
+readonly property bool discharging: UPower.onBattery</code></pre></div><div class="seg-e"><p>Three levels you can change. <code>UPower.onBattery</code> is true when running on battery.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 17–18</span><b>What was shown</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property string level: ""                         // "", "low", "critical": what has been shown already
+property bool bannerOpen: false</code></pre></div><div class="seg-e"><p><code>level</code> remembers which warning has already been given, so each one is shown once per discharge, not on every percentage change.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 20–21</span><b>When to check</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>onPctChanged: check()
+onDischargingChanged: { if (!discharging) { level = ""; bannerOpen = false } else check() }</code></pre></div><div class="seg-e"><p>On every percentage change. Plugging in resets the warnings and closes the banner.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 23–31</span><b>The checks</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function check(): void {
+    if (!discharging || !(bat?.isLaptopBattery ?? false)) return
+    if (pct &lt;= suspendAt) Quickshell.execDetached(["systemctl", "suspend"])
+    else if (pct &lt;= criticalAt &amp;&amp; level !== "critical") { level = "critical"; bannerOpen = true }
+    else if (pct &lt;= warnAt &amp;&amp; level === "") {
+        level = "low"
+        Quickshell.execDetached(["notify-send", "-u", "normal", "-i", "battery-low", "Battery low", Math.round(pct * 100) + "% left"])
+    }
+}</code></pre></div><div class="seg-e"><p>Only on laptops while discharging. The order matters: the most serious level is checked first. The low warning is a normal notification (from <code>notify-send</code>, which works with any notification daemon, including ours).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 33–38</span><b>The banner</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// the critical warning is a banner across the top of every screen
+Variants {
+    model: root.bannerOpen ? Quickshell.screens : []
+    PanelWindow {
+        required property var modelData
+        screen: modelData</code></pre></div><div class="seg-e"><p><code>Variants</code> with a model of either all screens or none: setting <code>bannerOpen</code> creates a banner on every monitor at once.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 45–67</span><b>The banner's content</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    anchors { fill: parent; margins: 8 }
+    radius: 16; color: "#f38ba8"
+    SequentialAnimation on opacity {             // pulse
+        loops: Animation.Infinite
+        NumberAnimation { to: 0.75; duration: 600 }
+        NumberAnimation { to: 1; duration: 600 }
+    }
+    RowLayout {
+        anchors { fill: parent; leftMargin: 18; rightMargin: 18 }
+        spacing: 12
+        Text { text: "battery_alert"; font.family: "Material Symbols Rounded"; font.pixelSize: 28; color: "#1e1e2e" }
+        Text {
+            Layout.fillWidth: true
+            text: "Battery critical: " + Math.round(root.pct * 100) + "%. Plug in now, the computer will suspend at " + Math.round(root.suspendAt * 100) + "%."
+            color: "#1e1e2e"; font.pixelSize: 14; font.bold: true; elide: Text.ElideRight
+        }
+        Text {
+            text: "close"; font.family: "Material Symbols Rounded"; font.pixelSize: 22; color: "#1e1e2e"
+            TapHandler { onTapped: root.bannerOpen = false }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>A pulsing red bar with the message and a close button. Closing it doesn't stop the suspend at 3%.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 6</span><span class="ex-lvl">Practice</span><b>Charging popup</b></div><div class="ex-b"><p>Combine it with the charging popup from <a class="xref" href="../ch/g3-islands-popups.html">Gallery: Dynamic Islands, Popups and OSDs</a> so plugging in also shows that.</p></div></div>
+<h2 id="workspace-osd">Workspace OSD<a class="hlink" href="#workspace-osd">#</a></h2>
+<div class="preview"><svg style="width:min(100%,630px)" width="420" height="110" viewBox="0 0 420 110"><rect x="40" y="13" width="340" height="84" rx="24" fill="#1e1e2e"/><g font-size="18" font-weight="700" text-anchor="middle"><rect x="60" y="29" width="44" height="52" rx="14" fill="#45475a"/><text x="82" y="62" fill="#cdd6f4">1</text><rect x="112" y="29" width="44" height="52" rx="14" fill="#313244"/><text x="134" y="62" fill="#6c7086">2</text><rect x="164" y="29" width="64" height="52" rx="14" fill="#cba6f7"/><text x="196" y="62" fill="#1e1e2e">3</text><rect x="236" y="29" width="44" height="52" rx="14" fill="#45475a"/><text x="258" y="62" fill="#cdd6f4">4</text><rect x="288" y="29" width="44" height="52" rx="14" fill="#313244"/><text x="310" y="62" fill="#6c7086">5</text></g></svg></div>
+
+<p><strong>What it is.</strong> When you switch workspace, a row of numbered boxes flashes in the middle of the screen with the new one highlighted, like on GNOME or macOS. Workspaces with windows are brighter.</p>
+<p><strong>Kind:</strong> OSD · <strong>Needs:</strong> Hyprland</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/system/WorkspaceOsd.qml</span><code>import Quickshell
+import Quickshell.Hyprland
+import Quickshell.Wayland
+import QtQuick
+import QtQuick.Layouts
+
+// When you switch workspace, a row of numbered boxes appears briefly in the middle of that screen.
+Scope {
+    id: root
+    property bool shown: false
+    readonly property var current: Hyprland.focusedWorkspace
+    readonly property int count: Math.max(5, ...Hyprland.workspaces.values.map(w =&gt; w.id))
+
+    // don't flash at startup: only react once the shell has settled
+    property bool armed: false
+    Timer { running: true; interval: 1500; onTriggered: root.armed = true }
+    onCurrentChanged: if (armed) { shown = true; hide.restart() }
+    Timer { id: hide; interval: 900; onTriggered: root.shown = false }
+
+    LazyLoader {
+        active: root.shown
+        PanelWindow {
+            // on the screen of the focused monitor
+            screen: Quickshell.screens.find(s =&gt; s.name === Hyprland.focusedMonitor?.name) ?? null
+            implicitWidth: row.implicitWidth + 32; implicitHeight: 84
+            exclusionMode: ExclusionMode.Ignore
+            color: "transparent"
+            WlrLayershell.layer: WlrLayer.Overlay
+
+            Rectangle {
+                anchors.fill: parent
+                radius: 24; color: "#e61e1e2e"
+                RowLayout {
+                    id: row
+                    anchors.centerIn: parent
+                    spacing: 8
+                    Repeater {
+                        model: root.count
+                        Rectangle {
+                            id: box
+                            required property int index
+                            readonly property int wsId: index + 1
+                            readonly property bool active: root.current?.id === wsId
+                            readonly property bool used: Hyprland.workspaces.values.some(w =&gt; w.id === wsId &amp;&amp; w.toplevels.values.length &gt; 0)
+                            implicitWidth: active ? 64 : 44; implicitHeight: 52; radius: 14
+                            color: active ? "#cba6f7" : used ? "#45475a" : "#313244"
+                            Behavior on implicitWidth { NumberAnimation { duration: 200; easing.type: Easing.OutBack } }
+                            Text {
+                                anchors.centerIn: parent
+                                text: box.wsId
+                                color: box.active ? "#1e1e2e" : box.used ? "#cdd6f4" : "#6c7086"
+                                font.pixelSize: 18; font.bold: true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–12</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool shown: false
+readonly property var current: Hyprland.focusedWorkspace
+readonly property int count: Math.max(5, ...Hyprland.workspaces.values.map(w =&gt; w.id))</code></pre></div><div class="seg-e"><p><code>current</code> is the focused workspace. <code>count</code> is at least 5, or the highest workspace number in use.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–18</span><b>When to show</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// don't flash at startup: only react once the shell has settled
+property bool armed: false
+Timer { running: true; interval: 1500; onTriggered: root.armed = true }
+onCurrentChanged: if (armed) { shown = true; hide.restart() }
+Timer { id: hide; interval: 900; onTriggered: root.shown = false }</code></pre></div><div class="seg-e"><p>Every change of the focused workspace shows the OSD and restarts a 900 ms hide timer. <code>armed</code> skips the change that happens when the shell starts and first learns the current workspace.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 20–28</span><b>The window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>LazyLoader {
+    active: root.shown
+    PanelWindow {
+        // on the screen of the focused monitor
+        screen: Quickshell.screens.find(s =&gt; s.name === Hyprland.focusedMonitor?.name) ?? null
+        implicitWidth: row.implicitWidth + 32; implicitHeight: 84
+        exclusionMode: ExclusionMode.Ignore
+        color: "transparent"
+        WlrLayershell.layer: WlrLayer.Overlay</code></pre></div><div class="seg-e"><p>Created only while shown, on the screen of the focused monitor (matching the Hyprland monitor's name with the screen's). With no anchors, a layer-shell window is centred.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 37–54</span><b>The boxes</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Repeater {
+    model: root.count
+    Rectangle {
+        id: box
+        required property int index
+        readonly property int wsId: index + 1
+        readonly property bool active: root.current?.id === wsId
+        readonly property bool used: Hyprland.workspaces.values.some(w =&gt; w.id === wsId &amp;&amp; w.toplevels.values.length &gt; 0)
+        implicitWidth: active ? 64 : 44; implicitHeight: 52; radius: 14
+        color: active ? "#cba6f7" : used ? "#45475a" : "#313244"
+        Behavior on implicitWidth { NumberAnimation { duration: 200; easing.type: Easing.OutBack } }
+        Text {
+            anchors.centerIn: parent
+            text: box.wsId
+            color: box.active ? "#1e1e2e" : box.used ? "#cdd6f4" : "#6c7086"
+            font.pixelSize: 18; font.bold: true
+        }
+    }</code></pre></div><div class="seg-e"><p>The active one is wider and purple, used ones are lighter. The width change bounces a little.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 7</span><span class="ex-lvl">Practice</span><b>Show app icons</b></div><div class="ex-b"><p>Show the icons of each workspace's windows inside its box, like the workspace list in <a class="xref" href="../ch/g7-bar-modules-2.html">Gallery: More Bar Modules</a>.</p></div></div>
+<h2 id="region-selector">Region Selector<a class="hlink" href="#region-selector">#</a></h2>
+<div class="preview"><svg style="width:min(100%,660px)" width="440" height="250" viewBox="0 0 440 250"><rect width="440" height="250" fill="#45475a"/><rect x="40" y="30" width="160" height="80" rx="6" fill="#89b4fa" opacity=".6"/><rect x="230" y="120" width="170" height="100" rx="6" fill="#a6e3a1" opacity=".6"/><path d="M0 0H440V250H0Z M120 70V190H330V70Z" fill="#000" opacity=".5" fill-rule="evenodd"/><rect x="120" y="70" width="210" height="120" fill="none" stroke="#cba6f7" stroke-width="2"/><rect x="250" y="196" width="80" height="22" rx="6" fill="#1e1e2e"/><text x="290" y="211" fill="#cdd6f4" font-size="11" text-anchor="middle">420 × 240</text></svg></div>
+
+<p><strong>What it is.</strong> Drag a rectangle on any screen; the rest of the screen darkens and the size is shown. Then the region is screenshotted, screen-recorded, or printed for scripts. A themed replacement for <code>slurp</code>.</p>
+<p><strong>Kind:</strong> overlay with IPC · <strong>Needs:</strong> <code>grim</code> and <code>wl-clipboard</code> (screenshots), <code>wf-recorder</code> (recording)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/system/RegionSelector.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import QtQuick
+
+// Drag a rectangle on any screen; the region is then screenshotted (or handed to any command).
+// A slurp replacement that matches your shell.  qs ipc call region screenshot
+Scope {
+    id: root
+    property bool active: false
+    property string mode: "screenshot"                // "screenshot" | "record" | "geometry"
+
+    IpcHandler {
+        target: "region"
+        function screenshot(): void { root.mode = "screenshot"; root.active = true }
+        function record(): void { root.mode = "record"; root.active = true }
+        function geometry(): void { root.mode = "geometry"; root.active = true }
+    }
+
+    // geometry in grim/slurp format: "X,Y WxH" in global (all-monitors) coordinates
+    function finish(x: real, y: real, w: real, h: real): void {
+        active = false
+        const geo = `${Math.round(x)},${Math.round(y)} ${Math.round(w)}x${Math.round(h)}`
+        if (mode === "screenshot")
+            Quickshell.execDetached(["sh", "-c", 'sleep 0.2; f="$HOME/Pictures/Screenshots/$(date +%F_%T).png"; mkdir -p "${f%/*}"; grim -g "$1" "$f" &amp;&amp; wl-copy &lt; "$f" &amp;&amp; notify-send -i "$f" Screenshot "$f"', "sh", geo])
+        else if (mode === "record")
+            Quickshell.execDetached(["sh", "-c", 'f="$HOME/Videos/$(date +%F_%T).mp4"; mkdir -p "${f%/*}"; wf-recorder -g "$1" -f "$f"', "sh", geo])
+        else
+            console.log(geo)
+    }
+
+    Variants {
+        model: root.active ? Quickshell.screens : []
+        PanelWindow {
+            id: win
+            required property var modelData
+            screen: modelData
+            anchors { top: true; bottom: true; left: true; right: true }
+            exclusionMode: ExclusionMode.Ignore
+            WlrLayershell.layer: WlrLayer.Overlay
+            WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+            color: "transparent"
+
+            property point start: Qt.point(0, 0)
+            property point end: Qt.point(0, 0)
+            property bool dragging: false
+            readonly property rect sel: Qt.rect(Math.min(start.x, end.x), Math.min(start.y, end.y),
+                                                Math.abs(end.x - start.x), Math.abs(end.y - start.y))
+
+            // darken everything except the selection: four rectangles around it
+            readonly property color shade: "#88000000"
+            Rectangle { color: win.shade; x: 0; y: 0; width: parent.width; height: win.dragging ? win.sel.y : parent.height }
+            Rectangle { visible: win.dragging; color: win.shade; x: 0; y: win.sel.y + win.sel.height; width: parent.width; height: parent.height - y }
+            Rectangle { visible: win.dragging; color: win.shade; x: 0; y: win.sel.y; width: win.sel.x; height: win.sel.height }
+            Rectangle { visible: win.dragging; color: win.shade; x: win.sel.x + win.sel.width; y: win.sel.y; width: parent.width - x; height: win.sel.height }
+
+            Rectangle {                                   // the selection outline
+                visible: win.dragging
+                x: win.sel.x; y: win.sel.y; width: win.sel.width; height: win.sel.height
+                color: "transparent"; border.color: "#cba6f7"; border.width: 2
+                Rectangle {                               // size label
+                    anchors { top: parent.bottom; topMargin: 6; right: parent.right }
+                    width: size.implicitWidth + 12; height: 22; radius: 6; color: "#1e1e2e"
+                    Text { id: size; anchors.centerIn: parent; text: Math.round(win.sel.width) + " × " + Math.round(win.sel.height); color: "#cdd6f4"; font.pixelSize: 11 }
+                }
+            }
+
+            Text {
+                visible: !win.dragging
+                anchors.centerIn: parent
+                text: "Drag to select · Esc to cancel"
+                color: "white"; font.pixelSize: 16
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.CrossCursor
+                focus: true
+                Keys.onEscapePressed: root.active = false
+                onPressed: m =&gt; { win.start = Qt.point(m.x, m.y); win.end = win.start; win.dragging = true }
+                onPositionChanged: m =&gt; win.end = Qt.point(m.x, m.y)
+                onReleased: {
+                    win.dragging = false
+                    if (win.sel.width &lt; 4 || win.sel.height &lt; 4) { root.active = false; return }   // a click, not a drag
+                    // window coordinates + this screen's position = global coordinates
+                    root.finish(win.screen.x + win.sel.x, win.screen.y + win.sel.y, win.sel.width, win.sel.height)
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–18</span><b>Three uses</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>IpcHandler {
+    target: "region"
+    function screenshot(): void { root.mode = "screenshot"; root.active = true }
+    function record(): void { root.mode = "record"; root.active = true }
+    function geometry(): void { root.mode = "geometry"; root.active = true }
+}</code></pre></div><div class="seg-e"><p><code>qs ipc call region screenshot</code>, <code>record</code> or <code>geometry</code>. The last one prints the geometry to the shell's log, for your own scripts.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 20–30</span><b>What happens after</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// geometry in grim/slurp format: "X,Y WxH" in global (all-monitors) coordinates
+function finish(x: real, y: real, w: real, h: real): void {
+    active = false
+    const geo = `${Math.round(x)},${Math.round(y)} ${Math.round(w)}x${Math.round(h)}`
+    if (mode === "screenshot")
+        Quickshell.execDetached(["sh", "-c", 'sleep 0.2; f="$HOME/Pictures/Screenshots/$(date +%F_%T).png"; mkdir -p "${f%/*}"; grim -g "$1" "$f" &amp;&amp; wl-copy &lt; "$f" &amp;&amp; notify-send -i "$f" Screenshot "$f"', "sh", geo])
+    else if (mode === "record")
+        Quickshell.execDetached(["sh", "-c", 'f="$HOME/Videos/$(date +%F_%T).mp4"; mkdir -p "${f%/*}"; wf-recorder -g "$1" -f "$f"', "sh", geo])
+    else
+        console.log(geo)
+}</code></pre></div><div class="seg-e"><p>The geometry is formatted like slurp's, <code>X,Y WxH</code>, and passed as an argument to a small shell script: take a screenshot and copy it, or start recording that area. <code>sleep 0.2</code> gives the overlay time to disappear before the capture.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 32–42</span><b>An overlay on every screen</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Variants {
+    model: root.active ? Quickshell.screens : []
+    PanelWindow {
+        id: win
+        required property var modelData
+        screen: modelData
+        anchors { top: true; bottom: true; left: true; right: true }
+        exclusionMode: ExclusionMode.Ignore
+        WlrLayershell.layer: WlrLayer.Overlay
+        WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+        color: "transparent"</code></pre></div><div class="seg-e"><p>While active, a fullscreen transparent window covers each monitor, so you can start dragging on any of them.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 44–48</span><b>The selection</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property point start: Qt.point(0, 0)
+property point end: Qt.point(0, 0)
+property bool dragging: false
+readonly property rect sel: Qt.rect(Math.min(start.x, end.x), Math.min(start.y, end.y),
+                                    Math.abs(end.x - start.x), Math.abs(end.y - start.y))</code></pre></div><div class="seg-e"><p>Start and end points of the drag. <code>sel</code> turns them into a normal rectangle whatever direction you drag in.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 50–55</span><b>Darkening the rest</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// darken everything except the selection: four rectangles around it
+readonly property color shade: "#88000000"
+Rectangle { color: win.shade; x: 0; y: 0; width: parent.width; height: win.dragging ? win.sel.y : parent.height }
+Rectangle { visible: win.dragging; color: win.shade; x: 0; y: win.sel.y + win.sel.height; width: parent.width; height: parent.height - y }
+Rectangle { visible: win.dragging; color: win.shade; x: 0; y: win.sel.y; width: win.sel.x; height: win.sel.height }
+Rectangle { visible: win.dragging; color: win.shade; x: win.sel.x + win.sel.width; y: win.sel.y; width: parent.width - x; height: win.sel.height }</code></pre></div><div class="seg-e"><p>Before dragging, one rectangle darkens the whole screen. While dragging, four rectangles darken the areas above, below, left and right of the selection, leaving it clear.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 57–66</span><b>Outline and size</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {                                   // the selection outline
+    visible: win.dragging
+    x: win.sel.x; y: win.sel.y; width: win.sel.width; height: win.sel.height
+    color: "transparent"; border.color: "#cba6f7"; border.width: 2
+    Rectangle {                               // size label
+        anchors { top: parent.bottom; topMargin: 6; right: parent.right }
+        width: size.implicitWidth + 12; height: 22; radius: 6; color: "#1e1e2e"
+        Text { id: size; anchors.centerIn: parent; text: Math.round(win.sel.width) + " × " + Math.round(win.sel.height); color: "#cdd6f4"; font.pixelSize: 11 }
+    }
+}</code></pre></div><div class="seg-e"><p>A purple frame and a small label with the size.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 75–88</span><b>Mouse input</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>MouseArea {
+    anchors.fill: parent
+    cursorShape: Qt.CrossCursor
+    focus: true
+    Keys.onEscapePressed: root.active = false
+    onPressed: m =&gt; { win.start = Qt.point(m.x, m.y); win.end = win.start; win.dragging = true }
+    onPositionChanged: m =&gt; win.end = Qt.point(m.x, m.y)
+    onReleased: {
+        win.dragging = false
+        if (win.sel.width &lt; 4 || win.sel.height &lt; 4) { root.active = false; return }   // a click, not a drag
+        // window coordinates + this screen's position = global coordinates
+        root.finish(win.screen.x + win.sel.x, win.screen.y + win.sel.y, win.sel.width, win.sel.height)
+    }
+}</code></pre></div><div class="seg-e"><p>Press starts, move updates, release finishes. A click without a drag cancels. Window coordinates plus the screen's position give global coordinates, which is what grim expects when you have several monitors.</p></div></div></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 8</span><span class="ex-lvl">Challenge</span><b>Snap to windows</b></div><div class="ex-b"><p>Clicking (without dragging) on a window should select that window's area.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p><code>Hyprland.toplevels</code> gives every window; <code>lastIpcObject.at</code> and <code>.size</code> are its global position and size. Convert to this screen's coordinates and test which one contains the click.</p></div></details></div>
+<h2 id="wallpaper">Wallpaper<a class="hlink" href="#wallpaper">#</a></h2>
+<p><strong>What it is.</strong> The shell draws the wallpaper itself on the background layer of every screen, with a crossfade when it changes, and remembers your choice. No swww or hyprpaper needed.</p>
+<p><strong>Kind:</strong> background · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/system/Wallpaper.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import QtQuick
+
+// Draws the wallpaper itself (no swww/hyprpaper needed), with a crossfade when it changes.
+// The chosen file is remembered in the shell's state folder.
+Scope {
+    id: root
+    property string defaultPath: Quickshell.env("HOME") + "/Pictures/wallpaper.jpg"
+    readonly property string path: saved.path || defaultPath
+
+    function set(p: string): void { saved.path = p }
+
+    FileView {
+        path: Quickshell.statePath("wallpaper.json")
+        watchChanges: true
+        onFileChanged: reload()
+        onAdapterUpdated: writeAdapter()
+        onLoadFailed: writeAdapter()                  // first run: create the file
+        JsonAdapter { id: saved; property string path: "" }
+    }
+
+    IpcHandler {
+        target: "wallpaper"
+        function set(p: string): void { root.set(p) }
+        function get(): string { return root.path }
+    }
+
+    Variants {
+        model: Quickshell.screens
+        PanelWindow {
+            id: win
+            required property var modelData
+            screen: modelData
+            anchors { top: true; bottom: true; left: true; right: true }
+            exclusionMode: ExclusionMode.Ignore
+            WlrLayershell.layer: WlrLayer.Background
+            WlrLayershell.namespace: "quickshell:wallpaper"
+            color: "#11111b"
+
+            // Two images take turns: the new file loads into the hidden one,
+            // and once it's ready the two swap opacity, a 600 ms crossfade.
+            property bool showA: true
+
+            component Layer: Image {
+                anchors.fill: parent
+                fillMode: Image.PreserveAspectCrop
+                asynchronous: true
+                sourceSize: Qt.size(win.width, win.height)     // decode at screen size, not file size
+                Behavior on opacity { NumberAnimation { duration: 600 } }
+            }
+            Layer {
+                id: a
+                Component.onCompleted: source = "file://" + root.path    // set once, not bound: see below
+                opacity: win.showA ? 1 : 0
+                onStatusChanged: if (status === Image.Ready) win.showA = true
+            }
+            Layer {
+                id: b
+                opacity: win.showA ? 0 : 1
+                onStatusChanged: if (status === Image.Ready) win.showA = false
+            }
+
+            Connections {
+                target: root
+                function onPathChanged(): void {
+                    const next = win.showA ? b : a
+                    next.source = "file://" + root.path
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–13</span><b>Which image</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property string defaultPath: Quickshell.env("HOME") + "/Pictures/wallpaper.jpg"
+readonly property string path: saved.path || defaultPath
+
+function set(p: string): void { saved.path = p }</code></pre></div><div class="seg-e"><p>The saved path, or a default. <code>set()</code> saves a new one.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–22</span><b>Remembering it</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FileView {
+    path: Quickshell.statePath("wallpaper.json")
+    watchChanges: true
+    onFileChanged: reload()
+    onAdapterUpdated: writeAdapter()
+    onLoadFailed: writeAdapter()                  // first run: create the file
+    JsonAdapter { id: saved; property string path: "" }
+}</code></pre></div><div class="seg-e"><p>A <a class="api" href="../ref/FileView.html"><code>FileView</code></a> with a <a class="api" href="../ref/JsonAdapter.html"><code>JsonAdapter</code></a> stores the path in the shell's state folder. Changing <code>saved.path</code> writes the file; <code>watchChanges</code> means editing the file by hand also works.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 24–28</span><b>From the terminal</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>IpcHandler {
+    target: "wallpaper"
+    function set(p: string): void { root.set(p) }
+    function get(): string { return root.path }
+}</code></pre></div><div class="seg-e"><p><code>qs ipc call wallpaper set ~/Pictures/wall.png</code>. Scripts and other tools (matugen, a wallpaper rotator) can use this.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 30–40</span><b>One window per screen</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Variants {
+    model: Quickshell.screens
+    PanelWindow {
+        id: win
+        required property var modelData
+        screen: modelData
+        anchors { top: true; bottom: true; left: true; right: true }
+        exclusionMode: ExclusionMode.Ignore
+        WlrLayershell.layer: WlrLayer.Background
+        WlrLayershell.namespace: "quickshell:wallpaper"
+        color: "#11111b"</code></pre></div><div class="seg-e"><p>On the <strong>background</strong> layer, below everything, including desktop widgets on the bottom layer.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 42–52</span><b>Two images</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// Two images take turns: the new file loads into the hidden one,
+// and once it's ready the two swap opacity, a 600 ms crossfade.
+property bool showA: true
+
+component Layer: Image {
+    anchors.fill: parent
+    fillMode: Image.PreserveAspectCrop
+    asynchronous: true
+    sourceSize: Qt.size(win.width, win.height)     // decode at screen size, not file size
+    Behavior on opacity { NumberAnimation { duration: 600 } }
+}</code></pre></div><div class="seg-e"><p>The <code>Layer</code> component sets up an image that fills the screen and fades its opacity. <code>sourceSize</code> makes Qt decode a 6000-pixel photo at screen size, which saves a lot of memory.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 53–63</span><b>Taking turns</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Layer {
+    id: a
+    Component.onCompleted: source = "file://" + root.path    // set once, not bound: see below
+    opacity: win.showA ? 1 : 0
+    onStatusChanged: if (status === Image.Ready) win.showA = true
+}
+Layer {
+    id: b
+    opacity: win.showA ? 0 : 1
+    onStatusChanged: if (status === Image.Ready) win.showA = false
+}</code></pre></div><div class="seg-e"><p><code>a</code> loads the first wallpaper once, in <code>Component.onCompleted</code>, and deliberately not as a binding: a binding would make <code>a</code> reload too whenever the path changed. Whichever image finishes loading becomes the visible one.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 65–71</span><b>Changing wallpaper</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Connections {
+    target: root
+    function onPathChanged(): void {
+        const next = win.showA ? b : a
+        next.source = "file://" + root.path
+    }
+}</code></pre></div><div class="seg-e"><p>The new file is loaded into the hidden image. When it's ready, its status handler swaps <code>showA</code>, and the two opacity behaviours crossfade.</p></div></div></div>
+<h2 id="wallpaper-picker">Wallpaper Picker<a class="hlink" href="#wallpaper-picker">#</a></h2>
+<div class="preview"><svg style="width:min(100%,690px)" width="460" height="170" viewBox="0 0 460 170"><rect x="5" y="5" width="450" height="160" rx="24" fill="#1e1e2e" stroke="#313244"/><rect x="21" y="27" width="130" height="116" rx="14" fill="#89b4fa" opacity=".7"/><rect x="161" y="21" width="140" height="128" rx="16" fill="#f5c2e7" stroke="#cba6f7" stroke-width="3"/><circle cx="283" cy="39" r="12" fill="#cba6f7"/><text x="283" y="44" fill="#1e1e2e" font-size="13" text-anchor="middle">✓</text><rect x="311" y="27" width="130" height="116" rx="14" fill="#a6e3a1" opacity=".7"/></svg></div>
+
+<p><strong>What it is.</strong> A strip of thumbnails from your wallpaper folder, newest first. Hover or use the arrow keys to move, click or Enter to apply. The current wallpaper has a check mark.</p>
+<p><strong>Kind:</strong> overlay with IPC · <strong>Needs:</strong> the Wallpaper above (or <code>swww</code> as a fallback)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/system/WallpaperPicker.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import QtQuick
+import QtQuick.Layouts
+
+// A grid of thumbnails from a folder; click one (or Enter) to make it the wallpaper.
+// Set `target` to your Wallpaper object to use it; without one, it falls back to swww.
+Scope {
+    id: root
+    property bool open: false
+    property string folder: Quickshell.env("HOME") + "/Pictures/Wallpapers"
+    property var target: null                         // the Wallpaper object (has set(path) and path)
+    property var files: []
+
+    IpcHandler { target: "wallpicker"; function toggle(): void { root.open = !root.open } }
+
+    // list images (newest first); the folder is an argument, not part of the command text
+    Process {
+        id: scan
+        command: ["sh", "-c", 'find "$1" -maxdepth 2 -type f \\( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \\) -printf "%T@ %p\\n" | sort -rn | cut -d" " -f2-', "sh", root.folder]
+        stdout: StdioCollector { onStreamFinished: root.files = text.split("\n").filter(l =&gt; l !== "") }
+    }
+    onOpenChanged: if (open) scan.running = true
+
+    function apply(path: string): void {
+        if (target) target.set(path)
+        else Quickshell.execDetached(["swww", "img", path, "--transition-type", "grow"])   // fallback
+    }
+
+    LazyLoader {
+        active: root.open
+        PanelWindow {
+            anchors.bottom: true
+            margins.bottom: 40
+            implicitWidth: Math.min(screen.width - 80, 1000); implicitHeight: 300
+            exclusionMode: ExclusionMode.Ignore
+            color: "transparent"
+            WlrLayershell.layer: WlrLayer.Overlay
+            WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+
+            Rectangle {
+                anchors.fill: parent
+                radius: 24; color: "#1e1e2e"; border.color: "#313244"
+
+                Text {
+                    visible: root.files.length === 0
+                    anchors.centerIn: parent
+                    text: "No images in " + root.folder; color: "#6c7086"
+                }
+                ListView {
+                    id: view
+                    anchors { fill: parent; margins: 16 }
+                    orientation: ListView.Horizontal
+                    spacing: 12; clip: true
+                    focus: true
+                    model: root.files
+                    highlightMoveDuration: 150
+                    preferredHighlightBegin: width / 2 - 170; preferredHighlightEnd: width / 2 + 170
+                    highlightRangeMode: ListView.ApplyRange
+                    Component.onCompleted: currentIndex = Math.max(0, root.files.indexOf(root.target?.path ?? ""))
+                    Keys.onEscapePressed: root.open = false
+                    Keys.onReturnPressed: root.apply(root.files[currentIndex])
+
+                    delegate: Item {
+                        id: thumb
+                        required property string modelData
+                        required property int index
+                        readonly property bool current: ListView.isCurrentItem
+                        readonly property bool inUse: root.target?.path === modelData
+                        width: 340; height: view.height
+
+                        Rectangle {
+                            anchors.fill: parent
+                            radius: 16; color: "#313244"
+                            border.color: thumb.current ? "#cba6f7" : "transparent"; border.width: 3
+                            scale: thumb.current ? 1 : 0.94
+                            Behavior on scale { NumberAnimation { duration: 150 } }
+                            Image {
+                                anchors { fill: parent; margins: 3 }
+                                source: "file://" + thumb.modelData
+                                sourceSize.width: 340                 // thumbnails: decode small, it's much faster
+                                fillMode: Image.PreserveAspectCrop
+                                asynchronous: true
+                            }
+                            Rectangle {
+                                visible: thumb.inUse
+                                anchors { right: parent.right; top: parent.top; margins: 10 }
+                                width: 28; height: 28; radius: 14; color: "#cba6f7"
+                                Text { anchors.centerIn: parent; text: "check"; font.family: "Material Symbols Rounded"; font.pixelSize: 18; color: "#1e1e2e" }
+                            }
+                        }
+                        HoverHandler { onHoveredChanged: if (hovered) view.currentIndex = thumb.index }
+                        TapHandler { onTapped: root.apply(thumb.modelData) }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 11–14</span><b>Settings</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool open: false
+property string folder: Quickshell.env("HOME") + "/Pictures/Wallpapers"
+property var target: null                         // the Wallpaper object (has set(path) and path)
+property var files: []</code></pre></div><div class="seg-e"><p>The folder to read, and <code>target</code>: the Wallpaper object to control. In <code>shell.qml</code> that's <code>WallpaperPicker { target: wallpaper }</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 18–24</span><b>Finding images</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// list images (newest first); the folder is an argument, not part of the command text
+Process {
+    id: scan
+    command: ["sh", "-c", 'find "$1" -maxdepth 2 -type f \\( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \\) -printf "%T@ %p\\n" | sort -rn | cut -d" " -f2-', "sh", root.folder]
+    stdout: StdioCollector { onStreamFinished: root.files = text.split("\n").filter(l =&gt; l !== "") }
+}
+onOpenChanged: if (open) scan.running = true</code></pre></div><div class="seg-e"><p><code>find</code> lists jpg, png and webp files up to one folder deep, prefixed with their modification time; <code>sort -rn</code> puts the newest first and <code>cut</code> removes the time again. The folder is passed as <code>$1</code>, so spaces in its name are fine. The scan reruns every time the picker opens.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 26–29</span><b>Applying</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function apply(path: string): void {
+    if (target) target.set(path)
+    else Quickshell.execDetached(["swww", "img", path, "--transition-type", "grow"])   // fallback
+}</code></pre></div><div class="seg-e"><p>Through the Wallpaper object if there is one, otherwise with <code>swww</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 51–63</span><b>A horizontal list</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ListView {
+    id: view
+    anchors { fill: parent; margins: 16 }
+    orientation: ListView.Horizontal
+    spacing: 12; clip: true
+    focus: true
+    model: root.files
+    highlightMoveDuration: 150
+    preferredHighlightBegin: width / 2 - 170; preferredHighlightEnd: width / 2 + 170
+    highlightRangeMode: ListView.ApplyRange
+    Component.onCompleted: currentIndex = Math.max(0, root.files.indexOf(root.target?.path ?? ""))
+    Keys.onEscapePressed: root.open = false
+    Keys.onReturnPressed: root.apply(root.files[currentIndex])</code></pre></div><div class="seg-e"><p><code>ApplyRange</code> with a highlight range in the middle keeps the selected thumbnail near the centre as you move. It starts on the current wallpaper.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 65–71</span><b>Thumbnails</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>delegate: Item {
+    id: thumb
+    required property string modelData
+    required property int index
+    readonly property bool current: ListView.isCurrentItem
+    readonly property bool inUse: root.target?.path === modelData
+    width: 340; height: view.height</code></pre></div><div class="seg-e"><p><code>current</code> for the selection, <code>inUse</code> for the active wallpaper.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 73–92</span><b>Drawing a thumbnail</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    anchors.fill: parent
+    radius: 16; color: "#313244"
+    border.color: thumb.current ? "#cba6f7" : "transparent"; border.width: 3
+    scale: thumb.current ? 1 : 0.94
+    Behavior on scale { NumberAnimation { duration: 150 } }
+    Image {
+        anchors { fill: parent; margins: 3 }
+        source: "file://" + thumb.modelData
+        sourceSize.width: 340                 // thumbnails: decode small, it's much faster
+        fillMode: Image.PreserveAspectCrop
+        asynchronous: true
+    }
+    Rectangle {
+        visible: thumb.inUse
+        anchors { right: parent.right; top: parent.top; margins: 10 }
+        width: 28; height: 28; radius: 14; color: "#cba6f7"
+        Text { anchors.centerIn: parent; text: "check"; font.family: "Material Symbols Rounded"; font.pixelSize: 18; color: "#1e1e2e" }
+    }
+}</code></pre></div><div class="seg-e"><p><code>sourceSize.width: 340</code> decodes each photo small, which keeps a folder of large wallpapers fast and light. The selected one is full size; the others are shrunk to 94%.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 93–94</span><b>Mouse</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>HoverHandler { onHoveredChanged: if (hovered) view.currentIndex = thumb.index }
+TapHandler { onTapped: root.apply(thumb.modelData) }</code></pre></div><div class="seg-e"><p>Hovering selects, clicking applies.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 9</span><span class="ex-lvl">Practice</span><b>Generate colours too</b></div><div class="ex-b"><p>After applying a wallpaper, also run <code>matugen image &lt;path&gt;</code> so the theme from <a class="xref" href="../ch/th7-beyond-the-shell.html">Theming 7: Theming Your Whole Desktop</a> follows it.</p></div></div>
+<h2 id="dock">Dock<a class="hlink" href="#dock">#</a></h2>
+<div class="preview"><svg style="width:min(100%,690px)" width="460" height="110" viewBox="0 0 460 110"><rect x="90" y="36" width="280" height="62" rx="20" fill="#1e1e2e" stroke="#313244"/><circle cx="130" cy="64" r="20" fill="#fab387"/><rect x="125" y="88" width="10" height="4" rx="2" fill="#cba6f7"/><circle cx="182" cy="56" r="26" fill="#89b4fa"/><rect x="176" y="88" width="4" height="4" rx="2" fill="#a6adc8"/><rect x="183" y="88" width="4" height="4" rx="2" fill="#a6adc8"/><circle cx="236" cy="64" r="20" fill="#a6e3a1"/><circle cx="284" cy="64" r="20" fill="#f9e2af"/><rect x="282" y="88" width="4" height="4" rx="2" fill="#a6adc8"/><circle cx="332" cy="64" r="20" fill="#f5c2e7"/><rect x="330" y="88" width="4" height="4" rx="2" fill="#a6adc8"/></svg></div>
+
+<p><strong>What it is.</strong> A macOS-style dock: pinned apps plus running ones, dots for open windows, icons that grow on hover. Click launches, focuses or cycles windows; middle-click opens a new window. It slides away when a maximized or fullscreen window would cover it and comes back when you touch the bottom edge.</p>
+<p><strong>Kind:</strong> own window · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/system/Dock.qml</span><code>import Quickshell
+import Quickshell.Wayland
+import Quickshell.Widgets
+import QtQuick
+import QtQuick.Layouts
+
+// A bottom dock: pinned apps plus running ones, a dot under running apps, magnify on hover,
+// and it hides when a window would cover it (shows again when the pointer touches the bottom edge).
+Scope {
+    id: root
+    property list&lt;string&gt; pinned: ["firefox", "kitty", "org.gnome.Nautilus", "code"]
+
+    readonly property var running: ToplevelManager.toplevels.values
+    // pinned first, then running apps that aren't pinned, one icon per app id
+    readonly property var apps: {
+        const ids = Array.from(pinned)
+        for (const t of running) if (t.appId &amp;&amp; !ids.includes(t.appId)) ids.push(t.appId)
+        return ids
+    }
+    function windowsOf(appId: string): var { return running.filter(t =&gt; t.appId === appId) }
+
+    Variants {
+        model: Quickshell.screens
+        PanelWindow {
+            id: win
+            required property var modelData
+            screen: modelData
+            anchors.bottom: true
+            implicitWidth: dock.implicitWidth + 40
+            implicitHeight: 90
+            exclusionMode: ExclusionMode.Ignore
+            color: "transparent"
+            WlrLayershell.namespace: "quickshell:dock"
+
+            // a window on this screen is maximized/fullscreen → hide unless hovered
+            readonly property bool covered: root.running.some(t =&gt; (t.maximized || t.fullscreen) &amp;&amp; t.screens.includes(win.screen))
+            readonly property bool shown: !covered || area.containsMouse
+            // input area: the dock and the gap below it while shown, only a 4 px strip while hidden
+            mask: Region { item: win.shown ? zone : edge }
+            Item { id: zone; anchors.bottom: parent.bottom; x: dock.x; width: dock.width; height: dock.height + 8 }
+            Item { id: edge; anchors.bottom: parent.bottom; width: parent.width; height: 4 }
+
+            MouseArea {
+                id: area
+                anchors.fill: parent
+                hoverEnabled: true
+                acceptedButtons: Qt.NoButton
+
+                Rectangle {
+                    id: dock
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    y: win.shown ? parent.height - height - 8 : parent.height + 4
+                    Behavior on y { NumberAnimation { duration: 250; easing.type: Easing.OutCubic } }
+                    implicitWidth: row.implicitWidth + 20
+                    implicitHeight: 62
+                    radius: 20; color: "#e61e1e2e"; border.color: "#313244"
+
+                    RowLayout {
+                        id: row
+                        anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom; bottomMargin: 8 }
+                        spacing: 6
+                        Repeater {
+                            model: root.apps
+                            Item {
+                                id: app
+                                required property string modelData
+                                readonly property var entry: DesktopEntries.heuristicLookup(modelData)
+                                readonly property var windows: root.windowsOf(modelData)
+                                readonly property bool focused: windows.some(t =&gt; t.activated)
+                                implicitWidth: 46 * icon.scale; implicitHeight: 46
+                                Layout.alignment: Qt.AlignBottom
+
+                                IconImage {
+                                    id: icon
+                                    anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom; bottomMargin: 4 }
+                                    implicitSize: 40
+                                    source: Quickshell.iconPath(app.entry?.icon ?? app.modelData, "application-x-executable")
+                                    scale: appHover.hovered ? 1.3 : 1
+                                    transformOrigin: Item.Bottom
+                                    Behavior on scale { NumberAnimation { duration: 140; easing.type: Easing.OutCubic } }
+                                }
+                                Row {                                     // one dot per open window (max 3)
+                                    anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom; bottomMargin: -4 }
+                                    spacing: 3
+                                    Repeater {
+                                        model: Math.min(3, app.windows.length)
+                                        Rectangle { width: app.focused ? 10 : 4; height: 4; radius: 2; color: app.focused ? "#cba6f7" : "#a6adc8" }
+                                    }
+                                }
+                                HoverHandler { id: appHover; cursorShape: Qt.PointingHandCursor }
+                                TapHandler {
+                                    onTapped: {
+                                        const w = app.windows
+                                        if (w.length === 0) app.entry?.execute()              // launch
+                                        else if (!app.focused) w[0].activate()                // focus
+                                        else w[(w.findIndex(t =&gt; t.activated) + 1) % w.length].activate()   // cycle
+                                    }
+                                }
+                                TapHandler { acceptedButtons: Qt.MiddleButton; onTapped: app.entry?.execute() }   // new window
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">line 11</span><b>Pinned apps</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property list&lt;string&gt; pinned: ["firefox", "kitty", "org.gnome.Nautilus", "code"]</code></pre></div><div class="seg-e"><p>App ids or desktop file names. Change the list to your favourites.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–19</span><b>The app list</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var running: ToplevelManager.toplevels.values
+// pinned first, then running apps that aren't pinned, one icon per app id
+readonly property var apps: {
+    const ids = Array.from(pinned)
+    for (const t of running) if (t.appId &amp;&amp; !ids.includes(t.appId)) ids.push(t.appId)
+    return ids
+}</code></pre></div><div class="seg-e"><p>Pinned apps first, then every running app that isn't pinned, each once.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 20</span><b>Windows per app</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function windowsOf(appId: string): var { return running.filter(t =&gt; t.appId === appId) }</code></pre></div><div class="seg-e"><p>All windows whose app id matches.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 24–33</span><b>One dock per screen</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    id: win
+    required property var modelData
+    screen: modelData
+    anchors.bottom: true
+    implicitWidth: dock.implicitWidth + 40
+    implicitHeight: 90
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.namespace: "quickshell:dock"</code></pre></div><div class="seg-e"><p>A bottom-anchored window, wider than the dock so magnified icons have room, and 90 px tall for the hover zoom.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 35–37</span><b>Hiding</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// a window on this screen is maximized/fullscreen → hide unless hovered
+readonly property bool covered: root.running.some(t =&gt; (t.maximized || t.fullscreen) &amp;&amp; t.screens.includes(win.screen))
+readonly property bool shown: !covered || area.containsMouse</code></pre></div><div class="seg-e"><p><code>covered</code> is true when a maximized or fullscreen window is on this screen. The dock shows when not covered, or while the pointer is over it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 38–41</span><b>Input mask</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// input area: the dock and the gap below it while shown, only a 4 px strip while hidden
+mask: Region { item: win.shown ? zone : edge }
+Item { id: zone; anchors.bottom: parent.bottom; x: dock.x; width: dock.width; height: dock.height + 8 }
+Item { id: edge; anchors.bottom: parent.bottom; width: parent.width; height: 4 }</code></pre></div><div class="seg-e"><p>While hidden, only a 4 px strip along the bottom accepts the pointer, so you can still click windows above it. While shown, the dock and the gap below it accept the pointer, so moving down onto the edge doesn't make it disappear under you.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 43–56</span><b>Sliding</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>MouseArea {
+    id: area
+    anchors.fill: parent
+    hoverEnabled: true
+    acceptedButtons: Qt.NoButton
+
+    Rectangle {
+        id: dock
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: win.shown ? parent.height - height - 8 : parent.height + 4
+        Behavior on y { NumberAnimation { duration: 250; easing.type: Easing.OutCubic } }
+        implicitWidth: row.implicitWidth + 20
+        implicitHeight: 62
+        radius: 20; color: "#e61e1e2e"; border.color: "#313244"</code></pre></div><div class="seg-e"><p>The dock's <code>y</code> moves it below the window edge to hide it; a <code>Behavior</code> makes that a slide.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 64–71</span><b>One app</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Item {
+    id: app
+    required property string modelData
+    readonly property var entry: DesktopEntries.heuristicLookup(modelData)
+    readonly property var windows: root.windowsOf(modelData)
+    readonly property bool focused: windows.some(t =&gt; t.activated)
+    implicitWidth: 46 * icon.scale; implicitHeight: 46
+    Layout.alignment: Qt.AlignBottom</code></pre></div><div class="seg-e"><p>Its desktop entry (for the icon and launching), its windows, and whether one of them is focused. The slot widens as its icon grows, pushing neighbours aside.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 73–81</span><b>Magnification</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>IconImage {
+    id: icon
+    anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom; bottomMargin: 4 }
+    implicitSize: 40
+    source: Quickshell.iconPath(app.entry?.icon ?? app.modelData, "application-x-executable")
+    scale: appHover.hovered ? 1.3 : 1
+    transformOrigin: Item.Bottom
+    Behavior on scale { NumberAnimation { duration: 140; easing.type: Easing.OutCubic } }
+}</code></pre></div><div class="seg-e"><p>Hovered icons scale to 130% from their bottom edge, so they grow upward.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 82–89</span><b>Window dots</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Row {                                     // one dot per open window (max 3)
+    anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom; bottomMargin: -4 }
+    spacing: 3
+    Repeater {
+        model: Math.min(3, app.windows.length)
+        Rectangle { width: app.focused ? 10 : 4; height: 4; radius: 2; color: app.focused ? "#cba6f7" : "#a6adc8" }
+    }
+}</code></pre></div><div class="seg-e"><p>Up to three dots; a wide purple one when the app is focused.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 91–99</span><b>Clicks</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TapHandler {
+    onTapped: {
+        const w = app.windows
+        if (w.length === 0) app.entry?.execute()              // launch
+        else if (!app.focused) w[0].activate()                // focus
+        else w[(w.findIndex(t =&gt; t.activated) + 1) % w.length].activate()   // cycle
+    }
+}
+TapHandler { acceptedButtons: Qt.MiddleButton; onTapped: app.entry?.execute() }   // new window</code></pre></div><div class="seg-e"><p>No windows: launch the app. Not focused: focus its first window. Already focused: focus the next one, cycling. Middle-click always launches a new instance.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 10</span><span class="ex-lvl">Practice</span><b>Pin from the dock</b></div><div class="ex-b"><p>Right-click a running app to pin or unpin it, and save <code>pinned</code> with a <code>FileView</code> + <code>JsonAdapter</code> like the wallpaper.</p></div></div>
+<h2 id="app-launcher">App Launcher<a class="hlink" href="#app-launcher">#</a></h2>
+<div class="preview"><svg style="width:min(100%,660px)" width="440" height="300" viewBox="0 0 440 300"><rect x="10" y="6" width="420" height="288" rx="24" fill="#1e1e2e" stroke="#313244"/><rect x="24" y="20" width="392" height="48" rx="24" fill="#313244"/><text x="44" y="50" fill="#a6adc8" font-size="16">⌕</text><text x="70" y="50" fill="#cdd6f4" font-size="16">fi</text><g font-size="14"><rect x="24" y="78" width="392" height="52" rx="14" fill="#45365e"/><circle cx="52" cy="104" r="16" fill="#fab387"/><text x="80" y="100" fill="#cdd6f4">Firefox</text><text x="80" y="118" fill="#6c7086" font-size="11">Browse the World Wide Web</text><circle cx="52" cy="160" r="16" fill="#89b4fa"/><text x="80" y="156" fill="#cdd6f4">Files</text><text x="80" y="174" fill="#6c7086" font-size="11">Access and organize files</text><circle cx="52" cy="216" r="16" fill="#a6e3a1"/><text x="80" y="212" fill="#cdd6f4">FileZilla</text><text x="80" y="230" fill="#6c7086" font-size="11">FTP client</text><circle cx="52" cy="270" r="16" fill="#f9e2af"/><text x="80" y="275" fill="#cdd6f4">GIMP</text></g></svg></div>
+
+<p><strong>What it is.</strong> A keyboard-first launcher: start typing, the best match is already selected, press Enter. Prefix matches rank first, keywords count ("browser" finds Firefox), and apps you launch often float to the top.</p>
+<p><strong>Kind:</strong> overlay with IPC · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/system/Launcher.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import Quickshell.Widgets
+import QtQuick
+import QtQuick.Layouts
+
+// A keyboard-first app launcher. Matches names, generic names and keywords,
+// ranks prefix matches first, and remembers how often you launch each app.
+Scope {
+    id: root
+    property bool open: false
+    IpcHandler { target: "launcher"; function toggle(): void { root.open = !root.open } }
+
+    // launch counts, saved between sessions: { "firefox.desktop": 12, … }
+    FileView {
+        path: Quickshell.statePath("launcher.json")
+        onAdapterUpdated: writeAdapter()
+        onLoadFailed: writeAdapter()
+        JsonAdapter { id: stats; property var counts: ({}) }
+    }
+
+    function score(e: var, q: string): int {
+        const name = e.name.toLowerCase()
+        if (q === "") return 1
+        if (name.startsWith(q)) return 100
+        if (name.split(/[\s-]/).some(w =&gt; w.startsWith(q))) return 60
+        if (name.includes(q)) return 40
+        if ((e.genericName ?? "").toLowerCase().includes(q)) return 20
+        if (e.keywords.some(k =&gt; k.toLowerCase().startsWith(q))) return 15
+        return 0
+    }
+    function results(q: string): var {
+        q = q.trim().toLowerCase()
+        return DesktopEntries.applications.values
+            .filter(e =&gt; !e.noDisplay)
+            .map(e =&gt; ({ e, s: score(e, q) + Math.min(30, (stats.counts[e.id] ?? 0) * 3) }))   // frequent apps float up
+            .filter(r =&gt; r.s &gt; Math.min(30, (stats.counts[r.e.id] ?? 0) * 3))                   // must match the query itself
+            .sort((a, b) =&gt; b.s - a.s || a.e.name.localeCompare(b.e.name))
+            .slice(0, 50)
+            .map(r =&gt; r.e)
+    }
+    function launch(e: var): void {
+        const c = Object.assign({}, stats.counts)        // copy, change, assign: so the adapter notices
+        c[e.id] = (c[e.id] ?? 0) + 1
+        stats.counts = c
+        e.execute()
+        open = false
+    }
+
+    LazyLoader {
+        active: root.open
+        PanelWindow {
+            id: win
+            implicitWidth: 560; implicitHeight: 480
+            exclusionMode: ExclusionMode.Ignore
+            color: "transparent"
+            WlrLayershell.layer: WlrLayer.Overlay
+            WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+            readonly property var shown: root.results(search.text)
+
+            Rectangle {
+                anchors.fill: parent
+                radius: 24; color: "#1e1e2e"; border.color: "#313244"
+                ColumnLayout {
+                    anchors { fill: parent; margins: 14 }
+                    spacing: 10
+                    Rectangle {
+                        Layout.fillWidth: true; implicitHeight: 48; radius: 24; color: "#313244"
+                        RowLayout {
+                            anchors { fill: parent; leftMargin: 18; rightMargin: 18 }
+                            spacing: 10
+                            Text { text: "search"; font.family: "Material Symbols Rounded"; font.pixelSize: 22; color: "#a6adc8" }
+                            TextInput {
+                                id: search
+                                Layout.fillWidth: true
+                                color: "#cdd6f4"; font.pixelSize: 16; focus: true
+                                onTextChanged: list.currentIndex = 0
+                                Keys.onEscapePressed: root.open = false
+                                Keys.onDownPressed: list.incrementCurrentIndex()
+                                Keys.onUpPressed: list.decrementCurrentIndex()
+                                Keys.onTabPressed: list.incrementCurrentIndex()
+                                Keys.onReturnPressed: if (win.shown.length) root.launch(win.shown[list.currentIndex])
+                                Text {
+                                    visible: parent.text === ""
+                                    text: "Search apps"; color: "#6c7086"; font.pixelSize: 16
+                                }
+                            }
+                        }
+                    }
+                    ListView {
+                        id: list
+                        Layout.fillWidth: true; Layout.fillHeight: true
+                        clip: true; spacing: 2
+                        model: win.shown
+                        highlightMoveDuration: 80
+                        delegate: Rectangle {
+                            id: row
+                            required property var modelData
+                            required property int index
+                            width: ListView.view.width
+                            implicitHeight: 52; radius: 14
+                            color: ListView.isCurrentItem ? "#45365e" : rowHover.hovered ? "#313244" : "transparent"
+                            RowLayout {
+                                anchors { fill: parent; leftMargin: 12; rightMargin: 12 }
+                                spacing: 12
+                                IconImage { implicitSize: 32; source: Quickshell.iconPath(row.modelData.icon, "application-x-executable") }
+                                ColumnLayout {
+                                    Layout.fillWidth: true
+                                    spacing: 0
+                                    Text { Layout.fillWidth: true; text: row.modelData.name; color: "#cdd6f4"; font.pixelSize: 14; elide: Text.ElideRight }
+                                    Text {
+                                        Layout.fillWidth: true
+                                        visible: text !== ""
+                                        text: row.modelData.comment || row.modelData.genericName
+                                        color: "#6c7086"; font.pixelSize: 11; elide: Text.ElideRight
+                                    }
+                                }
+                            }
+                            HoverHandler { id: rowHover; cursorShape: Qt.PointingHandCursor }
+                            TapHandler { onTapped: root.launch(row.modelData) }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–21</span><b>Launch counts</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// launch counts, saved between sessions: { "firefox.desktop": 12, … }
+FileView {
+    path: Quickshell.statePath("launcher.json")
+    onAdapterUpdated: writeAdapter()
+    onLoadFailed: writeAdapter()
+    JsonAdapter { id: stats; property var counts: ({}) }
+}</code></pre></div><div class="seg-e"><p>A small JSON file in the state folder maps desktop entry ids to how often you launched them.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 23–32</span><b>Scoring a match</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function score(e: var, q: string): int {
+    const name = e.name.toLowerCase()
+    if (q === "") return 1
+    if (name.startsWith(q)) return 100
+    if (name.split(/[\s-]/).some(w =&gt; w.startsWith(q))) return 60
+    if (name.includes(q)) return 40
+    if ((e.genericName ?? "").toLowerCase().includes(q)) return 20
+    if (e.keywords.some(k =&gt; k.toLowerCase().startsWith(q))) return 15
+    return 0
+}</code></pre></div><div class="seg-e"><p>Higher is better: the name starts with the query (100), a word in the name does ("code" in "Visual Studio Code", 60), the name contains it (40), then the generic name ("Web Browser", 20) and keywords (15). An empty query matches everything.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 33–42</span><b>Building the result list</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function results(q: string): var {
+    q = q.trim().toLowerCase()
+    return DesktopEntries.applications.values
+        .filter(e =&gt; !e.noDisplay)
+        .map(e =&gt; ({ e, s: score(e, q) + Math.min(30, (stats.counts[e.id] ?? 0) * 3) }))   // frequent apps float up
+        .filter(r =&gt; r.s &gt; Math.min(30, (stats.counts[r.e.id] ?? 0) * 3))                   // must match the query itself
+        .sort((a, b) =&gt; b.s - a.s || a.e.name.localeCompare(b.e.name))
+        .slice(0, 50)
+        .map(r =&gt; r.e)
+}</code></pre></div><div class="seg-e"><p>Hidden entries (<code>noDisplay</code>) are dropped. Each app gets its match score plus a frequency bonus of up to 30. The second filter keeps only apps whose <strong>match</strong> score is above zero, so a frequently used app doesn't show up for an unrelated query. Then: sort by score, then by name, keep the top 50.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 43–49</span><b>Launching</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function launch(e: var): void {
+    const c = Object.assign({}, stats.counts)        // copy, change, assign: so the adapter notices
+    c[e.id] = (c[e.id] ?? 0) + 1
+    stats.counts = c
+    e.execute()
+    open = false
+}</code></pre></div><div class="seg-e"><p>Update the count, then <code>execute()</code> the desktop entry (which handles field codes and terminal apps). The counts object is copied, changed and assigned back: changing a key inside a <code>var</code> property wouldn't be noticed, but assigning a new object is, and that triggers the save.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 53–60</span><b>The window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    id: win
+    implicitWidth: 560; implicitHeight: 480
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+    readonly property var shown: root.results(search.text)</code></pre></div><div class="seg-e"><p><code>shown</code> recomputes whenever the search text changes.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 74–88</span><b>The search field</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TextInput {
+    id: search
+    Layout.fillWidth: true
+    color: "#cdd6f4"; font.pixelSize: 16; focus: true
+    onTextChanged: list.currentIndex = 0
+    Keys.onEscapePressed: root.open = false
+    Keys.onDownPressed: list.incrementCurrentIndex()
+    Keys.onUpPressed: list.decrementCurrentIndex()
+    Keys.onTabPressed: list.incrementCurrentIndex()
+    Keys.onReturnPressed: if (win.shown.length) root.launch(win.shown[list.currentIndex])
+    Text {
+        visible: parent.text === ""
+        text: "Search apps"; color: "#6c7086"; font.pixelSize: 16
+    }
+}</code></pre></div><div class="seg-e"><p>Focus never leaves it: arrows and Tab move the selection, Enter launches it, Esc closes. Every new query selects the first (best) result again.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 91–123</span><b>Results</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ListView {
+    id: list
+    Layout.fillWidth: true; Layout.fillHeight: true
+    clip: true; spacing: 2
+    model: win.shown
+    highlightMoveDuration: 80
+    delegate: Rectangle {
+        id: row
+        required property var modelData
+        required property int index
+        width: ListView.view.width
+        implicitHeight: 52; radius: 14
+        color: ListView.isCurrentItem ? "#45365e" : rowHover.hovered ? "#313244" : "transparent"
+        RowLayout {
+            anchors { fill: parent; leftMargin: 12; rightMargin: 12 }
+            spacing: 12
+            IconImage { implicitSize: 32; source: Quickshell.iconPath(row.modelData.icon, "application-x-executable") }
+            ColumnLayout {
+                Layout.fillWidth: true
+                spacing: 0
+                Text { Layout.fillWidth: true; text: row.modelData.name; color: "#cdd6f4"; font.pixelSize: 14; elide: Text.ElideRight }
+                Text {
+                    Layout.fillWidth: true
+                    visible: text !== ""
+                    text: row.modelData.comment || row.modelData.genericName
+                    color: "#6c7086"; font.pixelSize: 11; elide: Text.ElideRight
+                }
+            }
+        }
+        HoverHandler { id: rowHover; cursorShape: Qt.PointingHandCursor }
+        TapHandler { onTapped: root.launch(row.modelData) }
+    }
+}</code></pre></div><div class="seg-e"><p>Icon, name and description. The current row is highlighted; clicking launches too.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 11</span><span class="ex-lvl">Practice</span><b>Actions</b></div><div class="ex-b"><p>Desktop entries have <code>actions</code> ("New Private Window"). Show them when you press the right arrow on a result.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p><code>row.modelData.actions</code> is a list of <code>DesktopAction</code>s with <code>name</code>, <code>icon</code> and <code>execute()</code>.</p></div></details></div>
+<h2 id="idle-manager">Idle Manager<a class="hlink" href="#idle-manager">#</a></h2>
+<p><strong>What it is.</strong> Replaces hypridle: the screen dims after 4 minutes, locks after 5, turns off after 6, and the machine suspends after 15. Video players and games that ask for no idle are respected, and the caffeine toggle pauses everything.</p>
+<p><strong>Kind:</strong> background service · <strong>Needs:</strong> a compositor with ext-idle-notify (Hyprland, Sway, niri…)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/system/IdleManager.qml</span><code>import Quickshell
+import Quickshell.Wayland
+import QtQuick
+import qs.services
+
+// Replaces hypridle: dim after 4 min, lock after 5, screen off after 6, suspend after 15.
+// Apps that inhibit idle (video players, games) are respected; so is Session.caffeine.
+Scope {
+    id: root
+
+    component Stage: IdleMonitor {
+        enabled: !Session.caffeine
+        respectInhibitors: true
+    }
+
+    // 1. dim: a black, half-transparent overlay that fades in
+    Stage { id: dim; timeout: 240 }
+    Variants {
+        model: dim.isIdle &amp;&amp; !Session.locked ? Quickshell.screens : []
+        PanelWindow {
+            required property var modelData
+            screen: modelData
+            anchors { top: true; bottom: true; left: true; right: true }
+            exclusionMode: ExclusionMode.Ignore
+            WlrLayershell.layer: WlrLayer.Overlay
+            color: "transparent"
+            mask: Region {}                                  // never takes input; moving the mouse ends idle anyway
+            Rectangle {
+                anchors.fill: parent
+                color: "black"
+                NumberAnimation on opacity { from: 0; to: 0.6; duration: 4000 }
+            }
+        }
+    }
+
+    // 2. lock
+    Stage { timeout: 300; onIsIdleChanged: if (isIdle) Session.locked = true }
+
+    // 3. screens off, and back on when you return
+    Stage {
+        timeout: 360
+        onIsIdleChanged: Quickshell.execDetached(["hyprctl", "dispatch", "dpms", isIdle ? "off" : "on"])
+    }
+
+    // 4. suspend (lock first so the machine wakes up locked)
+    Stage {
+        timeout: 900
+        onIsIdleChanged: if (isIdle) { Session.locked = true; Quickshell.execDetached(["systemctl", "suspend"]) }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 11–14</span><b>One idle stage</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>component Stage: IdleMonitor {
+    enabled: !Session.caffeine
+    respectInhibitors: true
+}</code></pre></div><div class="seg-e"><p><a class="api" href="../ref/IdleMonitor.html"><code>IdleMonitor</code></a> becomes <code>isIdle</code> after <code>timeout</code> seconds without input and goes back to false on any input. Every stage shares two settings: disabled while caffeine is on, and respecting idle inhibitors (apps like mpv or Firefox playing video inhibit idle).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 16–34</span><b>Dim</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// 1. dim: a black, half-transparent overlay that fades in
+Stage { id: dim; timeout: 240 }
+Variants {
+    model: dim.isIdle &amp;&amp; !Session.locked ? Quickshell.screens : []
+    PanelWindow {
+        required property var modelData
+        screen: modelData
+        anchors { top: true; bottom: true; left: true; right: true }
+        exclusionMode: ExclusionMode.Ignore
+        WlrLayershell.layer: WlrLayer.Overlay
+        color: "transparent"
+        mask: Region {}                                  // never takes input; moving the mouse ends idle anyway
+        Rectangle {
+            anchors.fill: parent
+            color: "black"
+            NumberAnimation on opacity { from: 0; to: 0.6; duration: 4000 }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>After 4 minutes, a black overlay fades to 60% on every screen. An empty <code>Region {}</code> mask means it takes no input. Any movement ends idle, which removes the overlay.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 36–37</span><b>Lock</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// 2. lock
+Stage { timeout: 300; onIsIdleChanged: if (isIdle) Session.locked = true }</code></pre></div><div class="seg-e"><p>At 5 minutes, lock.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 39–43</span><b>Screens off</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// 3. screens off, and back on when you return
+Stage {
+    timeout: 360
+    onIsIdleChanged: Quickshell.execDetached(["hyprctl", "dispatch", "dpms", isIdle ? "off" : "on"])
+}</code></pre></div><div class="seg-e"><p>At 6 minutes, <code>dpms off</code>; when you return, <code>dpms on</code>. The same handler does both directions.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 45–49</span><b>Suspend</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// 4. suspend (lock first so the machine wakes up locked)
+Stage {
+    timeout: 900
+    onIsIdleChanged: if (isIdle) { Session.locked = true; Quickshell.execDetached(["systemctl", "suspend"]) }
+}</code></pre></div><div class="seg-e"><p>Lock first, so the machine wakes up locked.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 12</span><span class="ex-lvl">Practice</span><b>Different times on battery</b></div><div class="ex-b"><p>Use shorter timeouts when <code>UPower.onBattery</code> is true.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><div class="codewrap"><pre class="code" data-lang="qml"><code>Stage { timeout: UPower.onBattery ? 120 : 300; onIsIdleChanged: if (isIdle) Session.locked = true }</code></pre></div>
+<p>(and <code>import Quickshell.Services.UPower</code>).</p></div></details></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/g8-popups-menus-2.html"><small>← Previous</small><span>Gallery: Popups, Menus and Pickers</span></a><a class="pn-next" href="../ch/g10-full-shell.html"><small>Next →</small><span>Gallery: Build a Whole Shell from the Gallery</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#the-notification-service">The Notification Service</a><a class="l2" href="#notification-popups">Notification Popups</a><a class="l2" href="#notification-center">Notification Center</a><a class="l2" href="#lock-screen">Lock Screen</a><a class="l2" href="#polkit-agent">Polkit Agent</a><a class="l2" href="#battery-warnings">Battery Warnings</a><a class="l2" href="#workspace-osd">Workspace OSD</a><a class="l2" href="#region-selector">Region Selector</a><a class="l2" href="#wallpaper">Wallpaper</a><a class="l2" href="#wallpaper-picker">Wallpaper Picker</a><a class="l2" href="#dock">Dock</a><a class="l2" href="#app-launcher">App Launcher</a><a class="l2" href="#idle-manager">Idle Manager</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

@@ -203,7 +203,26 @@ MaterialIcon {
 
 (`lastIpcObject` for monitors needs `Hyprland.refreshMonitors()` on the `activespecial` event.)
 
-> [!TRY] Exercises
-> 1. Make the workspace count configurable from `config.json`.
-> 2. Add a tooltip showing the window titles on hover.
-> 3. Hide empty workspaces above the highest occupied one (dynamic count).
+## Practice
+
+::: exercise warm | Configurable count
+Make the workspace count configurable from `config.json`.
+--- solution
+Add `property int workspaces: 10` to the `bar` section of `Config`, then use `model: Config.bar.workspaces` in the `Repeater`.
+:::
+
+::: exercise practice | Window titles tooltip
+Show a tooltip listing the window titles of a workspace on hover.
+--- hint
+`Hyprland.toplevels.values.filter(t => t.workspace?.id === wsId).map(t => t.title).join("\n")`
+:::
+
+::: exercise challenge | Dynamic count
+Hide empty workspaces above the highest occupied one.
+--- solution
+```qml
+readonly property int shown: Math.max(5, ...Hyprland.workspaces.values.map(w => w.id), Hyprland.focusedWorkspace?.id ?? 1)
+Repeater { model: shown; /* … */ }
+```
+The spread over an empty array is fine because of the `5` minimum.
+:::

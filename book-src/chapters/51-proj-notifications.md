@@ -312,7 +312,30 @@ Process { id: ding; command: ["pw-play", "/usr/share/sounds/freedesktop/stereo/m
 // in onNotification: if (!GlobalStates.dnd) ding.running = true
 ```
 
-> [!TRY] Exercises
-> 1. Limit popups per app to 2 (replace older ones from the same app).
-> 2. Add a "Mark all read" button that clears popups but keeps history.
-> 3. Persist DND across restarts in a state file.
+## Practice
+
+::: exercise warm | Persist DND
+Save the do-not-disturb state across restarts in a state file.
+--- solution
+```qml
+FileView { path: Quickshell.statePath("dnd.json"); onAdapterUpdated: writeAdapter(); printErrors: false
+    JsonAdapter { id: dndState; property bool dnd: false } }
+// in GlobalStates: property alias dnd: dndState.dnd
+```
+:::
+
+::: exercise practice | Mark all read
+Add a "Mark all read" button that clears popups but keeps history.
+--- hint
+Popups and history are separate lists in the service; clear only the popup list.
+:::
+
+::: exercise challenge | Two per app
+Limit popups to 2 per app: when a third arrives, hide the oldest one from that app.
+--- solution
+In `onNotification`, before adding:
+```qml
+const same = popups.filter(p => p.appName === n.appName)
+if (same.length >= 2) hidePopup(same[0])
+```
+:::

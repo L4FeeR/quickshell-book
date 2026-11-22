@@ -123,7 +123,45 @@ The mental model: **implicit sizes flow up** (children tell parents what they'd 
 - Odd sizes at fractional scaling can blur 1 px lines. Keep borders and dividers at whole logical pixels and consider `border.pixelAligned: true`.
 - For images and SVGs, set `sourceSize` to *display size × devicePixelRatio* for crispness.
 
-> [!TRY] Exercises
-> 1. Build `Chip.qml` and put three chips with different text lengths in a `Row`. They should all size themselves.
-> 2. Put one chip in a `RowLayout` with `Layout.fillWidth: true` and confirm it stretches.
-> 3. Create a binding loop on purpose, read the warning, then fix it using implicit sizes.
+## Practice
+
+::: exercise warm | Self-sizing chips
+Put three `Chip`s (from [[ch:12-components]]) with different text lengths in a `Row`. They should all size themselves.
+--- hint
+The chip's `implicitWidth` must come from its text's `implicitWidth` plus padding.
+:::
+
+::: exercise practice | Stretching
+Put one chip in a `RowLayout` with `Layout.fillWidth: true` and confirm it stretches while the others keep their implicit size.
+--- solution
+```qml
+RowLayout { width: 500
+    Chip { label: "CPU"; value: 4 }
+    Chip { label: "Stretch"; value: 50; Layout.fillWidth: true }
+    Chip { label: "RAM"; value: 70 } }
+```
+:::
+
+::: exercise practice | Fix a binding loop
+Create a binding loop on purpose (a parent whose width comes from its child, and a child whose width is `parent.width`), read the warning, then fix it with implicit sizes.
+--- solution
+Broken: `Rectangle { width: child.width; Rectangle { id: child; width: parent.width } }`.
+Fixed: the child reports `implicitWidth`, the parent uses it, and only the parent decides the real width:
+```qml
+Rectangle { implicitWidth: label.implicitWidth + 20; implicitHeight: 28
+    Text { id: label; anchors.centerIn: parent; text: "hello" } }
+```
+:::
+
+::: exercise challenge | Min and max
+Make a chip that grows with its text but never gets narrower than 60 px or wider than 200 px (eliding the text).
+--- solution
+```qml
+Rectangle {
+    implicitWidth: Math.max(60, Math.min(200, t.implicitWidth + 20)); implicitHeight: 26; radius: 13; color: "#313244"
+    Text { id: t; anchors { fill: parent; leftMargin: 10; rightMargin: 10 }; verticalAlignment: Text.AlignVCenter
+           horizontalAlignment: Text.AlignHCenter; elide: Text.ElideRight; color: "white"; text: "some long window title here" }
+}
+```
+`t.implicitWidth` is the *natural* text width, even though the text is anchored, so there's no loop.
+:::

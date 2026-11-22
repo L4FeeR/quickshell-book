@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caelestia 3: The Frame and the Drawer System · The Quickshell Book</title>
+<meta name="description" content="Caelestia 3: The Frame and the Drawer System">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details open><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch active" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-f">Part F: Rebuilding Famous Rices</a> › Caelestia 3: The Frame and the Drawer System</div><article><div class="ch-head"><div class="ch-part">Part F · Rebuilding Famous Rices</div><h1><span class="ch-num">cae3</span>Caelestia 3: The Frame and the Drawer System</h1></div><p>This chapter builds the part that makes Caelestia <em>Caelestia</em>: one fullscreen window per monitor that draws the frame and holds every panel as a <strong>drawer</strong> that slides out of a frame edge. It's the most important chapter of the Caelestia rebuild. Once you understand it, every later module is just "a drawer with some content".</p>
+<p><img alt="The frame and four drawers rendered by the rebuild's Border and PanelBg components" src="../assets/img/cae-frame-render.png" /></p>
+<p><em>Rendered from the files in this chapter (<code>Border.qml</code> + <code>PanelBg.qml</code>): a frame with a 50 px left side for the bar, and drawers on all four edges melting into it.</em></p>
+<h2 id="the-idea-in-one-picture">The idea in one picture<a class="hlink" href="#the-idea-in-one-picture">#</a></h2>
+<div class="preview"><svg style="width:min(100%,990px)" width="660" height="300" viewBox="0 0 660 300"><g font-size="11"><g transform="translate(10 20)"><rect width="280" height="200" fill="#3a5a8c" opacity=".5"/><path d="M0 0H280V200H0Z M40 8H262Q272 8 272 18V182Q272 192 262 192H50Q40 192 40 182Z" fill="#141218" fill-rule="evenodd"/><rect x="100" y="8" width="90" height="46" rx="12" fill="#141218"/><text x="140" y="225" fill="#a6adc8" text-anchor="middle">what you see</text></g><g transform="translate(360 20)"><rect width="280" height="200" fill="none" stroke="#585b70" stroke-dasharray="4 3"/><rect width="40" height="200" fill="#f9e2af" opacity=".55"/><rect width="280" height="8" fill="#f9e2af" opacity=".55"/><rect x="272" width="8" height="200" fill="#f9e2af" opacity=".55"/><rect y="192" width="280" height="8" fill="#f9e2af" opacity=".55"/><rect x="100" y="8" width="90" height="46" fill="#f9e2af" opacity=".55"/><text x="150" y="120" fill="#a6adc8" text-anchor="middle">clicks pass through here</text><text x="140" y="225" fill="#a6adc8" text-anchor="middle">what takes input (the mask)</text></g><g transform="translate(10 260)" fill="#cdd6f4"><text>One transparent window covers the whole screen. It draws the frame and the open drawers,</text><text y="16">and its input mask is exactly those shapes, so your apps get every click in the middle.</text></g></g></svg></div>
+
+<p>Files in this chapter:</p>
+<div class="codewrap"><pre class="code" data-lang="text"><code>modules/drawers/  Drawers  Exclusions  ContentWindow  Border  PanelBg  Panels  Interactions
+components/       DrawerWrapper</code></pre></div>
+<h2 id="module-1-one-frame-per-monitor">Module 1: One frame per monitor<a class="hlink" href="#module-1-one-frame-per-monitor">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">cae/modules/drawers/Drawers.qml</span><code>import Quickshell
+import QtQuick
+
+// One frame window (plus the windows that reserve space) for every monitor.
+Variants {
+    model: Quickshell.screens
+
+    Scope {
+        id: scope
+
+        required property ShellScreen modelData
+
+        Exclusions {
+            screen: scope.modelData
+            barZone: content.bar.exclusiveZone
+        }
+
+        ContentWindow {
+            id: content
+            screen: scope.modelData
+        }
+    }
+}</code></pre></div>
+<p><code>Variants</code> creates one copy of its delegate per screen. Each copy is a <code>Scope</code> with two things: the <strong>Exclusions</strong> (which reserve space) and the <strong>ContentWindow</strong> (which draws everything).</p>
+<h2 id="module-2-reserving-space-without-blocking-anything">Module 2: Reserving space without blocking anything<a class="hlink" href="#module-2-reserving-space-without-blocking-anything">#</a></h2>
+<p>The frame window covers the entire screen and ignores exclusive zones, otherwise it would push itself away. But tiled windows still need to stay <em>inside</em> the frame. Caelestia's trick: four extra, invisible, 1-pixel windows that do nothing but reserve space.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">cae/modules/drawers/Exclusions.qml</span><code>import Quickshell
+import Quickshell.Wayland
+import QtQuick
+import qs.config
+
+// The frame window itself ignores exclusive zones (it covers the whole screen). These four
+// invisible 1px windows reserve space instead, so tiled windows sit inside the frame.
+Scope {
+    id: root
+
+    required property ShellScreen screen
+    required property int barZone
+
+    Zone { anchors.left: true; exclusiveZone: root.barZone }
+    Zone { anchors.top: true }
+    Zone { anchors.right: true }
+    Zone { anchors.bottom: true }
+
+    component Zone: PanelWindow {
+        screen: root.screen
+        color: "transparent"
+        exclusiveZone: Config.border.thickness
+        mask: Region {}
+        implicitWidth: 1
+        implicitHeight: 1
+        WlrLayershell.namespace: "cae-border-exclusion"
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–17</span><b>One per edge</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Zone { anchors.left: true; exclusiveZone: root.barZone }
+Zone { anchors.top: true }
+Zone { anchors.right: true }
+Zone { anchors.bottom: true }</code></pre></div><div class="seg-e"><p>Each <code>Zone</code> is anchored to one edge only. The left one reserves the bar's width (it changes when the bar hides), the others reserve the frame thickness.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 19–27</span><b>An invisible window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>component Zone: PanelWindow {
+    screen: root.screen
+    color: "transparent"
+    exclusiveZone: Config.border.thickness
+    mask: Region {}
+    implicitWidth: 1
+    implicitHeight: 1
+    WlrLayershell.namespace: "cae-border-exclusion"
+}</code></pre></div><div class="seg-e"><p>1×1 pixel, transparent, with an empty input mask (<code>Region {}</code>), so it can never be seen or clicked. Its only job is <code>exclusiveZone</code>: Hyprland keeps tiled windows that many pixels away from that edge.</p></div></div></div>
+<div class="box note"><div class="bt">In the original</div><p><code>modules/drawers/Exclusions.qml</code> does exactly this. It's a good example of a trick worth stealing: separating "what reserves space" from "what draws".</p></div>
+<h2 id="module-3-the-frame-shape">Module 3: The frame shape<a class="hlink" href="#module-3-the-frame-shape">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">cae/modules/drawers/Border.qml</span><code>import QtQuick
+import QtQuick.Shapes
+
+// The frame around the screen: the whole window minus a rounded "hole".
+// The left side is as wide as the bar, so the bar sits inside the frame.
+Shape {
+    id: root
+
+    property real thickness: 10
+    property real leftThickness: 50     // = bar width
+    property real rounding: 25
+    property color colour: "black"
+
+    anchors.fill: parent
+    preferredRendererType: Shape.CurveRenderer
+
+    ShapePath {
+        fillColor: root.colour
+        strokeWidth: -1
+        fillRule: ShapePath.OddEvenFill   // the inner rectangle cuts a hole in the outer one
+
+        PathRectangle { x: 0; y: 0; width: root.width; height: root.height }
+        PathRectangle {
+            x: root.leftThickness
+            y: root.thickness
+            width: root.width - root.leftThickness - root.thickness
+            height: root.height - root.thickness * 2
+            radius: root.rounding
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 17–22</span><b>A shape with a hole</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ShapePath {
+    fillColor: root.colour
+    strokeWidth: -1
+    fillRule: ShapePath.OddEvenFill   // the inner rectangle cuts a hole in the outer one
+
+    PathRectangle { x: 0; y: 0; width: root.width; height: root.height }</code></pre></div><div class="seg-e"><p>A <code>ShapePath</code> with <code>OddEvenFill</code> fills areas covered an <strong>odd</strong> number of times. Two rectangles are drawn: the full window, and an inner rounded rectangle. The middle is covered twice (even), so it stays empty. The strip between them is covered once and gets filled: that's the frame.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 23–29</span><b>The inner hole</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PathRectangle {
+    x: root.leftThickness
+    y: root.thickness
+    width: root.width - root.leftThickness - root.thickness
+    height: root.height - root.thickness * 2
+    radius: root.rounding
+}</code></pre></div><div class="seg-e"><p>The hole starts <code>leftThickness</code> from the left (the bar's width) and <code>thickness</code> from the other edges, with rounded corners. <code>PathRectangle</code> needs Qt 6.8 or newer.</p></div></div></div>
+<h2 id="module-4-drawer-backgrounds-that-melt-into-the-frame">Module 4: Drawer backgrounds that melt into the frame<a class="hlink" href="#module-4-drawer-backgrounds-that-melt-into-the-frame">#</a></h2>
+<p>A plain rounded rectangle next to the frame would look glued on. Caelestia's panels instead flow out of the frame with concave curves where they meet it. The rebuild draws that with one path per drawer:</p>
+<div class="preview"><svg style="width:min(100%,840px)" width="560" height="170" viewBox="0 0 560 170"><g font-size="11"><rect x="0" y="0" width="560" height="14" fill="#141218"/><path d="M150 14 A30 30 0 0 1 180 44 V110 A28 28 0 0 0 208 138 H352 A28 28 0 0 0 380 110 V44 A30 30 0 0 1 410 14 Z" fill="#141218"/><g fill="none" stroke="#f9e2af" stroke-width="2"><path d="M150 14 A30 30 0 0 1 180 44"/><path d="M380 44 A30 30 0 0 1 410 14"/></g><g fill="none" stroke="#89b4fa" stroke-width="2"><path d="M180 110 A28 28 0 0 0 208 138"/><path d="M352 138 A28 28 0 0 0 380 110"/></g><text x="100" y="40" fill="#f9e2af">concave "ear"</text><text x="420" y="40" fill="#f9e2af">concave "ear"</text><text x="90" y="135" fill="#89b4fa">convex corner</text><text x="395" y="135" fill="#89b4fa">convex corner</text><text x="280" y="80" fill="#cdd6f4" text-anchor="middle">panel body</text><text x="280" y="160" fill="#a6adc8" text-anchor="middle">u runs along the edge → · v goes into the screen ↓</text></g></svg></div>
+
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">cae/modules/drawers/PanelBg.qml</span><code>import QtQuick
+import QtQuick.Shapes
+
+// The surface behind one drawer: a rounded panel glued to a screen edge, with two concave
+// "ears" where it meets the frame, so frame and drawer read as one continuous shape.
+// It follows the drawer's wrapper item, so it grows as the drawer slides out.
+Shape {
+    id: root
+
+    required property Item panel        // the drawer wrapper (its size = the visible part)
+    property string edge: "top"         // which frame edge the drawer comes out of
+    property real offsetX: 0            // where `panel`'s parent sits inside the window
+    property real offsetY: 0
+    property real radius: 28            // corners of the panel body
+    property real earRadius: 25         // the concave joints (match the frame rounding)
+    property color colour: "black"
+
+    readonly property bool horizontal: edge === "top" || edge === "bottom"
+    readonly property real along: horizontal ? panel.width : panel.height
+    readonly property real depth: horizontal ? panel.height : panel.width
+    readonly property real r: Math.max(0, Math.min(earRadius, depth / 2))
+    readonly property real cr: Math.max(0, Math.min(radius, depth - r, along / 2))
+    // Mirrored edges (bottom, left) draw the same path reflected, which reverses arc direction.
+    readonly property bool mirrored: edge === "bottom" || edge === "left"
+    readonly property int concave: mirrored ? PathArc.Counterclockwise : PathArc.Clockwise
+    readonly property int convex: mirrored ? PathArc.Clockwise : PathArc.Counterclockwise
+
+    // canonical coordinates: u runs along the edge (0 .. along + 2r), v goes into the screen (0 .. depth)
+    function px(u: real, v: real): real {
+        return edge === "left" ? v : edge === "right" ? width - v : u;
+    }
+    function py(u: real, v: real): real {
+        return edge === "top" ? v : edge === "bottom" ? height - v : u;
+    }
+
+    visible: depth &gt; 0.5 &amp;&amp; along &gt; 0
+    preferredRendererType: Shape.CurveRenderer
+
+    x: offsetX + panel.x - (edge === "left" || edge === "right" ? 0 : r)
+    y: offsetY + panel.y - (horizontal ? 0 : r)
+    width: horizontal ? along + 2 * r : depth
+    height: horizontal ? depth : along + 2 * r
+
+    ShapePath {
+        fillColor: root.colour
+        strokeWidth: -1
+        startX: root.px(0, 0)
+        startY: root.py(0, 0)
+
+        // left/top ear: from the frame edge, curving into the panel's side
+        PathArc { x: root.px(root.r, root.r); y: root.py(root.r, root.r); radiusX: root.r; radiusY: root.r; direction: root.concave }
+        PathLine { x: root.px(root.r, root.depth - root.cr); y: root.py(root.r, root.depth - root.cr) }
+        // rounded far corners of the panel body
+        PathArc { x: root.px(root.r + root.cr, root.depth); y: root.py(root.r + root.cr, root.depth); radiusX: root.cr; radiusY: root.cr; direction: root.convex }
+        PathLine { x: root.px(root.r + root.along - root.cr, root.depth); y: root.py(root.r + root.along - root.cr, root.depth) }
+        PathArc { x: root.px(root.r + root.along, root.depth - root.cr); y: root.py(root.r + root.along, root.depth - root.cr); radiusX: root.cr; radiusY: root.cr; direction: root.convex }
+        PathLine { x: root.px(root.r + root.along, root.r); y: root.py(root.r + root.along, root.r) }
+        // right/bottom ear back to the frame edge
+        PathArc { x: root.px(root.along + 2 * root.r, 0); y: root.py(root.along + 2 * root.r, 0); radiusX: root.r; radiusY: root.r; direction: root.concave }
+        PathLine { x: root.px(0, 0); y: root.py(0, 0) }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–16</span><b>What it follows</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>required property Item panel        // the drawer wrapper (its size = the visible part)
+property string edge: "top"         // which frame edge the drawer comes out of
+property real offsetX: 0            // where `panel`'s parent sits inside the window
+property real offsetY: 0
+property real radius: 28            // corners of the panel body
+property real earRadius: 25         // the concave joints (match the frame rounding)
+property color colour: "black"</code></pre></div><div class="seg-e"><p><code>panel</code> is the drawer's wrapper item (Module 6). Its size is the <em>visible</em> part of the drawer, so the background grows as the drawer slides out. <code>offsetX</code>/<code>offsetY</code> say where the drawers' container sits inside the window (after the bar and the frame).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 18–22</span><b>Sizes along and into the edge</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property bool horizontal: edge === "top" || edge === "bottom"
+readonly property real along: horizontal ? panel.width : panel.height
+readonly property real depth: horizontal ? panel.height : panel.width
+readonly property real r: Math.max(0, Math.min(earRadius, depth / 2))
+readonly property real cr: Math.max(0, Math.min(radius, depth - r, along / 2))</code></pre></div><div class="seg-e"><p><code>along</code> is the panel's size parallel to the edge, <code>depth</code> how far it reaches into the screen. <code>r</code> (ear radius) and <code>cr</code> (corner radius) shrink when the panel is small, so a drawer that is just starting to open doesn't produce broken curves.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 23–26</span><b>Arc directions</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// Mirrored edges (bottom, left) draw the same path reflected, which reverses arc direction.
+readonly property bool mirrored: edge === "bottom" || edge === "left"
+readonly property int concave: mirrored ? PathArc.Counterclockwise : PathArc.Clockwise
+readonly property int convex: mirrored ? PathArc.Clockwise : PathArc.Counterclockwise</code></pre></div><div class="seg-e"><p>A path drawn for the top edge can be reused for the other edges by mapping its coordinates. Mapping to the bottom or left edge is a <strong>reflection</strong>, and a reflection reverses which way an arc turns, so the clockwise/counter-clockwise directions swap for those edges.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 28–34</span><b>One path, four edges</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// canonical coordinates: u runs along the edge (0 .. along + 2r), v goes into the screen (0 .. depth)
+function px(u: real, v: real): real {
+    return edge === "left" ? v : edge === "right" ? width - v : u;
+}
+function py(u: real, v: real): real {
+    return edge === "top" ? v : edge === "bottom" ? height - v : u;
+}</code></pre></div><div class="seg-e"><p>The path is written once in "edge coordinates": <code>u</code> along the edge and <code>v</code> into the screen. <code>px()</code>/<code>py()</code> turn <code>(u, v)</code> into real <code>x</code>/<code>y</code> for the chosen edge. For the right edge, <code>v</code> is measured from the right side (<code>width - v</code>); for the bottom, from the bottom.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 39–42</span><b>Position and size</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>x: offsetX + panel.x - (edge === "left" || edge === "right" ? 0 : r)
+y: offsetY + panel.y - (horizontal ? 0 : r)
+width: horizontal ? along + 2 * r : depth
+height: horizontal ? depth : along + 2 * r</code></pre></div><div class="seg-e"><p>The shape is wider than the panel by one ear radius on each side, because the ears stick out past the panel's sides.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 50–60</span><b>The path itself</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// left/top ear: from the frame edge, curving into the panel's side
+PathArc { x: root.px(root.r, root.r); y: root.py(root.r, root.r); radiusX: root.r; radiusY: root.r; direction: root.concave }
+PathLine { x: root.px(root.r, root.depth - root.cr); y: root.py(root.r, root.depth - root.cr) }
+// rounded far corners of the panel body
+PathArc { x: root.px(root.r + root.cr, root.depth); y: root.py(root.r + root.cr, root.depth); radiusX: root.cr; radiusY: root.cr; direction: root.convex }
+PathLine { x: root.px(root.r + root.along - root.cr, root.depth); y: root.py(root.r + root.along - root.cr, root.depth) }
+PathArc { x: root.px(root.r + root.along, root.depth - root.cr); y: root.py(root.r + root.along, root.depth - root.cr); radiusX: root.cr; radiusY: root.cr; direction: root.convex }
+PathLine { x: root.px(root.r + root.along, root.r); y: root.py(root.r + root.along, root.r) }
+// right/bottom ear back to the frame edge
+PathArc { x: root.px(root.along + 2 * root.r, 0); y: root.py(root.along + 2 * root.r, 0); radiusX: root.r; radiusY: root.r; direction: root.concave }
+PathLine { x: root.px(0, 0); y: root.py(0, 0) }</code></pre></div><div class="seg-e"><p>Start on the frame edge, curve concavely into the panel's side (the ear), go down the side, round the far corner, cross the far side, round the other corner, come back up, and curve out into the frame again.</p></div></div></div>
+<div class="box note"><div class="bt">In the original</div><p>Caelestia draws the frame and all panels with its <strong>Blobs</strong> plugin (<code>plugin/src/Caelestia/Blobs/</code>): each shape is a signed distance field, and the GPU smoothly <em>blends</em> nearby shapes. That gives the same melted joints, plus a slight stretch ("deform") while panels move. The rebuild gets the look with QML <code>Shape</code>s and no C++.</p></div>
+<h2 id="module-5-the-frame-window">Module 5: The frame window<a class="hlink" href="#module-5-the-frame-window">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">cae/modules/drawers/ContentWindow.qml</span><code>import Quickshell
+import Quickshell.Wayland
+import Quickshell.Hyprland
+import QtQuick
+import QtQuick.Effects
+import qs.config
+import qs.services
+import qs.components
+import qs.modules.bar
+
+// The heart of the shell: one transparent, fullscreen window per monitor that draws the frame
+// and contains the bar and every drawer. Only the frame and the open drawers take input.
+PanelWindow {
+    id: root
+
+    readonly property ScreenState screenState: ScreenState {}
+    readonly property alias bar: barWrapper
+    readonly property real thickness: Config.border.thickness
+
+    color: "transparent"
+    anchors { top: true; bottom: true; left: true; right: true }
+    exclusionMode: ExclusionMode.Ignore
+    WlrLayershell.layer: WlrLayer.Top
+    WlrLayershell.namespace: "cae-drawers"
+    WlrLayershell.keyboardFocus: screenState.launcher || screenState.session ? WlrKeyboardFocus.OnDemand : WlrKeyboardFocus.None
+
+    Component.onCompleted: Visibilities.register(screen, screenState)
+
+    // Input only where something is drawn: the four frame strips and each drawer.
+    mask: Region {
+        Region { width: barWrapper.implicitWidth; height: root.height }
+        Region { width: root.width; height: root.thickness }
+        Region { x: root.width - root.thickness; width: root.thickness; height: root.height }
+        Region { y: root.height - root.thickness; width: root.width; height: root.thickness }
+        Region { item: drawerPanels.dashboard }
+        Region { item: drawerPanels.launcher }
+        Region { item: drawerPanels.notifications }
+        Region { item: drawerPanels.sidebar }
+        Region { item: drawerPanels.session }
+        Region { item: drawerPanels.osd }
+        Region { item: drawerPanels.utilities }
+        Region { item: drawerPanels.popouts }
+    }
+
+    // Clicking outside an open launcher, session menu or sidebar closes it.
+    HyprlandFocusGrab {
+        windows: [root]
+        active: root.screenState.launcher || root.screenState.session || root.screenState.sidebar
+        onCleared: {
+            root.screenState.launcher = false;
+            root.screenState.session = false;
+            root.screenState.sidebar = false;
+        }
+    }
+
+    // Dim the screen behind the session menu.
+    StyledRect {
+        anchors.fill: parent
+        color: Colours.palette.m3scrim
+        opacity: root.screenState.session ? 0.4 : 0
+
+        Behavior on opacity {
+            Anim { type: Anim.Effects }
+        }
+    }
+
+    // All surfaces are drawn opaque inside one layer, then the whole layer gets the surface
+    // alpha and one shared shadow. Overlapping shapes therefore never look darker.
+    Item {
+        anchors.fill: parent
+        opacity: Colours.surface.a
+        layer.enabled: true
+        layer.effect: MultiEffect {
+            shadowEnabled: true
+            blurMax: 15
+            shadowColor: Qt.alpha(Colours.palette.m3shadow, 0.7)
+        }
+
+        Border {
+            thickness: root.thickness
+            leftThickness: barWrapper.implicitWidth
+            rounding: Config.border.rounding
+            colour: Qt.alpha(Colours.surface, 1)
+        }
+
+        Bg { panel: drawerPanels.dashboard; edge: "top" }
+        Bg { panel: drawerPanels.launcher; edge: "bottom" }
+        Bg { panel: drawerPanels.notifications; edge: "top" }
+        Bg { panel: drawerPanels.sidebar; edge: "right" }
+        Bg { panel: drawerPanels.session; edge: "right" }
+        Bg { panel: drawerPanels.osd; edge: "right" }
+        Bg { panel: drawerPanels.utilities; edge: "bottom" }
+        Bg { panel: drawerPanels.popouts; edge: "left" }
+    }
+
+    Interactions {
+        id: interactions
+
+        anchors.fill: parent
+        screenState: root.screenState
+        panels: drawerPanels
+        bar: barWrapper
+
+        Panels {
+            id: drawerPanels
+
+            anchors.fill: parent
+            anchors.margins: root.thickness
+            anchors.leftMargin: barWrapper.implicitWidth
+            screen: root.screen
+            screenState: root.screenState
+        }
+
+        BarWrapper {
+            id: barWrapper
+
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            screen: root.screen
+            screenState: root.screenState
+            popouts: drawerPanels.popouts
+        }
+    }
+
+    component Bg: PanelBg {
+        offsetX: barWrapper.implicitWidth
+        offsetY: root.thickness
+        radius: Tokens.rounding.extraLarge
+        earRadius: Config.border.rounding
+        colour: Qt.alpha(Colours.surface, 1)
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 16–18</span><b>Per-screen state</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property ScreenState screenState: ScreenState {}
+readonly property alias bar: barWrapper
+readonly property real thickness: Config.border.thickness</code></pre></div><div class="seg-e"><p>Each window owns a <code>ScreenState</code> (which drawers are open on this monitor) and exposes the bar so <code>Drawers.qml</code> can read its width for the exclusions.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 20–25</span><b>A fullscreen, transparent layer</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>color: "transparent"
+anchors { top: true; bottom: true; left: true; right: true }
+exclusionMode: ExclusionMode.Ignore
+WlrLayershell.layer: WlrLayer.Top
+WlrLayershell.namespace: "cae-drawers"
+WlrLayershell.keyboardFocus: screenState.launcher || screenState.session ? WlrKeyboardFocus.OnDemand : WlrKeyboardFocus.None</code></pre></div><div class="seg-e"><p>Anchored to all four edges = fullscreen. <code>ExclusionMode.Ignore</code> because the Exclusions windows reserve the space. The namespace lets Hyprland blur it (with transparency on). Keyboard focus is only requested while the launcher or session menu is open, so normally your apps keep the keyboard.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 27</span><b>Register</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Component.onCompleted: Visibilities.register(screen, screenState)</code></pre></div><div class="seg-e"><p>Keybinds find this screen's state through <code>Visibilities</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 29–43</span><b>The input mask</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// Input only where something is drawn: the four frame strips and each drawer.
+mask: Region {
+    Region { width: barWrapper.implicitWidth; height: root.height }
+    Region { width: root.width; height: root.thickness }
+    Region { x: root.width - root.thickness; width: root.thickness; height: root.height }
+    Region { y: root.height - root.thickness; width: root.width; height: root.thickness }
+    Region { item: drawerPanels.dashboard }
+    Region { item: drawerPanels.launcher }
+    Region { item: drawerPanels.notifications }
+    Region { item: drawerPanels.sidebar }
+    Region { item: drawerPanels.session }
+    Region { item: drawerPanels.osd }
+    Region { item: drawerPanels.utilities }
+    Region { item: drawerPanels.popouts }
+}</code></pre></div><div class="seg-e"><p>This is what makes a fullscreen window harmless. The mask is the union of the four frame strips and every drawer's wrapper. Anything outside it (the middle of your screen) lets clicks and scrolls fall through to the windows below. A closed drawer's wrapper has zero depth, so it adds nothing.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 45–54</span><b>Click outside to close</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// Clicking outside an open launcher, session menu or sidebar closes it.
+HyprlandFocusGrab {
+    windows: [root]
+    active: root.screenState.launcher || root.screenState.session || root.screenState.sidebar
+    onCleared: {
+        root.screenState.launcher = false;
+        root.screenState.session = false;
+        root.screenState.sidebar = false;
+    }
+}</code></pre></div><div class="seg-e"><p><a class="api" href="../ref/HyprlandFocusGrab.html"><code>HyprlandFocusGrab</code></a> watches for clicks outside this window. While the launcher, session menu or sidebar is open, clicking anywhere else clears the grab, and <code>onCleared</code> closes them.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 56–65</span><b>The scrim</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// Dim the screen behind the session menu.
+StyledRect {
+    anchors.fill: parent
+    color: Colours.palette.m3scrim
+    opacity: root.screenState.session ? 0.4 : 0
+
+    Behavior on opacity {
+        Anim { type: Anim.Effects }
+    }
+}</code></pre></div><div class="seg-e"><p>A dark overlay fades in behind the session menu so it feels modal. It isn't in the mask, so it can't block anything.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 67–77</span><b>One layer for all surfaces</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// All surfaces are drawn opaque inside one layer, then the whole layer gets the surface
+// alpha and one shared shadow. Overlapping shapes therefore never look darker.
+Item {
+    anchors.fill: parent
+    opacity: Colours.surface.a
+    layer.enabled: true
+    layer.effect: MultiEffect {
+        shadowEnabled: true
+        blurMax: 15
+        shadowColor: Qt.alpha(Colours.palette.m3shadow, 0.7)
+    }</code></pre></div><div class="seg-e"><p>The frame and all drawer backgrounds are drawn <strong>inside one layer</strong>. They're drawn fully opaque, and the layer as a whole gets the surface opacity. If each shape were transparent on its own, the places where they overlap (the ears over the frame) would look darker. The layer also gets one shared shadow, so the frame and its drawers cast a single soft shadow onto your wallpaper and windows.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 79–93</span><b>Frame and drawer backgrounds</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Border {
+    thickness: root.thickness
+    leftThickness: barWrapper.implicitWidth
+    rounding: Config.border.rounding
+    colour: Qt.alpha(Colours.surface, 1)
+}
+
+Bg { panel: drawerPanels.dashboard; edge: "top" }
+Bg { panel: drawerPanels.launcher; edge: "bottom" }
+Bg { panel: drawerPanels.notifications; edge: "top" }
+Bg { panel: drawerPanels.sidebar; edge: "right" }
+Bg { panel: drawerPanels.session; edge: "right" }
+Bg { panel: drawerPanels.osd; edge: "right" }
+Bg { panel: drawerPanels.utilities; edge: "bottom" }
+Bg { panel: drawerPanels.popouts; edge: "left" }</code></pre></div><div class="seg-e"><p>The frame's left side is always exactly the bar's width (it animates when the bar hides). Each <code>Bg</code> follows one drawer and attaches to its edge.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 96–123</span><b>Content</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Interactions {
+    id: interactions
+
+    anchors.fill: parent
+    screenState: root.screenState
+    panels: drawerPanels
+    bar: barWrapper
+
+    Panels {
+        id: drawerPanels
+
+        anchors.fill: parent
+        anchors.margins: root.thickness
+        anchors.leftMargin: barWrapper.implicitWidth
+        screen: root.screen
+        screenState: root.screenState
+    }
+
+    BarWrapper {
+        id: barWrapper
+
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        screen: root.screen
+        screenState: root.screenState
+        popouts: drawerPanels.popouts
+    }
+}</code></pre></div><div class="seg-e"><p><code>Interactions</code> (hover zones) fills the window and contains the drawers (<code>Panels</code>, inset by the frame) and the bar (<code>BarWrapper</code>, on the left). Being children of <code>Interactions</code> means hover over any of them is reported to it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 125–131</span><b>A preset background</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>component Bg: PanelBg {
+    offsetX: barWrapper.implicitWidth
+    offsetY: root.thickness
+    radius: Tokens.rounding.extraLarge
+    earRadius: Config.border.rounding
+    colour: Qt.alpha(Colours.surface, 1)
+}</code></pre></div><div class="seg-e"><p>An inline component with the shared settings, so each <code>Bg</code> line above only says which drawer and which edge.</p></div></div></div>
+<h2 id="module-6-the-drawer-pattern">Module 6: The drawer pattern<a class="hlink" href="#module-6-the-drawer-pattern">#</a></h2>
+<p>Every Caelestia drawer uses the same trick. The drawer's wrapper grows from 0 to the content's size <strong>along the slide direction</strong> and clips its content, which stays glued to the far side. As the wrapper grows, the content appears to slide out from behind the frame.</p>
+<div class="preview"><svg style="width:min(100%,840px)" width="560" height="150" viewBox="0 0 560 150"><g font-size="11"><rect x="0" y="0" width="560" height="10" fill="#141218"/><g transform="translate(30 10)"><rect width="140" height="0" fill="#141218"/><rect y="-80" width="140" height="80" rx="10" fill="none" stroke="#585b70" stroke-dasharray="3 3"/><text x="70" y="40" fill="#a6adc8" text-anchor="middle">offsetScale = 1</text><text x="70" y="56" fill="#a6adc8" text-anchor="middle">height 0 (hidden)</text></g><g transform="translate(210 10)"><rect width="140" height="40" fill="#141218"/><rect y="-40" width="140" height="80" rx="10" fill="none" stroke="#585b70" stroke-dasharray="3 3"/><rect y="0" width="140" height="40" fill="#cba6f7" opacity=".25"/><text x="70" y="60" fill="#a6adc8" text-anchor="middle">offsetScale = 0.5</text><text x="70" y="76" fill="#a6adc8" text-anchor="middle">half visible, clipped</text></g><g transform="translate(390 10)"><rect width="140" height="80" rx="0" fill="#141218"/><rect width="140" height="80" fill="#cba6f7" opacity=".25"/><text x="70" y="45" fill="#cdd6f4" text-anchor="middle">content</text><text x="70" y="100" fill="#a6adc8" text-anchor="middle">offsetScale = 0</text><text x="70" y="116" fill="#a6adc8" text-anchor="middle">fully open</text></g></g></svg></div>
+
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">cae/components/DrawerWrapper.qml</span><code>import QtQuick
+
+// The pattern behind every Caelestia drawer. The wrapper's size along the slide direction
+// grows from 0 to the content's size as `offsetScale` goes 1 -&gt; 0, and it clips, so the
+// content appears to slide out from behind the frame edge.
+Item {
+    id: root
+
+    property bool open: false
+    property string edge: "top"         // the frame edge it comes out of
+    property real offsetScale: open ? 0 : 1
+    default property alias content: holder.data
+
+    readonly property Item contentItem: holder.children.length &gt; 0 ? holder.children[0] : null
+    readonly property bool horizontal: edge === "top" || edge === "bottom"
+    readonly property real contentWidth: contentItem?.implicitWidth ?? 0
+    readonly property real contentHeight: contentItem?.implicitHeight ?? 0
+
+    implicitWidth: horizontal ? contentWidth : contentWidth * (1 - offsetScale)
+    implicitHeight: horizontal ? contentHeight * (1 - offsetScale) : contentHeight
+    visible: offsetScale &lt; 1
+    clip: true
+
+    Behavior on offsetScale {
+        Anim { type: root.open ? Anim.Spatial : Anim.Emphasized }
+    }
+
+    Item {
+        id: holder
+
+        width: root.contentWidth
+        height: root.contentHeight
+        // keep the content glued to the side away from the edge, so it slides in
+        x: root.edge === "left" ? root.width - width : 0
+        y: root.edge === "top" ? root.height - height : 0
+        opacity: 1 - root.offsetScale * 0.6
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 9–12</span><b>Open state and progress</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool open: false
+property string edge: "top"         // the frame edge it comes out of
+property real offsetScale: open ? 0 : 1
+default property alias content: holder.data</code></pre></div><div class="seg-e"><p><code>offsetScale</code> is the drawer's "closedness": 0 = open, 1 = closed. It follows <code>open</code> through a <code>Behavior</code>, so setting <code>open</code> is all a module ever does. The content goes in as a child (<code>default property alias</code>).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–17</span><b>Reading the content's size</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property Item contentItem: holder.children.length &gt; 0 ? holder.children[0] : null
+readonly property bool horizontal: edge === "top" || edge === "bottom"
+readonly property real contentWidth: contentItem?.implicitWidth ?? 0
+readonly property real contentHeight: contentItem?.implicitHeight ?? 0</code></pre></div><div class="seg-e"><p>The wrapper reads the first child's implicit size. Content therefore only has to say how big it wants to be.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 19–22</span><b>Growing and clipping</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>implicitWidth: horizontal ? contentWidth : contentWidth * (1 - offsetScale)
+implicitHeight: horizontal ? contentHeight * (1 - offsetScale) : contentHeight
+visible: offsetScale &lt; 1
+clip: true</code></pre></div><div class="seg-e"><p>Only the dimension that crosses the edge grows: height for top/bottom drawers, width for left/right ones. <code>clip: true</code> hides the part of the content that hasn't come out yet. When fully closed the wrapper is invisible, so it costs nothing to draw.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 24–26</span><b>Open and close feel different</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Behavior on offsetScale {
+    Anim { type: root.open ? Anim.Spatial : Anim.Emphasized }
+}</code></pre></div><div class="seg-e"><p>Opening uses the springy <code>Spatial</code> curve; closing uses <code>Emphasized</code>, which accelerates away. Different motion for entering and leaving is a Material 3 rule that Caelestia follows.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 28–37</span><b>Glued to the far side</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Item {
+    id: holder
+
+    width: root.contentWidth
+    height: root.contentHeight
+    // keep the content glued to the side away from the edge, so it slides in
+    x: root.edge === "left" ? root.width - width : 0
+    y: root.edge === "top" ? root.height - height : 0
+    opacity: 1 - root.offsetScale * 0.6
+}</code></pre></div><div class="seg-e"><p>For a top drawer the content's bottom is aligned to the wrapper's bottom (<code>y = height - contentHeight</code>, negative while opening), so the bottom of the panel appears first, as if it were pushed down out of the frame. Left drawers align to the right side; right and bottom drawers need no offset. The content also fades in slightly.</p></div></div></div>
+<div class="box note"><div class="bt">In the original</div><p>Each module has a <code>Wrapper.qml</code> (for example <code>modules/dashboard/Wrapper.qml</code>) with an <code>offsetScale</code> property, <code>Behavior on offsetScale { Anim {} }</code>, and a negative anchor margin of <code>-implicitHeight * offsetScale</code>. The OSD and session wrappers use the "grow and clip" form shown here. The rebuild uses one shared component for all of them.</p></div>
+<h2 id="module-7-where-each-drawer-lives">Module 7: Where each drawer lives<a class="hlink" href="#module-7-where-each-drawer-lives">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">cae/modules/drawers/Panels.qml</span><code>import Quickshell
+import QtQuick
+import qs.config
+import qs.services
+import qs.components
+import qs.modules.dashboard as Dashboard
+import qs.modules.launcher as Launcher
+import qs.modules.notifications as Notifications
+import qs.modules.sidebar as Sidebar
+import qs.modules.session as Session
+import qs.modules.osd as Osd
+import qs.modules.utilities as Utilities
+import qs.modules.popouts as Popouts
+
+// Where every drawer lives inside the frame. Each one is a DrawerWrapper attached to an edge.
+Item {
+    id: root
+
+    required property ShellScreen screen
+    required property ScreenState screenState
+
+    readonly property alias dashboard: dashboard
+    readonly property alias launcher: launcher
+    readonly property alias notifications: notifications
+    readonly property alias sidebar: sidebar
+    readonly property alias session: session
+    readonly property alias osd: osd
+    readonly property alias utilities: utilities
+    readonly property alias popouts: popouts
+
+    DrawerWrapper {
+        id: dashboard
+        edge: "top"
+        open: root.screenState.dashboard
+        anchors.top: parent.top
+        anchors.horizontalCenter: parent.horizontalCenter
+
+        Dashboard.Content { screenState: root.screenState; shown: dashboard.visible }
+    }
+
+    DrawerWrapper {
+        id: launcher
+        edge: "bottom"
+        open: root.screenState.launcher
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+
+        Launcher.Content { screenState: root.screenState }
+    }
+
+    DrawerWrapper {
+        id: notifications
+        edge: "top"
+        open: Notifs.popups.length &gt; 0 &amp;&amp; !root.screenState.sidebar
+        anchors.top: parent.top
+        anchors.right: parent.right
+
+        Notifications.Content {}
+    }
+
+    DrawerWrapper {
+        id: sidebar
+        edge: "right"
+        open: root.screenState.sidebar
+        anchors.top: parent.top
+        anchors.right: parent.right
+
+        Sidebar.Content { maxHeight: root.height - Tokens.sizes.sessionButton * 3 }
+    }
+
+    DrawerWrapper {
+        id: session
+        edge: "right"
+        open: root.screenState.session
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.right: parent.right
+
+        Session.Content { screenState: root.screenState }
+    }
+
+    DrawerWrapper {
+        id: osd
+        edge: "right"
+        open: root.screenState.osd
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.right: parent.right
+        anchors.rightMargin: session.width     // moves aside when the session menu is open
+
+        Osd.Content { screenState: root.screenState; screen: root.screen }
+    }
+
+    DrawerWrapper {
+        id: utilities
+        edge: "bottom"
+        open: root.screenState.utilities
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+
+        Utilities.Content {}
+    }
+
+    Popouts.Wrapper {
+        id: popouts
+        // vertically centred on the hovered bar item, but kept inside the screen
+        y: Math.max(0, Math.min(root.height - height, currentCenter - Config.border.thickness - height / 2))
+
+        Behavior on y {
+            enabled: popouts.visible
+            Anim { type: Anim.FastSpatial }
+        }
+    }
+}</code></pre></div>
+<p>The container is inset by the frame (and by the bar on the left), so <code>anchors.top: parent.top</code> means "touching the top frame edge". Each drawer is a <code>DrawerWrapper</code> whose <code>open</code> comes from the screen state, except two:</p>
+<ul>
+<li><strong>notifications</strong> open by themselves whenever there are popups (and hide while the notification centre is open);</li>
+<li><strong>popouts</strong> use their own wrapper (it also slides toward the hovered bar item, <a class="xref" href="../ch/cae4-bar.html">Caelestia 4: The Vertical Bar and Its Popouts</a>).</li>
+</ul>
+<p>The OSD's right margin equals the session drawer's width, so when the session menu slides out, the OSD moves aside instead of overlapping.</p>
+<h2 id="module-8-opening-drawers-by-touching-the-frame">Module 8: Opening drawers by touching the frame<a class="hlink" href="#module-8-opening-drawers-by-touching-the-frame">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">cae/modules/drawers/Interactions.qml</span><code>import QtQuick
+import qs.config
+import qs.components
+import qs.modules.bar
+
+// Opens drawers when the pointer touches a frame edge, like Caelestia: top edge = dashboard,
+// right edge = OSD, top-right corner = sidebar, bottom-right corner = utilities,
+// left edge = bar popouts. It only reacts when you ENTER or LEAVE a zone, so a drawer opened
+// by a keybind stays open until you move into its zone and out again.
+MouseArea {
+    id: root
+
+    required property ScreenState screenState
+    required property Panels panels
+    required property BarWrapper bar
+
+    property bool inDashboard: false
+    property bool inOsd: false
+    property bool inSidebar: false
+    property bool inUtilities: false
+
+    readonly property real t: Config.border.thickness
+    readonly property real r: Config.border.rounding
+
+    // x/y in window coordinates; panels sit at (bar width, thickness)
+    function withinX(p: Item, x: real): bool {
+        const px = bar.implicitWidth + p.x;
+        return x &gt;= px - r &amp;&amp; x &lt;= px + p.width + r;
+    }
+    function withinY(p: Item, y: real): bool {
+        const py = t + p.y;
+        return y &gt;= py - r &amp;&amp; y &lt;= py + p.height + r;
+    }
+
+    function update(x: real, y: real): void {
+        // bar popouts: hovering a bar item opens its popout; leaving bar and popout closes it
+        if (x &lt; bar.implicitWidth)
+            bar.checkPopout(y);
+        else if (!(x &lt; bar.implicitWidth + panels.popouts.width &amp;&amp; withinY(panels.popouts, y)))
+            panels.popouts.hasCurrent = false;
+
+        // show a hidden bar while the pointer is at the left edge
+        bar.hovered = x &lt; Math.max(bar.implicitWidth, t);
+
+        const dash = Config.dashboard.showOnHover &amp;&amp; y &lt; t + panels.dashboard.height &amp;&amp; withinX(panels.dashboard, x);
+        if (dash !== inDashboard) { inDashboard = dash; screenState.dashboard = dash; }
+
+        const osd = x &gt; width - t - panels.osd.width - panels.session.width &amp;&amp; withinY(panels.osd, y) &amp;&amp; !screenState.session;
+        if (osd !== inOsd) { inOsd = osd; screenState.osd = osd; }
+
+        const side = Config.sidebar.showOnHover &amp;&amp; x &gt; width - t - Math.max(r, panels.sidebar.width)
+                     &amp;&amp; y &lt; t + Math.max(r * 2, panels.sidebar.height);
+        if (side !== inSidebar) { inSidebar = side; screenState.sidebar = side; }
+
+        const utils = y &gt; height - t - Math.max(r, panels.utilities.height) &amp;&amp; x &gt; width - t - panels.utilities.width - r;
+        if (utils !== inUtilities) { inUtilities = utils; screenState.utilities = utils; }
+    }
+
+    hoverEnabled: true
+    acceptedButtons: Qt.NoButton
+    onPositionChanged: event =&gt; update(event.x, event.y)
+    onExited: update(width / 2, height / 2)      // pointer left the frame: close hover drawers
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–20</span><b>A hover-only mouse area</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>MouseArea {
+    id: root
+
+    required property ScreenState screenState
+    required property Panels panels
+    required property BarWrapper bar
+
+    property bool inDashboard: false
+    property bool inOsd: false
+    property bool inSidebar: false
+    property bool inUtilities: false</code></pre></div><div class="seg-e"><p><code>acceptedButtons: Qt.NoButton</code> means it never takes clicks (the bar and drawers inside it still do), but with <code>hoverEnabled</code> it receives every pointer move over the window. The four flags remember whether the pointer is currently inside each zone.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 25–33</span><b>Generous zones</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// x/y in window coordinates; panels sit at (bar width, thickness)
+function withinX(p: Item, x: real): bool {
+    const px = bar.implicitWidth + p.x;
+    return x &gt;= px - r &amp;&amp; x &lt;= px + p.width + r;
+}
+function withinY(p: Item, y: real): bool {
+    const py = t + p.y;
+    return y &gt;= py - r &amp;&amp; y &lt;= py + p.height + r;
+}</code></pre></div><div class="seg-e"><p>A drawer's hover zone is its size <strong>plus the frame rounding on each side</strong>, so you don't have to hit it perfectly. Panel coordinates are relative to the drawers' container, so the bar width and frame thickness are added to get window coordinates.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 35–40</span><b>Bar popouts</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function update(x: real, y: real): void {
+    // bar popouts: hovering a bar item opens its popout; leaving bar and popout closes it
+    if (x &lt; bar.implicitWidth)
+        bar.checkPopout(y);
+    else if (!(x &lt; bar.implicitWidth + panels.popouts.width &amp;&amp; withinY(panels.popouts, y)))
+        panels.popouts.hasCurrent = false;</code></pre></div><div class="seg-e"><p>Over the bar, ask the bar what's under the pointer (it opens the matching popout). Away from both the bar and the open popout, close it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 42–43</span><b>Auto-hiding bar</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// show a hidden bar while the pointer is at the left edge
+bar.hovered = x &lt; Math.max(bar.implicitWidth, t);</code></pre></div><div class="seg-e"><p>In non-persistent mode the bar is only as wide as the frame; touching the left edge marks it hovered and it slides out.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 45–46</span><b>Edge-triggered changes</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>const dash = Config.dashboard.showOnHover &amp;&amp; y &lt; t + panels.dashboard.height &amp;&amp; withinX(panels.dashboard, x);
+if (dash !== inDashboard) { inDashboard = dash; screenState.dashboard = dash; }</code></pre></div><div class="seg-e"><p>The dashboard zone is the top edge (plus the dashboard's own area once it's open). The state is only changed when you <strong>enter or leave</strong> the zone. A drawer opened with a keybind therefore stays open while you move around elsewhere, instead of being closed by the next mouse move.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 48–56</span><b>The other zones</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>const osd = x &gt; width - t - panels.osd.width - panels.session.width &amp;&amp; withinY(panels.osd, y) &amp;&amp; !screenState.session;
+if (osd !== inOsd) { inOsd = osd; screenState.osd = osd; }
+
+const side = Config.sidebar.showOnHover &amp;&amp; x &gt; width - t - Math.max(r, panels.sidebar.width)
+             &amp;&amp; y &lt; t + Math.max(r * 2, panels.sidebar.height);
+if (side !== inSidebar) { inSidebar = side; screenState.sidebar = side; }
+
+const utils = y &gt; height - t - Math.max(r, panels.utilities.height) &amp;&amp; x &gt; width - t - panels.utilities.width - r;
+if (utils !== inUtilities) { inUtilities = utils; screenState.utilities = utils; }</code></pre></div><div class="seg-e"><p>OSD: the right edge in the middle (and not while the session menu is open). Sidebar: the top-right corner. Utilities: the bottom-right corner.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 59–62</span><b>Leaving the window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>hoverEnabled: true
+acceptedButtons: Qt.NoButton
+onPositionChanged: event =&gt; update(event.x, event.y)
+onExited: update(width / 2, height / 2)      // pointer left the frame: close hover drawers</code></pre></div><div class="seg-e"><p>Moving into the middle of the screen leaves the window (the mask ends there), so <code>onExited</code> runs the checks with a point outside every zone, and all hover-opened drawers close.</p></div></div></div>
+<div class="box note"><div class="bt">In the original</div><p><code>modules/drawers/Interactions.qml</code> is about 330 lines because it also handles <strong>drag gestures</strong> (drag the bar out, swipe the session menu in, pull the launcher up on touchscreens), shortcut-vs-hover hand-over, and fullscreen windows. <code>Regions.qml</code> builds the input mask with <code>Intersection.Xor</code> and <code>Subtract</code> instead of a simple union.</p></div>
+<h2 id="checkpoint">Checkpoint<a class="hlink" href="#checkpoint">#</a></h2>
+<p>With the files so far plus a temporary <code>shell.qml</code> that only contains <code>Drawers {}</code>, you get the frame on every monitor and empty drawers. Comment out the module imports in <code>Panels.qml</code> you haven't written yet, or download the full rebuild and read ahead.</p>
+<h2 id="practice">Practice<a class="hlink" href="#practice">#</a></h2>
+<div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Warm-up</span><b>Thicker frame</b></div><div class="ex-b"><p>Set <code>"border": { "thickness": 20, "rounding": 40 }</code> in <code>~/.config/cae/shell.json</code> and save. What changes, and why don't you need to restart?</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><p>The frame, the reserved space, the drawers' inset and the ears all follow, because every one of them reads <code>Config.border.*</code>, and <code>Config</code> reloads the file on change.</p></div></details></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>A drawer on the left edge</b></div><div class="ex-b"><p>Add a "notes" drawer on the left edge, below the middle, that opens with a keybind. Use <code>DrawerWrapper { edge: "left" }</code>, add a <code>notes</code> flag to <code>ScreenState</code>, a <code>Bg</code> line in <code>ContentWindow</code>, a mask <code>Region</code> and a shortcut.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Five small edits: ScreenState, Panels (the wrapper + content), ContentWindow (Bg and mask), Shortcuts (a new <code>GShortcut</code>).</p></div></details></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>Hover delay</b></div><div class="ex-b"><p>Opening the dashboard as soon as you touch the top edge can be annoying. Make it open only after the pointer stays in the zone for 200 ms.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><p>Instead of setting <code>screenState.dashboard = dash</code> immediately, start a <code>Timer { id: dashDelay; interval: 200; onTriggered: root.screenState.dashboard = root.inDashboard }</code> when entering, and close immediately when leaving:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>if (dash !== inDashboard) {
+    inDashboard = dash;
+    if (dash) dashDelay.restart(); else { dashDelay.stop(); screenState.dashboard = false; }
+}</code></pre></div></div></details></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Challenge</span><b>Drag the launcher up</b></div><div class="ex-b"><p>Caelestia lets you open the launcher by dragging up from the bottom edge. Implement it: accept the left button in Interactions, remember the press position, and open the launcher when the pointer moves 30 px up from a press on the bottom frame strip.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p><code>acceptedButtons: Qt.LeftButton</code>, <code>onPressed: e =&gt; dragStart = Qt.point(e.x, e.y)</code>, then in <code>onPositionChanged</code> check <code>pressed &amp;&amp; dragStart.y &gt; height - t - 5 &amp;&amp; dragStart.y - e.y &gt; 30</code>. Make sure clicks still reach the bar (call <code>mouse.accepted = false</code> when the press isn't on the bottom strip).</p></div></details></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/cae2-foundations.html"><small>← Previous</small><span>Caelestia 2: Tokens, Colours and Building Blocks</span></a><a class="pn-next" href="../ch/cae4-bar.html"><small>Next →</small><span>Caelestia 4: The Vertical Bar and Its Popouts</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#the-idea-in-one-picture">The idea in one picture</a><a class="l2" href="#module-1-one-frame-per-monitor">Module 1: One frame per monitor</a><a class="l2" href="#module-2-reserving-space-without-blocking-anything">Module 2: Reserving space without blocking anything</a><a class="l2" href="#module-3-the-frame-shape">Module 3: The frame shape</a><a class="l2" href="#module-4-drawer-backgrounds-that-melt-into-the-frame">Module 4: Drawer backgrounds that melt into the frame</a><a class="l2" href="#module-5-the-frame-window">Module 5: The frame window</a><a class="l2" href="#module-6-the-drawer-pattern">Module 6: The drawer pattern</a><a class="l2" href="#module-7-where-each-drawer-lives">Module 7: Where each drawer lives</a><a class="l2" href="#module-8-opening-drawers-by-touching-the-frame">Module 8: Opening drawers by touching the frame</a><a class="l2" href="#checkpoint">Checkpoint</a><a class="l2" href="#practice">Practice</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

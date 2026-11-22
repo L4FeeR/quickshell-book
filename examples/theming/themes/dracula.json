@@ -1,0 +1,41 @@
+{
+  "id": "dracula",
+  "name": "Dracula",
+  "family": "Dracula",
+  "variant": "dark",
+  "author": "Zeno Rocha",
+  "url": "https://draculatheme.com",
+  "palette": {
+    "background": "#282a36",
+    "darker": "#21222c",
+    "current": "#44475a",
+    "foreground": "#f8f8f2",
+    "comment": "#6272a4",
+    "cyan": "#8be9fd",
+    "green": "#50fa7b",
+    "orange": "#ffb86c",
+    "pink": "#ff79c6",
+    "purple": "#bd93f9",
+    "red": "#ff5555",
+    "yellow": "#f1fa8c"
+  },
+  "roles": {
+    "background": "background",
+    "surface": "darker",
+    "surfaceHigh": "current",
+    "border": "comment",
+    "text": "foreground",
+    "textMuted": "#bfbfbf",
+    "textFaint": "comment",
+    "primary": "purple",
+    "onPrimary": "background",
+    "secondary": "pink",
+    "red": "red",
+    "orange": "orange",
+    "yellow": "yellow",
+    "green": "green",
+    "cyan": "cyan",
+    "blue": "purple",
+    "magenta": "pink"
+  }
+}

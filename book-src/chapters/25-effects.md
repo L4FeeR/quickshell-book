@@ -170,8 +170,47 @@ Older configs use `import Qt5Compat.GraphicalEffects` with `DropShadow`, `Opacit
 
 `ShaderEffect` runs your own GLSL fragment shader, compiled to `.qsb` with Qt's `qsb` tool. It's used for animated gradients, noise and wave effects. That's out of scope for beginners, but know it exists when you see `.frag.qsb` files in advanced rices.
 
-> [!TRY] Exercises
-> 1. Make a floating card with a soft shadow, leaving enough margin in its window for the shadow.
-> 2. Show your wallpaper blurred and darkened behind a big clock.
-> 3. Tint a white SVG icon with your accent color using `colorization`.
-> 4. On Hyprland, add a `layerrule = blur` for your bar's namespace and make the bar 70% opaque.
+## Practice
+
+::: exercise warm | Soft shadow
+Make a floating card with a soft shadow, leaving enough margin in its window for the shadow.
+--- solution
+```qml
+Rectangle { anchors.centerIn: parent; width: 260; height: 120; radius: 16; color: "#1e1e2e"
+    layer.enabled: true
+    layer.effect: MultiEffect { shadowEnabled: true; shadowBlur: 0.8; shadowColor: "#80000000"; shadowVerticalOffset: 6 } }
+```
+Give the window ~30 px more than the card on each side; shadows outside the window get cut off.
+:::
+
+::: exercise practice | Blurred backdrop
+Show your wallpaper blurred and darkened behind a big clock.
+--- solution
+```qml
+Image { id: wall; anchors.fill: parent; source: "file:///path/wall.jpg"; fillMode: Image.PreserveAspectCrop; visible: false }
+MultiEffect { anchors.fill: wall; source: wall; blurEnabled: true; blur: 1; blurMax: 64; brightness: -0.3 }
+Text { anchors.centerIn: parent; text: Qt.formatTime(new Date(), "hh:mm"); color: "white"; font.pixelSize: 96 }
+```
+:::
+
+::: exercise practice | Tint an icon
+Tint a white SVG icon with your accent color using `colorization`.
+--- solution
+```qml
+Image { id: ico; source: "icon.svg"; sourceSize: Qt.size(32, 32); visible: false }
+MultiEffect { anchors.fill: ico; source: ico; colorization: 1; colorizationColor: "#cba6f7" }
+```
+:::
+
+::: exercise challenge | Compositor blur
+On Hyprland, add a `layerrule = blur` for your bar's namespace and make the bar 70% opaque.
+--- solution
+```qml
+WlrLayershell.namespace: "quickshell:bar"
+color: Qt.rgba(0.12, 0.12, 0.18, 0.7)
+```
+```ini
+layerrule = blur, quickshell:bar
+layerrule = ignorealpha 0.2, quickshell:bar
+```
+:::

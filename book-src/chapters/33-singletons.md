@@ -161,7 +161,44 @@ Avoid **circular** dependencies (A reads B while B reads A during creation), whi
 - **[[PersistentProperties]]** for state that must survive reloads.
 - **[[FileView]] + [[JsonAdapter]]** for state that must survive restarts, often *inside* a singleton ([[ch:38-files-json]]).
 
-> [!TRY] Exercises
-> 1. Create `services/GlobalStates.qml` with `property bool calendarOpen`, and toggle it from a bar button.
-> 2. Write `services/Time.qml` that owns one `SystemClock` and exposes `property string time` and `property string date`. Use it in two places.
-> 3. Write the `Audio` service above and show `Audio.icon` plus a percentage in your bar.
+## Practice
+
+::: exercise warm | GlobalStates
+Create `services/GlobalStates.qml` with `property bool calendarOpen` and toggle it from a bar button.
+--- solution
+```qml
+pragma Singleton
+import Quickshell
+Singleton { property bool calendarOpen: false }
+```
+```qml
+import qs.services
+TapHandler { onTapped: GlobalStates.calendarOpen = !GlobalStates.calendarOpen }
+```
+:::
+
+::: exercise practice | Time service
+Write `services/Time.qml` that owns one `SystemClock` and exposes `time` and `date` strings. Use it in two places.
+--- solution
+```qml
+pragma Singleton
+import Quickshell
+import QtQuick
+Singleton {
+    SystemClock { id: clock; precision: SystemClock.Minutes }
+    readonly property string time: Qt.formatTime(clock.date, "hh:mm")
+    readonly property string date: Qt.formatDate(clock.date, "ddd d MMM")
+}
+```
+:::
+
+::: exercise challenge | Audio service
+Write the `Audio` service from this chapter and show `Audio.icon` plus a percentage in your bar; scroll changes volume.
+--- solution
+```qml
+Row { spacing: 4
+    Text { text: Audio.icon; font.family: "Material Symbols Rounded"; color: "white" }
+    Text { text: Math.round(Audio.volume * 100) + "%"; color: "white" }
+    WheelHandler { onWheel: e => Audio.setVolume(Audio.volume + e.angleDelta.y / 120 * 0.05) } }
+```
+:::

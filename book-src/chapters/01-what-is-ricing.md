@@ -150,5 +150,30 @@ These popular configs are built with Quickshell. You'll recognize their techniqu
 > [!TIP] How to read
 > Read Parts I–III in order and type every example yourself; copying and pasting teaches far less. From Part IV on, read in order *or* jump to what you need, using the API reference as your dictionary. Press <kbd>/</kbd> anywhere to search.
 
-> [!TRY] Before the next chapter
-> Open a terminal and run `echo $XDG_SESSION_TYPE`. If it prints `wayland`, you're ready. If it prints `x11`, log out and choose a Wayland session (Hyprland, Sway, niri…) on your login screen.
+## Practice
+
+Each exercise has a hint and a solution you can open. Try it yourself first: the struggle is where the learning happens.
+
+::: exercise warm | Name the parts
+Open a screenshot of any rice from r/unixporn (or the end-4 / Caelestia READMEs). List every **shell component** you can see: bar, workspaces, tray, launcher, notifications, wallpaper, dock…
+--- hint
+Look at the screen edges first (bars, docks), then floating things (popups, notifications), then the background (wallpaper, desktop widgets).
+--- solution
+A typical list: top bar → logo, workspace indicator, window title, clock, media, tray, status icons (network, volume, battery), notification bell. Floating → launcher, notification popups, control center. Background → wallpaper, desktop clock, rounded screen corners. Each item becomes one `.qml` file later in the book.
+:::
+
+::: exercise practice | Who does what?
+For each item, write down whether it's done by the **compositor**, the **shell** (Quickshell) or an **app**: window gaps, the bar, window animations, the terminal's colors, the lock screen, blur behind the bar, the app launcher.
+--- solution
+- Window gaps, window animations, blur → **compositor** (Hyprland config). The shell can only *ask* for blur with a layer rule.
+- Bar, lock screen, launcher → **shell**.
+- Terminal colors → **app** (kitty/foot config), though a theme generator like matugen can write them for you.
+:::
+
+::: exercise challenge | Plan your first rice
+Write a one-paragraph plan: mood (calm, cyber, retro…), 3–5 colors, corner radius (sharp/soft), bar position, and which three components you'll build first.
+--- hint
+Start small: bar + launcher + notifications is a complete, usable shell.
+--- why
+Ricing goes faster when you decide the *look* before you write code. Every later chapter fills in one part of your plan.
+:::

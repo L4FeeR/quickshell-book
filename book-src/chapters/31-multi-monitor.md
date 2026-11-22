@@ -138,7 +138,35 @@ The first approach uses one window (less memory). The second avoids recreating t
 - For crisp images, set `sourceSize` to the display size × `screen.devicePixelRatio`.
 - Fractional scales can blur 1 px lines; stick to whole logical pixels for borders.
 
-> [!TRY] Exercises
-> 1. Show each monitor's name and scale factor in its own bar.
-> 2. Make the bar on your laptop screen thinner than on external monitors.
-> 3. Make a centered "Hello" overlay that appears only on the focused monitor.
+## Practice
+
+::: exercise warm | Name and scale
+Show each monitor's name and scale factor in its own bar.
+--- solution
+```qml
+Variants { model: Quickshell.screens
+    PanelWindow { required property ShellScreen modelData; screen: modelData
+        anchors { top: true; left: true; right: true }; implicitHeight: 30
+        Text { anchors.centerIn: parent; text: modelData.name + " @" + modelData.devicePixelRatio } } }
+```
+:::
+
+::: exercise practice | Thinner on the laptop
+Make the bar thinner on your laptop's built-in screen (usually named `eDP-1`).
+--- solution
+```qml
+implicitHeight: modelData.name.startsWith("eDP") ? 28 : 38
+```
+:::
+
+::: exercise challenge | Only on the focused monitor
+Show a centered "Hello" overlay only on the focused monitor (Hyprland).
+--- solution
+```qml
+Variants { model: Quickshell.screens
+    PanelWindow { required property ShellScreen modelData; screen: modelData
+        visible: Hyprland.focusedMonitor?.name === modelData.name
+        implicitWidth: 200; implicitHeight: 80; exclusionMode: ExclusionMode.Ignore
+        Text { anchors.centerIn: parent; text: "Hello" } } }
+```
+:::

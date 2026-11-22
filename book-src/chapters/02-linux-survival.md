@@ -214,8 +214,46 @@ git diff            # what changed?
 git checkout -- .   # throw away uncommitted changes
 ```
 
-> [!TRY] Practice
-> 1. Make the folder `~/.config/quickshell/playground`.
-> 2. Print your battery percentage with `cat /sys/class/power_supply/BAT*/capacity` (desktops have none, which is fine).
-> 3. Find the exact family name of one installed monospace font with `fc-list`.
-> 4. Run `hyprctl monitors` (or your compositor's equivalent) and note your monitor names, like `eDP-1` or `DP-2`. You'll use them later.
+## Practice
+
+::: exercise warm | Find your config folder
+In a terminal, go to your home folder, list hidden files, and check whether `~/.config/quickshell` exists.
+--- solution
+```bash
+cd ~
+ls -a
+ls ~/.config/quickshell 2>/dev/null || echo "not created yet"
+```
+:::
+
+::: exercise practice | Make the folder tree
+Create `~/.config/quickshell/playground/` with a `widgets` subfolder and an empty `shell.qml`, in **one** `mkdir` and one `touch` command.
+--- hint
+`mkdir -p` creates parent folders as needed.
+--- solution
+```bash
+mkdir -p ~/.config/quickshell/playground/widgets
+touch ~/.config/quickshell/playground/shell.qml
+```
+:::
+
+::: exercise practice | Read command output
+Find out three things with commands: your CPU model, how much RAM is free, and your battery percentage (if you have one).
+--- solution
+```bash
+grep -m1 "model name" /proc/cpuinfo
+free -h
+cat /sys/class/power_supply/BAT*/capacity
+```
+These are exactly the kinds of files and commands a shell widget reads later (see [[ch:37-processes]]).
+:::
+
+::: exercise challenge | Pipes
+Print the names of your 5 most memory-hungry processes, one per line, without the header.
+--- hint
+`ps -eo comm --sort=-%mem` sorts by memory; `head` and `tail` trim lines.
+--- solution
+```bash
+ps -eo comm --sort=-%mem | tail -n +2 | head -5
+```
+:::

@@ -269,8 +269,44 @@ console.trace()                             // print the call stack
 console.time("sort"); /* … */ console.timeEnd("sort")   // measure duration
 ```
 
-> [!TRY] Exercises
-> 1. Write `function plural(n, word)` that returns `"1 item"` / `"3 items"`.
-> 2. Given `const lines = ["a:1", "b:22", "c:3"]`, build `{a: 1, b: 22, c: 3}` with `map`, `split` and `Object.fromEntries`.
-> 3. Parse `"MemTotal: 16000000 kB\nMemAvailable: 9000000 kB"` with regexes and compute the used percentage.
-> 4. Put your `plural` function in `utils/text.js` with `.pragma library` and use it from QML.
+## Practice
+
+::: exercise warm | Plurals
+Write `function plural(n, word)` that returns `"1 item"` / `"3 items"`.
+--- solution
+```js
+function plural(n, word) { return n + " " + word + (n === 1 ? "" : "s") }
+```
+:::
+
+::: exercise practice | Lines to an object
+Given `const lines = ["a:1", "b:22", "c:3"]`, build `{a: 1, b: 22, c: 3}` with `map`, `split` and `Object.fromEntries`.
+--- solution
+```js
+const obj = Object.fromEntries(lines.map(l => { const [k, v] = l.split(":"); return [k, Number(v)] }))
+```
+:::
+
+::: exercise practice | Parse /proc/meminfo
+Parse `"MemTotal: 16000000 kB\nMemAvailable: 9000000 kB"` with regexes and compute the used percentage.
+--- solution
+```js
+const total = Number(text.match(/MemTotal:\s+(\d+)/)[1])
+const avail = Number(text.match(/MemAvailable:\s+(\d+)/)[1])
+const used = Math.round((1 - avail / total) * 100)    // 44
+```
+:::
+
+::: exercise challenge | A JS library
+Put `plural` in `utils/text.js` with `.pragma library` and use it from QML.
+--- solution
+```js
+// utils/text.js
+.pragma library
+function plural(n, word) { return n + " " + word + (n === 1 ? "" : "s") }
+```
+```qml
+import "utils/text.js" as TextUtils
+Text { text: TextUtils.plural(3, "update") }
+```
+:::

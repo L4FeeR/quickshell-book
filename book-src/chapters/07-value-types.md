@@ -217,7 +217,47 @@ You'll write `?.` and `??` constantly in shells, because system state comes and 
 | JSON text → object | `JSON.parse(text)` |
 | color → string | `String(c)` gives `"#rrggbb"` |
 
-> [!TRY] Exercises
-> 1. Make a `property real level: 0.42` and show it as `42%` using `Math.round`.
-> 2. Make a semi-transparent (40%) version of `#89b4fa` in two ways: 8-digit hex, then `Qt.rgba`.
-> 3. Create `property var apps: []` and a `Timer` that appends a new string every second. First use `push` and see nothing update. Then fix it.
+## Practice
+
+::: exercise warm | Percent text
+Make a `property real level: 0.42` and show it as `42%`.
+--- solution
+```qml
+Text { text: Math.round(level * 100) + "%" }
+```
+:::
+
+::: exercise practice | Transparency two ways
+Make a 40%-opaque version of `#89b4fa` in two ways: 8-digit hex, then `Qt.rgba`.
+--- hint
+Alpha comes **first** in QML hex: `#AARRGGBB`. 40% of 255 ≈ 102 = `0x66`.
+--- solution
+```qml
+color: "#6689b4fa"
+color: Qt.rgba(0x89/255, 0xb4/255, 0xfa/255, 0.4)
+```
+:::
+
+::: exercise practice | Arrays that update
+Create `property var apps: []` and a `Timer` that appends a string every second, shown with `apps.length`. First use `push` and see nothing update; then fix it.
+--- solution
+```qml
+property var apps: []
+Timer { interval: 1000; running: true; repeat: true
+        onTriggered: apps = [...apps, "app" + apps.length] }    // new array → change signal
+Text { text: apps.length + " apps" }
+```
+`push` changes the array in place, so QML never sees an assignment and doesn't emit `appsChanged`.
+:::
+
+::: exercise challenge | Dates
+Show "Friday, 21 November" for today and "in 3 days" for a date 3 days from now, using `Date` math.
+--- solution
+```qml
+Column {
+    readonly property date later: new Date(Date.now() + 3 * 86400000)
+    Text { text: Qt.formatDate(new Date(), "dddd, d MMMM") }
+    Text { text: "in " + Math.round((parent.later - new Date()) / 86400000) + " days" }
+}
+```
+:::

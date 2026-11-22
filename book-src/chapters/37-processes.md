@@ -218,7 +218,35 @@ Singleton {
 
 (This uses FileView for the reading. Same idea, no processes needed.)
 
-> [!TRY] Exercises
-> 1. Show your kernel version and uptime (`uptime -p`) in the bar.
-> 2. Show the number of available package updates (`checkupdates | wc -l`), refreshed every 30 minutes.
-> 3. Run `nmcli monitor` with a SplitParser and log every line.
+## Practice
+
+::: exercise warm | Kernel and uptime
+Show your kernel version and uptime (`uptime -p`) in the bar.
+--- solution
+```qml
+Process { running: true; command: ["sh", "-c", "uname -r; uptime -p"]
+    stdout: StdioCollector { onStreamFinished: info.text = text.trim().replace("\n", " · ") } }
+Text { id: info; color: "white" }
+```
+:::
+
+::: exercise practice | Updates every 30 minutes
+Show the number of available updates (`checkupdates | wc -l`), refreshed every 30 minutes.
+--- solution
+```qml
+Process { id: upd; command: ["sh", "-c", "checkupdates 2>/dev/null | wc -l"]
+    stdout: StdioCollector { onStreamFinished: count.text = text.trim() } }
+Timer { interval: 30 * 60 * 1000; running: true; repeat: true; triggeredOnStart: true; onTriggered: upd.running = true }
+Text { id: count; color: "white" }
+```
+:::
+
+::: exercise challenge | Stream lines
+Run `nmcli monitor` with a `SplitParser` and log every line.
+--- solution
+```qml
+Process { running: true; command: ["nmcli", "monitor"]
+    stdout: SplitParser { onRead: line => console.log("nm:", line) } }
+```
+A long-running process keeps streaming; `SplitParser` calls `onRead` once per line.
+:::

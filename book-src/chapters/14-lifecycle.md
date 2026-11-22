@@ -112,7 +112,52 @@ When you save, Quickshell **reloads your config**: old objects are destroyed and
 
 Quickshell signals reload events on the [[Quickshell]] singleton: `reloadCompleted` and `reloadFailed(error)`.
 
-> [!TRY] Exercises
-> 1. Make a button that toggles a `Loader` showing a big rectangle. Add `Component.onCompleted` and `Component.onDestruction` logs inside the rectangle and watch them fire.
-> 2. Do the same with `visible` instead and notice that no logs fire after the first creation.
-> 3. Write a `toast("hi")` function like the one above and call it from a click.
+## Practice
+
+::: exercise warm | Watch creation and destruction
+Make a button that toggles a `Loader` showing a big rectangle. Inside the rectangle, log in `Component.onCompleted` and `Component.onDestruction`, then click a few times.
+--- solution
+```qml
+Column {
+    Rectangle { width: 80; height: 30; color: "#313244"
+        MouseArea { anchors.fill: parent; onClicked: loader.active = !loader.active } }
+    Loader {
+        id: loader
+        active: false
+        sourceComponent: Rectangle {
+            width: 200; height: 120; color: "#cba6f7"
+            Component.onCompleted: console.log("created")
+            Component.onDestruction: console.log("destroyed")
+        }
+    }
+}
+```
+:::
+
+::: exercise practice | visible vs Loader
+Do the same with `visible` instead of a `Loader`. Notice that no logs fire after the first creation.
+--- why
+`visible: false` only hides an object: it still exists, uses memory and keeps its bindings running. A `Loader` with `active: false` really destroys it. Use `visible` for cheap things you toggle often, `Loader` for heavy things you rarely show.
+:::
+
+::: exercise practice | A toast function
+Write a `toast("hi")` function that creates a temporary `Text` with `Qt.createComponent` or an inline `Component`, and destroys it after 2 seconds.
+--- solution
+```qml
+Component { id: toastComp; Text { color: "white"; font.pixelSize: 16 } }
+function toast(msg) {
+    const t = toastComp.createObject(root, { text: msg, x: 20, y: 20 })
+    t.destroy(2000)                 // destroy after 2 s
+}
+```
+:::
+
+::: exercise challenge | Async loading
+Load a `Loader` with `asynchronous: true` whose item contains 2000 rectangles (`Repeater { model: 2000 }`). Show "Loading…" while `loader.status === Loader.Loading`.
+--- solution
+```qml
+Loader { id: heavy; asynchronous: true
+    sourceComponent: Flow { width: 600; Repeater { model: 2000; Rectangle { width: 6; height: 6; color: "#89b4fa" } } } }
+Text { visible: heavy.status === Loader.Loading; text: "Loading…"; color: "white" }
+```
+:::

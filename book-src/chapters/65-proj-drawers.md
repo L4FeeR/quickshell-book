@@ -277,7 +277,18 @@ Costs: a fullscreen surface per monitor (keep it transparent and use `HyprlandWi
 > [!WILD] In the wild
 > Caelestia's `modules/drawers/` implements exactly this: `Drawers.qml` (the window, mask and exclusion), `Backgrounds.qml` (the shape paths), `Interactions.qml` (hover/peek logic) and `Panels.qml` (content). Read it now: you'll recognize every piece.
 
-> [!TRY] Exercises
-> 1. Get the launcher drawer working with the background shape.
-> 2. Add the top dashboard drawer with hover-to-peek and a 300 ms close delay when the mouse leaves.
-> 3. Add a 1 px outline to the combined shape (`strokeColor`) for a crisp edge.
+## Practice
+
+::: exercise warm | Launcher drawer
+Get the launcher drawer working with the shared background shape.
+:::
+
+::: exercise practice | Outline
+Add a 1 px outline to the combined shape (`strokeColor`) for a crisp edge.
+:::
+
+::: exercise challenge | Peek on hover
+Add the top dashboard drawer with hover-to-peek and a 300 ms close delay when the mouse leaves.
+--- hint
+`Timer { id: closeDelay; interval: 300; onTriggered: open = false }`; restart it on exit and stop it on enter.
+:::

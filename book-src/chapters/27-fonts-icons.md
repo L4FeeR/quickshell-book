@@ -183,7 +183,45 @@ Text {
 MaterialIcon { icon: "wifi"; fill: connected ? 1 : 0; size: 18 }
 ```
 
-> [!TRY] Exercises
-> 1. Show `volume_up`, `wifi` and `battery_full` Material Symbols in a row at 20 px.
-> 2. Build `MaterialIcon.qml` and make an icon fill in on hover.
-> 3. List 10 apps from `DesktopEntries.applications` with their icons using `IconImage`.
+## Practice
+
+::: exercise warm | Three icons
+Show `volume_up`, `wifi` and `battery_full` Material Symbols in a row at 20 px.
+--- solution
+```qml
+Row { spacing: 8
+    Repeater { model: ["volume_up", "wifi", "battery_full"]
+        Text { required property string modelData; text: modelData; color: "white"
+               font.family: "Material Symbols Rounded"; font.pixelSize: 20 } } }
+```
+:::
+
+::: exercise practice | Fill on hover
+Build `MaterialIcon.qml` and make the icon fill in when hovered.
+--- hint
+Material Symbols has a `FILL` variable axis: `font.variableAxes: ({ "FILL": fill })`.
+--- solution
+```qml
+import QtQuick
+Text {
+    property string icon
+    property real fill: hov.hovered ? 1 : 0
+    text: icon; color: "white"; font.family: "Material Symbols Rounded"; font.pixelSize: 24
+    font.variableAxes: ({ "FILL": fill })
+    Behavior on fill { NumberAnimation { duration: 180 } }
+    HoverHandler { id: hov }
+}
+```
+:::
+
+::: exercise challenge | App icons
+List 10 apps from `DesktopEntries.applications` with their icons using `IconImage`.
+--- solution
+```qml
+Column { spacing: 4
+    Repeater { model: DesktopEntries.applications.values.slice(0, 10)
+        Row { required property DesktopEntry modelData; spacing: 8
+            IconImage { implicitSize: 24; source: Quickshell.iconPath(modelData.icon, "application-x-executable") }
+            Text { text: modelData.name; color: "white"; anchors.verticalCenter: parent.verticalCenter } } } }
+```
+:::

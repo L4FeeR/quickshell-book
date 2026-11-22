@@ -1,0 +1,1171 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery: System Monitors and Live Stats · The Quickshell Book</title>
+<meta name="description" content="Gallery: System Monitors and Live Stats">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details open><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch active" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-g">Part G: Widget Gallery</a> › Gallery: System Monitors and Live Stats</div><article><div class="ch-head"><div class="ch-part">Part G · Widget Gallery</div><h1><span class="ch-num">g2</span>Gallery: System Monitors and Live Stats</h1></div><p>Live numbers about your machine: network speed, CPU, memory, temperature, GPU, disk. Most read Linux's <code>/proc</code> and <code>/sys</code> files directly with <a class="api" href="../ref/FileView.html"><code>FileView</code></a>, which is far cheaper than running commands.</p>
+<div class="box tip"><div class="bt">Put the reading logic in a service</div><p>Each example is self-contained for easy testing. In your real shell, move the <code>FileView</code> + <code>Timer</code> parts into one <code>services/SystemStats.qml</code> singleton (<a class="xref" href="../ch/33-singletons.html">Singletons and Global State</a>) so the bar, a dashboard and desktop widgets share one reader.</p></div>
+<h2 id="live-network-speed">Live Network Speed<a class="hlink" href="#live-network-speed">#</a></h2>
+<div class="preview"><svg style="width:min(100%,450px)" width="300" height="60" viewBox="0 0 300 60"><rect x="20" y="15" width="260" height="30" rx="15" fill="#313244"/><text x="40" y="35" fill="#89b4fa" font-size="14">↓</text><text x="54" y="35" fill="#cdd6f4" font-size="13" font-weight="700">2.4 MB/s<animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;.3;.33;.97;1" dur="3s" repeatCount="indefinite"/></text><text x="54" y="35" fill="#cdd6f4" font-size="13" font-weight="700" opacity="0">5.9 MB/s<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.33;.36;.63;.66;1" dur="3s" repeatCount="indefinite"/></text><text x="54" y="35" fill="#cdd6f4" font-size="13" font-weight="700" opacity="0">812 KB/s<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.66;.69;.97;1" dur="3s" repeatCount="indefinite"/></text><text x="160" y="35" fill="#a6e3a1" font-size="14">↑</text><text x="174" y="35" fill="#cdd6f4" font-size="13" font-weight="700">124 KB/s</text></svg></div>
+
+<p><strong>What it is.</strong> Live download and upload speed, updated every second, with automatic units (B/s, KB/s, MB/s). Hover to see the interface name and totals since boot.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> nothing extra (reads <code>/proc/net/dev</code>)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/NetSpeed.qml</span><code>import Quickshell
+import Quickshell.Io
+import QtQuick
+import QtQuick.Layouts
+
+Rectangle {
+    id: root
+    property real down: 0              // bytes per second
+    property real up: 0
+    property real totalDown: 0
+    property real totalUp: 0
+    property string iface: ""
+    property var last: null            // previous sample { rx, tx, t }
+
+    function fmt(bps: real): string {
+        const units = ["B/s", "KB/s", "MB/s", "GB/s"]
+        let i = 0
+        while (bps &gt;= 1024 &amp;&amp; i &lt; units.length - 1) { bps /= 1024; i++ }
+        return (bps &gt;= 100 || i === 0 ? Math.round(bps) : bps.toFixed(1)) + " " + units[i]
+    }
+    function fmtBytes(b: real): string {
+        const u = ["B", "KB", "MB", "GB", "TB"]; let i = 0
+        while (b &gt;= 1024 &amp;&amp; i &lt; u.length - 1) { b /= 1024; i++ }
+        return b.toFixed(1) + " " + u[i]
+    }
+
+    FileView { id: netdev; path: "/proc/net/dev" }
+
+    Timer {
+        interval: 1000; running: true; repeat: true; triggeredOnStart: true
+        onTriggered: {
+            netdev.reload()
+            // lines look like: "  wlan0: 123456 789 0 0 0 0 0 0 654321 ..."
+            let rx = 0, tx = 0, names = []
+            for (const line of netdev.text().split("\n").slice(2)) {
+                const m = line.trim().match(/^([^:]+):\s*(.*)$/)
+                if (!m) continue
+                const name = m[1]
+                if (name === "lo" || name.startsWith("veth") || name.startsWith("docker") || name.startsWith("br-") || name.startsWith("virbr")) continue
+                const f = m[2].split(/\s+/).map(Number)
+                rx += f[0]; tx += f[8]               // field 0 = received bytes, field 8 = sent bytes
+                if (f[0] &gt; 0) names.push(name)
+            }
+            const now = Date.now()
+            if (root.last) {
+                const dt = (now - root.last.t) / 1000
+                root.down = Math.max(0, (rx - root.last.rx) / dt)
+                root.up = Math.max(0, (tx - root.last.tx) / dt)
+            }
+            root.last = { rx, tx, t: now }
+            root.totalDown = rx; root.totalUp = tx
+            root.iface = names.join(", ")
+        }
+    }
+
+    implicitWidth: row.implicitWidth + 24
+    implicitHeight: 26
+    radius: height / 2
+    color: "#313244"
+
+    RowLayout {
+        id: row
+        anchors.centerIn: parent
+        spacing: 10
+        RowLayout {
+            spacing: 3
+            Text { text: "↓"; color: "#89b4fa"; font.pixelSize: 13; font.bold: true }
+            Text { text: root.fmt(root.down); color: "#cdd6f4"; font.pixelSize: 12; font.features: ({ "tnum": 1 })
+                   Layout.preferredWidth: 64 }            // fixed width: the bar doesn't jump around
+        }
+        RowLayout {
+            spacing: 3
+            Text { text: "↑"; color: "#a6e3a1"; font.pixelSize: 13; font.bold: true }
+            Text { text: root.fmt(root.up); color: "#cdd6f4"; font.pixelSize: 12; font.features: ({ "tnum": 1 })
+                   Layout.preferredWidth: 64 }
+        }
+        Text {
+            visible: hover.hovered
+            text: root.iface + " · ↓" + root.fmtBytes(root.totalDown) + " ↑" + root.fmtBytes(root.totalUp)
+            color: "#a6adc8"; font.pixelSize: 11
+        }
+    }
+    HoverHandler { id: hover }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="walk-intro"><p>The idea: the kernel keeps a running total of bytes sent and received per network interface. Read it once a second; the difference between two readings is the speed.</p></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 6–13</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: root
+    property real down: 0              // bytes per second
+    property real up: 0
+    property real totalDown: 0
+    property real totalUp: 0
+    property string iface: ""
+    property var last: null            // previous sample { rx, tx, t }</code></pre></div><div class="seg-e"><p><code>down</code>/<code>up</code> are the current speeds in bytes per second, <code>totalDown</code>/<code>totalUp</code> the totals since boot, <code>iface</code> the active interface names. <code>last</code> remembers the previous sample (<code>rx</code> bytes, <code>tx</code> bytes, time <code>t</code>) so we can compute differences.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–20</span><b>Human-readable speed</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function fmt(bps: real): string {
+    const units = ["B/s", "KB/s", "MB/s", "GB/s"]
+    let i = 0
+    while (bps &gt;= 1024 &amp;&amp; i &lt; units.length - 1) { bps /= 1024; i++ }
+    return (bps &gt;= 100 || i === 0 ? Math.round(bps) : bps.toFixed(1)) + " " + units[i]
+}</code></pre></div><div class="seg-e"><p>Divide by 1024 until the number is small enough, moving to the next unit each time. Numbers of 100 or more are rounded (<code>123 KB/s</code>); smaller ones keep one decimal (<code>4.2 MB/s</code>). Plain bytes are never shown with decimals.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 21–25</span><b>Human-readable totals</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function fmtBytes(b: real): string {
+    const u = ["B", "KB", "MB", "GB", "TB"]; let i = 0
+    while (b &gt;= 1024 &amp;&amp; i &lt; u.length - 1) { b /= 1024; i++ }
+    return b.toFixed(1) + " " + u[i]
+}</code></pre></div><div class="seg-e"><p>Same loop for totals, always with one decimal.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 27</span><b>The source file</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FileView { id: netdev; path: "/proc/net/dev" }</code></pre></div><div class="seg-e"><p><a class="api" href="../ref/FileView.html"><code>FileView</code></a> reads <code>/proc/net/dev</code>. This "file" is generated by the kernel each time it's read, so we must <code>reload()</code> it to get fresh numbers.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 29–32</span><b>Every second</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Timer {
+    interval: 1000; running: true; repeat: true; triggeredOnStart: true
+    onTriggered: {
+        netdev.reload()</code></pre></div><div class="seg-e"><p>A repeating timer re-reads the file. <code>triggeredOnStart</code> takes the first sample immediately.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 34–43</span><b>Parsing the lines</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>let rx = 0, tx = 0, names = []
+for (const line of netdev.text().split("\n").slice(2)) {
+    const m = line.trim().match(/^([^:]+):\s*(.*)$/)
+    if (!m) continue
+    const name = m[1]
+    if (name === "lo" || name.startsWith("veth") || name.startsWith("docker") || name.startsWith("br-") || name.startsWith("virbr")) continue
+    const f = m[2].split(/\s+/).map(Number)
+    rx += f[0]; tx += f[8]               // field 0 = received bytes, field 8 = sent bytes
+    if (f[0] &gt; 0) names.push(name)
+}</code></pre></div><div class="seg-e"><p>The first two lines are headers (<code>slice(2)</code>). Each other line is <code>name: numbers…</code>. The regex splits the name from the numbers. Virtual interfaces are skipped: <code>lo</code> (loopback, your own machine), Docker, VM bridges; otherwise local traffic would inflate the numbers. Field 0 is received bytes and field 8 sent bytes. Totals of all real interfaces are summed, so it works on Wi-Fi and Ethernet at the same time.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 44–50</span><b>Speed = difference ÷ time</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>const now = Date.now()
+if (root.last) {
+    const dt = (now - root.last.t) / 1000
+    root.down = Math.max(0, (rx - root.last.rx) / dt)
+    root.up = Math.max(0, (tx - root.last.tx) / dt)
+}
+root.last = { rx, tx, t: now }</code></pre></div><div class="seg-e"><p>With a previous sample, <code>(rx - last.rx) / dt</code> is bytes per second. We divide by the <em>measured</em> elapsed time instead of assuming exactly 1 s, because timers can be a little late. <code>Math.max(0, …)</code> protects against counters resetting (an interface reconnecting). Then the current sample becomes the new <code>last</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 61–70</span><b>Download display</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    id: row
+    anchors.centerIn: parent
+    spacing: 10
+    RowLayout {
+        spacing: 3
+        Text { text: "↓"; color: "#89b4fa"; font.pixelSize: 13; font.bold: true }
+        Text { text: root.fmt(root.down); color: "#cdd6f4"; font.pixelSize: 12; font.features: ({ "tnum": 1 })
+               Layout.preferredWidth: 64 }            // fixed width: the bar doesn't jump around
+    }</code></pre></div><div class="seg-e"><p>A blue arrow and the formatted speed. <code>Layout.preferredWidth: 64</code> gives the number a fixed slot, so the bar doesn't shift every second as digit counts change.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 77–81</span><b>Details on hover</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    visible: hover.hovered
+    text: root.iface + " · ↓" + root.fmtBytes(root.totalDown) + " ↑" + root.fmtBytes(root.totalUp)
+    color: "#a6adc8"; font.pixelSize: 11
+}</code></pre></div><div class="seg-e"><p>Interface names and session totals, only while hovered.</p></div></div></div>
+<p><strong>Customize</strong>
+- Show only one interface: filter <code>name === "wlan0"</code>.
+- Bits instead of bytes: multiply by 8 and use <code>Kb/s, Mb/s</code>.
+- Hide when idle: <code>visible: root.down + root.up &gt; 1024</code>.
+- Add a sparkline: see the CPU example below and keep a history array for <code>down</code>.</p>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Practice</span><b>Hide when idle</b></div><div class="ex-b"><p>Fade the widget to 40% opacity when both speeds are under 1 KB/s.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><div class="codewrap"><pre class="code" data-lang="qml"><code>opacity: root.down &lt; 1024 &amp;&amp; root.up &lt; 1024 &amp;&amp; !hover.hovered ? 0.4 : 1
+Behavior on opacity { NumberAnimation { duration: 300 } }</code></pre></div></div></details></div>
+<h2 id="cpu-usage-with-sparkline">CPU Usage with Sparkline<a class="hlink" href="#cpu-usage-with-sparkline">#</a></h2>
+<div class="preview"><svg style="width:min(100%,390px)" width="260" height="60" viewBox="0 0 260 60"><rect x="20" y="15" width="220" height="30" rx="15" fill="#313244"/><text x="38" y="35" fill="#cba6f7" font-size="12" font-weight="700">CPU</text><text x="70" y="35" fill="#cdd6f4" font-size="13" font-weight="700">37%</text><polyline fill="none" stroke="#cba6f7" stroke-width="2" stroke-linejoin="round" points="110,36 120,30 130,33 140,24 150,28 160,22 170,31 180,26 190,34 200,21 210,27 220,25"><animate attributeName="points" dur="4s" repeatCount="indefinite" values="110,36 120,30 130,33 140,24 150,28 160,22 170,31 180,26 190,34 200,21 210,27 220,25;110,30 120,33 130,24 140,28 150,22 160,31 170,26 180,34 190,21 200,27 210,25 220,32;110,36 120,30 130,33 140,24 150,28 160,22 170,31 180,26 190,34 200,21 210,27 220,25"/></polyline></svg></div>
+
+<p><strong>What it is.</strong> CPU usage percentage plus a tiny live graph of the last 30 seconds.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> nothing extra (reads <code>/proc/stat</code>)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/CpuSpark.qml</span><code>import Quickshell.Io
+import QtQuick
+import QtQuick.Layouts
+
+Rectangle {
+    id: root
+    property real usage: 0             // 0..1
+    property var history: []           // last N samples
+    property var last: null
+    property int samples: 30
+
+    FileView { id: stat; path: "/proc/stat" }
+    Timer {
+        interval: 1000; running: true; repeat: true; triggeredOnStart: true
+        onTriggered: {
+            stat.reload()
+            // first line: "cpu  user nice system idle iowait irq softirq steal ..."
+            const f = stat.text().split("\n")[0].trim().split(/\s+/).slice(1).map(Number)
+            const idle = f[3] + f[4]
+            const total = f.reduce((a, b) =&gt; a + b, 0)
+            if (root.last) {
+                const dTotal = total - root.last.total
+                root.usage = dTotal &gt; 0 ? 1 - (idle - root.last.idle) / dTotal : 0
+                root.history = [...root.history, root.usage].slice(-root.samples)
+            }
+            root.last = { total, idle }
+        }
+    }
+
+    implicitWidth: row.implicitWidth + 24
+    implicitHeight: 26
+    radius: height / 2
+    color: "#313244"
+
+    RowLayout {
+        id: row
+        anchors.centerIn: parent
+        spacing: 8
+        Text { text: "CPU"; color: "#cba6f7"; font.pixelSize: 11; font.bold: true }
+        Text { text: Math.round(root.usage * 100) + "%"; color: root.usage &gt; 0.85 ? "#f38ba8" : "#cdd6f4"
+               font.pixelSize: 12; font.bold: true; font.features: ({ "tnum": 1 }); Layout.preferredWidth: 32 }
+        Canvas {
+            id: spark
+            implicitWidth: 70; implicitHeight: 16
+            onPaint: {
+                const ctx = getContext("2d")
+                ctx.reset()
+                const h = root.history
+                if (h.length &lt; 2) return
+                const step = width / (root.samples - 1)
+                const x0 = width - (h.length - 1) * step
+                ctx.beginPath()
+                h.forEach((v, i) =&gt; { const x = x0 + i * step, y = height - v * height; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y) })
+                ctx.strokeStyle = "#cba6f7"; ctx.lineWidth = 1.5; ctx.lineJoin = "round"
+                ctx.stroke()
+                ctx.lineTo(width, height); ctx.lineTo(x0, height); ctx.closePath()
+                ctx.fillStyle = "#33cba6f7"; ctx.fill()
+            }
+            Connections { target: root; function onHistoryChanged() { spark.requestPaint() } }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 5–10</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: root
+    property real usage: 0             // 0..1
+    property var history: []           // last N samples
+    property var last: null
+    property int samples: 30</code></pre></div><div class="seg-e"><p><code>usage</code> is 0–1. <code>history</code> holds the last 30 values for the graph. <code>last</code> stores the previous counters.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 12–19</span><b>Reading /proc/stat</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FileView { id: stat; path: "/proc/stat" }
+Timer {
+    interval: 1000; running: true; repeat: true; triggeredOnStart: true
+    onTriggered: {
+        stat.reload()
+        // first line: "cpu  user nice system idle iowait irq softirq steal ..."
+        const f = stat.text().split("\n")[0].trim().split(/\s+/).slice(1).map(Number)
+        const idle = f[3] + f[4]</code></pre></div><div class="seg-e"><p>The first line of <code>/proc/stat</code> lists how much time all CPUs have spent in each state since boot (user, nice, system, idle, iowait…). We drop the word <code>cpu</code>, convert the rest to numbers, and count <strong>idle + iowait</strong> as idle time.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 20–26</span><b>Usage over the last second</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>const total = f.reduce((a, b) =&gt; a + b, 0)
+if (root.last) {
+    const dTotal = total - root.last.total
+    root.usage = dTotal &gt; 0 ? 1 - (idle - root.last.idle) / dTotal : 0
+    root.history = [...root.history, root.usage].slice(-root.samples)
+}
+root.last = { total, idle }</code></pre></div><div class="seg-e"><p>The counters only grow, so we compare with the previous reading: of all the time that passed (<code>dTotal</code>), how much was idle? <code>1 - idleDelta / dTotal</code> is the busy fraction. The new value is added to <code>history</code> by creating a <strong>new array</strong> (<code>[...history, usage]</code>) and trimming it to 30 with <code>slice(-30)</code>. Using <code>push()</code> would not emit <code>historyChanged</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 39–41</span><b>Number display</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text { text: "CPU"; color: "#cba6f7"; font.pixelSize: 11; font.bold: true }
+Text { text: Math.round(root.usage * 100) + "%"; color: root.usage &gt; 0.85 ? "#f38ba8" : "#cdd6f4"
+       font.pixelSize: 12; font.bold: true; font.features: ({ "tnum": 1 }); Layout.preferredWidth: 32 }</code></pre></div><div class="seg-e"><p>Turns red above 85%. A fixed width keeps it steady.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 42–58</span><b>Drawing the sparkline</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Canvas {
+    id: spark
+    implicitWidth: 70; implicitHeight: 16
+    onPaint: {
+        const ctx = getContext("2d")
+        ctx.reset()
+        const h = root.history
+        if (h.length &lt; 2) return
+        const step = width / (root.samples - 1)
+        const x0 = width - (h.length - 1) * step
+        ctx.beginPath()
+        h.forEach((v, i) =&gt; { const x = x0 + i * step, y = height - v * height; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y) })
+        ctx.strokeStyle = "#cba6f7"; ctx.lineWidth = 1.5; ctx.lineJoin = "round"
+        ctx.stroke()
+        ctx.lineTo(width, height); ctx.lineTo(x0, height); ctx.closePath()
+        ctx.fillStyle = "#33cba6f7"; ctx.fill()
+    }</code></pre></div><div class="seg-e"><ul>
+<li><code>ctx.reset()</code> clears the previous drawing.</li>
+<li><code>step</code> is the horizontal distance between points; <code>x0</code> right-aligns the graph so new values appear on the right while it fills up.</li>
+<li>For each value, <code>y = height - v * height</code> (0% at the bottom, 100% at the top). The first point uses <code>moveTo</code>, the rest <code>lineTo</code>.</li>
+<li>After stroking the line, we continue down to the bottom corners and close the path, then fill it with a transparent version of the color (<code>#33</code> = 20% alpha), giving the soft area under the line.</li>
+</ul></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 59</span><b>When to repaint</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Connections { target: root; function onHistoryChanged() { spark.requestPaint() } }</code></pre></div><div class="seg-e"><p>A Canvas only redraws when asked. Every time <code>history</code> changes we call <code>requestPaint()</code>.</p></div></div></div>
+<p><strong>Customize</strong>
+- Per-core bars: read the <code>cpu0</code>, <code>cpu1</code>… lines and draw one thin bar each.
+- Show the top process on hover: <code>ps -eo comm,%cpu --sort=-%cpu | sed -n 2p</code> with <a class="api" href="../ref/Process.html"><code>Process</code></a>.</p>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Per-core</b></div><div class="ex-b"><p>Show per-core usage as a row of tiny vertical bars (the lines <code>cpu0</code>, <code>cpu1</code>… in <code>/proc/stat</code>).</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Keep <code>last</code> as an array of <code>{ total, idle }</code>, one per core line (<code>lines.filter(l =&gt; /^cpu\d/.test(l))</code>).</p></div></details></div>
+<h2 id="memory-bar">Memory Bar<a class="hlink" href="#memory-bar">#</a></h2>
+<div class="preview"><svg style="width:min(100%,390px)" width="260" height="60" viewBox="0 0 260 60"><rect x="20" y="15" width="220" height="30" rx="15" fill="#313244"/><text x="38" y="35" fill="#94e2d5" font-size="12" font-weight="700">RAM</text><rect x="74" y="27" width="100" height="6" rx="3" fill="#45475a"/><rect x="74" y="27" width="58" height="6" rx="3" fill="#94e2d5"><animate attributeName="width" values="52;64;58;52" dur="5s" repeatCount="indefinite"/></rect><text x="182" y="35" fill="#cdd6f4" font-size="12">9.1/16G</text></svg></div>
+
+<p><strong>What it is.</strong> Used RAM as a bar plus "used/total" in GB; hover shows swap.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> nothing extra (reads <code>/proc/meminfo</code>)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/MemoryBar.qml</span><code>import Quickshell.Io
+import QtQuick
+import QtQuick.Layouts
+
+Rectangle {
+    id: root
+    property real totalKb: 1
+    property real usedKb: 0
+    property real swapTotalKb: 0
+    property real swapUsedKb: 0
+    readonly property real ratio: usedKb / totalKb
+
+    function field(text, key) {
+        const m = text.match(new RegExp("^" + key + ":\\s+(\\d+)", "m"))
+        return m ? parseInt(m[1]) : 0
+    }
+
+    FileView { id: mem; path: "/proc/meminfo" }
+    Timer {
+        interval: 3000; running: true; repeat: true; triggeredOnStart: true
+        onTriggered: {
+            mem.reload()
+            const t = mem.text()
+            root.totalKb = root.field(t, "MemTotal") || 1
+            root.usedKb = root.totalKb - root.field(t, "MemAvailable")      // "available" counts reclaimable cache
+            root.swapTotalKb = root.field(t, "SwapTotal")
+            root.swapUsedKb = root.swapTotalKb - root.field(t, "SwapFree")
+        }
+    }
+
+    implicitWidth: row.implicitWidth + 24
+    implicitHeight: 26
+    radius: height / 2
+    color: "#313244"
+
+    RowLayout {
+        id: row
+        anchors.centerIn: parent
+        spacing: 8
+        Text { text: "RAM"; color: "#94e2d5"; font.pixelSize: 11; font.bold: true }
+        Rectangle {
+            implicitWidth: 60; implicitHeight: 6; radius: 3; color: "#45475a"
+            Rectangle {
+                width: parent.width * root.ratio; height: parent.height; radius: 3
+                color: root.ratio &gt; 0.9 ? "#f38ba8" : root.ratio &gt; 0.75 ? "#f9e2af" : "#94e2d5"
+                Behavior on width { NumberAnimation { duration: 400 } }
+            }
+        }
+        Text {
+            text: hover.hovered &amp;&amp; root.swapTotalKb &gt; 0
+                  ? "swap " + (root.swapUsedKb / 1048576).toFixed(1) + "G"
+                  : (root.usedKb / 1048576).toFixed(1) + "/" + Math.round(root.totalKb / 1048576) + "G"
+            color: "#cdd6f4"; font.pixelSize: 12; font.features: ({ "tnum": 1 })
+        }
+    }
+    HoverHandler { id: hover }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 5–11</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: root
+    property real totalKb: 1
+    property real usedKb: 0
+    property real swapTotalKb: 0
+    property real swapUsedKb: 0
+    readonly property real ratio: usedKb / totalKb</code></pre></div><div class="seg-e"><p>Values in kilobytes, as <code>/proc/meminfo</code> reports them. <code>ratio</code> is used/total. <code>totalKb</code> starts at 1 so <code>ratio</code> never divides by zero before the first read.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–16</span><b>Reading one field</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function field(text, key) {
+    const m = text.match(new RegExp("^" + key + ":\\s+(\\d+)", "m"))
+    return m ? parseInt(m[1]) : 0
+}</code></pre></div><div class="seg-e"><p>Builds a regex like <code>^MemTotal:\s+(\d+)</code> with the <code>m</code> (multiline) flag, so <code>^</code> matches at the start of any line. Returns the number or 0.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 18–29</span><b>Every 3 seconds</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FileView { id: mem; path: "/proc/meminfo" }
+Timer {
+    interval: 3000; running: true; repeat: true; triggeredOnStart: true
+    onTriggered: {
+        mem.reload()
+        const t = mem.text()
+        root.totalKb = root.field(t, "MemTotal") || 1
+        root.usedKb = root.totalKb - root.field(t, "MemAvailable")      // "available" counts reclaimable cache
+        root.swapTotalKb = root.field(t, "SwapTotal")
+        root.swapUsedKb = root.swapTotalKb - root.field(t, "SwapFree")
+    }
+}</code></pre></div><div class="seg-e"><p>Memory changes slowly, so 3 s is plenty. <strong>Used = MemTotal − MemAvailable</strong>. <code>MemAvailable</code> includes file cache the kernel can free instantly, so this matches what <code>free</code> and other monitors call "used". Swap used is total minus free.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 41–48</span><b>The bar</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    implicitWidth: 60; implicitHeight: 6; radius: 3; color: "#45475a"
+    Rectangle {
+        width: parent.width * root.ratio; height: parent.height; radius: 3
+        color: root.ratio &gt; 0.9 ? "#f38ba8" : root.ratio &gt; 0.75 ? "#f9e2af" : "#94e2d5"
+        Behavior on width { NumberAnimation { duration: 400 } }
+    }
+}</code></pre></div><div class="seg-e"><p>A 60×6 track and fill. The color warns at 75% (yellow) and 90% (red).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 49–54</span><b>Text</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    text: hover.hovered &amp;&amp; root.swapTotalKb &gt; 0
+          ? "swap " + (root.swapUsedKb / 1048576).toFixed(1) + "G"
+          : (root.usedKb / 1048576).toFixed(1) + "/" + Math.round(root.totalKb / 1048576) + "G"
+    color: "#cdd6f4"; font.pixelSize: 12; font.features: ({ "tnum": 1 })
+}</code></pre></div><div class="seg-e"><p>Dividing kilobytes by 1048576 (1024 × 1024) gives gigabytes. On hover it shows swap usage instead, but only if you have swap.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>Top process tooltip</b></div><div class="ex-b"><p>On hover, also show the most memory-hungry process name (<code>ps -eo comm --sort=-%mem | sed -n 2p</code>), refreshed only while hovered.</p></div></div>
+<h2 id="cpu-temperature">CPU Temperature<a class="hlink" href="#cpu-temperature">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="60" viewBox="0 0 200 60"><rect x="40" y="15" width="120" height="30" rx="15" fill="#313244"/><rect x="60" y="21" width="6" height="14" rx="3" fill="none" stroke="#fab387" stroke-width="2"/><circle cx="63" cy="37" r="4" fill="#fab387"/><rect x="61.5" y="27" width="3" height="9" fill="#fab387"><animate attributeName="y" values="29;23;29" dur="3s" repeatCount="indefinite"/><animate attributeName="height" values="7;13;7" dur="3s" repeatCount="indefinite"/></rect><text x="112" y="35" fill="#fab387" font-size="13" font-weight="700" text-anchor="middle">67°C</text></svg></div>
+
+<p><strong>What it is.</strong> CPU package temperature, color-coded: normal, warm (≥70 °C), hot (≥85 °C, pulsing).</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> nothing extra (reads <code>/sys/class/hwmon</code>)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/CpuTemp.qml</span><code>import Quickshell.Io
+import QtQuick
+
+Rectangle {
+    id: root
+    property string sensorPath: ""             // found automatically
+    property real temp: 0
+
+    // find the CPU sensor: coretemp (Intel) or k10temp (AMD)
+    Process {
+        running: true
+        command: ["sh", "-c", "for d in /sys/class/hwmon/hwmon*; do n=$(cat $d/name); case $n in coretemp|k10temp|zenpower) echo $d/temp1_input; exit;; esac; done; echo /sys/class/thermal/thermal_zone0/temp"]
+        stdout: StdioCollector { onStreamFinished: root.sensorPath = text.trim().split("\n")[0] }
+    }
+    FileView { id: sensor; path: root.sensorPath }
+    Timer {
+        interval: 2000; running: root.sensorPath !== ""; repeat: true; triggeredOnStart: true
+        onTriggered: { sensor.reload(); root.temp = parseInt(sensor.text()) / 1000 }
+    }
+
+    readonly property color tint: temp &gt;= 85 ? "#f38ba8" : temp &gt;= 70 ? "#fab387" : "#a6e3a1"
+
+    implicitWidth: label.implicitWidth + 24
+    implicitHeight: 26
+    radius: height / 2
+    color: "#313244"
+
+    Text {
+        id: label
+        anchors.centerIn: parent
+        text: "🌡 " + Math.round(root.temp) + "°C"
+        color: root.tint
+        font.pixelSize: 12; font.bold: true
+        SequentialAnimation on opacity { running: root.temp &gt;= 85; loops: Animation.Infinite
+            NumberAnimation { to: 0.4; duration: 500 } NumberAnimation { to: 1; duration: 500 }
+            onStopped: label.opacity = 1 }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 9–14</span><b>Finding the right sensor</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// find the CPU sensor: coretemp (Intel) or k10temp (AMD)
+Process {
+    running: true
+    command: ["sh", "-c", "for d in /sys/class/hwmon/hwmon*; do n=$(cat $d/name); case $n in coretemp|k10temp|zenpower) echo $d/temp1_input; exit;; esac; done; echo /sys/class/thermal/thermal_zone0/temp"]
+    stdout: StdioCollector { onStreamFinished: root.sensorPath = text.trim().split("\n")[0] }
+}</code></pre></div><div class="seg-e"><p>Temperature sensors live in <code>/sys/class/hwmon/hwmon0</code>, <code>hwmon1</code>… and their numbering changes between boots. The shell loop reads each <code>name</code> file and picks the CPU driver: <code>coretemp</code> (Intel), <code>k10temp</code> or <code>zenpower</code> (AMD). If none matches, it falls back to the generic <code>thermal_zone0</code>. This runs once at startup.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–19</span><b>Reading it</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FileView { id: sensor; path: root.sensorPath }
+Timer {
+    interval: 2000; running: root.sensorPath !== ""; repeat: true; triggeredOnStart: true
+    onTriggered: { sensor.reload(); root.temp = parseInt(sensor.text()) / 1000 }
+}</code></pre></div><div class="seg-e"><p>Once the path is known, a <code>FileView</code> reads that one tiny file every 2 seconds. The value is in millidegrees (<code>54000</code> = 54 °C), hence <code>/ 1000</code>. <code>running: root.sensorPath !== ""</code> waits until the path is found.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 21</span><b>Color by heat</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property color tint: temp &gt;= 85 ? "#f38ba8" : temp &gt;= 70 ? "#fab387" : "#a6e3a1"</code></pre></div><div class="seg-e"><p>Green below 70 °C, orange from 70, red from 85.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 34–36</span><b>Blink when hot</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>SequentialAnimation on opacity { running: root.temp &gt;= 85; loops: Animation.Infinite
+    NumberAnimation { to: 0.4; duration: 500 } NumberAnimation { to: 1; duration: 500 }
+    onStopped: label.opacity = 1 }</code></pre></div><div class="seg-e"><p>The label blinks while ≥ 85 °C. <code>onStopped: label.opacity = 1</code> restores full opacity when it cools down, otherwise the text could stay half-transparent.</p></div></div></div>
+<p><strong>Customize</strong>
+- GPU temperature (AMD): the hwmon whose name is <code>amdgpu</code>. NVMe: name <code>nvme</code>.
+- Show the fan speed: <code>fan1_input</code> in the same hwmon folder.</p>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Practice</span><b>Fahrenheit option</b></div><div class="ex-b"><p>Add <code>property bool fahrenheit</code> that shows °F (<code>c * 9 / 5 + 32</code>).</p></div></div>
+<h2 id="gpu-usage">GPU Usage<a class="hlink" href="#gpu-usage">#</a></h2>
+<div class="preview"><svg style="width:min(100%,330px)" width="220" height="60" viewBox="0 0 220 60"><rect x="30" y="15" width="160" height="30" rx="15" fill="#313244"/><text x="50" y="35" fill="#a6e3a1" font-size="12" font-weight="700">GPU</text><text x="90" y="35" fill="#cdd6f4" font-size="13" font-weight="700">54%</text><text x="125" y="35" fill="#a6adc8" font-size="12">3.1G</text></svg></div>
+
+<p><strong>What it is.</strong> GPU utilization and VRAM use, for NVIDIA (<code>nvidia-smi</code>) or AMD (sysfs).</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> NVIDIA drivers, or an AMD GPU</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/GpuUsage.qml</span><code>import Quickshell.Io
+import QtQuick
+
+Rectangle {
+    id: root
+    property int usage: 0            // %
+    property real vramGb: 0
+    property string vendor: ""       // "nvidia" or "amd", detected
+
+    Process {                        // detect vendor once
+        running: true
+        command: ["sh", "-c", "command -v nvidia-smi &gt;/dev/null &amp;&amp; echo nvidia || (ls /sys/class/drm/card*/device/gpu_busy_percent &gt;/dev/null 2&gt;&amp;1 &amp;&amp; echo amd)"]
+        stdout: StdioCollector { onStreamFinished: root.vendor = text.trim() }
+    }
+    // NVIDIA: nvidia-smi prints a line every 2 s by itself (-l 2): one long-running process
+    Process {
+        running: root.vendor === "nvidia"
+        command: ["nvidia-smi", "--query-gpu=utilization.gpu,memory.used", "--format=csv,noheader,nounits", "-l", "2"]
+        stdout: SplitParser {
+            onRead: line =&gt; { const [u, m] = line.split(",").map(s =&gt; parseFloat(s)); root.usage = u; root.vramGb = m / 1024 }
+        }
+    }
+    // AMD: read sysfs
+    FileView { id: busy; path: root.vendor === "amd" ? "/sys/class/drm/card1/device/gpu_busy_percent" : "" }
+    FileView { id: vram; path: root.vendor === "amd" ? "/sys/class/drm/card1/device/mem_info_vram_used" : "" }
+    Timer {
+        interval: 2000; repeat: true; running: root.vendor === "amd"
+        onTriggered: { busy.reload(); vram.reload(); root.usage = parseInt(busy.text()); root.vramGb = parseInt(vram.text()) / 1073741824 }
+    }
+
+    visible: vendor !== ""
+    implicitWidth: label.implicitWidth + 24
+    implicitHeight: 26
+    radius: height / 2
+    color: "#313244"
+    Text {
+        id: label
+        anchors.centerIn: parent
+        text: "GPU " + root.usage + "%  " + root.vramGb.toFixed(1) + "G"
+        color: "#cdd6f4"; font.pixelSize: 12
+        font.features: ({ "tnum": 1 })
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–14</span><b>Which GPU?</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Process {                        // detect vendor once
+    running: true
+    command: ["sh", "-c", "command -v nvidia-smi &gt;/dev/null &amp;&amp; echo nvidia || (ls /sys/class/drm/card*/device/gpu_busy_percent &gt;/dev/null 2&gt;&amp;1 &amp;&amp; echo amd)"]
+    stdout: StdioCollector { onStreamFinished: root.vendor = text.trim() }
+}</code></pre></div><div class="seg-e"><p>If <code>nvidia-smi</code> exists we're on NVIDIA; if any card has <code>gpu_busy_percent</code> in sysfs, it's AMD. The result decides which reader runs. Intel GPUs report neither, so the widget hides.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–22</span><b>NVIDIA: one long-running process</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// NVIDIA: nvidia-smi prints a line every 2 s by itself (-l 2): one long-running process
+Process {
+    running: root.vendor === "nvidia"
+    command: ["nvidia-smi", "--query-gpu=utilization.gpu,memory.used", "--format=csv,noheader,nounits", "-l", "2"]
+    stdout: SplitParser {
+        onRead: line =&gt; { const [u, m] = line.split(",").map(s =&gt; parseFloat(s)); root.usage = u; root.vramGb = m / 1024 }
+    }
+}</code></pre></div><div class="seg-e"><p><code>nvidia-smi -l 2</code> keeps running and prints one CSV line every 2 seconds (<code>45, 2048</code>). <a class="api" href="../ref/SplitParser.html"><code>SplitParser</code></a> calls <code>onRead</code> per line; we split on the comma, convert, and store usage (%) and VRAM (MiB → GiB). No timer needed, and no new process every tick.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 23–29</span><b>AMD: sysfs files</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// AMD: read sysfs
+FileView { id: busy; path: root.vendor === "amd" ? "/sys/class/drm/card1/device/gpu_busy_percent" : "" }
+FileView { id: vram; path: root.vendor === "amd" ? "/sys/class/drm/card1/device/mem_info_vram_used" : "" }
+Timer {
+    interval: 2000; repeat: true; running: root.vendor === "amd"
+    onTriggered: { busy.reload(); vram.reload(); root.usage = parseInt(busy.text()); root.vramGb = parseInt(vram.text()) / 1073741824 }
+}</code></pre></div><div class="seg-e"><p>AMD drivers expose usage and VRAM bytes as plain files. Two FileViews are re-read every 2 seconds. The path is <code>""</code> on non-AMD machines, so nothing is read there. Your card may be <code>card0</code> instead of <code>card1</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 31–42</span><b>Display</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>visible: vendor !== ""
+implicitWidth: label.implicitWidth + 24
+implicitHeight: 26
+radius: height / 2
+color: "#313244"
+Text {
+    id: label
+    anchors.centerIn: parent
+    text: "GPU " + root.usage + "%  " + root.vramGb.toFixed(1) + "G"
+    color: "#cdd6f4"; font.pixelSize: 12
+    font.features: ({ "tnum": 1 })
+}</code></pre></div><div class="seg-e"><p>Hidden if no supported GPU was found.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 5</span><span class="ex-lvl">Practice</span><b>Find the card automatically</b></div><div class="ex-b"><p>Detect the AMD card path in the same detection script instead of hard-coding <code>card1</code>.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Print the matching <code>gpu_busy_percent</code> path itself (<code>ls /sys/class/drm/card*/device/gpu_busy_percent | head -1</code>) and derive the folder from it.</p></div></details></div>
+<h2 id="disk-usage-ring">Disk Usage Ring<a class="hlink" href="#disk-usage-ring">#</a></h2>
+<div class="preview"><svg style="width:min(100%,210px)" width="140" height="80" viewBox="0 0 140 80"><circle cx="70" cy="40" r="26" fill="none" stroke="#45475a" stroke-width="6"/><circle cx="70" cy="40" r="26" fill="none" stroke="#f9e2af" stroke-width="6" stroke-linecap="round" stroke-dasharray="113 163" transform="rotate(-90 70 40)"><animate attributeName="stroke-dasharray" values="0 163;113 163" dur="1.5s" fill="freeze"/></circle><text x="70" y="44" fill="#cdd6f4" font-size="13" font-weight="700" text-anchor="middle">69%</text></svg></div>
+
+<p><strong>What it is.</strong> A circular gauge showing how full a disk is, with free space on hover.</p>
+<p><strong>Kind:</strong> bar module or dashboard · <strong>Needs:</strong> <code>df</code> (coreutils)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/DiskRing.qml</span><code>import Quickshell.Io
+import QtQuick
+import QtQuick.Shapes
+
+Item {
+    id: root
+    property string mount: "/"
+    property real used: 0              // 0..1
+    property string free: ""
+    property int size: 26
+
+    Process {
+        id: df
+        command: ["df", "-B1", "--output=pcent,avail", root.mount]
+        stdout: StdioCollector {
+            onStreamFinished: {
+                const l = text.trim().split("\n")[1].trim().split(/\s+/)
+                root.used = parseInt(l[0]) / 100
+                root.free = (parseInt(l[1]) / 1073741824).toFixed(0) + "G free"
+            }
+        }
+    }
+    Timer { interval: 60000; running: true; repeat: true; triggeredOnStart: true; onTriggered: df.running = true }
+
+    implicitWidth: size; implicitHeight: size
+    Shape {
+        anchors.fill: parent
+        preferredRendererType: Shape.CurveRenderer
+        ShapePath {
+            fillColor: "transparent"; strokeColor: "#45475a"; strokeWidth: 3
+            PathAngleArc { centerX: root.size / 2; centerY: root.size / 2; radiusX: root.size / 2 - 2; radiusY: radiusX; sweepAngle: 360 }
+        }
+        ShapePath {
+            fillColor: "transparent"; strokeWidth: 3; capStyle: ShapePath.RoundCap
+            strokeColor: root.used &gt; 0.9 ? "#f38ba8" : "#f9e2af"
+            PathAngleArc { centerX: root.size / 2; centerY: root.size / 2; radiusX: root.size / 2 - 2; radiusY: radiusX
+                           startAngle: -90; sweepAngle: 360 * root.used }
+        }
+    }
+    Text { anchors.centerIn: parent; text: Math.round(root.used * 100); color: "#cdd6f4"; font.pixelSize: 9; font.bold: true }
+    HoverHandler { id: hover }
+    Text { visible: hover.hovered; anchors.left: parent.right; anchors.leftMargin: 6; anchors.verticalCenter: parent.verticalCenter
+           text: root.free; color: "#a6adc8"; font.pixelSize: 11 }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 5–10</span><b>Properties</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Item {
+    id: root
+    property string mount: "/"
+    property real used: 0              // 0..1
+    property string free: ""
+    property int size: 26</code></pre></div><div class="seg-e"><p><code>mount</code> lets you place several rings for different disks (<code>"/"</code>, <code>"/home"</code>). <code>used</code> is 0–1.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 12–22</span><b>Asking df</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Process {
+    id: df
+    command: ["df", "-B1", "--output=pcent,avail", root.mount]
+    stdout: StdioCollector {
+        onStreamFinished: {
+            const l = text.trim().split("\n")[1].trim().split(/\s+/)
+            root.used = parseInt(l[0]) / 100
+            root.free = (parseInt(l[1]) / 1073741824).toFixed(0) + "G free"
+        }
+    }
+}</code></pre></div><div class="seg-e"><p><code>df -B1 --output=pcent,avail /</code> prints a header line and then e.g. <code>  45%  512000000000</code>. We take line 2, split on spaces, and parse the percentage and free bytes (÷ 1073741824 = GiB).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 23</span><b>Once a minute</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Timer { interval: 60000; running: true; repeat: true; triggeredOnStart: true; onTriggered: df.running = true }</code></pre></div><div class="seg-e"><p>Disk usage changes slowly.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 26–32</span><b>Background ring</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Shape {
+    anchors.fill: parent
+    preferredRendererType: Shape.CurveRenderer
+    ShapePath {
+        fillColor: "transparent"; strokeColor: "#45475a"; strokeWidth: 3
+        PathAngleArc { centerX: root.size / 2; centerY: root.size / 2; radiusX: root.size / 2 - 2; radiusY: radiusX; sweepAngle: 360 }
+    }</code></pre></div><div class="seg-e"><p>A full circle (<code>sweepAngle: 360</code>) in a dark color: the track. <code>CurveRenderer</code> draws smooth, anti-aliased curves.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 33–38</span><b>Usage arc</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ShapePath {
+    fillColor: "transparent"; strokeWidth: 3; capStyle: ShapePath.RoundCap
+    strokeColor: root.used &gt; 0.9 ? "#f38ba8" : "#f9e2af"
+    PathAngleArc { centerX: root.size / 2; centerY: root.size / 2; radiusX: root.size / 2 - 2; radiusY: radiusX
+                   startAngle: -90; sweepAngle: 360 * root.used }
+}</code></pre></div><div class="seg-e"><p>Starts at the top (<code>startAngle: -90</code>) and sweeps clockwise in proportion to usage. <code>RoundCap</code> gives round ends. Red above 90%.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 40–43</span><b>Number and hover text</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text { anchors.centerIn: parent; text: Math.round(root.used * 100); color: "#cdd6f4"; font.pixelSize: 9; font.bold: true }
+HoverHandler { id: hover }
+Text { visible: hover.hovered; anchors.left: parent.right; anchors.leftMargin: 6; anchors.verticalCenter: parent.verticalCenter
+       text: root.free; color: "#a6adc8"; font.pixelSize: 11 }</code></pre></div><div class="seg-e"><p>The percentage sits in the middle; "512G free" appears to the right on hover.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 6</span><span class="ex-lvl">Practice</span><b>Two disks</b></div><div class="ex-b"><p>Put two rings side by side for <code>/</code> and <code>/home</code>, each with its own color.</p></div></div>
+<h2 id="uptime">Uptime<a class="hlink" href="#uptime">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="60" viewBox="0 0 200 60"><rect x="40" y="15" width="120" height="30" rx="15" fill="#313244"/><circle cx="60" cy="30" r="7" fill="none" stroke="#89b4fa" stroke-width="2"/><path d="M60 26v4l3 2" stroke="#89b4fa" stroke-width="2" fill="none"/><text x="112" y="35" fill="#cdd6f4" font-size="13" text-anchor="middle">2d 4h 17m</text></svg></div>
+
+<p><strong>What it is.</strong> How long the system has been running.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> nothing extra (reads <code>/proc/uptime</code>)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/Uptime.qml</span><code>import Quickshell.Io
+import QtQuick
+
+Rectangle {
+    id: root
+    property int secs: 0
+    readonly property string label: {
+        const d = Math.floor(secs / 86400), h = Math.floor(secs % 86400 / 3600), m = Math.floor(secs % 3600 / 60)
+        return (d ? d + "d " : "") + (d || h ? h + "h " : "") + m + "m"
+    }
+    FileView { id: up; path: "/proc/uptime" }
+    Timer { interval: 60000; running: true; repeat: true; triggeredOnStart: true
+            onTriggered: { up.reload(); root.secs = parseFloat(up.text().split(" ")[0]) } }
+
+    implicitWidth: t.implicitWidth + 24; implicitHeight: 26; radius: 13; color: "#313244"
+    Text { id: t; anchors.centerIn: parent; text: "⏱ " + root.label; color: "#cdd6f4"; font.pixelSize: 12 }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 6–10</span><b>Formatting</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property int secs: 0
+readonly property string label: {
+    const d = Math.floor(secs / 86400), h = Math.floor(secs % 86400 / 3600), m = Math.floor(secs % 3600 / 60)
+    return (d ? d + "d " : "") + (d || h ? h + "h " : "") + m + "m"
+}</code></pre></div><div class="seg-e"><p><code>/proc/uptime</code> gives seconds. The block splits them into days, hours and minutes, and hides parts that are zero: <code>3h 12m</code>, <code>2d 0h 5m</code>. <code>d || h</code> keeps the hours when there are days.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 11–13</span><b>Reading</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FileView { id: up; path: "/proc/uptime" }
+Timer { interval: 60000; running: true; repeat: true; triggeredOnStart: true
+        onTriggered: { up.reload(); root.secs = parseFloat(up.text().split(" ")[0]) } }</code></pre></div><div class="seg-e"><p>The first number in <code>/proc/uptime</code> is the uptime in seconds (the second is idle time). A minute timer is enough since we don't show seconds.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 7</span><span class="ex-lvl">Practice</span><b>Since date</b></div><div class="ex-b"><p>Show the boot time on hover ("since Mon 09:12") by subtracting <code>secs</code> from now.</p></div></div>
+<h2 id="ping-latency-indicator">Ping / Latency Indicator<a class="hlink" href="#ping-latency-indicator">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="60" viewBox="0 0 200 60"><rect x="40" y="15" width="120" height="30" rx="15" fill="#313244"/><circle cx="60" cy="30" r="5" fill="#a6e3a1"><animate attributeName="r" values="4;6;4" dur="1.5s" repeatCount="indefinite"/></circle><text x="112" y="35" fill="#cdd6f4" font-size="13" text-anchor="middle">23 ms</text></svg></div>
+
+<p><strong>What it is.</strong> Round-trip time to a host (default 1.1.1.1) every 5 seconds: green fast, yellow slow, red offline.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> <code>ping</code> (iputils)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/Ping.qml</span><code>import Quickshell.Io
+import QtQuick
+import QtQuick.Layouts
+
+Rectangle {
+    id: root
+    property string host: "1.1.1.1"
+    property real ms: -1                         // -1 = unreachable
+
+    Process {
+        id: ping
+        command: ["ping", "-c", "1", "-W", "2", root.host]
+        environment: ({ LC_ALL: "C" })
+        stdout: StdioCollector {
+            onStreamFinished: {
+                const m = text.match(/time=([\d.]+)/)
+                root.ms = m ? parseFloat(m[1]) : -1
+            }
+        }
+        onExited: code =&gt; { if (code !== 0) root.ms = -1 }
+    }
+    Timer { interval: 5000; running: true; repeat: true; triggeredOnStart: true; onTriggered: ping.running = true }
+
+    readonly property color tint: ms &lt; 0 ? "#f38ba8" : ms &lt; 60 ? "#a6e3a1" : ms &lt; 150 ? "#f9e2af" : "#fab387"
+
+    implicitWidth: row.implicitWidth + 24; implicitHeight: 26; radius: 13; color: "#313244"
+    RowLayout {
+        id: row; anchors.centerIn: parent; spacing: 6
+        Rectangle { implicitWidth: 8; implicitHeight: 8; radius: 4; color: root.tint
+                    Behavior on color { ColorAnimation { duration: 300 } } }
+        Text { text: root.ms &lt; 0 ? "offline" : Math.round(root.ms) + " ms"; color: "#cdd6f4"; font.pixelSize: 12
+               font.features: ({ "tnum": 1 }) }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 7–8</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property string host: "1.1.1.1"
+property real ms: -1                         // -1 = unreachable</code></pre></div><div class="seg-e"><p><code>host</code> defaults to Cloudflare DNS (fast and always up). <code>ms</code> is −1 when unreachable.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–21</span><b>One ping</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Process {
+    id: ping
+    command: ["ping", "-c", "1", "-W", "2", root.host]
+    environment: ({ LC_ALL: "C" })
+    stdout: StdioCollector {
+        onStreamFinished: {
+            const m = text.match(/time=([\d.]+)/)
+            root.ms = m ? parseFloat(m[1]) : -1
+        }
+    }
+    onExited: code =&gt; { if (code !== 0) root.ms = -1 }
+}</code></pre></div><div class="seg-e"><p><code>ping -c 1 -W 2</code>: one packet, wait at most 2 seconds. <code>LC_ALL: "C"</code> forces English output so the regex <code>time=([\d.]+)</code> matches on any system language. A non-zero exit code means no reply, so we set −1.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 22</span><b>Every 5 seconds</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Timer { interval: 5000; running: true; repeat: true; triggeredOnStart: true; onTriggered: ping.running = true }</code></pre></div><div class="seg-e"><p>Frequent enough to notice problems, cheap enough to not matter.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 24</span><b>Quality colors</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property color tint: ms &lt; 0 ? "#f38ba8" : ms &lt; 60 ? "#a6e3a1" : ms &lt; 150 ? "#f9e2af" : "#fab387"</code></pre></div><div class="seg-e"><p>Red offline, green &lt; 60 ms, yellow &lt; 150 ms, orange above.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 29–30</span><b>Status dot</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle { implicitWidth: 8; implicitHeight: 8; radius: 4; color: root.tint
+            Behavior on color { ColorAnimation { duration: 300 } } }</code></pre></div><div class="seg-e"><p>The dot crossfades between colors instead of jumping.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 8</span><span class="ex-lvl">Practice</span><b>Average</b></div><div class="ex-b"><p>Show the average of the last 10 pings instead of only the latest.</p></div></div>
+<h2 id="wi-fi-signal-bars">Wi-Fi Signal Bars<a class="hlink" href="#wi-fi-signal-bars">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="60" viewBox="0 0 200 60"><rect x="40" y="15" width="120" height="30" rx="15" fill="#313244"/><g fill="#cdd6f4"><rect x="56" y="34" width="4" height="4" rx="1"/><rect x="62" y="30" width="4" height="8" rx="1"/><rect x="68" y="26" width="4" height="12" rx="1"/><rect x="74" y="22" width="4" height="16" rx="1" fill="#585b70"><animate attributeName="fill" values="#585b70;#cdd6f4;#585b70" dur="3s" repeatCount="indefinite"/></rect></g><text x="118" y="35" fill="#cdd6f4" font-size="12" text-anchor="middle">Home-5G</text></svg></div>
+
+<p><strong>What it is.</strong> Four signal bars plus the network name, using Quickshell's native Networking module, with no polling.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> NetworkManager</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/WifiBars.qml</span><code>import Quickshell.Networking
+import QtQuick
+import QtQuick.Layouts
+
+Rectangle {
+    id: root
+    readonly property var dev: Networking.devices.values.find(d =&gt; d.type === DeviceType.Wifi) ?? null
+    readonly property var net: dev?.networks.values.find(n =&gt; n.connected) ?? null
+    readonly property real strength: net?.signalStrength ?? 0      // 0..1
+    readonly property int bars: net ? Math.max(1, Math.ceil(strength * 4)) : 0
+
+    implicitWidth: row.implicitWidth + 24; implicitHeight: 26; radius: 13; color: "#313244"
+    RowLayout {
+        id: row; anchors.centerIn: parent; spacing: 8
+        Row {
+            spacing: 2
+            Layout.alignment: Qt.AlignVCenter
+            Repeater {
+                model: 4
+                Rectangle {
+                    required property int index
+                    width: 3; height: 4 + index * 3; radius: 1
+                    anchors.bottom: parent.bottom
+                    color: index &lt; root.bars ? "#cdd6f4" : "#585b70"
+                }
+            }
+        }
+        Text {
+            text: !Networking.wifiEnabled ? "Wi-Fi off" : root.net?.name ?? "disconnected"
+            color: root.net ? "#cdd6f4" : "#a6adc8"; font.pixelSize: 12
+        }
+    }
+    TapHandler { onTapped: Networking.wifiEnabled = !Networking.wifiEnabled }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">line 1</span><b>Networking module</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>import Quickshell.Networking</code></pre></div><div class="seg-e"><p><code>Quickshell.Networking</code> talks to NetworkManager directly, with no <code>nmcli</code> processes.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 7–10</span><b>Finding the connection</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var dev: Networking.devices.values.find(d =&gt; d.type === DeviceType.Wifi) ?? null
+readonly property var net: dev?.networks.values.find(n =&gt; n.connected) ?? null
+readonly property real strength: net?.signalStrength ?? 0      // 0..1
+readonly property int bars: net ? Math.max(1, Math.ceil(strength * 4)) : 0</code></pre></div><div class="seg-e"><p>The first Wi-Fi device, then the network on it that is connected. <code>signalStrength</code> is 0–1. <code>bars</code> turns it into 1–4 (at least 1 when connected, 0 when not).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–27</span><b>The bars</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Row {
+    spacing: 2
+    Layout.alignment: Qt.AlignVCenter
+    Repeater {
+        model: 4
+        Rectangle {
+            required property int index
+            width: 3; height: 4 + index * 3; radius: 1
+            anchors.bottom: parent.bottom
+            color: index &lt; root.bars ? "#cdd6f4" : "#585b70"
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>Four rectangles with growing heights (<code>4 + index * 3</code>), aligned to the bottom. Bars below <code>bars</code> are bright, the rest dim, like a phone signal icon.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 28–31</span><b>Label</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    text: !Networking.wifiEnabled ? "Wi-Fi off" : root.net?.name ?? "disconnected"
+    color: root.net ? "#cdd6f4" : "#a6adc8"; font.pixelSize: 12
+}</code></pre></div><div class="seg-e"><p>"Wi-Fi off", the network name, or "disconnected".</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 33</span><b>Toggle Wi-Fi</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TapHandler { onTapped: Networking.wifiEnabled = !Networking.wifiEnabled }</code></pre></div><div class="seg-e"><p><code>Networking.wifiEnabled</code> is writable: tapping turns the radio on or off.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 9</span><span class="ex-lvl">Practice</span><b>Ethernet fallback</b></div><div class="ex-b"><p>When an Ethernet device is connected, show a cable icon and "Wired" instead.</p></div></div>
+<h2 id="battery-power-draw">Battery Power Draw<a class="hlink" href="#battery-power-draw">#</a></h2>
+<div class="preview"><svg style="width:min(100%,360px)" width="240" height="60" viewBox="0 0 240 60"><rect x="30" y="15" width="180" height="30" rx="15" fill="#313244"/><path d="M52 22l-6 9h5l-2 8 7-10h-5z" fill="#f9e2af"/><text x="70" y="35" fill="#cdd6f4" font-size="12">−9.4 W · 3h 12m left</text></svg></div>
+
+<p><strong>What it is.</strong> How fast the battery is draining (or charging) in watts, plus time remaining, useful for spotting power-hungry apps.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> UPower</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/PowerDraw.qml</span><code>import Quickshell.Services.UPower
+import QtQuick
+
+Rectangle {
+    id: root
+    readonly property UPowerDevice bat: UPower.displayDevice
+    readonly property real watts: bat.changeRate                 // + charging, − discharging (sign depends on driver)
+    readonly property bool charging: bat.state === UPowerDeviceState.Charging
+    readonly property int secs: charging ? bat.timeToFull : bat.timeToEmpty
+    visible: bat.isLaptopBattery
+
+    implicitWidth: t.implicitWidth + 24; implicitHeight: 26; radius: 13; color: "#313244"
+    Text {
+        id: t
+        anchors.centerIn: parent
+        text: "⚡ " + (root.charging ? "+" : "−") + Math.abs(root.watts).toFixed(1) + " W"
+              + (root.secs &gt; 0 ? " · " + Math.floor(root.secs / 3600) + "h " + Math.round(root.secs % 3600 / 60) + "m" + (root.charging ? " to full" : " left") : "")
+        color: Math.abs(root.watts) &gt; 20 &amp;&amp; !root.charging ? "#fab387" : "#cdd6f4"
+        font.pixelSize: 12
+        font.features: ({ "tnum": 1 })
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 6–10</span><b>Reading</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property UPowerDevice bat: UPower.displayDevice
+readonly property real watts: bat.changeRate                 // + charging, − discharging (sign depends on driver)
+readonly property bool charging: bat.state === UPowerDeviceState.Charging
+readonly property int secs: charging ? bat.timeToFull : bat.timeToEmpty
+visible: bat.isLaptopBattery</code></pre></div><div class="seg-e"><p><code>changeRate</code> is the power flowing in or out of the battery in watts. <code>secs</code> picks time-to-full or time-to-empty depending on the state.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–21</span><b>Text</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    id: t
+    anchors.centerIn: parent
+    text: "⚡ " + (root.charging ? "+" : "−") + Math.abs(root.watts).toFixed(1) + " W"
+          + (root.secs &gt; 0 ? " · " + Math.floor(root.secs / 3600) + "h " + Math.round(root.secs % 3600 / 60) + "m" + (root.charging ? " to full" : " left") : "")
+    color: Math.abs(root.watts) &gt; 20 &amp;&amp; !root.charging ? "#fab387" : "#cdd6f4"
+    font.pixelSize: 12
+    font.features: ({ "tnum": 1 })
+}</code></pre></div><div class="seg-e"><p><code>Math.abs</code> hides driver differences in the sign, and we add our own <code>+</code>/<code>−</code> based on the charging state. Time is appended only when UPower knows it (&gt; 0). Drawing more than 20 W on battery turns the text orange: something is working hard.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 10</span><span class="ex-lvl">Practice</span><b>Power history</b></div><div class="ex-b"><p>Keep the last 60 readings and show them as a sparkline (reuse the Canvas from the CPU widget).</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/g1-bar-modules.html"><small>← Previous</small><span>Gallery: Bar Modules</span></a><a class="pn-next" href="../ch/g3-islands-popups.html"><small>Next →</small><span>Gallery: Dynamic Islands, Popups and OSDs</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#live-network-speed">Live Network Speed</a><a class="l2" href="#cpu-usage-with-sparkline">CPU Usage with Sparkline</a><a class="l2" href="#memory-bar">Memory Bar</a><a class="l2" href="#cpu-temperature">CPU Temperature</a><a class="l2" href="#gpu-usage">GPU Usage</a><a class="l2" href="#disk-usage-ring">Disk Usage Ring</a><a class="l2" href="#uptime">Uptime</a><a class="l2" href="#ping-latency-indicator">Ping / Latency Indicator</a><a class="l2" href="#wi-fi-signal-bars">Wi-Fi Signal Bars</a><a class="l2" href="#battery-power-draw">Battery Power Draw</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

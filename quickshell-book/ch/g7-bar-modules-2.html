@@ -1,0 +1,1711 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery: More Bar Modules · The Quickshell Book</title>
+<meta name="description" content="Gallery: More Bar Modules">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details open><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch active" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-g">Part G: Widget Gallery</a> › Gallery: More Bar Modules</div><article><div class="ch-head"><div class="ch-part">Part G · Widget Gallery</div><h1><span class="ch-num">g7</span>Gallery: More Bar Modules</h1></div><p>Fifteen more chips for your bar: network, Bluetooth, brightness, microphone, a scrolling media title, a taskbar, a tray with an overflow drawer, workspaces with app icons, and small tools like a stopwatch and a countdown. Each is one file in <code>galleryshell/bar/</code>. Drop it into a bar <code>RowLayout</code>, or see all of them working together in <a class="xref" href="../ch/g10-full-shell.html">Gallery: Build a Whole Shell from the Gallery</a>.</p>
+<div class="box note"><div class="bt">Icons</div><p>Like the rest of the gallery, these chips draw icons with the <strong>Material Symbols Rounded</strong> font (<a class="xref" href="../ch/27-fonts-icons.html">Fonts and Icons</a>). Without it installed you'll see the icon names as words (<code>volume_up</code>), which is a quick way to tell the font is missing.</p></div>
+<h2 id="network-chip">Network Chip<a class="hlink" href="#network-chip">#</a></h2>
+<div class="preview"><svg style="width:min(100%,540px)" width="360" height="60" viewBox="0 0 360 60"><rect x="10" y="17" width="150" height="26" rx="13" fill="#313244"/><text x="24" y="35" fill="#89b4fa" font-size="14">📶</text><text x="46" y="35" fill="#cdd6f4" font-size="12">HomeNet-5G</text><rect x="180" y="17" width="110" height="26" rx="13" fill="#313244"/><text x="194" y="35" fill="#89b4fa" font-size="14">🖧</text><text x="216" y="35" fill="#cdd6f4" font-size="12">Ethernet</text><rect x="310" y="17" width="34" height="26" rx="13" fill="#313244"/><text x="319" y="35" fill="#6c7086" font-size="14">⊘</text></svg></div>
+
+<p><strong>What it is.</strong> Shows how you're online: Wi-Fi strength and network name, "Ethernet" when wired, or a crossed-out icon when offline. Click hides the name, right-click turns Wi-Fi off and on.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> NetworkManager</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/NetworkChip.qml</span><code>import Quickshell
+import Quickshell.Networking
+import QtQuick
+import QtQuick.Layouts
+
+Rectangle {
+    id: root
+    // the Wi-Fi device, and any other connected device (Quickshell types only Wi-Fi so far: the rest is wired)
+    readonly property var wifi: Networking.devices.values.find(d =&gt; d.type === DeviceType.Wifi) ?? null
+    readonly property var wired: Networking.devices.values.find(d =&gt; d.type !== DeviceType.Wifi &amp;&amp; d.connected &amp;&amp; d.name !== "lo") ?? null
+    readonly property var net: wifi?.networks.values.find(n =&gt; n.connected) ?? null
+    readonly property real strength: net?.signalStrength ?? 0
+    property bool showName: true
+
+    readonly property string icon: wired ? "lan"
+        : !Networking.wifiEnabled ? "wifi_off"
+        : !net ? "signal_wifi_statusbar_not_connected"
+        : strength &gt; 0.75 ? "network_wifi" : strength &gt; 0.5 ? "network_wifi_3_bar"
+        : strength &gt; 0.25 ? "network_wifi_2_bar" : "network_wifi_1_bar"
+    readonly property string label: wired ? "Ethernet" : net?.name ?? (Networking.wifiEnabled ? "Offline" : "Wi-Fi off")
+
+    implicitWidth: row.implicitWidth + 20
+    implicitHeight: 26
+    radius: height / 2
+    color: hover.hovered ? "#45475a" : "#313244"
+    Behavior on implicitWidth { NumberAnimation { duration: 200; easing.type: Easing.OutCubic } }
+
+    RowLayout {
+        id: row
+        anchors.centerIn: parent
+        spacing: 6
+        Text {
+            text: root.icon
+            font.family: "Material Symbols Rounded"; font.pixelSize: 18
+            color: root.net || root.wired ? "#89b4fa" : "#6c7086"
+        }
+        Text {
+            visible: root.showName
+            text: root.label
+            color: "#cdd6f4"; font.pixelSize: 12
+            elide: Text.ElideRight
+            Layout.maximumWidth: 120
+        }
+    }
+
+    HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+    TapHandler { onTapped: root.showName = !root.showName }
+    TapHandler { acceptedButtons: Qt.RightButton; onTapped: Networking.wifiEnabled = !Networking.wifiEnabled }
+    TapHandler { acceptedButtons: Qt.MiddleButton; onTapped: Quickshell.execDetached(["nm-connection-editor"]) }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 8–10</span><b>Finding the devices</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// the Wi-Fi device, and any other connected device (Quickshell types only Wi-Fi so far: the rest is wired)
+readonly property var wifi: Networking.devices.values.find(d =&gt; d.type === DeviceType.Wifi) ?? null
+readonly property var wired: Networking.devices.values.find(d =&gt; d.type !== DeviceType.Wifi &amp;&amp; d.connected &amp;&amp; d.name !== "lo") ?? null</code></pre></div><div class="seg-e"><p><a class="api" href="../ref/Networking.html"><code>Networking</code></a> lists every network device NetworkManager knows. Quickshell currently gives a specific type only to Wi-Fi (<code>DeviceType.Wifi</code>), so any <strong>other</strong> device that is connected (and isn't the loopback <code>lo</code>) is treated as wired.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 11–12</span><b>The current network</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var net: wifi?.networks.values.find(n =&gt; n.connected) ?? null
+readonly property real strength: net?.signalStrength ?? 0</code></pre></div><div class="seg-e"><p>A Wi-Fi device has a list of visible <code>networks</code>; the one with <code>connected</code> set is yours. <code>signalStrength</code> goes from 0 to 1.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–19</span><b>Picking the icon</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property string icon: wired ? "lan"
+    : !Networking.wifiEnabled ? "wifi_off"
+    : !net ? "signal_wifi_statusbar_not_connected"
+    : strength &gt; 0.75 ? "network_wifi" : strength &gt; 0.5 ? "network_wifi_3_bar"
+    : strength &gt; 0.25 ? "network_wifi_2_bar" : "network_wifi_1_bar"</code></pre></div><div class="seg-e"><p>One chained conditional, checked top to bottom: wired wins, then "Wi-Fi switched off", then "not connected", then four strength levels. Reading it out loud gives the rules.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 20</span><b>The label</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property string label: wired ? "Ethernet" : net?.name ?? (Networking.wifiEnabled ? "Offline" : "Wi-Fi off")</code></pre></div><div class="seg-e"><p>The network's name, or a short status. <code>??</code> falls back when <code>net</code> is null.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 22–26</span><b>The pill</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>implicitWidth: row.implicitWidth + 20
+implicitHeight: 26
+radius: height / 2
+color: hover.hovered ? "#45475a" : "#313244"
+Behavior on implicitWidth { NumberAnimation { duration: 200; easing.type: Easing.OutCubic } }</code></pre></div><div class="seg-e"><p>Width follows the content plus padding. The <code>Behavior</code> animates the width when the name appears or disappears.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 32–43</span><b>Icon and name</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    text: root.icon
+    font.family: "Material Symbols Rounded"; font.pixelSize: 18
+    color: root.net || root.wired ? "#89b4fa" : "#6c7086"
+}
+Text {
+    visible: root.showName
+    text: root.label
+    color: "#cdd6f4"; font.pixelSize: 12
+    elide: Text.ElideRight
+    Layout.maximumWidth: 120
+}</code></pre></div><div class="seg-e"><p>The icon is blue when online, grey otherwise. The name is capped at 120 px and elided, so a long SSID can't push the rest of your bar away.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 46–49</span><b>Clicks</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+TapHandler { onTapped: root.showName = !root.showName }
+TapHandler { acceptedButtons: Qt.RightButton; onTapped: Networking.wifiEnabled = !Networking.wifiEnabled }
+TapHandler { acceptedButtons: Qt.MiddleButton; onTapped: Quickshell.execDetached(["nm-connection-editor"]) }</code></pre></div><div class="seg-e"><p>Left toggles <code>showName</code>, right flips <code>Networking.wifiEnabled</code> (that's a real switch: NetworkManager turns the radio off), middle opens NetworkManager's editor.</p></div></div></div>
+<p>For choosing a network, pair it with the Wi-Fi picker from <a class="xref" href="../ch/g4-panels.html">Gallery: Panels and Menus</a>.</p>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Practice</span><b>Show the IP address on hover</b></div><div class="ex-b"><p>Add a second text that appears while hovered, showing the device's address.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p><code>NetworkDevice</code> has an <code>address</code> property. Use <code>(root.wired ?? root.wifi)?.address</code>.</p></div></details></div>
+<h2 id="bluetooth-chip">Bluetooth Chip<a class="hlink" href="#bluetooth-chip">#</a></h2>
+<div class="preview"><svg style="width:min(100%,540px)" width="360" height="60" viewBox="0 0 360 60"><rect x="10" y="17" width="34" height="26" rx="13" fill="#313244"/><text x="21" y="35" fill="#6c7086" font-size="14">ᛒ</text><rect x="60" y="17" width="190" height="26" rx="13" fill="#313244"/><text x="74" y="35" fill="#89b4fa" font-size="14">ᛒ</text><text x="92" y="35" fill="#cdd6f4" font-size="12">WH-1000XM4</text><text x="200" y="35" fill="#a6adc8" font-size="11">80%</text></svg></div>
+
+<p><strong>What it is.</strong> The Bluetooth state at a glance: grey when off, blue when something is connected, with the device's name and battery level. Click toggles Bluetooth.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> BlueZ (<code>bluetooth.service</code> running)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/BluetoothChip.qml</span><code>import Quickshell
+import Quickshell.Bluetooth
+import QtQuick
+import QtQuick.Layouts
+
+Rectangle {
+    id: root
+    readonly property var adapter: Bluetooth.defaultAdapter
+    readonly property bool on: adapter?.enabled ?? false
+    readonly property var connected: Bluetooth.devices.values.filter(d =&gt; d.connected)
+
+    visible: adapter !== null                      // no adapter → no chip
+    implicitWidth: row.implicitWidth + 20
+    implicitHeight: 26
+    radius: height / 2
+    color: hover.hovered ? "#45475a" : "#313244"
+
+    RowLayout {
+        id: row
+        anchors.centerIn: parent
+        spacing: 6
+        Text {
+            text: !root.on ? "bluetooth_disabled" : root.connected.length &gt; 0 ? "bluetooth_connected" : "bluetooth"
+            font.family: "Material Symbols Rounded"; font.pixelSize: 18
+            color: !root.on ? "#6c7086" : root.connected.length &gt; 0 ? "#89b4fa" : "#cdd6f4"
+        }
+        Text {
+            visible: root.connected.length &gt; 0
+            text: root.connected.length === 1 ? root.connected[0].name : root.connected.length + " devices"
+            color: "#cdd6f4"; font.pixelSize: 12
+            elide: Text.ElideRight; Layout.maximumWidth: 110
+        }
+        // battery of the first connected device that reports one
+        Text {
+            readonly property var dev: root.connected.find(d =&gt; d.batteryAvailable) ?? null
+            visible: dev !== null
+            text: dev ? Math.round(dev.battery * 100) + "%" : ""
+            color: "#a6adc8"; font.pixelSize: 11
+        }
+    }
+
+    HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+    TapHandler { onTapped: if (root.adapter) root.adapter.enabled = !root.on }
+    TapHandler { acceptedButtons: Qt.RightButton; onTapped: Quickshell.execDetached(["blueman-manager"]) }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 8–10</span><b>Adapter and devices</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var adapter: Bluetooth.defaultAdapter
+readonly property bool on: adapter?.enabled ?? false
+readonly property var connected: Bluetooth.devices.values.filter(d =&gt; d.connected)</code></pre></div><div class="seg-e"><p><code>Bluetooth.defaultAdapter</code> is your Bluetooth controller (or <code>null</code> if there is none). <code>Bluetooth.devices</code> holds every known device; filtering on <code>connected</code> gives the ones in use right now.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 12</span><b>No adapter, no chip</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>visible: adapter !== null                      // no adapter → no chip</code></pre></div><div class="seg-e"><p>Desktops without Bluetooth simply don't show it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 22–26</span><b>Icon</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    text: !root.on ? "bluetooth_disabled" : root.connected.length &gt; 0 ? "bluetooth_connected" : "bluetooth"
+    font.family: "Material Symbols Rounded"; font.pixelSize: 18
+    color: !root.on ? "#6c7086" : root.connected.length &gt; 0 ? "#89b4fa" : "#cdd6f4"
+}</code></pre></div><div class="seg-e"><p>Three states, three icons and colours.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 27–32</span><b>Device name</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    visible: root.connected.length &gt; 0
+    text: root.connected.length === 1 ? root.connected[0].name : root.connected.length + " devices"
+    color: "#cdd6f4"; font.pixelSize: 12
+    elide: Text.ElideRight; Layout.maximumWidth: 110
+}</code></pre></div><div class="seg-e"><p>One device: its name. Several: a count.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 33–39</span><b>Battery</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// battery of the first connected device that reports one
+Text {
+    readonly property var dev: root.connected.find(d =&gt; d.batteryAvailable) ?? null
+    visible: dev !== null
+    text: dev ? Math.round(dev.battery * 100) + "%" : ""
+    color: "#a6adc8"; font.pixelSize: 11
+}</code></pre></div><div class="seg-e"><p>Many headphones report their battery over Bluetooth. <code>batteryAvailable</code> says whether this one does; <code>battery</code> is 0 to 1.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 42–44</span><b>Clicks</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+TapHandler { onTapped: if (root.adapter) root.adapter.enabled = !root.on }
+TapHandler { acceptedButtons: Qt.RightButton; onTapped: Quickshell.execDetached(["blueman-manager"]) }</code></pre></div><div class="seg-e"><p>Left toggles the adapter's <code>enabled</code>, which powers the radio on or off. Right opens Blueman for pairing.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Connect to your headphones with a click</b></div><div class="ex-b"><p>Add a property <code>favourite: "AA:BB:CC:DD:EE:FF"</code> (a device address). Middle-click connects or disconnects that device.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><div class="codewrap"><pre class="code" data-lang="qml"><code>property string favourite: "AA:BB:CC:DD:EE:FF"
+TapHandler {
+    acceptedButtons: Qt.MiddleButton
+    onTapped: {
+        const d = Bluetooth.devices.values.find(d =&gt; d.address === root.favourite)
+        if (d) d.connected ? d.disconnect() : d.connect()
+    }
+}</code></pre></div></div></details></div>
+<h2 id="brightness-chip">Brightness Chip<a class="hlink" href="#brightness-chip">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="60" viewBox="0 0 200 60"><rect x="40" y="17" width="90" height="26" rx="13" fill="#313244"/><text x="54" y="35" fill="#f9e2af" font-size="14">☀</text><text x="76" y="35" fill="#cdd6f4" font-size="12">65%</text></svg></div>
+
+<p><strong>What it is.</strong> Screen brightness for laptops. Scroll over it to change brightness in 5% steps; click to jump between dim and full.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> <code>brightnessctl</code>, a backlight (laptops; most external monitors need <code>ddcutil</code> instead)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/BrightnessChip.qml</span><code>import Quickshell
+import Quickshell.Io
+import QtQuick
+import QtQuick.Layouts
+
+Rectangle {
+    id: root
+    property real level: 0                          // 0..1
+    property string device: ""                      // "" = brightnessctl's default backlight
+
+    function args(extra: list&lt;string&gt;): list&lt;string&gt; {
+        return device ? ["brightnessctl", "-d", device].concat(extra) : ["brightnessctl"].concat(extra)
+    }
+    function set(v: real): void {
+        level = Math.max(0.01, Math.min(1, v))
+        Quickshell.execDetached(args(["-q", "set", Math.round(level * 100) + "%"]))
+    }
+
+    // brightnessctl -m prints: name,class,current,percent,max  e.g. "intel_backlight,backlight,400,42%,960"
+    Process {
+        id: read
+        command: root.args(["-m"])
+        running: true
+        stdout: StdioCollector {
+            onStreamFinished: {
+                const f = text.trim().split(",")
+                if (f.length &gt;= 5) root.level = Number(f[2]) / Number(f[4])
+            }
+        }
+    }
+    // other tools (keys, other widgets) may change it too: re-read now and then
+    Timer { interval: 5000; running: true; repeat: true; onTriggered: read.running = true }
+
+    implicitWidth: row.implicitWidth + 20
+    implicitHeight: 26
+    radius: height / 2
+    color: hover.hovered ? "#45475a" : "#313244"
+
+    RowLayout {
+        id: row
+        anchors.centerIn: parent
+        spacing: 6
+        Text {
+            text: root.level &gt; 0.66 ? "brightness_high" : root.level &gt; 0.33 ? "brightness_medium" : "brightness_low"
+            font.family: "Material Symbols Rounded"; font.pixelSize: 18
+            color: "#f9e2af"
+        }
+        Text {
+            text: Math.round(root.level * 100) + "%"
+            color: "#cdd6f4"; font.pixelSize: 12
+            font.features: ({ "tnum": 1 })
+        }
+    }
+
+    HoverHandler { id: hover }
+    WheelHandler { onWheel: e =&gt; root.set(root.level + e.angleDelta.y / 120 * 0.05) }
+    TapHandler { onTapped: root.set(root.level &gt; 0.5 ? 0.2 : 1) }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 8–9</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property real level: 0                          // 0..1
+property string device: ""                      // "" = brightnessctl's default backlight</code></pre></div><div class="seg-e"><p><code>level</code> is 0–1. <code>device</code> lets you pick a specific backlight (<code>brightnessctl -l</code> lists them); empty means the default one.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 11–13</span><b>Building commands</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function args(extra: list&lt;string&gt;): list&lt;string&gt; {
+    return device ? ["brightnessctl", "-d", device].concat(extra) : ["brightnessctl"].concat(extra)
+}</code></pre></div><div class="seg-e"><p>A small helper adds <code>-d device</code> only when a device is set, so every command goes through one place.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–17</span><b>Setting brightness</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function set(v: real): void {
+    level = Math.max(0.01, Math.min(1, v))
+    Quickshell.execDetached(args(["-q", "set", Math.round(level * 100) + "%"]))
+}</code></pre></div><div class="seg-e"><p>Clamp to 1–100% (0% can turn some screens fully black), update <code>level</code> immediately so the chip responds at once, then run <code>brightnessctl set 42%</code> in the background.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 19–30</span><b>Reading brightness</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// brightnessctl -m prints: name,class,current,percent,max  e.g. "intel_backlight,backlight,400,42%,960"
+Process {
+    id: read
+    command: root.args(["-m"])
+    running: true
+    stdout: StdioCollector {
+        onStreamFinished: {
+            const f = text.trim().split(",")
+            if (f.length &gt;= 5) root.level = Number(f[2]) / Number(f[4])
+        }
+    }
+}</code></pre></div><div class="seg-e"><p><code>brightnessctl -m</code> prints one machine-readable line. Field 3 is the current raw value and field 5 the maximum, so their ratio is the level.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 31–32</span><b>Staying in sync</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// other tools (keys, other widgets) may change it too: re-read now and then
+Timer { interval: 5000; running: true; repeat: true; onTriggered: read.running = true }</code></pre></div><div class="seg-e"><p>Brightness keys or other tools can change it too. Re-reading every 5 seconds keeps the chip honest without real cost.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 55–57</span><b>Input</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>HoverHandler { id: hover }
+WheelHandler { onWheel: e =&gt; root.set(root.level + e.angleDelta.y / 120 * 0.05) }
+TapHandler { onTapped: root.set(root.level &gt; 0.5 ? 0.2 : 1) }</code></pre></div><div class="seg-e"><p>Scrolling one notch (<code>angleDelta.y</code> = 120) changes it by 5%. A click toggles between 20% and 100%.</p></div></div></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Challenge</span><b>React instantly to brightness keys</b></div><div class="ex-b"><p>Instead of polling, watch the backlight's <code>brightness</code> file with a <code>FileView</code> and <code>watchChanges: true</code>.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>The file is <code>/sys/class/backlight/&lt;name&gt;/brightness</code>, and <code>max_brightness</code> is next to it. Unlike LED files, backlight files do send change notifications on most drivers.</p></div></details></div>
+<h2 id="microphone-chip">Microphone Chip<a class="hlink" href="#microphone-chip">#</a></h2>
+<div class="preview"><svg style="width:min(100%,390px)" width="260" height="60" viewBox="0 0 260 60"><rect x="20" y="17" width="34" height="26" rx="13" fill="#45475a"/><text x="30" y="35" fill="#6c7086" font-size="14">🎙</text><rect x="80" y="17" width="34" height="26" rx="13" fill="#313244"/><text x="90" y="35" fill="#cdd6f4" font-size="14">🎙</text><rect x="140" y="17" width="34" height="26" rx="13" fill="#f38ba8"><animate attributeName="opacity" values="1;.7;1" dur="1.4s" repeatCount="indefinite"/></rect><text x="150" y="35" fill="#1e1e2e" font-size="14">🎙</text><text x="186" y="35" fill="#a6adc8" font-size="11">in use</text></svg></div>
+
+<p><strong>What it is.</strong> Microphone mute toggle. It turns red while any app is recording, so you always know when you're live.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> PipeWire</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/MicChip.qml</span><code>import Quickshell
+import Quickshell.Services.Pipewire
+import QtQuick
+import QtQuick.Layouts
+
+Rectangle {
+    id: root
+    readonly property PwNode source: Pipewire.defaultAudioSource
+    readonly property bool muted: source?.audio?.muted ?? true
+    readonly property real vol: source?.audio?.volume ?? 0
+    // any app currently recording from a microphone?
+    readonly property bool inUse: Pipewire.nodes.values.some(n =&gt; n.isStream &amp;&amp; !n.isSink &amp;&amp; n.audio)
+
+    PwObjectTracker { objects: [root.source] }
+
+    visible: source !== null
+    implicitWidth: row.implicitWidth + 20
+    implicitHeight: 26
+    radius: height / 2
+    color: root.muted ? "#45475a" : root.inUse ? "#f38ba8" : hover.hovered ? "#45475a" : "#313244"
+    Behavior on color { ColorAnimation { duration: 150 } }
+
+    RowLayout {
+        id: row
+        anchors.centerIn: parent
+        spacing: 6
+        Text {
+            text: root.muted ? "mic_off" : "mic"
+            font.family: "Material Symbols Rounded"; font.pixelSize: 18
+            color: root.inUse &amp;&amp; !root.muted ? "#1e1e2e" : root.muted ? "#6c7086" : "#cdd6f4"
+        }
+        Text {
+            visible: hover.hovered
+            text: Math.round(root.vol * 100) + "%"
+            color: root.inUse &amp;&amp; !root.muted ? "#1e1e2e" : "#cdd6f4"; font.pixelSize: 12
+        }
+    }
+
+    HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+    TapHandler { onTapped: if (root.source?.ready) root.source.audio.muted = !root.muted }
+    WheelHandler {
+        onWheel: e =&gt; { if (root.source?.ready) root.source.audio.volume = Math.max(0, Math.min(1, root.vol + e.angleDelta.y / 120 * 0.05)) }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 8–10</span><b>The default microphone</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property PwNode source: Pipewire.defaultAudioSource
+readonly property bool muted: source?.audio?.muted ?? true
+readonly property real vol: source?.audio?.volume ?? 0</code></pre></div><div class="seg-e"><p><code>Pipewire.defaultAudioSource</code> is the input apps record from. Missing values default to "muted" so nothing claims to be live by accident.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 11–12</span><b>Is anyone recording?</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// any app currently recording from a microphone?
+readonly property bool inUse: Pipewire.nodes.values.some(n =&gt; n.isStream &amp;&amp; !n.isSink &amp;&amp; n.audio)</code></pre></div><div class="seg-e"><p>A recording app shows up as a PipeWire <strong>stream</strong> node that is not a sink (it consumes audio instead of playing it). If one exists, the mic is in use.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 14</span><b>Tracking</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PwObjectTracker { objects: [root.source] }</code></pre></div><div class="seg-e"><p>As with the volume chip (<a class="xref" href="../ch/g1-bar-modules.html">Gallery: Bar Modules</a>), a node must be tracked before its <code>audio</code> properties are valid.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 20–21</span><b>Colour</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>color: root.muted ? "#45475a" : root.inUse ? "#f38ba8" : hover.hovered ? "#45475a" : "#313244"
+Behavior on color { ColorAnimation { duration: 150 } }</code></pre></div><div class="seg-e"><p>Muted is dim, in use is red, otherwise the normal chip colour, fading between them.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 27–36</span><b>Icon and level</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    text: root.muted ? "mic_off" : "mic"
+    font.family: "Material Symbols Rounded"; font.pixelSize: 18
+    color: root.inUse &amp;&amp; !root.muted ? "#1e1e2e" : root.muted ? "#6c7086" : "#cdd6f4"
+}
+Text {
+    visible: hover.hovered
+    text: Math.round(root.vol * 100) + "%"
+    color: root.inUse &amp;&amp; !root.muted ? "#1e1e2e" : "#cdd6f4"; font.pixelSize: 12
+}</code></pre></div><div class="seg-e"><p>The volume percentage only appears on hover, keeping the chip small.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 39–43</span><b>Input</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+TapHandler { onTapped: if (root.source?.ready) root.source.audio.muted = !root.muted }
+WheelHandler {
+    onWheel: e =&gt; { if (root.source?.ready) root.source.audio.volume = Math.max(0, Math.min(1, root.vol + e.angleDelta.y / 120 * 0.05)) }
+}</code></pre></div><div class="seg-e"><p>Click toggles mute; scrolling changes the input volume, capped at 100%.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Practice</span><b>Push to talk</b></div><div class="ex-b"><p>Make the mic unmuted only while the left button is held down.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>A <code>TapHandler</code> has <code>pressed</code>. Use <code>onPressedChanged: root.source.audio.muted = !pressed</code>.</p></div></details></div>
+<h2 id="scrolling-media-title">Scrolling Media Title<a class="hlink" href="#scrolling-media-title">#</a></h2>
+<div class="preview"><svg style="width:min(100%,510px)" width="340" height="60" viewBox="0 0 340 60"><rect x="20" y="17" width="290" height="26" rx="13" fill="#313244"/><text x="32" y="35" fill="#cdd6f4" font-size="13">⏮</text><text x="52" y="35" fill="#cba6f7" font-size="14">⏸</text><text x="72" y="35" fill="#cdd6f4" font-size="13">⏭</text><clipPath id="mq"><rect x="96" y="17" width="200" height="26"/></clipPath><g clip-path="url(#mq)"><text y="35" fill="#cdd6f4" font-size="12">Daft Punk — Instant Crush (feat. Julian Casablancas)<animate attributeName="x" from="100" to="-220" dur="9s" repeatCount="indefinite"/></text></g></svg></div>
+
+<p><strong>What it is.</strong> Previous, play/pause and next buttons with the artist and title. When the text is too long it scrolls endlessly like a marquee, and stops scrolling when paused.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> an MPRIS player (Spotify, Firefox, mpv with mpris…)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/MediaMarquee.qml</span><code>import Quickshell
+import Quickshell.Services.Mpris
+import QtQuick
+import QtQuick.Layouts
+
+Rectangle {
+    id: root
+    // prefer a playing player, otherwise the first one
+    readonly property MprisPlayer player: Mpris.players.values.find(p =&gt; p.isPlaying) ?? Mpris.players.values[0] ?? null
+    readonly property string line: player ? (player.trackArtist ? player.trackArtist + " — " : "") + player.trackTitle : ""
+    property int textWidth: 160                      // visible width of the scrolling text
+
+    visible: player !== null &amp;&amp; line !== ""
+    implicitWidth: row.implicitWidth + 16
+    implicitHeight: 26
+    radius: height / 2
+    color: "#313244"
+
+    RowLayout {
+        id: row
+        anchors.centerIn: parent
+        spacing: 4
+        Text {
+            text: "skip_previous"; font.family: "Material Symbols Rounded"; font.pixelSize: 18
+            color: root.player?.canGoPrevious ? "#cdd6f4" : "#585b70"
+            TapHandler { onTapped: root.player.previous() }
+        }
+        Text {
+            text: root.player?.isPlaying ? "pause" : "play_arrow"
+            font.family: "Material Symbols Rounded"; font.pixelSize: 20; color: "#cba6f7"
+            TapHandler { onTapped: root.player.togglePlaying() }
+        }
+        Text {
+            text: "skip_next"; font.family: "Material Symbols Rounded"; font.pixelSize: 18
+            color: root.player?.canGoNext ? "#cdd6f4" : "#585b70"
+            TapHandler { onTapped: root.player.next() }
+        }
+
+        // the window the text scrolls through
+        Item {
+            id: viewport
+            Layout.preferredWidth: Math.min(root.textWidth, label.implicitWidth)
+            implicitHeight: 26
+            clip: true
+            readonly property bool overflow: label.implicitWidth &gt; root.textWidth
+
+            Row {
+                id: strip
+                anchors.verticalCenter: parent.verticalCenter
+                spacing: 40
+                Text { id: label; text: root.line; color: "#cdd6f4"; font.pixelSize: 12 }
+                Text { visible: viewport.overflow; text: root.line; color: "#cdd6f4"; font.pixelSize: 12 }   // seamless loop copy
+
+                NumberAnimation on x {
+                    running: viewport.overflow &amp;&amp; (root.player?.isPlaying ?? false)
+                    from: 0; to: -(label.implicitWidth + strip.spacing)
+                    duration: (label.implicitWidth + strip.spacing) * 30      // ~33 px per second
+                    loops: Animation.Infinite
+                    onRunningChanged: if (!running) strip.x = 0
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 8–10</span><b>Which player</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// prefer a playing player, otherwise the first one
+readonly property MprisPlayer player: Mpris.players.values.find(p =&gt; p.isPlaying) ?? Mpris.players.values[0] ?? null
+readonly property string line: player ? (player.trackArtist ? player.trackArtist + " — " : "") + player.trackTitle : ""</code></pre></div><div class="seg-e"><p>A playing player wins; otherwise the first one. <code>line</code> joins artist and title, skipping the dash when there's no artist.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 13</span><b>Hidden when idle</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>visible: player !== null &amp;&amp; line !== ""</code></pre></div><div class="seg-e"><p>No player, or nothing loaded: no chip.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 23–37</span><b>Controls</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    text: "skip_previous"; font.family: "Material Symbols Rounded"; font.pixelSize: 18
+    color: root.player?.canGoPrevious ? "#cdd6f4" : "#585b70"
+    TapHandler { onTapped: root.player.previous() }
+}
+Text {
+    text: root.player?.isPlaying ? "pause" : "play_arrow"
+    font.family: "Material Symbols Rounded"; font.pixelSize: 20; color: "#cba6f7"
+    TapHandler { onTapped: root.player.togglePlaying() }
+}
+Text {
+    text: "skip_next"; font.family: "Material Symbols Rounded"; font.pixelSize: 18
+    color: root.player?.canGoNext ? "#cdd6f4" : "#585b70"
+    TapHandler { onTapped: root.player.next() }
+}</code></pre></div><div class="seg-e"><p>Three icon buttons. Previous and next are greyed out when the player says it can't do them.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 40–45</span><b>The viewport</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Item {
+    id: viewport
+    Layout.preferredWidth: Math.min(root.textWidth, label.implicitWidth)
+    implicitHeight: 26
+    clip: true
+    readonly property bool overflow: label.implicitWidth &gt; root.textWidth</code></pre></div><div class="seg-e"><p>An <code>Item</code> with <code>clip: true</code> is the window the text slides through. It is as wide as the text, but never wider than <code>textWidth</code>. <code>overflow</code> says whether scrolling is needed.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 47–52</span><b>Two copies</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Row {
+    id: strip
+    anchors.verticalCenter: parent.verticalCenter
+    spacing: 40
+    Text { id: label; text: root.line; color: "#cdd6f4"; font.pixelSize: 12 }
+    Text { visible: viewport.overflow; text: root.line; color: "#cdd6f4"; font.pixelSize: 12 }   // seamless loop copy</code></pre></div><div class="seg-e"><p>The title is placed twice, 40 px apart. When the first copy has scrolled fully out on the left, the second one is exactly where the first started.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 54–60</span><b>The scroll</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>NumberAnimation on x {
+    running: viewport.overflow &amp;&amp; (root.player?.isPlaying ?? false)
+    from: 0; to: -(label.implicitWidth + strip.spacing)
+    duration: (label.implicitWidth + strip.spacing) * 30      // ~33 px per second
+    loops: Animation.Infinite
+    onRunningChanged: if (!running) strip.x = 0
+}</code></pre></div><div class="seg-e"><p>The row moves left by exactly one copy plus the gap, then the loop restarts at 0. Because of the second copy, the jump back can't be seen. The duration grows with the text length, so the speed stays the same for short and long titles. When paused or short, <code>x</code> is reset to 0.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 5</span><span class="ex-lvl">Practice</span><b>Pause on hover</b></div><div class="ex-b"><p>Stop the scrolling while the pointer is over the title, so it can be read.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><p>Add <code>HoverHandler { id: titleHover }</code> inside <code>viewport</code> and change <code>running</code> to <code>viewport.overflow &amp;&amp; (root.player?.isPlaying ?? false) &amp;&amp; !titleHover.hovered</code>. Use <code>paused:</code> instead of <code>running:</code> if you want it to continue from where it stopped.</p></div></details></div>
+<h2 id="taskbar">Taskbar<a class="hlink" href="#taskbar">#</a></h2>
+<div class="preview"><svg style="width:min(100%,390px)" width="260" height="60" viewBox="0 0 260 60"><rect x="40" y="15" width="150" height="30" rx="10" fill="#313244"/><rect x="44" y="17" width="26" height="26" rx="8" fill="#45475a"/><circle cx="57" cy="29" r="7" fill="#fab387"/><rect x="51" y="40" width="12" height="3" rx="1.5" fill="#cba6f7"/><circle cx="85" cy="29" r="7" fill="#89b4fa"/><rect x="83" y="40" width="4" height="3" rx="1.5" fill="#6c7086"/><circle cx="113" cy="29" r="7" fill="#a6e3a1"/><rect x="111" y="40" width="4" height="3" rx="1.5" fill="#6c7086"/><circle cx="141" cy="29" r="7" fill="#f5c2e7" opacity=".4"/><rect x="139" y="40" width="4" height="3" rx="1.5" fill="#6c7086"/><circle cx="169" cy="29" r="7" fill="#f9e2af"/><rect x="167" y="40" width="4" height="3" rx="1.5" fill="#6c7086"/></svg></div>
+
+<p><strong>What it is.</strong> One icon per open window, like a classic taskbar. Click focuses a window, middle-click closes it, right-click minimizes it. Works on any compositor with the foreign-toplevel protocol (Hyprland, Sway, niri, KDE…).</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/Taskbar.qml</span><code>import Quickshell
+import Quickshell.Wayland
+import Quickshell.Widgets
+import QtQuick
+import QtQuick.Layouts
+
+Rectangle {
+    id: root
+    property var screen: null                     // set to the bar's screen to show only its windows; null = all
+    readonly property var windows: ToplevelManager.toplevels.values
+        .filter(t =&gt; !root.screen || t.screens.includes(root.screen))
+
+    function iconFor(appId: string): string {
+        const entry = DesktopEntries.heuristicLookup(appId)
+        return Quickshell.iconPath(entry?.icon ?? appId, "application-x-executable")
+    }
+
+    visible: windows.length &gt; 0
+    implicitWidth: row.implicitWidth + 8
+    implicitHeight: 30
+    radius: 10
+    color: "#313244"
+
+    RowLayout {
+        id: row
+        anchors.centerIn: parent
+        spacing: 2
+        Repeater {
+            model: root.windows
+            Rectangle {
+                id: btn
+                required property var modelData
+                implicitWidth: 26; implicitHeight: 26
+                radius: 8
+                color: modelData.activated ? "#45475a" : btnHover.hovered ? "#3b3d52" : "transparent"
+                IconImage {
+                    anchors.centerIn: parent
+                    implicitSize: 18
+                    source: root.iconFor(btn.modelData.appId)
+                    opacity: btn.modelData.minimized ? 0.4 : 1
+                }
+                // the active window gets a small bar underneath
+                Rectangle {
+                    anchors { bottom: parent.bottom; horizontalCenter: parent.horizontalCenter }
+                    width: btn.modelData.activated ? 12 : 4; height: 3; radius: 2
+                    color: btn.modelData.activated ? "#cba6f7" : "#6c7086"
+                    Behavior on width { NumberAnimation { duration: 180 } }
+                }
+                HoverHandler { id: btnHover }
+                TapHandler { onTapped: btn.modelData.activate() }
+                TapHandler { acceptedButtons: Qt.MiddleButton; onTapped: btn.modelData.close() }
+                TapHandler {
+                    acceptedButtons: Qt.RightButton
+                    onTapped: btn.modelData.minimized = !btn.modelData.minimized
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 9–11</span><b>Which windows</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property var screen: null                     // set to the bar's screen to show only its windows; null = all
+readonly property var windows: ToplevelManager.toplevels.values
+    .filter(t =&gt; !root.screen || t.screens.includes(root.screen))</code></pre></div><div class="seg-e"><p><a class="api" href="../ref/ToplevelManager.html"><code>ToplevelManager</code></a> lists every window. Each <code>Toplevel</code> knows which <code>screens</code> it is on, so setting <code>screen</code> to the bar's screen shows only that monitor's windows.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–16</span><b>Finding an icon</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function iconFor(appId: string): string {
+    const entry = DesktopEntries.heuristicLookup(appId)
+    return Quickshell.iconPath(entry?.icon ?? appId, "application-x-executable")
+}</code></pre></div><div class="seg-e"><p>Windows only have an app id like <code>org.mozilla.firefox</code>. <code>DesktopEntries.heuristicLookup</code> finds the matching <code>.desktop</code> file (it also tries lowercase and other common spellings), whose <code>icon</code> is then resolved by <code>Quickshell.iconPath</code>, with a generic fallback.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 30–35</span><b>One button per window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: btn
+    required property var modelData
+    implicitWidth: 26; implicitHeight: 26
+    radius: 8
+    color: modelData.activated ? "#45475a" : btnHover.hovered ? "#3b3d52" : "transparent"</code></pre></div><div class="seg-e"><p>The active window (<code>activated</code>) gets a raised background.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 36–41</span><b>Icon</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>IconImage {
+    anchors.centerIn: parent
+    implicitSize: 18
+    source: root.iconFor(btn.modelData.appId)
+    opacity: btn.modelData.minimized ? 0.4 : 1
+}</code></pre></div><div class="seg-e"><p>Minimized windows are drawn faded.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 42–48</span><b>Indicator</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// the active window gets a small bar underneath
+Rectangle {
+    anchors { bottom: parent.bottom; horizontalCenter: parent.horizontalCenter }
+    width: btn.modelData.activated ? 12 : 4; height: 3; radius: 2
+    color: btn.modelData.activated ? "#cba6f7" : "#6c7086"
+    Behavior on width { NumberAnimation { duration: 180 } }
+}</code></pre></div><div class="seg-e"><p>A short line under every window, wider and purple for the active one.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 49–55</span><b>Clicks</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>HoverHandler { id: btnHover }
+TapHandler { onTapped: btn.modelData.activate() }
+TapHandler { acceptedButtons: Qt.MiddleButton; onTapped: btn.modelData.close() }
+TapHandler {
+    acceptedButtons: Qt.RightButton
+    onTapped: btn.modelData.minimized = !btn.modelData.minimized
+}</code></pre></div><div class="seg-e"><p><code>activate()</code> focuses the window (and un-minimizes it), <code>close()</code> asks it to close, and <code>minimized</code> can be set directly.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 6</span><span class="ex-lvl">Practice</span><b>Group windows by app</b></div><div class="ex-b"><p>Show one icon per app id with a dot per window, like a dock. Clicking cycles through that app's windows.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Build the model from <code>[...new Set(root.windows.map(t =&gt; t.appId))]</code> and keep the window list per id. The Dock in <a class="xref" href="../ch/g9-system.html">Gallery: System Pieces</a> does exactly this.</p></div></details></div>
+<h2 id="submap-indicator">Submap Indicator<a class="hlink" href="#submap-indicator">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="60" viewBox="0 0 200 60"><rect x="50" y="17" width="90" height="26" rx="13" fill="#f9e2af"><animate attributeName="opacity" values="1;.65;1" dur="1.4s" repeatCount="indefinite"/></rect><text x="95" y="34" fill="#1e1e2e" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">RESIZE</text></svg></div>
+
+<p><strong>What it is.</strong> Hyprland submaps are modes like "resize": while one is active, your keys do different things. This yellow pill shows which mode you're in and disappears when you leave it.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> Hyprland</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/SubmapIndicator.qml</span><code>import Quickshell
+import Quickshell.Hyprland
+import QtQuick
+
+// Shows the active Hyprland submap ("resize", "launch"…). Hidden in the default map.
+Rectangle {
+    id: root
+    property string submap: ""
+
+    Connections {
+        target: Hyprland
+        // Hyprland sends "submap&gt;&gt;NAME" on entry and "submap&gt;&gt;" when returning to the default map
+        function onRawEvent(event: HyprlandEvent): void {
+            if (event.name === "submap") root.submap = event.data
+        }
+    }
+
+    visible: implicitWidth &gt; 1
+    implicitWidth: submap ? label.implicitWidth + 24 : 0
+    implicitHeight: 26
+    radius: height / 2
+    color: "#f9e2af"
+    clip: true
+    Behavior on implicitWidth { NumberAnimation { duration: 220; easing.type: Easing.OutBack } }
+
+    Text {
+        id: label
+        anchors.centerIn: parent
+        text: root.submap.toUpperCase()
+        color: "#1e1e2e"; font.pixelSize: 11; font.bold: true; font.letterSpacing: 1
+    }
+
+    // a gentle pulse so you notice you are not in the default map
+    SequentialAnimation on opacity {
+        running: root.submap !== ""
+        loops: Animation.Infinite
+        NumberAnimation { to: 0.65; duration: 700 }
+        NumberAnimation { to: 1; duration: 700 }
+        onRunningChanged: if (!running) root.opacity = 1
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–16</span><b>Listening to Hyprland</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Connections {
+    target: Hyprland
+    // Hyprland sends "submap&gt;&gt;NAME" on entry and "submap&gt;&gt;" when returning to the default map
+    function onRawEvent(event: HyprlandEvent): void {
+        if (event.name === "submap") root.submap = event.data
+    }
+}</code></pre></div><div class="seg-e"><p><code>Hyprland.rawEvent</code> delivers every event from Hyprland's event socket. The <code>submap</code> event carries the submap name, or an empty string when you return to the default map.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 18–24</span><b>Growing and shrinking</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>visible: implicitWidth &gt; 1
+implicitWidth: submap ? label.implicitWidth + 24 : 0
+implicitHeight: 26
+radius: height / 2
+color: "#f9e2af"
+clip: true
+Behavior on implicitWidth { NumberAnimation { duration: 220; easing.type: Easing.OutBack } }</code></pre></div><div class="seg-e"><p>Width is 0 in the default map, so the pill takes no space. When a submap starts, it springs open (<code>OutBack</code> overshoots slightly). <code>clip</code> hides the text while it's narrow.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 26–31</span><b>The label</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    id: label
+    anchors.centerIn: parent
+    text: root.submap.toUpperCase()
+    color: "#1e1e2e"; font.pixelSize: 11; font.bold: true; font.letterSpacing: 1
+}</code></pre></div><div class="seg-e"><p>The submap name in capitals with a little letter spacing.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 33–40</span><b>Pulse</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// a gentle pulse so you notice you are not in the default map
+SequentialAnimation on opacity {
+    running: root.submap !== ""
+    loops: Animation.Infinite
+    NumberAnimation { to: 0.65; duration: 700 }
+    NumberAnimation { to: 1; duration: 700 }
+    onRunningChanged: if (!running) root.opacity = 1
+}</code></pre></div><div class="seg-e"><p>While a submap is active the opacity breathes between 65% and 100%. When it stops, opacity is restored to 1 so the next pulse starts clean.</p></div></div></div>
+<div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 7</span><span class="ex-lvl">Warm-up</span><b>Try it</b></div><div class="ex-b"><p>Add a resize submap to your Hyprland config (<code>bind = SUPER, R, submap, resize</code> … <code>submap = reset</code>), press Super+R and watch the pill.</p></div></div>
+<h2 id="caps-lock-and-num-lock">Caps Lock and Num Lock<a class="hlink" href="#caps-lock-and-num-lock">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="60" viewBox="0 0 200 60"><rect x="50" y="19" width="48" height="22" rx="6" fill="#fab387"/><text x="74" y="34" fill="#1e1e2e" font-size="11" font-weight="700" text-anchor="middle">CAPS</text><rect x="104" y="19" width="42" height="22" rx="6" fill="#fab387"/><text x="125" y="34" fill="#1e1e2e" font-size="11" font-weight="700" text-anchor="middle">NUM</text></svg></div>
+
+<p><strong>What it is.</strong> Small orange badges that appear while Caps Lock or Num Lock is on, so you never type a password in capitals again.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> nothing extra (reads <code>/sys/class/leds</code>)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/LockKeys.qml</span><code>import Quickshell
+import Quickshell.Io
+import QtQuick
+import QtQuick.Layouts
+
+// Caps Lock and Num Lock indicators, read from the keyboard LEDs in /sys.
+RowLayout {
+    id: root
+    spacing: 4
+    property string capsPath: ""
+    property string numPath: ""
+
+    // find the LED files once: /sys/class/leds/input3::capslock/brightness etc.
+    Process {
+        running: true
+        command: ["sh", "-c", "ls -d /sys/class/leds/*::capslock | head -1; ls -d /sys/class/leds/*::numlock | head -1"]
+        stdout: StdioCollector {
+            onStreamFinished: {
+                const l = text.trim().split("\n")
+                root.capsPath = l[0] ? l[0] + "/brightness" : ""
+                root.numPath = l[1] ? l[1] + "/brightness" : ""
+            }
+        }
+    }
+    FileView { id: caps; path: root.capsPath }
+    FileView { id: num; path: root.numPath }
+    // sysfs files don't send change notifications, so re-read them often (cheap: no process is started)
+    Timer { interval: 250; running: root.capsPath !== ""; repeat: true; onTriggered: { caps.reload(); num.reload() } }
+
+    component Key: Rectangle {
+        id: key
+        property string label
+        property bool on
+        visible: on
+        implicitWidth: t.implicitWidth + 14; implicitHeight: 22; radius: 6
+        color: "#fab387"
+        Text { id: t; anchors.centerIn: parent; text: key.label; color: "#1e1e2e"; font.pixelSize: 11; font.bold: true }
+    }
+    Key { label: "CAPS"; on: caps.text().trim() === "1" }
+    Key { label: "NUM"; on: num.text().trim() === "1" }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–11</span><b>Paths</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property string capsPath: ""
+property string numPath: ""</code></pre></div><div class="seg-e"><p>Where the two LED state files are. They're found at startup, because the input number in their names (<code>input3</code>) differs between machines.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–24</span><b>Finding the files</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// find the LED files once: /sys/class/leds/input3::capslock/brightness etc.
+Process {
+    running: true
+    command: ["sh", "-c", "ls -d /sys/class/leds/*::capslock | head -1; ls -d /sys/class/leds/*::numlock | head -1"]
+    stdout: StdioCollector {
+        onStreamFinished: {
+            const l = text.trim().split("\n")
+            root.capsPath = l[0] ? l[0] + "/brightness" : ""
+            root.numPath = l[1] ? l[1] + "/brightness" : ""
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>A one-off shell command lists the first capslock and numlock LEDs. Each file contains <code>1</code> when the LED is on.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 25–28</span><b>Reading them</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FileView { id: caps; path: root.capsPath }
+FileView { id: num; path: root.numPath }
+// sysfs files don't send change notifications, so re-read them often (cheap: no process is started)
+Timer { interval: 250; running: root.capsPath !== ""; repeat: true; onTriggered: { caps.reload(); num.reload() } }</code></pre></div><div class="seg-e"><p>Two <a class="api" href="../ref/FileView.html"><code>FileView</code></a>s read the files. Files in <code>/sys</code> don't announce changes, so a timer calls <code>reload()</code> four times a second. That is only a tiny file read, no process is started, so it costs almost nothing.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 30–38</span><b>A badge component</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>component Key: Rectangle {
+    id: key
+    property string label
+    property bool on
+    visible: on
+    implicitWidth: t.implicitWidth + 14; implicitHeight: 22; radius: 6
+    color: "#fab387"
+    Text { id: t; anchors.centerIn: parent; text: key.label; color: "#1e1e2e"; font.pixelSize: 11; font.bold: true }
+}</code></pre></div><div class="seg-e"><p>An inline component: a label and an <code>on</code> flag; it's only visible while on.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 39–40</span><b>The two badges</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Key { label: "CAPS"; on: caps.text().trim() === "1" }
+Key { label: "NUM"; on: num.text().trim() === "1" }</code></pre></div><div class="seg-e"><p><code>text()</code> returns the file's contents. Used in a binding, it updates whenever the file is reloaded with new contents.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 8</span><span class="ex-lvl">Practice</span><b>Scroll Lock too</b></div><div class="ex-b"><p>Add a third badge for <code>*::scrolllock</code>.</p></div></div>
+<h2 id="ring-clock">Ring Clock<a class="hlink" href="#ring-clock">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="70" viewBox="0 0 200 70"><circle cx="100" cy="35" r="18" fill="none" stroke="#313244" stroke-width="4"/><circle cx="100" cy="35" r="18" fill="none" stroke="#cba6f7" stroke-width="4" stroke-linecap="round" stroke-dasharray="113" transform="rotate(-90 100 35)"><animate attributeName="stroke-dashoffset" from="113" to="0" dur="6s" repeatCount="indefinite"/></circle><text x="100" y="33" fill="#cdd6f4" font-size="10" font-weight="700" text-anchor="middle">14</text><text x="100" y="44" fill="#a6adc8" font-size="10" text-anchor="middle">32</text></svg></div>
+
+<p><strong>What it is.</strong> A tiny round clock for vertical bars or minimal setups: hours and minutes stacked in the middle, and a ring that fills up once a minute with the seconds.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/ClockRing.qml</span><code>import Quickshell
+import QtQuick
+import QtQuick.Shapes
+
+// A round clock: the time in the middle, the seconds as a ring that fills up every minute.
+Item {
+    id: root
+    property int size: 30
+    implicitWidth: size; implicitHeight: size
+    SystemClock { id: clock; precision: SystemClock.Seconds }
+    readonly property real progress: clock.seconds / 60
+
+    Shape {
+        anchors.fill: parent
+        preferredRendererType: Shape.CurveRenderer          // smooth, antialiased arcs
+        ShapePath {                                          // the track
+            strokeColor: "#313244"; strokeWidth: 3; fillColor: "transparent"
+            PathAngleArc { centerX: root.size / 2; centerY: root.size / 2; radiusX: root.size / 2 - 2; radiusY: root.size / 2 - 2; startAngle: 0; sweepAngle: 360 }
+        }
+        ShapePath {                                          // the progress
+            strokeColor: "#cba6f7"; strokeWidth: 3; fillColor: "transparent"; capStyle: ShapePath.RoundCap
+            PathAngleArc {
+                centerX: root.size / 2; centerY: root.size / 2
+                radiusX: root.size / 2 - 2; radiusY: root.size / 2 - 2
+                startAngle: -90                              // 12 o'clock
+                sweepAngle: 360 * root.progress
+            }
+        }
+    }
+    Column {
+        anchors.centerIn: parent
+        spacing: -3
+        Text { anchors.horizontalCenter: parent.horizontalCenter; text: Qt.formatDateTime(clock.date, "hh"); color: "#cdd6f4"; font.pixelSize: 9; font.bold: true }
+        Text { anchors.horizontalCenter: parent.horizontalCenter; text: Qt.formatDateTime(clock.date, "mm"); color: "#a6adc8"; font.pixelSize: 9 }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 8–11</span><b>Size and time</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property int size: 30
+implicitWidth: size; implicitHeight: size
+SystemClock { id: clock; precision: SystemClock.Seconds }
+readonly property real progress: clock.seconds / 60</code></pre></div><div class="seg-e"><p>One <code>size</code> sets both dimensions. The clock ticks every second, and <code>progress</code> is how far through the minute we are.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–15</span><b>Shapes</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Shape {
+    anchors.fill: parent
+    preferredRendererType: Shape.CurveRenderer          // smooth, antialiased arcs</code></pre></div><div class="seg-e"><p><code>Shape</code> draws vector paths. The curve renderer gives smooth, antialiased arcs even at this small size (<a class="xref" href="../ch/26-shapes-canvas.html">Shapes and Canvas</a>).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 16–19</span><b>The track</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ShapePath {                                          // the track
+    strokeColor: "#313244"; strokeWidth: 3; fillColor: "transparent"
+    PathAngleArc { centerX: root.size / 2; centerY: root.size / 2; radiusX: root.size / 2 - 2; radiusY: root.size / 2 - 2; startAngle: 0; sweepAngle: 360 }
+}</code></pre></div><div class="seg-e"><p>A full circle (sweep 360°) in a dark colour.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 20–28</span><b>The progress arc</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ShapePath {                                          // the progress
+    strokeColor: "#cba6f7"; strokeWidth: 3; fillColor: "transparent"; capStyle: ShapePath.RoundCap
+    PathAngleArc {
+        centerX: root.size / 2; centerY: root.size / 2
+        radiusX: root.size / 2 - 2; radiusY: root.size / 2 - 2
+        startAngle: -90                              // 12 o'clock
+        sweepAngle: 360 * root.progress
+    }
+}</code></pre></div><div class="seg-e"><p>Starts at −90°, which is 12 o'clock (0° is 3 o'clock in Qt), and sweeps clockwise in proportion to the seconds. Round caps make the end look soft.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 30–35</span><b>The time</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Column {
+    anchors.centerIn: parent
+    spacing: -3
+    Text { anchors.horizontalCenter: parent.horizontalCenter; text: Qt.formatDateTime(clock.date, "hh"); color: "#cdd6f4"; font.pixelSize: 9; font.bold: true }
+    Text { anchors.horizontalCenter: parent.horizontalCenter; text: Qt.formatDateTime(clock.date, "mm"); color: "#a6adc8"; font.pixelSize: 9 }
+}</code></pre></div><div class="seg-e"><p>Hours above minutes in a <code>Column</code> with negative spacing, so the two lines sit close together.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 9</span><span class="ex-lvl">Practice</span><b>Battery ring</b></div><div class="ex-b"><p>Turn it into a battery ring: sweep by <code>UPower.displayDevice.percentage</code>, green while charging, red below 20%.</p></div></div>
+<h2 id="stopwatch">Stopwatch<a class="hlink" href="#stopwatch">#</a></h2>
+<div class="preview"><svg style="width:min(100%,360px)" width="240" height="60" viewBox="0 0 240 60"><rect x="20" y="17" width="90" height="26" rx="13" fill="#313244"/><text x="34" y="35" fill="#cdd6f4" font-size="13">⏱</text><text x="56" y="35" fill="#cdd6f4" font-size="12">03:27</text><rect x="130" y="17" width="90" height="26" rx="13" fill="#a6e3a1"/><text x="144" y="35" fill="#1e1e2e" font-size="13">⏸</text><text x="166" y="35" fill="#1e1e2e" font-size="12">12:05</text></svg></div>
+
+<p><strong>What it is.</strong> A stopwatch chip. Click to start and pause, right-click to reset. It turns green while running.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/Stopwatch.qml</span><code>import QtQuick
+import QtQuick.Layouts
+
+// Click: start/pause. Right-click: reset. Shows mm:ss (and h: once past an hour).
+Rectangle {
+    id: root
+    property bool running: false
+    property real elapsed: 0          // ms counted before the current run
+    property real startedAt: 0        // Date.now() when the current run started
+    property real now: Date.now()
+
+    readonly property real total: elapsed + (running ? now - startedAt : 0)
+
+    function fmt(ms: real): string {
+        const s = Math.floor(ms / 1000), h = Math.floor(s / 3600), m = Math.floor(s / 60) % 60
+        const pad = n =&gt; String(n).padStart(2, "0")
+        return (h &gt; 0 ? h + ":" : "") + pad(m) + ":" + pad(s % 60)
+    }
+    function toggle(): void {
+        if (running) { elapsed += Date.now() - startedAt; running = false }
+        else { startedAt = Date.now(); now = startedAt; running = true }
+    }
+
+    // only ticks while running: a stopped stopwatch costs nothing
+    Timer { interval: 200; running: root.running; repeat: true; onTriggered: root.now = Date.now() }
+
+    implicitWidth: row.implicitWidth + 20
+    implicitHeight: 26
+    radius: height / 2
+    color: root.running ? "#a6e3a1" : hover.hovered ? "#45475a" : "#313244"
+    Behavior on color { ColorAnimation { duration: 150 } }
+
+    RowLayout {
+        id: row
+        anchors.centerIn: parent
+        spacing: 6
+        Text {
+            text: root.running ? "pause" : "timer"
+            font.family: "Material Symbols Rounded"; font.pixelSize: 18
+            color: root.running ? "#1e1e2e" : "#cdd6f4"
+        }
+        Text {
+            text: root.fmt(root.total)
+            color: root.running ? "#1e1e2e" : "#cdd6f4"; font.pixelSize: 12
+            font.features: ({ "tnum": 1 })
+        }
+    }
+
+    HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+    TapHandler { onTapped: root.toggle() }
+    TapHandler { acceptedButtons: Qt.RightButton; onTapped: { root.running = false; root.elapsed = 0 } }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 7–12</span><b>Measuring time properly</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool running: false
+property real elapsed: 0          // ms counted before the current run
+property real startedAt: 0        // Date.now() when the current run started
+property real now: Date.now()
+
+readonly property real total: elapsed + (running ? now - startedAt : 0)</code></pre></div><div class="seg-e"><p>Counting timer ticks drifts (timers can fire late). Instead the stopwatch stores <strong>when</strong> it started (<code>startedAt</code>) and how much time earlier runs added up to (<code>elapsed</code>). <code>total</code> is computed from the real clock, so it's always exact.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–18</span><b>Formatting</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function fmt(ms: real): string {
+    const s = Math.floor(ms / 1000), h = Math.floor(s / 3600), m = Math.floor(s / 60) % 60
+    const pad = n =&gt; String(n).padStart(2, "0")
+    return (h &gt; 0 ? h + ":" : "") + pad(m) + ":" + pad(s % 60)
+}</code></pre></div><div class="seg-e"><p>Seconds to <code>mm:ss</code>, with hours in front only when needed. <code>padStart</code> adds the leading zero.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 19–22</span><b>Start and pause</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function toggle(): void {
+    if (running) { elapsed += Date.now() - startedAt; running = false }
+    else { startedAt = Date.now(); now = startedAt; running = true }
+}</code></pre></div><div class="seg-e"><p>Pausing adds the current run to <code>elapsed</code>. Starting records the start time.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 24–25</span><b>Ticking</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// only ticks while running: a stopped stopwatch costs nothing
+Timer { interval: 200; running: root.running; repeat: true; onTriggered: root.now = Date.now() }</code></pre></div><div class="seg-e"><p>The timer only updates <code>now</code> so the display refreshes; it doesn't count anything. It only runs while the stopwatch runs.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 49–51</span><b>Input</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+TapHandler { onTapped: root.toggle() }
+TapHandler { acceptedButtons: Qt.RightButton; onTapped: { root.running = false; root.elapsed = 0 } }</code></pre></div><div class="seg-e"><p>Left: toggle. Right: stop and clear.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 10</span><span class="ex-lvl">Practice</span><b>Laps</b></div><div class="ex-b"><p>Middle-click records a lap. Show the number of laps next to the time and print all lap times with <code>console.log</code> on reset.</p></div></div>
+<h2 id="countdown-timer">Countdown Timer<a class="hlink" href="#countdown-timer">#</a></h2>
+<div class="preview"><svg style="width:min(100%,360px)" width="240" height="60" viewBox="0 0 240 60"><clipPath id="cd"><rect x="60" y="17" width="110" height="26" rx="13"/></clipPath><rect x="60" y="17" width="110" height="26" rx="13" fill="#313244"/><g clip-path="url(#cd)"><rect x="60" y="17" height="26" fill="#45365e"><animate attributeName="width" from="110" to="0" dur="8s" repeatCount="indefinite"/></rect></g><text x="74" y="35" fill="#cba6f7" font-size="13">⌛</text><text x="96" y="35" fill="#cdd6f4" font-size="12">4:12</text></svg></div>
+
+<p><strong>What it is.</strong> A kitchen timer for your bar. Scroll to choose the minutes, click to start; the background drains as time passes, and a notification pops up at the end.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> <code>notify-send</code> (libnotify)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/Countdown.qml</span><code>import Quickshell
+import QtQuick
+import QtQuick.Layouts
+
+// Scroll to pick minutes, click to start. A notification fires when time is up.
+Rectangle {
+    id: root
+    property int minutes: 5
+    property real endsAt: 0                 // 0 = not running
+    property real now: Date.now()
+    readonly property bool active: endsAt &gt; 0
+    readonly property real remaining: active ? Math.max(0, endsAt - now) : minutes * 60000
+    readonly property real fraction: active ? remaining / (minutes * 60000) : 1
+
+    Timer {
+        interval: 500; running: root.active; repeat: true
+        onTriggered: {
+            root.now = Date.now()
+            if (root.remaining &lt;= 0) {
+                root.endsAt = 0
+                Quickshell.execDetached(["notify-send", "-u", "critical", "-i", "alarm", "Time's up", root.minutes + " minute timer finished"])
+            }
+        }
+    }
+
+    implicitWidth: row.implicitWidth + 20
+    implicitHeight: 26
+    radius: height / 2
+    color: "#313244"
+    clip: true
+
+    // the background drains from right to left as time passes
+    Rectangle {
+        width: parent.width * root.fraction; height: parent.height
+        radius: parent.radius
+        color: root.active ? "#45365e" : "transparent"
+        Behavior on width { NumberAnimation { duration: 500 } }
+    }
+
+    RowLayout {
+        id: row
+        anchors.centerIn: parent
+        spacing: 6
+        Text {
+            text: root.active ? "hourglass_top" : "hourglass_empty"
+            font.family: "Material Symbols Rounded"; font.pixelSize: 18
+            color: root.active ? "#cba6f7" : "#cdd6f4"
+        }
+        Text {
+            readonly property int secs: Math.ceil(root.remaining / 1000)
+            text: Math.floor(secs / 60) + ":" + String(secs % 60).padStart(2, "0")
+            color: "#cdd6f4"; font.pixelSize: 12
+            font.features: ({ "tnum": 1 })
+        }
+    }
+
+    TapHandler {
+        onTapped: {
+            root.now = Date.now()
+            root.endsAt = root.active ? 0 : root.now + root.minutes * 60000
+        }
+    }
+    WheelHandler {
+        enabled: !root.active
+        onWheel: e =&gt; root.minutes = Math.max(1, Math.min(180, root.minutes + (e.angleDelta.y &gt; 0 ? 1 : -1)))
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 8–13</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property int minutes: 5
+property real endsAt: 0                 // 0 = not running
+property real now: Date.now()
+readonly property bool active: endsAt &gt; 0
+readonly property real remaining: active ? Math.max(0, endsAt - now) : minutes * 60000
+readonly property real fraction: active ? remaining / (minutes * 60000) : 1</code></pre></div><div class="seg-e"><p><code>endsAt</code> is the moment the timer finishes (0 when stopped). Everything else is derived from it: <code>active</code>, <code>remaining</code> and the <code>fraction</code> left. Like the stopwatch, it uses real time, not tick counts.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–24</span><b>Checking</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Timer {
+    interval: 500; running: root.active; repeat: true
+    onTriggered: {
+        root.now = Date.now()
+        if (root.remaining &lt;= 0) {
+            root.endsAt = 0
+            Quickshell.execDetached(["notify-send", "-u", "critical", "-i", "alarm", "Time's up", root.minutes + " minute timer finished"])
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>Twice a second, refresh <code>now</code>. When time is up, stop and send a critical notification so it stays on screen.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 32–38</span><b>Draining background</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// the background drains from right to left as time passes
+Rectangle {
+    width: parent.width * root.fraction; height: parent.height
+    radius: parent.radius
+    color: root.active ? "#45365e" : "transparent"
+    Behavior on width { NumberAnimation { duration: 500 } }
+}</code></pre></div><div class="seg-e"><p>A rectangle behind the text whose width is the fraction left. <code>clip</code> on the chip keeps its corners inside the pill.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 49–54</span><b>Time left</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    readonly property int secs: Math.ceil(root.remaining / 1000)
+    text: Math.floor(secs / 60) + ":" + String(secs % 60).padStart(2, "0")
+    color: "#cdd6f4"; font.pixelSize: 12
+    font.features: ({ "tnum": 1 })
+}</code></pre></div><div class="seg-e"><p>Round <strong>up</strong> to whole seconds first, then split into minutes and seconds, so 4:59.5 shows as 5:00 and the display reaches 0:00 exactly when it ends.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 57–62</span><b>Start and stop</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TapHandler {
+    onTapped: {
+        root.now = Date.now()
+        root.endsAt = root.active ? 0 : root.now + root.minutes * 60000
+    }
+}</code></pre></div><div class="seg-e"><p>A click starts the timer (<code>endsAt</code> = now + duration) or cancels it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 63–66</span><b>Choosing minutes</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>WheelHandler {
+    enabled: !root.active
+    onWheel: e =&gt; root.minutes = Math.max(1, Math.min(180, root.minutes + (e.angleDelta.y &gt; 0 ? 1 : -1)))
+}</code></pre></div><div class="seg-e"><p>Scrolling changes the duration from 1 to 180 minutes, but only while stopped.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 11</span><span class="ex-lvl">Practice</span><b>Play a sound</b></div><div class="ex-b"><p>Play a sound when time is up as well: <code>Quickshell.execDetached(["pw-play", "/usr/share/sounds/freedesktop/stereo/complete.oga"])</code>.</p></div></div>
+<h2 id="game-mode">Game Mode<a class="hlink" href="#game-mode">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="60" viewBox="0 0 200 60"><rect x="50" y="17" width="34" height="26" rx="13" fill="#313244"/><text x="59" y="35" fill="#cdd6f4" font-size="14">🎮</text><rect x="110" y="17" width="34" height="26" rx="13" fill="#a6e3a1"/><text x="119" y="35" fill="#1e1e2e" font-size="14">🎮</text></svg></div>
+
+<p><strong>What it is.</strong> One click switches off Hyprland's animations, blur, shadows, gaps and rounding, for games or older laptops. Click again to get your config back.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> Hyprland with a classic (<code>hyprland.conf</code>) config</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/GamemodeChip.qml</span><code>import Quickshell
+import Quickshell.Io
+import QtQuick
+
+// One click turns off Hyprland's animations, blur, shadows and gaps (for games or slow machines).
+Rectangle {
+    id: root
+    property bool on: false
+
+    function apply(): void {
+        if (on)
+            Quickshell.execDetached(["hyprctl", "--batch",
+                "keyword animations:enabled 0; keyword decoration:shadow:enabled 0; keyword decoration:blur:enabled 0; " +
+                "keyword general:gaps_in 0; keyword general:gaps_out 0; keyword general:border_size 1; keyword decoration:rounding 0"])
+        else
+            Quickshell.execDetached(["hyprctl", "reload"])     // back to whatever your config says
+    }
+
+    // pick up the real state at startup (animations off = game mode)
+    Process {
+        running: true
+        command: ["hyprctl", "getoption", "animations:enabled", "-j"]
+        stdout: StdioCollector { onStreamFinished: { try { root.on = JSON.parse(text).int === 0 } catch (e) {} } }
+    }
+
+    implicitWidth: 30; implicitHeight: 26
+    radius: height / 2
+    color: on ? "#a6e3a1" : hover.hovered ? "#45475a" : "#313244"
+    Behavior on color { ColorAnimation { duration: 150 } }
+
+    Text {
+        anchors.centerIn: parent
+        text: "sports_esports"
+        font.family: "Material Symbols Rounded"; font.pixelSize: 18
+        color: root.on ? "#1e1e2e" : "#cdd6f4"
+    }
+    HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+    TapHandler { onTapped: { root.on = !root.on; root.apply() } }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–14</span><b>Turning effects off</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function apply(): void {
+    if (on)
+        Quickshell.execDetached(["hyprctl", "--batch",
+            "keyword animations:enabled 0; keyword decoration:shadow:enabled 0; keyword decoration:blur:enabled 0; " +
+            "keyword general:gaps_in 0; keyword general:gaps_out 0; keyword general:border_size 1; keyword decoration:rounding 0"])</code></pre></div><div class="seg-e"><p><code>hyprctl --batch</code> sends several <code>keyword</code> commands in one call. They only change the running session, not your config file.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–16</span><b>Turning them back on</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>else
+    Quickshell.execDetached(["hyprctl", "reload"])     // back to whatever your config says</code></pre></div><div class="seg-e"><p><code>hyprctl reload</code> re-reads your config, which restores everything you had.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 19–24</span><b>The starting state</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// pick up the real state at startup (animations off = game mode)
+Process {
+    running: true
+    command: ["hyprctl", "getoption", "animations:enabled", "-j"]
+    stdout: StdioCollector { onStreamFinished: { try { root.on = JSON.parse(text).int === 0 } catch (e) {} } }
+}</code></pre></div><div class="seg-e"><p>At startup, ask Hyprland whether animations are on. <code>getoption -j</code> returns JSON with the value in <code>int</code>. If they're already off, the chip starts green.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 26–38</span><b>The chip</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>implicitWidth: 30; implicitHeight: 26
+radius: height / 2
+color: on ? "#a6e3a1" : hover.hovered ? "#45475a" : "#313244"
+Behavior on color { ColorAnimation { duration: 150 } }
+
+Text {
+    anchors.centerIn: parent
+    text: "sports_esports"
+    font.family: "Material Symbols Rounded"; font.pixelSize: 18
+    color: root.on ? "#1e1e2e" : "#cdd6f4"
+}
+HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+TapHandler { onTapped: { root.on = !root.on; root.apply() } }</code></pre></div><div class="seg-e"><p>Green when on. A click flips <code>on</code> and applies it.</p></div></div></div>
+<div class="box warn"><div class="bt">Lua configs</div><p>With a Lua Hyprland config, <code>hyprctl keyword</code> doesn't apply. Use <code>hyprctl eval</code> with <code>hl.config({...})</code> calls instead (see <a class="xref" href="../ch/th7-beyond-the-shell.html">Theming 7: Theming Your Whole Desktop</a>).</p></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 12</span><span class="ex-lvl">Practice</span><b>Turn on game mode automatically</b></div><div class="ex-b"><p>Turn game mode on whenever a fullscreen window is focused, and off when it isn't.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p><code>ToplevelManager.activeToplevel?.fullscreen</code> tells you. Watch it with a <code>Connections</code> or an <code>onXChanged</code> handler on a property bound to it.</p></div></details></div>
+<h2 id="night-light">Night Light<a class="hlink" href="#night-light">#</a></h2>
+<div class="preview"><svg style="width:min(100%,360px)" width="240" height="60" viewBox="0 0 240 60"><rect x="40" y="17" width="34" height="26" rx="13" fill="#313244"/><text x="49" y="35" fill="#cdd6f4" font-size="14">☀</text><rect x="100" y="17" width="90" height="26" rx="13" fill="#fab387"/><text x="114" y="35" fill="#1e1e2e" font-size="14">☾</text><text x="136" y="35" fill="#1e1e2e" font-size="12">4000K</text></svg></div>
+
+<p><strong>What it is.</strong> A warm-screen toggle for evenings. Click to turn on, scroll to make it warmer or cooler.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> <code>hyprsunset</code></p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/NightLight.qml</span><code>import Quickshell
+import Quickshell.Io
+import QtQuick
+import QtQuick.Layouts
+
+// Warm screen colours with hyprsunset. Click: on/off. Scroll: colour temperature.
+Rectangle {
+    id: root
+    property int temperature: 4000          // Kelvin; lower = warmer
+    readonly property bool on: proc.running
+
+    Process {
+        id: proc
+        command: ["hyprsunset", "-t", String(root.temperature)]
+    }
+    // changing the temperature while on restarts hyprsunset with the new value
+    Timer { id: restart; interval: 300; onTriggered: { proc.running = false; proc.running = true } }
+    onTemperatureChanged: if (on) restart.restart()
+
+    implicitWidth: row.implicitWidth + 20
+    implicitHeight: 26
+    radius: height / 2
+    color: on ? "#fab387" : hover.hovered ? "#45475a" : "#313244"
+    Behavior on color { ColorAnimation { duration: 200 } }
+
+    RowLayout {
+        id: row
+        anchors.centerIn: parent
+        spacing: 6
+        Text {
+            text: root.on ? "nightlight" : "light_mode"
+            font.family: "Material Symbols Rounded"; font.pixelSize: 18
+            color: root.on ? "#1e1e2e" : "#cdd6f4"
+        }
+        Text {
+            visible: root.on || hover.hovered
+            text: root.temperature + "K"
+            color: root.on ? "#1e1e2e" : "#cdd6f4"; font.pixelSize: 12
+        }
+    }
+    HoverHandler { id: hover; cursorShape: Qt.PointingHandCursor }
+    TapHandler { onTapped: proc.running = !proc.running }
+    WheelHandler { onWheel: e =&gt; root.temperature = Math.max(2500, Math.min(6500, root.temperature + (e.angleDelta.y &gt; 0 ? 250 : -250))) }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 9–10</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property int temperature: 4000          // Kelvin; lower = warmer
+readonly property bool on: proc.running</code></pre></div><div class="seg-e"><p>The colour temperature in Kelvin, and whether it's on. "On" simply <strong>is</strong> "hyprsunset is running": the process's <code>running</code> property is the state, so they can never disagree.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 12–15</span><b>The process</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Process {
+    id: proc
+    command: ["hyprsunset", "-t", String(root.temperature)]
+}</code></pre></div><div class="seg-e"><p>hyprsunset tints the screen for as long as it runs and restores normal colours when it exits.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 16–18</span><b>Changing temperature</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// changing the temperature while on restarts hyprsunset with the new value
+Timer { id: restart; interval: 300; onTriggered: { proc.running = false; proc.running = true } }
+onTemperatureChanged: if (on) restart.restart()</code></pre></div><div class="seg-e"><p>hyprsunset reads <code>-t</code> at start, so a new value means restarting it. The 300 ms timer waits until you stop scrolling, so it restarts once instead of on every notch.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 30–39</span><b>Content</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    text: root.on ? "nightlight" : "light_mode"
+    font.family: "Material Symbols Rounded"; font.pixelSize: 18
+    color: root.on ? "#1e1e2e" : "#cdd6f4"
+}
+Text {
+    visible: root.on || hover.hovered
+    text: root.temperature + "K"
+    color: root.on ? "#1e1e2e" : "#cdd6f4"; font.pixelSize: 12
+}</code></pre></div><div class="seg-e"><p>A moon when on. The temperature shows while on or hovered.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 42–43</span><b>Input</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TapHandler { onTapped: proc.running = !proc.running }
+WheelHandler { onWheel: e =&gt; root.temperature = Math.max(2500, Math.min(6500, root.temperature + (e.angleDelta.y &gt; 0 ? 250 : -250))) }</code></pre></div><div class="seg-e"><p>Click starts or stops the process. Scrolling moves between 2500 K (very warm) and 6500 K (neutral).</p></div></div></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 13</span><span class="ex-lvl">Challenge</span><b>On at sunset</b></div><div class="ex-b"><p>Turn the night light on automatically between 20:00 and 07:00 using a <code>SystemClock</code>, but let a manual click override it until the next switch time.</p></div></div>
+<h2 id="tray-with-overflow-drawer">Tray with Overflow Drawer<a class="hlink" href="#tray-with-overflow-drawer">#</a></h2>
+<div class="preview"><svg style="width:min(100%,480px)" width="320" height="130" viewBox="0 0 320 130"><rect x="80" y="12" width="140" height="26" rx="13" fill="#313244"/><circle cx="100" cy="25" r="7" fill="#89b4fa"/><circle cx="128" cy="25" r="7" fill="#a6e3a1"/><circle cx="156" cy="25" r="7" fill="#f38ba8"/><circle cx="184" cy="25" r="7" fill="#f9e2af"/><text x="204" y="30" fill="#a6adc8" font-size="12">▴</text><rect x="150" y="50" width="120" height="70" rx="12" fill="#1e1e2e" stroke="#45475a"/><g><circle cx="172" cy="72" r="8" fill="#cba6f7"/><circle cx="200" cy="72" r="8" fill="#94e2d5"/><circle cx="228" cy="72" r="8" fill="#fab387"/><circle cx="172" cy="100" r="8" fill="#f5c2e7"/></g></svg></div>
+
+<p><strong>What it is.</strong> The system tray (Discord, Steam, Nextcloud…). Only the first four icons sit in the bar; the rest are folded into a drawer behind a chevron, so a busy tray can't take over your bar. Every icon supports click, middle-click, scroll and its right-click menu.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/Tray.qml</span><code>import Quickshell
+import Quickshell.Services.SystemTray
+import Quickshell.Widgets
+import QtQuick
+import QtQuick.Layouts
+
+// System tray that shows the first few icons and folds the rest into a drawer behind a chevron.
+Rectangle {
+    id: root
+    property int maxVisible: 4
+    readonly property var items: SystemTray.items.values
+    readonly property var shown: items.slice(0, maxVisible)
+    readonly property var hidden: items.slice(maxVisible)
+    property bool drawerOpen: false
+
+    visible: items.length &gt; 0
+    implicitWidth: row.implicitWidth + 12
+    implicitHeight: 26
+    radius: height / 2
+    color: "#313244"
+
+    // one tray icon; used both in the bar and in the drawer
+    component TrayIcon: Item {
+        id: icon
+        required property SystemTrayItem modelData
+        implicitWidth: 20; implicitHeight: 20
+        IconImage {
+            anchors.fill: parent
+            source: icon.modelData.icon
+            asynchronous: true
+            scale: iconHover.hovered ? 1.15 : 1
+            Behavior on scale { NumberAnimation { duration: 120 } }
+        }
+        HoverHandler { id: iconHover; cursorShape: Qt.PointingHandCursor }
+        MouseArea {
+            anchors.fill: parent
+            acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
+            onClicked: m =&gt; {
+                if (m.button === Qt.LeftButton &amp;&amp; !icon.modelData.onlyMenu) icon.modelData.activate()
+                else if (m.button === Qt.MiddleButton) icon.modelData.secondaryActivate()
+                else if (icon.modelData.hasMenu) menu.open()
+            }
+            onWheel: w =&gt; icon.modelData.scroll(w.angleDelta.y / 120, false)
+        }
+        QsMenuAnchor {                                  // the app's own menu, drawn natively
+            id: menu
+            menu: icon.modelData.menu
+            anchor.item: icon
+            anchor.edges: Edges.Bottom
+            anchor.gravity: Edges.Bottom
+        }
+    }
+
+    RowLayout {
+        id: row
+        anchors.centerIn: parent
+        spacing: 8
+        Repeater { model: root.shown; TrayIcon {} }
+        Text {
+            id: chevron
+            visible: root.hidden.length &gt; 0
+            text: root.drawerOpen ? "expand_less" : "expand_more"
+            font.family: "Material Symbols Rounded"; font.pixelSize: 18
+            color: "#a6adc8"
+            TapHandler { onTapped: root.drawerOpen = !root.drawerOpen }
+        }
+    }
+
+    PopupWindow {
+        visible: root.drawerOpen &amp;&amp; root.hidden.length &gt; 0
+        anchor.item: chevron
+        anchor.edges: Edges.Bottom
+        anchor.gravity: Edges.Bottom
+        anchor.margins.top: 10
+        implicitWidth: grid.implicitWidth + 20
+        implicitHeight: grid.implicitHeight + 20
+        color: "transparent"
+        Rectangle {
+            anchors.fill: parent
+            radius: 12; color: "#1e1e2e"; border.color: "#45475a"
+            GridLayout {
+                id: grid
+                anchors.centerIn: parent
+                columns: 4; rowSpacing: 10; columnSpacing: 10
+                Repeater { model: root.hidden; TrayIcon {} }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–14</span><b>Splitting the items</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property int maxVisible: 4
+readonly property var items: SystemTray.items.values
+readonly property var shown: items.slice(0, maxVisible)
+readonly property var hidden: items.slice(maxVisible)
+property bool drawerOpen: false</code></pre></div><div class="seg-e"><p><a class="api" href="../ref/SystemTray.html"><code>SystemTray</code></a> lists every tray item. <code>slice</code> cuts the list into the visible part and the overflow; change <code>maxVisible</code> to taste.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 22–26</span><b>One component for both places</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// one tray icon; used both in the bar and in the drawer
+component TrayIcon: Item {
+    id: icon
+    required property SystemTrayItem modelData
+    implicitWidth: 20; implicitHeight: 20</code></pre></div><div class="seg-e"><p><code>TrayIcon</code> is an inline component, used in the bar row <strong>and</strong> in the drawer, so both behave identically.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 27–33</span><b>The icon</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>IconImage {
+    anchors.fill: parent
+    source: icon.modelData.icon
+    asynchronous: true
+    scale: iconHover.hovered ? 1.15 : 1
+    Behavior on scale { NumberAnimation { duration: 120 } }
+}</code></pre></div><div class="seg-e"><p>Tray items give their icon as a ready-to-use source. It grows a little on hover.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 35–44</span><b>Clicks and scroll</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>MouseArea {
+    anchors.fill: parent
+    acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
+    onClicked: m =&gt; {
+        if (m.button === Qt.LeftButton &amp;&amp; !icon.modelData.onlyMenu) icon.modelData.activate()
+        else if (m.button === Qt.MiddleButton) icon.modelData.secondaryActivate()
+        else if (icon.modelData.hasMenu) menu.open()
+    }
+    onWheel: w =&gt; icon.modelData.scroll(w.angleDelta.y / 120, false)
+}</code></pre></div><div class="seg-e"><p>Left click activates the app (usually opens its window), unless the item says it is "only a menu". Middle click is the secondary action. Right click (or any click on a menu-only item) opens the menu. Scrolling is forwarded too (volume apps use it).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 45–51</span><b>The app's menu</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>QsMenuAnchor {                                  // the app's own menu, drawn natively
+    id: menu
+    menu: icon.modelData.menu
+    anchor.item: icon
+    anchor.edges: Edges.Bottom
+    anchor.gravity: Edges.Bottom
+}</code></pre></div><div class="seg-e"><p><a class="api" href="../ref/QsMenuAnchor.html"><code>QsMenuAnchor</code></a> shows the app's own menu as a native popup below the icon. For a custom-drawn menu, see <a class="xref" href="../ch/50-proj-tray.html">Project: System Tray with Custom Menus</a>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 54–67</span><b>The bar part</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    id: row
+    anchors.centerIn: parent
+    spacing: 8
+    Repeater { model: root.shown; TrayIcon {} }
+    Text {
+        id: chevron
+        visible: root.hidden.length &gt; 0
+        text: root.drawerOpen ? "expand_less" : "expand_more"
+        font.family: "Material Symbols Rounded"; font.pixelSize: 18
+        color: "#a6adc8"
+        TapHandler { onTapped: root.drawerOpen = !root.drawerOpen }
+    }
+}</code></pre></div><div class="seg-e"><p>The first items, then the chevron, which only appears when there is an overflow.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 69–88</span><b>The drawer</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PopupWindow {
+    visible: root.drawerOpen &amp;&amp; root.hidden.length &gt; 0
+    anchor.item: chevron
+    anchor.edges: Edges.Bottom
+    anchor.gravity: Edges.Bottom
+    anchor.margins.top: 10
+    implicitWidth: grid.implicitWidth + 20
+    implicitHeight: grid.implicitHeight + 20
+    color: "transparent"
+    Rectangle {
+        anchors.fill: parent
+        radius: 12; color: "#1e1e2e"; border.color: "#45475a"
+        GridLayout {
+            id: grid
+            anchors.centerIn: parent
+            columns: 4; rowSpacing: 10; columnSpacing: 10
+            Repeater { model: root.hidden; TrayIcon {} }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>A <a class="api" href="../ref/PopupWindow.html"><code>PopupWindow</code></a> anchored under the chevron, holding the remaining items in a four-column grid.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 14</span><span class="ex-lvl">Practice</span><b>Hide items you never use</b></div><div class="ex-b"><p>Add <code>property list&lt;string&gt; hiddenIds: ["nm-applet"]</code> and leave those out of both lists.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Filter first: <code>SystemTray.items.values.filter(i =&gt; !root.hiddenIds.includes(i.id))</code>.</p></div></details></div>
+<h2 id="workspaces-with-app-icons">Workspaces with App Icons<a class="hlink" href="#workspaces-with-app-icons">#</a></h2>
+<div class="preview"><svg style="width:min(100%,510px)" width="340" height="60" viewBox="0 0 340 60"><rect x="20" y="17" width="66" height="26" rx="9" fill="#cba6f7"/><text x="32" y="35" fill="#1e1e2e" font-size="12" font-weight="700">1</text><circle cx="52" cy="30" r="6" fill="#fab387"/><circle cx="70" cy="30" r="6" fill="#89b4fa"/><rect x="92" y="17" width="48" height="26" rx="9" fill="#313244"/><text x="104" y="35" fill="#cdd6f4" font-size="12" font-weight="700">2</text><circle cx="124" cy="30" r="6" fill="#a6e3a1"/><rect x="146" y="17" width="30" height="26" rx="9" fill="#313244"/><text x="157" y="35" fill="#cdd6f4" font-size="12" font-weight="700">3</text><rect x="182" y="17" width="104" height="26" rx="9" fill="#f38ba8"/><text x="194" y="35" fill="#1e1e2e" font-size="12" font-weight="700">4</text><circle cx="214" cy="30" r="6" fill="#1e1e2e" opacity=".5"/><circle cx="232" cy="30" r="6" fill="#1e1e2e" opacity=".5"/><circle cx="250" cy="30" r="6" fill="#1e1e2e" opacity=".5"/><text x="262" y="34" fill="#1e1e2e" font-size="10">+2</text></svg></div>
+
+<p><strong>What it is.</strong> Workspace buttons that show which apps are on each workspace. The focused one is purple, urgent ones red; each grows to fit its icons.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> Hyprland</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/WorkspaceList.qml</span><code>import Quickshell
+import Quickshell.Hyprland
+import Quickshell.Widgets
+import QtQuick
+import QtQuick.Layouts
+
+// Numbered workspaces, each showing the icons of the windows on it.
+RowLayout {
+    id: root
+    property var screen: null                              // the bar's screen: show only its monitor's workspaces
+    readonly property var monitor: screen ? Hyprland.monitorFor(screen) : null
+    readonly property var workspaces: Hyprland.workspaces.values
+        .filter(w =&gt; w.id &gt; 0 &amp;&amp; (!root.monitor || w.monitor === root.monitor))   // id &lt; 0 = special workspaces
+        .sort((a, b) =&gt; a.id - b.id)
+    spacing: 4
+
+    function iconFor(t: var): string {
+        const appId = t.wayland?.appId ?? t.lastIpcObject?.class ?? ""
+        return Quickshell.iconPath(DesktopEntries.heuristicLookup(appId)?.icon ?? appId, "application-x-executable")
+    }
+
+    Repeater {
+        model: root.workspaces
+        Rectangle {
+            id: ws
+            required property HyprlandWorkspace modelData
+            readonly property var windows: modelData.toplevels.values
+            implicitHeight: 26
+            implicitWidth: content.implicitWidth + 16
+            radius: 9
+            color: modelData.focused ? "#cba6f7" : modelData.urgent ? "#f38ba8" : wsHover.hovered ? "#45475a" : "#313244"
+            Behavior on color { ColorAnimation { duration: 150 } }
+            Behavior on implicitWidth { NumberAnimation { duration: 180; easing.type: Easing.OutCubic } }
+
+            RowLayout {
+                id: content
+                anchors.centerIn: parent
+                spacing: 4
+                Text {
+                    text: ws.modelData.name
+                    color: ws.modelData.focused ? "#1e1e2e" : "#cdd6f4"
+                    font.pixelSize: 12; font.bold: true
+                }
+                Repeater {
+                    model: ws.windows.slice(0, 4)                  // at most four icons per workspace
+                    IconImage {
+                        required property var modelData
+                        implicitSize: 14
+                        source: root.iconFor(modelData)
+                    }
+                }
+                Text {
+                    visible: ws.windows.length &gt; 4
+                    text: "+" + (ws.windows.length - 4)
+                    color: ws.modelData.focused ? "#1e1e2e" : "#a6adc8"; font.pixelSize: 10
+                }
+            }
+            HoverHandler { id: wsHover; cursorShape: Qt.PointingHandCursor }
+            TapHandler { onTapped: ws.modelData.activate() }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–14</span><b>Which workspaces</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property var screen: null                              // the bar's screen: show only its monitor's workspaces
+readonly property var monitor: screen ? Hyprland.monitorFor(screen) : null
+readonly property var workspaces: Hyprland.workspaces.values
+    .filter(w =&gt; w.id &gt; 0 &amp;&amp; (!root.monitor || w.monitor === root.monitor))   // id &lt; 0 = special workspaces
+    .sort((a, b) =&gt; a.id - b.id)</code></pre></div><div class="seg-e"><p>With a <code>screen</code> set, only workspaces on that screen's monitor are shown (<code>Hyprland.monitorFor</code> finds the Hyprland monitor for a Quickshell screen). Special workspaces have negative ids and are skipped. The list is sorted by id.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 17–20</span><b>Icons for Hyprland windows</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function iconFor(t: var): string {
+    const appId = t.wayland?.appId ?? t.lastIpcObject?.class ?? ""
+    return Quickshell.iconPath(DesktopEntries.heuristicLookup(appId)?.icon ?? appId, "application-x-executable")
+}</code></pre></div><div class="seg-e"><p>A <code>HyprlandToplevel</code> links to its Wayland <code>Toplevel</code> (<code>wayland</code>), which has the app id. If that isn't available yet, Hyprland's own window info (<code>lastIpcObject.class</code>) is used.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 24–33</span><b>One button per workspace</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: ws
+    required property HyprlandWorkspace modelData
+    readonly property var windows: modelData.toplevels.values
+    implicitHeight: 26
+    implicitWidth: content.implicitWidth + 16
+    radius: 9
+    color: modelData.focused ? "#cba6f7" : modelData.urgent ? "#f38ba8" : wsHover.hovered ? "#45475a" : "#313244"
+    Behavior on color { ColorAnimation { duration: 150 } }
+    Behavior on implicitWidth { NumberAnimation { duration: 180; easing.type: Easing.OutCubic } }</code></pre></div><div class="seg-e"><p>Its window list comes straight from <code>modelData.toplevels</code>. Colour and width animate.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 39–43</span><b>The number</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    text: ws.modelData.name
+    color: ws.modelData.focused ? "#1e1e2e" : "#cdd6f4"
+    font.pixelSize: 12; font.bold: true
+}</code></pre></div><div class="seg-e"><p><code>name</code> is the workspace's name, which is its number unless you named it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 44–56</span><b>The icons</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Repeater {
+    model: ws.windows.slice(0, 4)                  // at most four icons per workspace
+    IconImage {
+        required property var modelData
+        implicitSize: 14
+        source: root.iconFor(modelData)
+    }
+}
+Text {
+    visible: ws.windows.length &gt; 4
+    text: "+" + (ws.windows.length - 4)
+    color: ws.modelData.focused ? "#1e1e2e" : "#a6adc8"; font.pixelSize: 10
+}</code></pre></div><div class="seg-e"><p>Up to four icons, then a <code>+N</code> for the rest.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 58–59</span><b>Clicking</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>HoverHandler { id: wsHover; cursorShape: Qt.PointingHandCursor }
+TapHandler { onTapped: ws.modelData.activate() }</code></pre></div><div class="seg-e"><p><code>activate()</code> switches to the workspace, with no dispatcher string needed (so it works with both classic and Lua configs).</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 15</span><span class="ex-lvl">Practice</span><b>Always show 1 to 5</b></div><div class="ex-b"><p>Show workspaces 1–5 even when empty (dimmed), like the dots in <a class="xref" href="../ch/g1-bar-modules.html">Gallery: Bar Modules</a>.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Model <code>5</code>, and look up each one with <code>Hyprland.workspaces.values.find(w =&gt; w.id === index + 1)</code>. An empty slot is activated with <code>Hyprland.dispatch("workspace " + (index + 1))</code>.</p></div></details></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/g6-effects.html"><small>← Previous</small><span>Gallery: Effects, Decorations and Interactions</span></a><a class="pn-next" href="../ch/g8-popups-menus-2.html"><small>Next →</small><span>Gallery: Popups, Menus and Pickers</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#network-chip">Network Chip</a><a class="l2" href="#bluetooth-chip">Bluetooth Chip</a><a class="l2" href="#brightness-chip">Brightness Chip</a><a class="l2" href="#microphone-chip">Microphone Chip</a><a class="l2" href="#scrolling-media-title">Scrolling Media Title</a><a class="l2" href="#taskbar">Taskbar</a><a class="l2" href="#submap-indicator">Submap Indicator</a><a class="l2" href="#caps-lock-and-num-lock">Caps Lock and Num Lock</a><a class="l2" href="#ring-clock">Ring Clock</a><a class="l2" href="#stopwatch">Stopwatch</a><a class="l2" href="#countdown-timer">Countdown Timer</a><a class="l2" href="#game-mode">Game Mode</a><a class="l2" href="#night-light">Night Light</a><a class="l2" href="#tray-with-overflow-drawer">Tray with Overflow Drawer</a><a class="l2" href="#workspaces-with-app-icons">Workspaces with App Icons</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

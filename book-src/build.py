@@ -191,11 +191,94 @@ def render_code(lang, meta, code):
     f = f'<span class="fname">{esc(fname)}</span>' if fname else ""
     return f'<div class="codewrap"><pre class="code" data-lang="{cls}">{f}<code>{esc(code)}</code></pre></div>'
 
+EX_LEVELS = {"warm": "Warm-up", "practice": "Practice", "challenge": "Challenge", "project": "Mini project"}
+
+def render_blocks(text, rel, ctx, hold):
+    """::: exercise LEVEL | Title  …  --- hint …  --- solution …  :::
+       ::: walk  …  @ 3-9 | Segment title  explanation …  :::   (lines of the previous code fence)"""
+    counter = [0]
+    def last_code(upto):
+        fences = list(re.finditer(r'(?m)^[ \t]*```(\w+)?[^\n]*\n(.*?)\n[ \t]*```[ \t]*$', text[:upto], flags=re.S))
+        qml = [f for f in fences if (f.group(1) or "") == "qml"] or fences     # walk the last QML block
+        return (qml[-1].group(1) or "qml", qml[-1].group(2).split("\n")) if qml else ("qml", [])
+    def ex(m):
+        head, body = m.group(2).strip(), m.group(3)
+        lvl, _, title = head.partition("|")
+        lvl = lvl.strip().lower() or "practice"
+        counter[0] += 1
+        parts = re.split(r'(?m)^---[ \t]*(hint|solution|why)[ \t]*$', body)
+        task, extra = parts[0], parts[1:]
+        h = [f'<div class="ex ex-{lvl}"><div class="ex-h"><span class="ex-n">Exercise {counter[0]}</span>'
+             f'<span class="ex-lvl">{EX_LEVELS.get(lvl, lvl.title())}</span><b>{md(title.strip(), rel, ctx, inline=True)}</b></div>'
+             f'<div class="ex-b">{md(task, rel, ctx)}</div>']
+        for k, v in zip(extra[0::2], extra[1::2]):
+            label = {"hint": "💡 Hint", "solution": "✅ Solution", "why": "🧠 Why it works"}[k]
+            h.append(f'<details class="ex-d ex-{k}"><summary>{label}</summary><div class="ex-db">{md(v, rel, ctx)}</div></details>')
+        h.append('</div>')
+        return "\n" + hold("".join(h)) + "\n"
+    def walk(m):
+        lang, code = last_code(m.start())
+        segs = re.split(r'(?m)^@[ \t]*(\d+)(?:-(\d+))?[ \t]*(?:\|[ \t]*(.*))?$', m.group(3))
+        out = ['<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div>']
+        if segs[0].strip(): out.append(f'<div class="walk-intro">{md(segs[0], rel, ctx)}</div>')
+        for i in range(1, len(segs), 4):
+            a, b, title, expl = int(segs[i]), int(segs[i+1] or segs[i]), (segs[i+2] or "").strip(), segs[i+3]
+            if not code or b > len(code): print("WARN walk range", a, b, "of", len(code), file=sys.stderr)
+            lines = code[a-1:b]
+            ind = min((len(l) - len(l.lstrip()) for l in lines if l.strip()), default=0)
+            snippet = "\n".join(l[ind:] for l in lines)
+            rng = f"line {a}" if a == b else f"lines {a}–{b}"
+            out.append(f'<div class="seg"><div class="seg-h"><span class="seg-r">{rng}</span><b>{md(title, rel, ctx, inline=True)}</b></div>'
+                       f'{render_code(lang, "", snippet)}<div class="seg-e">{md(expl, rel, ctx)}</div></div>')
+        out.append('</div>')
+        return "\n" + hold("".join(out)) + "\n"
+    def any_block(m):
+        return ex(m) if m.group(1) == "exercise" else walk(m)
+    return re.sub(r'(?ms)^:::[ \t]*(exercise|walk)([^\n]*)\n(.*?)^:::[ \t]*$', any_block, text)
+
+EXAMPLES = os.path.join(os.path.dirname(SRC), "examples")
+
+def expand_includes(text):
+    """A line '@include cae/modules/bar/Bar.qml' becomes a code block with that example file."""
+    def inc(m):
+        rel = m.group(1).strip()
+        path = os.path.join(EXAMPLES, rel)
+        if not os.path.exists(path):
+            print("WARN missing include", rel, file=sys.stderr); return m.group(0)
+        code = open(path, encoding="utf-8").read().rstrip("\n")
+        lang = {"qml": "qml", "toml": "toml", "conf": "ini", "json": "json", "template": "json", "py": "python", "css": "css", "yaml": "text"}.get(rel.rsplit(".", 1)[-1], "text")
+        return f'```{lang} file="{rel}"\n{code}\n```'
+    return re.sub(r'(?m)^@include[ \t]+(\S+)[ \t]*$', inc, text)
+
+def theme_table_html():
+    """{{THEME_TABLE}}: one card per theme file in examples/theming/themes, with palette and role swatches."""
+    import glob as _g
+    rows = []
+    themes = [json.load(open(f, encoding="utf-8")) for f in _g.glob(os.path.join(EXAMPLES, "theming", "themes", "*.json"))]
+    themes.sort(key=lambda t: (t["family"], t["name"]))
+    def res(t, r):
+        v = t["roles"].get(r, "")
+        return v if v.startswith("#") else t["palette"].get(v, "#ff00ff")
+    roles = ["background", "surface", "surfaceHigh", "border", "text", "textMuted", "textFaint", "primary", "onPrimary", "secondary",
+             "red", "orange", "yellow", "green", "cyan", "blue", "magenta"]
+    for t in themes:
+        sw = "".join(f'<span class="sw" style="background:{v}" title="{esc(k)} {v}"></span>' for k, v in t["palette"].items())
+        rl = "".join(f'<span class="rl"><span class="sw" style="background:{res(t, r)}"></span><code>{r}</code><small>{esc(t["roles"].get(r, ""))}</small></span>' for r in roles)
+        bg, fg, pr = res(t, "background"), res(t, "text"), res(t, "primary")
+        rows.append(f'<div class="theme-card" id="theme-{t["id"]}"><div class="theme-head" style="background:{bg};color:{fg}">'
+                    f'<b>{esc(t["name"])}</b> <span style="color:{pr}">●</span> <small>{t["variant"]} · <code>{t["id"]}.json</code> · by {esc(t.get("author", ""))}</small></div>'
+                    f'<div class="theme-pal">{sw}</div><details><summary>Role mapping</summary><div class="theme-roles">{rl}</div></details></div>')
+    return "\n".join(rows)
+
 def md(text, rel="", ctx=None, inline=False):
     if not text: return ""
+    if "@include" in text:
+        text = expand_includes(text)
     holders = []
     def hold(h):
         holders.append(h); return f"\x00{len(holders)-1}\x00"
+    if ":::" in text:
+        text = render_blocks(text, rel, ctx, hold)
     # code fences (also indented ones inside lists)
     def fence(m):
         return "\n" + hold(render_code(m.group(2), m.group(3), m.group(4))) + "\n"
@@ -616,7 +699,114 @@ def build_reference():
     page("ref/index.html", "API Reference", h, "api", toc, crumbs=[("API Reference", None)])
 
 # ---------------------------------------------------------------- chapters
+GALLERY = []   # (slug, title, anchor, preview_html, blurb)
+
+def collect_gallery():
+    for c in CHAPTERS:
+        if not re.match(r'[ga][1-9]\d*-', c["slug"]) or not os.path.exists(c["file"]): continue
+        src = open(c["file"], encoding="utf-8").read()
+        for m in re.finditer(r'(?m)^## ([^\n]+)\n+(<div class="preview"[^>]*>.*?</div>)\s*\n+\*\*What it is\.\*\*\s*([^\n]*)', src, re.S):
+            title = m.group(1).strip()
+            blurb = re.sub(r'[*`\[\]]', '', m.group(3)).strip()
+            blurb = blurb[:110] + ("…" if len(blurb) > 110 else "")
+            GALLERY.append((c["slug"], title, slugify(title), m.group(2), blurb))
+
+def gallery_index_html(prefix="g"):
+    out = []
+    for c in CHAPTERS:
+        if not c["slug"].startswith(prefix): continue
+        items = [g for g in GALLERY if g[0] == c["slug"]]
+        if not items: continue
+        out.append(f'<h2 id="idx-{c["slug"]}"><a href="../ch/{c["slug"]}.html">{esc(re.sub(r"^(Gallery|Animations): ", "", c["title"]))}</a></h2><div class="gal-grid">')
+        for slug, title, anchor, prev, blurb in items:
+            out.append(f'<a class="gal-card" href="../ch/{slug}.html#{anchor}">{prev}<b>{esc(title)}</b><span>{esc(blurb)}</span></a>')
+        out.append('</div>')
+    return "\n".join(out)
+
+import math
+def _ease_in(name, t):
+    if name == "Quad": return t * t
+    if name == "Cubic": return t ** 3
+    if name == "Quart": return t ** 4
+    if name == "Quint": return t ** 5
+    if name == "Sine": return 1 - math.cos(t * math.pi / 2)
+    if name == "Expo": return 0 if t == 0 else 2 ** (10 * (t - 1)) - 0.001
+    if name == "Circ": return 1 - math.sqrt(max(0, 1 - t * t))
+    if name == "Back": s = 1.70158; return t * t * ((s + 1) * t - s)
+    if name == "Elastic":
+        if t in (0, 1): return t
+        p = 0.3; s = p / 4
+        return -(2 ** (10 * (t - 1))) * math.sin((t - 1 - s) * 2 * math.pi / p)
+    if name == "Bounce": return 1 - _bounce_out(1 - t)
+    return t
+def _bounce_out(t):
+    if t < 1 / 2.75: return 7.5625 * t * t
+    if t < 2 / 2.75: t -= 1.5 / 2.75; return 7.5625 * t * t + 0.75
+    if t < 2.5 / 2.75: t -= 2.25 / 2.75; return 7.5625 * t * t + 0.9375
+    t -= 2.625 / 2.75; return 7.5625 * t * t + 0.984375
+def ease(fam, mode, t):
+    if fam == "Linear": return t
+    if fam == "Bounce" and mode == "Out": return _bounce_out(t)
+    i = lambda x: _ease_in(fam, x)
+    o = lambda x: 1 - i(1 - x) if fam != "Bounce" else _bounce_out(x)
+    if mode == "In": return i(t)
+    if mode == "Out": return o(t)
+    if mode == "InOut": return i(2 * t) / 2 if t < 0.5 else 0.5 + o(2 * t - 1) / 2
+    if mode == "OutIn": return o(2 * t) / 2 if t < 0.5 else 0.5 + i(2 * t - 1) / 2
+def bezier(p1x, p1y, p2x, p2y, t):
+    # solve x(u) = t for u, return y(u)
+    lo, hi = 0.0, 1.0
+    for _ in range(40):
+        u = (lo + hi) / 2
+        x = 3 * (1 - u) ** 2 * u * p1x + 3 * (1 - u) * u * u * p2x + u ** 3
+        if x < t: lo = u
+        else: hi = u
+    u = (lo + hi) / 2
+    return 3 * (1 - u) ** 2 * u * p1y + 3 * (1 - u) * u * u * p2y + u ** 3
+
+def easing_card(label, f, code):
+    W, H, PAD = 160, 110, 22
+    ys = [f(i / 60) for i in range(61)]
+    lo, hi = min(0, min(ys)), max(1, max(ys))
+    sy = lambda v: PAD + (hi - v) / (hi - lo) * (H - 2 * PAD)
+    pts = " ".join(f"{10 + i / 60 * (W - 20):.1f},{sy(v):.1f}" for i, v in enumerate(ys))
+    # moving dot: x follows time linearly, a second dot on the right shows the eased position only
+    xs = ";".join(f"{10 + i / 30 * (W - 20):.1f}" for i in range(31))
+    yv = ";".join(f"{sy(f(i / 30)):.1f}" for i in range(31))
+    tr = ";".join(f"{sy(f(i / 30)):.1f}" for i in range(31))
+    svg = (f'<svg viewBox="0 0 {W + 30} {H}" width="{W + 30}" height="{H}">'
+           f'<line x1="10" y1="{sy(0):.1f}" x2="{W - 10}" y2="{sy(0):.1f}" stroke="#45475a"/>'
+           f'<line x1="10" y1="{sy(1):.1f}" x2="{W - 10}" y2="{sy(1):.1f}" stroke="#45475a" stroke-dasharray="3 3"/>'
+           f'<polyline points="{pts}" fill="none" stroke="#cba6f7" stroke-width="2.5" stroke-linejoin="round"/>'
+           f'<circle r="4" fill="#f5e0dc"><animate attributeName="cx" values="{xs}" dur="2s" repeatCount="indefinite" calcMode="linear"/>'
+           f'<animate attributeName="cy" values="{yv}" dur="2s" repeatCount="indefinite" calcMode="linear"/></circle>'
+           f'<rect x="{W + 8}" width="14" height="14" rx="4" fill="#89b4fa"><animate attributeName="y" values="{tr}" dur="2s" repeatCount="indefinite" calcMode="linear"/></rect>'
+           f'</svg>')
+    return (f'<div class="ease-card" id="ease-{slugify(label)}"><div class="preview">{svg}</div>'
+            f'<b>{esc(label)}</b><code>{esc(code)}</code></div>')
+
+def easing_grid_html():
+    out = []
+    fams = ["Quad", "Cubic", "Quart", "Quint", "Sine", "Expo", "Circ", "Back", "Elastic", "Bounce"]
+    out.append('<h3 id="ease-linear-group">Linear</h3><div class="ease-grid">')
+    out.append(easing_card("Linear", lambda t: t, "easing.type: Easing.Linear"))
+    out.append('</div>')
+    for fam in fams:
+        out.append(f'<h3 id="ease-group-{fam.lower()}">{fam}</h3><div class="ease-grid">')
+        for mode in ["In", "Out", "InOut", "OutIn"]:
+            out.append(easing_card(f"{mode}{fam}", lambda t, f=fam, m=mode: ease(f, m, t), f"easing.type: Easing.{mode}{fam}"))
+        out.append('</div>')
+    out.append('<h3 id="ease-group-bezier">BezierSpline (Material 3 curves)</h3><div class="ease-grid">')
+    for name, c in [("M3 Standard", (0.2, 0, 0, 1)), ("M3 Emphasized Decelerate", (0.05, 0.7, 0.1, 1)),
+                    ("M3 Emphasized Accelerate", (0.3, 0, 0.8, 0.15)), ("M3 Expressive Spatial", (0.38, 1.21, 0.22, 1)),
+                    ("CSS ease", (0.25, 0.1, 0.25, 1)), ("Snappy overshoot", (0.34, 1.56, 0.64, 1))]:
+        out.append(easing_card(name, lambda t, c=c: bezier(*c, t),
+                               f"easing.type: Easing.BezierSpline; easing.bezierCurve: [{c[0]}, {c[1]}, {c[2]}, {c[3]}, 1, 1]"))
+    out.append('</div>')
+    return "\n".join(out)
+
 def build_chapters():
+    collect_gallery()
     missing = []
     for i, c in enumerate(CHAPTERS):
         if os.path.exists(c["file"]):
@@ -627,7 +817,18 @@ def build_chapters():
         m = re.match(r'#\s+(.+)\n', src)
         title = c["title"]
         if m: src = src[m.end():]
+        tokens = {"{{GALLERY_INDEX}}": lambda: gallery_index_html("g"), "{{ANIM_INDEX}}": lambda: gallery_index_html("a"),
+                  "{{EASING_GRID}}": lambda: easing_grid_html(), "{{THEME_TABLE}}": lambda: theme_table_html()}
+        used = []
+        for n, (tok, fn) in enumerate(tokens.items()):
+            if tok in src:
+                src = src.replace(tok, f"\n\x01TOK{n}\x01\n"); used.append((n, fn))
         h = md(src, "../")
+        for n, fn in used:
+            h = re.sub(rf'(<p>)?\x01TOK{n}\x01(</p>)?', lambda _m, fn=fn: fn(), h)
+        # enlarge gallery previews on their own pages (1.5x, capped to the column width)
+        h = re.sub(r'(<div class="preview"[^>]*>)<svg width="(\d+)"',
+                   lambda _m: f'{_m.group(1)}<svg style="width:min(100%,{int(int(_m.group(2)) * 1.5)}px)" width="{_m.group(2)}"', h)
         h, toc = add_heading_ids(h)
         head = (f'<div class="ch-head"><div class="ch-part">Part {c["part"]} · {esc(c["ptitle"])}</div>'
                 f'<h1><span class="ch-num">{c["slug"].split("-")[0]}</span>{esc(title)}</h1></div>')
@@ -769,6 +970,12 @@ def main():
     if os.path.exists(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT)
     shutil.copytree(os.path.join(SRC, "assets"), os.path.join(OUT, "assets"))
+    # the complete example shells from Part F, browsable and as zip downloads
+    if os.path.isdir(EXAMPLES):
+        shutil.copytree(EXAMPLES, os.path.join(OUT, "examples"))
+        for name in os.listdir(EXAMPLES):
+            if os.path.isdir(os.path.join(EXAMPLES, name)):
+                shutil.make_archive(os.path.join(OUT, "examples", name), "zip", EXAMPLES, name)
     build_glossary()
     build_chapters()
     build_reference()

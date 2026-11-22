@@ -1,0 +1,5 @@
+# ~/.config/matugen/config.toml: a "From wallpaper" theme for the switcher
+[templates.theming]
+input_path = '~/.config/quickshell/theming/extras/wallpaper-theme.json.template'
+output_path = '~/.config/theming/themes/wallpaper.json'
+post_hook = 'qs -c theming ipc call theme reload'

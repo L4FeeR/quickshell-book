@@ -191,7 +191,62 @@ PanelWindow {
 
 Change `level` to `20` and save. The bar shrinks and the label updates. You changed one number and two things on screen followed it. That's the next big idea, **bindings**, which [[ch:09-bindings]] explains properly.
 
-> [!TRY] Exercises
-> 1. Add `property color accent: "#a6e3a1"` to the window and use it for the filled bar's color.
-> 2. Add a third rectangle as a "knob" at the end of the filled part (hint: `x: parent.width * level / 100 - 6`).
-> 3. Try to set a property that doesn't exist and read the error.
+## Practice
+
+::: exercise warm | A color property
+Add `property color accent: "#a6e3a1"` to the window and use it for the filled bar's color.
+--- solution
+```qml
+property color accent: "#a6e3a1"
+// in the fill rectangle:
+color: accent
+```
+Change the property once and every use updates.
+:::
+
+::: exercise practice | A knob
+Add a third rectangle as a round "knob" at the end of the filled part.
+--- hint
+`x: parent.width * level / 100 - width / 2`, and `radius: width / 2` for a circle.
+--- solution
+```qml
+Rectangle {
+    width: 12; height: 12; radius: 6
+    anchors.verticalCenter: parent.verticalCenter
+    x: parent.width * level / 100 - width / 2
+    color: "white"
+}
+```
+:::
+
+::: exercise practice | Read-only properties
+Add `readonly property bool full: level >= 100` and make the fill turn red when `full` is true. Then try to assign `full = false` from a click and read the error.
+--- solution
+```qml
+readonly property bool full: level >= 100
+// fill:
+color: full ? "#f38ba8" : accent
+```
+Assigning to a `readonly` property fails with "Invalid property assignment: … is a read-only property".
+:::
+
+::: exercise challenge | Your own object
+Create a `Rectangle` that has its own properties `label` (string) and `value` (int 0–100) and shows `label: value%` inside. Make two of them with different values.
+--- solution
+```qml
+Row {
+    spacing: 8
+    Rectangle {
+        property string label: "CPU"; property int value: 42
+        width: 110; height: 28; radius: 14; color: "#313244"
+        Text { anchors.centerIn: parent; color: "white"; text: parent.label + ": " + parent.value + "%" }
+    }
+    Rectangle {
+        property string label: "RAM"; property int value: 67
+        width: 110; height: 28; radius: 14; color: "#313244"
+        Text { anchors.centerIn: parent; color: "white"; text: parent.label + ": " + parent.value + "%" }
+    }
+}
+```
+The repetition is a hint: [[ch:12-components]] shows how to turn this into a reusable component.
+:::

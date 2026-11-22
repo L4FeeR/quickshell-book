@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Theming 5: The Theme Switcher · The Quickshell Book</title>
+<meta name="description" content="Theming 5: The Theme Switcher">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details open><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch active" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-t">Part T: Theming</a> › Theming 5: The Theme Switcher</div><article><div class="ch-head"><div class="ch-part">Part T · Theming</div><h1><span class="ch-num">th5</span>Theming 5: The Theme Switcher</h1></div><p>Now the part you see: a <strong>picker window</strong> with every installed theme as a card. Hover a card and the whole shell previews that theme; click to keep it. It also has search, a dark/light filter, keyboard control, the light/dark twin button and automatic day/night switching. Keybinds open it and cycle themes from anywhere.</p>
+<div class="preview"><svg style="width:min(100%,960px)" width="640" height="360" viewBox="0 0 640 360"><g font-size="11"><rect width="640" height="360" rx="14" fill="#1a1b26"/><text x="20" y="38" fill="#7aa2f7" font-size="20">🎨</text><text x="48" y="38" fill="#c0caf5" font-size="18">Themes</text><text x="122" y="38" fill="#a9b1d6">19 installed</text><rect x="300" y="20" width="44" height="26" rx="13" fill="#7aa2f7"/><text x="312" y="37" fill="#1a1b26">All</text><rect x="350" y="20" width="50" height="26" rx="13" fill="#292e42"/><text x="362" y="37" fill="#c0caf5">Dark</text><rect x="406" y="20" width="52" height="26" rx="13" fill="#292e42"/><text x="418" y="37" fill="#c0caf5">Light</text><rect x="466" y="18" width="160" height="30" rx="15" fill="#16161e" stroke="#414868"/><text x="480" y="37" fill="#565f89">Search themes</text><g transform="translate(20 64)"><rect width="140" height="104" rx="12" fill="#303446" stroke="#414559"/><rect x="10" y="10" width="120" height="48" rx="7" fill="#292c3c"/><rect x="104" y="40" width="24" height="12" rx="6" fill="#ca9ee6"/><text x="10" y="94" fill="#c6d0f5" font-size="10">Catppuccin Frappé</text><rect x="150" width="140" height="104" rx="12" fill="#eff1f5" stroke="#bcc0cc"/><rect x="160" y="10" width="120" height="48" rx="7" fill="#e6e9ef"/><rect x="254" y="40" width="24" height="12" rx="6" fill="#8839ef"/><text x="160" y="94" fill="#4c4f69" font-size="10">Catppuccin Latte</text><rect x="300" width="140" height="104" rx="12" fill="#1e1e2e" stroke="#cba6f7" stroke-width="3"/><rect x="310" y="10" width="120" height="48" rx="7" fill="#181825"/><rect x="404" y="40" width="24" height="12" rx="6" fill="#cba6f7"/><text x="310" y="94" fill="#cdd6f4" font-size="10">Catppuccin Mocha</text><rect x="450" width="140" height="104" rx="12" fill="#1a1b26" stroke="#a9b1d6" stroke-width="2" transform="scale(1)"/><rect x="460" y="10" width="120" height="48" rx="7" fill="#16161e"/><rect x="554" y="40" width="24" height="12" rx="6" fill="#7aa2f7"/><text x="460" y="94" fill="#c0caf5" font-size="10">Tokyo Night ← hovered</text></g><g transform="translate(20 184)" opacity=".85"><rect width="140" height="104" rx="12" fill="#282828"/><rect x="150" width="140" height="104" rx="12" fill="#2e3440"/><rect x="300" width="140" height="104" rx="12" fill="#191724"/><rect x="450" width="140" height="104" rx="12" fill="#faf4ed"/></g><text x="20" y="330" fill="#a9b1d6">Previewing Tokyo Night (click to keep)</text><text x="470" y="330" fill="#9ece6a">contrast 11.5:1</text><text x="580" y="330" fill="#c0caf5">◐  ⏲</text></g></svg></div>
+
+<p><em>Hovering Tokyo Night previews it on the picker itself (and the whole shell); Mocha keeps its "selected" outline until you click.</em></p>
+<div class="codewrap"><pre class="code" data-lang="text"><code>widgets/  ThemeCard  ThemePicker
+services/ Ui
+shell.qml</code></pre></div>
+<h2 id="module-1-the-theme-card">Module 1: The theme card<a class="hlink" href="#module-1-the-theme-card">#</a></h2>
+<p>Each card draws <strong>its own</strong> theme, so you can compare themes side by side without switching.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">theming/widgets/ThemeCard.qml</span><code>import QtQuick
+import qs.services
+
+// A small picture of ONE theme, drawn in that theme's own colours (not the current theme's):
+// a window with a title bar, text lines, an accent button and the six accent colours.
+Rectangle {
+    id: root
+
+    required property var theme                 // a theme object from Theme.list
+    property bool selected: false
+    property bool hovered: false
+
+    // read a role from this card's theme
+    function c(roleName: string): color {
+        return Theme.resolve(theme, roleName);
+    }
+
+    implicitWidth: 200
+    implicitHeight: 150
+    radius: 16
+    color: c("background")
+    border.width: selected ? 3 : hovered ? 2 : 1
+    border.color: selected ? c("primary") : hovered ? c("textMuted") : c("border")
+    scale: hovered ? 1.03 : 1
+
+    Behavior on scale { NumberAnimation { duration: 150; easing.type: Easing.OutCubic } }
+
+    // mini "window"
+    Rectangle {
+        x: 12; y: 12
+        width: parent.width - 24
+        height: 72
+        radius: 10
+        color: root.c("surface")
+
+        Rectangle {                              // title bar
+            width: parent.width; height: 18
+            radius: 10
+            color: root.c("surfaceHigh")
+            Row {
+                x: 8; anchors.verticalCenter: parent.verticalCenter
+                spacing: 4
+                Repeater {
+                    model: ["red", "yellow", "green"]
+                    Rectangle { required property string modelData; width: 7; height: 7; radius: 3.5; color: root.c(modelData) }
+                }
+            }
+        }
+        Column {                                 // "text" lines in the three text colours
+            x: 10; y: 26
+            spacing: 6
+            Rectangle { width: 110; height: 5; radius: 2.5; color: root.c("text") }
+            Rectangle { width: 80; height: 5; radius: 2.5; color: root.c("textMuted") }
+            Rectangle { width: 95; height: 5; radius: 2.5; color: root.c("textFaint") }
+        }
+        Rectangle {                              // an accent "button"
+            anchors { right: parent.right; bottom: parent.bottom; margins: 8 }
+            width: 44; height: 18; radius: 9
+            color: root.c("primary")
+            Text { anchors.centerIn: parent; text: "Aa"; font.pixelSize: 10; font.bold: true; color: root.c("onPrimary") }
+        }
+    }
+
+    // accent swatches
+    Row {
+        x: 12; y: 92
+        spacing: 4
+        Repeater {
+            model: ["red", "orange", "yellow", "green", "cyan", "blue", "magenta"]
+            Rectangle { required property string modelData; width: 16; height: 16; radius: 8; color: root.c(modelData) }
+        }
+    }
+
+    Text {
+        x: 12
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 10
+        width: parent.width - 40
+        text: root.theme.name
+        elide: Text.ElideRight
+        font.family: "Rubik"
+        font.pixelSize: 13
+        font.weight: Font.DemiBold
+        color: root.c("text")
+    }
+    Text {                                       // ☀ / ☾ badge
+        anchors { right: parent.right; bottom: parent.bottom; margins: 10 }
+        text: root.theme.variant === "light" ? "☀" : "☾"
+        font.pixelSize: 13
+        color: root.c("textMuted")
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 9–11</span><b>Inputs</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>required property var theme                 // a theme object from Theme.list
+property bool selected: false
+property bool hovered: false</code></pre></div><div class="seg-e"><p>The theme object to draw, and two states set by the picker: <code>selected</code> (it's the chosen theme) and <code>hovered</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–16</span><b>This card's colours</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// read a role from this card's theme
+function c(roleName: string): color {
+    return Theme.resolve(theme, roleName);
+}</code></pre></div><div class="seg-e"><p><code>c("surface")</code> resolves a role <strong>for this card's theme</strong>, using the same <code>Theme.resolve()</code> the service uses. This is the one place where a widget deliberately doesn't use <code>Theme.colors</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 18–26</span><b>The card</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>implicitWidth: 200
+implicitHeight: 150
+radius: 16
+color: c("background")
+border.width: selected ? 3 : hovered ? 2 : 1
+border.color: selected ? c("primary") : hovered ? c("textMuted") : c("border")
+scale: hovered ? 1.03 : 1
+
+Behavior on scale { NumberAnimation { duration: 150; easing.type: Easing.OutCubic } }</code></pre></div><div class="seg-e"><p>The theme's background. The outline is thick and in the theme's own primary when selected, medium when hovered, thin otherwise. Hovering also scales the card up 3%.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 28–34</span><b>A mini window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// mini "window"
+Rectangle {
+    x: 12; y: 12
+    width: parent.width - 24
+    height: 72
+    radius: 10
+    color: root.c("surface")</code></pre></div><div class="seg-e"><p>A <code>surface</code> panel inside the card, like an app window.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 36–48</span><b>Its title bar</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {                              // title bar
+    width: parent.width; height: 18
+    radius: 10
+    color: root.c("surfaceHigh")
+    Row {
+        x: 8; anchors.verticalCenter: parent.verticalCenter
+        spacing: 4
+        Repeater {
+            model: ["red", "yellow", "green"]
+            Rectangle { required property string modelData; width: 7; height: 7; radius: 3.5; color: root.c(modelData) }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p><code>surfaceHigh</code> with three "traffic light" dots in red, yellow and green.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 49–55</span><b>Text lines</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Column {                                 // "text" lines in the three text colours
+    x: 10; y: 26
+    spacing: 6
+    Rectangle { width: 110; height: 5; radius: 2.5; color: root.c("text") }
+    Rectangle { width: 80; height: 5; radius: 2.5; color: root.c("textMuted") }
+    Rectangle { width: 95; height: 5; radius: 2.5; color: root.c("textFaint") }
+}</code></pre></div><div class="seg-e"><p>Three bars in the three text roles (<code>text</code>, <code>textMuted</code>, <code>textFaint</code>), so you see the theme's text hierarchy at a glance.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 56–61</span><b>An accent button</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {                              // an accent "button"
+    anchors { right: parent.right; bottom: parent.bottom; margins: 8 }
+    width: 44; height: 18; radius: 9
+    color: root.c("primary")
+    Text { anchors.centerIn: parent; text: "Aa"; font.pixelSize: 10; font.bold: true; color: root.c("onPrimary") }
+}</code></pre></div><div class="seg-e"><p><code>primary</code> with "Aa" in <code>onPrimary</code>: this checks the theme's most important pairing.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 64–72</span><b>Accent swatches</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// accent swatches
+Row {
+    x: 12; y: 92
+    spacing: 4
+    Repeater {
+        model: ["red", "orange", "yellow", "green", "cyan", "blue", "magenta"]
+        Rectangle { required property string modelData; width: 16; height: 16; radius: 8; color: root.c(modelData) }
+    }
+}</code></pre></div><div class="seg-e"><p>The seven accent roles in order.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 74–85</span><b>Name</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    x: 12
+    anchors.bottom: parent.bottom
+    anchors.bottomMargin: 10
+    width: parent.width - 40
+    text: root.theme.name
+    elide: Text.ElideRight
+    font.family: "Rubik"
+    font.pixelSize: 13
+    font.weight: Font.DemiBold
+    color: root.c("text")
+}</code></pre></div><div class="seg-e"><p>The theme's name in its own text colour, elided if long.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 86–91</span><b>Light or dark badge</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {                                       // ☀ / ☾ badge
+    anchors { right: parent.right; bottom: parent.bottom; margins: 10 }
+    text: root.theme.variant === "light" ? "☀" : "☾"
+    font.pixelSize: 13
+    color: root.c("textMuted")
+}</code></pre></div><div class="seg-e"><p>☀ or ☾ from the variant.</p></div></div></div>
+<p>The image at the top of <a class="xref" href="../ch/th1-colour-basics.html">Theming 1: Colours, Palettes and Roles</a> is this component, rendered for all 19 themes.</p>
+<h2 id="module-2-the-picker-window">Module 2: The picker window<a class="hlink" href="#module-2-the-picker-window">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">theming/widgets/ThemePicker.qml</span><code>import Quickshell
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import qs.services
+
+// The theme switcher window: search, a dark/light filter and a grid of theme cards.
+// Hover a card to preview the theme on the whole shell; click (or Enter) to keep it.
+Scope {
+    LazyLoader {
+        active: Ui.pickerOpen
+
+        FloatingWindow {
+            id: win
+
+            property string filter: "all"           // "all" | "dark" | "light"
+            readonly property var shown: Theme.list.filter(t =&gt;
+                (filter === "all" || t.variant === filter)
+                &amp;&amp; (search.text === "" || (t.name + " " + t.family).toLowerCase().includes(search.text.toLowerCase())))
+
+            title: "Themes"
+            implicitWidth: 920
+            implicitHeight: 640
+            minimumSize: Qt.size(480, 400)
+            color: Theme.colors.background
+
+            onClosed: { Theme.previewId = ""; Ui.pickerOpen = false; }
+
+            Behavior on color { ColorAnimation { duration: 400; easing.type: Easing.OutCubic } }
+
+            ColumnLayout {
+                anchors.fill: parent
+                anchors.margins: 18
+                spacing: 14
+
+                // ---- header ----
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: 10
+
+                    Icon { text: "palette"; fill: 1; color: Theme.colors.primary; font.pixelSize: 26 }
+                    TText { text: "Themes"; font.pixelSize: 22; font.weight: Font.DemiBold }
+                    TText { text: Theme.list.length + " installed"; color: Theme.colors.textMuted; Layout.alignment: Qt.AlignBottom }
+                    Item { Layout.fillWidth: true }
+
+                    Repeater {
+                        model: [["all", "All"], ["dark", "Dark"], ["light", "Light"]]
+                        TRect {
+                            required property var modelData
+                            implicitWidth: chipText.implicitWidth + 28
+                            implicitHeight: 32
+                            radius: 16
+                            color: win.filter === modelData[0] ? Theme.colors.primary : Theme.colors.surfaceHigh
+                            TText {
+                                id: chipText
+                                anchors.centerIn: parent
+                                text: parent.modelData[1]
+                                color: win.filter === parent.modelData[0] ? Theme.colors.onPrimary : Theme.colors.text
+                            }
+                            TapHandler { onTapped: win.filter = parent.modelData[0] }
+                        }
+                    }
+
+                    TRect {
+                        implicitWidth: 220
+                        implicitHeight: 36
+                        radius: 18
+                        color: Theme.colors.surface
+                        border.width: search.activeFocus ? 2 : 1
+                        border.color: search.activeFocus ? Theme.colors.primary : Theme.colors.border
+
+                        TextField {
+                            id: search
+                            anchors.fill: parent
+                            anchors.leftMargin: 14
+                            anchors.rightMargin: 14
+                            background: null
+                            placeholderText: "Search themes"
+                            placeholderTextColor: Theme.colors.textFaint
+                            color: Theme.colors.text
+                            focus: true
+                            Keys.onEscapePressed: Ui.pickerOpen = false
+                            Keys.onDownPressed: grid.moveCurrentIndexDown()
+                            Keys.onUpPressed: grid.moveCurrentIndexUp()
+                            Keys.onLeftPressed: grid.moveCurrentIndexLeft()
+                            Keys.onRightPressed: grid.moveCurrentIndexRight()
+                            onAccepted: if (win.shown[grid.currentIndex]) Theme.set(win.shown[grid.currentIndex].id)
+                        }
+                    }
+                }
+
+                // ---- the grid of cards ----
+                GridView {
+                    id: grid
+
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    clip: true
+                    cellWidth: Math.floor(width / Math.max(1, Math.floor(width / 216)))
+                    cellHeight: 166
+                    model: win.shown
+                    currentIndex: Math.max(0, win.shown.findIndex(t =&gt; t.id === Theme.chosenId))
+                    // keyboard selection previews too
+                    onCurrentIndexChanged: if (activeFocus || search.activeFocus) Theme.previewId = win.shown[currentIndex]?.id ?? ""
+
+                    delegate: Item {
+                        id: cell
+                        required property var modelData
+                        required property int index
+                        width: grid.cellWidth
+                        height: grid.cellHeight
+
+                        ThemeCard {
+                            anchors.centerIn: parent
+                            theme: cell.modelData
+                            selected: cell.modelData.id === Theme.chosenId
+                            hovered: hover.hovered || grid.currentIndex === cell.index &amp;&amp; Theme.previewId === cell.modelData.id
+                        }
+                        HoverHandler {
+                            id: hover
+                            cursorShape: Qt.PointingHandCursor
+                            onHoveredChanged: {
+                                if (hovered) Theme.previewId = cell.modelData.id;
+                                else if (Theme.previewId === cell.modelData.id) Theme.previewId = "";
+                            }
+                        }
+                        TapHandler {
+                            onTapped: { grid.currentIndex = cell.index; Theme.set(cell.modelData.id); }
+                        }
+                    }
+                }
+
+                // ---- footer ----
+                RowLayout {
+                    Layout.fillWidth: true
+                    TText {
+                        Layout.fillWidth: true
+                        text: Theme.previewId !== "" ? "Previewing " + Theme.theme.name + " (click to keep)"
+                                                     : "Current: " + Theme.theme.name + (Theme.settings.autoSwitch ? " (automatic day/night)" : "")
+                        color: Theme.colors.textMuted
+                    }
+                    TText {
+                        text: "contrast " + Theme.contrast(Theme.colors.text, Theme.colors.background).toFixed(1) + ":1"
+                        color: Theme.contrast(Theme.colors.text, Theme.colors.background) &gt;= 7 ? Theme.colors.green : Theme.colors.yellow
+                    }
+                    IconButton { icon: "contrast"; tooltip: "Light/dark twin"; onClicked: Theme.toggleVariant() }
+                    IconButton { icon: "schedule"; tooltip: "Automatic day/night"; active: Theme.settings.autoSwitch; onClicked: Theme.settings.autoSwitch = !Theme.settings.autoSwitch }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 9–11</span><b>Only exists while open</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Scope {
+    LazyLoader {
+        active: Ui.pickerOpen</code></pre></div><div class="seg-e"><p>A <code>LazyLoader</code> creates the window when <code>Ui.pickerOpen</code> becomes true and destroys it when it turns false, so the picker costs nothing while closed.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–19</span><b>The window and what it shows</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FloatingWindow {
+    id: win
+
+    property string filter: "all"           // "all" | "dark" | "light"
+    readonly property var shown: Theme.list.filter(t =&gt;
+        (filter === "all" || t.variant === filter)
+        &amp;&amp; (search.text === "" || (t.name + " " + t.family).toLowerCase().includes(search.text.toLowerCase())))</code></pre></div><div class="seg-e"><p>A normal app window (<a class="api" href="../ref/FloatingWindow.html"><code>FloatingWindow</code></a>). <code>filter</code> is the dark/light chip; <code>shown</code> is the theme list filtered by variant and by the search text (matching name or family, ignoring case).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 21–25</span><b>Size and colour</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>title: "Themes"
+implicitWidth: 920
+implicitHeight: 640
+minimumSize: Qt.size(480, 400)
+color: Theme.colors.background</code></pre></div><div class="seg-e"><p>Resizable down to 480×400. Its background is the theme's background, so the picker itself previews themes too.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 27</span><b>Closing</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>onClosed: { Theme.previewId = ""; Ui.pickerOpen = false; }</code></pre></div><div class="seg-e"><p>Closing the window (✕ or Esc) ends any preview and marks the picker closed. Without resetting <code>previewId</code>, closing while hovering a card would leave the shell showing a theme you didn't choose.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 29</span><b>Fade</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Behavior on color { ColorAnimation { duration: 400; easing.type: Easing.OutCubic } }</code></pre></div><div class="seg-e"><p>Even the window background fades between themes.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 41–44</span><b>Title</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Icon { text: "palette"; fill: 1; color: Theme.colors.primary; font.pixelSize: 26 }
+TText { text: "Themes"; font.pixelSize: 22; font.weight: Font.DemiBold }
+TText { text: Theme.list.length + " installed"; color: Theme.colors.textMuted; Layout.alignment: Qt.AlignBottom }
+Item { Layout.fillWidth: true }</code></pre></div><div class="seg-e"><p>An icon, the title and the number of installed themes.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 46–62</span><b>Filter chips</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Repeater {
+    model: [["all", "All"], ["dark", "Dark"], ["light", "Light"]]
+    TRect {
+        required property var modelData
+        implicitWidth: chipText.implicitWidth + 28
+        implicitHeight: 32
+        radius: 16
+        color: win.filter === modelData[0] ? Theme.colors.primary : Theme.colors.surfaceHigh
+        TText {
+            id: chipText
+            anchors.centerIn: parent
+            text: parent.modelData[1]
+            color: win.filter === parent.modelData[0] ? Theme.colors.onPrimary : Theme.colors.text
+        }
+        TapHandler { onTapped: win.filter = parent.modelData[0] }
+    }
+}</code></pre></div><div class="seg-e"><p>Three pills; the selected one is <code>primary</code>. Tapping sets <code>win.filter</code>, and <code>shown</code> updates by itself.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 64–89</span><b>Search</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TRect {
+    implicitWidth: 220
+    implicitHeight: 36
+    radius: 18
+    color: Theme.colors.surface
+    border.width: search.activeFocus ? 2 : 1
+    border.color: search.activeFocus ? Theme.colors.primary : Theme.colors.border
+
+    TextField {
+        id: search
+        anchors.fill: parent
+        anchors.leftMargin: 14
+        anchors.rightMargin: 14
+        background: null
+        placeholderText: "Search themes"
+        placeholderTextColor: Theme.colors.textFaint
+        color: Theme.colors.text
+        focus: true
+        Keys.onEscapePressed: Ui.pickerOpen = false
+        Keys.onDownPressed: grid.moveCurrentIndexDown()
+        Keys.onUpPressed: grid.moveCurrentIndexUp()
+        Keys.onLeftPressed: grid.moveCurrentIndexLeft()
+        Keys.onRightPressed: grid.moveCurrentIndexRight()
+        onAccepted: if (win.shown[grid.currentIndex]) Theme.set(win.shown[grid.currentIndex].id)
+    }
+}</code></pre></div><div class="seg-e"><p>A text field in a <code>surface</code> pill whose outline turns <code>primary</code> when focused. It has focus as soon as the window opens, so you can type immediately. The arrow keys move the selection in the grid, Enter applies the selected theme, Esc closes.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 93–102</span><b>The grid</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>GridView {
+    id: grid
+
+    Layout.fillWidth: true
+    Layout.fillHeight: true
+    clip: true
+    cellWidth: Math.floor(width / Math.max(1, Math.floor(width / 216)))
+    cellHeight: 166
+    model: win.shown
+    currentIndex: Math.max(0, win.shown.findIndex(t =&gt; t.id === Theme.chosenId))</code></pre></div><div class="seg-e"><p>A <code>GridView</code> with as many columns as fit (each cell about 216 px wide). It starts with the chosen theme selected.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 104</span><b>Keyboard previews</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>onCurrentIndexChanged: if (activeFocus || search.activeFocus) Theme.previewId = win.shown[currentIndex]?.id ?? ""</code></pre></div><div class="seg-e"><p>When the selection moves with the keyboard (the grid or search field has focus), preview that theme, just like hovering.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 106–118</span><b>One card per theme</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>delegate: Item {
+    id: cell
+    required property var modelData
+    required property int index
+    width: grid.cellWidth
+    height: grid.cellHeight
+
+    ThemeCard {
+        anchors.centerIn: parent
+        theme: cell.modelData
+        selected: cell.modelData.id === Theme.chosenId
+        hovered: hover.hovered || grid.currentIndex === cell.index &amp;&amp; Theme.previewId === cell.modelData.id
+    }</code></pre></div><div class="seg-e"><p>Centred in its cell, with <code>selected</code> and <code>hovered</code> worked out from the current state.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 119–126</span><b>Hover to preview</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>HoverHandler {
+    id: hover
+    cursorShape: Qt.PointingHandCursor
+    onHoveredChanged: {
+        if (hovered) Theme.previewId = cell.modelData.id;
+        else if (Theme.previewId === cell.modelData.id) Theme.previewId = "";
+    }
+}</code></pre></div><div class="seg-e"><p>Entering a card sets <code>Theme.previewId</code>; leaving clears it, but only if no other card has taken over in the meantime, so moving quickly from card to card never flickers back to the chosen theme.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 127–129</span><b>Click to keep</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TapHandler {
+    onTapped: { grid.currentIndex = cell.index; Theme.set(cell.modelData.id); }
+}</code></pre></div><div class="seg-e"><p><code>Theme.set()</code> saves the theme and ends the preview.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 134–141</span><b>Status</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    Layout.fillWidth: true
+    TText {
+        Layout.fillWidth: true
+        text: Theme.previewId !== "" ? "Previewing " + Theme.theme.name + " (click to keep)"
+                                     : "Current: " + Theme.theme.name + (Theme.settings.autoSwitch ? " (automatic day/night)" : "")
+        color: Theme.colors.textMuted
+    }</code></pre></div><div class="seg-e"><p>"Previewing …" during a preview, otherwise the current theme (and whether automatic switching is on).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 142–145</span><b>Contrast readout</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TText {
+    text: "contrast " + Theme.contrast(Theme.colors.text, Theme.colors.background).toFixed(1) + ":1"
+    color: Theme.contrast(Theme.colors.text, Theme.colors.background) &gt;= 7 ? Theme.colors.green : Theme.colors.yellow
+}</code></pre></div><div class="seg-e"><p>The current theme's text/background contrast, green at 7:1 or more, yellow below.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 146–147</span><b>Twin and schedule</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>IconButton { icon: "contrast"; tooltip: "Light/dark twin"; onClicked: Theme.toggleVariant() }
+IconButton { icon: "schedule"; tooltip: "Automatic day/night"; active: Theme.settings.autoSwitch; onClicked: Theme.settings.autoSwitch = !Theme.settings.autoSwitch }</code></pre></div><div class="seg-e"><p>The light/dark twin button, and a toggle for automatic day/night switching (it's <code>active</code> while the schedule is on).</p></div></div></div>
+<h2 id="module-3-small-state-and-the-entry-point">Module 3: Small state and the entry point<a class="hlink" href="#module-3-small-state-and-the-entry-point">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">theming/services/Ui.qml</span><code>pragma Singleton
+import Quickshell
+import Quickshell.Io
+import QtQuick
+
+// Which windows are open.
+Singleton {
+    property bool pickerOpen: false
+
+    IpcHandler {
+        target: "picker"
+        function toggle(): void { pickerOpen = !pickerOpen }
+    }
+}</code></pre></div>
+<p>One flag for the picker, plus an IPC toggle: <code>qs -c theming ipc call picker toggle</code>.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">theming/shell.qml</span><code>//@ pragma UseQApplication
+//@ pragma Env QS_NO_RELOAD_POPUP=1
+//@ pragma Env QT_QUICK_CONTROLS_STYLE=Basic
+
+import Quickshell
+import Quickshell.Hyprland
+import QtQuick
+import qs.services
+import qs.widgets
+
+// The theme switcher kit from "The Quickshell Book". Run with:  qs -c theming
+ShellRoot {
+    DemoBar {}
+    ThemePicker {}
+
+    // start the exporter at login (singletons are created when first used)
+    Component.onCompleted: ThemeExport.kitty
+
+    GlobalShortcut { appid: "theming"; name: "picker"; onPressed: Ui.pickerOpen = !Ui.pickerOpen }
+    GlobalShortcut { appid: "theming"; name: "next"; onPressed: Theme.step(1) }
+    GlobalShortcut { appid: "theming"; name: "toggleVariant"; onPressed: Theme.toggleVariant() }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 1–3</span><b>Pragmas</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>//@ pragma UseQApplication
+//@ pragma Env QS_NO_RELOAD_POPUP=1
+//@ pragma Env QT_QUICK_CONTROLS_STYLE=Basic</code></pre></div><div class="seg-e"><p>Native tray menus, no reload popup, and the Basic controls style (so the search field can be restyled).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–14</span><b>The two visible parts</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>DemoBar {}
+ThemePicker {}</code></pre></div><div class="seg-e"><p>The demo bar on every screen and the picker (hidden until opened).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 17</span><b>Start the exporter</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Component.onCompleted: ThemeExport.kitty</code></pre></div><div class="seg-e"><p>Singletons are created the first time something uses them. Reading any property of <code>ThemeExport</code> at startup creates it, so it exports the theme from the first second (<a class="xref" href="../ch/th7-beyond-the-shell.html">Theming 7: Theming Your Whole Desktop</a>).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 19–21</span><b>Global shortcuts</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>GlobalShortcut { appid: "theming"; name: "picker"; onPressed: Ui.pickerOpen = !Ui.pickerOpen }
+GlobalShortcut { appid: "theming"; name: "next"; onPressed: Theme.step(1) }
+GlobalShortcut { appid: "theming"; name: "toggleVariant"; onPressed: Theme.toggleVariant() }</code></pre></div><div class="seg-e"><p>Three Hyprland global shortcuts: <code>theming:picker</code>, <code>theming:next</code> and <code>theming:toggleVariant</code>.</p></div></div></div>
+<h2 id="keybinds">Keybinds<a class="hlink" href="#keybinds">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="ini"><span class="fname">theming/extras/hyprland.conf</span><code># ~/.config/hypr/hyprland.conf
+exec-once = qs -c theming
+
+bind = SUPER, T, global, theming:picker           # open the theme picker
+bind = SUPER SHIFT, T, global, theming:next       # next theme
+bind = SUPER ALT, T, global, theming:toggleVariant # light &lt;-&gt; dark twin
+
+# colours written by the theme switcher ($theme_primary, $theme_border, ...)
+source = ~/.config/hypr/theming-colors.conf</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Super + T</td>
+<td>open or close the picker</td>
+</tr>
+<tr>
+<td>Super + Shift + T</td>
+<td>next theme</td>
+</tr>
+<tr>
+<td>Super + Alt + T</td>
+<td>jump to the light or dark twin</td>
+</tr>
+</tbody>
+</table>
+<h2 id="automatic-day-night-switching">Automatic day/night switching<a class="hlink" href="#automatic-day-night-switching">#</a></h2>
+<p>Click the schedule button in the picker (or run <code>qs -c theming ipc call theme auto true</code>). From then on the shell uses <code>dayTheme</code> from 7:00 and <code>nightTheme</code> from 19:00 (Catppuccin Latte and Mocha by default). Choosing a theme by hand turns the schedule off again, because a manual choice means you want that theme now.</p>
+<h2 id="practice">Practice<a class="hlink" href="#practice">#</a></h2>
+<div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Warm-up</span><b>Open on Super+T</b></div><div class="ex-b"><p>Add the keybinds above to your Hyprland config, run <code>qs -c theming</code>, and cycle through all 19 themes with Super+Shift+T.</p></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Favourites</b></div><div class="ex-b"><p>Add a ★ to each card. Store favourite ids in <code>Theme.settings</code> (add <code>property list&lt;string&gt; favourites: []</code> to the adapter), show a "★ Favourites" filter chip, and make Super+Shift+T cycle only through favourites when there are any.</p></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>A quick switcher in the bar</b></div><div class="ex-b"><p>Clicking the theme-name pill in the bar should open a small <code>PopupWindow</code> listing the themes of the current family (all Catppuccin flavours, say) for one-click switching.</p></div></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Challenge</span><b>Smooth previews with a delay</b></div><div class="ex-b"><p>Previewing every card your pointer crosses can be busy. Only preview after the pointer rests on a card for 150 ms.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Give each cell a <code>Timer { interval: 150; onTriggered: Theme.previewId = cell.modelData.id }</code>, start it when hovered, stop it when not.</p></div></details></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/th4-themed-widgets.html"><small>← Previous</small><span>Theming 4: Making Widgets Themeable</span></a><a class="pn-next" href="../ch/th6-adding-themes.html"><small>Next →</small><span>Theming 6: Adding and Creating Themes</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#module-1-the-theme-card">Module 1: The theme card</a><a class="l2" href="#module-2-the-picker-window">Module 2: The picker window</a><a class="l2" href="#module-3-small-state-and-the-entry-point">Module 3: Small state and the entry point</a><a class="l2" href="#keybinds">Keybinds</a><a class="l2" href="#automatic-day-night-switching">Automatic day/night switching</a><a class="l2" href="#practice">Practice</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

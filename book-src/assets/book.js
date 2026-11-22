@@ -134,3 +134,4 @@
     else if (e.key === "ArrowRight" && e.altKey) { var n = document.querySelector(".pn-next"); if (n) location.href = n.href; }
   });
 })();
+window.addEventListener('beforeprint',()=>document.querySelectorAll('details').forEach(d=>d.open=true));

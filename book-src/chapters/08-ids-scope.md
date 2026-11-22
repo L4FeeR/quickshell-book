@@ -133,7 +133,48 @@ For things *many* files need (volume, theme colors, "is the launcher open"), pas
 Text { text: Hyprland.focusedWorkspace?.name ?? "" }   // Hyprland is a singleton: no id needed
 ```
 
-> [!TRY] Exercises
-> 1. Make three rectangles in a row where each one's width is twice the previous one's, using ids.
-> 2. Reproduce the shadowing example and print both values with `console.log` in `Component.onCompleted`.
-> 3. Build `Counter.qml` and use two counters: clicking the first increments the second (hint: give them ids in `shell.qml`).
+## Practice
+
+::: exercise warm | Doubling widths
+Make three rectangles in a `Row` where each one's width is twice the previous one's, using ids.
+--- solution
+```qml
+Row {
+    spacing: 4
+    Rectangle { id: a; width: 20; height: 20; color: "#f38ba8" }
+    Rectangle { id: b; width: a.width * 2; height: 20; color: "#fab387" }
+    Rectangle { width: b.width * 2; height: 20; color: "#a6e3a1" }
+}
+```
+:::
+
+::: exercise practice | Shadowing
+Reproduce the shadowing example from this chapter and print both values with `console.log` in `Component.onCompleted`.
+--- hint
+Use `root.name` to reach the outer property when an inner object has a property with the same name.
+:::
+
+::: exercise challenge | Linked counters
+Build `Counter.qml` (a number + click to increment) and use two counters in `shell.qml`: clicking the first also increments the second.
+--- hint
+Give both instances ids in `shell.qml`; add a `signal clicked()` to `Counter.qml`.
+--- solution
+```qml
+// Counter.qml
+import QtQuick
+Rectangle {
+    property int count: 0
+    signal clicked()
+    width: 60; height: 30; radius: 6; color: "#313244"
+    Text { anchors.centerIn: parent; text: parent.count; color: "white" }
+    MouseArea { anchors.fill: parent; onClicked: { parent.count++; parent.clicked() } }
+}
+```
+```qml
+// in shell.qml
+Row {
+    Counter { id: first; onClicked: second.count++ }
+    Counter { id: second }
+}
+```
+:::

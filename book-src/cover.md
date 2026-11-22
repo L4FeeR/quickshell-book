@@ -4,15 +4,21 @@
 <p class="lede">A complete, beginner-first guide to building your own Linux desktop with Quickshell and QML. You start knowing nothing about Linux ricing, Qt or programming, and finish able to build any bar, panel, launcher, lock screen or widget you can imagine.</p>
 <div class="stats">
 <div class="stat"><b>79</b><span>chapters</span></div>
+<div class="stat"><b>10</b><span>ricing guides, module by module</span></div>
+<div class="stat"><b>2</b><span>famous rices rebuilt from scratch (Caelestia, end-4)</span></div>
+<div class="stat"><b>19</b><span>ready-made themes with a live switcher</span></div>
 <div class="stat"><b>157</b><span>API types documented</span></div>
 <div class="stat"><b>19</b><span>complete projects</span></div>
+<div class="stat"><b>57</b><span>gallery widgets, explained line by line</span></div>
+<div class="stat"><b>368</b><span>exercises with hints and solutions</span></div>
 <div class="stat"><b>60</b><span>cookbook recipes</span></div>
+<div class="stat"><b>47</b><span>easing curves, animated</span></div>
 </div>
 </div>
 
 ## How to use this book
 
-**If you're new to everything**, read Parts I → III in order and type every example. Keep `qs -c playground` running in a terminal while you read: Quickshell reloads on every save, so you see each change instantly.
+**If you're new to everything**, read Parts I → III in order, type every example, and do the **Practice** exercises at the end of each chapter before moving on (open the hint only when stuck, the solution only after trying). Keep `qs -c playground` running in a terminal while you read: Quickshell reloads on every save, so you see each change instantly.
 
 **If you know some QML**, skim Part II, then start at Part IV (Quickshell concepts).
 
@@ -28,6 +34,12 @@
 | Organize a big config like end-4 or Caelestia | [[ch:42-project-layout]] → [[ch:46-state]] |
 | Theme everything from your wallpaper | [[ch:44-theming]] |
 | Build a bar / launcher / lock screen … | Part VI |
+| Rice each part (bar, lock screen, launcher, dock…) in several styles, module by module | [Ricing Guides](ch/r0-theme-system.html) |
+| Rebuild Caelestia or end-4's illogical-impulse yourself and understand every piece | [Rebuilding Famous Rices](ch/f0-famous-rices.html) |
+| Build a settings app that tweaks your shell live, with profiles, backup and reset | [Building a Settings App](ch/set1-overview.html) |
+| Add a theme switcher with Catppuccin, Tokyo Night, Gruvbox and 16 more themes, and theme your whole desktop | [Theming](ch/th1-colour-basics.html) |
+| Find the right animation or easing curve | [Animation Library](ch/a0-overview.html) |
+| Grab a ready-made widget (Dynamic Island, network speed, visualizer…) | [Widget Gallery](ch/g0-overview.html) |
 | Look up any property or method | [API Reference](ref/index.html) or press <kbd>/</kbd> |
 
 ## Navigation

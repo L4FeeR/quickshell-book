@@ -1,0 +1,988 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>end-4 6: The Overview and Search · The Quickshell Book</title>
+<meta name="description" content="end-4 6: The Overview and Search">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details open><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch active" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-f">Part F: Rebuilding Famous Rices</a> › end-4 6: The Overview and Search</div><article><div class="ch-head"><div class="ch-part">Part F · Rebuilding Famous Rices</div><h1><span class="ch-num">ii6</span>end-4 6: The Overview and Search</h1></div><p>Press Super+Tab (or right-click the workspaces, or just tap Super) and ii shows the <strong>overview</strong>: a search box above a grid of your workspaces, each a small copy of the screen with <strong>live previews</strong> of its windows. Start typing and the grid turns into launcher results: apps, a calculator, commands and web search. Drag a window onto another workspace to move it.</p>
+<div class="preview"><svg style="width:min(100%,930px)" width="620" height="300" viewBox="0 0 620 300"><g font-size="10"><rect width="620" height="300" fill="#3a5a8c" opacity=".35"/><rect x="170" y="14" width="280" height="36" rx="18" fill="#141218" stroke="#49454f"/><text x="190" y="36" fill="#938f99">⌕  Search, calculate or run</text><g transform="translate(70 70)"><rect width="480" height="200" rx="22" fill="#141218" stroke="#49454f"/><g transform="translate(12 12)"><g><rect width="86" height="84" rx="10" fill="#1d1b20" stroke="#d0bcff" stroke-width="2"/><rect x="6" y="8" width="44" height="66" rx="5" fill="#2b2930"/><rect x="54" y="8" width="26" height="30" rx="5" fill="#2b2930"/><rect x="54" y="42" width="26" height="32" rx="5" fill="#2b2930"/></g><g transform="translate(92 0)"><rect width="86" height="84" rx="10" fill="#1d1b20"/><rect x="8" y="10" width="70" height="60" rx="5" fill="#2b2930"/></g><g transform="translate(184 0)"><rect width="86" height="84" rx="10" fill="#1d1b20"/><text x="43" y="50" fill="#938f99" font-size="22" text-anchor="middle" opacity=".4">3</text></g><g transform="translate(276 0)"><rect width="86" height="84" rx="10" fill="#1d1b20"/><text x="43" y="50" fill="#938f99" font-size="22" text-anchor="middle" opacity=".4">4</text></g><g transform="translate(368 0)"><rect width="86" height="84" rx="10" fill="#1d1b20"/><text x="43" y="50" fill="#938f99" font-size="22" text-anchor="middle" opacity=".4">5</text></g><g transform="translate(0 92)"><rect width="86" height="84" rx="10" fill="#1d1b20"/><rect x="10" y="12" width="66" height="58" rx="5" fill="#2b2930"/></g><g transform="translate(92 92)"><rect width="86" height="84" rx="10" fill="#1d1b20"/><text x="43" y="50" fill="#938f99" font-size="22" text-anchor="middle" opacity=".4">7</text></g><g transform="translate(184 92)"><rect width="86" height="84" rx="10" fill="#1d1b20"/><text x="43" y="50" fill="#938f99" font-size="22" text-anchor="middle" opacity=".4">8</text></g><g transform="translate(276 92)"><rect width="86" height="84" rx="10" fill="#1d1b20"/><text x="43" y="50" fill="#938f99" font-size="22" text-anchor="middle" opacity=".4">9</text></g><g transform="translate(368 92)"><rect width="86" height="84" rx="10" fill="#1d1b20"/><text x="43" y="50" fill="#938f99" font-size="22" text-anchor="middle" opacity=".4">10</text></g></g></g><text x="310" y="292" fill="#cdd6f4" text-anchor="middle">2 × 5 workspaces; windows are scaled live previews you can click or drag</text></g></svg></div>
+
+<div class="codewrap"><pre class="code" data-lang="text"><code>modules/overview/  Overview  OverviewGrid  AppIconImage
+services/          LauncherSearch  HyprlandData</code></pre></div>
+<h2 id="module-1-window-data">Module 1: Window data<a class="hlink" href="#module-1-window-data">#</a></h2>
+<p>The overview needs every window's <strong>position and size</strong> on screen, which Quickshell's toplevel list doesn't include. ii asks Hyprland directly.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/services/HyprlandData.qml</span><code>pragma Singleton
+import Quickshell
+import Quickshell.Io
+import Quickshell.Hyprland
+import QtQuick
+
+// Window positions and sizes for the overview, from `hyprctl clients -j`, refreshed on every
+// Hyprland event that could move a window.
+Singleton {
+    id: root
+
+    property var windowList: []
+    property var monitors: []
+
+    function refresh(): void {
+        clients.running = true;
+        mons.running = true;
+    }
+
+    Component.onCompleted: refresh()
+
+    Connections {
+        target: Hyprland
+        function onRawEvent(event: HyprlandEvent): void {
+            if (["openwindow", "closewindow", "movewindow", "movewindowv2", "windowtitle", "workspace", "changefloatingmode", "fullscreen"].includes(event.name))
+                root.refresh();
+        }
+    }
+
+    Process {
+        id: clients
+        command: ["hyprctl", "clients", "-j"]
+        stdout: StdioCollector { onStreamFinished: root.windowList = JSON.parse(text) }
+    }
+    Process {
+        id: mons
+        command: ["hyprctl", "monitors", "-j"]
+        stdout: StdioCollector { onStreamFinished: root.monitors = JSON.parse(text) }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 12–13</span><b>The data</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property var windowList: []
+property var monitors: []</code></pre></div><div class="seg-e"><p><code>windowList</code> is <code>hyprctl clients -j</code> parsed: one object per window with <code>address</code>, <code>at</code> (x, y), <code>size</code> (w, h), <code>workspace</code>, <code>class</code>, <code>title</code>… <code>monitors</code> is <code>hyprctl monitors -j</code>, used to turn global positions into positions on one monitor.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–18</span><b>Refresh</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function refresh(): void {
+    clients.running = true;
+    mons.running = true;
+}</code></pre></div><div class="seg-e"><p>Both commands run again whenever something might have moved.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 22–28</span><b>Listening to Hyprland</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Connections {
+    target: Hyprland
+    function onRawEvent(event: HyprlandEvent): void {
+        if (["openwindow", "closewindow", "movewindow", "movewindowv2", "windowtitle", "workspace", "changefloatingmode", "fullscreen"].includes(event.name))
+            root.refresh();
+    }
+}</code></pre></div><div class="seg-e"><p><code>rawEvent</code> delivers every event from Hyprland's event socket. Only events that change window positions trigger a refresh, so the data stays current without polling.</p></div></div></div>
+<h2 id="module-2-search">Module 2: Search<a class="hlink" href="#module-2-search">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/services/LauncherSearch.qml</span><code>pragma Singleton
+import Quickshell
+import Quickshell.Io
+import QtQuick
+
+// What the overview's search box shows for a query: apps, a math result (qalc),
+// and fallbacks to run the text as a command or search the web.
+Singleton {
+    id: root
+
+    property string query: ""
+    property string mathResult: ""
+
+    readonly property var results: {
+        const q = query.trim();
+        if (!q) return [];
+        const out = [];
+        if (mathResult) out.push({ type: "Math", name: mathResult, icon: "calculate", run: () =&gt; Quickshell.execDetached(["wl-copy", mathResult]) });
+        const lq = q.toLowerCase();
+        for (const app of DesktopEntries.applications.values) {
+            if (out.length &gt; 8) break;
+            if (!app.noDisplay &amp;&amp; (app.name.toLowerCase().includes(lq) || (app.genericName ?? "").toLowerCase().includes(lq)))
+                out.push({ type: "App", name: app.name, iconName: app.icon, run: () =&gt; app.execute() });
+        }
+        out.push({ type: "Command", name: q, icon: "terminal", run: () =&gt; Quickshell.execDetached(["sh", "-c", q]) });
+        out.push({ type: "Web", name: "Search the web for " + q, icon: "travel_explore", run: () =&gt; Qt.openUrlExternally("https://duckduckgo.com/?q=" + encodeURIComponent(q)) });
+        return out;
+    }
+
+    onQueryChanged: {
+        mathResult = "";
+        if (/^[\d\s+\-*/^().%]+$|\bto\b/.test(query.trim())) math.running = true;
+    }
+
+    Process {
+        id: math
+        command: ["qalc", "-t", root.query]
+        stdout: StdioCollector { onStreamFinished: root.mathResult = text.trim() }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 11–12</span><b>Query in, results out</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property string query: ""
+property string mathResult: ""</code></pre></div><div class="seg-e"><p>The overview writes <code>query</code>; everything else is derived.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–28</span><b>Results in priority order</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var results: {
+    const q = query.trim();
+    if (!q) return [];
+    const out = [];
+    if (mathResult) out.push({ type: "Math", name: mathResult, icon: "calculate", run: () =&gt; Quickshell.execDetached(["wl-copy", mathResult]) });
+    const lq = q.toLowerCase();
+    for (const app of DesktopEntries.applications.values) {
+        if (out.length &gt; 8) break;
+        if (!app.noDisplay &amp;&amp; (app.name.toLowerCase().includes(lq) || (app.genericName ?? "").toLowerCase().includes(lq)))
+            out.push({ type: "App", name: app.name, iconName: app.icon, run: () =&gt; app.execute() });
+    }
+    out.push({ type: "Command", name: q, icon: "terminal", run: () =&gt; Quickshell.execDetached(["sh", "-c", q]) });
+    out.push({ type: "Web", name: "Search the web for " + q, icon: "travel_explore", run: () =&gt; Qt.openUrlExternally("https://duckduckgo.com/?q=" + encodeURIComponent(q)) });
+    return out;
+}</code></pre></div><div class="seg-e"><p>A maths result first (if any), then up to ~9 matching apps, then two fallbacks that always appear: run the text as a shell command, or search the web for it. Each result has a <code>type</code> label, a name, an icon (Material symbol name or app icon name) and a <code>run</code> function.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 30–33</span><b>When to calculate</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>onQueryChanged: {
+    mathResult = "";
+    if (/^[\d\s+\-*/^().%]+$|\bto\b/.test(query.trim())) math.running = true;
+}</code></pre></div><div class="seg-e"><p>Only text made of digits and operators, or containing " to " (unit/currency conversion), is sent to <code>qalc</code>. Every other query skips the calculator.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 35–39</span><b>qalc</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Process {
+    id: math
+    command: ["qalc", "-t", root.query]
+    stdout: StdioCollector { onStreamFinished: root.mathResult = text.trim() }
+}</code></pre></div><div class="seg-e"><p>Runs with the query and stores the terse result.</p></div></div></div>
+<div class="box note"><div class="bt">In the original</div><p><code>services/LauncherSearch.qml</code> supports <strong>prefixes</strong> (<code>/</code> actions, <code>:</code> emoji, <code>;</code> clipboard, <code>=</code> maths, <code>!</code> web…), fuzzy app search, and Hyprland-aware actions. Results render as a <code>SearchWidget</code> with keyboard navigation, and the same window hosts the emoji and clipboard pickers.</p></div>
+<h2 id="module-3-the-overview-window">Module 3: The overview window<a class="hlink" href="#module-3-the-overview-window">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/modules/overview/Overview.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Hyprland
+import Quickshell.Wayland
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import qs.services
+import qs.modules.common
+import qs.modules.common.widgets
+
+// end-4's overview: a search box (apps, math, commands, web) above a grid of workspaces that
+// show live, scaled-down previews of their windows. Type to search; click a window to focus it.
+Scope {
+    Variants {
+        model: Quickshell.screens
+
+        PanelWindow {
+            id: win
+
+            required property ShellScreen modelData
+            readonly property HyprlandMonitor monitor: Hyprland.monitorFor(modelData)
+            readonly property bool open: GlobalStates.overviewOpen &amp;&amp; Hyprland.focusedMonitor === monitor
+
+            screen: modelData
+            visible: open
+            anchors { top: true; bottom: true; left: true; right: true }
+            exclusionMode: ExclusionMode.Ignore
+            color: "transparent"
+            WlrLayershell.layer: WlrLayer.Overlay
+            WlrLayershell.namespace: "quickshell:overview"
+            WlrLayershell.keyboardFocus: open ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
+
+            onOpenChanged: if (open) { search.text = ""; search.forceActiveFocus(); HyprlandData.refresh(); }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: GlobalStates.overviewOpen = false
+            }
+
+            ColumnLayout {
+                anchors.horizontalCenter: parent.horizontalCenter
+                y: Appearance.sizes.barHeight + 20
+                spacing: 16
+
+                // ---- search ----
+                Rectangle {
+                    Layout.alignment: Qt.AlignHCenter
+                    implicitWidth: 460
+                    implicitHeight: 48
+                    radius: Appearance.rounding.full
+                    color: Appearance.colors.colLayer0
+                    border.width: 1
+                    border.color: Appearance.colors.colLayer0Border
+
+                    RowLayout {
+                        anchors.fill: parent
+                        anchors.leftMargin: 16
+                        anchors.rightMargin: 16
+                        MaterialSymbol { text: "search"; iconSize: 22; color: Appearance.colors.colOnLayer0 }
+                        TextField {
+                            id: search
+                            Layout.fillWidth: true
+                            background: null
+                            color: Appearance.colors.colOnLayer0
+                            placeholderText: "Search, calculate or run"
+                            placeholderTextColor: Appearance.colors.colSubtext
+                            font.pixelSize: Appearance.font.pixelSize.small
+                            onTextChanged: { LauncherSearch.query = text; results.currentIndex = 0; }
+                            Keys.onEscapePressed: GlobalStates.overviewOpen = false
+                            Keys.onDownPressed: results.currentIndex = Math.min(results.count - 1, results.currentIndex + 1)
+                            Keys.onUpPressed: results.currentIndex = Math.max(0, results.currentIndex - 1)
+                            onAccepted: {
+                                const r = LauncherSearch.results[results.currentIndex];
+                                if (r) { r.run(); GlobalStates.overviewOpen = false; }
+                            }
+                        }
+                    }
+                }
+
+                // ---- results (only while typing) ----
+                Rectangle {
+                    Layout.alignment: Qt.AlignHCenter
+                    visible: search.text !== ""
+                    implicitWidth: 460
+                    implicitHeight: Math.min(400, results.contentHeight + 16)
+                    radius: Appearance.rounding.large
+                    color: Appearance.colors.colLayer0
+
+                    ListView {
+                        id: results
+                        anchors.fill: parent
+                        anchors.margins: 8
+                        clip: true
+                        model: LauncherSearch.results
+                        highlight: Rectangle { radius: Appearance.rounding.normal; color: Appearance.colors.colLayer1Hover }
+                        highlightMoveDuration: 100
+                        delegate: RippleButton {
+                            id: res
+                            required property var modelData
+                            required property int index
+                            width: ListView.view.width
+                            height: 50
+                            buttonRadius: Appearance.rounding.normal
+                            onClicked: { modelData.run(); GlobalStates.overviewOpen = false; }
+                            contentItem: RowLayout {
+                                spacing: 12
+                                Loader {
+                                    Layout.leftMargin: 10
+                                    sourceComponent: res.modelData.iconName !== undefined ? appIcon : symbolIcon
+                                    Component { id: appIcon; AppIconImage { name: res.modelData.iconName } }
+                                    Component { id: symbolIcon; MaterialSymbol { text: res.modelData.icon; iconSize: 26 } }
+                                }
+                                ColumnLayout {
+                                    spacing: 0
+                                    StyledText { text: res.modelData.type; font.pixelSize: Appearance.font.pixelSize.smaller; color: Appearance.colors.colSubtext }
+                                    StyledText { Layout.fillWidth: true; text: res.modelData.name; elide: Text.ElideRight; color: Appearance.colors.colOnLayer0 }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // ---- workspace grid (hidden while typing) ----
+                OverviewGrid {
+                    Layout.alignment: Qt.AlignHCenter
+                    visible: search.text === ""
+                    monitor: win.monitor
+                    screen: win.modelData
+                }
+            }
+        }
+    }
+
+    IpcHandler {
+        target: "overview"
+        function toggle(): void { GlobalStates.overviewOpen = !GlobalStates.overviewOpen }
+    }
+    GlobalShortcut {
+        appid: "impulse"
+        name: "overviewToggle"
+        onPressed: GlobalStates.overviewOpen = !GlobalStates.overviewOpen
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 18–32</span><b>One window per monitor, shown on the focused one</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    id: win
+
+    required property ShellScreen modelData
+    readonly property HyprlandMonitor monitor: Hyprland.monitorFor(modelData)
+    readonly property bool open: GlobalStates.overviewOpen &amp;&amp; Hyprland.focusedMonitor === monitor
+
+    screen: modelData
+    visible: open
+    anchors { top: true; bottom: true; left: true; right: true }
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.namespace: "quickshell:overview"
+    WlrLayershell.keyboardFocus: open ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None</code></pre></div><div class="seg-e"><p><code>open</code> is true only on the monitor that has focus, so the overview appears where you're looking. It covers the screen on the overlay layer and takes the keyboard <strong>exclusively</strong> while open, so you can type immediately.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 34</span><b>Opening resets the search</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>onOpenChanged: if (open) { search.text = ""; search.forceActiveFocus(); HyprlandData.refresh(); }</code></pre></div><div class="seg-e"><p>Each time it opens: clear the text, focus the field, refresh window data.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 36–39</span><b>Click the background to close</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>MouseArea {
+    anchors.fill: parent
+    onClicked: GlobalStates.overviewOpen = false
+}</code></pre></div><div class="seg-e"><p>A full-window <code>MouseArea</code> behind everything.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 46–80</span><b>The search pill</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ---- search ----
+Rectangle {
+    Layout.alignment: Qt.AlignHCenter
+    implicitWidth: 460
+    implicitHeight: 48
+    radius: Appearance.rounding.full
+    color: Appearance.colors.colLayer0
+    border.width: 1
+    border.color: Appearance.colors.colLayer0Border
+
+    RowLayout {
+        anchors.fill: parent
+        anchors.leftMargin: 16
+        anchors.rightMargin: 16
+        MaterialSymbol { text: "search"; iconSize: 22; color: Appearance.colors.colOnLayer0 }
+        TextField {
+            id: search
+            Layout.fillWidth: true
+            background: null
+            color: Appearance.colors.colOnLayer0
+            placeholderText: "Search, calculate or run"
+            placeholderTextColor: Appearance.colors.colSubtext
+            font.pixelSize: Appearance.font.pixelSize.small
+            onTextChanged: { LauncherSearch.query = text; results.currentIndex = 0; }
+            Keys.onEscapePressed: GlobalStates.overviewOpen = false
+            Keys.onDownPressed: results.currentIndex = Math.min(results.count - 1, results.currentIndex + 1)
+            Keys.onUpPressed: results.currentIndex = Math.max(0, results.currentIndex - 1)
+            onAccepted: {
+                const r = LauncherSearch.results[results.currentIndex];
+                if (r) { r.run(); GlobalStates.overviewOpen = false; }
+            }
+        }
+    }
+}
+</code></pre></div><div class="seg-e"><p>A <code>TextField</code> without a background inside a rounded <code>colLayer0</code> pill. Typing updates <code>LauncherSearch.query</code>; ↑/↓ move through results; Enter runs the selected one; Esc closes.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 82–122</span><b>Results</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    Layout.alignment: Qt.AlignHCenter
+    visible: search.text !== ""
+    implicitWidth: 460
+    implicitHeight: Math.min(400, results.contentHeight + 16)
+    radius: Appearance.rounding.large
+    color: Appearance.colors.colLayer0
+
+    ListView {
+        id: results
+        anchors.fill: parent
+        anchors.margins: 8
+        clip: true
+        model: LauncherSearch.results
+        highlight: Rectangle { radius: Appearance.rounding.normal; color: Appearance.colors.colLayer1Hover }
+        highlightMoveDuration: 100
+        delegate: RippleButton {
+            id: res
+            required property var modelData
+            required property int index
+            width: ListView.view.width
+            height: 50
+            buttonRadius: Appearance.rounding.normal
+            onClicked: { modelData.run(); GlobalStates.overviewOpen = false; }
+            contentItem: RowLayout {
+                spacing: 12
+                Loader {
+                    Layout.leftMargin: 10
+                    sourceComponent: res.modelData.iconName !== undefined ? appIcon : symbolIcon
+                    Component { id: appIcon; AppIconImage { name: res.modelData.iconName } }
+                    Component { id: symbolIcon; MaterialSymbol { text: res.modelData.icon; iconSize: 26 } }
+                }
+                ColumnLayout {
+                    spacing: 0
+                    StyledText { text: res.modelData.type; font.pixelSize: Appearance.font.pixelSize.smaller; color: Appearance.colors.colSubtext }
+                    StyledText { Layout.fillWidth: true; text: res.modelData.name; elide: Text.ElideRight; color: Appearance.colors.colOnLayer0 }
+                }
+            }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>Only shown while there's text. Each row is a <code>RippleButton</code> with an icon (an app icon when the result has <code>iconName</code>, a Material symbol otherwise), a small type label and the name.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 124–130</span><b>The grid</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ---- workspace grid (hidden while typing) ----
+OverviewGrid {
+    Layout.alignment: Qt.AlignHCenter
+    visible: search.text === ""
+    monitor: win.monitor
+    screen: win.modelData
+}</code></pre></div><div class="seg-e"><p>Shown when the search is empty.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 135–143</span><b>Opening it</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>IpcHandler {
+    target: "overview"
+    function toggle(): void { GlobalStates.overviewOpen = !GlobalStates.overviewOpen }
+}
+GlobalShortcut {
+    appid: "impulse"
+    name: "overviewToggle"
+    onPressed: GlobalStates.overviewOpen = !GlobalStates.overviewOpen
+}</code></pre></div><div class="seg-e"><p>IPC and a global shortcut toggle <code>GlobalStates.overviewOpen</code>. Right-clicking the bar's workspaces does the same (<a class="xref" href="../ch/ii4-workspaces.html">end-4 4: The Workspace Indicator</a>).</p></div></div></div>
+<h2 id="module-4-the-workspace-grid-with-live-previews">Module 4: The workspace grid with live previews<a class="hlink" href="#module-4-the-workspace-grid-with-live-previews">#</a></h2>
+<p>A tiny helper used for app icons in results and previews:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/modules/overview/AppIconImage.qml</span><code>import Quickshell
+import Quickshell.Widgets
+
+IconImage {
+    property string name
+    implicitSize: 30
+    source: Quickshell.iconPath(name, "application-x-executable")
+}</code></pre></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">impulse/modules/overview/OverviewGrid.qml</span><code>import Quickshell
+import Quickshell.Hyprland
+import Quickshell.Wayland
+import QtQuick
+import qs.services
+import qs.modules.common
+import qs.modules.common.widgets
+
+// rows × columns workspaces, each a scaled copy of the monitor. Windows are placed using the
+// positions from `hyprctl clients -j` and show live previews with ScreencopyView.
+Rectangle {
+    id: root
+
+    required property HyprlandMonitor monitor
+    required property ShellScreen screen
+    readonly property int rows: Config.options.overview.rows
+    readonly property int columns: Config.options.overview.columns
+    readonly property real previewScale: Config.options.overview.scale
+    readonly property real wsWidth: screen.width * previewScale
+    readonly property real wsHeight: screen.height * previewScale
+    readonly property int groupStart: Math.floor(((monitor?.activeWorkspace?.id ?? 1) - 1) / (rows * columns)) * rows * columns
+    readonly property var monData: HyprlandData.monitors.find(m =&gt; m.name === screen.name) ?? null
+
+    implicitWidth: grid.implicitWidth + 20
+    implicitHeight: grid.implicitHeight + 20
+    radius: Appearance.rounding.screenRounding
+    color: Appearance.colors.colLayer0
+    border.width: 1
+    border.color: Appearance.colors.colLayer0Border
+
+    Grid {
+        id: grid
+        anchors.centerIn: parent
+        columns: root.columns
+        spacing: 5
+
+        Repeater {
+            model: root.rows * root.columns
+
+            Rectangle {
+                id: ws
+
+                required property int index
+                readonly property int wsId: root.groupStart + index + 1
+                readonly property bool isActive: root.monitor?.activeWorkspace?.id === wsId
+
+                width: root.wsWidth
+                height: root.wsHeight
+                radius: Appearance.rounding.small
+                color: Appearance.colors.colLayer1
+                border.width: isActive ? 2 : 0
+                border.color: Appearance.colors.colPrimary
+                clip: true
+
+                StyledText {
+                    anchors.centerIn: parent
+                    text: ws.wsId
+                    font.pixelSize: ws.height * 0.4
+                    font.weight: 700
+                    color: Appearance.colors.colSubtext
+                    opacity: 0.4
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: { Hypr.workspace(ws.wsId); GlobalStates.overviewOpen = false; }
+                }
+
+                DropArea {
+                    anchors.fill: parent
+                    onDropped: drop =&gt; Hypr.moveWindowToWorkspace(drop.source.address, ws.wsId)
+                }
+
+                Repeater {
+                    model: HyprlandData.windowList.filter(w =&gt; w.workspace.id === ws.wsId)
+
+                    Rectangle {
+                        id: winItem
+
+                        required property var modelData
+                        readonly property string address: modelData.address
+                        readonly property Toplevel toplevel: ToplevelManager.toplevels.values.find(t =&gt; `0x${t.HyprlandToplevel?.address}` === modelData.address) ?? null
+                        readonly property real ox: root.monData ? root.monData.x : 0
+                        readonly property real oy: root.monData ? root.monData.y : 0
+
+                        x: (modelData.at[0] - ox) * root.previewScale
+                        y: (modelData.at[1] - oy) * root.previewScale
+                        width: modelData.size[0] * root.previewScale
+                        height: modelData.size[1] * root.previewScale
+                        radius: Appearance.rounding.verysmall
+                        color: Appearance.colors.colLayer2
+                        clip: true
+                        Drag.active: drag.drag.active
+                        Drag.source: winItem
+                        Drag.hotSpot.x: width / 2
+                        Drag.hotSpot.y: height / 2
+
+                        ScreencopyView {
+                            anchors.fill: parent
+                            captureSource: GlobalStates.overviewOpen ? winItem.toplevel : null
+                            live: true
+                        }
+                        AppIconImage {
+                            anchors.centerIn: parent
+                            name: DesktopEntries.heuristicLookup(winItem.modelData.class)?.icon ?? winItem.modelData.class
+                            implicitSize: Math.min(winItem.width, winItem.height) * 0.35
+                        }
+                        MouseArea {
+                            id: drag
+                            anchors.fill: parent
+                            drag.target: winItem
+                            onClicked: { Hypr.focusWindow(winItem.address); GlobalStates.overviewOpen = false; }
+                            onReleased: { winItem.Drag.drop(); winItem.x = Qt.binding(() =&gt; (winItem.modelData.at[0] - winItem.ox) * root.previewScale); winItem.y = Qt.binding(() =&gt; (winItem.modelData.at[1] - winItem.oy) * root.previewScale); }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 16–22</span><b>Grid geometry</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property int rows: Config.options.overview.rows
+readonly property int columns: Config.options.overview.columns
+readonly property real previewScale: Config.options.overview.scale
+readonly property real wsWidth: screen.width * previewScale
+readonly property real wsHeight: screen.height * previewScale
+readonly property int groupStart: Math.floor(((monitor?.activeWorkspace?.id ?? 1) - 1) / (rows * columns)) * rows * columns
+readonly property var monData: HyprlandData.monitors.find(m =&gt; m.name === screen.name) ?? null</code></pre></div><div class="seg-e"><p><code>rows × columns</code> workspaces (2 × 5 by default), each the monitor's size times <code>previewScale</code> (0.18). <code>groupStart</code> shows the group that contains the active workspace. <code>monData</code> is this monitor's entry from <code>hyprctl monitors</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 40–53</span><b>A workspace tile</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: ws
+
+    required property int index
+    readonly property int wsId: root.groupStart + index + 1
+    readonly property bool isActive: root.monitor?.activeWorkspace?.id === wsId
+
+    width: root.wsWidth
+    height: root.wsHeight
+    radius: Appearance.rounding.small
+    color: Appearance.colors.colLayer1
+    border.width: isActive ? 2 : 0
+    border.color: Appearance.colors.colPrimary
+    clip: true</code></pre></div><div class="seg-e"><p>A small <code>colLayer1</code> rectangle; the active workspace gets a primary border. <code>clip: true</code> keeps window previews from spilling out.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 55–67</span><b>Number and click</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>StyledText {
+    anchors.centerIn: parent
+    text: ws.wsId
+    font.pixelSize: ws.height * 0.4
+    font.weight: 700
+    color: Appearance.colors.colSubtext
+    opacity: 0.4
+}
+
+MouseArea {
+    anchors.fill: parent
+    onClicked: { Hypr.workspace(ws.wsId); GlobalStates.overviewOpen = false; }
+}</code></pre></div><div class="seg-e"><p>A big faint number behind the windows. Clicking empty space in a tile switches to that workspace and closes the overview.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 69–72</span><b>Accepting dropped windows</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>DropArea {
+    anchors.fill: parent
+    onDropped: drop =&gt; Hypr.moveWindowToWorkspace(drop.source.address, ws.wsId)
+}</code></pre></div><div class="seg-e"><p>A <code>DropArea</code> over the tile: when a window is dropped, it's moved there with <code>Hypr.moveWindowToWorkspace()</code> (silently, without following it).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 74–75</span><b>This workspace's windows</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Repeater {
+    model: HyprlandData.windowList.filter(w =&gt; w.workspace.id === ws.wsId)</code></pre></div><div class="seg-e"><p>Filter the window list by workspace id.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 80–84</span><b>Matching Hyprland and Wayland</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>required property var modelData
+readonly property string address: modelData.address
+readonly property Toplevel toplevel: ToplevelManager.toplevels.values.find(t =&gt; `0x${t.HyprlandToplevel?.address}` === modelData.address) ?? null
+readonly property real ox: root.monData ? root.monData.x : 0
+readonly property real oy: root.monData ? root.monData.y : 0</code></pre></div><div class="seg-e"><p>Hyprland's data gives an <code>address</code>; the live preview needs the Wayland <a class="api" href="../ref/Toplevel.html"><code>Toplevel</code></a>. The <code>HyprlandToplevel</code> attached property on each toplevel exposes its Hyprland address (without the <code>0x</code>), which is how the two are matched, the same way the original does it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 86–92</span><b>Scaled position and size</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>x: (modelData.at[0] - ox) * root.previewScale
+y: (modelData.at[1] - oy) * root.previewScale
+width: modelData.size[0] * root.previewScale
+height: modelData.size[1] * root.previewScale
+radius: Appearance.rounding.verysmall
+color: Appearance.colors.colLayer2
+clip: true</code></pre></div><div class="seg-e"><p>The window's global position minus the monitor's position gives its place on this monitor; multiplying by <code>previewScale</code> places it inside the tile.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 93–96</span><b>Draggable</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Drag.active: drag.drag.active
+Drag.source: winItem
+Drag.hotSpot.x: width / 2
+Drag.hotSpot.y: height / 2</code></pre></div><div class="seg-e"><p>The <code>Drag</code> attached properties make the window a drag source carrying itself (<code>Drag.source: winItem</code>), so the <code>DropArea</code> can read its <code>address</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 98–102</span><b>Live preview</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ScreencopyView {
+    anchors.fill: parent
+    captureSource: GlobalStates.overviewOpen ? winItem.toplevel : null
+    live: true
+}</code></pre></div><div class="seg-e"><p><a class="api" href="../ref/ScreencopyView.html"><code>ScreencopyView</code></a> shows the window's live contents. <code>captureSource</code> is only set while the overview is open, so nothing is captured when it's closed.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 103–107</span><b>Icon on top</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>AppIconImage {
+    anchors.centerIn: parent
+    name: DesktopEntries.heuristicLookup(winItem.modelData.class)?.icon ?? winItem.modelData.class
+    implicitSize: Math.min(winItem.width, winItem.height) * 0.35
+}</code></pre></div><div class="seg-e"><p>The app icon over the preview, sized relative to the window.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 108–114</span><b>Click and drag</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>MouseArea {
+    id: drag
+    anchors.fill: parent
+    drag.target: winItem
+    onClicked: { Hypr.focusWindow(winItem.address); GlobalStates.overviewOpen = false; }
+    onReleased: { winItem.Drag.drop(); winItem.x = Qt.binding(() =&gt; (winItem.modelData.at[0] - winItem.ox) * root.previewScale); winItem.y = Qt.binding(() =&gt; (winItem.modelData.at[1] - winItem.oy) * root.previewScale); }
+}</code></pre></div><div class="seg-e"><p>Clicking focuses the window. <code>drag.target</code> lets the mouse move it; on release it's dropped, and its position is re-bound to the window data (<code>Qt.binding</code>), so it snaps back if it wasn't dropped on another workspace.</p></div></div></div>
+<div class="box note"><div class="bt">In the original</div><p><code>modules/ii/overview/OverviewWidget.qml</code> and <code>OverviewWindow.qml</code> also handle rotated monitors (<code>transform</code>), reserved areas (the bar's space), special workspaces, per-corner rounding so windows at the tile's edges match its rounded corners, middle-click to close a window, and dragging a window to a <strong>position</strong> inside a workspace, not just to the workspace.</p></div>
+<h2 id="practice">Practice<a class="hlink" href="#practice">#</a></h2>
+<div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Warm-up</span><b>Bigger previews</b></div><div class="ex-b"><p>Set <code>overview.scale</code> to 0.25 and <code>overview.columns</code> to 4 in <code>config.json</code>.</p></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Middle-click to close</b></div><div class="ex-b"><p>Middle-click a window preview to close it (<code>closewindow address:…</code>, or <code>hl.dsp.window.close({ window = "address:…" })</code> on Lua configs; add a <code>closeWindow</code> helper to <code>Hypr</code>).</p></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>Emoji results</b></div><div class="ex-b"><p>When the query starts with <code>:</code>, return emoji results (see the emoji picker in <a class="xref" href="../ch/g4-panels.html">Gallery: Panels and Menus</a>) that copy the emoji with <code>wl-copy</code>.</p></div></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Challenge</span><b>Keyboard navigation in the grid</b></div><div class="ex-b"><p>With an empty search, let the arrow keys move a highlight between workspaces and Enter switch to the highlighted one.</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/ii5-sidebars.html"><small>← Previous</small><span>end-4 5: The Left and Right Sidebars</span></a><a class="pn-next" href="../ch/ii7-popups.html"><small>Next →</small><span>end-4 7: OSD, Notification Popups and Screen Corners</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#module-1-window-data">Module 1: Window data</a><a class="l2" href="#module-2-search">Module 2: Search</a><a class="l2" href="#module-3-the-overview-window">Module 3: The overview window</a><a class="l2" href="#module-4-the-workspace-grid-with-live-previews">Module 4: The workspace grid with live previews</a><a class="l2" href="#practice">Practice</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

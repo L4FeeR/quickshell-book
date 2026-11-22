@@ -217,7 +217,37 @@ Singleton {
 > [!WARN] Importing compositor modules elsewhere
 > Importing `Quickshell.Hyprland` on Sway is harmless (the singleton just isn't connected), but referencing data from a compositor that isn't running gives null values. Guard with `?.` and environment checks.
 
-> [!TRY] Exercises
-> 1. Show the focused window's title, elided to 300 px.
-> 2. Show the keyboard layout from Hyprland's `activelayout` event (or niri's `currentKeyboardLayoutName`).
-> 3. Build a taskbar with `ToplevelManager` that shows app icons and activates windows on click.
+## Practice
+
+::: exercise warm | Window title
+Show the focused window's title, elided to 300 px.
+--- solution
+```qml
+Text { width: 300; elide: Text.ElideRight; color: "white"
+       text: ToplevelManager.activeToplevel?.title ?? "" }
+```
+:::
+
+::: exercise practice | Keyboard layout
+Show the keyboard layout from Hyprland's `activelayout` event.
+--- solution
+```qml
+Connections { target: Hyprland
+    function onRawEvent(event) {
+        if (event.name === "activelayout") layout.text = event.data.split(",").pop().slice(0, 2).toUpperCase() } }
+Text { id: layout; color: "white" }
+```
+:::
+
+::: exercise challenge | Taskbar
+Build a taskbar with `ToplevelManager` that shows app icons and activates windows on click.
+--- solution
+```qml
+Row { spacing: 4
+    Repeater { model: ToplevelManager.toplevels
+        IconImage { required property Toplevel modelData; implicitSize: 24
+            source: Quickshell.iconPath(DesktopEntries.heuristicLookup(modelData.appId)?.icon ?? "", "application-x-executable")
+            opacity: modelData.activated ? 1 : 0.6
+            TapHandler { onTapped: modelData.activate() } } } }
+```
+:::

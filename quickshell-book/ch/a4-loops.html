@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Animations: Loops, Loaders and Ambient Motion · The Quickshell Book</title>
+<meta name="description" content="Animations: Loops, Loaders and Ambient Motion">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details open><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch active" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-a">Part A: Animation Library</a> › Animations: Loops, Loaders and Ambient Motion</div><article><div class="ch-head"><div class="ch-part">Part A · Animation Library</div><h1><span class="ch-num">a4</span>Animations: Loops, Loaders and Ambient Motion</h1></div><p>Animations that <strong>repeat</strong>: loading indicators, pulses that signal "live", gentle ambient motion on desktop widgets.</p>
+<div class="box warn"><div class="bt">Loops cost power</div><p>An infinite animation makes Quickshell redraw every frame. <strong>Always</strong> bind <code>running</code> to visibility or to the condition it represents (<code>running: recording &amp;&amp; visible</code>). A forgotten loop can keep your GPU awake all day (<a class="xref" href="../ch/67-performance.html">Performance</a>).</p></div>
+<h2 id="pulse">Pulse<a class="hlink" href="#pulse">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="100" viewBox="0 0 200 100"><circle cx="100" cy="50" r="10" fill="#f38ba8"><animate attributeName="opacity" values="1;.25;1" dur="1.4s" repeatCount="indefinite"/></circle></svg></div>
+
+<p><strong>What it is.</strong> Opacity fades down and up forever: the universal "this is live" signal.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">Demo.qml</span><code>import QtQuick
+
+Rectangle {
+    property bool active: true
+    width: 14; height: 14; radius: 7; color: "#f38ba8"
+    SequentialAnimation on opacity {
+        running: parent.active &amp;&amp; parent.visible
+        loops: Animation.Infinite
+        NumberAnimation { to: 0.25; duration: 700; easing.type: Easing.InOutSine }
+        NumberAnimation { to: 1.0; duration: 700; easing.type: Easing.InOutSine }
+        onRunningChanged: if (!running) parent.opacity = 1         // reset when stopped
+    }
+}</code></pre></div>
+<p><strong>Use for:</strong> recording indicator, mic-in-use dot, low-battery warning, urgent workspace.</p>
+<h2 id="radar-ping-rings">Radar Ping Rings<a class="hlink" href="#radar-ping-rings">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="120" viewBox="0 0 200 120"><g fill="none" stroke="#a6e3a1" stroke-width="2"><circle cx="100" cy="60" r="8"><animate attributeName="r" values="8;48" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="2s" repeatCount="indefinite"/></circle><circle cx="100" cy="60" r="8"><animate attributeName="r" values="8;48" dur="2s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="2s" begin="1s" repeatCount="indefinite"/></circle></g><circle cx="100" cy="60" r="8" fill="#a6e3a1"/></svg></div>
+
+<p><strong>What it is.</strong> Rings expand outward from a dot and fade, offset in time so there's always one in flight, like a radar or sonar ping.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">Demo.qml</span><code>import QtQuick
+
+Item {
+    id: root
+    width: 120; height: 120
+    property color tint: "#a6e3a1"
+    Repeater {
+        model: 2
+        Rectangle {
+            id: ring
+            required property int index
+            anchors.centerIn: parent
+            width: 16; height: width; radius: width / 2
+            color: "transparent"; border.color: root.tint; border.width: 2
+            SequentialAnimation {
+                running: root.visible; loops: Animation.Infinite
+                PauseAnimation { duration: ring.index * 1000 }          // offset the second ring
+                ParallelAnimation {
+                    NumberAnimation { target: ring; property: "width"; from: 16; to: 110; duration: 2000; easing.type: Easing.OutCubic }
+                    NumberAnimation { target: ring; property: "opacity"; from: 1; to: 0; duration: 2000 }
+                }
+            }
+        }
+    }
+    Rectangle { anchors.centerIn: parent; width: 16; height: 16; radius: 8; color: root.tint }
+}</code></pre></div>
+<p><strong>Use for:</strong> "searching" states (Bluetooth scan, Wi-Fi scan), a location or online indicator, an incoming call or alarm.</p>
+<h2 id="breathing-glow">Breathing Glow<a class="hlink" href="#breathing-glow">#</a></h2>
+<div class="preview"><svg style="width:min(100%,360px)" width="240" height="110" viewBox="0 0 240 110"><defs><filter id="breath" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="0" flood-color="#cba6f7"><animate attributeName="stdDeviation" values="2;10;2" dur="3.5s" repeatCount="indefinite"/></feDropShadow></filter></defs><rect x="70" y="30" width="100" height="50" rx="25" fill="#cba6f7" filter="url(#breath)"/></svg></div>
+
+<p><strong>What it is.</strong> A slow glow that swells and fades, like breathing. It's calmer than a pulse and good for ambient "idle" states.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">Demo.qml</span><code>import QtQuick
+import QtQuick.Effects
+
+Rectangle {
+    id: orb
+    width: 120; height: 50; radius: 25; color: "#cba6f7"
+    property real glow: 0.2
+    SequentialAnimation on glow {
+        running: orb.visible; loops: Animation.Infinite
+        NumberAnimation { to: 1.0; duration: 1800; easing.type: Easing.InOutSine }
+        NumberAnimation { to: 0.2; duration: 1800; easing.type: Easing.InOutSine }
+    }
+    layer.enabled: true
+    layer.effect: MultiEffect {
+        shadowEnabled: true; shadowColor: "#cba6f7"
+        shadowHorizontalOffset: 0; shadowVerticalOffset: 0
+        shadowBlur: orb.glow; shadowOpacity: orb.glow
+        autoPaddingEnabled: true
+    }
+}</code></pre></div>
+<p><strong>Use for:</strong> the Dynamic Island while idle, a lock-screen password field waiting for input, an AI-assistant "thinking" orb.</p>
+<h2 id="arc-spinner">Arc Spinner<a class="hlink" href="#arc-spinner">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="110" viewBox="0 0 200 110"><g transform="translate(100 55)"><circle r="24" fill="none" stroke="#313244" stroke-width="5"/><circle r="24" fill="none" stroke="#cba6f7" stroke-width="5" stroke-linecap="round" stroke-dasharray="40 151"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="1s" repeatCount="indefinite"/><animate attributeName="stroke-dasharray" values="10 151;100 151;10 151" dur="1.6s" repeatCount="indefinite"/></circle></g></svg></div>
+
+<p><strong>What it is.</strong> A Material-style circular spinner: an arc that rotates while its length grows and shrinks.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">Demo.qml</span><code>import QtQuick
+import QtQuick.Shapes
+
+Item {
+    id: spinner
+    property bool running: true
+    width: 48; height: 48
+    property real sweep: 30
+    SequentialAnimation on sweep {
+        running: spinner.running &amp;&amp; spinner.visible; loops: Animation.Infinite
+        NumberAnimation { to: 270; duration: 700; easing.type: Easing.InOutCubic }
+        NumberAnimation { to: 30; duration: 700; easing.type: Easing.InOutCubic }
+    }
+    Shape {
+        anchors.fill: parent
+        preferredRendererType: Shape.CurveRenderer
+        RotationAnimator on rotation { from: 0; to: 360; duration: 1000; loops: Animation.Infinite; running: spinner.running &amp;&amp; spinner.visible }
+        ShapePath {
+            fillColor: "transparent"; strokeColor: "#cba6f7"; strokeWidth: 5; capStyle: ShapePath.RoundCap
+            PathAngleArc { centerX: 24; centerY: 24; radiusX: 20; radiusY: 20; startAngle: 0; sweepAngle: spinner.sweep }
+        }
+    }
+}</code></pre></div>
+<p><strong>Use for:</strong> Wi-Fi connecting, Bluetooth pairing, the lock screen while PAM checks, loading weather.</p>
+<h2 id="typing-dots">Typing Dots<a class="hlink" href="#typing-dots">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="90" viewBox="0 0 200 90"><rect x="60" y="25" width="80" height="40" rx="20" fill="#313244"/><g fill="#cdd6f4"><circle cx="82" cy="45" r="5"><animate attributeName="cy" values="45;37;45;45" keyTimes="0;.2;.4;1" dur="1.2s" repeatCount="indefinite"/></circle><circle cx="100" cy="45" r="5"><animate attributeName="cy" values="45;45;37;45;45" keyTimes="0;.15;.35;.55;1" dur="1.2s" repeatCount="indefinite"/></circle><circle cx="118" cy="45" r="5"><animate attributeName="cy" values="45;45;37;45;45" keyTimes="0;.3;.5;.7;1" dur="1.2s" repeatCount="indefinite"/></circle></g></svg></div>
+
+<p><strong>What it is.</strong> Three dots that hop in sequence, like a chat app showing that someone is typing.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">Demo.qml</span><code>import QtQuick
+
+Rectangle {
+    id: bubble
+    width: 80; height: 40; radius: 20; color: "#313244"
+    Row {
+        anchors.centerIn: parent
+        spacing: 8
+        Repeater {
+            model: 3
+            Rectangle {
+                id: dot
+                required property int index
+                width: 10; height: 10; radius: 5; color: "#cdd6f4"
+                SequentialAnimation on y {
+                    running: bubble.visible; loops: Animation.Infinite
+                    PauseAnimation { duration: dot.index * 150 }
+                    NumberAnimation { to: -8; duration: 250; easing.type: Easing.OutQuad }
+                    NumberAnimation { to: 0; duration: 250; easing.type: Easing.InQuad }
+                    PauseAnimation { duration: (2 - dot.index) * 150 + 300 }   // keep all three in sync
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<p><strong>Use for:</strong> an AI chat sidebar waiting for a reply (like end-4's), "processing…" states, a calculator thinking.</p>
+<h2 id="skeleton-shimmer">Skeleton Shimmer<a class="hlink" href="#skeleton-shimmer">#</a></h2>
+<div class="preview"><svg style="width:min(100%,450px)" width="300" height="130" viewBox="0 0 300 130"><defs><linearGradient id="shim" x1="0" x2="1"><stop offset="0" stop-color="#313244"/><stop offset=".5" stop-color="#45475a"/><stop offset="1" stop-color="#313244"/><animate attributeName="x1" values="-1;1" dur="1.4s" repeatCount="indefinite"/><animate attributeName="x2" values="0;2" dur="1.4s" repeatCount="indefinite"/></linearGradient></defs><rect x="30" y="20" width="60" height="60" rx="12" fill="url(#shim)"/><rect x="104" y="26" width="160" height="14" rx="7" fill="url(#shim)"/><rect x="104" y="50" width="110" height="12" rx="6" fill="url(#shim)"/><rect x="30" y="96" width="234" height="12" rx="6" fill="url(#shim)"/></svg></div>
+
+<p><strong>What it is.</strong> Gray placeholder blocks with a light band sweeping across, shown while real content loads. The page looks ready instead of empty.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">Demo.qml</span><code>import QtQuick
+
+Item {
+    id: root
+    width: 260; height: 100
+    property bool loading: true
+    component Bone: Rectangle {
+        color: "#313244"; radius: 7; clip: true
+        Rectangle {                                         // the moving highlight
+            width: parent.width * 0.6; height: parent.height
+            gradient: Gradient {
+                orientation: Gradient.Horizontal
+                GradientStop { position: 0; color: "transparent" }
+                GradientStop { position: 0.5; color: "#22ffffff" }
+                GradientStop { position: 1; color: "transparent" }
+            }
+            NumberAnimation on x { from: -width; to: parent.width; duration: 1300; loops: Animation.Infinite; running: root.loading &amp;&amp; root.visible }
+        }
+    }
+    visible: loading
+    Bone { x: 0; y: 0; width: 64; height: 64; radius: 12 }
+    Bone { x: 78; y: 6; width: 170; height: 14 }
+    Bone { x: 78; y: 30; width: 110; height: 12 }
+    Bone { x: 0; y: 80; width: 248; height: 12 }
+}</code></pre></div>
+<p><strong>Use for:</strong> weather card before data arrives, media card with no player yet, app grid while icons load, wallpaper thumbnails.</p>
+<h2 id="indeterminate-progress-bar">Indeterminate Progress Bar<a class="hlink" href="#indeterminate-progress-bar">#</a></h2>
+<div class="preview"><svg style="width:min(100%,450px)" width="300" height="60" viewBox="0 0 300 60"><clipPath id="ipb"><rect x="30" y="26" width="240" height="8" rx="4"/></clipPath><rect x="30" y="26" width="240" height="8" rx="4" fill="#313244"/><g clip-path="url(#ipb)"><rect y="26" height="8" rx="4" fill="#89b4fa"><animate attributeName="x" values="-60;290" dur="1.4s" repeatCount="indefinite" calcMode="spline" keySplines=".4 0 .2 1"/><animate attributeName="width" values="40;120;40" dur="1.4s" repeatCount="indefinite"/></rect></g></svg></div>
+
+<p><strong>What it is.</strong> A bar segment that slides across repeatedly: "working, but I don't know how long".</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">Demo.qml</span><code>import QtQuick
+
+Rectangle {
+    id: track
+    width: 260; height: 8; radius: 4; color: "#313244"; clip: true
+    property bool busy: true
+    Rectangle {
+        id: seg
+        height: parent.height; radius: 4; color: "#89b4fa"
+        width: 80
+        SequentialAnimation on x {
+            running: track.busy &amp;&amp; track.visible; loops: Animation.Infinite
+            NumberAnimation { from: -seg.width; to: track.width; duration: 1200; easing.type: Easing.InOutCubic }
+        }
+    }
+}</code></pre></div>
+<p><strong>Use for:</strong> updates running, file copy, wallpaper theme generation (matugen), any background job.</p>
+<h2 id="marquee-scrolling-text">Marquee (Scrolling Text)<a class="hlink" href="#marquee-scrolling-text">#</a></h2>
+<div class="preview"><svg style="width:min(100%,390px)" width="260" height="70" viewBox="0 0 260 70"><clipPath id="mq"><rect x="40" y="18" width="180" height="34" rx="17"/></clipPath><rect x="40" y="18" width="180" height="34" rx="17" fill="#313244"/><g clip-path="url(#mq)"><text y="40" fill="#cdd6f4" font-size="13">♪ Midnight City — M83 · Hurry Up, We're Dreaming<animate attributeName="x" values="220;-260" dur="6s" repeatCount="indefinite"/></text></g></svg></div>
+
+<p><strong>What it is.</strong> Text too long for its space scrolls continuously, pausing at each end. It only scrolls when it actually overflows.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">Demo.qml</span><code>import QtQuick
+
+Rectangle {
+    id: box
+    width: 200; height: 30; radius: 15; color: "#313244"; clip: true
+    property string text: "♪ Midnight City — M83 · Hurry Up, We're Dreaming"
+    Text {
+        id: t
+        anchors.verticalCenter: parent.verticalCenter
+        x: 12
+        text: box.text; color: "#cdd6f4"; font.pixelSize: 13
+        readonly property real overflow: Math.max(0, implicitWidth - (box.width - 24))
+        SequentialAnimation on x {
+            running: t.overflow &gt; 0 &amp;&amp; box.visible; loops: Animation.Infinite
+            PauseAnimation { duration: 1500 }
+            NumberAnimation { from: 12; to: 12 - t.overflow; duration: t.overflow * 25 }   // 40 px per second
+            PauseAnimation { duration: 1500 }
+            NumberAnimation { from: 12 - t.overflow; to: 12; duration: 400; easing.type: Easing.OutCubic }
+        }
+    }
+}</code></pre></div>
+<p><strong>Use for:</strong> song titles in the bar, long window titles, Wi-Fi names, notification summaries in a compact island.</p>
+<h2 id="floating-bob">Floating Bob<a class="hlink" href="#floating-bob">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="120" viewBox="0 0 200 120"><text x="100" y="60" font-size="36" text-anchor="middle">☁<animateTransform attributeName="transform" type="translate" values="0 -5;0 5;0 -5" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/></text><ellipse cx="100" cy="95" rx="22" ry="4" fill="#000" opacity=".35"><animate attributeName="rx" values="18;24;18" dur="3s" repeatCount="indefinite"/></ellipse></svg></div>
+
+<p><strong>What it is.</strong> A gentle up-and-down drift (with an optional shadow that grows and shrinks) that makes desktop decorations feel alive.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">Demo.qml</span><code>import QtQuick
+
+Item {
+    id: root
+    width: 120; height: 120
+    Text {
+        id: icon
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: "cloud"; font.family: "Material Symbols Rounded"; font.pixelSize: 64; color: "#cdd6f4"
+        property real bob: 0
+        y: 20 + bob
+        SequentialAnimation on bob {
+            running: root.visible; loops: Animation.Infinite
+            NumberAnimation { from: -6; to: 6; duration: 1600; easing.type: Easing.InOutSine }
+            NumberAnimation { from: 6; to: -6; duration: 1600; easing.type: Easing.InOutSine }
+        }
+    }
+    Rectangle {                                                   // shadow reacts to height
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: 104; height: 6; radius: 3; color: "#55000000"
+        width: 40 + icon.bob * 1.5
+    }
+}</code></pre></div>
+<p><strong>Use for:</strong> weather icons on a desktop card, a desktop pet, "empty state" illustrations ("All caught up").</p>
+<h2 id="heartbeat">Heartbeat<a class="hlink" href="#heartbeat">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="110" viewBox="0 0 200 110"><g transform="translate(100 55)"><path d="M0 18 L-20 -2 A11 11 0 0 1 0 -16 A11 11 0 0 1 20 -2 Z" fill="#f38ba8"><animateTransform attributeName="transform" type="scale" values="1;1.25;1;1.18;1;1" keyTimes="0;.12;.24;.36;.5;1" dur="1.2s" repeatCount="indefinite"/></path></g></svg></div>
+
+<p><strong>What it is.</strong> A double "lub-dub" scale pulse, rhythmic and organic.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">Demo.qml</span><code>import QtQuick
+
+Text {
+    id: heart
+    text: "favorite"; font.family: "Material Symbols Rounded"; font.pixelSize: 56; color: "#f38ba8"
+    font.variableAxes: ({ "FILL": 1 })
+    SequentialAnimation on scale {
+        running: heart.visible; loops: Animation.Infinite
+        NumberAnimation { to: 1.25; duration: 120; easing.type: Easing.OutQuad }
+        NumberAnimation { to: 1.0; duration: 140; easing.type: Easing.InQuad }
+        NumberAnimation { to: 1.18; duration: 120; easing.type: Easing.OutQuad }
+        NumberAnimation { to: 1.0; duration: 160; easing.type: Easing.InQuad }
+        PauseAnimation { duration: 700 }
+    }
+}</code></pre></div>
+<p><strong>Use for:</strong> a "now playing" heart, a health or uptime widget, love/like buttons, a fun charging indicator.</p>
+<h2 id="rotating-gradient-ring">Rotating Gradient Ring<a class="hlink" href="#rotating-gradient-ring">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="120" viewBox="0 0 200 120"><defs><linearGradient id="rgr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#cba6f7"/><stop offset=".5" stop-color="#89b4fa"/><stop offset="1" stop-color="#94e2d5" stop-opacity="0"/></linearGradient></defs><g transform="translate(100 60)"><circle r="34" fill="none" stroke="url(#rgr)" stroke-width="6" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="2s" repeatCount="indefinite"/></circle><circle r="24" fill="#cba6f7"/></g></svg></div>
+
+<p><strong>What it is.</strong> A colorful ring that spins around an avatar or icon (Instagram-story style), fading from accent to transparent.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">Demo.qml</span><code>import QtQuick
+import QtQuick.Shapes
+import Quickshell.Widgets
+
+Item {
+    id: root
+    width: 90; height: 90
+    property bool active: true
+    Shape {
+        anchors.fill: parent
+        preferredRendererType: Shape.CurveRenderer
+        RotationAnimator on rotation { from: 0; to: 360; duration: 2000; loops: Animation.Infinite; running: root.active &amp;&amp; root.visible }
+        ShapePath {
+            fillColor: "transparent"; strokeWidth: 5; capStyle: ShapePath.RoundCap
+            strokeGradient: ConicalGradient {           // Qt 6.8+ (older: use strokeColor)
+                centerX: 45; centerY: 45; angle: 0
+                GradientStop { position: 0; color: "#cba6f7" }
+                GradientStop { position: 0.6; color: "#89b4fa" }
+                GradientStop { position: 1; color: "transparent" }
+            }
+            PathAngleArc { centerX: 45; centerY: 45; radiusX: 40; radiusY: 40; sweepAngle: 360 }
+        }
+    }
+    ClippingRectangle {
+        anchors.centerIn: parent; width: 66; height: 66; radius: 33; color: "#cba6f7"
+        Image { anchors.fill: parent; source: "file:///home/me/.face"; fillMode: Image.PreserveAspectCrop }
+    }
+}</code></pre></div>
+<div class="box note"><div class="bt">Note</div><p><code>strokeGradient</code> needs Qt 6.8+. On older Qt, use a solid <code>strokeColor</code> with a partial <code>sweepAngle</code> (e.g. 270°) for a similar spinning-arc look.</p></div>
+<p><strong>Use for:</strong> an avatar on the lock screen while authenticating, an "in a call" indicator, a story-style media button.</p>
+<h2 id="equalizer-bars-fake">Equalizer Bars (Fake)<a class="hlink" href="#equalizer-bars-fake">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="100" viewBox="0 0 200 100"><g fill="#a6e3a1"><rect x="74" y="30" width="8" rx="3" height="40"><animate attributeName="height" values="12;40;20;34;12" dur=".9s" repeatCount="indefinite"/><animate attributeName="y" values="58;30;50;36;58" dur=".9s" repeatCount="indefinite"/></rect><rect x="88" y="30" width="8" rx="3" height="40"><animate attributeName="height" values="36;14;40;18;36" dur=".8s" repeatCount="indefinite"/><animate attributeName="y" values="34;56;30;52;34" dur=".8s" repeatCount="indefinite"/></rect><rect x="102" y="30" width="8" rx="3" height="40"><animate attributeName="height" values="20;38;12;30;20" dur="1s" repeatCount="indefinite"/><animate attributeName="y" values="50;32;58;40;50" dur="1s" repeatCount="indefinite"/></rect><rect x="116" y="30" width="8" rx="3" height="40"><animate attributeName="height" values="30;16;36;10;30" dur=".85s" repeatCount="indefinite"/><animate attributeName="y" values="40;54;34;60;40" dur=".85s" repeatCount="indefinite"/></rect></g></svg></div>
+
+<p><strong>What it is.</strong> Small bars bouncing at different speeds to suggest "music is playing", with no audio analysis needed.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">Demo.qml</span><code>import QtQuick
+
+Row {
+    id: eq
+    property bool playing: true
+    spacing: 3
+    height: 18
+    Repeater {
+        model: 4
+        Rectangle {
+            id: bar
+            required property int index
+            width: 3; radius: 1.5; color: "#a6e3a1"
+            anchors.bottom: parent.bottom
+            height: 4
+            SequentialAnimation on height {
+                running: eq.playing &amp;&amp; eq.visible; loops: Animation.Infinite
+                NumberAnimation { to: 6 + (bar.index * 5) % 12; duration: 220 + bar.index * 60; easing.type: Easing.InOutSine }
+                NumberAnimation { to: 18 - (bar.index * 3) % 8; duration: 260 + bar.index * 40; easing.type: Easing.InOutSine }
+                NumberAnimation { to: 3; duration: 240; easing.type: Easing.InOutSine }
+                onRunningChanged: if (!running) bar.height = 3
+            }
+        }
+    }
+}</code></pre></div>
+<p>For real audio levels see the Visualizer in <a class="xref" href="../ch/g5-desktop.html">Gallery: Desktop Widgets</a> or <a class="api" href="../ref/PwNodePeakMonitor.html"><code>PwNodePeakMonitor</code></a>.</p>
+<p><strong>Use for:</strong> the media chip, the Dynamic Island in media mode, the active tab in a browser-like widget.</p></article><nav class="prevnext"><a class="pn-prev" href="../ch/a3-hover-press.html"><small>← Previous</small><span>Animations: Hover and Press Micro-interactions</span></a><a class="pn-next" href="../ch/a5-morphs.html"><small>Next →</small><span>Animations: Morphs, Indicators and Transitions</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#pulse">Pulse</a><a class="l2" href="#radar-ping-rings">Radar Ping Rings</a><a class="l2" href="#breathing-glow">Breathing Glow</a><a class="l2" href="#arc-spinner">Arc Spinner</a><a class="l2" href="#typing-dots">Typing Dots</a><a class="l2" href="#skeleton-shimmer">Skeleton Shimmer</a><a class="l2" href="#indeterminate-progress-bar">Indeterminate Progress Bar</a><a class="l2" href="#marquee-scrolling-text">Marquee (Scrolling Text)</a><a class="l2" href="#floating-bob">Floating Bob</a><a class="l2" href="#heartbeat">Heartbeat</a><a class="l2" href="#rotating-gradient-ring">Rotating Gradient Ring</a><a class="l2" href="#equalizer-bars-fake">Equalizer Bars (Fake)</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

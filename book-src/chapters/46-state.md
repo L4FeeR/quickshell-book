@@ -197,7 +197,28 @@ Singleton {
 
 [[IdleMonitor]] reports idleness after `timeout` seconds. An [[IdleInhibitor]] attached to a visible window (with `enabled: GlobalStates.caffeine`) prevents idling system-wide while enabled.
 
-> [!TRY] Exercises
-> 1. Implement `GlobalStates` with `open/toggle/closeAll`, and wire two panels so opening one closes the other.
-> 2. Add IPC and keybinds for both panels.
-> 3. Add a caffeine toggle in the bar that controls an `IdleInhibitor` and an `IdleMonitor`.
+## Practice
+
+::: exercise warm | Exclusive panels
+Implement `GlobalStates` with `open/toggle/closeAll`, and wire two panels so opening one closes the other.
+:::
+
+::: exercise practice | IPC + keybinds
+Add IPC and Hyprland keybinds for both panels.
+--- solution
+```ini
+bind = SUPER, A, exec, qs -c myshell ipc call shell toggle controlCenter
+bind = SUPER, Space, exec, qs -c myshell ipc call shell toggle launcher
+```
+:::
+
+::: exercise challenge | Caffeine
+Add a caffeine toggle in the bar that controls an `IdleInhibitor`.
+--- solution
+```qml
+IdleInhibitor { window: barWindow; enabled: GlobalStates.caffeine }
+Text { text: "coffee"; font.family: "Material Symbols Rounded"
+       color: GlobalStates.caffeine ? "#f9e2af" : "#6c7086"
+       TapHandler { onTapped: GlobalStates.caffeine = !GlobalStates.caffeine } }
+```
+:::

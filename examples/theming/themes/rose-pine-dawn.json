@@ -1,0 +1,42 @@
+{
+  "id": "rose-pine-dawn",
+  "name": "Rosé Pine Dawn",
+  "family": "Rosé Pine",
+  "variant": "light",
+  "author": "Rosé Pine",
+  "url": "https://rosepinetheme.com",
+  "palette": {
+    "base": "#faf4ed",
+    "surface": "#fffaf3",
+    "overlay": "#f2e9e1",
+    "muted": "#9893a5",
+    "subtle": "#797593",
+    "text": "#575279",
+    "love": "#b4637a",
+    "gold": "#ea9d34",
+    "rose": "#d7827e",
+    "pine": "#286983",
+    "foam": "#56949f",
+    "iris": "#907aa9",
+    "highlightMed": "#dfdad9"
+  },
+  "roles": {
+    "background": "base",
+    "surface": "surface",
+    "surfaceHigh": "overlay",
+    "border": "highlightMed",
+    "text": "text",
+    "textMuted": "subtle",
+    "textFaint": "muted",
+    "primary": "iris",
+    "onPrimary": "base",
+    "secondary": "rose",
+    "red": "love",
+    "orange": "rose",
+    "yellow": "gold",
+    "green": "pine",
+    "cyan": "foam",
+    "blue": "pine",
+    "magenta": "iris"
+  }
+}

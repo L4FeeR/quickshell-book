@@ -222,7 +222,24 @@ Tell the compositor where a window's dock icon is, so minimize animations fly to
 Component.onCompleted: app.appWindows.forEach(w => w.setRectangle(dock, dock.itemRect(icon)))
 ```
 
-> [!TRY] Exercises
-> 1. Add drag-to-reorder for pinned apps (save the order to Config).
-> 2. Add a separator between pinned and running-only apps.
-> 3. Hide the dock while any window on this screen is fullscreen (`windows.some(w => w.fullscreen)`).
+## Practice
+
+::: exercise warm | Separator
+Add a separator between pinned and running-only apps.
+--- hint
+The ricing guide's `DockModel` ([[ch:r7-dock]]) inserts a `separator` entry; do the same here.
+:::
+
+::: exercise practice | Hide on fullscreen
+Hide the dock while any window on this screen is fullscreen.
+--- solution
+```qml
+visible: !windows.some(w => w.fullscreen)
+```
+:::
+
+::: exercise challenge | Drag to reorder
+Add drag-to-reorder for pinned apps and save the order to Config.
+--- hint
+Use `DragHandler` + `DropArea` on each item, or a `ListView` with `move()`. On drop, rebuild the `pinned` array in the new order.
+:::

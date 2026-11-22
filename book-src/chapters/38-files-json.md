@@ -186,8 +186,45 @@ Remember the `var` rule: assign a new object to trigger saving.
 - **JSON without an adapter:** `JSON.parse(text())`.
 - **INI/TOML:** parse lines with regex, or convert with a CLI tool via Process.
 
-> [!TRY] Exercises
-> 1. Show your hostname from `/etc/hostname`.
-> 2. Write `Config.qml` with a `bar.height` option, delete the JSON file, and watch it get recreated with defaults.
-> 3. Edit `config.json` by hand while `qs` runs and watch the bar resize live.
-> 4. Add a Switch that toggles `Config.bar.showSeconds` and check that the file updates.
+## Practice
+
+::: exercise warm | Hostname
+Show your hostname from `/etc/hostname`.
+--- solution
+```qml
+FileView { id: host; path: "/etc/hostname"; blockLoading: true }
+Text { text: host.text().trim(); color: "white" }
+```
+:::
+
+::: exercise practice | Config with defaults
+Write `Config.qml` with a `bar.height` option. Delete the JSON file and watch it get recreated with defaults.
+--- solution
+```qml
+pragma Singleton
+import Quickshell
+import Quickshell.Io
+Singleton {
+    property alias bar: adapter.bar
+    FileView { path: Quickshell.shellPath("config.json"); watchChanges: true
+        onFileChanged: reload(); onAdapterUpdated: writeAdapter()
+        onLoadFailed: err => { if (err === FileViewError.FileNotFound) writeAdapter() }
+        JsonAdapter { id: adapter; property JsonObject bar: JsonObject { property int height: 38 } } } }
+```
+:::
+
+::: exercise practice | Live editing
+Edit `config.json` by hand while `qs` runs and watch the bar resize live.
+--- why
+`watchChanges: true` + `onFileChanged: reload()` re-reads the file on every save, and the adapter updates its properties, which updates every binding that uses them.
+:::
+
+::: exercise challenge | Save from the UI
+Add a `Switch` that toggles `Config.bar.showSeconds` and check that the file updates.
+--- solution
+Add `property bool showSeconds: false` to the `bar` JsonObject, then:
+```qml
+Switch { checked: Config.bar.showSeconds; onToggled: Config.bar.showSeconds = checked }
+```
+`onAdapterUpdated: writeAdapter()` saves the change to disk.
+:::

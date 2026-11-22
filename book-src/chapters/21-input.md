@@ -208,7 +208,44 @@ Clicks outside your window go to other apps, so your window never sees them. Opt
 - On Hyprland: [[HyprlandFocusGrab]] tells you when the user clicks outside a set of windows.
 - Anywhere: a fullscreen transparent [[PanelWindow]] behind the popup that closes it on click.
 
-> [!TRY] Exercises
-> 1. Make a button with hover, press and right-click behavior using handlers only.
-> 2. Make a slider-like bar you can scroll to change a value, normalized for touchpads.
-> 3. Make a fullscreen overlay window with `Exclusive` keyboard focus that shows the name of every key you press and closes on <kbd>Esc</kbd>.
+## Practice
+
+::: exercise warm | Handlers-only button
+Make a button with hover, press and right-click behavior using handlers only (no `MouseArea`).
+--- solution
+```qml
+Rectangle { width: 90; height: 32; radius: 8
+    color: tap.pressed ? "#585b70" : hov.hovered ? "#45475a" : "#313244"
+    HoverHandler { id: hov; cursorShape: Qt.PointingHandCursor }
+    TapHandler { id: tap; onTapped: console.log("left") }
+    TapHandler { acceptedButtons: Qt.RightButton; onTapped: console.log("right") } }
+```
+:::
+
+::: exercise practice | Scroll to change
+Make a bar you can scroll to change a value, normalized so touchpads don't jump.
+--- solution
+```qml
+WheelHandler {
+    onWheel: e => level = Math.max(0, Math.min(1, level + e.angleDelta.y / 120 * 0.05))
+}
+```
+Mouse wheels send steps of 120; touchpads send many small values. Dividing by 120 makes both feel the same.
+:::
+
+::: exercise challenge | Key viewer
+Make a fullscreen overlay with `Exclusive` keyboard focus that shows the name of every key you press and closes on <kbd>Esc</kbd>.
+--- solution
+```qml
+PanelWindow {
+    id: w
+    anchors { top: true; bottom: true; left: true; right: true }
+    color: "#cc000000"
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+    Text { id: shown; anchors.centerIn: parent; color: "white"; font.pixelSize: 48
+        focus: true
+        Keys.onPressed: e => { if (e.key === Qt.Key_Escape) w.visible = false; else shown.text = e.text || ("key " + e.key) } }
+}
+```
+:::

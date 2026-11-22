@@ -260,7 +260,24 @@ Video {
 
 Video decoding costs power; pause it when a window covers the screen (`ToplevelManager.toplevels.values.some(t => t.fullscreen || t.maximized)`).
 
-> [!TRY] Exercises
-> 1. Add a timer that changes to a random wallpaper every 30 minutes (toggleable).
-> 2. Add per-monitor wallpapers (store a map `{ screenName: path }`).
-> 3. Add a search box to filter by file name.
+## Practice
+
+::: exercise warm | Random rotation
+Add a toggleable timer that switches to a random wallpaper every 30 minutes.
+--- solution
+```qml
+Timer { interval: 30 * 60 * 1000; repeat: true; running: Config.wallpaper.rotate; onTriggered: Wallpaper.random() }
+```
+:::
+
+::: exercise practice | Search the picker
+Add a search box to filter wallpapers by file name.
+--- solution
+`model: Wallpaper.files.filter(f => f.toLowerCase().includes(search.text.toLowerCase()))`
+:::
+
+::: exercise challenge | Per-monitor wallpapers
+Store a map `{ screenName: path }` and give each monitor its own wallpaper.
+--- hint
+In the `Variants` delegate, use `Wallpaper.perScreen[modelData.name] ?? Wallpaper.current`.
+:::

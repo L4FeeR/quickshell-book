@@ -126,7 +126,23 @@ If Quickshell itself crashes, it writes a crash report and prints its location i
 - the crash report or log
 - a **minimal** `shell.qml` that reproduces it
 
-> [!TRY] Exercises
-> 1. Add a `debug` IPC target with a `dump()` function for your shell's main states.
-> 2. Run with `QSG_VISUALIZE=overdraw` and find your most overdrawn widget.
-> 3. Break a binding on purpose and find it using only logs.
+## Practice
+
+::: exercise warm | Debug dump
+Add a `debug` IPC target with a `dump(): string` function that returns your shell's main states as JSON.
+--- solution
+```qml
+IpcHandler { target: "debug"
+    function dump(): string { return JSON.stringify({ launcher: GlobalStates.launcherOpen, dnd: GlobalStates.dnd, theme: Theme.style }) } }
+```
+:::
+
+::: exercise practice | Overdraw
+Run with `QSG_VISUALIZE=overdraw` and find your most overdrawn widget.
+:::
+
+::: exercise challenge | Find a broken binding
+Break a binding on purpose (assign to a bound property in a handler) and find it using only logs.
+--- hint
+Add `onWidthChanged: console.log("width", width, new Error().stack)` to the suspect item.
+:::

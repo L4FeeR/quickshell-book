@@ -270,7 +270,24 @@ Item {
 > [!WILD] In the wild
 > Both end-4 and Caelestia render tray menus themselves with `QsMenuOpener` so they match the theme. Caelestia animates submenus sliding horizontally.
 
-> [!TRY] Exercises
-> 1. Add a chevron button that toggles `expanded` to hide passive icons.
-> 2. Animate submenu changes with a horizontal slide.
-> 3. Keep a list of "pinned" tray ids in Config and sort them first.
+## Practice
+
+::: exercise warm | Collapse passive icons
+Add a chevron button that toggles `expanded` to hide passive tray icons.
+--- solution
+Filter the model: `model: ScriptModel { values: SystemTray.items.values.filter(i => expanded || i.status !== Status.Passive) }`, and add a chevron `Text` whose tap toggles `expanded`.
+:::
+
+::: exercise practice | Slide submenus
+Animate submenu changes with a horizontal slide.
+--- hint
+Use a `StackView` (push/pop transitions) or animate `x` of the old and new menu columns in a `ParallelAnimation`.
+:::
+
+::: exercise challenge | Pinned ids
+Keep a list of pinned tray ids in Config and sort those first.
+--- solution
+```qml
+values: [...SystemTray.items.values].sort((a, b) => (Config.tray.pinned.includes(b.id) ? 1 : 0) - (Config.tray.pinned.includes(a.id) ? 1 : 0))
+```
+:::

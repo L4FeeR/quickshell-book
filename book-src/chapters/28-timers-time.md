@@ -165,7 +165,47 @@ Item {
 }
 ```
 
-> [!TRY] Exercises
-> 1. Replace the Timer-based clock from Chapter 4 with `SystemClock` (minutes precision).
-> 2. Show "Good morning / afternoon / evening" based on `clock.hours`.
-> 3. Make an OSD-style box that appears for 1.5 s each time you click a button, resetting the countdown on each click.
+## Practice
+
+::: exercise warm | SystemClock
+Replace a Timer-based clock with `SystemClock` (minutes precision).
+--- solution
+```qml
+SystemClock { id: clock; precision: SystemClock.Minutes }
+Text { text: Qt.formatTime(clock.date, "hh:mm"); color: "white" }
+```
+:::
+
+::: exercise practice | Greeting
+Show "Good morning / afternoon / evening" based on `clock.hours`.
+--- solution
+```qml
+Text { text: clock.hours < 12 ? "Good morning" : clock.hours < 18 ? "Good afternoon" : "Good evening" }
+```
+:::
+
+::: exercise practice | Auto-hiding box
+Make a box that appears for 1.5 s each time you click a button, restarting the countdown on every click.
+--- solution
+```qml
+Rectangle { id: osd; visible: false; width: 120; height: 40; color: "#1e1e2e" }
+Timer { id: hide; interval: 1500; onTriggered: osd.visible = false }
+Rectangle { y: 60; width: 80; height: 30; color: "#313244"
+    TapHandler { onTapped: { osd.visible = true; hide.restart() } } }
+```
+:::
+
+::: exercise challenge | Countdown
+Build a Pomodoro: click to start a 25-minute countdown shown as `mm:ss`; click again to pause.
+--- solution
+```qml
+Text {
+    id: pomo
+    property int left: 25 * 60
+    color: "white"; font.pixelSize: 24
+    text: String(Math.floor(left / 60)).padStart(2, "0") + ":" + String(left % 60).padStart(2, "0")
+    Timer { id: tick; interval: 1000; repeat: true; onTriggered: if (--pomo.left <= 0) { stop(); pomo.left = 25 * 60 } }
+    TapHandler { onTapped: tick.running = !tick.running }
+}
+```
+:::

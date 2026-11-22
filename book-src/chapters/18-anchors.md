@@ -133,7 +133,43 @@ PanelWindow {
 }
 ```
 
-> [!TRY] Exercises
-> 1. Build a bar with left, center and right groups using only anchors.
-> 2. Make a notification-like card: icon on the left, title and body to its right that elide at the card's right edge.
-> 3. Add a `property bool vertical` that switches a small indicator between the top-right and bottom-left corners of a rectangle, using conditional anchors.
+## Practice
+
+::: exercise warm | Three groups
+Build a bar with left, center and right groups using only anchors.
+--- solution
+```qml
+Row { anchors { left: parent.left; leftMargin: 8; verticalCenter: parent.verticalCenter }; Text { text: "left"; color: "white" } }
+Row { anchors.centerIn: parent; Text { text: "center"; color: "white" } }
+Row { anchors { right: parent.right; rightMargin: 8; verticalCenter: parent.verticalCenter }; Text { text: "right"; color: "white" } }
+```
+:::
+
+::: exercise practice | Notification card
+Make a card: icon on the left, title and body to its right, both eliding at the card's right edge.
+--- solution
+```qml
+Rectangle { width: 320; height: 70; radius: 12; color: "#1e1e2e"
+    Rectangle { id: icon; width: 40; height: 40; radius: 20; color: "#89b4fa"
+        anchors { left: parent.left; leftMargin: 12; verticalCenter: parent.verticalCenter } }
+    Text { id: title; text: "A long title that will not fit"; color: "white"; font.bold: true; elide: Text.ElideRight
+        anchors { left: icon.right; leftMargin: 10; right: parent.right; rightMargin: 12; top: icon.top } }
+    Text { text: "The body text also elides at the right edge of the card"; color: "#a6adc8"; elide: Text.ElideRight
+        anchors { left: title.left; right: title.right; top: title.bottom; topMargin: 2 } }
+}
+```
+:::
+
+::: exercise challenge | Conditional anchors
+Add `property bool flipped` that moves a small badge between the top-right and bottom-left corners of a rectangle.
+--- hint
+Assign `undefined` to the anchor you want to release.
+--- solution
+```qml
+Rectangle { width: 10; height: 10; radius: 5; color: "red"
+    anchors.top: flipped ? undefined : parent.top
+    anchors.right: flipped ? undefined : parent.right
+    anchors.bottom: flipped ? parent.bottom : undefined
+    anchors.left: flipped ? parent.left : undefined }
+```
+:::

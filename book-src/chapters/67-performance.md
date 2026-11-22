@@ -102,7 +102,18 @@ If a window is fully opaque, `surfaceFormat.opaque: true` lets the compositor sk
 | Overview open with live previews | GPU-bound, but no stutter |
 | RAM, full shell | 150–350 MB is typical for Qt Quick shells |
 
-> [!TRY] Exercises
-> 1. Measure your shell's idle CPU for a minute; find and fix the top offender.
-> 2. Make every infinite animation in your shell stop when invisible.
-> 3. Compare memory of your wallpaper picker with and without `sourceSize`.
+## Practice
+
+::: exercise warm | Measure idle CPU
+Measure your shell's idle CPU for a minute (`top -p $(pgrep -f "qs -c")`) and note the number.
+:::
+
+::: exercise practice | Stop hidden animations
+Make every infinite animation in your shell stop when invisible (`running: visible && …`).
+:::
+
+::: exercise challenge | sourceSize
+Compare the memory of your wallpaper picker with and without `sourceSize` on the thumbnails.
+--- why
+Without `sourceSize`, every thumbnail decodes at full size: a 4K image is ~33 MB in memory. With `sourceSize: Qt.size(320, 180)` it's ~0.2 MB.
+:::

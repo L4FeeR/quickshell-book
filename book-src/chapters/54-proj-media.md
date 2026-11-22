@@ -244,7 +244,29 @@ Rectangle { width: 6; height: 40 * peaks.peak; color: Colors.primary }
 > [!WILD] In the wild
 > Caelestia ships a C++ plugin for its visualizer and beat detection so it costs almost no CPU; end-4 uses cava through a Process for its media controls.
 
-> [!TRY] Exercises
-> 1. Add a volume slider bound to `player.volume` when `volumeSupported`.
-> 2. Show a list of all players and let the user pick one.
-> 3. Animate the cover art (scale + fade) on `trackChanged`.
+## Practice
+
+::: exercise warm | Volume slider
+Add a volume slider bound to `player.volume`, shown only when `volumeSupported`.
+--- solution
+```qml
+Slider { visible: player.volumeSupported; value: player.volume; onMoved: player.volume = value }
+```
+:::
+
+::: exercise practice | Player picker
+Show a list of all players and let the user pick one.
+--- hint
+`Repeater { model: Mpris.players }` and set `Media.manualPlayer = modelData` on tap.
+:::
+
+::: exercise challenge | Animate the cover
+Animate the cover art (scale + fade) when the track changes.
+--- solution
+```qml
+Connections { target: player; function onTrackChanged() { coverAnim.restart() } }
+ParallelAnimation { id: coverAnim
+    NumberAnimation { target: cover; property: "scale"; from: 0.85; to: 1; duration: 350; easing.type: Easing.OutBack }
+    NumberAnimation { target: cover; property: "opacity"; from: 0; to: 1; duration: 250 } }
+```
+:::

@@ -216,7 +216,18 @@ bind  = SUPER, Tab, global, quickshell:overview
 bindr = SUPER, SUPER_L, global, quickshell:overview
 ```
 
-> [!TRY] Exercises
-> 1. Arrow keys to move a selection between windows, Enter to focus.
-> 2. Add a search box that also lists matching apps (combine with the launcher).
-> 3. Show special workspaces (negative ids) in an extra row.
+## Practice
+
+::: exercise warm | Special workspaces
+Show special workspaces (negative ids) in an extra row.
+:::
+
+::: exercise practice | Keyboard selection
+Use the arrow keys to move a selection between windows and Enter to focus.
+--- hint
+Keep `property int sel` as an index into the flattened window list; draw a highlight border on `windows[sel]`.
+:::
+
+::: exercise challenge | Search apps too
+Add a search box that also lists matching apps (combine with the launcher's `Apps.search`).
+:::

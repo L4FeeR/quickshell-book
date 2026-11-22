@@ -356,3 +356,13 @@ TapHandler { onTapped: p => { ripple.x = p.position.x - 100; ripple.y = p.positi
 readonly property real motion: Config.appearance.reduceMotion ? 0 : 1
 readonly property int animNormal: 250 * motion
 ```
+
+## Practice
+
+::: exercise practice | Combine two recipes
+Pick two recipes from this chapter and combine them into one bar module (for example: the network speed recipe plus a tooltip recipe).
+:::
+
+::: exercise challenge | Write your own recipe
+Write a recipe in this chapter's format (problem, code, explanation) for something you needed in your own shell.
+:::

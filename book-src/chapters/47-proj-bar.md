@@ -332,7 +332,41 @@ Add `Bar {}` to `shell.qml` and you have a complete bar.
 - **Island bar:** three separate `StyledRect`s (left, center, right) instead of one background.
 - **Auto-hide:** a 2 px trigger strip plus `exclusiveZone` animation, as the dock does in [[ch:59-proj-dock]].
 
-> [!TRY] Exercises
-> 1. Add a CPU/RAM chip using the `SystemUsage` service from [[ch:37-processes]].
-> 2. Add a keyboard-layout indicator (Hyprland `activelayout` event).
-> 3. Add hover tooltips to the status icons ([[ch:32-popups-menus]]).
+## Practice
+
+These exercises extend the bar you just built. Solutions show the key parts; fit them into your own files.
+
+::: exercise warm | CPU/RAM chip
+Add a CPU/RAM chip using the `SystemUsage` service from [[ch:37-processes]].
+--- solution
+```qml
+Row { spacing: 6
+    Text { text: "memory"; font.family: "Material Symbols Rounded"; color: Colors.primary }
+    Text { text: Math.round(SystemUsage.cpu * 100) + "% · " + Math.round(SystemUsage.ram * 100) + "%"; color: Colors.onSurface } }
+```
+Put it in the right-hand `RowLayout` next to the status icons.
+:::
+
+::: exercise practice | Keyboard layout
+Add a keyboard-layout indicator from Hyprland's `activelayout` event.
+--- hint
+`Connections { target: Hyprland; function onRawEvent(e) { … } }`; the layout name is the last comma-separated part of `e.data`.
+--- solution
+```qml
+Text {
+    id: kb; color: Colors.onSurface; text: "US"
+    Connections { target: Hyprland
+        function onRawEvent(e) { if (e.name === "activelayout") kb.text = e.data.split(",").pop().slice(0, 2).toUpperCase() } }
+}
+```
+:::
+
+::: exercise practice | Tooltips
+Add hover tooltips to the status icons using the `Tooltip.qml` from [[ch:32-popups-menus]].
+:::
+
+::: exercise challenge | Auto-hide
+Make the bar slide away when `GlobalStates.barHidden` is true, and reveal it when the mouse touches the top edge.
+--- hint
+Keep the window but move its content with `y` and a `Behavior`; set `exclusiveZone: barHidden ? 0 : height`; use a 2 px `mask` region when hidden so the top edge still catches the mouse.
+:::

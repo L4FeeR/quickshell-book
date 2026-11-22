@@ -1,0 +1,1433 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery: Dynamic Islands, Popups and OSDs · The Quickshell Book</title>
+<meta name="description" content="Gallery: Dynamic Islands, Popups and OSDs">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details open><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch active" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-g">Part G: Widget Gallery</a> › Gallery: Dynamic Islands, Popups and OSDs</div><article><div class="ch-head"><div class="ch-part">Part G · Widget Gallery</div><h1><span class="ch-num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</h1></div><p>Floating elements that appear, morph and disappear: the Dynamic Island, toasts, on-screen displays, cheatsheets. These are their own windows, so put them directly inside <code>ShellRoot { }</code>, not inside the bar.</p>
+<h2 id="dynamic-island">Dynamic Island<a class="hlink" href="#dynamic-island">#</a></h2>
+<div class="preview"><svg style="width:min(100%,690px)" width="460" height="150" viewBox="0 0 460 150"><rect x="0" y="0" width="460" height="6" fill="#11111b"/><rect rx="21" fill="#000"><animate attributeName="width" values="120;120;300;300;400;400;120" keyTimes="0;.12;.2;.45;.52;.85;1" dur="8s" repeatCount="indefinite" calcMode="spline" keySplines=".3 1.3 .4 1;.3 1.3 .4 1;.3 1.3 .4 1;.3 1.3 .4 1;.3 1.3 .4 1;.3 1.3 .4 1"/><animate attributeName="x" values="170;170;80;80;30;30;170" keyTimes="0;.12;.2;.45;.52;.85;1" dur="8s" repeatCount="indefinite" calcMode="spline" keySplines=".3 1.3 .4 1;.3 1.3 .4 1;.3 1.3 .4 1;.3 1.3 .4 1;.3 1.3 .4 1;.3 1.3 .4 1"/><animate attributeName="height" values="32;32;40;40;120;120;32" keyTimes="0;.12;.2;.45;.52;.85;1" dur="8s" repeatCount="indefinite" calcMode="spline" keySplines=".3 1.3 .4 1;.3 1.3 .4 1;.3 1.3 .4 1;.3 1.3 .4 1;.3 1.3 .4 1;.3 1.3 .4 1"/><animate attributeName="y" values="10;10;10;10;10;10;10" dur="8s" repeatCount="indefinite"/></rect><g><animate attributeName="opacity" values="1;1;0;0;0;0;1" keyTimes="0;.12;.15;.5;.85;.95;1" dur="8s" repeatCount="indefinite"/><text x="230" y="31" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">14:32</text></g><g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.18;.22;.44;.47;1" dur="8s" repeatCount="indefinite"/><rect x="92" y="16" width="28" height="28" rx="8" fill="#cba6f7"/><text x="130" y="35" fill="#fff" font-size="12">Midnight City · M83</text><g fill="#a6e3a1"><rect x="330" y="22" width="3" height="16" rx="1.5"><animate attributeName="height" values="6;16;9;14;6" dur="0.9s" repeatCount="indefinite"/></rect><rect x="336" y="22" width="3" height="16" rx="1.5"><animate attributeName="height" values="14;6;16;8;14" dur="0.9s" repeatCount="indefinite"/></rect><rect x="342" y="22" width="3" height="16" rx="1.5"><animate attributeName="height" values="9;15;6;16;9" dur="0.9s" repeatCount="indefinite"/></rect><rect x="348" y="22" width="3" height="16" rx="1.5"><animate attributeName="height" values="16;8;13;6;16" dur="0.9s" repeatCount="indefinite"/></rect></g></g><g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.53;.57;.83;.86;1" dur="8s" repeatCount="indefinite"/><rect x="48" y="26" width="80" height="80" rx="14" fill="#cba6f7"/><text x="144" y="46" fill="#fff" font-size="15" font-weight="700">Midnight City</text><text x="144" y="64" fill="#a6adc8" font-size="12">M83 · Hurry Up, We're Dreaming</text><rect x="144" y="78" width="250" height="4" rx="2" fill="#45475a"/><rect x="144" y="78" width="110" height="4" rx="2" fill="#fff"/><text x="200" y="104" fill="#fff" font-size="16">⏮</text><text x="240" y="104" fill="#fff" font-size="16">⏸</text><text x="280" y="104" fill="#fff" font-size="16">⏭</text></g></svg></div>
+
+<p><strong>What it is.</strong> An iPhone-style black pill at the top center of the screen. It shows the time when idle, grows into a strip with album art and moving bars while music plays, briefly widens with the volume level when you change it, pops out notifications, and expands into full media controls when you click it. Every change is a spring-like morph.</p>
+<p><strong>Kind:</strong> its own window · <strong>Needs:</strong> PipeWire, MPRIS (optional: your notification service)</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/popups/DynamicIsland.qml</span><code>import Quickshell
+import Quickshell.Wayland
+import Quickshell.Widgets
+import Quickshell.Services.Mpris
+import Quickshell.Services.Pipewire
+import QtQuick
+import QtQuick.Layouts
+
+Scope {
+    id: root
+
+    // ---------- state ----------
+    readonly property MprisPlayer player: Mpris.players.values.find(p =&gt; p.isPlaying) ?? null
+    readonly property PwNode sink: Pipewire.defaultAudioSink
+    PwObjectTracker { objects: [root.sink] }
+
+    property bool expanded: false          // clicked open
+    property string flash: ""              // "volume" or "notify": temporary states
+    property string notifyTitle: ""
+    property string notifyBody: ""
+    function showFlash(kind: string): void { flash = kind; flashTimer.restart() }
+    Timer { id: flashTimer; interval: 2000; onTriggered: root.flash = "" }
+
+    // volume changes → flash the volume state (ignore the first value at startup)
+    property bool armed: false
+    Timer { interval: 1500; running: true; onTriggered: root.armed = true }
+    Connections {
+        target: root.sink?.audio ?? null
+        function onVolumeChanged() { if (root.armed) root.showFlash("volume") }
+        function onMutedChanged() { if (root.armed) root.showFlash("volume") }
+    }
+    // call this from your notification service: island.notify(n.summary, n.body)
+    function notify(title: string, body: string): void { notifyTitle = title; notifyBody = body; showFlash("notify") }
+
+    // which mode wins right now
+    readonly property string mode: expanded &amp;&amp; player ? "expanded"
+                                 : flash === "notify" ? "notify"
+                                 : flash === "volume" ? "volume"
+                                 : player ? "media" : "idle"
+    readonly property size targetSize: ({
+        idle:     Qt.size(120, 32),
+        media:    Qt.size(300, 40),
+        volume:   Qt.size(260, 40),
+        notify:   Qt.size(380, 72),
+        expanded: Qt.size(400, 140)
+    })[mode]
+
+    PanelWindow {
+        id: win
+        anchors.top: true
+        margins.top: 6
+        implicitWidth: 420
+        implicitHeight: 160
+        exclusionMode: ExclusionMode.Ignore
+        color: "transparent"
+        WlrLayershell.layer: WlrLayer.Overlay
+        WlrLayershell.namespace: "quickshell:island"
+        mask: Region { item: island }                 // only the pill itself catches clicks
+
+        Rectangle {
+            id: island
+            anchors.horizontalCenter: parent.horizontalCenter
+            y: 0
+            width: root.targetSize.width
+            height: root.targetSize.height
+            radius: Math.min(height / 2, 28)
+            color: "#000000"
+            clip: true
+            // springy morph between sizes
+            Behavior on width  { SpringAnimation { spring: 4; damping: 0.32; epsilon: 0.5 } }
+            Behavior on height { SpringAnimation { spring: 4; damping: 0.32; epsilon: 0.5 } }
+
+            TapHandler { onTapped: root.expanded = !root.expanded }
+
+            // ---- idle: clock ----
+            SystemClock { id: clock; precision: SystemClock.Minutes }
+            Text {
+                anchors.centerIn: parent
+                opacity: root.mode === "idle" ? 1 : 0
+                Behavior on opacity { NumberAnimation { duration: 150 } }
+                text: Qt.formatDateTime(clock.date, "hh:mm")
+                color: "white"; font.pixelSize: 13; font.bold: true
+            }
+
+            // ---- media strip ----
+            RowLayout {
+                anchors { fill: parent; leftMargin: 6; rightMargin: 14 }
+                opacity: root.mode === "media" ? 1 : 0
+                visible: opacity &gt; 0
+                Behavior on opacity { NumberAnimation { duration: 180 } }
+                spacing: 10
+                ClippingRectangle {
+                    implicitWidth: 28; implicitHeight: 28; radius: 8; color: "#313244"
+                    Image { anchors.fill: parent; source: root.player?.trackArtUrl ?? ""; fillMode: Image.PreserveAspectCrop; sourceSize: Qt.size(56, 56) }
+                }
+                Text {
+                    Layout.fillWidth: true
+                    text: (root.player?.trackTitle ?? "") + (root.player?.trackArtist ? " · " + root.player.trackArtist : "")
+                    color: "white"; font.pixelSize: 12; elide: Text.ElideRight
+                }
+                Row {                                          // fake equalizer bars
+                    spacing: 3
+                    Repeater {
+                        model: 4
+                        Rectangle {
+                            required property int index
+                            width: 3; radius: 1.5; color: "#a6e3a1"
+                            anchors.bottom: parent.bottom
+                            height: 6
+                            SequentialAnimation on height {
+                                running: root.mode === "media"; loops: Animation.Infinite
+                                NumberAnimation { to: 6 + (index % 2 ? 10 : 6); duration: 280 + index * 70 }
+                                NumberAnimation { to: 5; duration: 260 + index * 50 }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // ---- volume flash ----
+            RowLayout {
+                anchors { fill: parent; leftMargin: 16; rightMargin: 16 }
+                opacity: root.mode === "volume" ? 1 : 0
+                visible: opacity &gt; 0
+                Behavior on opacity { NumberAnimation { duration: 150 } }
+                spacing: 10
+                Text {
+                    text: root.sink?.audio?.muted ? "volume_off" : "volume_up"
+                    font.family: "Material Symbols Rounded"; font.pixelSize: 18; color: "white"
+                }
+                Rectangle {
+                    Layout.fillWidth: true; implicitHeight: 6; radius: 3; color: "#45475a"
+                    Rectangle {
+                        width: parent.width * Math.min(1, root.sink?.audio?.muted ? 0 : (root.sink?.audio?.volume ?? 0))
+                        height: parent.height; radius: 3; color: "white"
+                        Behavior on width { NumberAnimation { duration: 120 } }
+                    }
+                }
+            }
+
+            // ---- notification ----
+            ColumnLayout {
+                anchors { fill: parent; margins: 14 }
+                opacity: root.mode === "notify" ? 1 : 0
+                visible: opacity &gt; 0
+                Behavior on opacity { NumberAnimation { duration: 180 } }
+                spacing: 2
+                Text { text: root.notifyTitle; color: "white"; font.bold: true; font.pixelSize: 13; elide: Text.ElideRight; Layout.fillWidth: true }
+                Text { text: root.notifyBody; color: "#a6adc8"; font.pixelSize: 12; elide: Text.ElideRight; Layout.fillWidth: true }
+            }
+
+            // ---- expanded media controls ----
+            RowLayout {
+                anchors { fill: parent; margins: 16 }
+                opacity: root.mode === "expanded" ? 1 : 0
+                visible: opacity &gt; 0
+                Behavior on opacity { NumberAnimation { duration: 200 } }
+                spacing: 14
+                ClippingRectangle {
+                    implicitWidth: 100; implicitHeight: 100; radius: 16; color: "#313244"
+                    Image { anchors.fill: parent; source: root.player?.trackArtUrl ?? ""; fillMode: Image.PreserveAspectCrop; sourceSize: Qt.size(200, 200) }
+                }
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    spacing: 4
+                    Text { text: root.player?.trackTitle ?? ""; color: "white"; font.bold: true; font.pixelSize: 15; elide: Text.ElideRight; Layout.fillWidth: true }
+                    Text { text: root.player?.trackArtist ?? ""; color: "#a6adc8"; font.pixelSize: 12; elide: Text.ElideRight; Layout.fillWidth: true }
+                    Rectangle {                                  // progress
+                        Layout.fillWidth: true; implicitHeight: 4; radius: 2; color: "#45475a"
+                        Rectangle {
+                            width: parent.width * ((root.player?.position ?? 0) / Math.max(1, root.player?.length ?? 1))
+                            height: parent.height; radius: 2; color: "white"
+                        }
+                    }
+                    RowLayout {
+                        Layout.alignment: Qt.AlignHCenter
+                        spacing: 22
+                        Repeater {
+                            model: [{ i: "skip_previous", f: () =&gt; root.player.previous() },
+                                    { i: root.player?.isPlaying ? "pause" : "play_arrow", f: () =&gt; root.player.togglePlaying() },
+                                    { i: "skip_next", f: () =&gt; root.player.next() }]
+                            Text {
+                                required property var modelData
+                                text: modelData.i
+                                font.family: "Material Symbols Rounded"; font.pixelSize: 26; color: "white"
+                                TapHandler { onTapped: parent.modelData.f() }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // keep the progress bar moving while expanded
+    Timer { running: root.mode === "expanded" &amp;&amp; (root.player?.isPlaying ?? false); interval: 1000; repeat: true
+            onTriggered: root.player.positionChanged() }
+}</code></pre></div>
+<p>Add to your shell: <code>DynamicIsland { id: island }</code>. From your notification service, call <code>island.notify(n.summary, n.body)</code>.</p>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="walk-intro"><p>This is the biggest widget in the gallery, but it's built from one simple idea: <strong>one black shape, one <code>mode</code> string, and content that fades in for each mode.</strong></p></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 1–7</span><b>Imports</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>import Quickshell
+import Quickshell.Wayland
+import Quickshell.Widgets
+import Quickshell.Services.Mpris
+import Quickshell.Services.Pipewire
+import QtQuick
+import QtQuick.Layouts</code></pre></div><div class="seg-e"><p>Media comes from <code>Quickshell.Services.Mpris</code> (players like Spotify and browsers), volume from Pipewire, and <a class="api" href="../ref/ClippingRectangle.html"><code>ClippingRectangle</code></a> from <code>Quickshell.Widgets</code> for rounded album art.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 9–15</span><b>Data sources</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Scope {
+    id: root
+
+    // ---------- state ----------
+    readonly property MprisPlayer player: Mpris.players.values.find(p =&gt; p.isPlaying) ?? null
+    readonly property PwNode sink: Pipewire.defaultAudioSink
+    PwObjectTracker { objects: [root.sink] }</code></pre></div><div class="seg-e"><p>A <code>Scope</code> is an invisible container for non-visual things and windows. <code>player</code> is the first player that is currently playing (or <code>null</code>). <code>sink</code> is the default audio output, tracked so its volume is readable.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 17–22</span><b>Temporary states</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool expanded: false          // clicked open
+property string flash: ""              // "volume" or "notify": temporary states
+property string notifyTitle: ""
+property string notifyBody: ""
+function showFlash(kind: string): void { flash = kind; flashTimer.restart() }
+Timer { id: flashTimer; interval: 2000; onTriggered: root.flash = "" }</code></pre></div><div class="seg-e"><p><code>expanded</code> is the click-to-open state. <code>flash</code> holds a temporary mode ("volume" or "notify") that should disappear by itself. <code>showFlash()</code> sets it and restarts a 2-second timer; the timer clears it. Restarting means a second volume change while the first flash is showing extends it instead of cutting it short.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 24–31</span><b>React to volume changes</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// volume changes → flash the volume state (ignore the first value at startup)
+property bool armed: false
+Timer { interval: 1500; running: true; onTriggered: root.armed = true }
+Connections {
+    target: root.sink?.audio ?? null
+    function onVolumeChanged() { if (root.armed) root.showFlash("volume") }
+    function onMutedChanged() { if (root.armed) root.showFlash("volume") }
+}</code></pre></div><div class="seg-e"><p><code>Connections</code> listens to signals of the sink's audio object. The <code>armed</code> flag ignores changes during the first 1.5 seconds, because PipeWire reports the initial volume at startup and we don't want a flash then.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 32–33</span><b>An API for notifications</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// call this from your notification service: island.notify(n.summary, n.body)
+function notify(title: string, body: string): void { notifyTitle = title; notifyBody = body; showFlash("notify") }</code></pre></div><div class="seg-e"><p>A public function your notification service can call: <code>island.notify(n.summary, n.body)</code>. The island doesn't need to know where notifications come from.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 35–39</span><b>Choosing the mode</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// which mode wins right now
+readonly property string mode: expanded &amp;&amp; player ? "expanded"
+                             : flash === "notify" ? "notify"
+                             : flash === "volume" ? "volume"
+                             : player ? "media" : "idle"</code></pre></div><div class="seg-e"><p>A chain of conditions with clear <strong>priorities</strong>: expanded beats a notification, which beats a volume flash, which beats media, which beats idle. Everything else in the widget just reads <code>mode</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 40–46</span><b>Size per mode</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property size targetSize: ({
+    idle:     Qt.size(120, 32),
+    media:    Qt.size(300, 40),
+    volume:   Qt.size(260, 40),
+    notify:   Qt.size(380, 72),
+    expanded: Qt.size(400, 140)
+})[mode]</code></pre></div><div class="seg-e"><p>An object maps each mode to a size, and <code>[mode]</code> picks the current one. Want a bigger notification? Change one number here.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 48–58</span><b>The window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    id: win
+    anchors.top: true
+    margins.top: 6
+    implicitWidth: 420
+    implicitHeight: 160
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.namespace: "quickshell:island"
+    mask: Region { item: island }                 // only the pill itself catches clicks</code></pre></div><div class="seg-e"><p>The window is fixed at 420×160 (the biggest the island gets) and centered at the top. It doesn't push windows (<code>ExclusionMode.Ignore</code>) and lives on the <code>Overlay</code> layer above everything. <code>mask: Region { item: island }</code> is essential: only the black pill catches clicks; the transparent rest of the window lets clicks through to your apps.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 60–71</span><b>The morphing shape</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: island
+    anchors.horizontalCenter: parent.horizontalCenter
+    y: 0
+    width: root.targetSize.width
+    height: root.targetSize.height
+    radius: Math.min(height / 2, 28)
+    color: "#000000"
+    clip: true
+    // springy morph between sizes
+    Behavior on width  { SpringAnimation { spring: 4; damping: 0.32; epsilon: 0.5 } }
+    Behavior on height { SpringAnimation { spring: 4; damping: 0.32; epsilon: 0.5 } }</code></pre></div><div class="seg-e"><p>Width and height come from <code>targetSize</code>. <code>radius: Math.min(height / 2, 28)</code> keeps a pill shape when small and caps the roundness when tall. <code>clip: true</code> hides content outside the shape while it's still growing. <code>SpringAnimation</code> (instead of a normal easing) simulates a spring: <code>spring</code> is stiffness, <code>damping</code> how fast it calms down. Low damping (0.32) gives the slight wobble that makes it feel physical.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 73</span><b>Click to expand</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TapHandler { onTapped: root.expanded = !root.expanded }</code></pre></div><div class="seg-e"><p>Toggling <code>expanded</code> changes <code>mode</code> (only if something is playing), which changes the size and content.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 75–83</span><b>Idle content</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ---- idle: clock ----
+SystemClock { id: clock; precision: SystemClock.Minutes }
+Text {
+    anchors.centerIn: parent
+    opacity: root.mode === "idle" ? 1 : 0
+    Behavior on opacity { NumberAnimation { duration: 150 } }
+    text: Qt.formatDateTime(clock.date, "hh:mm")
+    color: "white"; font.pixelSize: 13; font.bold: true
+}</code></pre></div><div class="seg-e"><p>A clock that is visible only in idle mode. Every content block follows this pattern: <code>opacity: mode === "x" ? 1 : 0</code> with a short <code>Behavior</code>, so modes crossfade.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 85–91</span><b>Media strip container</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ---- media strip ----
+RowLayout {
+    anchors { fill: parent; leftMargin: 6; rightMargin: 14 }
+    opacity: root.mode === "media" ? 1 : 0
+    visible: opacity &gt; 0
+    Behavior on opacity { NumberAnimation { duration: 180 } }
+    spacing: 10</code></pre></div><div class="seg-e"><p>Same pattern, plus <code>visible: opacity &gt; 0</code>: fully faded blocks become invisible, so they don't catch clicks or cost rendering time.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 92–100</span><b>Art and title</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ClippingRectangle {
+    implicitWidth: 28; implicitHeight: 28; radius: 8; color: "#313244"
+    Image { anchors.fill: parent; source: root.player?.trackArtUrl ?? ""; fillMode: Image.PreserveAspectCrop; sourceSize: Qt.size(56, 56) }
+}
+Text {
+    Layout.fillWidth: true
+    text: (root.player?.trackTitle ?? "") + (root.player?.trackArtist ? " · " + root.player.trackArtist : "")
+    color: "white"; font.pixelSize: 12; elide: Text.ElideRight
+}</code></pre></div><div class="seg-e"><p>Small rounded art, then title · artist, eliding when long.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 101–117</span><b>Fake equalizer</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Row {                                          // fake equalizer bars
+    spacing: 3
+    Repeater {
+        model: 4
+        Rectangle {
+            required property int index
+            width: 3; radius: 1.5; color: "#a6e3a1"
+            anchors.bottom: parent.bottom
+            height: 6
+            SequentialAnimation on height {
+                running: root.mode === "media"; loops: Animation.Infinite
+                NumberAnimation { to: 6 + (index % 2 ? 10 : 6); duration: 280 + index * 70 }
+                NumberAnimation { to: 5; duration: 260 + index * 50 }
+            }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>Four thin bars whose heights loop up and down. Each bar uses slightly different durations (<code>280 + index * 70</code>), so they drift out of sync and look random. They run only in media mode.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 120–139</span><b>Volume flash</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ---- volume flash ----
+RowLayout {
+    anchors { fill: parent; leftMargin: 16; rightMargin: 16 }
+    opacity: root.mode === "volume" ? 1 : 0
+    visible: opacity &gt; 0
+    Behavior on opacity { NumberAnimation { duration: 150 } }
+    spacing: 10
+    Text {
+        text: root.sink?.audio?.muted ? "volume_off" : "volume_up"
+        font.family: "Material Symbols Rounded"; font.pixelSize: 18; color: "white"
+    }
+    Rectangle {
+        Layout.fillWidth: true; implicitHeight: 6; radius: 3; color: "#45475a"
+        Rectangle {
+            width: parent.width * Math.min(1, root.sink?.audio?.muted ? 0 : (root.sink?.audio?.volume ?? 0))
+            height: parent.height; radius: 3; color: "white"
+            Behavior on width { NumberAnimation { duration: 120 } }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>An icon and a bar showing the current volume, the same as a small OSD.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 141–150</span><b>Notification</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ---- notification ----
+ColumnLayout {
+    anchors { fill: parent; margins: 14 }
+    opacity: root.mode === "notify" ? 1 : 0
+    visible: opacity &gt; 0
+    Behavior on opacity { NumberAnimation { duration: 180 } }
+    spacing: 2
+    Text { text: root.notifyTitle; color: "white"; font.bold: true; font.pixelSize: 13; elide: Text.ElideRight; Layout.fillWidth: true }
+    Text { text: root.notifyBody; color: "#a6adc8"; font.pixelSize: 12; elide: Text.ElideRight; Layout.fillWidth: true }
+}</code></pre></div><div class="seg-e"><p>Title in bold, body dimmer, both eliding.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 152–191</span><b>Expanded controls</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ---- expanded media controls ----
+RowLayout {
+    anchors { fill: parent; margins: 16 }
+    opacity: root.mode === "expanded" ? 1 : 0
+    visible: opacity &gt; 0
+    Behavior on opacity { NumberAnimation { duration: 200 } }
+    spacing: 14
+    ClippingRectangle {
+        implicitWidth: 100; implicitHeight: 100; radius: 16; color: "#313244"
+        Image { anchors.fill: parent; source: root.player?.trackArtUrl ?? ""; fillMode: Image.PreserveAspectCrop; sourceSize: Qt.size(200, 200) }
+    }
+    ColumnLayout {
+        Layout.fillWidth: true
+        spacing: 4
+        Text { text: root.player?.trackTitle ?? ""; color: "white"; font.bold: true; font.pixelSize: 15; elide: Text.ElideRight; Layout.fillWidth: true }
+        Text { text: root.player?.trackArtist ?? ""; color: "#a6adc8"; font.pixelSize: 12; elide: Text.ElideRight; Layout.fillWidth: true }
+        Rectangle {                                  // progress
+            Layout.fillWidth: true; implicitHeight: 4; radius: 2; color: "#45475a"
+            Rectangle {
+                width: parent.width * ((root.player?.position ?? 0) / Math.max(1, root.player?.length ?? 1))
+                height: parent.height; radius: 2; color: "white"
+            }
+        }
+        RowLayout {
+            Layout.alignment: Qt.AlignHCenter
+            spacing: 22
+            Repeater {
+                model: [{ i: "skip_previous", f: () =&gt; root.player.previous() },
+                        { i: root.player?.isPlaying ? "pause" : "play_arrow", f: () =&gt; root.player.togglePlaying() },
+                        { i: "skip_next", f: () =&gt; root.player.next() }]
+                Text {
+                    required property var modelData
+                    text: modelData.i
+                    font.family: "Material Symbols Rounded"; font.pixelSize: 26; color: "white"
+                    TapHandler { onTapped: parent.modelData.f() }
+                }
+            }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>Large art, title, artist, a progress bar, and three buttons. The buttons come from a <code>Repeater</code> over a list of <code>{ i: icon, f: function }</code> objects, so each button's action is stored next to its icon; <code>modelData.f()</code> calls it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 194–196</span><b>Keeping progress live</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// keep the progress bar moving while expanded
+Timer { running: root.mode === "expanded" &amp;&amp; (root.player?.isPlaying ?? false); interval: 1000; repeat: true
+        onTriggered: root.player.positionChanged() }</code></pre></div><div class="seg-e"><p>MPRIS doesn't push position updates continuously. While expanded and playing, this timer emits <code>positionChanged()</code> every second, which makes the progress binding re-read <code>position</code>.</p></div></div></div>
+<p><strong>Customize</strong>
+- Put it at the bottom: <code>anchors.bottom: true</code> and anchor the island to the bottom.
+- Add more modes: charging (green bolt when <code>UPower.onBattery</code> turns false), screen recording timer, Caps Lock.
+- Swap the fake equalizer for real levels with <a class="api" href="../ref/PwNodePeakMonitor.html"><code>PwNodePeakMonitor</code></a>.
+- Hover to peek: <code>HoverHandler</code> that switches to a slightly larger <code>"peek"</code> size.</p>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Challenge</span><b>Charging mode</b></div><div class="ex-b"><p>Add a <code>"charging"</code> mode: when you plug in your laptop, flash a green bolt with the battery percentage for 2 seconds.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Listen to <code>UPower.onBatteryChanged</code>, call <code>showFlash("charging")</code>, add it to the <code>mode</code> chain and <code>targetSize</code>, and add a content block with the same opacity pattern.</p></div></details></div>
+<h2 id="expanding-media-pill">Expanding Media Pill<a class="hlink" href="#expanding-media-pill">#</a></h2>
+<div class="preview"><svg style="width:min(100%,570px)" width="380" height="70" viewBox="0 0 380 70"><rect y="17" height="36" rx="18" fill="#313244"><animate attributeName="width" values="150;340;340;150;150" keyTimes="0;.2;.65;.85;1" dur="6s" repeatCount="indefinite"/><animate attributeName="x" values="115;20;20;115;115" keyTimes="0;.2;.65;.85;1" dur="6s" repeatCount="indefinite"/></rect><circle cx="139" cy="35" r="13" fill="#cba6f7"><animate attributeName="cx" values="139;44;44;139;139" keyTimes="0;.2;.65;.85;1" dur="6s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="rotate" values="0 139 35;360 139 35" dur="4s" repeatCount="indefinite"/></circle><text x="160" y="40" fill="#cdd6f4" font-size="12">Midnight City<animate attributeName="x" values="160;66;66;160;160" keyTimes="0;.2;.65;.85;1" dur="6s" repeatCount="indefinite"/></text><g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.18;.25;.62;.66;1" dur="6s" repeatCount="indefinite"/><text x="250" y="40" fill="#cdd6f4" font-size="14">⏮  ⏸  ⏭</text></g></svg></div>
+
+<p><strong>What it is.</strong> A small pill with a spinning album-art disc and the song title; hover and it expands to reveal previous/play/next controls.</p>
+<p><strong>Kind:</strong> bar module · <strong>Needs:</strong> MPRIS</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/bar/MediaPill.qml</span><code>import Quickshell.Services.Mpris
+import Quickshell.Widgets
+import QtQuick
+import QtQuick.Layouts
+
+Rectangle {
+    id: root
+    readonly property MprisPlayer p: Mpris.players.values.find(pl =&gt; pl.isPlaying) ?? Mpris.players.values[0] ?? null
+    readonly property bool open: hover.hovered
+    visible: p !== null
+
+    implicitWidth: row.implicitWidth + 16
+    implicitHeight: 28
+    radius: height / 2
+    color: "#313244"
+    clip: true
+    Behavior on implicitWidth { NumberAnimation { duration: 300; easing.type: Easing.OutCubic } }
+
+    RowLayout {
+        id: row
+        anchors { left: parent.left; leftMargin: 4; verticalCenter: parent.verticalCenter }
+        spacing: 8
+        ClippingRectangle {                                     // spinning disc
+            implicitWidth: 22; implicitHeight: 22; radius: 11; color: "#cba6f7"
+            Image { anchors.fill: parent; source: root.p?.trackArtUrl ?? ""; fillMode: Image.PreserveAspectCrop; sourceSize: Qt.size(44, 44) }
+            RotationAnimation on rotation { running: root.p?.isPlaying ?? false; from: 0; to: 360; duration: 6000; loops: Animation.Infinite }
+        }
+        Text {
+            text: root.p?.trackTitle ?? ""
+            color: "#cdd6f4"; font.pixelSize: 12
+            elide: Text.ElideRight
+            Layout.maximumWidth: root.open ? 220 : 120
+        }
+        Repeater {
+            model: root.open ? [["skip_previous", () =&gt; root.p.previous()],
+                                [root.p?.isPlaying ? "pause" : "play_arrow", () =&gt; root.p.togglePlaying()],
+                                ["skip_next", () =&gt; root.p.next()]] : []
+            Text {
+                required property var modelData
+                text: modelData[0]
+                font.family: "Material Symbols Rounded"; font.pixelSize: 18; color: "#cdd6f4"
+                TapHandler { onTapped: parent.modelData[1]() }
+            }
+        }
+        Item { implicitWidth: 4 }
+    }
+    HoverHandler { id: hover }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 6–10</span><b>Which player?</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: root
+    readonly property MprisPlayer p: Mpris.players.values.find(pl =&gt; pl.isPlaying) ?? Mpris.players.values[0] ?? null
+    readonly property bool open: hover.hovered
+    visible: p !== null</code></pre></div><div class="seg-e"><p>Prefer a player that is playing; otherwise the first player; otherwise <code>null</code>. The pill hides when no player exists.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 12–17</span><b>Growing pill</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>implicitWidth: row.implicitWidth + 16
+implicitHeight: 28
+radius: height / 2
+color: "#313244"
+clip: true
+Behavior on implicitWidth { NumberAnimation { duration: 300; easing.type: Easing.OutCubic } }</code></pre></div><div class="seg-e"><p>The pill sizes itself from its row, and <code>Behavior on implicitWidth</code> animates every size change. <code>clip: true</code> hides controls while the pill is still too small.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 19–22</span><b>Left-anchored row</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    id: row
+    anchors { left: parent.left; leftMargin: 4; verticalCenter: parent.verticalCenter }
+    spacing: 8</code></pre></div><div class="seg-e"><p>The row is anchored to the <strong>left</strong>, so the pill grows to the right and the disc stays put.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 23–27</span><b>Spinning disc</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ClippingRectangle {                                     // spinning disc
+    implicitWidth: 22; implicitHeight: 22; radius: 11; color: "#cba6f7"
+    Image { anchors.fill: parent; source: root.p?.trackArtUrl ?? ""; fillMode: Image.PreserveAspectCrop; sourceSize: Qt.size(44, 44) }
+    RotationAnimation on rotation { running: root.p?.isPlaying ?? false; from: 0; to: 360; duration: 6000; loops: Animation.Infinite }
+}</code></pre></div><div class="seg-e"><p>Round album art (radius = half the size) that rotates once every 6 seconds while playing, like a record. When paused, the animation stops where it is.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 28–33</span><b>Title with a growing limit</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    text: root.p?.trackTitle ?? ""
+    color: "#cdd6f4"; font.pixelSize: 12
+    elide: Text.ElideRight
+    Layout.maximumWidth: root.open ? 220 : 120
+}</code></pre></div><div class="seg-e"><p><code>Layout.maximumWidth</code> allows 120 px normally and 220 px when open, so hovering reveals more of the title.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 34–44</span><b>Controls appear on hover</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Repeater {
+    model: root.open ? [["skip_previous", () =&gt; root.p.previous()],
+                        [root.p?.isPlaying ? "pause" : "play_arrow", () =&gt; root.p.togglePlaying()],
+                        ["skip_next", () =&gt; root.p.next()]] : []
+    Text {
+        required property var modelData
+        text: modelData[0]
+        font.family: "Material Symbols Rounded"; font.pixelSize: 18; color: "#cdd6f4"
+        TapHandler { onTapped: parent.modelData[1]() }
+    }
+}</code></pre></div><div class="seg-e"><p>The trick: when not hovered, the Repeater's model is an empty array, so no buttons exist. On hover the model gets three entries, three buttons are created, the row grows, and the pill animates to fit. Each entry pairs an icon with a function.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Scroll to skip</b></div><div class="ex-b"><p>Scroll up/down over the pill to go to the next/previous track.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><div class="codewrap"><pre class="code" data-lang="qml"><code>WheelHandler { onWheel: e =&gt; e.angleDelta.y &lt; 0 ? root.p.next() : root.p.previous() }</code></pre></div></div></details></div>
+<h2 id="toast-notification">Toast Notification<a class="hlink" href="#toast-notification">#</a></h2>
+<div class="preview"><svg style="width:min(100%,570px)" width="380" height="110" viewBox="0 0 380 110"><g><animateTransform attributeName="transform" type="translate" values="0 -70;0 0;0 0;0 -70;0 -70" keyTimes="0;.12;.7;.82;1" dur="5s" repeatCount="indefinite"/><rect x="60" y="20" width="260" height="56" rx="16" fill="#1e1e2e" stroke="#45475a"/><circle cx="88" cy="48" r="14" fill="#a6e3a1"/><path d="M81 48l5 5 9-10" stroke="#1e1e2e" stroke-width="3" fill="none"/><text x="112" y="44" fill="#cdd6f4" font-size="13" font-weight="700">Screenshot saved</text><text x="112" y="62" fill="#a6adc8" font-size="11">Copied to clipboard</text></g></svg></div>
+
+<p><strong>What it is.</strong> A small message that slides down from the top, stays 2.5 seconds, and slides away. Trigger it from anywhere: other widgets, IPC, scripts.</p>
+<p><strong>Kind:</strong> its own window · <strong>Needs:</strong> nothing extra</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/popups/Toast.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import QtQuick
+import QtQuick.Layouts
+
+Scope {
+    id: root
+    property string title: ""
+    property string body: ""
+    property string icon: "check_circle"
+    property color tint: "#a6e3a1"
+    property bool shown: false
+
+    function show(t: string, b: string, i: string, c: color): void {
+        title = t; body = b; icon = i || "info"; tint = c
+        shown = true
+        hideTimer.restart()
+    }
+    Timer { id: hideTimer; interval: 2500; onTriggered: root.shown = false }
+
+    IpcHandler {
+        target: "toast"
+        function show(title: string, body: string): void { root.show(title, body, "info", "#89b4fa") }
+        function ok(title: string, body: string): void { root.show(title, body, "check_circle", "#a6e3a1") }
+        function error(title: string, body: string): void { root.show(title, body, "error", "#f38ba8") }
+    }
+
+    PanelWindow {
+        anchors.top: true
+        implicitWidth: 340
+        implicitHeight: 100
+        exclusionMode: ExclusionMode.Ignore
+        color: "transparent"
+        visible: root.shown || slide.running
+        mask: Region { item: card }
+        WlrLayershell.layer: WlrLayer.Overlay
+        WlrLayershell.namespace: "quickshell:toast"
+
+        Rectangle {
+            id: card
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: 320; height: 60; radius: 18
+            y: root.shown ? 12 : -height - 10
+            Behavior on y { NumberAnimation { id: slide; duration: 350; easing.type: Easing.OutBack; easing.overshoot: 1.2 } }
+            color: "#1e1e2e"; border.color: "#45475a"
+
+            RowLayout {
+                anchors { fill: parent; leftMargin: 14; rightMargin: 14 }
+                spacing: 12
+                Text { text: root.icon; font.family: "Material Symbols Rounded"; font.pixelSize: 28; color: root.tint
+                       font.variableAxes: ({ "FILL": 1 }) }
+                ColumnLayout {
+                    Layout.fillWidth: true; spacing: 0
+                    Text { text: root.title; color: "#cdd6f4"; font.bold: true; font.pixelSize: 13; elide: Text.ElideRight; Layout.fillWidth: true }
+                    Text { text: root.body; visible: text; color: "#a6adc8"; font.pixelSize: 11; elide: Text.ElideRight; Layout.fillWidth: true }
+                }
+            }
+            TapHandler { onTapped: root.shown = false }
+        }
+    }
+}</code></pre></div>
+<div class="codewrap"><pre class="code" data-lang="sh"><code>qs -c gallery ipc call toast ok "Screenshot saved" "Copied to clipboard"</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 7–13</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Scope {
+    id: root
+    property string title: ""
+    property string body: ""
+    property string icon: "check_circle"
+    property color tint: "#a6e3a1"
+    property bool shown: false</code></pre></div><div class="seg-e"><p>What to show (title, body, icon, color) and whether it's on screen.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–20</span><b>Showing</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function show(t: string, b: string, i: string, c: color): void {
+    title = t; body = b; icon = i || "info"; tint = c
+    shown = true
+    hideTimer.restart()
+}
+Timer { id: hideTimer; interval: 2500; onTriggered: root.shown = false }</code></pre></div><div class="seg-e"><p><code>show()</code> fills in the content, sets <code>shown</code>, and restarts a 2.5-second hide timer. Calling it again while visible replaces the content and extends the time.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 22–27</span><b>IPC entry points</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>IpcHandler {
+    target: "toast"
+    function show(title: string, body: string): void { root.show(title, body, "info", "#89b4fa") }
+    function ok(title: string, body: string): void { root.show(title, body, "check_circle", "#a6e3a1") }
+    function error(title: string, body: string): void { root.show(title, body, "error", "#f38ba8") }
+}</code></pre></div><div class="seg-e"><p>Three variants for scripts and keybinds: neutral <code>show</code>, green <code>ok</code>, red <code>error</code>. <code>qs ipc call toast ok "Saved"</code> from a terminal calls <code>ok()</code> here.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 29–38</span><b>The window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    anchors.top: true
+    implicitWidth: 340
+    implicitHeight: 100
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    visible: root.shown || slide.running
+    mask: Region { item: card }
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.namespace: "quickshell:toast"</code></pre></div><div class="seg-e"><p>A 340×100 transparent window at the top. <code>visible: root.shown || slide.running</code> keeps it alive while the card slides <strong>out</strong>; without it, the window would vanish instantly and you'd never see the exit animation.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 40–46</span><b>Slide in from above</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: card
+    anchors.horizontalCenter: parent.horizontalCenter
+    width: 320; height: 60; radius: 18
+    y: root.shown ? 12 : -height - 10
+    Behavior on y { NumberAnimation { id: slide; duration: 350; easing.type: Easing.OutBack; easing.overshoot: 1.2 } }
+    color: "#1e1e2e"; border.color: "#45475a"</code></pre></div><div class="seg-e"><p>The card's <code>y</code> is 12 when shown and above the window (<code>-height - 10</code>) when hidden. <code>OutBack</code> with a little overshoot makes it drop in and settle. <code>id: slide</code> names the animation so the window can check <code>slide.running</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 48–58</span><b>Content</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    anchors { fill: parent; leftMargin: 14; rightMargin: 14 }
+    spacing: 12
+    Text { text: root.icon; font.family: "Material Symbols Rounded"; font.pixelSize: 28; color: root.tint
+           font.variableAxes: ({ "FILL": 1 }) }
+    ColumnLayout {
+        Layout.fillWidth: true; spacing: 0
+        Text { text: root.title; color: "#cdd6f4"; font.bold: true; font.pixelSize: 13; elide: Text.ElideRight; Layout.fillWidth: true }
+        Text { text: root.body; visible: text; color: "#a6adc8"; font.pixelSize: 11; elide: Text.ElideRight; Layout.fillWidth: true }
+    }
+}</code></pre></div><div class="seg-e"><p>A filled icon in the toast's color, then title and optional body (<code>visible: text</code> hides an empty body, and the card stays compact).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 59</span><b>Click to dismiss</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TapHandler { onTapped: root.shown = false }</code></pre></div><div class="seg-e"><p>Users can tap it away early.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>Screenshot toast</b></div><div class="ex-b"><p>Write a Hyprland keybind that takes a screenshot with <code>grim</code> and shows an <code>ok</code> toast afterwards.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><div class="codewrap"><pre class="code" data-lang="ini"><code>bind = , Print, exec, grim ~/Pictures/shot.png &amp;&amp; qs -c myshell ipc call toast ok "Screenshot saved" "~/Pictures/shot.png"</code></pre></div></div></details></div>
+<h2 id="vertical-volume-osd">Vertical Volume OSD<a class="hlink" href="#vertical-volume-osd">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="200" viewBox="0 0 200 200"><rect x="80" y="20" width="44" height="160" rx="22" fill="#1e1e2e" stroke="#313244"/><rect x="86" width="32" rx="16" fill="#cba6f7"><animate attributeName="height" values="60;120;90;60" dur="4s" repeatCount="indefinite"/><animate attributeName="y" values="114;54;84;114" dur="4s" repeatCount="indefinite"/></rect><path d="M96 158h5l6-5v14l-6-5h-5z" fill="#1e1e2e"/></svg></div>
+
+<p><strong>What it is.</strong> A tall pill on the right edge that fills like a glass when volume or brightness changes, then fades away.</p>
+<p><strong>Kind:</strong> its own window · <strong>Needs:</strong> PipeWire</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/popups/VerticalOsd.qml</span><code>import Quickshell
+import Quickshell.Wayland
+import Quickshell.Services.Pipewire
+import QtQuick
+
+Scope {
+    id: root
+    readonly property PwNode sink: Pipewire.defaultAudioSink
+    readonly property real value: sink?.audio?.muted ? 0 : Math.min(1, sink?.audio?.volume ?? 0)
+    property bool shown: false
+    property bool armed: false
+
+    PwObjectTracker { objects: [root.sink] }
+    Timer { interval: 1500; running: true; onTriggered: root.armed = true }
+    Timer { id: hide; interval: 1500; onTriggered: root.shown = false }
+    Connections {
+        target: root.sink?.audio ?? null
+        function onVolumeChanged() { if (root.armed) { root.shown = true; hide.restart() } }
+        function onMutedChanged() { if (root.armed) { root.shown = true; hide.restart() } }
+    }
+
+    PanelWindow {
+        anchors.right: true
+        margins.right: 16
+        implicitWidth: 60; implicitHeight: 220
+        exclusionMode: ExclusionMode.Ignore
+        color: "transparent"
+        mask: Region {}
+        visible: root.shown || fade.running
+        WlrLayershell.layer: WlrLayer.Overlay
+
+        Rectangle {
+            anchors.centerIn: parent
+            width: 44; height: 200; radius: 22
+            color: "#1e1e2e"; border.color: "#313244"
+            opacity: root.shown ? 1 : 0
+            x: root.shown ? 0 : 20
+            Behavior on opacity { NumberAnimation { id: fade; duration: 200 } }
+
+            Rectangle {                                   // the fill, growing from the bottom
+                anchors { bottom: parent.bottom; horizontalCenter: parent.horizontalCenter; bottomMargin: 6 }
+                width: 32; radius: 16
+                height: Math.max(width, (parent.height - 12) * root.value)
+                color: root.sink?.audio?.muted ? "#585b70" : "#cba6f7"
+                Behavior on height { NumberAnimation { duration: 150; easing.type: Easing.OutCubic } }
+            }
+            Text {
+                anchors { bottom: parent.bottom; horizontalCenter: parent.horizontalCenter; bottomMargin: 12 }
+                text: root.sink?.audio?.muted ? "volume_off" : "volume_up"
+                font.family: "Material Symbols Rounded"; font.pixelSize: 18
+                color: "#1e1e2e"
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 8–11</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property PwNode sink: Pipewire.defaultAudioSink
+readonly property real value: sink?.audio?.muted ? 0 : Math.min(1, sink?.audio?.volume ?? 0)
+property bool shown: false
+property bool armed: false</code></pre></div><div class="seg-e"><p><code>value</code> is the displayed level: 0 when muted, capped at 1. <code>shown</code> controls visibility; <code>armed</code> blocks the startup flash.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–20</span><b>Triggering</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PwObjectTracker { objects: [root.sink] }
+Timer { interval: 1500; running: true; onTriggered: root.armed = true }
+Timer { id: hide; interval: 1500; onTriggered: root.shown = false }
+Connections {
+    target: root.sink?.audio ?? null
+    function onVolumeChanged() { if (root.armed) { root.shown = true; hide.restart() } }
+    function onMutedChanged() { if (root.armed) { root.shown = true; hide.restart() } }
+}</code></pre></div><div class="seg-e"><p>The tracker makes volume readable. Two timers: one arms the OSD after startup, the other hides it 1.5 s after the last change. Both volume and mute changes show it and restart the hide timer.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 22–30</span><b>Window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    anchors.right: true
+    margins.right: 16
+    implicitWidth: 60; implicitHeight: 220
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    mask: Region {}
+    visible: root.shown || fade.running
+    WlrLayershell.layer: WlrLayer.Overlay</code></pre></div><div class="seg-e"><p>Anchored only to the right edge, so it's vertically centered there. <code>mask: Region {}</code> is an <strong>empty</strong> region: the window never catches clicks. It stays mapped while fading out.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 32–38</span><b>Card with fade</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    anchors.centerIn: parent
+    width: 44; height: 200; radius: 22
+    color: "#1e1e2e"; border.color: "#313244"
+    opacity: root.shown ? 1 : 0
+    x: root.shown ? 0 : 20
+    Behavior on opacity { NumberAnimation { id: fade; duration: 200 } }</code></pre></div><div class="seg-e"><p>A tall pill that fades in and out.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 40–46</span><b>Fill from the bottom</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {                                   // the fill, growing from the bottom
+    anchors { bottom: parent.bottom; horizontalCenter: parent.horizontalCenter; bottomMargin: 6 }
+    width: 32; radius: 16
+    height: Math.max(width, (parent.height - 12) * root.value)
+    color: root.sink?.audio?.muted ? "#585b70" : "#cba6f7"
+    Behavior on height { NumberAnimation { duration: 150; easing.type: Easing.OutCubic } }
+}</code></pre></div><div class="seg-e"><p>Anchoring to <code>bottom</code> makes the fill grow upward as its height increases. <code>Math.max(width, …)</code> keeps it at least a circle so it never looks like a broken sliver at low volume.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 47–52</span><b>Icon inside the fill</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    anchors { bottom: parent.bottom; horizontalCenter: parent.horizontalCenter; bottomMargin: 12 }
+    text: root.sink?.audio?.muted ? "volume_off" : "volume_up"
+    font.family: "Material Symbols Rounded"; font.pixelSize: 18
+    color: "#1e1e2e"
+}</code></pre></div><div class="seg-e"><p>The icon sits at the bottom inside the fill, in a dark color so it reads on the accent.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Practice</span><b>Slide in</b></div><div class="ex-b"><p>The card has <code>x: root.shown ? 0 : 20</code> but no animation on it. Add a <code>Behavior on x</code> so it slides in from the right while fading.</p></div></div>
+<h2 id="circular-osd">Circular OSD<a class="hlink" href="#circular-osd">#</a></h2>
+<div class="preview"><svg style="width:min(100%,300px)" width="200" height="150" viewBox="0 0 200 150"><circle cx="100" cy="75" r="56" fill="#1e1e2e"/><circle cx="100" cy="75" r="44" fill="none" stroke="#313244" stroke-width="8"/><circle cx="100" cy="75" r="44" fill="none" stroke="#f9e2af" stroke-width="8" stroke-linecap="round" transform="rotate(-90 100 75)" stroke-dasharray="180 277"><animate attributeName="stroke-dasharray" values="80 277;230 277;80 277" dur="4s" repeatCount="indefinite"/></circle><text x="100" y="72" fill="#f9e2af" font-size="20" text-anchor="middle">☀</text><text x="100" y="94" fill="#cdd6f4" font-size="13" font-weight="700" text-anchor="middle">65</text></svg></div>
+
+<p><strong>What it is.</strong> A round gauge in the middle-bottom of the screen for brightness (or volume): a ring that fills around an icon and a number.</p>
+<p><strong>Kind:</strong> its own window · <strong>Needs:</strong> <code>brightnessctl</code> for keys; reads sysfs</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/popups/CircularOsd.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import QtQuick
+import QtQuick.Shapes
+
+Scope {
+    id: root
+    property string dev: "intel_backlight"          // ls /sys/class/backlight
+    property real max: 1
+    property real cur: 0
+    readonly property real value: cur / max
+    property bool shown: false
+    property bool armed: false
+
+    FileView { path: `/sys/class/backlight/${root.dev}/max_brightness`; onLoaded: root.max = parseInt(text()) }
+    FileView {
+        path: `/sys/class/backlight/${root.dev}/brightness`
+        watchChanges: true
+        onFileChanged: reload()
+        onLoaded: { root.cur = parseInt(text()); if (root.armed) { root.shown = true; hide.restart() } }
+    }
+    Timer { interval: 1500; running: true; onTriggered: root.armed = true }
+    Timer { id: hide; interval: 1400; onTriggered: root.shown = false }
+
+    PanelWindow {
+        anchors.bottom: true
+        margins.bottom: 100
+        implicitWidth: 140; implicitHeight: 140
+        exclusionMode: ExclusionMode.Ignore
+        color: "transparent"
+        mask: Region {}
+        visible: root.shown || pop.running
+        WlrLayershell.layer: WlrLayer.Overlay
+
+        Item {
+            anchors.fill: parent
+            scale: root.shown ? 1 : 0.6
+            opacity: root.shown ? 1 : 0
+            Behavior on scale { NumberAnimation { id: pop; duration: 250; easing.type: Easing.OutBack } }
+            Behavior on opacity { NumberAnimation { duration: 200 } }
+
+            Rectangle { anchors.fill: parent; radius: width / 2; color: "#1e1e2e" }
+            Shape {
+                anchors.fill: parent
+                preferredRendererType: Shape.CurveRenderer
+                ShapePath {
+                    fillColor: "transparent"; strokeColor: "#313244"; strokeWidth: 10
+                    PathAngleArc { centerX: 70; centerY: 70; radiusX: 52; radiusY: 52; sweepAngle: 360 }
+                }
+                ShapePath {
+                    fillColor: "transparent"; strokeColor: "#f9e2af"; strokeWidth: 10; capStyle: ShapePath.RoundCap
+                    PathAngleArc { centerX: 70; centerY: 70; radiusX: 52; radiusY: 52; startAngle: -90; sweepAngle: 360 * root.value }
+                }
+            }
+            Column {
+                anchors.centerIn: parent
+                Text { anchors.horizontalCenter: parent.horizontalCenter; text: "light_mode"; font.family: "Material Symbols Rounded"
+                       font.pixelSize: 28; color: "#f9e2af" }
+                Text { anchors.horizontalCenter: parent.horizontalCenter; text: Math.round(root.value * 100); color: "#cdd6f4"
+                       font.pixelSize: 16; font.bold: true }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 9–14</span><b>Backlight state</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property string dev: "intel_backlight"          // ls /sys/class/backlight
+property real max: 1
+property real cur: 0
+readonly property real value: cur / max
+property bool shown: false
+property bool armed: false</code></pre></div><div class="seg-e"><p><code>dev</code> is the backlight device name (check <code>ls /sys/class/backlight</code>). <code>max</code> and <code>cur</code> come from sysfs; <code>value</code> is their ratio.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 16</span><b>Maximum brightness</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FileView { path: `/sys/class/backlight/${root.dev}/max_brightness`; onLoaded: root.max = parseInt(text()) }</code></pre></div><div class="seg-e"><p>Read once. Template strings (backticks with <code>${}</code>) build the path from <code>dev</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 17–22</span><b>Watching the brightness file</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FileView {
+    path: `/sys/class/backlight/${root.dev}/brightness`
+    watchChanges: true
+    onFileChanged: reload()
+    onLoaded: { root.cur = parseInt(text()); if (root.armed) { root.shown = true; hide.restart() } }
+}</code></pre></div><div class="seg-e"><p><code>watchChanges: true</code> asks the kernel to notify us when the file changes; <code>onFileChanged: reload()</code> re-reads it; <code>onLoaded</code> updates <code>cur</code> and shows the OSD. This catches <strong>every</strong> brightness change: your keys, a script, or auto-brightness, without polling.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 26–34</span><b>Window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    anchors.bottom: true
+    margins.bottom: 100
+    implicitWidth: 140; implicitHeight: 140
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    mask: Region {}
+    visible: root.shown || pop.running
+    WlrLayershell.layer: WlrLayer.Overlay</code></pre></div><div class="seg-e"><p>Bottom-center, click-through, mapped while the pop animation runs.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 36–42</span><b>Pop in</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Item {
+    anchors.fill: parent
+    scale: root.shown ? 1 : 0.6
+    opacity: root.shown ? 1 : 0
+    Behavior on scale { NumberAnimation { id: pop; duration: 250; easing.type: Easing.OutBack } }
+    Behavior on opacity { NumberAnimation { duration: 200 } }
+</code></pre></div><div class="seg-e"><p>The content scales from 0.6 to 1 with <code>OutBack</code> (a small overshoot) while fading in.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 43–55</span><b>Ring</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle { anchors.fill: parent; radius: width / 2; color: "#1e1e2e" }
+Shape {
+    anchors.fill: parent
+    preferredRendererType: Shape.CurveRenderer
+    ShapePath {
+        fillColor: "transparent"; strokeColor: "#313244"; strokeWidth: 10
+        PathAngleArc { centerX: 70; centerY: 70; radiusX: 52; radiusY: 52; sweepAngle: 360 }
+    }
+    ShapePath {
+        fillColor: "transparent"; strokeColor: "#f9e2af"; strokeWidth: 10; capStyle: ShapePath.RoundCap
+        PathAngleArc { centerX: 70; centerY: 70; radiusX: 52; radiusY: 52; startAngle: -90; sweepAngle: 360 * root.value }
+    }
+}</code></pre></div><div class="seg-e"><p>A dark circle, a gray full ring as the track, and a yellow arc from the top whose sweep is <code>360 * value</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 56–62</span><b>Center</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Column {
+    anchors.centerIn: parent
+    Text { anchors.horizontalCenter: parent.horizontalCenter; text: "light_mode"; font.family: "Material Symbols Rounded"
+           font.pixelSize: 28; color: "#f9e2af" }
+    Text { anchors.horizontalCenter: parent.horizontalCenter; text: Math.round(root.value * 100); color: "#cdd6f4"
+           font.pixelSize: 16; font.bold: true }
+}</code></pre></div><div class="seg-e"><p>A sun icon and the percentage.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 5</span><span class="ex-lvl">Practice</span><b>Find the device</b></div><div class="ex-b"><p>Detect the backlight device automatically with a <code>Process</code> running <code>ls /sys/class/backlight | head -1</code>.</p></div></div>
+<h2 id="charging-animation-popup">Charging Animation Popup<a class="hlink" href="#charging-animation-popup">#</a></h2>
+<div class="preview"><svg style="width:min(100%,360px)" width="240" height="140" viewBox="0 0 240 140"><rect x="40" y="20" width="160" height="100" rx="24" fill="#1e1e2e"/><rect x="80" y="45" width="70" height="36" rx="8" fill="none" stroke="#a6e3a1" stroke-width="3"/><rect x="150" y="56" width="6" height="14" rx="2" fill="#a6e3a1"/><rect x="85" y="50" height="26" rx="4" fill="#a6e3a1"><animate attributeName="width" values="10;60;10" dur="2.5s" repeatCount="indefinite"/></rect><path d="M118 52l-8 12h7l-3 10 9-13h-7z" fill="#1e1e2e"/><text x="120" y="104" fill="#cdd6f4" font-size="13" font-weight="700" text-anchor="middle">Charging · 64%</text></svg></div>
+
+<p><strong>What it is.</strong> When you plug in the charger, a card with a filling battery animation pops up for two seconds, like on phones.</p>
+<p><strong>Kind:</strong> its own window · <strong>Needs:</strong> UPower</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/popups/ChargingPopup.qml</span><code>import Quickshell
+import Quickshell.Wayland
+import Quickshell.Services.UPower
+import QtQuick
+
+Scope {
+    id: root
+    property bool shown: false
+    property bool lastOnBattery: UPower.onBattery
+
+    Connections {
+        target: UPower
+        function onOnBatteryChanged() {
+            if (root.lastOnBattery &amp;&amp; !UPower.onBattery) { root.shown = true; hide.restart() }   // just plugged in
+            root.lastOnBattery = UPower.onBattery
+        }
+    }
+    Timer { id: hide; interval: 2200; onTriggered: root.shown = false }
+
+    PanelWindow {
+        implicitWidth: 220; implicitHeight: 150
+        exclusionMode: ExclusionMode.Ignore
+        color: "transparent"
+        mask: Region {}
+        visible: root.shown || anim.running
+        WlrLayershell.layer: WlrLayer.Overlay
+
+        Rectangle {
+            anchors.centerIn: parent
+            width: 180; height: 120; radius: 28; color: "#1e1e2e"
+            scale: root.shown ? 1 : 0.8
+            opacity: root.shown ? 1 : 0
+            Behavior on scale { NumberAnimation { id: anim; duration: 300; easing.type: Easing.OutBack } }
+            Behavior on opacity { NumberAnimation { duration: 200 } }
+
+            Rectangle {                                         // battery outline
+                id: shell
+                x: 50; y: 26; width: 74; height: 38; radius: 9
+                color: "transparent"; border.color: "#a6e3a1"; border.width: 3
+                Rectangle { x: parent.width; anchors.verticalCenter: parent.verticalCenter; width: 6; height: 14; radius: 2; color: "#a6e3a1" }
+                Rectangle {                                     // animated fill
+                    x: 5; y: 5; height: parent.height - 10; radius: 4; color: "#a6e3a1"
+                    width: 10
+                    SequentialAnimation on width {
+                        running: root.shown; loops: Animation.Infinite
+                        NumberAnimation { from: 6; to: (shell.width - 10) * UPower.displayDevice.percentage; duration: 1100; easing.type: Easing.OutCubic }
+                        PauseAnimation { duration: 300 }
+                    }
+                }
+                Text { anchors.centerIn: parent; text: "bolt"; font.family: "Material Symbols Rounded"; font.pixelSize: 22
+                       font.variableAxes: ({ "FILL": 1 }); color: "#1e1e2e" }
+            }
+            Text {
+                anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom; bottomMargin: 16 }
+                text: "Charging · " + Math.round(UPower.displayDevice.percentage * 100) + "%"
+                color: "#cdd6f4"; font.pixelSize: 13; font.bold: true
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 8–17</span><b>Detecting "plugged in"</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool shown: false
+property bool lastOnBattery: UPower.onBattery
+
+Connections {
+    target: UPower
+    function onOnBatteryChanged() {
+        if (root.lastOnBattery &amp;&amp; !UPower.onBattery) { root.shown = true; hide.restart() }   // just plugged in
+        root.lastOnBattery = UPower.onBattery
+    }
+}</code></pre></div><div class="seg-e"><p><code>UPower.onBattery</code> is true on battery, false on AC. Comparing with the previous value tells us the <strong>direction</strong> of the change: we only show the popup when it goes from battery to AC, not when unplugging.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 18</span><b>Auto-hide</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Timer { id: hide; interval: 2200; onTriggered: root.shown = false }</code></pre></div><div class="seg-e"><p>2.2 seconds is long enough to see one fill animation.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 20–26</span><b>Window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    implicitWidth: 220; implicitHeight: 150
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    mask: Region {}
+    visible: root.shown || anim.running
+    WlrLayershell.layer: WlrLayer.Overlay</code></pre></div><div class="seg-e"><p>With no anchors, a layer-shell window is centered on screen. Click-through.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 28–34</span><b>Card animation</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    anchors.centerIn: parent
+    width: 180; height: 120; radius: 28; color: "#1e1e2e"
+    scale: root.shown ? 1 : 0.8
+    opacity: root.shown ? 1 : 0
+    Behavior on scale { NumberAnimation { id: anim; duration: 300; easing.type: Easing.OutBack } }
+    Behavior on opacity { NumberAnimation { duration: 200 } }</code></pre></div><div class="seg-e"><p>Scales and fades in with a small bounce.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 36–40</span><b>Battery outline</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {                                         // battery outline
+    id: shell
+    x: 50; y: 26; width: 74; height: 38; radius: 9
+    color: "transparent"; border.color: "#a6e3a1"; border.width: 3
+    Rectangle { x: parent.width; anchors.verticalCenter: parent.verticalCenter; width: 6; height: 14; radius: 2; color: "#a6e3a1" }</code></pre></div><div class="seg-e"><p>A bordered rounded rectangle plus a small "tip" on the right, drawn as a second rectangle positioned at <code>x: parent.width</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 41–49</span><b>Filling animation</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {                                     // animated fill
+    x: 5; y: 5; height: parent.height - 10; radius: 4; color: "#a6e3a1"
+    width: 10
+    SequentialAnimation on width {
+        running: root.shown; loops: Animation.Infinite
+        NumberAnimation { from: 6; to: (shell.width - 10) * UPower.displayDevice.percentage; duration: 1100; easing.type: Easing.OutCubic }
+        PauseAnimation { duration: 300 }
+    }
+}</code></pre></div><div class="seg-e"><p>The inner rectangle's width loops from almost empty up to the current charge level, pauses, and repeats: a "charging" motion that stops at the real percentage.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 50–57</span><b>Bolt and label</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>    Text { anchors.centerIn: parent; text: "bolt"; font.family: "Material Symbols Rounded"; font.pixelSize: 22
+           font.variableAxes: ({ "FILL": 1 }); color: "#1e1e2e" }
+}
+Text {
+    anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom; bottomMargin: 16 }
+    text: "Charging · " + Math.round(UPower.displayDevice.percentage * 100) + "%"
+    color: "#cdd6f4"; font.pixelSize: 13; font.bold: true
+}</code></pre></div><div class="seg-e"><p>A filled bolt icon over the battery, and the percentage below.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 6</span><span class="ex-lvl">Practice</span><b>Unplugged popup</b></div><div class="ex-b"><p>Show a different, gray popup when you <strong>unplug</strong> the charger.</p></div></div>
+<h2 id="hold-to-show-keybind-cheatsheet">Hold-to-Show Keybind Cheatsheet<a class="hlink" href="#hold-to-show-keybind-cheatsheet">#</a></h2>
+<div class="preview"><svg style="width:min(100%,630px)" width="420" height="170" viewBox="0 0 420 170"><g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.1;.18;.7;.78;1" dur="5s" repeatCount="indefinite"/><rect x="30" y="15" width="360" height="140" rx="20" fill="#1e1e2e" stroke="#45475a"/><text x="210" y="40" fill="#cba6f7" font-size="13" font-weight="700" text-anchor="middle">Keybinds</text><g font-size="11"><rect x="50" y="54" width="56" height="20" rx="5" fill="#313244"/><text x="78" y="68" fill="#cdd6f4" text-anchor="middle">SUPER+⏎</text><text x="116" y="68" fill="#a6adc8">Terminal</text><rect x="220" y="54" width="56" height="20" rx="5" fill="#313244"/><text x="248" y="68" fill="#cdd6f4" text-anchor="middle">SUPER+Q</text><text x="286" y="68" fill="#a6adc8">Close</text><rect x="50" y="84" width="56" height="20" rx="5" fill="#313244"/><text x="78" y="98" fill="#cdd6f4" text-anchor="middle">SUPER+␣</text><text x="116" y="98" fill="#a6adc8">Launcher</text><rect x="220" y="84" width="56" height="20" rx="5" fill="#313244"/><text x="248" y="98" fill="#cdd6f4" text-anchor="middle">SUPER+L</text><text x="286" y="98" fill="#a6adc8">Lock</text><rect x="50" y="114" width="56" height="20" rx="5" fill="#313244"/><text x="78" y="128" fill="#cdd6f4" text-anchor="middle">SUPER+1-9</text><text x="116" y="128" fill="#a6adc8">Workspace</text><rect x="220" y="114" width="56" height="20" rx="5" fill="#313244"/><text x="248" y="128" fill="#cdd6f4" text-anchor="middle">SUPER+V</text><text x="286" y="128" fill="#a6adc8">Clipboard</text></g></g></svg></div>
+
+<p><strong>What it is.</strong> Hold a key and a grid of your keybinds appears; release it and it disappears. It reads your binds live from Hyprland, so it's always up to date.</p>
+<p><strong>Kind:</strong> its own window · <strong>Needs:</strong> Hyprland, <code>jq</code></p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">galleryshell/popups/Cheatsheet.qml</span><code>import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import Quickshell.Hyprland
+import QtQuick
+import QtQuick.Layouts
+
+Scope {
+    id: root
+    property bool shown: false
+    property var binds: []
+
+    GlobalShortcut {
+        name: "cheatsheet"
+        onPressed: { loadBinds.running = true; root.shown = true }
+        onReleased: root.shown = false
+    }
+
+    // hyprctl binds -j → [{ modmask, key, dispatcher, arg, description, … }]
+    Process {
+        id: loadBinds
+        command: ["hyprctl", "binds", "-j"]
+        stdout: StdioCollector {
+            onStreamFinished: {
+                const mods = m =&gt; [[64, "SUPER"], [1, "SHIFT"], [4, "CTRL"], [8, "ALT"]].filter(([b]) =&gt; m &amp; b).map(([, n]) =&gt; n)
+                root.binds = JSON.parse(text)
+                    .filter(b =&gt; b.key &amp;&amp; !b.mouse)
+                    .map(b =&gt; ({ keys: [...mods(b.modmask), b.key].join("+"),
+                                 what: b.description || (b.dispatcher + " " + b.arg).trim() }))
+                    .slice(0, 40)
+            }
+        }
+    }
+
+    PanelWindow {
+        implicitWidth: 760; implicitHeight: grid.implicitHeight + 80
+        exclusionMode: ExclusionMode.Ignore
+        color: "transparent"
+        visible: root.shown || fade.running
+        WlrLayershell.layer: WlrLayer.Overlay
+
+        Rectangle {
+            anchors.fill: parent
+            radius: 22; color: "#ee1e1e2e"; border.color: "#45475a"
+            opacity: root.shown ? 1 : 0
+            Behavior on opacity { NumberAnimation { id: fade; duration: 150 } }
+
+            Text { x: 24; y: 20; text: "Keybinds"; color: "#cba6f7"; font.pixelSize: 16; font.bold: true }
+            GridLayout {
+                id: grid
+                anchors { left: parent.left; right: parent.right; top: parent.top; margins: 24; topMargin: 56 }
+                columns: 2; columnSpacing: 24; rowSpacing: 6
+                Repeater {
+                    model: root.binds
+                    RowLayout {
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: 10
+                        Rectangle {
+                            implicitWidth: k.implicitWidth + 14; implicitHeight: 22; radius: 6; color: "#313244"
+                            Text { id: k; anchors.centerIn: parent; text: modelData.keys; color: "#cdd6f4"; font.pixelSize: 11; font.family: "JetBrains Mono" }
+                        }
+                        Text { Layout.fillWidth: true; text: modelData.what; color: "#a6adc8"; font.pixelSize: 12; elide: Text.ElideRight }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="codewrap"><pre class="code" data-lang="ini"><span class="fname">hyprland.conf</span><code>bind = SUPER, slash, global, quickshell:cheatsheet</code></pre></div>
+<p>The global-shortcuts protocol reports both the press and the release of that one bind.</p>
+<p>Add descriptions with <code>bindd = SUPER, Return, Terminal, exec, kitty</code> and they show instead of the raw command.</p>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 8–11</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Scope {
+    id: root
+    property bool shown: false
+    property var binds: []</code></pre></div><div class="seg-e"><p><code>shown</code> while the key is held, <code>binds</code> the parsed keybind list.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–17</span><b>Global shortcut</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>GlobalShortcut {
+    name: "cheatsheet"
+    onPressed: { loadBinds.running = true; root.shown = true }
+    onReleased: root.shown = false
+}</code></pre></div><div class="seg-e"><p><a class="api" href="../ref/GlobalShortcut.html"><code>GlobalShortcut</code></a> registers <code>quickshell:cheatsheet</code> with Hyprland. Unlike an IPC call from a keybind, it reports both <strong>press and release</strong>. On press we reload the binds (so they're always current) and show; on release we hide.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 19–33</span><b>Parsing hyprctl</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// hyprctl binds -j → [{ modmask, key, dispatcher, arg, description, … }]
+Process {
+    id: loadBinds
+    command: ["hyprctl", "binds", "-j"]
+    stdout: StdioCollector {
+        onStreamFinished: {
+            const mods = m =&gt; [[64, "SUPER"], [1, "SHIFT"], [4, "CTRL"], [8, "ALT"]].filter(([b]) =&gt; m &amp; b).map(([, n]) =&gt; n)
+            root.binds = JSON.parse(text)
+                .filter(b =&gt; b.key &amp;&amp; !b.mouse)
+                .map(b =&gt; ({ keys: [...mods(b.modmask), b.key].join("+"),
+                             what: b.description || (b.dispatcher + " " + b.arg).trim() }))
+                .slice(0, 40)
+        }
+    }
+}</code></pre></div><div class="seg-e"><p><code>hyprctl binds -j</code> returns JSON. <code>modmask</code> is a bit field: each modifier is one bit (Super = 64, Shift = 1, Ctrl = 4, Alt = 8). <code>mods()</code> checks each bit with <code>&amp;</code> and returns the names. Mouse binds and keyless entries are skipped. Each bind becomes <code>{ keys: "SUPER+SHIFT+Q", what: "…" }</code>, using your <code>bindd</code> description when you wrote one. We keep 40 to fit the screen.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 35–46</span><b>Window and fade</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    implicitWidth: 760; implicitHeight: grid.implicitHeight + 80
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    visible: root.shown || fade.running
+    WlrLayershell.layer: WlrLayer.Overlay
+
+    Rectangle {
+        anchors.fill: parent
+        radius: 22; color: "#ee1e1e2e"; border.color: "#45475a"
+        opacity: root.shown ? 1 : 0
+        Behavior on opacity { NumberAnimation { id: fade; duration: 150 } }</code></pre></div><div class="seg-e"><p>Sized from the grid's height. A short fade keeps it snappy, which matters for a hold-to-show overlay.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 48–66</span><b>Two-column grid</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text { x: 24; y: 20; text: "Keybinds"; color: "#cba6f7"; font.pixelSize: 16; font.bold: true }
+GridLayout {
+    id: grid
+    anchors { left: parent.left; right: parent.right; top: parent.top; margins: 24; topMargin: 56 }
+    columns: 2; columnSpacing: 24; rowSpacing: 6
+    Repeater {
+        model: root.binds
+        RowLayout {
+            required property var modelData
+            Layout.fillWidth: true
+            spacing: 10
+            Rectangle {
+                implicitWidth: k.implicitWidth + 14; implicitHeight: 22; radius: 6; color: "#313244"
+                Text { id: k; anchors.centerIn: parent; text: modelData.keys; color: "#cdd6f4"; font.pixelSize: 11; font.family: "JetBrains Mono" }
+            }
+            Text { Layout.fillWidth: true; text: modelData.what; color: "#a6adc8"; font.pixelSize: 12; elide: Text.ElideRight }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>A <code>GridLayout</code> with 2 columns. Each row shows the keys in a monospace "keycap" box and the action next to it, eliding if long.</p></div></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 7</span><span class="ex-lvl">Practice</span><b>Group by modifier</b></div><div class="ex-b"><p>Sort the binds so all <code>SUPER+SHIFT</code> binds come after plain <code>SUPER</code> binds.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><code>.sort((a, b) =&gt; a.keys.split("+").length - b.keys.split("+").length)</code></div></details></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/g2-system-monitors.html"><small>← Previous</small><span>Gallery: System Monitors and Live Stats</span></a><a class="pn-next" href="../ch/g4-panels.html"><small>Next →</small><span>Gallery: Panels and Menus</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#dynamic-island">Dynamic Island</a><a class="l2" href="#expanding-media-pill">Expanding Media Pill</a><a class="l2" href="#toast-notification">Toast Notification</a><a class="l2" href="#vertical-volume-osd">Vertical Volume OSD</a><a class="l2" href="#circular-osd">Circular OSD</a><a class="l2" href="#charging-animation-popup">Charging Animation Popup</a><a class="l2" href="#hold-to-show-keybind-cheatsheet">Hold-to-Show Keybind Cheatsheet</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Theming 2: Theme Files and the 19 Built-in Themes · The Quickshell Book</title>
+<meta name="description" content="Theming 2: Theme Files and the 19 Built-in Themes">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details open><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch active" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-t">Part T: Theming</a> › Theming 2: Theme Files and the 19 Built-in Themes</div><article><div class="ch-head"><div class="ch-part">Part T · Theming</div><h1><span class="ch-num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</h1></div><p>In this kit, a theme is <strong>a JSON file</strong>. To add a theme you add a file; no QML changes. This chapter explains the format line by line, using Catppuccin Mocha, then shows all 19 built-in themes with their palettes and role mappings.</p>
+<div class="codewrap"><pre class="code" data-lang="text"><code>~/.config/quickshell/theming/themes/     built-in themes (shipped with the kit)
+~/.config/theming/themes/                your own themes (same format; same id = replaces a built-in)</code></pre></div>
+<h2 id="anatomy-of-a-theme-file">Anatomy of a theme file<a class="hlink" href="#anatomy-of-a-theme-file">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="js"><span class="fname">theming/themes/catppuccin-mocha.json</span><code>{
+  "id": "catppuccin-mocha",
+  "name": "Catppuccin Mocha",
+  "family": "Catppuccin",
+  "variant": "dark",
+  "author": "Catppuccin",
+  "url": "https://catppuccin.com",
+  "palette": {
+    "rosewater": "#f5e0dc",
+    "flamingo": "#f2cdcd",
+    "pink": "#f5c2e7",
+    "mauve": "#cba6f7",
+    "red": "#f38ba8",
+    "maroon": "#eba0ac",
+    "peach": "#fab387",
+    "yellow": "#f9e2af",
+    "green": "#a6e3a1",
+    "teal": "#94e2d5",
+    "sky": "#89dceb",
+    "sapphire": "#74c7ec",
+    "blue": "#89b4fa",
+    "lavender": "#b4befe",
+    "text": "#cdd6f4",
+    "subtext1": "#bac2de",
+    "subtext0": "#a6adc8",
+    "overlay2": "#9399b2",
+    "overlay1": "#7f849c",
+    "overlay0": "#6c7086",
+    "surface2": "#585b70",
+    "surface1": "#45475a",
+    "surface0": "#313244",
+    "base": "#1e1e2e",
+    "mantle": "#181825",
+    "crust": "#11111b"
+  },
+  "roles": {
+    "background": "base",
+    "surface": "mantle",
+    "surfaceHigh": "surface0",
+    "border": "surface1",
+    "text": "text",
+    "textMuted": "subtext0",
+    "textFaint": "overlay0",
+    "primary": "mauve",
+    "onPrimary": "base",
+    "secondary": "blue",
+    "red": "red",
+    "orange": "peach",
+    "yellow": "yellow",
+    "green": "green",
+    "cyan": "teal",
+    "blue": "blue",
+    "magenta": "pink"
+  }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">line 2</span><b>id</b></div><div class="codewrap"><pre class="code" data-lang="js"><code>"id": "catppuccin-mocha",</code></pre></div><div class="seg-e"><p>A unique, lowercase, dash-separated name. It must match nothing else (or deliberately match a built-in to replace it). The switcher saves and finds themes by this id, so it's also what you type in <code>qs -c theming ipc call theme set catppuccin-mocha</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 3</span><b>name</b></div><div class="codewrap"><pre class="code" data-lang="js"><code>"name": "Catppuccin Mocha",</code></pre></div><div class="seg-e"><p>What people see in the picker and the bar.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 4</span><b>family</b></div><div class="codewrap"><pre class="code" data-lang="js"><code>"family": "Catppuccin",</code></pre></div><div class="seg-e"><p>Themes from the same project share a family ("Catppuccin"). The picker sorts by family, and the light/dark toggle looks for a twin in the same family.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 5</span><b>variant</b></div><div class="codewrap"><pre class="code" data-lang="js"><code>"variant": "dark",</code></pre></div><div class="seg-e"><p><code>"dark"</code> or <code>"light"</code>. Used by the picker's filter, the light/dark toggle, and the GTK <code>color-scheme</code> export.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 6–7</span><b>author and url</b></div><div class="codewrap"><pre class="code" data-lang="js"><code>"author": "Catppuccin",
+"url": "https://catppuccin.com",</code></pre></div><div class="seg-e"><p>Credit for the theme's creators. Shown in the book's theme table; keep them when you share themes.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 8–35</span><b>palette</b></div><div class="codewrap"><pre class="code" data-lang="js"><code>"palette": {
+  "rosewater": "#f5e0dc",
+  "flamingo": "#f2cdcd",
+  "pink": "#f5c2e7",
+  "mauve": "#cba6f7",
+  "red": "#f38ba8",
+  "maroon": "#eba0ac",
+  "peach": "#fab387",
+  "yellow": "#f9e2af",
+  "green": "#a6e3a1",
+  "teal": "#94e2d5",
+  "sky": "#89dceb",
+  "sapphire": "#74c7ec",
+  "blue": "#89b4fa",
+  "lavender": "#b4befe",
+  "text": "#cdd6f4",
+  "subtext1": "#bac2de",
+  "subtext0": "#a6adc8",
+  "overlay2": "#9399b2",
+  "overlay1": "#7f849c",
+  "overlay0": "#6c7086",
+  "surface2": "#585b70",
+  "surface1": "#45475a",
+  "surface0": "#313244",
+  "base": "#1e1e2e",
+  "mantle": "#181825",
+  "crust": "#11111b"
+},</code></pre></div><div class="seg-e"><p>The theme's <strong>own</strong> colours with the theme's <strong>own</strong> names, copied from the official source. You can include as many as you like; only the ones referenced in <code>roles</code> are used by the shell, but keeping the full palette makes the file a faithful copy and lets you remap roles later.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 36–54</span><b>roles</b></div><div class="codewrap"><pre class="code" data-lang="js"><code>"roles": {
+  "background": "base",
+  "surface": "mantle",
+  "surfaceHigh": "surface0",
+  "border": "surface1",
+  "text": "text",
+  "textMuted": "subtext0",
+  "textFaint": "overlay0",
+  "primary": "mauve",
+  "onPrimary": "base",
+  "secondary": "blue",
+  "red": "red",
+  "orange": "peach",
+  "yellow": "yellow",
+  "green": "green",
+  "cyan": "teal",
+  "blue": "blue",
+  "magenta": "pink"
+}</code></pre></div><div class="seg-e"><p>The mapping from the 17 roles to palette names. <code>"background": "base"</code> means "the background role uses the palette colour called base". A role can also be a literal colour (<code>"textMuted": "#bfbfbf"</code>) when the palette has nothing suitable. If a role points to a name that doesn't exist, the shell shows bright pink (<code>#ff00ff</code>) so the mistake is obvious.</p></div></div></div>
+<p>That's the whole format. Optional extras:</p>
+<ul>
+<li><code>"terminal": ["#…", … 16 colours]</code>: exact terminal colours, used instead of the ones derived from roles when exporting to kitty (<a class="xref" href="../ch/th7-beyond-the-shell.html">Theming 7: Theming Your Whole Desktop</a>).</li>
+</ul>
+<h2 id="how-each-family-was-mapped">How each family was mapped<a class="hlink" href="#how-each-family-was-mapped">#</a></h2>
+<p>Mapping is the creative part of porting a theme. These are the choices made for the built-in themes, following each project's own guidance where it exists:</p>
+<table>
+<thead>
+<tr>
+<th>Family</th>
+<th>background / surface / raised</th>
+<th>text / muted / faint</th>
+<th>primary, secondary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Catppuccin</strong></td>
+<td>base / mantle / surface0</td>
+<td>text / subtext0 / overlay0</td>
+<td>mauve, blue (Catppuccin's suggested accent)</td>
+</tr>
+<tr>
+<td><strong>Tokyo Night</strong></td>
+<td>bg / bg_dark / bg_highlight</td>
+<td>fg / fg_dark / comment</td>
+<td>blue, magenta</td>
+</tr>
+<tr>
+<td><strong>Gruvbox</strong></td>
+<td>bg0 / bg0_h / bg1</td>
+<td>fg / fg4 / gray</td>
+<td>orange, yellow</td>
+</tr>
+<tr>
+<td><strong>Nord</strong></td>
+<td>nord0 / nord1 / nord2</td>
+<td>nord6 / nord4 / nord3</td>
+<td>nord8 (frost), nord9</td>
+</tr>
+<tr>
+<td><strong>Dracula</strong></td>
+<td>background / darker / current line</td>
+<td>foreground / grey / comment</td>
+<td>purple, pink</td>
+</tr>
+<tr>
+<td><strong>Rosé Pine</strong></td>
+<td>base / surface / overlay</td>
+<td>text / subtle / muted</td>
+<td>iris, rose</td>
+</tr>
+<tr>
+<td><strong>Everforest</strong></td>
+<td>bg0 / bg1 / bg2</td>
+<td>fg / grey1 / grey0</td>
+<td>green, aqua</td>
+</tr>
+<tr>
+<td><strong>Kanagawa</strong></td>
+<td>sumiInk3 / sumiInk2 / sumiInk4</td>
+<td>fujiWhite / oldWhite / fujiGray</td>
+<td>crystalBlue, oniViolet</td>
+</tr>
+<tr>
+<td><strong>One Dark</strong></td>
+<td>bg / bg-dark / selection</td>
+<td>fg / grey / comment</td>
+<td>blue, purple</td>
+</tr>
+<tr>
+<td><strong>Solarized</strong></td>
+<td>base03 (base3 light) / slightly darker / base02 (base2)</td>
+<td>base1 (base01) / base0 (base00) / base01 (base1)</td>
+<td>blue, cyan</td>
+</tr>
+</tbody>
+</table>
+<div class="box note"><div class="bt">Solarized's trick</div><p>Solarized uses the <strong>same 16 colours</strong> for both variants and just swaps which "base" tones play background and text. You can see it in the two files: identical palettes, different roles. That's the palette/role idea at its clearest.</p></div>
+<h2 id="all-built-in-themes">All built-in themes<a class="hlink" href="#all-built-in-themes">#</a></h2>
+<p>Each card below is generated from the theme file when the book is built: the header uses the theme's background, text and primary colours, the swatches are its complete palette, and "Role mapping" shows which palette colour plays each role.</p>
+<div class="theme-card" id="theme-catppuccin-frappe"><div class="theme-head" style="background:#303446;color:#c6d0f5"><b>Catppuccin Frappé</b> <span style="color:#ca9ee6">●</span> <small>dark · <code>catppuccin-frappe.json</code> · by Catppuccin</small></div><div class="theme-pal"><span class="sw" style="background:#f2d5cf" title="rosewater #f2d5cf"></span><span class="sw" style="background:#eebebe" title="flamingo #eebebe"></span><span class="sw" style="background:#f4b8e4" title="pink #f4b8e4"></span><span class="sw" style="background:#ca9ee6" title="mauve #ca9ee6"></span><span class="sw" style="background:#e78284" title="red #e78284"></span><span class="sw" style="background:#ea999c" title="maroon #ea999c"></span><span class="sw" style="background:#ef9f76" title="peach #ef9f76"></span><span class="sw" style="background:#e5c890" title="yellow #e5c890"></span><span class="sw" style="background:#a6d189" title="green #a6d189"></span><span class="sw" style="background:#81c8be" title="teal #81c8be"></span><span class="sw" style="background:#99d1db" title="sky #99d1db"></span><span class="sw" style="background:#85c1dc" title="sapphire #85c1dc"></span><span class="sw" style="background:#8caaee" title="blue #8caaee"></span><span class="sw" style="background:#babbf1" title="lavender #babbf1"></span><span class="sw" style="background:#c6d0f5" title="text #c6d0f5"></span><span class="sw" style="background:#b5bfe2" title="subtext1 #b5bfe2"></span><span class="sw" style="background:#a5adce" title="subtext0 #a5adce"></span><span class="sw" style="background:#949cbb" title="overlay2 #949cbb"></span><span class="sw" style="background:#838ba7" title="overlay1 #838ba7"></span><span class="sw" style="background:#737994" title="overlay0 #737994"></span><span class="sw" style="background:#626880" title="surface2 #626880"></span><span class="sw" style="background:#51576d" title="surface1 #51576d"></span><span class="sw" style="background:#414559" title="surface0 #414559"></span><span class="sw" style="background:#303446" title="base #303446"></span><span class="sw" style="background:#292c3c" title="mantle #292c3c"></span><span class="sw" style="background:#232634" title="crust #232634"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#303446"></span><code>background</code><small>base</small></span><span class="rl"><span class="sw" style="background:#292c3c"></span><code>surface</code><small>mantle</small></span><span class="rl"><span class="sw" style="background:#414559"></span><code>surfaceHigh</code><small>surface0</small></span><span class="rl"><span class="sw" style="background:#51576d"></span><code>border</code><small>surface1</small></span><span class="rl"><span class="sw" style="background:#c6d0f5"></span><code>text</code><small>text</small></span><span class="rl"><span class="sw" style="background:#a5adce"></span><code>textMuted</code><small>subtext0</small></span><span class="rl"><span class="sw" style="background:#737994"></span><code>textFaint</code><small>overlay0</small></span><span class="rl"><span class="sw" style="background:#ca9ee6"></span><code>primary</code><small>mauve</small></span><span class="rl"><span class="sw" style="background:#303446"></span><code>onPrimary</code><small>base</small></span><span class="rl"><span class="sw" style="background:#8caaee"></span><code>secondary</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#e78284"></span><code>red</code><small>red</small></span><span class="rl"><span class="sw" style="background:#ef9f76"></span><code>orange</code><small>peach</small></span><span class="rl"><span class="sw" style="background:#e5c890"></span><code>yellow</code><small>yellow</small></span><span class="rl"><span class="sw" style="background:#a6d189"></span><code>green</code><small>green</small></span><span class="rl"><span class="sw" style="background:#81c8be"></span><code>cyan</code><small>teal</small></span><span class="rl"><span class="sw" style="background:#8caaee"></span><code>blue</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#f4b8e4"></span><code>magenta</code><small>pink</small></span></div></details></div>
+<div class="theme-card" id="theme-catppuccin-latte"><div class="theme-head" style="background:#eff1f5;color:#4c4f69"><b>Catppuccin Latte</b> <span style="color:#8839ef">●</span> <small>light · <code>catppuccin-latte.json</code> · by Catppuccin</small></div><div class="theme-pal"><span class="sw" style="background:#dc8a78" title="rosewater #dc8a78"></span><span class="sw" style="background:#dd7878" title="flamingo #dd7878"></span><span class="sw" style="background:#ea76cb" title="pink #ea76cb"></span><span class="sw" style="background:#8839ef" title="mauve #8839ef"></span><span class="sw" style="background:#d20f39" title="red #d20f39"></span><span class="sw" style="background:#e64553" title="maroon #e64553"></span><span class="sw" style="background:#fe640b" title="peach #fe640b"></span><span class="sw" style="background:#df8e1d" title="yellow #df8e1d"></span><span class="sw" style="background:#40a02b" title="green #40a02b"></span><span class="sw" style="background:#179299" title="teal #179299"></span><span class="sw" style="background:#04a5e5" title="sky #04a5e5"></span><span class="sw" style="background:#209fb5" title="sapphire #209fb5"></span><span class="sw" style="background:#1e66f5" title="blue #1e66f5"></span><span class="sw" style="background:#7287fd" title="lavender #7287fd"></span><span class="sw" style="background:#4c4f69" title="text #4c4f69"></span><span class="sw" style="background:#5c5f77" title="subtext1 #5c5f77"></span><span class="sw" style="background:#6c6f85" title="subtext0 #6c6f85"></span><span class="sw" style="background:#7c7f93" title="overlay2 #7c7f93"></span><span class="sw" style="background:#8c8fa1" title="overlay1 #8c8fa1"></span><span class="sw" style="background:#9ca0b0" title="overlay0 #9ca0b0"></span><span class="sw" style="background:#acb0be" title="surface2 #acb0be"></span><span class="sw" style="background:#bcc0cc" title="surface1 #bcc0cc"></span><span class="sw" style="background:#ccd0da" title="surface0 #ccd0da"></span><span class="sw" style="background:#eff1f5" title="base #eff1f5"></span><span class="sw" style="background:#e6e9ef" title="mantle #e6e9ef"></span><span class="sw" style="background:#dce0e8" title="crust #dce0e8"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#eff1f5"></span><code>background</code><small>base</small></span><span class="rl"><span class="sw" style="background:#e6e9ef"></span><code>surface</code><small>mantle</small></span><span class="rl"><span class="sw" style="background:#ccd0da"></span><code>surfaceHigh</code><small>surface0</small></span><span class="rl"><span class="sw" style="background:#bcc0cc"></span><code>border</code><small>surface1</small></span><span class="rl"><span class="sw" style="background:#4c4f69"></span><code>text</code><small>text</small></span><span class="rl"><span class="sw" style="background:#6c6f85"></span><code>textMuted</code><small>subtext0</small></span><span class="rl"><span class="sw" style="background:#9ca0b0"></span><code>textFaint</code><small>overlay0</small></span><span class="rl"><span class="sw" style="background:#8839ef"></span><code>primary</code><small>mauve</small></span><span class="rl"><span class="sw" style="background:#eff1f5"></span><code>onPrimary</code><small>base</small></span><span class="rl"><span class="sw" style="background:#1e66f5"></span><code>secondary</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#d20f39"></span><code>red</code><small>red</small></span><span class="rl"><span class="sw" style="background:#fe640b"></span><code>orange</code><small>peach</small></span><span class="rl"><span class="sw" style="background:#df8e1d"></span><code>yellow</code><small>yellow</small></span><span class="rl"><span class="sw" style="background:#40a02b"></span><code>green</code><small>green</small></span><span class="rl"><span class="sw" style="background:#179299"></span><code>cyan</code><small>teal</small></span><span class="rl"><span class="sw" style="background:#1e66f5"></span><code>blue</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#ea76cb"></span><code>magenta</code><small>pink</small></span></div></details></div>
+<div class="theme-card" id="theme-catppuccin-macchiato"><div class="theme-head" style="background:#24273a;color:#cad3f5"><b>Catppuccin Macchiato</b> <span style="color:#c6a0f6">●</span> <small>dark · <code>catppuccin-macchiato.json</code> · by Catppuccin</small></div><div class="theme-pal"><span class="sw" style="background:#f4dbd6" title="rosewater #f4dbd6"></span><span class="sw" style="background:#f0c6c6" title="flamingo #f0c6c6"></span><span class="sw" style="background:#f5bde6" title="pink #f5bde6"></span><span class="sw" style="background:#c6a0f6" title="mauve #c6a0f6"></span><span class="sw" style="background:#ed8796" title="red #ed8796"></span><span class="sw" style="background:#ee99a0" title="maroon #ee99a0"></span><span class="sw" style="background:#f5a97f" title="peach #f5a97f"></span><span class="sw" style="background:#eed49f" title="yellow #eed49f"></span><span class="sw" style="background:#a6da95" title="green #a6da95"></span><span class="sw" style="background:#8bd5ca" title="teal #8bd5ca"></span><span class="sw" style="background:#91d7e3" title="sky #91d7e3"></span><span class="sw" style="background:#7dc4e4" title="sapphire #7dc4e4"></span><span class="sw" style="background:#8aadf4" title="blue #8aadf4"></span><span class="sw" style="background:#b7bdf8" title="lavender #b7bdf8"></span><span class="sw" style="background:#cad3f5" title="text #cad3f5"></span><span class="sw" style="background:#b8c0e0" title="subtext1 #b8c0e0"></span><span class="sw" style="background:#a5adcb" title="subtext0 #a5adcb"></span><span class="sw" style="background:#939ab7" title="overlay2 #939ab7"></span><span class="sw" style="background:#8087a2" title="overlay1 #8087a2"></span><span class="sw" style="background:#6e738d" title="overlay0 #6e738d"></span><span class="sw" style="background:#5b6078" title="surface2 #5b6078"></span><span class="sw" style="background:#494d64" title="surface1 #494d64"></span><span class="sw" style="background:#363a4f" title="surface0 #363a4f"></span><span class="sw" style="background:#24273a" title="base #24273a"></span><span class="sw" style="background:#1e2030" title="mantle #1e2030"></span><span class="sw" style="background:#181926" title="crust #181926"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#24273a"></span><code>background</code><small>base</small></span><span class="rl"><span class="sw" style="background:#1e2030"></span><code>surface</code><small>mantle</small></span><span class="rl"><span class="sw" style="background:#363a4f"></span><code>surfaceHigh</code><small>surface0</small></span><span class="rl"><span class="sw" style="background:#494d64"></span><code>border</code><small>surface1</small></span><span class="rl"><span class="sw" style="background:#cad3f5"></span><code>text</code><small>text</small></span><span class="rl"><span class="sw" style="background:#a5adcb"></span><code>textMuted</code><small>subtext0</small></span><span class="rl"><span class="sw" style="background:#6e738d"></span><code>textFaint</code><small>overlay0</small></span><span class="rl"><span class="sw" style="background:#c6a0f6"></span><code>primary</code><small>mauve</small></span><span class="rl"><span class="sw" style="background:#24273a"></span><code>onPrimary</code><small>base</small></span><span class="rl"><span class="sw" style="background:#8aadf4"></span><code>secondary</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#ed8796"></span><code>red</code><small>red</small></span><span class="rl"><span class="sw" style="background:#f5a97f"></span><code>orange</code><small>peach</small></span><span class="rl"><span class="sw" style="background:#eed49f"></span><code>yellow</code><small>yellow</small></span><span class="rl"><span class="sw" style="background:#a6da95"></span><code>green</code><small>green</small></span><span class="rl"><span class="sw" style="background:#8bd5ca"></span><code>cyan</code><small>teal</small></span><span class="rl"><span class="sw" style="background:#8aadf4"></span><code>blue</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#f5bde6"></span><code>magenta</code><small>pink</small></span></div></details></div>
+<div class="theme-card" id="theme-catppuccin-mocha"><div class="theme-head" style="background:#1e1e2e;color:#cdd6f4"><b>Catppuccin Mocha</b> <span style="color:#cba6f7">●</span> <small>dark · <code>catppuccin-mocha.json</code> · by Catppuccin</small></div><div class="theme-pal"><span class="sw" style="background:#f5e0dc" title="rosewater #f5e0dc"></span><span class="sw" style="background:#f2cdcd" title="flamingo #f2cdcd"></span><span class="sw" style="background:#f5c2e7" title="pink #f5c2e7"></span><span class="sw" style="background:#cba6f7" title="mauve #cba6f7"></span><span class="sw" style="background:#f38ba8" title="red #f38ba8"></span><span class="sw" style="background:#eba0ac" title="maroon #eba0ac"></span><span class="sw" style="background:#fab387" title="peach #fab387"></span><span class="sw" style="background:#f9e2af" title="yellow #f9e2af"></span><span class="sw" style="background:#a6e3a1" title="green #a6e3a1"></span><span class="sw" style="background:#94e2d5" title="teal #94e2d5"></span><span class="sw" style="background:#89dceb" title="sky #89dceb"></span><span class="sw" style="background:#74c7ec" title="sapphire #74c7ec"></span><span class="sw" style="background:#89b4fa" title="blue #89b4fa"></span><span class="sw" style="background:#b4befe" title="lavender #b4befe"></span><span class="sw" style="background:#cdd6f4" title="text #cdd6f4"></span><span class="sw" style="background:#bac2de" title="subtext1 #bac2de"></span><span class="sw" style="background:#a6adc8" title="subtext0 #a6adc8"></span><span class="sw" style="background:#9399b2" title="overlay2 #9399b2"></span><span class="sw" style="background:#7f849c" title="overlay1 #7f849c"></span><span class="sw" style="background:#6c7086" title="overlay0 #6c7086"></span><span class="sw" style="background:#585b70" title="surface2 #585b70"></span><span class="sw" style="background:#45475a" title="surface1 #45475a"></span><span class="sw" style="background:#313244" title="surface0 #313244"></span><span class="sw" style="background:#1e1e2e" title="base #1e1e2e"></span><span class="sw" style="background:#181825" title="mantle #181825"></span><span class="sw" style="background:#11111b" title="crust #11111b"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#1e1e2e"></span><code>background</code><small>base</small></span><span class="rl"><span class="sw" style="background:#181825"></span><code>surface</code><small>mantle</small></span><span class="rl"><span class="sw" style="background:#313244"></span><code>surfaceHigh</code><small>surface0</small></span><span class="rl"><span class="sw" style="background:#45475a"></span><code>border</code><small>surface1</small></span><span class="rl"><span class="sw" style="background:#cdd6f4"></span><code>text</code><small>text</small></span><span class="rl"><span class="sw" style="background:#a6adc8"></span><code>textMuted</code><small>subtext0</small></span><span class="rl"><span class="sw" style="background:#6c7086"></span><code>textFaint</code><small>overlay0</small></span><span class="rl"><span class="sw" style="background:#cba6f7"></span><code>primary</code><small>mauve</small></span><span class="rl"><span class="sw" style="background:#1e1e2e"></span><code>onPrimary</code><small>base</small></span><span class="rl"><span class="sw" style="background:#89b4fa"></span><code>secondary</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#f38ba8"></span><code>red</code><small>red</small></span><span class="rl"><span class="sw" style="background:#fab387"></span><code>orange</code><small>peach</small></span><span class="rl"><span class="sw" style="background:#f9e2af"></span><code>yellow</code><small>yellow</small></span><span class="rl"><span class="sw" style="background:#a6e3a1"></span><code>green</code><small>green</small></span><span class="rl"><span class="sw" style="background:#94e2d5"></span><code>cyan</code><small>teal</small></span><span class="rl"><span class="sw" style="background:#89b4fa"></span><code>blue</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#f5c2e7"></span><code>magenta</code><small>pink</small></span></div></details></div>
+<div class="theme-card" id="theme-dracula"><div class="theme-head" style="background:#282a36;color:#f8f8f2"><b>Dracula</b> <span style="color:#bd93f9">●</span> <small>dark · <code>dracula.json</code> · by Zeno Rocha</small></div><div class="theme-pal"><span class="sw" style="background:#282a36" title="background #282a36"></span><span class="sw" style="background:#21222c" title="darker #21222c"></span><span class="sw" style="background:#44475a" title="current #44475a"></span><span class="sw" style="background:#f8f8f2" title="foreground #f8f8f2"></span><span class="sw" style="background:#6272a4" title="comment #6272a4"></span><span class="sw" style="background:#8be9fd" title="cyan #8be9fd"></span><span class="sw" style="background:#50fa7b" title="green #50fa7b"></span><span class="sw" style="background:#ffb86c" title="orange #ffb86c"></span><span class="sw" style="background:#ff79c6" title="pink #ff79c6"></span><span class="sw" style="background:#bd93f9" title="purple #bd93f9"></span><span class="sw" style="background:#ff5555" title="red #ff5555"></span><span class="sw" style="background:#f1fa8c" title="yellow #f1fa8c"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#282a36"></span><code>background</code><small>background</small></span><span class="rl"><span class="sw" style="background:#21222c"></span><code>surface</code><small>darker</small></span><span class="rl"><span class="sw" style="background:#44475a"></span><code>surfaceHigh</code><small>current</small></span><span class="rl"><span class="sw" style="background:#6272a4"></span><code>border</code><small>comment</small></span><span class="rl"><span class="sw" style="background:#f8f8f2"></span><code>text</code><small>foreground</small></span><span class="rl"><span class="sw" style="background:#bfbfbf"></span><code>textMuted</code><small>#bfbfbf</small></span><span class="rl"><span class="sw" style="background:#6272a4"></span><code>textFaint</code><small>comment</small></span><span class="rl"><span class="sw" style="background:#bd93f9"></span><code>primary</code><small>purple</small></span><span class="rl"><span class="sw" style="background:#282a36"></span><code>onPrimary</code><small>background</small></span><span class="rl"><span class="sw" style="background:#ff79c6"></span><code>secondary</code><small>pink</small></span><span class="rl"><span class="sw" style="background:#ff5555"></span><code>red</code><small>red</small></span><span class="rl"><span class="sw" style="background:#ffb86c"></span><code>orange</code><small>orange</small></span><span class="rl"><span class="sw" style="background:#f1fa8c"></span><code>yellow</code><small>yellow</small></span><span class="rl"><span class="sw" style="background:#50fa7b"></span><code>green</code><small>green</small></span><span class="rl"><span class="sw" style="background:#8be9fd"></span><code>cyan</code><small>cyan</small></span><span class="rl"><span class="sw" style="background:#bd93f9"></span><code>blue</code><small>purple</small></span><span class="rl"><span class="sw" style="background:#ff79c6"></span><code>magenta</code><small>pink</small></span></div></details></div>
+<div class="theme-card" id="theme-everforest"><div class="theme-head" style="background:#2d353b;color:#d3c6aa"><b>Everforest Dark</b> <span style="color:#a7c080">●</span> <small>dark · <code>everforest.json</code> · by sainnhe</small></div><div class="theme-pal"><span class="sw" style="background:#2d353b" title="bg0 #2d353b"></span><span class="sw" style="background:#343f44" title="bg1 #343f44"></span><span class="sw" style="background:#3d484d" title="bg2 #3d484d"></span><span class="sw" style="background:#475258" title="bg3 #475258"></span><span class="sw" style="background:#d3c6aa" title="fg #d3c6aa"></span><span class="sw" style="background:#859289" title="grey1 #859289"></span><span class="sw" style="background:#7a8478" title="grey0 #7a8478"></span><span class="sw" style="background:#e67e80" title="red #e67e80"></span><span class="sw" style="background:#e69875" title="orange #e69875"></span><span class="sw" style="background:#dbbc7f" title="yellow #dbbc7f"></span><span class="sw" style="background:#a7c080" title="green #a7c080"></span><span class="sw" style="background:#83c092" title="aqua #83c092"></span><span class="sw" style="background:#7fbbb3" title="blue #7fbbb3"></span><span class="sw" style="background:#d699b6" title="purple #d699b6"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#2d353b"></span><code>background</code><small>bg0</small></span><span class="rl"><span class="sw" style="background:#343f44"></span><code>surface</code><small>bg1</small></span><span class="rl"><span class="sw" style="background:#3d484d"></span><code>surfaceHigh</code><small>bg2</small></span><span class="rl"><span class="sw" style="background:#475258"></span><code>border</code><small>bg3</small></span><span class="rl"><span class="sw" style="background:#d3c6aa"></span><code>text</code><small>fg</small></span><span class="rl"><span class="sw" style="background:#859289"></span><code>textMuted</code><small>grey1</small></span><span class="rl"><span class="sw" style="background:#7a8478"></span><code>textFaint</code><small>grey0</small></span><span class="rl"><span class="sw" style="background:#a7c080"></span><code>primary</code><small>green</small></span><span class="rl"><span class="sw" style="background:#2d353b"></span><code>onPrimary</code><small>bg0</small></span><span class="rl"><span class="sw" style="background:#83c092"></span><code>secondary</code><small>aqua</small></span><span class="rl"><span class="sw" style="background:#e67e80"></span><code>red</code><small>red</small></span><span class="rl"><span class="sw" style="background:#e69875"></span><code>orange</code><small>orange</small></span><span class="rl"><span class="sw" style="background:#dbbc7f"></span><code>yellow</code><small>yellow</small></span><span class="rl"><span class="sw" style="background:#a7c080"></span><code>green</code><small>green</small></span><span class="rl"><span class="sw" style="background:#83c092"></span><code>cyan</code><small>aqua</small></span><span class="rl"><span class="sw" style="background:#7fbbb3"></span><code>blue</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#d699b6"></span><code>magenta</code><small>purple</small></span></div></details></div>
+<div class="theme-card" id="theme-gruvbox-dark"><div class="theme-head" style="background:#282828;color:#ebdbb2"><b>Gruvbox Dark</b> <span style="color:#fe8019">●</span> <small>dark · <code>gruvbox-dark.json</code> · by morhetz</small></div><div class="theme-pal"><span class="sw" style="background:#1d2021" title="bg0_h #1d2021"></span><span class="sw" style="background:#282828" title="bg0 #282828"></span><span class="sw" style="background:#3c3836" title="bg1 #3c3836"></span><span class="sw" style="background:#504945" title="bg2 #504945"></span><span class="sw" style="background:#665c54" title="bg3 #665c54"></span><span class="sw" style="background:#ebdbb2" title="fg #ebdbb2"></span><span class="sw" style="background:#d5c4a1" title="fg2 #d5c4a1"></span><span class="sw" style="background:#a89984" title="fg4 #a89984"></span><span class="sw" style="background:#928374" title="gray #928374"></span><span class="sw" style="background:#fb4934" title="red #fb4934"></span><span class="sw" style="background:#b8bb26" title="green #b8bb26"></span><span class="sw" style="background:#fabd2f" title="yellow #fabd2f"></span><span class="sw" style="background:#83a598" title="blue #83a598"></span><span class="sw" style="background:#d3869b" title="purple #d3869b"></span><span class="sw" style="background:#8ec07c" title="aqua #8ec07c"></span><span class="sw" style="background:#fe8019" title="orange #fe8019"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#282828"></span><code>background</code><small>bg0</small></span><span class="rl"><span class="sw" style="background:#1d2021"></span><code>surface</code><small>bg0_h</small></span><span class="rl"><span class="sw" style="background:#3c3836"></span><code>surfaceHigh</code><small>bg1</small></span><span class="rl"><span class="sw" style="background:#504945"></span><code>border</code><small>bg2</small></span><span class="rl"><span class="sw" style="background:#ebdbb2"></span><code>text</code><small>fg</small></span><span class="rl"><span class="sw" style="background:#a89984"></span><code>textMuted</code><small>fg4</small></span><span class="rl"><span class="sw" style="background:#928374"></span><code>textFaint</code><small>gray</small></span><span class="rl"><span class="sw" style="background:#fe8019"></span><code>primary</code><small>orange</small></span><span class="rl"><span class="sw" style="background:#282828"></span><code>onPrimary</code><small>bg0</small></span><span class="rl"><span class="sw" style="background:#fabd2f"></span><code>secondary</code><small>yellow</small></span><span class="rl"><span class="sw" style="background:#fb4934"></span><code>red</code><small>red</small></span><span class="rl"><span class="sw" style="background:#fe8019"></span><code>orange</code><small>orange</small></span><span class="rl"><span class="sw" style="background:#fabd2f"></span><code>yellow</code><small>yellow</small></span><span class="rl"><span class="sw" style="background:#b8bb26"></span><code>green</code><small>green</small></span><span class="rl"><span class="sw" style="background:#8ec07c"></span><code>cyan</code><small>aqua</small></span><span class="rl"><span class="sw" style="background:#83a598"></span><code>blue</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#d3869b"></span><code>magenta</code><small>purple</small></span></div></details></div>
+<div class="theme-card" id="theme-gruvbox-light"><div class="theme-head" style="background:#fbf1c7;color:#3c3836"><b>Gruvbox Light</b> <span style="color:#af3a03">●</span> <small>light · <code>gruvbox-light.json</code> · by morhetz</small></div><div class="theme-pal"><span class="sw" style="background:#f9f5d7" title="bg0_h #f9f5d7"></span><span class="sw" style="background:#fbf1c7" title="bg0 #fbf1c7"></span><span class="sw" style="background:#ebdbb2" title="bg1 #ebdbb2"></span><span class="sw" style="background:#d5c4a1" title="bg2 #d5c4a1"></span><span class="sw" style="background:#bdae93" title="bg3 #bdae93"></span><span class="sw" style="background:#3c3836" title="fg #3c3836"></span><span class="sw" style="background:#504945" title="fg2 #504945"></span><span class="sw" style="background:#7c6f64" title="fg4 #7c6f64"></span><span class="sw" style="background:#928374" title="gray #928374"></span><span class="sw" style="background:#9d0006" title="red #9d0006"></span><span class="sw" style="background:#79740e" title="green #79740e"></span><span class="sw" style="background:#b57614" title="yellow #b57614"></span><span class="sw" style="background:#076678" title="blue #076678"></span><span class="sw" style="background:#8f3f71" title="purple #8f3f71"></span><span class="sw" style="background:#427b58" title="aqua #427b58"></span><span class="sw" style="background:#af3a03" title="orange #af3a03"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#fbf1c7"></span><code>background</code><small>bg0</small></span><span class="rl"><span class="sw" style="background:#f9f5d7"></span><code>surface</code><small>bg0_h</small></span><span class="rl"><span class="sw" style="background:#ebdbb2"></span><code>surfaceHigh</code><small>bg1</small></span><span class="rl"><span class="sw" style="background:#d5c4a1"></span><code>border</code><small>bg2</small></span><span class="rl"><span class="sw" style="background:#3c3836"></span><code>text</code><small>fg</small></span><span class="rl"><span class="sw" style="background:#7c6f64"></span><code>textMuted</code><small>fg4</small></span><span class="rl"><span class="sw" style="background:#928374"></span><code>textFaint</code><small>gray</small></span><span class="rl"><span class="sw" style="background:#af3a03"></span><code>primary</code><small>orange</small></span><span class="rl"><span class="sw" style="background:#fbf1c7"></span><code>onPrimary</code><small>bg0</small></span><span class="rl"><span class="sw" style="background:#b57614"></span><code>secondary</code><small>yellow</small></span><span class="rl"><span class="sw" style="background:#9d0006"></span><code>red</code><small>red</small></span><span class="rl"><span class="sw" style="background:#af3a03"></span><code>orange</code><small>orange</small></span><span class="rl"><span class="sw" style="background:#b57614"></span><code>yellow</code><small>yellow</small></span><span class="rl"><span class="sw" style="background:#79740e"></span><code>green</code><small>green</small></span><span class="rl"><span class="sw" style="background:#427b58"></span><code>cyan</code><small>aqua</small></span><span class="rl"><span class="sw" style="background:#076678"></span><code>blue</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#8f3f71"></span><code>magenta</code><small>purple</small></span></div></details></div>
+<div class="theme-card" id="theme-kanagawa"><div class="theme-head" style="background:#1f1f28;color:#dcd7ba"><b>Kanagawa Wave</b> <span style="color:#7e9cd8">●</span> <small>dark · <code>kanagawa.json</code> · by rebelot</small></div><div class="theme-pal"><span class="sw" style="background:#1f1f28" title="sumiInk3 #1f1f28"></span><span class="sw" style="background:#1a1a22" title="sumiInk2 #1a1a22"></span><span class="sw" style="background:#2a2a37" title="sumiInk4 #2a2a37"></span><span class="sw" style="background:#363646" title="sumiInk5 #363646"></span><span class="sw" style="background:#54546d" title="sumiInk6 #54546d"></span><span class="sw" style="background:#dcd7ba" title="fujiWhite #dcd7ba"></span><span class="sw" style="background:#c8c093" title="oldWhite #c8c093"></span><span class="sw" style="background:#727169" title="fujiGray #727169"></span><span class="sw" style="background:#7e9cd8" title="crystalBlue #7e9cd8"></span><span class="sw" style="background:#957fb8" title="oniViolet #957fb8"></span><span class="sw" style="background:#d27e99" title="sakuraPink #d27e99"></span><span class="sw" style="background:#e46876" title="waveRed #e46876"></span><span class="sw" style="background:#ffa066" title="surimiOrange #ffa066"></span><span class="sw" style="background:#e6c384" title="carpYellow #e6c384"></span><span class="sw" style="background:#98bb6c" title="springGreen #98bb6c"></span><span class="sw" style="background:#7aa89f" title="waveAqua2 #7aa89f"></span><span class="sw" style="background:#7fb4ca" title="springBlue #7fb4ca"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#1f1f28"></span><code>background</code><small>sumiInk3</small></span><span class="rl"><span class="sw" style="background:#1a1a22"></span><code>surface</code><small>sumiInk2</small></span><span class="rl"><span class="sw" style="background:#2a2a37"></span><code>surfaceHigh</code><small>sumiInk4</small></span><span class="rl"><span class="sw" style="background:#54546d"></span><code>border</code><small>sumiInk6</small></span><span class="rl"><span class="sw" style="background:#dcd7ba"></span><code>text</code><small>fujiWhite</small></span><span class="rl"><span class="sw" style="background:#c8c093"></span><code>textMuted</code><small>oldWhite</small></span><span class="rl"><span class="sw" style="background:#727169"></span><code>textFaint</code><small>fujiGray</small></span><span class="rl"><span class="sw" style="background:#7e9cd8"></span><code>primary</code><small>crystalBlue</small></span><span class="rl"><span class="sw" style="background:#1f1f28"></span><code>onPrimary</code><small>sumiInk3</small></span><span class="rl"><span class="sw" style="background:#957fb8"></span><code>secondary</code><small>oniViolet</small></span><span class="rl"><span class="sw" style="background:#e46876"></span><code>red</code><small>waveRed</small></span><span class="rl"><span class="sw" style="background:#ffa066"></span><code>orange</code><small>surimiOrange</small></span><span class="rl"><span class="sw" style="background:#e6c384"></span><code>yellow</code><small>carpYellow</small></span><span class="rl"><span class="sw" style="background:#98bb6c"></span><code>green</code><small>springGreen</small></span><span class="rl"><span class="sw" style="background:#7aa89f"></span><code>cyan</code><small>waveAqua2</small></span><span class="rl"><span class="sw" style="background:#7e9cd8"></span><code>blue</code><small>crystalBlue</small></span><span class="rl"><span class="sw" style="background:#d27e99"></span><code>magenta</code><small>sakuraPink</small></span></div></details></div>
+<div class="theme-card" id="theme-nord"><div class="theme-head" style="background:#2e3440;color:#eceff4"><b>Nord</b> <span style="color:#88c0d0">●</span> <small>dark · <code>nord.json</code> · by Arctic Ice Studio</small></div><div class="theme-pal"><span class="sw" style="background:#2e3440" title="nord0 #2e3440"></span><span class="sw" style="background:#3b4252" title="nord1 #3b4252"></span><span class="sw" style="background:#434c5e" title="nord2 #434c5e"></span><span class="sw" style="background:#4c566a" title="nord3 #4c566a"></span><span class="sw" style="background:#d8dee9" title="nord4 #d8dee9"></span><span class="sw" style="background:#e5e9f0" title="nord5 #e5e9f0"></span><span class="sw" style="background:#eceff4" title="nord6 #eceff4"></span><span class="sw" style="background:#8fbcbb" title="nord7 #8fbcbb"></span><span class="sw" style="background:#88c0d0" title="nord8 #88c0d0"></span><span class="sw" style="background:#81a1c1" title="nord9 #81a1c1"></span><span class="sw" style="background:#5e81ac" title="nord10 #5e81ac"></span><span class="sw" style="background:#bf616a" title="nord11 #bf616a"></span><span class="sw" style="background:#d08770" title="nord12 #d08770"></span><span class="sw" style="background:#ebcb8b" title="nord13 #ebcb8b"></span><span class="sw" style="background:#a3be8c" title="nord14 #a3be8c"></span><span class="sw" style="background:#b48ead" title="nord15 #b48ead"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#2e3440"></span><code>background</code><small>nord0</small></span><span class="rl"><span class="sw" style="background:#3b4252"></span><code>surface</code><small>nord1</small></span><span class="rl"><span class="sw" style="background:#434c5e"></span><code>surfaceHigh</code><small>nord2</small></span><span class="rl"><span class="sw" style="background:#4c566a"></span><code>border</code><small>nord3</small></span><span class="rl"><span class="sw" style="background:#eceff4"></span><code>text</code><small>nord6</small></span><span class="rl"><span class="sw" style="background:#d8dee9"></span><code>textMuted</code><small>nord4</small></span><span class="rl"><span class="sw" style="background:#4c566a"></span><code>textFaint</code><small>nord3</small></span><span class="rl"><span class="sw" style="background:#88c0d0"></span><code>primary</code><small>nord8</small></span><span class="rl"><span class="sw" style="background:#2e3440"></span><code>onPrimary</code><small>nord0</small></span><span class="rl"><span class="sw" style="background:#81a1c1"></span><code>secondary</code><small>nord9</small></span><span class="rl"><span class="sw" style="background:#bf616a"></span><code>red</code><small>nord11</small></span><span class="rl"><span class="sw" style="background:#d08770"></span><code>orange</code><small>nord12</small></span><span class="rl"><span class="sw" style="background:#ebcb8b"></span><code>yellow</code><small>nord13</small></span><span class="rl"><span class="sw" style="background:#a3be8c"></span><code>green</code><small>nord14</small></span><span class="rl"><span class="sw" style="background:#8fbcbb"></span><code>cyan</code><small>nord7</small></span><span class="rl"><span class="sw" style="background:#5e81ac"></span><code>blue</code><small>nord10</small></span><span class="rl"><span class="sw" style="background:#b48ead"></span><code>magenta</code><small>nord15</small></span></div></details></div>
+<div class="theme-card" id="theme-one-dark"><div class="theme-head" style="background:#282c34;color:#abb2bf"><b>One Dark</b> <span style="color:#61afef">●</span> <small>dark · <code>one-dark.json</code> · by Atom</small></div><div class="theme-pal"><span class="sw" style="background:#282c34" title="bg #282c34"></span><span class="sw" style="background:#21252b" title="bgDark #21252b"></span><span class="sw" style="background:#2c313a" title="bgLight #2c313a"></span><span class="sw" style="background:#3e4451" title="selection #3e4451"></span><span class="sw" style="background:#4b5263" title="gutter #4b5263"></span><span class="sw" style="background:#abb2bf" title="fg #abb2bf"></span><span class="sw" style="background:#5c6370" title="comment #5c6370"></span><span class="sw" style="background:#e06c75" title="red #e06c75"></span><span class="sw" style="background:#98c379" title="green #98c379"></span><span class="sw" style="background:#e5c07b" title="yellow #e5c07b"></span><span class="sw" style="background:#61afef" title="blue #61afef"></span><span class="sw" style="background:#c678dd" title="purple #c678dd"></span><span class="sw" style="background:#56b6c2" title="cyan #56b6c2"></span><span class="sw" style="background:#d19a66" title="orange #d19a66"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#282c34"></span><code>background</code><small>bg</small></span><span class="rl"><span class="sw" style="background:#21252b"></span><code>surface</code><small>bgDark</small></span><span class="rl"><span class="sw" style="background:#3e4451"></span><code>surfaceHigh</code><small>selection</small></span><span class="rl"><span class="sw" style="background:#4b5263"></span><code>border</code><small>gutter</small></span><span class="rl"><span class="sw" style="background:#abb2bf"></span><code>text</code><small>fg</small></span><span class="rl"><span class="sw" style="background:#8b929e"></span><code>textMuted</code><small>#8b929e</small></span><span class="rl"><span class="sw" style="background:#5c6370"></span><code>textFaint</code><small>comment</small></span><span class="rl"><span class="sw" style="background:#61afef"></span><code>primary</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#282c34"></span><code>onPrimary</code><small>bg</small></span><span class="rl"><span class="sw" style="background:#c678dd"></span><code>secondary</code><small>purple</small></span><span class="rl"><span class="sw" style="background:#e06c75"></span><code>red</code><small>red</small></span><span class="rl"><span class="sw" style="background:#d19a66"></span><code>orange</code><small>orange</small></span><span class="rl"><span class="sw" style="background:#e5c07b"></span><code>yellow</code><small>yellow</small></span><span class="rl"><span class="sw" style="background:#98c379"></span><code>green</code><small>green</small></span><span class="rl"><span class="sw" style="background:#56b6c2"></span><code>cyan</code><small>cyan</small></span><span class="rl"><span class="sw" style="background:#61afef"></span><code>blue</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#c678dd"></span><code>magenta</code><small>purple</small></span></div></details></div>
+<div class="theme-card" id="theme-rose-pine"><div class="theme-head" style="background:#191724;color:#e0def4"><b>Rosé Pine</b> <span style="color:#c4a7e7">●</span> <small>dark · <code>rose-pine.json</code> · by Rosé Pine</small></div><div class="theme-pal"><span class="sw" style="background:#191724" title="base #191724"></span><span class="sw" style="background:#1f1d2e" title="surface #1f1d2e"></span><span class="sw" style="background:#26233a" title="overlay #26233a"></span><span class="sw" style="background:#6e6a86" title="muted #6e6a86"></span><span class="sw" style="background:#908caa" title="subtle #908caa"></span><span class="sw" style="background:#e0def4" title="text #e0def4"></span><span class="sw" style="background:#eb6f92" title="love #eb6f92"></span><span class="sw" style="background:#f6c177" title="gold #f6c177"></span><span class="sw" style="background:#ebbcba" title="rose #ebbcba"></span><span class="sw" style="background:#31748f" title="pine #31748f"></span><span class="sw" style="background:#9ccfd8" title="foam #9ccfd8"></span><span class="sw" style="background:#c4a7e7" title="iris #c4a7e7"></span><span class="sw" style="background:#403d52" title="highlightMed #403d52"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#191724"></span><code>background</code><small>base</small></span><span class="rl"><span class="sw" style="background:#1f1d2e"></span><code>surface</code><small>surface</small></span><span class="rl"><span class="sw" style="background:#26233a"></span><code>surfaceHigh</code><small>overlay</small></span><span class="rl"><span class="sw" style="background:#403d52"></span><code>border</code><small>highlightMed</small></span><span class="rl"><span class="sw" style="background:#e0def4"></span><code>text</code><small>text</small></span><span class="rl"><span class="sw" style="background:#908caa"></span><code>textMuted</code><small>subtle</small></span><span class="rl"><span class="sw" style="background:#6e6a86"></span><code>textFaint</code><small>muted</small></span><span class="rl"><span class="sw" style="background:#c4a7e7"></span><code>primary</code><small>iris</small></span><span class="rl"><span class="sw" style="background:#191724"></span><code>onPrimary</code><small>base</small></span><span class="rl"><span class="sw" style="background:#ebbcba"></span><code>secondary</code><small>rose</small></span><span class="rl"><span class="sw" style="background:#eb6f92"></span><code>red</code><small>love</small></span><span class="rl"><span class="sw" style="background:#ebbcba"></span><code>orange</code><small>rose</small></span><span class="rl"><span class="sw" style="background:#f6c177"></span><code>yellow</code><small>gold</small></span><span class="rl"><span class="sw" style="background:#31748f"></span><code>green</code><small>pine</small></span><span class="rl"><span class="sw" style="background:#9ccfd8"></span><code>cyan</code><small>foam</small></span><span class="rl"><span class="sw" style="background:#31748f"></span><code>blue</code><small>pine</small></span><span class="rl"><span class="sw" style="background:#c4a7e7"></span><code>magenta</code><small>iris</small></span></div></details></div>
+<div class="theme-card" id="theme-rose-pine-dawn"><div class="theme-head" style="background:#faf4ed;color:#575279"><b>Rosé Pine Dawn</b> <span style="color:#907aa9">●</span> <small>light · <code>rose-pine-dawn.json</code> · by Rosé Pine</small></div><div class="theme-pal"><span class="sw" style="background:#faf4ed" title="base #faf4ed"></span><span class="sw" style="background:#fffaf3" title="surface #fffaf3"></span><span class="sw" style="background:#f2e9e1" title="overlay #f2e9e1"></span><span class="sw" style="background:#9893a5" title="muted #9893a5"></span><span class="sw" style="background:#797593" title="subtle #797593"></span><span class="sw" style="background:#575279" title="text #575279"></span><span class="sw" style="background:#b4637a" title="love #b4637a"></span><span class="sw" style="background:#ea9d34" title="gold #ea9d34"></span><span class="sw" style="background:#d7827e" title="rose #d7827e"></span><span class="sw" style="background:#286983" title="pine #286983"></span><span class="sw" style="background:#56949f" title="foam #56949f"></span><span class="sw" style="background:#907aa9" title="iris #907aa9"></span><span class="sw" style="background:#dfdad9" title="highlightMed #dfdad9"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#faf4ed"></span><code>background</code><small>base</small></span><span class="rl"><span class="sw" style="background:#fffaf3"></span><code>surface</code><small>surface</small></span><span class="rl"><span class="sw" style="background:#f2e9e1"></span><code>surfaceHigh</code><small>overlay</small></span><span class="rl"><span class="sw" style="background:#dfdad9"></span><code>border</code><small>highlightMed</small></span><span class="rl"><span class="sw" style="background:#575279"></span><code>text</code><small>text</small></span><span class="rl"><span class="sw" style="background:#797593"></span><code>textMuted</code><small>subtle</small></span><span class="rl"><span class="sw" style="background:#9893a5"></span><code>textFaint</code><small>muted</small></span><span class="rl"><span class="sw" style="background:#907aa9"></span><code>primary</code><small>iris</small></span><span class="rl"><span class="sw" style="background:#faf4ed"></span><code>onPrimary</code><small>base</small></span><span class="rl"><span class="sw" style="background:#d7827e"></span><code>secondary</code><small>rose</small></span><span class="rl"><span class="sw" style="background:#b4637a"></span><code>red</code><small>love</small></span><span class="rl"><span class="sw" style="background:#d7827e"></span><code>orange</code><small>rose</small></span><span class="rl"><span class="sw" style="background:#ea9d34"></span><code>yellow</code><small>gold</small></span><span class="rl"><span class="sw" style="background:#286983"></span><code>green</code><small>pine</small></span><span class="rl"><span class="sw" style="background:#56949f"></span><code>cyan</code><small>foam</small></span><span class="rl"><span class="sw" style="background:#286983"></span><code>blue</code><small>pine</small></span><span class="rl"><span class="sw" style="background:#907aa9"></span><code>magenta</code><small>iris</small></span></div></details></div>
+<div class="theme-card" id="theme-solarized-dark"><div class="theme-head" style="background:#002b36;color:#93a1a1"><b>Solarized Dark</b> <span style="color:#268bd2">●</span> <small>dark · <code>solarized-dark.json</code> · by Ethan Schoonover</small></div><div class="theme-pal"><span class="sw" style="background:#002b36" title="base03 #002b36"></span><span class="sw" style="background:#073642" title="base02 #073642"></span><span class="sw" style="background:#586e75" title="base01 #586e75"></span><span class="sw" style="background:#657b83" title="base00 #657b83"></span><span class="sw" style="background:#839496" title="base0 #839496"></span><span class="sw" style="background:#93a1a1" title="base1 #93a1a1"></span><span class="sw" style="background:#eee8d5" title="base2 #eee8d5"></span><span class="sw" style="background:#fdf6e3" title="base3 #fdf6e3"></span><span class="sw" style="background:#b58900" title="yellow #b58900"></span><span class="sw" style="background:#cb4b16" title="orange #cb4b16"></span><span class="sw" style="background:#dc322f" title="red #dc322f"></span><span class="sw" style="background:#d33682" title="magenta #d33682"></span><span class="sw" style="background:#6c71c4" title="violet #6c71c4"></span><span class="sw" style="background:#268bd2" title="blue #268bd2"></span><span class="sw" style="background:#2aa198" title="cyan #2aa198"></span><span class="sw" style="background:#859900" title="green #859900"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#002b36"></span><code>background</code><small>base03</small></span><span class="rl"><span class="sw" style="background:#00252f"></span><code>surface</code><small>#00252f</small></span><span class="rl"><span class="sw" style="background:#073642"></span><code>surfaceHigh</code><small>base02</small></span><span class="rl"><span class="sw" style="background:#586e75"></span><code>border</code><small>base01</small></span><span class="rl"><span class="sw" style="background:#93a1a1"></span><code>text</code><small>base1</small></span><span class="rl"><span class="sw" style="background:#839496"></span><code>textMuted</code><small>base0</small></span><span class="rl"><span class="sw" style="background:#586e75"></span><code>textFaint</code><small>base01</small></span><span class="rl"><span class="sw" style="background:#268bd2"></span><code>primary</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#fdf6e3"></span><code>onPrimary</code><small>base3</small></span><span class="rl"><span class="sw" style="background:#2aa198"></span><code>secondary</code><small>cyan</small></span><span class="rl"><span class="sw" style="background:#dc322f"></span><code>red</code><small>red</small></span><span class="rl"><span class="sw" style="background:#cb4b16"></span><code>orange</code><small>orange</small></span><span class="rl"><span class="sw" style="background:#b58900"></span><code>yellow</code><small>yellow</small></span><span class="rl"><span class="sw" style="background:#859900"></span><code>green</code><small>green</small></span><span class="rl"><span class="sw" style="background:#2aa198"></span><code>cyan</code><small>cyan</small></span><span class="rl"><span class="sw" style="background:#268bd2"></span><code>blue</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#d33682"></span><code>magenta</code><small>magenta</small></span></div></details></div>
+<div class="theme-card" id="theme-solarized-light"><div class="theme-head" style="background:#fdf6e3;color:#586e75"><b>Solarized Light</b> <span style="color:#268bd2">●</span> <small>light · <code>solarized-light.json</code> · by Ethan Schoonover</small></div><div class="theme-pal"><span class="sw" style="background:#002b36" title="base03 #002b36"></span><span class="sw" style="background:#073642" title="base02 #073642"></span><span class="sw" style="background:#586e75" title="base01 #586e75"></span><span class="sw" style="background:#657b83" title="base00 #657b83"></span><span class="sw" style="background:#839496" title="base0 #839496"></span><span class="sw" style="background:#93a1a1" title="base1 #93a1a1"></span><span class="sw" style="background:#eee8d5" title="base2 #eee8d5"></span><span class="sw" style="background:#fdf6e3" title="base3 #fdf6e3"></span><span class="sw" style="background:#b58900" title="yellow #b58900"></span><span class="sw" style="background:#cb4b16" title="orange #cb4b16"></span><span class="sw" style="background:#dc322f" title="red #dc322f"></span><span class="sw" style="background:#d33682" title="magenta #d33682"></span><span class="sw" style="background:#6c71c4" title="violet #6c71c4"></span><span class="sw" style="background:#268bd2" title="blue #268bd2"></span><span class="sw" style="background:#2aa198" title="cyan #2aa198"></span><span class="sw" style="background:#859900" title="green #859900"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#fdf6e3"></span><code>background</code><small>base3</small></span><span class="rl"><span class="sw" style="background:#f5efdc"></span><code>surface</code><small>#f5efdc</small></span><span class="rl"><span class="sw" style="background:#eee8d5"></span><code>surfaceHigh</code><small>base2</small></span><span class="rl"><span class="sw" style="background:#93a1a1"></span><code>border</code><small>base1</small></span><span class="rl"><span class="sw" style="background:#586e75"></span><code>text</code><small>base01</small></span><span class="rl"><span class="sw" style="background:#657b83"></span><code>textMuted</code><small>base00</small></span><span class="rl"><span class="sw" style="background:#93a1a1"></span><code>textFaint</code><small>base1</small></span><span class="rl"><span class="sw" style="background:#268bd2"></span><code>primary</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#fdf6e3"></span><code>onPrimary</code><small>base3</small></span><span class="rl"><span class="sw" style="background:#2aa198"></span><code>secondary</code><small>cyan</small></span><span class="rl"><span class="sw" style="background:#dc322f"></span><code>red</code><small>red</small></span><span class="rl"><span class="sw" style="background:#cb4b16"></span><code>orange</code><small>orange</small></span><span class="rl"><span class="sw" style="background:#b58900"></span><code>yellow</code><small>yellow</small></span><span class="rl"><span class="sw" style="background:#859900"></span><code>green</code><small>green</small></span><span class="rl"><span class="sw" style="background:#2aa198"></span><code>cyan</code><small>cyan</small></span><span class="rl"><span class="sw" style="background:#268bd2"></span><code>blue</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#d33682"></span><code>magenta</code><small>magenta</small></span></div></details></div>
+<div class="theme-card" id="theme-tokyo-night"><div class="theme-head" style="background:#1a1b26;color:#c0caf5"><b>Tokyo Night</b> <span style="color:#7aa2f7">●</span> <small>dark · <code>tokyo-night.json</code> · by enkia / folke</small></div><div class="theme-pal"><span class="sw" style="background:#1a1b26" title="bg #1a1b26"></span><span class="sw" style="background:#16161e" title="bg_dark #16161e"></span><span class="sw" style="background:#292e42" title="bg_highlight #292e42"></span><span class="sw" style="background:#414868" title="terminal_black #414868"></span><span class="sw" style="background:#c0caf5" title="fg #c0caf5"></span><span class="sw" style="background:#a9b1d6" title="fg_dark #a9b1d6"></span><span class="sw" style="background:#565f89" title="comment #565f89"></span><span class="sw" style="background:#7aa2f7" title="blue #7aa2f7"></span><span class="sw" style="background:#7dcfff" title="cyan #7dcfff"></span><span class="sw" style="background:#2ac3de" title="blue1 #2ac3de"></span><span class="sw" style="background:#bb9af7" title="magenta #bb9af7"></span><span class="sw" style="background:#9d7cd8" title="purple #9d7cd8"></span><span class="sw" style="background:#ff9e64" title="orange #ff9e64"></span><span class="sw" style="background:#e0af68" title="yellow #e0af68"></span><span class="sw" style="background:#9ece6a" title="green #9ece6a"></span><span class="sw" style="background:#1abc9c" title="teal #1abc9c"></span><span class="sw" style="background:#f7768e" title="red #f7768e"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#1a1b26"></span><code>background</code><small>bg</small></span><span class="rl"><span class="sw" style="background:#16161e"></span><code>surface</code><small>bg_dark</small></span><span class="rl"><span class="sw" style="background:#292e42"></span><code>surfaceHigh</code><small>bg_highlight</small></span><span class="rl"><span class="sw" style="background:#414868"></span><code>border</code><small>terminal_black</small></span><span class="rl"><span class="sw" style="background:#c0caf5"></span><code>text</code><small>fg</small></span><span class="rl"><span class="sw" style="background:#a9b1d6"></span><code>textMuted</code><small>fg_dark</small></span><span class="rl"><span class="sw" style="background:#565f89"></span><code>textFaint</code><small>comment</small></span><span class="rl"><span class="sw" style="background:#7aa2f7"></span><code>primary</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#1a1b26"></span><code>onPrimary</code><small>bg</small></span><span class="rl"><span class="sw" style="background:#bb9af7"></span><code>secondary</code><small>magenta</small></span><span class="rl"><span class="sw" style="background:#f7768e"></span><code>red</code><small>red</small></span><span class="rl"><span class="sw" style="background:#ff9e64"></span><code>orange</code><small>orange</small></span><span class="rl"><span class="sw" style="background:#e0af68"></span><code>yellow</code><small>yellow</small></span><span class="rl"><span class="sw" style="background:#9ece6a"></span><code>green</code><small>green</small></span><span class="rl"><span class="sw" style="background:#7dcfff"></span><code>cyan</code><small>cyan</small></span><span class="rl"><span class="sw" style="background:#7aa2f7"></span><code>blue</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#bb9af7"></span><code>magenta</code><small>magenta</small></span></div></details></div>
+<div class="theme-card" id="theme-tokyo-night-day"><div class="theme-head" style="background:#e1e2e7;color:#3760bf"><b>Tokyo Night Day</b> <span style="color:#2e7de9">●</span> <small>light · <code>tokyo-night-day.json</code> · by enkia / folke</small></div><div class="theme-pal"><span class="sw" style="background:#e1e2e7" title="bg #e1e2e7"></span><span class="sw" style="background:#d0d5e3" title="bg_dark #d0d5e3"></span><span class="sw" style="background:#c4c8da" title="bg_highlight #c4c8da"></span><span class="sw" style="background:#a1a6c5" title="terminal_black #a1a6c5"></span><span class="sw" style="background:#3760bf" title="fg #3760bf"></span><span class="sw" style="background:#6172b0" title="fg_dark #6172b0"></span><span class="sw" style="background:#848cb5" title="comment #848cb5"></span><span class="sw" style="background:#2e7de9" title="blue #2e7de9"></span><span class="sw" style="background:#007197" title="cyan #007197"></span><span class="sw" style="background:#188092" title="blue1 #188092"></span><span class="sw" style="background:#9854f1" title="magenta #9854f1"></span><span class="sw" style="background:#7847bd" title="purple #7847bd"></span><span class="sw" style="background:#b15c00" title="orange #b15c00"></span><span class="sw" style="background:#8c6c3e" title="yellow #8c6c3e"></span><span class="sw" style="background:#587539" title="green #587539"></span><span class="sw" style="background:#118c74" title="teal #118c74"></span><span class="sw" style="background:#f52a65" title="red #f52a65"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#e1e2e7"></span><code>background</code><small>bg</small></span><span class="rl"><span class="sw" style="background:#d0d5e3"></span><code>surface</code><small>bg_dark</small></span><span class="rl"><span class="sw" style="background:#c4c8da"></span><code>surfaceHigh</code><small>bg_highlight</small></span><span class="rl"><span class="sw" style="background:#a1a6c5"></span><code>border</code><small>terminal_black</small></span><span class="rl"><span class="sw" style="background:#3760bf"></span><code>text</code><small>fg</small></span><span class="rl"><span class="sw" style="background:#6172b0"></span><code>textMuted</code><small>fg_dark</small></span><span class="rl"><span class="sw" style="background:#848cb5"></span><code>textFaint</code><small>comment</small></span><span class="rl"><span class="sw" style="background:#2e7de9"></span><code>primary</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#e1e2e7"></span><code>onPrimary</code><small>bg</small></span><span class="rl"><span class="sw" style="background:#9854f1"></span><code>secondary</code><small>magenta</small></span><span class="rl"><span class="sw" style="background:#f52a65"></span><code>red</code><small>red</small></span><span class="rl"><span class="sw" style="background:#b15c00"></span><code>orange</code><small>orange</small></span><span class="rl"><span class="sw" style="background:#8c6c3e"></span><code>yellow</code><small>yellow</small></span><span class="rl"><span class="sw" style="background:#587539"></span><code>green</code><small>green</small></span><span class="rl"><span class="sw" style="background:#007197"></span><code>cyan</code><small>cyan</small></span><span class="rl"><span class="sw" style="background:#2e7de9"></span><code>blue</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#9854f1"></span><code>magenta</code><small>magenta</small></span></div></details></div>
+<div class="theme-card" id="theme-tokyo-night-moon"><div class="theme-head" style="background:#222436;color:#c8d3f5"><b>Tokyo Night Moon</b> <span style="color:#82aaff">●</span> <small>dark · <code>tokyo-night-moon.json</code> · by enkia / folke</small></div><div class="theme-pal"><span class="sw" style="background:#222436" title="bg #222436"></span><span class="sw" style="background:#1e2030" title="bg_dark #1e2030"></span><span class="sw" style="background:#2f334d" title="bg_highlight #2f334d"></span><span class="sw" style="background:#444a73" title="terminal_black #444a73"></span><span class="sw" style="background:#c8d3f5" title="fg #c8d3f5"></span><span class="sw" style="background:#828bb8" title="fg_dark #828bb8"></span><span class="sw" style="background:#636da6" title="comment #636da6"></span><span class="sw" style="background:#82aaff" title="blue #82aaff"></span><span class="sw" style="background:#86e1fc" title="cyan #86e1fc"></span><span class="sw" style="background:#65bcff" title="blue1 #65bcff"></span><span class="sw" style="background:#c099ff" title="magenta #c099ff"></span><span class="sw" style="background:#fca7ea" title="purple #fca7ea"></span><span class="sw" style="background:#ff966c" title="orange #ff966c"></span><span class="sw" style="background:#ffc777" title="yellow #ffc777"></span><span class="sw" style="background:#c3e88d" title="green #c3e88d"></span><span class="sw" style="background:#4fd6be" title="teal #4fd6be"></span><span class="sw" style="background:#ff757f" title="red #ff757f"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#222436"></span><code>background</code><small>bg</small></span><span class="rl"><span class="sw" style="background:#1e2030"></span><code>surface</code><small>bg_dark</small></span><span class="rl"><span class="sw" style="background:#2f334d"></span><code>surfaceHigh</code><small>bg_highlight</small></span><span class="rl"><span class="sw" style="background:#444a73"></span><code>border</code><small>terminal_black</small></span><span class="rl"><span class="sw" style="background:#c8d3f5"></span><code>text</code><small>fg</small></span><span class="rl"><span class="sw" style="background:#828bb8"></span><code>textMuted</code><small>fg_dark</small></span><span class="rl"><span class="sw" style="background:#636da6"></span><code>textFaint</code><small>comment</small></span><span class="rl"><span class="sw" style="background:#82aaff"></span><code>primary</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#222436"></span><code>onPrimary</code><small>bg</small></span><span class="rl"><span class="sw" style="background:#c099ff"></span><code>secondary</code><small>magenta</small></span><span class="rl"><span class="sw" style="background:#ff757f"></span><code>red</code><small>red</small></span><span class="rl"><span class="sw" style="background:#ff966c"></span><code>orange</code><small>orange</small></span><span class="rl"><span class="sw" style="background:#ffc777"></span><code>yellow</code><small>yellow</small></span><span class="rl"><span class="sw" style="background:#c3e88d"></span><code>green</code><small>green</small></span><span class="rl"><span class="sw" style="background:#86e1fc"></span><code>cyan</code><small>cyan</small></span><span class="rl"><span class="sw" style="background:#82aaff"></span><code>blue</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#c099ff"></span><code>magenta</code><small>magenta</small></span></div></details></div>
+<div class="theme-card" id="theme-tokyo-night-storm"><div class="theme-head" style="background:#24283b;color:#c0caf5"><b>Tokyo Night Storm</b> <span style="color:#7aa2f7">●</span> <small>dark · <code>tokyo-night-storm.json</code> · by enkia / folke</small></div><div class="theme-pal"><span class="sw" style="background:#24283b" title="bg #24283b"></span><span class="sw" style="background:#1f2335" title="bg_dark #1f2335"></span><span class="sw" style="background:#292e42" title="bg_highlight #292e42"></span><span class="sw" style="background:#414868" title="terminal_black #414868"></span><span class="sw" style="background:#c0caf5" title="fg #c0caf5"></span><span class="sw" style="background:#a9b1d6" title="fg_dark #a9b1d6"></span><span class="sw" style="background:#565f89" title="comment #565f89"></span><span class="sw" style="background:#7aa2f7" title="blue #7aa2f7"></span><span class="sw" style="background:#7dcfff" title="cyan #7dcfff"></span><span class="sw" style="background:#2ac3de" title="blue1 #2ac3de"></span><span class="sw" style="background:#bb9af7" title="magenta #bb9af7"></span><span class="sw" style="background:#9d7cd8" title="purple #9d7cd8"></span><span class="sw" style="background:#ff9e64" title="orange #ff9e64"></span><span class="sw" style="background:#e0af68" title="yellow #e0af68"></span><span class="sw" style="background:#9ece6a" title="green #9ece6a"></span><span class="sw" style="background:#1abc9c" title="teal #1abc9c"></span><span class="sw" style="background:#f7768e" title="red #f7768e"></span></div><details><summary>Role mapping</summary><div class="theme-roles"><span class="rl"><span class="sw" style="background:#24283b"></span><code>background</code><small>bg</small></span><span class="rl"><span class="sw" style="background:#1f2335"></span><code>surface</code><small>bg_dark</small></span><span class="rl"><span class="sw" style="background:#292e42"></span><code>surfaceHigh</code><small>bg_highlight</small></span><span class="rl"><span class="sw" style="background:#414868"></span><code>border</code><small>terminal_black</small></span><span class="rl"><span class="sw" style="background:#c0caf5"></span><code>text</code><small>fg</small></span><span class="rl"><span class="sw" style="background:#a9b1d6"></span><code>textMuted</code><small>fg_dark</small></span><span class="rl"><span class="sw" style="background:#565f89"></span><code>textFaint</code><small>comment</small></span><span class="rl"><span class="sw" style="background:#7aa2f7"></span><code>primary</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#24283b"></span><code>onPrimary</code><small>bg</small></span><span class="rl"><span class="sw" style="background:#bb9af7"></span><code>secondary</code><small>magenta</small></span><span class="rl"><span class="sw" style="background:#f7768e"></span><code>red</code><small>red</small></span><span class="rl"><span class="sw" style="background:#ff9e64"></span><code>orange</code><small>orange</small></span><span class="rl"><span class="sw" style="background:#e0af68"></span><code>yellow</code><small>yellow</small></span><span class="rl"><span class="sw" style="background:#9ece6a"></span><code>green</code><small>green</small></span><span class="rl"><span class="sw" style="background:#7dcfff"></span><code>cyan</code><small>cyan</small></span><span class="rl"><span class="sw" style="background:#7aa2f7"></span><code>blue</code><small>blue</small></span><span class="rl"><span class="sw" style="background:#bb9af7"></span><code>magenta</code><small>magenta</small></span></div></details></div>
+<h3 id="catppuccin-four-flavours">Catppuccin: four flavours<a class="hlink" href="#catppuccin-four-flavours">#</a></h3>
+<p>Catppuccin has one light flavour (<strong>Latte</strong>) and three dark ones, from lightest to darkest: <strong>Frappé</strong>, <strong>Macchiato</strong>, <strong>Mocha</strong>. All four use the same 26 colour names with different values, so their files differ only in hex codes. Pick Mocha for maximum contrast, Frappé for a softer dark, Latte for daytime.</p>
+<h3 id="tokyo-night-four-styles">Tokyo Night: four styles<a class="hlink" href="#tokyo-night-four-styles">#</a></h3>
+<p><strong>Night</strong> (the classic, darkest), <strong>Storm</strong> (a slightly lighter blue-grey background), <strong>Moon</strong> (softer, more saturated accents), and <strong>Day</strong> (light). In the original Neovim theme, Night and Storm share their accent colours; Moon and Day have their own.</p>
+<h2 id="practice">Practice<a class="hlink" href="#practice">#</a></h2>
+<div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Warm-up</span><b>Find the mauve</b></div><div class="ex-b"><p>Open <code>catppuccin-latte.json</code>. What hex value does <code>primary</code> resolve to, and why is it so much darker than Mocha's?</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><p><code>primary</code> is <code>mauve</code>, which is <code>#8839ef</code> in Latte (Mocha: <code>#cba6f7</code>). On a light background, an accent needs to be darker to keep enough contrast for text and small details.</p></div></details></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Remap a theme</b></div><div class="ex-b"><p>Make Catppuccin Mocha use <strong>peach</strong> as its primary accent instead of mauve. Copy the file to <code>~/.config/theming/themes/catppuccin-mocha.json</code> (same id replaces the built-in), change one line, and reload with <code>qs -c theming ipc call theme reload</code>.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><p>Change <code>"primary": "mauve"</code> to <code>"primary": "peach"</code>. Nothing else is needed: every widget uses the role, not the palette name.</p></div></details></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>Spot the literal</b></div><div class="ex-b"><p>Some built-in themes use a literal hex colour for a role instead of a palette name. Find them.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p><code>grep -l '"#' ~/.config/quickshell/theming/themes/*.json</code> lists files with hex values everywhere (the palettes); look inside each <code>roles</code> object instead.</p></div></details><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><p>Dracula (<code>"textMuted": "#bfbfbf"</code>) and One Dark (<code>"textMuted": "#8b929e"</code>) have no suitable mid-grey in their palettes. Solarized also uses literal colours for <code>surface</code>, a slightly darker background tone than the official palette provides.</p></div></details></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/th1-colour-basics.html"><small>← Previous</small><span>Theming 1: Colours, Palettes and Roles</span></a><a class="pn-next" href="../ch/th3-theme-service.html"><small>Next →</small><span>Theming 3: The Theme Service</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#anatomy-of-a-theme-file">Anatomy of a theme file</a><a class="l2" href="#how-each-family-was-mapped">How each family was mapped</a><a class="l2" href="#all-built-in-themes">All built-in themes</a><a class="l3" href="#catppuccin-four-flavours">Catppuccin: four flavours</a><a class="l3" href="#tokyo-night-four-styles">Tokyo Night: four styles</a><a class="l2" href="#practice">Practice</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

@@ -331,7 +331,25 @@ bind = SUPER, equal, exec, qs -c myshell ipc call launcher open "="     # open i
 > [!WILD] In the wild
 > end-4's launcher ("overview search") combines apps, calculator, web search, commands and clipboard with `fuzzysort`. Caelestia's launcher sorts by frequency, supports actions, and slides out of the bar as a drawer.
 
-> [!TRY] Exercises
-> 1. Add the `!` window-switcher mode.
-> 2. Show a grid layout (GridView) when the query is empty.
-> 3. Add a "recent apps" row from the counts file.
+## Practice
+
+::: exercise warm | Grid when empty
+Show a `GridView` of apps when the query is empty and the list when typing.
+--- solution
+`visible: query === ""` on the GridView and `visible: query !== ""` on the ListView, sharing the same model.
+:::
+
+::: exercise practice | Recent apps
+Add a "recent apps" row from the launch-counts file: the top 6 by count.
+--- solution
+```qml
+readonly property var recent: Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 6)
+    .map(([id]) => DesktopEntries.byId(id)).filter(e => e)
+```
+:::
+
+::: exercise challenge | Window switcher mode
+Add a `!` prefix mode that lists open windows and focuses the chosen one.
+--- hint
+When `query.startsWith("!")`, use `ToplevelManager.toplevels.values` filtered by title, and call `activate()` on Enter.
+:::

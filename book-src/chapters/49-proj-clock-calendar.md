@@ -234,7 +234,26 @@ Repeater {
 
 (Fixed offsets ignore daylight saving; use `TZ=… date` through Process for exact zones.)
 
-> [!TRY] Exercises
-> 1. Add a Config option to switch between Monday- and Sunday-first weeks.
-> 2. Highlight weekends in `Colors.tertiary`.
-> 3. Show the number of days until a date you care about.
+## Practice
+
+::: exercise warm | Weekends
+Highlight weekends in `Colors.tertiary`.
+--- solution
+In the day delegate: `color: date.getDay() === 0 || date.getDay() === 6 ? Colors.tertiary : Colors.onSurface`.
+:::
+
+::: exercise practice | Week start
+Add a Config option to switch between Monday- and Sunday-first weeks.
+--- hint
+The first cell's offset is `(firstOfMonth.getDay() + 6) % 7` for Monday-first and `firstOfMonth.getDay()` for Sunday-first; also rotate the weekday header labels.
+:::
+
+::: exercise challenge | Countdown to a date
+Show "N days until …" for a date you care about, updating at midnight.
+--- solution
+```qml
+SystemClock { id: day; precision: SystemClock.Hours }
+readonly property date target: new Date(2026, 11, 25)
+Text { text: Math.ceil((target - day.date) / 86400000) + " days until Christmas" }
+```
+:::

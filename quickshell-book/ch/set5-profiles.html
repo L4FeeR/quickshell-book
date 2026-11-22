@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings App 5: Managing the Rice, and Testing It · The Quickshell Book</title>
+<meta name="description" content="Settings App 5: Managing the Rice, and Testing It">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details open><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch active" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-s">Part S: Building a Settings App</a> › Settings App 5: Managing the Rice, and Testing It</div><article><div class="ch-head"><div class="ch-part">Part S · Building a Settings App</div><h1><span class="ch-num">set5</span>Settings App 5: Managing the Rice, and Testing It</h1></div><p>Single settings are only half the job. People also want to <strong>save a whole look and switch to another</strong>, keep a <strong>backup</strong>, and <strong>start over</strong> when they've broken something. This chapter builds the <code>Profiles</code> service behind the last page, then shows how to <strong>test a settings app without running the shell</strong>, a technique that found three real bugs in this one.</p>
+<div class="codewrap"><pre class="code" data-lang="text"><code>services/Profiles.qml
+extras/defaults.json
+modules/settings/pages/ProfilesPage.qml   (from the previous chapter)</code></pre></div>
+<h2 id="module-1-the-profiles-service">Module 1: The profiles service<a class="hlink" href="#module-1-the-profiles-service">#</a></h2>
+<p>A <strong>profile</strong> is one JSON file in <code>~/.config/cae/profiles/</code> holding the complete <code>shell.json</code> plus the wallpaper:</p>
+<div class="codewrap"><pre class="code" data-lang="js"><code>{
+  "config": { "border": { "thickness": 0, "rounding": 25 }, "appearance": { "font": "Inter", … }, … },
+  "wallpaper": "/home/you/Pictures/Wallpapers/night-city.jpg",
+  "saved": "2026-11-21T22:41:00.000Z"
+}</code></pre></div>
+<p>Loading a profile writes its <code>config</code> into <code>shell.json</code> and applies its wallpaper. The shell is watching <code>shell.json</code>, so the whole rice changes in one step: frame, bar layout, fonts, motion and (through matugen) every colour.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">cae/services/Profiles.qml</span><code>pragma Singleton
+import Quickshell
+import Quickshell.Io
+import QtQuick
+import qs.config
+import qs.services
+
+// Managing the rice: save the whole configuration (plus the wallpaper) as a named profile,
+// switch between profiles, export a backup, and reset to the defaults.
+// A profile file is { "config": &lt;shell.json&gt;, "wallpaper": "&lt;path&gt;", "saved": "&lt;date&gt;" }.
+Singleton {
+    id: root
+
+    readonly property string dir: Config.dir + "/profiles"
+    readonly property string configPath: Config.dir + "/shell.json"
+    readonly property string defaultsPath: Quickshell.shellPath("extras/defaults.json")
+    property list&lt;string&gt; names: []
+    property string lastMessage: ""
+
+    function refresh(): void {
+        list.running = true;
+    }
+
+    // write text to a file (creating folders), safely: the path and text are passed as arguments
+    function writeFile(path: string, text: string): void {
+        Quickshell.execDetached(["sh", "-c", 'mkdir -p "$(dirname "$1")" &amp;&amp; printf "%s" "$2" &gt; "$1"', "sh", path, text]);
+    }
+
+    function save(name: string): void {
+        const clean = name.trim().replace(/[^\w.-]+/g, "-");
+        if (!clean) return;
+        current.reload();
+        const data = { config: JSON.parse(current.text() || "{}"), wallpaper: Wallpapers.current, saved: new Date().toISOString() };
+        writeFile(`${dir}/${clean}.json`, JSON.stringify(data, null, 2));
+        lastMessage = `Saved profile "${clean}"`;
+        refreshLater.restart();
+    }
+
+    function load(name: string): void {
+        reader.target = name;
+        reader.command = ["cat", `${dir}/${name}.json`];
+        reader.running = true;
+    }
+
+    function remove(name: string): void {
+        Quickshell.execDetached(["rm", "-f", `${dir}/${name}.json`]);
+        lastMessage = `Deleted profile "${name}"`;
+        refreshLater.restart();
+    }
+
+    function exportTo(path: string): void {
+        current.reload();
+        writeFile(path, current.text());
+        lastMessage = `Exported to ${path}`;
+    }
+
+    function resetToDefaults(): void {
+        defaults.reload();
+        // the defaults file uses "~/" so it works for everyone; expand it to this user's home
+        writeFile(configPath, defaults.text().replace(/"~\//g, `"${Quickshell.env("HOME")}/`));
+        lastMessage = "Restored the default settings";
+    }
+
+    Component.onCompleted: refresh()
+
+    Timer { id: refreshLater; interval: 300; onTriggered: root.refresh() }
+
+    FileView { id: current; path: root.configPath; blockLoading: true; printErrors: false }
+    FileView { id: defaults; path: root.defaultsPath; blockLoading: true }
+
+    Process {
+        id: list
+        command: ["sh", "-c", 'ls "$1" 2&gt;/dev/null | sed -n "s/\\.json$//p"', "sh", root.dir]
+        stdout: StdioCollector {
+            onStreamFinished: root.names = text.split("\n").filter(n =&gt; n)
+        }
+    }
+
+    Process {
+        id: reader
+        property string target: ""
+        stdout: StdioCollector {
+            onStreamFinished: {
+                try {
+                    const data = JSON.parse(text);
+                    root.writeFile(root.configPath, JSON.stringify(data.config, null, 2));
+                    if (data.wallpaper) Wallpapers.set(data.wallpaper);
+                    root.lastMessage = `Loaded profile "${reader.target}"`;
+                } catch (e) {
+                    root.lastMessage = `Couldn't read profile "${reader.target}"`;
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–18</span><b>Paths and state</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property string dir: Config.dir + "/profiles"
+readonly property string configPath: Config.dir + "/shell.json"
+readonly property string defaultsPath: Quickshell.shellPath("extras/defaults.json")
+property list&lt;string&gt; names: []
+property string lastMessage: ""</code></pre></div><div class="seg-e"><p>Profiles live next to <code>shell.json</code>. <code>defaultsPath</code> points to <code>extras/defaults.json</code> inside the shell's own folder (<code>Quickshell.shellPath</code> resolves paths relative to the config root, in both the shell and the standalone app). <code>names</code> feeds the list on the page; <code>lastMessage</code> shows what just happened.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 24–27</span><b>Writing files safely</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// write text to a file (creating folders), safely: the path and text are passed as arguments
+function writeFile(path: string, text: string): void {
+    Quickshell.execDetached(["sh", "-c", 'mkdir -p "$(dirname "$1")" &amp;&amp; printf "%s" "$2" &gt; "$1"', "sh", path, text]);
+}</code></pre></div><div class="seg-e"><p>One helper writes text to any path: <code>mkdir -p</code> the folder, then <code>printf "%s" "$2" &gt; "$1"</code>. The path and the text are passed as <strong>arguments</strong>, never pasted into the shell command, so a profile name with spaces or a config containing quotes, <code>$</code> or backticks can't break the command or run anything.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 29–37</span><b>Saving</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function save(name: string): void {
+    const clean = name.trim().replace(/[^\w.-]+/g, "-");
+    if (!clean) return;
+    current.reload();
+    const data = { config: JSON.parse(current.text() || "{}"), wallpaper: Wallpapers.current, saved: new Date().toISOString() };
+    writeFile(`${dir}/${clean}.json`, JSON.stringify(data, null, 2));
+    lastMessage = `Saved profile "${clean}"`;
+    refreshLater.restart();
+}</code></pre></div><div class="seg-e"><p>The name is cleaned to letters, digits, <code>.</code>, <code>_</code> and <code>-</code> (so it can't contain <code>/</code> and escape the folder). The current <code>shell.json</code> is re-read from disk (<code>blockLoading: true</code> makes <code>text()</code> return the fresh content immediately), wrapped with the wallpaper and a timestamp, and written. The list refreshes a moment later.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 39–43</span><b>Loading</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function load(name: string): void {
+    reader.target = name;
+    reader.command = ["cat", `${dir}/${name}.json`];
+    reader.running = true;
+}</code></pre></div><div class="seg-e"><p>A <code>Process</code> reads the profile file; its handler (below) applies it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 45–49</span><b>Deleting</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function remove(name: string): void {
+    Quickshell.execDetached(["rm", "-f", `${dir}/${name}.json`]);
+    lastMessage = `Deleted profile "${name}"`;
+    refreshLater.restart();
+}</code></pre></div><div class="seg-e"><p>Removes the file and refreshes the list.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 51–55</span><b>Exporting</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function exportTo(path: string): void {
+    current.reload();
+    writeFile(path, current.text());
+    lastMessage = `Exported to ${path}`;
+}</code></pre></div><div class="seg-e"><p>A plain copy of <code>shell.json</code> to a path of your choice, for backups or sharing.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 57–62</span><b>Resetting</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function resetToDefaults(): void {
+    defaults.reload();
+    // the defaults file uses "~/" so it works for everyone; expand it to this user's home
+    writeFile(configPath, defaults.text().replace(/"~\//g, `"${Quickshell.env("HOME")}/`));
+    lastMessage = "Restored the default settings";
+}</code></pre></div><div class="seg-e"><p>Writes the shipped defaults over <code>shell.json</code>. The defaults file uses <code>~/</code> for paths so it works for anyone; it's expanded to your home folder while writing, because the shell uses paths as-is.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 71–77</span><b>Listing</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Process {
+    id: list
+    command: ["sh", "-c", 'ls "$1" 2&gt;/dev/null | sed -n "s/\\.json$//p"', "sh", root.dir]
+    stdout: StdioCollector {
+        onStreamFinished: root.names = text.split("\n").filter(n =&gt; n)
+    }
+}</code></pre></div><div class="seg-e"><p><code>ls</code> the folder and strip <code>.json</code> with <code>sed</code>. The folder is again passed as an argument.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 79–94</span><b>Applying a profile</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Process {
+    id: reader
+    property string target: ""
+    stdout: StdioCollector {
+        onStreamFinished: {
+            try {
+                const data = JSON.parse(text);
+                root.writeFile(root.configPath, JSON.stringify(data.config, null, 2));
+                if (data.wallpaper) Wallpapers.set(data.wallpaper);
+                root.lastMessage = `Loaded profile "${reader.target}"`;
+            } catch (e) {
+                root.lastMessage = `Couldn't read profile "${reader.target}"`;
+            }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>Parse the file, write its config into <code>shell.json</code>, set its wallpaper. A broken or hand-edited file can't crash anything: the <code>try</code>/<code>catch</code> reports it instead.</p></div></div></div>
+<div class="codewrap"><pre class="code" data-lang="js"><span class="fname">cae/extras/defaults.json</span><code>{
+  "border": { "thickness": 10, "rounding": 25 },
+  "bar": {
+    "persistent": true,
+    "entries": ["logo", "workspaces", "spacer", "activeWindow", "spacer", "tray", "clock", "statusIcons", "power"],
+    "workspacesShown": 5,
+    "workspaceWindows": true
+  },
+  "dashboard": { "showOnHover": true },
+  "launcher": { "actionPrefix": "&gt;", "maxShown": 7 },
+  "notifs": { "defaultExpire": 5000 },
+  "osd": { "hideDelay": 2000 },
+  "sidebar": { "showOnHover": true },
+  "appearance": {
+    "transparency": false,
+    "transparencyBase": 0.85,
+    "mode": "dark",
+    "font": "Rubik",
+    "roundingScale": 1,
+    "animationSpeed": 1
+  },
+  "paths": { "wallpaperDir": "~/Pictures/Wallpapers", "face": "~/.face" },
+  "services": { "audioStep": 0.05, "brightnessStep": 0.05, "terminal": "kitty" }
+}</code></pre></div>
+<p>Keep this file in sync with the defaults in <code>Config.qml</code>. A full file (every key present) matters: writing a partial JSON would leave missing options at whatever value they had.</p>
+<div class="box note"><div class="bt">In the original</div><p>Caelestia's colour schemes and wallpapers are managed by its <code>caelestia</code> CLI (<code>caelestia scheme list</code>, <code>caelestia scheme set</code>), and end-4's settings app has an "Advanced" page and first-run defaults copied from <code>defaults/config.json</code>. Neither ships named whole-rice profiles. This is an addition you can carry over to either.</p></div>
+<h2 id="module-2-reloading-the-shell">Module 2: Reloading the shell<a class="hlink" href="#module-2-reloading-the-shell">#</a></h2>
+<p>The "Reload the shell" button calls an IPC handler added to <code>shell.qml</code>:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>IpcHandler {
+    target: "shell"
+    function reload(): void { Quickshell.reload(true) }
+}</code></pre></div>
+<p><code>Quickshell.reload(true)</code> rebuilds every component from scratch (a "hard" reload). Most settings never need it, because they apply through bindings, but it helps after editing QML files.</p>
+<h2 id="module-3-testing-a-settings-app-without-the-shell">Module 3: Testing a settings app without the shell<a class="hlink" href="#module-3-testing-a-settings-app-without-the-shell">#</a></h2>
+<p>A settings app has a lot of UI and very little that needs a running compositor. You can render it <strong>headlessly</strong> with Qt's own <code>qml</code> tool and catch layout and loading bugs before you ever start the shell.</p>
+<p>The obstacle: Quickshell's types (<code>Singleton</code>, <code>FileView</code>, <code>FloatingWindow</code>…) only exist inside Quickshell. The trick is to give the pages <strong>stand-ins</strong> for the few singletons they use:</p>
+<table>
+<thead>
+<tr>
+<th>Real</th>
+<th>Stand-in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Config</code> (a <code>JsonAdapter</code> on a file)</td>
+<td>a <code>QtObject</code> with the same nested properties and default values</td>
+</tr>
+<tr>
+<td><code>Colours</code></td>
+<td>a <code>QtObject</code> with the palette</td>
+</tr>
+<tr>
+<td><code>Wallpapers</code>, <code>Profiles</code></td>
+<td><code>QtObject</code>s with empty lists and functions that do nothing</td>
+</tr>
+<tr>
+<td><code>FloatingWindow</code></td>
+<td>a <code>Rectangle</code> of the same size</td>
+</tr>
+</tbody>
+</table>
+<p>Everything else (the rows, controls, sections, pages, even <code>Border</code> and <code>PanelBg</code>) runs <strong>unchanged</strong>. A small script copies the files into a temporary <code>qs/</code> folder, strips the <code>import Quickshell…</code> lines, swaps in the stand-ins, and writes <code>qmldir</code> files (marking <code>pragma Singleton</code> files as singletons). Then a test file renders each page to a PNG:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>import QtQuick
+import QtQuick.Window
+import qs.modules.settings
+
+Window {
+    width: 1000; height: 700; visible: true
+    SettingsWindow { id: win }
+
+    Timer {
+        interval: 800; running: true
+        onTriggered: {
+            SettingsState.page = 2;          // the Bar page
+            SettingsState.query = "";
+            grab.restart();
+        }
+    }
+    Timer {
+        id: grab
+        interval: 400
+        onTriggered: win.grabToImage(r =&gt; { r.saveToFile("bar-page.png"); Qt.quit(); })
+    }
+}</code></pre></div>
+<p>Run it without a display:</p>
+<div class="codewrap"><pre class="code" data-lang="sh"><code>QT_FORCE_STDERR_LOGGING=1 QT_QPA_PLATFORM=offscreen /usr/lib/qt6/bin/qml -I /tmp/mock test.qml</code></pre></div>
+<ul>
+<li><code>QT_QPA_PLATFORM=offscreen</code> renders without a screen.</li>
+<li><code>QT_FORCE_STDERR_LOGGING=1</code> matters on many desktops: without it, Qt sends warnings and <code>console.log</code> output to the system journal, and the tool seems to fail silently ("Did not load any objects").</li>
+<li><code>-I /tmp/mock</code> is where the <code>qs/</code> stand-in tree lives.</li>
+</ul>
+<p>Testing this settings app that way found three real bugs, all fixed in the code you've read:</p>
+<ol>
+<li><strong>A <code>Behavior</code> on a read-only property.</strong> The switch knob's size was <code>readonly property real size</code>, and <code>Behavior on size</code> can't animate a read-only property; the whole page failed to load. It's now a normal property.</li>
+<li><strong>A missing import.</strong> <code>SliderRow</code> used <code>Slider.SnapAlways</code> without <code>import QtQuick.Controls</code>, a runtime <code>ReferenceError</code> that lint didn't flag.</li>
+<li><strong>A layout that ate the window.</strong> The navigation column filled the width (its children did), squeezing the pages to a sliver; <a class="xref" href="../ch/set3-window.html">Settings App 3: The Window, Navigation and Search</a> explains the fix.</li>
+</ol>
+<p>Combine this with <code>qmllint</code> (<code>/usr/lib/qt6/bin/qmllint -I &lt;folder with the qs tree&gt; File.qml</code>) to catch typos and wrong property names, and the first real run in the shell is usually uneventful.</p>
+<h2 id="adapting-the-app-to-the-end-4-rebuild">Adapting the app to the end-4 rebuild<a class="hlink" href="#adapting-the-app-to-the-end-4-rebuild">#</a></h2>
+<p>The same app works for <code>impulse</code> (<a class="xref" href="../ch/ii1-overview.html">end-4 1: What illogical-impulse Is and How It's Built</a>) with three changes:</p>
+<ol>
+<li>Replace <code>Config.border.thickness</code>-style paths with <code>Config.options.bar.…</code> (ii's nested options).</li>
+<li>Use <code>Appearance.colors.colLayer*</code> and <code>Appearance.rounding</code> in the rows and controls instead of <code>Colours.palette</code> and <code>Tokens</code> (or keep the components and give them ii's colours).</li>
+<li>Open it the end-4 way: <code>Quickshell.execDetached(["qs", "-p", Quickshell.shellPath("settings.qml")])</code> from the right sidebar's settings button.</li>
+</ol>
+<h2 id="practice">Practice<a class="hlink" href="#practice">#</a></h2>
+<div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Warm-up</span><b>Your first profiles</b></div><div class="ex-b"><p>Save your current setup as "daily". Change the font, roundness and wallpaper a lot, save as "wild", and switch between them.</p></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Import a backup</b></div><div class="ex-b"><p>Add an "Import settings" row with a path field that copies a file into <code>shell.json</code> (validate it with <code>JSON.parse</code> first).</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Read the file with a <code>Process</code> running <code>cat</code> (like <code>load()</code>), parse it in a <code>try</code>, and only call <code>writeFile(configPath, …)</code> when it parsed.</p></div></details></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>Profile previews</b></div><div class="ex-b"><p>Show each profile's wallpaper as a small thumbnail in its row (read it from the profile file when listing).</p></div></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Challenge</span><b>Undo</b></div><div class="ex-b"><p>Keep the last 20 changes in a list (setting path, old value, new value) and add an Undo button that restores the previous value. Hint: the pages already funnel every change through <code>onEdited</code>; record it there.</p></div></div>
+<div class="ex ex-project"><div class="ex-h"><span class="ex-n">Exercise 5</span><span class="ex-lvl">Mini project</span><b>A settings app for your own shell</b></div><div class="ex-b"><p>Take the shell you built in Part R or your own config, and give it a settings app with at least three pages, search, reset buttons and profiles. Test it headlessly with stand-ins before running it.</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/set4-pages.html"><small>← Previous</small><span>Settings App 4: The Pages</span></a><a class="pn-next" href="../ch/th1-colour-basics.html"><small>Next →</small><span>Theming 1: Colours, Palettes and Roles</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#module-1-the-profiles-service">Module 1: The profiles service</a><a class="l2" href="#module-2-reloading-the-shell">Module 2: Reloading the shell</a><a class="l2" href="#module-3-testing-a-settings-app-without-the-shell">Module 3: Testing a settings app without the shell</a><a class="l2" href="#adapting-the-app-to-the-end-4-rebuild">Adapting the app to the end-4 rebuild</a><a class="l2" href="#practice">Practice</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

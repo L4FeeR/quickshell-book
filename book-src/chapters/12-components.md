@@ -252,7 +252,69 @@ Choose the root carefully, because it's part of your public API: if `Pill`'s roo
 4. **Read colors and sizes from a theme singleton** ([[ch:43-design-system]]) instead of hard-coding them.
 5. **One responsibility per file.** If a file passes ~200 lines, split it.
 
-> [!TRY] Exercises
-> 1. Build `IconButton.qml` with properties `icon` (Material Symbols name), `size`, `toggled`, and signals `clicked`/`rightClicked`. Use it three times in your bar.
-> 2. Build `Card.qml` with a default property and put two `Pill`s inside a card.
-> 3. Move your components into `widgets/` and import them with `import qs.widgets` (create `.qmlls.ini` and restart `qs` so your editor understands it).
+## Practice
+
+::: exercise warm | A Chip component
+Turn the CPU/RAM rectangles from chapter 6's last exercise into a `Chip.qml` with `label` and `value` properties, and use it twice.
+--- solution
+```qml
+// Chip.qml
+import QtQuick
+Rectangle {
+    property string label
+    property int value
+    implicitWidth: t.implicitWidth + 20; implicitHeight: 26; radius: 13; color: "#313244"
+    Text { id: t; anchors.centerIn: parent; color: "white"; text: parent.label + ": " + parent.value + "%" }
+}
+```
+```qml
+Row { spacing: 6; Chip { label: "CPU"; value: 42 } Chip { label: "RAM"; value: 67 } }
+```
+:::
+
+::: exercise practice | IconButton
+Build `IconButton.qml` with properties `icon` (Material Symbols name), `size`, `toggled`, and signals `clicked`/`rightClicked`. Use it three times in your bar.
+--- solution
+```qml
+import QtQuick
+Rectangle {
+    id: b
+    property string icon
+    property int size: 28
+    property bool toggled: false
+    signal clicked()
+    signal rightClicked()
+    implicitWidth: size; implicitHeight: size; radius: size / 2
+    color: toggled ? "#cba6f7" : hover.hovered ? "#45475a" : "transparent"
+    Text { anchors.centerIn: parent; text: b.icon; font.family: "Material Symbols Rounded"; font.pixelSize: b.size * 0.6
+           color: b.toggled ? "#1e1e2e" : "#cdd6f4" }
+    HoverHandler { id: hover }
+    TapHandler { onTapped: b.clicked() }
+    TapHandler { acceptedButtons: Qt.RightButton; onTapped: b.rightClicked() }
+}
+```
+:::
+
+::: exercise practice | Default property
+Build `Card.qml` with `default property alias content: inner.data` and put two `Chip`s inside a card.
+--- solution
+```qml
+// Card.qml
+import QtQuick
+Rectangle {
+    default property alias content: inner.data
+    implicitWidth: inner.implicitWidth + 24; implicitHeight: inner.implicitHeight + 24
+    radius: 12; color: "#1e1e2e"
+    Column { id: inner; anchors.centerIn: parent; spacing: 6 }
+}
+```
+```qml
+Card { Chip { label: "CPU"; value: 42 } Chip { label: "RAM"; value: 67 } }
+```
+:::
+
+::: exercise challenge | A widgets module
+Move your components into `widgets/` and import them with `import qs.widgets`. Create `.qmlls.ini` and restart `qs` so your editor understands it.
+--- hint
+`qs` creates `.qmlls.ini` automatically if an empty one exists next to `shell.qml`: `touch .qmlls.ini`, then restart.
+:::

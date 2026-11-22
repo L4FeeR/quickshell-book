@@ -235,7 +235,21 @@ Scope {
 > [!WARN] Privacy
 > Clipboard history stores passwords you copy. Many password managers set a "sensitive" hint; cliphist can be told to skip some content (`wl-paste --watch cliphist -max-items 200 store`). Consider a `wipe` keybind and don't show the history on the lock screen.
 
-> [!TRY] Exercises
-> 1. Add a "paste" action that copies then sends <kbd>Ctrl</kbd>+<kbd>V</kbd> with `wtype -M ctrl v -m ctrl`.
-> 2. Show the number of entries in the bar.
-> 3. Integrate clipboard as a `#` mode in the launcher.
+## Practice
+
+::: exercise warm | Count in the bar
+Show the number of clipboard entries in the bar.
+:::
+
+::: exercise practice | Paste action
+Add a paste action that copies the entry, closes the picker, then sends <kbd>Ctrl</kbd>+<kbd>V</kbd>.
+--- solution
+```js
+Quickshell.execDetached(["sh", "-c", `cliphist decode ${id} | wl-copy && sleep 0.15 && wtype -M ctrl v -m ctrl`])
+```
+The short sleep lets focus return to the app first.
+:::
+
+::: exercise challenge | Launcher mode
+Integrate the clipboard as a `#` mode in the launcher.
+:::
