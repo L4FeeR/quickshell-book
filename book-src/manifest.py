@@ -190,6 +190,7 @@ PARTS = [
         ("a3-hover-press", "Animations: Hover and Press Micro-interactions"),
         ("a4-loops", "Animations: Loops, Loaders and Ambient Motion"),
         ("a5-morphs", "Animations: Morphs, Indicators and Transitions"),
+        ("a6-ripples-snow", "Animations: Ripples, Stretch and Snow"),
     ]),
     ("Q", "Qt Quick Reference", [
         ("q1-qt-visual", "Qt Reference: Visual Types"),

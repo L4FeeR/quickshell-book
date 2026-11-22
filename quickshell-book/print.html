@@ -205,6 +205,7 @@
 <a class="ch" href="ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
 <a class="ch" href="ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
 <a class="ch" href="ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+<a class="ch" href="ch/a6-ripples-snow.html"><span class="num">a6</span>Animations: Ripples, Stretch and Snow</a>
 </details>
 <details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
 <a class="ch" href="ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
@@ -59716,6 +59717,880 @@ Item {
     TapHandler { onTapped: ring.value = Math.random() }
 }</code></pre></div>
 <p><strong>Use for:</strong> battery, CPU, RAM, disk, a pomodoro timer, download progress, volume in a circular OSD.</p></section>
+<section class="print-ch"><div class="ch-part">Part A · Animation Library</div><h1>Animations: Ripples, Stretch and Snow</h1><p>Three effects ricers ask for again and again: a <strong>ripple</strong> that spreads from where you click or type, a <strong>squash-and-stretch</strong> "jelly" press, and <strong>snow</strong> falling over the desktop. This chapter builds each as a small reusable component, then shows every place you can use them: buttons, password and search fields, tabs, shell events like a volume change, and the desktop itself.</p>
+<div class="preview"><svg style="width:min(100%,960px)" width="640" height="300" viewBox="0 0 640 300"><rect width="640" height="300" rx="14" fill="#1a1b26"/><g><rect x="30" y="30" width="150" height="48" rx="14" fill="#24283b"/><circle cx="80" cy="54" r="10" fill="#7aa2f7" opacity=".4"><animate attributeName="r" values="0;90" dur="1.4s" repeatCount="indefinite"/><animate attributeName="opacity" values=".45;0" dur="1.4s" repeatCount="indefinite"/></circle><text x="105" y="59" fill="#c0caf5" font-size="15" text-anchor="middle">Ripple</text></g><g transform="translate(270 54)"><rect x="-70" y="-24" width="140" height="48" rx="24" fill="#7aa2f7"><animateTransform attributeName="transform" type="scale" values="1 1;1.12 0.88;0.96 1.05;1.02 0.98;1 1" keyTimes="0;.2;.45;.7;1" dur="1.4s" repeatCount="indefinite"/></rect><text y="5" fill="#1a1b26" font-size="15" font-weight="700" text-anchor="middle">Jelly</text></g><rect x="160" y="130" width="320" height="50" rx="25" fill="#16161e" stroke="#7aa2f7" stroke-width="2"/><g fill="#c0caf5"><circle cx="190" cy="155" r="5"/><circle cx="206" cy="155" r="5"/><circle cx="222" cy="155" r="5"/></g><circle cx="232" cy="155" r="10" fill="#7aa2f7" opacity=".45"><animate attributeName="r" values="0;45" dur="0.7s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0" dur="0.7s" repeatCount="indefinite"/></circle><text x="320" y="210" fill="#a9b1d6" font-size="11" text-anchor="middle">a ripple from the caret on every key</text><g fill="#fff"><circle cx="40" cy="240" r="3"><animate attributeName="cy" values="200;300" dur="4s" repeatCount="indefinite"/></circle><circle cx="120" cy="250" r="2.5" opacity=".7"><animate attributeName="cy" values="190;300" dur="5s" repeatCount="indefinite"/></circle><circle cx="540" cy="230" r="3.5"><animate attributeName="cy" values="180;300" dur="4.5s" repeatCount="indefinite"/></circle><circle cx="600" cy="260" r="2.5" opacity=".6"><animate attributeName="cy" values="200;300" dur="3.5s" repeatCount="indefinite"/></circle><circle cx="470" cy="240" r="2" opacity=".8"><animate attributeName="cy" values="170;300" dur="6s" repeatCount="indefinite"/></circle></g></svg></div>
+
+<p>The code is in <code>examples/ripples/</code>, a runnable Quickshell config with a showcase window (<code>qs -p examples/ripples</code>; the demo password is <code>secret</code>). The components use only Qt Quick, so they also work outside Quickshell, for example in an SDDM theme (<a class="xref" href="ch/d10-sddm.html">Desktop Ricing 10: SDDM Ricing</a>).</p>
+<h2 id="one-ripple">One ripple<a class="hlink" href="#one-ripple">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">ripples/components/Ripple.qml</span><code>import QtQuick
+
+// One ripple: a circle that grows from a point and fades out, then removes
+// itself. RippleLayer creates these; you rarely use it directly.
+Rectangle {
+    id: root
+
+    property real centerX: 0
+    property real centerY: 0
+    property real endSize: 200            // diameter at the end
+    property int duration: 600
+    property real startOpacity: 0.35
+    property bool ring: false             // true: an outline that expands, false: a filled circle
+    property color tint: "white"
+
+    width: endSize
+    height: endSize
+    radius: endSize / 2
+    x: centerX - endSize / 2
+    y: centerY - endSize / 2
+    color: ring ? "transparent" : tint
+    border.width: ring ? 3 : 0
+    border.color: tint
+    scale: 0
+    opacity: startOpacity
+
+    // grow and fade at the same time; when both are done, destroy the ripple
+    ParallelAnimation {
+        running: true
+        NumberAnimation { target: root; property: "scale"; from: 0; to: 1; duration: root.duration; easing.type: Easing.OutCubic }
+        NumberAnimation { target: root; property: "opacity"; from: root.startOpacity; to: 0; duration: root.duration; easing.type: Easing.InQuad }
+        onFinished: root.destroy()
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 8–14</span><b>Settings</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property real centerX: 0
+property real centerY: 0
+property real endSize: 200            // diameter at the end
+property int duration: 600
+property real startOpacity: 0.35
+property bool ring: false             // true: an outline that expands, false: a filled circle
+property color tint: "white"</code></pre></div><div class="seg-e"><p>Where it starts, how big it ends, how long it takes, how visible it starts, filled or a ring, and its colour.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 16–26</span><b>Shape and start</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>width: endSize
+height: endSize
+radius: endSize / 2
+x: centerX - endSize / 2
+y: centerY - endSize / 2
+color: ring ? "transparent" : tint
+border.width: ring ? 3 : 0
+border.color: tint
+scale: 0
+opacity: startOpacity
+</code></pre></div><div class="seg-e"><p>A circle the full end size, centred on the start point, but <strong>scaled to 0</strong>: scaling instead of resizing is cheaper (the GPU just draws it bigger) and keeps it perfectly round. A ring is a transparent circle with a border.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 27–33</span><b>Grow, fade, vanish</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// grow and fade at the same time; when both are done, destroy the ripple
+ParallelAnimation {
+    running: true
+    NumberAnimation { target: root; property: "scale"; from: 0; to: 1; duration: root.duration; easing.type: Easing.OutCubic }
+    NumberAnimation { target: root; property: "opacity"; from: root.startOpacity; to: 0; duration: root.duration; easing.type: Easing.InQuad }
+    onFinished: root.destroy()
+}</code></pre></div><div class="seg-e"><p>Scale from 0 to 1 with <code>OutCubic</code> (fast at first, then slowing, like a real wave) while the opacity falls to 0 with <code>InQuad</code> (slowly at first, then fast). When both finish, the ripple destroys itself, so nothing piles up.</p></div></div></div>
+<h2 id="a-layer-to-spawn-them">A layer to spawn them<a class="hlink" href="#a-layer-to-spawn-them">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">ripples/components/RippleLayer.qml</span><code>import QtQuick
+
+// A layer that spawns ripples anywhere on it. Put it over (or under) any
+// content and call burst():
+//   RippleLayer { id: ripples; anchors.fill: parent }
+//   ripples.burst(x, y)                                   // a default ripple
+//   ripples.burst(x, y, { tint: "red", ring: true, endSize: 400, duration: 900 })
+// Each ripple is created on demand and removes itself, so the layer costs
+// nothing while idle.
+Item {
+    id: root
+
+    property color tint: "white"
+    property real endSize: 200
+    property int duration: 600
+    property real startOpacity: 0.35
+    property int maxRipples: 24           // keep fast typing from piling up hundreds
+
+    Component { id: rippleComponent; Ripple {} }
+
+    function burst(x, y, options) {
+        if (root.children.length &gt;= root.maxRipples)
+            root.children[0].destroy();   // drop the oldest
+        const o = options ?? {};
+        rippleComponent.createObject(root, {
+            centerX: x,
+            centerY: y,
+            tint: o.tint ?? root.tint,
+            endSize: o.endSize ?? root.endSize,
+            duration: o.duration ?? root.duration,
+            startOpacity: o.startOpacity ?? root.startOpacity,
+            ring: o.ring ?? false
+        });
+    }
+
+    // a ripple from the middle, big enough to cover the whole layer
+    function flood(options) {
+        const o = Object.assign({ endSize: Math.hypot(width, height) * 2 }, options ?? {});
+        burst(width / 2, height / 2, o);
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 3–9</span><b>Usage</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// A layer that spawns ripples anywhere on it. Put it over (or under) any
+// content and call burst():
+//   RippleLayer { id: ripples; anchors.fill: parent }
+//   ripples.burst(x, y)                                   // a default ripple
+//   ripples.burst(x, y, { tint: "red", ring: true, endSize: 400, duration: 900 })
+// Each ripple is created on demand and removes itself, so the layer costs
+// nothing while idle.</code></pre></div><div class="seg-e"><p>Put a layer over (or under) any content and call <code>burst(x, y)</code> with optional overrides.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–17</span><b>Defaults</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property color tint: "white"
+property real endSize: 200
+property int duration: 600
+property real startOpacity: 0.35
+property int maxRipples: 24           // keep fast typing from piling up hundreds</code></pre></div><div class="seg-e"><p>Every ripple gets these unless a call overrides them. <code>maxRipples</code> caps the number alive at once: fast typing could otherwise create hundreds.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 19</span><b>The template</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Component { id: rippleComponent; Ripple {} }</code></pre></div><div class="seg-e"><p>A <code>Component</code> wrapping <code>Ripple</code>, ready to be instantiated.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 21–34</span><b>burst()</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function burst(x, y, options) {
+    if (root.children.length &gt;= root.maxRipples)
+        root.children[0].destroy();   // drop the oldest
+    const o = options ?? {};
+    rippleComponent.createObject(root, {
+        centerX: x,
+        centerY: y,
+        tint: o.tint ?? root.tint,
+        endSize: o.endSize ?? root.endSize,
+        duration: o.duration ?? root.duration,
+        startOpacity: o.startOpacity ?? root.startOpacity,
+        ring: o.ring ?? false
+    });
+}</code></pre></div><div class="seg-e"><p>If the layer is full, destroy the oldest ripple. Then create a new one as a child of the layer, with the given position and each option, falling back to the defaults with <code>??</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 36–40</span><b>flood()</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// a ripple from the middle, big enough to cover the whole layer
+function flood(options) {
+    const o = Object.assign({ endSize: Math.hypot(width, height) * 2 }, options ?? {});
+    burst(width / 2, height / 2, o);
+}</code></pre></div><div class="seg-e"><p>A ripple from the centre big enough to cover the whole layer (twice its diagonal), for full-area effects like a failure shockwave.</p></div></div></div>
+<h2 id="click-ripples-on-anything">Click ripples on anything<a class="hlink" href="#click-ripples-on-anything">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">ripples/components/ClickRipple.qml</span><code>import QtQuick
+import QtQuick.Effects
+
+// Click ripples for any item, clipped to its rounded shape. Put it inside the
+// item as the last child:
+//   Rectangle { radius: 14; …; ClickRipple { radius: 14; onClicked: … } }
+// It takes the clicks itself (and passes them on through `clicked`), and adds
+// a soft hover highlight.
+Item {
+    id: root
+
+    property real radius: 0
+    property color tint: "white"
+    property bool hoverHighlight: true
+    signal clicked(var mouse)
+
+    anchors.fill: parent
+
+    // the ripples live in a layer masked by a rounded rectangle, so they
+    // never spill past the corners (plain `clip` would only cut a square)
+    Item {
+        id: content
+        anchors.fill: parent
+        layer.enabled: true
+        layer.effect: MultiEffect {
+            maskEnabled: true
+            maskSource: mask
+        }
+        Rectangle {                        // hover highlight
+            anchors.fill: parent
+            color: root.tint
+            opacity: root.hoverHighlight &amp;&amp; area.containsMouse ? 0.06 : 0
+            Behavior on opacity { NumberAnimation { duration: 150 } }
+        }
+        RippleLayer {
+            id: ripples
+            anchors.fill: parent
+            tint: root.tint
+            endSize: Math.hypot(root.width, root.height) * 2.2   // always reaches the far corner
+        }
+    }
+    Rectangle {                            // the mask's shape
+        id: mask
+        anchors.fill: parent
+        radius: root.radius
+        visible: false
+        layer.enabled: true
+    }
+
+    MouseArea {
+        id: area
+        anchors.fill: parent
+        hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
+        onPressed: m =&gt; ripples.burst(m.x, m.y)
+        onClicked: m =&gt; root.clicked(m)
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 4–8</span><b>Usage</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// Click ripples for any item, clipped to its rounded shape. Put it inside the
+// item as the last child:
+//   Rectangle { radius: 14; …; ClickRipple { radius: 14; onClicked: … } }
+// It takes the clicks itself (and passes them on through `clicked`), and adds
+// a soft hover highlight.</code></pre></div><div class="seg-e"><p>Drop it inside any item, give it the item's corner radius, and it handles clicks, hover and ripples. <code>clicked</code> passes the click on.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 19–41</span><b>Clipped to the rounded shape</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// the ripples live in a layer masked by a rounded rectangle, so they
+// never spill past the corners (plain `clip` would only cut a square)
+Item {
+    id: content
+    anchors.fill: parent
+    layer.enabled: true
+    layer.effect: MultiEffect {
+        maskEnabled: true
+        maskSource: mask
+    }
+    Rectangle {                        // hover highlight
+        anchors.fill: parent
+        color: root.tint
+        opacity: root.hoverHighlight &amp;&amp; area.containsMouse ? 0.06 : 0
+        Behavior on opacity { NumberAnimation { duration: 150 } }
+    }
+    RippleLayer {
+        id: ripples
+        anchors.fill: parent
+        tint: root.tint
+        endSize: Math.hypot(root.width, root.height) * 2.2   // always reaches the far corner
+    }
+}</code></pre></div><div class="seg-e"><p>A plain <code>clip: true</code> would cut the ripple at the item's square box, so it would show in the rounded-off corners. Instead, the ripples are drawn in a layer and <strong>masked</strong> by a rounded rectangle with <a class="api qt" href="qt-index.html#multieffect"><code>MultiEffect</code></a>'s <code>maskEnabled</code>: they're only visible inside the exact shape. The same layer holds a faint hover highlight.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 35–40</span><b>Big enough</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RippleLayer {
+    id: ripples
+    anchors.fill: parent
+    tint: root.tint
+    endSize: Math.hypot(root.width, root.height) * 2.2   // always reaches the far corner
+}</code></pre></div><div class="seg-e"><p>The ripple's end size is 2.2 times the item's diagonal, so a ripple from any point reaches the farthest corner.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 42–48</span><b>The mask shape</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {                            // the mask's shape
+    id: mask
+    anchors.fill: parent
+    radius: root.radius
+    visible: false
+    layer.enabled: true
+}</code></pre></div><div class="seg-e"><p>A rounded rectangle the size of the item, invisible itself, rendered into a texture (<code>layer.enabled</code>) for the mask to use.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 50–57</span><b>Input</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>MouseArea {
+    id: area
+    anchors.fill: parent
+    hoverEnabled: true
+    cursorShape: Qt.PointingHandCursor
+    onPressed: m =&gt; ripples.burst(m.x, m.y)
+    onClicked: m =&gt; root.clicked(m)
+}</code></pre></div><div class="seg-e"><p>Press spawns the ripple at the pointer (at <strong>press</strong>, not release, so it responds instantly); click passes the event on.</p></div></div></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    radius: 14; color: "#24283b"; implicitWidth: 140; implicitHeight: 48
+    Text { anchors.centerIn: parent; text: "Save"; color: "#c0caf5" }
+    ClickRipple { radius: 14; tint: "#7aa2f7"; onClicked: save() }
+}</code></pre></div>
+<h2 id="ripples-for-typing">Ripples for typing<a class="hlink" href="#ripples-for-typing">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">ripples/components/TypingRipple.qml</span><code>import QtQuick
+
+// Ripples for typing: attach it to a TextInput (or TextField) and every key
+// sends a ripple out from the caret. Deleting sends a smaller ring; Enter a
+// big one; call shake("red") for a failure shockwave.
+//   Item {
+//       TextInput { id: field; … }
+//       TypingRipple { target: field; anchors.fill: parent }
+//   }
+// The ripple layer fills the TypingRipple; place it where the effect may spread.
+Item {
+    id: root
+
+    required property var target           // a TextInput, TextField, or anything with text and cursorRectangle
+    property color tint: "#7aa2f7"
+    property color deleteTint: "#bb9af7"
+    property real keySize: 90
+    property bool randomTints: false       // a different colour from `tints` per key
+    property var tints: ["#7aa2f7", "#bb9af7", "#7dcfff", "#9ece6a", "#e0af68", "#f7768e"]
+
+    property int lastLength: target.text.length
+
+    RippleLayer { id: ripples; anchors.fill: parent }
+
+    // the caret's centre, in this item's coordinates
+    function caret() {
+        const r = target.cursorRectangle;
+        return target.mapToItem(root, r.x + r.width / 2, r.y + r.height / 2);
+    }
+
+    // Inside textChanged, Qt hasn't laid out the new text yet, so the caret
+    // position is still stale (an empty rectangle). Qt.callLater runs the
+    // ripple a moment later, once the caret has moved.
+    function _typed(deleted) {
+        const p = root.caret();
+        if (deleted) {
+            ripples.burst(p.x, p.y, { tint: root.deleteTint, endSize: root.keySize * 0.6, ring: true, duration: 400 });
+        } else {
+            const t = root.randomTints ? root.tints[Math.floor(Math.random() * root.tints.length)] : root.tint;
+            ripples.burst(p.x, p.y, { tint: t, endSize: root.keySize, duration: 500 });
+        }
+    }
+
+    Connections {
+        target: root.target
+        function onTextChanged() {
+            const now = root.target.text.length;
+            if (now !== root.lastLength)
+                Qt.callLater(root._typed, now &lt; root.lastLength);
+            root.lastLength = now;
+        }
+        function onAccepted() {                   // Enter
+            const p = root.caret();
+            ripples.burst(p.x, p.y, { tint: root.tint, endSize: Math.max(root.width, root.height) * 2.5, ring: true, duration: 800, startOpacity: 0.6 });
+        }
+    }
+
+    // a red shockwave over the whole area, for "wrong password" and the like
+    function shake(colour) {
+        ripples.flood({ tint: colour ?? "#f7768e", ring: true, duration: 700, startOpacity: 0.8 });
+        ripples.flood({ tint: colour ?? "#f7768e", duration: 500, startOpacity: 0.25 });
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 3–10</span><b>Usage</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// Ripples for typing: attach it to a TextInput (or TextField) and every key
+// sends a ripple out from the caret. Deleting sends a smaller ring; Enter a
+// big one; call shake("red") for a failure shockwave.
+//   Item {
+//       TextInput { id: field; … }
+//       TypingRipple { target: field; anchors.fill: parent }
+//   }
+// The ripple layer fills the TypingRipple; place it where the effect may spread.</code></pre></div><div class="seg-e"><p>Attach it to a text field. It fills its own area with a ripple layer, so place it where ripples may spread (around the field rather than inside it).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–21</span><b>Settings</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>required property var target           // a TextInput, TextField, or anything with text and cursorRectangle
+property color tint: "#7aa2f7"
+property color deleteTint: "#bb9af7"
+property real keySize: 90
+property bool randomTints: false       // a different colour from `tints` per key
+property var tints: ["#7aa2f7", "#bb9af7", "#7dcfff", "#9ece6a", "#e0af68", "#f7768e"]
+
+property int lastLength: target.text.length</code></pre></div><div class="seg-e"><p>The field, a colour for typing and one for deleting, the ripple size, and an optional set of colours to pick from at random for each key.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 25–29</span><b>Where the caret is</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// the caret's centre, in this item's coordinates
+function caret() {
+    const r = target.cursorRectangle;
+    return target.mapToItem(root, r.x + r.width / 2, r.y + r.height / 2);
+}</code></pre></div><div class="seg-e"><p><code>cursorRectangle</code> is the caret's box in the field's coordinates; <code>mapToItem</code> converts its centre to this item's coordinates.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 31–42</span><b>One tick later</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// Inside textChanged, Qt hasn't laid out the new text yet, so the caret
+// position is still stale (an empty rectangle). Qt.callLater runs the
+// ripple a moment later, once the caret has moved.
+function _typed(deleted) {
+    const p = root.caret();
+    if (deleted) {
+        ripples.burst(p.x, p.y, { tint: root.deleteTint, endSize: root.keySize * 0.6, ring: true, duration: 400 });
+    } else {
+        const t = root.randomTints ? root.tints[Math.floor(Math.random() * root.tints.length)] : root.tint;
+        ripples.burst(p.x, p.y, { tint: t, endSize: root.keySize, duration: 500 });
+    }
+}</code></pre></div><div class="seg-e"><p>A subtle trap: inside <code>textChanged</code>, Qt hasn't laid out the new text yet, so <code>cursorRectangle</code> is still the <strong>old</strong>, even empty, rectangle (it read <code>QRectF(0, 0, 0, 0)</code> when tested). The ripple would appear at the field's corner. <code>Qt.callLater</code> runs <code>_typed</code> after the current event, when the caret has moved. Typing sends a filled ripple; deleting a smaller ring in another colour.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 44–56</span><b>Watching the field</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Connections {
+    target: root.target
+    function onTextChanged() {
+        const now = root.target.text.length;
+        if (now !== root.lastLength)
+            Qt.callLater(root._typed, now &lt; root.lastLength);
+        root.lastLength = now;
+    }
+    function onAccepted() {                   // Enter
+        const p = root.caret();
+        ripples.burst(p.x, p.y, { tint: root.tint, endSize: Math.max(root.width, root.height) * 2.5, ring: true, duration: 800, startOpacity: 0.6 });
+    }
+}</code></pre></div><div class="seg-e"><p>Compare the new length with the last one to know whether a character was added or removed. Enter (<code>accepted</code>) sends a big ring.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 58–62</span><b>The shockwave</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// a red shockwave over the whole area, for "wrong password" and the like
+function shake(colour) {
+    ripples.flood({ tint: colour ?? "#f7768e", ring: true, duration: 700, startOpacity: 0.8 });
+    ripples.flood({ tint: colour ?? "#f7768e", duration: 500, startOpacity: 0.25 });
+}</code></pre></div><div class="seg-e"><p><code>shake()</code> floods the area with a red ring and a faint red wash at once: the feedback for a wrong password.</p></div></div></div>
+<h2 id="squash-and-stretch">Squash and stretch<a class="hlink" href="#squash-and-stretch">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">ripples/components/Stretch.qml</span><code>import QtQuick
+
+// A squash-and-stretch "jelly" effect for any item. Put it inside the item:
+//   Rectangle { …; Stretch { id: jelly } }       then call jelly.press() / jelly.release()
+// or let it handle the mouse itself with `handleMouse: true`.
+// Pressing squashes the item (wider and flatter); releasing makes it spring
+// back past its size and wobble to rest. poke() does a quick squash and
+// release in one go, for keys and events.
+Item {
+    id: root
+
+    property Item item: parent             // the item to deform
+    property real amount: 0.12             // how far it squashes (0.12 = 12%)
+    property bool handleMouse: false
+    signal clicked
+
+    anchors.fill: parent
+
+    // Two scales: x and y. Squash makes x bigger and y smaller, so the area
+    // looks constant, like something soft being pressed.
+    Scale {
+        id: deform
+        origin.x: root.item.width / 2
+        origin.y: root.item.height / 2
+        xScale: 1
+        yScale: 1
+    }
+    Component.onCompleted: root.item.transform = [deform]
+
+    function press() {
+        spring.stop();
+        squash.restart();
+    }
+    function release() {
+        squash.stop();
+        spring.restart();
+    }
+    function poke(strength) {               // a quick squash-and-release
+        const a = root.amount * (strength ?? 0.6);
+        squash.stop();
+        deform.xScale = 1 + a;
+        deform.yScale = 1 - a;
+        spring.restart();
+    }
+
+    // press: squash over 90 ms
+    ParallelAnimation {
+        id: squash
+        NumberAnimation { target: deform; property: "xScale"; to: 1 + root.amount; duration: 90; easing.type: Easing.OutQuad }
+        NumberAnimation { target: deform; property: "yScale"; to: 1 - root.amount; duration: 90; easing.type: Easing.OutQuad }
+    }
+    // release: spring back. OutElastic overshoots and wobbles, like jelly.
+    ParallelAnimation {
+        id: spring
+        NumberAnimation { target: deform; property: "xScale"; to: 1; duration: 700; easing.type: Easing.OutElastic; easing.amplitude: 1.2; easing.period: 0.35 }
+        NumberAnimation { target: deform; property: "yScale"; to: 1; duration: 700; easing.type: Easing.OutElastic; easing.amplitude: 1.2; easing.period: 0.35 }
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        enabled: root.handleMouse
+        cursorShape: Qt.PointingHandCursor
+        onPressed: root.press()
+        onReleased: root.release()
+        onCanceled: root.release()
+        onClicked: root.clicked()
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 3–8</span><b>What it does</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// A squash-and-stretch "jelly" effect for any item. Put it inside the item:
+//   Rectangle { …; Stretch { id: jelly } }       then call jelly.press() / jelly.release()
+// or let it handle the mouse itself with `handleMouse: true`.
+// Pressing squashes the item (wider and flatter); releasing makes it spring
+// back past its size and wobble to rest. poke() does a quick squash and
+// release in one go, for keys and events.</code></pre></div><div class="seg-e"><p>Pressing squashes the item wider and flatter; releasing makes it overshoot and wobble back, like jelly. <code>poke()</code> does both at once, for keys and events.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 12–15</span><b>Settings</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property Item item: parent             // the item to deform
+property real amount: 0.12             // how far it squashes (0.12 = 12%)
+property bool handleMouse: false
+signal clicked</code></pre></div><div class="seg-e"><p>The item to deform (its parent by default), how much (12%), and whether it handles the mouse itself.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 19–28</span><b>Two scales</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// Two scales: x and y. Squash makes x bigger and y smaller, so the area
+// looks constant, like something soft being pressed.
+Scale {
+    id: deform
+    origin.x: root.item.width / 2
+    origin.y: root.item.height / 2
+    xScale: 1
+    yScale: 1
+}
+Component.onCompleted: root.item.transform = [deform]</code></pre></div><div class="seg-e"><p>A <code>Scale</code> transform with separate x and y factors, centred on the item. Making x bigger while y gets smaller keeps the area about the same, which is what makes it look soft rather than just smaller. It's attached to the item as its transform.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 30–44</span><b>press, release, poke</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function press() {
+    spring.stop();
+    squash.restart();
+}
+function release() {
+    squash.stop();
+    spring.restart();
+}
+function poke(strength) {               // a quick squash-and-release
+    const a = root.amount * (strength ?? 0.6);
+    squash.stop();
+    deform.xScale = 1 + a;
+    deform.yScale = 1 - a;
+    spring.restart();
+}</code></pre></div><div class="seg-e"><p><code>poke</code> jumps straight to a squashed shape (with an adjustable strength) and starts the spring.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 46–51</span><b>The squash</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// press: squash over 90 ms
+ParallelAnimation {
+    id: squash
+    NumberAnimation { target: deform; property: "xScale"; to: 1 + root.amount; duration: 90; easing.type: Easing.OutQuad }
+    NumberAnimation { target: deform; property: "yScale"; to: 1 - root.amount; duration: 90; easing.type: Easing.OutQuad }
+}</code></pre></div><div class="seg-e"><p>A quick 90 ms ease into the squashed shape.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 52–57</span><b>The spring</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// release: spring back. OutElastic overshoots and wobbles, like jelly.
+ParallelAnimation {
+    id: spring
+    NumberAnimation { target: deform; property: "xScale"; to: 1; duration: 700; easing.type: Easing.OutElastic; easing.amplitude: 1.2; easing.period: 0.35 }
+    NumberAnimation { target: deform; property: "yScale"; to: 1; duration: 700; easing.type: Easing.OutElastic; easing.amplitude: 1.2; easing.period: 0.35 }
+}</code></pre></div><div class="seg-e"><p>Back to 1 with <strong><code>OutElastic</code></strong>: it overshoots past the normal size and oscillates a few times before resting. <code>amplitude</code> sets how far it overshoots, <code>period</code> how fast it wobbles.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 59–67</span><b>Mouse</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>MouseArea {
+    anchors.fill: parent
+    enabled: root.handleMouse
+    cursorShape: Qt.PointingHandCursor
+    onPressed: root.press()
+    onReleased: root.release()
+    onCanceled: root.release()
+    onClicked: root.clicked()
+}</code></pre></div><div class="seg-e"><p>With <code>handleMouse</code>, it presses and releases itself.</p></div></div></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">ripples/components/StretchPill.qml</span><code>import QtQuick
+
+// The stretchy pill from the workspace indicators: it moves between targets
+// with its two edges travelling at different speeds, so it stretches across
+// and snaps back. Set `target` to any item in the same parent.
+//   StretchPill { target: tabs.currentItem }
+Rectangle {
+    id: root
+
+    property Item target: null
+    property int fast: 140                 // the edge in front
+    property int slow: 320                 // the edge behind
+    property real padding: 0
+
+    readonly property real goalLeft: target ? target.x - padding : 0
+    readonly property real goalRight: target ? target.x + target.width + padding : 0
+    property real leftEdge: goalLeft
+    property real rightEdge: goalRight
+    property int direction: 0
+
+    x: leftEdge
+    width: Math.max(0, rightEdge - leftEdge)
+    radius: height / 2
+
+    onGoalLeftChanged: direction = goalLeft &gt; leftEdge ? 1 : -1
+    // moving right: the right edge leads; moving left: the left edge leads
+    Behavior on leftEdge { NumberAnimation { duration: root.direction &lt; 0 ? root.fast : root.slow; easing.type: Easing.OutCubic } }
+    Behavior on rightEdge { NumberAnimation { duration: root.direction &gt; 0 ? root.fast : root.slow; easing.type: Easing.OutCubic } }
+}</code></pre></div>
+<p>The elastic tab or workspace pill from <a class="xref" href="ch/ly5-bar.html">lyne-dots 5: The Bar</a>, as a general component: point <code>target</code> at any item in the same parent and the pill slides to it with its leading edge fast and its trailing edge slow, so it stretches across and snaps back.</p>
+<h2 id="snow">Snow<a class="hlink" href="#snow">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">ripples/components/Snow.qml</span><code>import QtQuick
+import QtQuick.Particles
+
+// Falling snow over whatever this item covers. Qt's particle system does the
+// work: an emitter along the top edge creates flakes, gravity pulls them
+// down, and a random "wander" makes them drift like real snow.
+//   Snow { anchors.fill: parent; intensity: 1; wind: 20 }
+// burst(x, y) throws a puff of flakes from a point (for clicks and keys).
+Item {
+    id: root
+
+    property real intensity: 1             // 0 = none, 1 = steady, 3 = blizzard
+    property real wind: 15                 // sideways drift, pixels per second (negative = left)
+    property color tint: "white"
+    property bool running: true
+
+    ParticleSystem {
+        id: system
+        anchors.fill: parent
+        running: root.running
+
+        // what a flake looks like: a soft round dot, drawn by the GPU
+        ItemParticle {
+            groups: ["flake", "puff"]
+            delegate: Rectangle {
+                readonly property real size: 3 + Math.random() * 5
+                width: size
+                height: size
+                radius: size / 2
+                color: root.tint
+                opacity: 0.4 + Math.random() * 0.5
+            }
+        }
+
+        // steady snow: born along the top edge, falling
+        Emitter {
+            group: "flake"
+            width: parent.width
+            height: 1
+            y: -10
+            emitRate: 40 * root.intensity * (parent.width / 1920)   // the same density on any width
+            lifeSpan: 12000
+            lifeSpanVariation: 3000
+            velocity: AngleDirection { angle: 90; angleVariation: 12; magnitude: 45; magnitudeVariation: 25 }
+            enabled: root.intensity &gt; 0
+        }
+
+        // the puff for burst(): a short blast in every direction
+        Emitter {
+            id: puffs
+            group: "puff"
+            enabled: false
+            emitRate: 0
+            lifeSpan: 1600
+            lifeSpanVariation: 400
+            velocity: AngleDirection { angle: 0; angleVariation: 180; magnitude: 140; magnitudeVariation: 80 }
+        }
+
+        // wind pushes everything sideways; gravity pulls the puffs back down
+        Gravity { groups: ["flake", "puff"]; angle: 0; magnitude: root.wind }
+        Gravity { groups: ["puff"]; angle: 90; magnitude: 160 }
+        // drifting: each flake wanders a little left and right
+        Wander { groups: ["flake"]; xVariance: 40; pace: 40 }
+    }
+
+    // a puff of flakes from a point
+    function burst(x, y, count) {
+        puffs.burst(count ?? 18, x, y);
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 12–15</span><b>Settings</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property real intensity: 1             // 0 = none, 1 = steady, 3 = blizzard
+property real wind: 15                 // sideways drift, pixels per second (negative = left)
+property color tint: "white"
+property bool running: true</code></pre></div><div class="seg-e"><p>How much snow (0 off, 1 steady, 3 a blizzard), the wind, the colour, and whether it's running.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 17–20</span><b>A particle system</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ParticleSystem {
+    id: system
+    anchors.fill: parent
+    running: root.running</code></pre></div><div class="seg-e"><p>Qt's <code>QtQuick.Particles</code> simulates thousands of small particles efficiently. The system ties the pieces below together.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 22–33</span><b>A flake</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// what a flake looks like: a soft round dot, drawn by the GPU
+ItemParticle {
+    groups: ["flake", "puff"]
+    delegate: Rectangle {
+        readonly property real size: 3 + Math.random() * 5
+        width: size
+        height: size
+        radius: size / 2
+        color: root.tint
+        opacity: 0.4 + Math.random() * 0.5
+    }
+}</code></pre></div><div class="seg-e"><p>Each particle is drawn by this delegate: a round dot with a random size and opacity, so the snow has depth.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 35–46</span><b>Steady snow</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// steady snow: born along the top edge, falling
+Emitter {
+    group: "flake"
+    width: parent.width
+    height: 1
+    y: -10
+    emitRate: 40 * root.intensity * (parent.width / 1920)   // the same density on any width
+    lifeSpan: 12000
+    lifeSpanVariation: 3000
+    velocity: AngleDirection { angle: 90; angleVariation: 12; magnitude: 45; magnitudeVariation: 25 }
+    enabled: root.intensity &gt; 0
+}</code></pre></div><div class="seg-e"><p>An emitter along the top edge, just above the screen, releasing flakes that fall downward (angle 90°) with a little spread and varying speed, living long enough to cross the screen. The rate scales with the width, so a wide monitor gets the same density.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 48–57</span><b>Puffs</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// the puff for burst(): a short blast in every direction
+Emitter {
+    id: puffs
+    group: "puff"
+    enabled: false
+    emitRate: 0
+    lifeSpan: 1600
+    lifeSpanVariation: 400
+    velocity: AngleDirection { angle: 0; angleVariation: 180; magnitude: 140; magnitudeVariation: 80 }
+}</code></pre></div><div class="seg-e"><p>A second emitter that's normally off. <code>burst()</code> fires it once from a point, throwing flakes in every direction.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 59–63</span><b>Forces</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// wind pushes everything sideways; gravity pulls the puffs back down
+Gravity { groups: ["flake", "puff"]; angle: 0; magnitude: root.wind }
+Gravity { groups: ["puff"]; angle: 90; magnitude: 160 }
+// drifting: each flake wanders a little left and right
+Wander { groups: ["flake"]; xVariance: 40; pace: 40 }</code></pre></div><div class="seg-e"><p>Wind is a sideways gravity on everything; real gravity pulls the puffs back down; <code>Wander</code> makes the falling flakes drift left and right like real snow.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 66–69</span><b>burst()</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// a puff of flakes from a point
+function burst(x, y, count) {
+    puffs.burst(count ?? 18, x, y);
+}</code></pre></div><div class="seg-e"><p>A puff of flakes from a point.</p></div></div></div>
+<h2 id="where-to-use-them">Where to use them<a class="hlink" href="#where-to-use-them">#</a></h2>
+<p>The demo shell puts all of it together:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">ripples/shell.qml</span><code>//@ pragma UseQApplication
+import QtQuick
+import QtQuick.Layouts
+import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import Quickshell.Services.Pipewire
+import "components"
+
+// Every way to use the effects, in one place:
+//   a window with click ripples, jelly buttons, a stretchy tab pill, a
+//   password field with typing ripples and a failure shockwave, a search
+//   field with colourful keys and snow puffs,
+//   ripples from shell events (volume changes), and snow on the desktop.
+// Run:  qs -p examples/ripples        (the password is "secret")
+ShellRoot {
+    id: shell
+
+    // ── snow over the whole desktop, never taking clicks ──
+    Variants {
+        model: Quickshell.screens
+        PanelWindow {
+            required property var modelData
+            screen: modelData
+            anchors { top: true; bottom: true; left: true; right: true }
+            exclusionMode: ExclusionMode.Ignore
+            color: "transparent"
+            WlrLayershell.layer: WlrLayer.Bottom          // on the wallpaper, behind windows
+            WlrLayershell.namespace: "ripples_snow"
+            mask: Region {}
+            Snow { anchors.fill: parent; intensity: 0.8; wind: 12 }
+        }
+    }
+
+    // ── ripples from a shell event: the volume changing ──
+    PanelWindow {
+        anchors.bottom: true
+        margins.bottom: 60
+        implicitWidth: 360
+        implicitHeight: 360
+        exclusionMode: ExclusionMode.Ignore
+        color: "transparent"
+        WlrLayershell.layer: WlrLayer.Overlay
+        mask: Region {}
+        RippleLayer { id: eventRipples; anchors.fill: parent; tint: "#7aa2f7"; endSize: 340; duration: 900 }
+        PwObjectTracker { objects: [Pipewire.defaultAudioSink] }
+        Connections {
+            target: Pipewire.defaultAudioSink?.audio ?? null
+            function onVolumeChanged() { eventRipples.burst(180, 180, { ring: true, startOpacity: 0.7 }); }
+        }
+        // or from anywhere: qs -p examples/ripples ipc call ripple at 180 180
+        IpcHandler { target: "ripple"; function at(x: real, y: real): void { eventRipples.burst(x, y, { ring: true, startOpacity: 0.7 }); } }
+    }
+
+    // ── the showcase window ──
+    FloatingWindow {
+        id: win
+        title: "Ripples and friends"
+        implicitWidth: 760
+        implicitHeight: 560
+        color: "#1a1b26"
+
+        ColumnLayout {
+            anchors.fill: parent
+            anchors.margins: 28
+            spacing: 22
+
+            Text { text: "Click, press and type"; color: "#c0caf5"; font.pixelSize: 22; font.bold: true }
+
+            // 1. click ripples on buttons of any shape
+            RowLayout {
+                spacing: 14
+                Repeater {
+                    model: [["Ripple", 14, "#7aa2f7"], ["Pill", 22, "#bb9af7"], ["Square", 4, "#9ece6a"]]
+                    Rectangle {
+                        id: button
+                        required property var modelData
+                        implicitWidth: 140
+                        implicitHeight: 48
+                        radius: modelData[1]
+                        color: "#24283b"
+                        Text { anchors.centerIn: parent; text: button.modelData[0]; color: "#c0caf5"; font.pixelSize: 15 }
+                        ClickRipple { radius: button.radius; tint: button.modelData[2] }
+                    }
+                }
+                // 2. jelly: squash on press, springy release
+                Rectangle {
+                    implicitWidth: 140
+                    implicitHeight: 48
+                    radius: 24
+                    color: "#7aa2f7"
+                    Text { anchors.centerIn: parent; text: "Jelly"; color: "#1a1b26"; font.pixelSize: 15; font.bold: true }
+                    Stretch { handleMouse: true }
+                }
+            }
+
+            // 3. a stretchy pill following the selected tab
+            Item {
+                Layout.fillWidth: true
+                implicitHeight: 40
+                property int current: 0
+                id: tabs
+                StretchPill { id: pill; target: tabRow.children[tabs.current] ?? null; height: 40; color: "#292e42" }
+                Row {
+                    id: tabRow
+                    Repeater {
+                        model: ["Overview", "Media", "System", "Weather"]
+                        Item {
+                            required property string modelData
+                            required property int index
+                            width: 130
+                            height: 40
+                            Text { anchors.centerIn: parent; text: parent.modelData; color: tabs.current === parent.index ? "#7aa2f7" : "#a9b1d6"; font.pixelSize: 14 }
+                            MouseArea { anchors.fill: parent; onClicked: tabs.current = parent.index }
+                        }
+                    }
+                }
+            }
+
+            // 4. a password field: ripples per key, a shockwave when wrong
+            Item {
+                id: passwordArea
+                Layout.fillWidth: true
+                implicitHeight: 90
+                Rectangle {
+                    id: passwordBox
+                    anchors.centerIn: parent
+                    width: 360
+                    height: 50
+                    radius: 25
+                    color: "#16161e"
+                    border.width: 2
+                    border.color: password.activeFocus ? "#7aa2f7" : "#414868"
+                    TextInput {
+                        id: password
+                        objectName: "password"
+                        anchors.fill: parent
+                        anchors.leftMargin: 22
+                        anchors.rightMargin: 22
+                        verticalAlignment: TextInput.AlignVCenter
+                        echoMode: TextInput.Password
+                        passwordCharacter: "●"
+                        color: "#c0caf5"
+                        font.pixelSize: 16
+                        onAccepted: {
+                            if (text === "secret") { snowBurst(); text = ""; }
+                            else { typing.shake(); jelly.poke(1.4); text = ""; }
+                        }
+                    }
+                    Stretch { id: jelly }
+                }
+                TypingRipple { id: typing; target: password; anchors.fill: parent }
+            }
+
+            // 5. a search field: a colour per key, and a little snow puff from the caret
+            Item {
+                Layout.fillWidth: true
+                implicitHeight: 70
+                Rectangle {
+                    anchors.centerIn: parent
+                    width: 360
+                    height: 44
+                    radius: 22
+                    color: "#16161e"
+                    TextInput {
+                        id: search
+                        objectName: "search"
+                        anchors.fill: parent
+                        anchors.leftMargin: 20
+                        verticalAlignment: TextInput.AlignVCenter
+                        color: "#c0caf5"
+                        font.pixelSize: 15
+                        // later: the caret has moved only once the new text is laid out
+                        onTextEdited: Qt.callLater(() =&gt; {
+                            const r = cursorRectangle;
+                            const p = mapToItem(winSnow, r.x, r.y + r.height / 2);
+                            winSnow.burst(p.x, p.y, 8);
+                        })
+                    }
+                }
+                TypingRipple { target: search; anchors.fill: parent; randomTints: true; keySize: 70 }
+            }
+        }
+
+        // snow inside the window, for bursts (on top, but it never takes clicks)
+        Snow { id: winSnow; anchors.fill: parent; intensity: 0; z: 10 }
+    }
+
+    function snowBurst() {
+        for (let i = 0; i &lt; 6; i++)
+            winSnow.burst(win.width * (0.15 + i * 0.14), win.height * 0.55, 20);
+    }
+}</code></pre></div>
+<p>Here is every use, and how it's wired:</p>
+<table>
+<thead>
+<tr>
+<th>Where</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Buttons</strong> of any shape</td>
+<td><code>ClickRipple { radius: … }</code> inside the button</td>
+</tr>
+<tr>
+<td><strong>Jelly buttons</strong></td>
+<td><code>Stretch { handleMouse: true }</code> inside it</td>
+</tr>
+<tr>
+<td><strong>Tabs, workspaces</strong></td>
+<td><code>StretchPill { target: currentTab }</code> behind the row</td>
+</tr>
+<tr>
+<td><strong>Password field</strong> (lock screen, SDDM, polkit)</td>
+<td><code>TypingRipple { target: field }</code> around it; on a wrong password <code>typing.shake()</code> and <code>jelly.poke(1.4)</code></td>
+</tr>
+<tr>
+<td><strong>Search fields</strong> (launcher, clipboard)</td>
+<td><code>TypingRipple { randomTints: true }</code> for a colour per key; plus <code>Snow.burst()</code> from the caret</td>
+</tr>
+<tr>
+<td><strong>Correct password</strong></td>
+<td>a celebration: several snow puffs across the window</td>
+</tr>
+<tr>
+<td><strong>Shell events</strong></td>
+<td>a <code>RippleLayer</code> that bursts from a <code>Connections</code>: here on every volume change (an OSD with a pulse); the same works for a notification arriving, a workspace switch or a charger plugged in</td>
+</tr>
+<tr>
+<td><strong>Scripts and keybinds</strong></td>
+<td>an <code>IpcHandler</code> that calls <code>burst()</code>: <code>qs -p examples/ripples ipc call ripple at 180 180</code></td>
+</tr>
+<tr>
+<td><strong>The desktop</strong></td>
+<td><code>Snow</code> in a full-screen window on the bottom layer with an empty input mask: snow on the wallpaper, behind your windows, never taking clicks</td>
+</tr>
+<tr>
+<td><strong>Over everything</strong></td>
+<td>the same window on the overlay layer: snow (or ripples) over your windows, still click-through</td>
+</tr>
+</tbody>
+</table>
+<p>To use them in your own shell, copy <code>examples/ripples/components/</code> into your config (for example as <code>components/effects/</code>) and import it.</p>
+<div class="box note"><div class="bt">Ripples for keys typed into other apps?</div><p>On Wayland, a shell only receives keys typed into <strong>its own</strong> windows; keys typed into your terminal or browser go only to them. That's a security feature: no program can watch what you type elsewhere. So typing ripples belong in the shell's own fields: the lock screen, launcher, search and login screen. (Reading raw keyboard devices would need special permissions and amounts to a keylogger, so don't.)</p></div>
+<h2 id="performance">Performance<a class="hlink" href="#performance">#</a></h2>
+<ul>
+<li>Ripples cost nothing at rest: they exist only while animating, and the cap stops them piling up.</li>
+<li>Snow runs continuously. In a full-screen window, 40 flakes a second is light, but turn it off on battery or when a window is fullscreen (<code>running: !UPower.onBattery</code>), as the video wallpaper does in <a class="xref" href="ch/e5-more.html">Eye Candy 5: Video Wallpapers and Live Weather</a>.</li>
+<li>Masked layers (<code>ClickRipple</code>) render the button into a texture; that's fine for buttons, but don't wrap huge panels in one.</li>
+</ul>
+<div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Warm-up</span><b>Your colours</b></div><div class="ex-b"><p>Give your bar's buttons a <code>ClickRipple</code> in your accent colour, and your launcher's search field a <code>TypingRipple</code>.</p></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Ripple on notification</b></div><div class="ex-b"><p>Burst a ring from the bell icon every time a notification arrives (<code>Connections</code> on your notification service, <a class="xref" href="ch/ly8-notifications-osd.html">lyne-dots 8: Notifications, Audio and the OSD</a>).</p></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>Seasonal snow</b></div><div class="ex-b"><p>Turn snow on automatically in December only, and off on battery.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p><code>Snow { running: new Date().getMonth() === 11 &amp;&amp; !UPower.onBattery }</code>, re-checked by a <code>SystemClock</code> binding once a day.</p></div></details></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Challenge</span><b>Sakura</b></div><div class="ex-b"><p>Make a petal version of <code>Snow</code>: pink, slightly larger, rotating slowly as it falls (<code>ItemParticle</code> delegates can animate their own <code>rotation</code>), with more wind.</p></div></div></section>
 <section class="print-ch"><div class="ch-part">Part Q · Qt Quick Reference</div><h1>Qt Reference: Visual Types</h1><p>The Qt Quick types you'll use most, with their important properties, methods and signals. This isn't every Qt property (Qt has thousands); it's the set that matters for shells. For the complete list, follow the link to Qt's documentation at the end of each section.</p>
 <p>Import: <code>import QtQuick</code></p>
 <h2 id="item">Item<a class="hlink" href="#item">#</a></h2>
