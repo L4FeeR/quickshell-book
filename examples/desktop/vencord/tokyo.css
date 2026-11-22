@@ -1,0 +1,21 @@
+/* Vencord / Vesktop: Settings › Vencord › Themes › Edit QuickCSS, paste this.
+   Discord's colours are CSS variables; overriding them themes the whole app. */
+.theme-dark, .visual-refresh.theme-dark {
+    --background-base-lowest: #16161e;
+    --background-base-lower: #1a1b26;
+    --background-base-low: #1f2335;
+    --background-surface-high: #24283b;
+    --background-surface-higher: #292e42;
+    --background-mod-subtle: #292e42;
+    --text-default: #c0caf5;
+    --text-muted: #565f89;
+    --interactive-normal: #a9b1d6;
+    --interactive-hover: #c0caf5;
+    --interactive-active: #c0caf5;
+    --brand-500: #7aa2f7;
+    --control-brand-foreground: #7aa2f7;
+    --status-danger: #f7768e;
+    --status-positive: #9ece6a;
+    --status-warning: #e0af68;
+    --border-subtle: #292e42;
+}

@@ -148,6 +148,25 @@
 <a class="ch" href="../ch/ly12-assemble.html"><span class="num">ly12</span>lyne-dots 12: Assembling the Shell and Configuring Hyprland</a>
 <a class="ch active" href="../ch/ly13-rice-it.html"><span class="num">ly13</span>lyne-dots 13: Ricing lyne-dots, Start to Finish</a>
 </details>
+<details><summary><span class="pn">D</span>Ricing the Whole Desktop</summary>
+<a class="ch" href="../ch/d0-overview.html"><span class="num">d0</span>Desktop Ricing 0: The Whole Rice</a>
+<a class="ch" href="../ch/d1-terminal.html"><span class="num">d1</span>Desktop Ricing 1: The Terminal</a>
+<a class="ch" href="../ch/d2-shell.html"><span class="num">d2</span>Desktop Ricing 2: Shell, Prompt, Fetch and Terminal Apps</a>
+<a class="ch" href="../ch/d3-neovim.html"><span class="num">d3</span>Desktop Ricing 3: Neovim</a>
+<a class="ch" href="../ch/d4-gtk-qt.html"><span class="num">d4</span>Desktop Ricing 4: GTK, Qt, Icons, Cursors and Fonts</a>
+<a class="ch" href="../ch/d5-hyprland-look.html"><span class="num">d5</span>Desktop Ricing 5: The Look of Hyprland</a>
+<a class="ch" href="../ch/d6-boot-login.html"><span class="num">d6</span>Desktop Ricing 6: Boot and Login</a>
+<a class="ch" href="../ch/d7-apps.html"><span class="num">d7</span>Desktop Ricing 7: Browser, Spotify and Discord</a>
+<a class="ch" href="../ch/d8-dotfiles.html"><span class="num">d8</span>Desktop Ricing 8: Keeping and Sharing Your Dotfiles</a>
+</details>
+<details><summary><span class="pn">E</span>Eye-Candy Rices</summary>
+<a class="ch" href="../ch/e0-overview.html"><span class="num">e0</span>Eye Candy 0: Showcase Rices</a>
+<a class="ch" href="../ch/e1-visualizer.html"><span class="num">e1</span>Eye Candy 1: The Audio Visualizer</a>
+<a class="ch" href="../ch/e2-lyrics.html"><span class="num">e2</span>Eye Candy 2: Synced Lyrics</a>
+<a class="ch" href="../ch/e3-now-playing.html"><span class="num">e3</span>Eye Candy 3: Now Playing and Album-Art Colours</a>
+<a class="ch" href="../ch/e4-music-rice.html"><span class="num">e4</span>Eye Candy 4: The Music Rice</a>
+<a class="ch" href="../ch/e5-more.html"><span class="num">e5</span>Eye Candy 5: Video Wallpapers and Live Weather</a>
+</details>
 <details><summary><span class="pn">S</span>Building a Settings App</summary>
 <a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
 <a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
@@ -678,7 +697,7 @@ lyne git commit -am "My bar layout"</code></pre></div>
 <div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Practice</span><b>Port a feature back</b></div><div class="ex-b"><p>Pick one exercise you solved in this part (seconds on hover, a web-search mode, the night-light tile…) and add it to the <strong>real</strong> lyne-dots on your own branch.</p></div></div>
 <div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>A theme for both</b></div><div class="ex-b"><p>Make a theme, use it in the real lyne-dots, then copy the file into your rebuild's <code>themes/</code> folder (or just keep it in <code>~/.local/themes</code>) and confirm both shells look the same.</p></div></div>
 <div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Challenge</span><b>A new bar template</b></div><div class="ex-b"><p>lyne has four bar styles. Design a fifth (a vertical bar on the left, or a bar with a gap only at the top) in your rebuild first, then implement it in lyne: a new value for <code>bar.style</code>, its tokens in <code>Config.qml</code>, its layout in <code>Bar.qml</code>, and a preview in Settings › Bar.</p></div></div>
-<div class="ex ex-project"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Mini project</span><b>Your rice, from scratch</b></div><div class="ex-b"><p>Without looking at the chapters, start a new empty Quickshell config and build your own shell in lyne's architecture: a <code>StateService</code> with <code>defaults.json</code>, a <code>Config</code> with tokens, a theme service reading lyne-format themes, a bar with your own layout, one attached panel, a launcher, and notifications. Use the rebuild only to check yourself afterwards. When you can do this, you can rice anything.</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/ly12-assemble.html"><small>← Previous</small><span>lyne-dots 12: Assembling the Shell and Configuring Hyprland</span></a><a class="pn-next" href="../ch/set1-overview.html"><small>Next →</small><span>Settings App 1: How Rices Build Settings</span></a></nav>
+<div class="ex ex-project"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Mini project</span><b>Your rice, from scratch</b></div><div class="ex-b"><p>Without looking at the chapters, start a new empty Quickshell config and build your own shell in lyne's architecture: a <code>StateService</code> with <code>defaults.json</code>, a <code>Config</code> with tokens, a theme service reading lyne-format themes, a bar with your own layout, one attached panel, a launcher, and notifications. Use the rebuild only to check yourself afterwards. When you can do this, you can rice anything.</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/ly12-assemble.html"><small>← Previous</small><span>lyne-dots 12: Assembling the Shell and Configuring Hyprland</span></a><a class="pn-next" href="../ch/d0-overview.html"><small>Next →</small><span>Desktop Ricing 0: The Whole Rice</span></a></nav>
 <footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
 <aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#1-installing">1. Installing</a><a class="l3" href="#where-things-end-up">Where things end up</a><a class="l2" href="#2-the-settings-app">2. The Settings app</a><a class="l2" href="#3-the-lyne-command">3. The lyne command</a><a class="l2" href="#4-themes">4. Themes</a><a class="l2" href="#5-hyprland-the-lyne-way">5. Hyprland, the lyne way</a><a class="l2" href="#6-changing-the-shell-s-code">6. Changing the shell's code</a><a class="l2" href="#7-a-full-rice-step-by-step">7. A full rice, step by step</a><a class="l2" href="#what-you-can-do-now">What you can do now</a><a class="l2" href="#practice">Practice</a></aside>
 </div>

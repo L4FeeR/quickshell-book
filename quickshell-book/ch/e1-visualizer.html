@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eye Candy 1: The Audio Visualizer · The Quickshell Book</title>
+<meta name="description" content="Eye Candy 1: The Audio Visualizer">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details><summary><span class="pn">L</span>Ricing lyne-dots</summary>
+<a class="ch" href="../ch/ly1-overview.html"><span class="num">ly1</span>lyne-dots 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/ly2-state.html"><span class="num">ly2</span>lyne-dots 2: One File for Every Setting</a>
+<a class="ch" href="../ch/ly3-config-theme.html"><span class="num">ly3</span>lyne-dots 3: Design Tokens, Themes and the Colour Fade</a>
+<a class="ch" href="../ch/ly4-components.html"><span class="num">ly4</span>lyne-dots 4: The Building Blocks</a>
+<a class="ch" href="../ch/ly5-bar.html"><span class="num">ly5</span>lyne-dots 5: The Bar</a>
+<a class="ch" href="../ch/ly6-panels.html"><span class="num">ly6</span>lyne-dots 6: Panels That Grow Out of the Bar</a>
+<a class="ch" href="../ch/ly7-launcher.html"><span class="num">ly7</span>lyne-dots 7: The Launcher</a>
+<a class="ch" href="../ch/ly8-notifications-osd.html"><span class="num">ly8</span>lyne-dots 8: Notifications, Audio and the OSD</a>
+<a class="ch" href="../ch/ly9-lock-power.html"><span class="num">ly9</span>lyne-dots 9: Lock Screen, Power Menu and Idle</a>
+<a class="ch" href="../ch/ly10-screenshot-wallpaper.html"><span class="num">ly10</span>lyne-dots 10: Screenshots and Wallpapers</a>
+<a class="ch" href="../ch/ly11-settings.html"><span class="num">ly11</span>lyne-dots 11: The Settings App</a>
+<a class="ch" href="../ch/ly12-assemble.html"><span class="num">ly12</span>lyne-dots 12: Assembling the Shell and Configuring Hyprland</a>
+<a class="ch" href="../ch/ly13-rice-it.html"><span class="num">ly13</span>lyne-dots 13: Ricing lyne-dots, Start to Finish</a>
+</details>
+<details><summary><span class="pn">D</span>Ricing the Whole Desktop</summary>
+<a class="ch" href="../ch/d0-overview.html"><span class="num">d0</span>Desktop Ricing 0: The Whole Rice</a>
+<a class="ch" href="../ch/d1-terminal.html"><span class="num">d1</span>Desktop Ricing 1: The Terminal</a>
+<a class="ch" href="../ch/d2-shell.html"><span class="num">d2</span>Desktop Ricing 2: Shell, Prompt, Fetch and Terminal Apps</a>
+<a class="ch" href="../ch/d3-neovim.html"><span class="num">d3</span>Desktop Ricing 3: Neovim</a>
+<a class="ch" href="../ch/d4-gtk-qt.html"><span class="num">d4</span>Desktop Ricing 4: GTK, Qt, Icons, Cursors and Fonts</a>
+<a class="ch" href="../ch/d5-hyprland-look.html"><span class="num">d5</span>Desktop Ricing 5: The Look of Hyprland</a>
+<a class="ch" href="../ch/d6-boot-login.html"><span class="num">d6</span>Desktop Ricing 6: Boot and Login</a>
+<a class="ch" href="../ch/d7-apps.html"><span class="num">d7</span>Desktop Ricing 7: Browser, Spotify and Discord</a>
+<a class="ch" href="../ch/d8-dotfiles.html"><span class="num">d8</span>Desktop Ricing 8: Keeping and Sharing Your Dotfiles</a>
+</details>
+<details open><summary><span class="pn">E</span>Eye-Candy Rices</summary>
+<a class="ch" href="../ch/e0-overview.html"><span class="num">e0</span>Eye Candy 0: Showcase Rices</a>
+<a class="ch active" href="../ch/e1-visualizer.html"><span class="num">e1</span>Eye Candy 1: The Audio Visualizer</a>
+<a class="ch" href="../ch/e2-lyrics.html"><span class="num">e2</span>Eye Candy 2: Synced Lyrics</a>
+<a class="ch" href="../ch/e3-now-playing.html"><span class="num">e3</span>Eye Candy 3: Now Playing and Album-Art Colours</a>
+<a class="ch" href="../ch/e4-music-rice.html"><span class="num">e4</span>Eye Candy 4: The Music Rice</a>
+<a class="ch" href="../ch/e5-more.html"><span class="num">e5</span>Eye Candy 5: Video Wallpapers and Live Weather</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-e">Part E: Eye-Candy Rices</a> › Eye Candy 1: The Audio Visualizer</div><article><div class="ch-head"><div class="ch-part">Part E · Eye-Candy Rices</div><h1><span class="ch-num">e1</span>Eye Candy 1: The Audio Visualizer</h1></div><p>Bars that jump with the music are the most requested widget in ricing. The audio comes from <strong>cava</strong>, a small program that listens to PipeWire and turns the sound into a spectrum. This chapter runs cava inside the shell and draws three visualizers from its numbers: <strong>bars</strong>, a smooth <strong>wave</strong>, and a <strong>ring</strong> to put around album art.</p>
+<div class="preview"><svg style="width:min(100%,930px)" width="620" height="200" viewBox="0 0 620 200"><rect width="620" height="200" rx="14" fill="#1a1b26"/><g transform="translate(20 20)"><g fill="#7dcfff"><rect x="0" y="40" width="7" height="30" rx="3.5"/><rect x="10" y="20" width="7" height="50" rx="3.5"/><rect x="20" y="10" width="7" height="60" rx="3.5" fill="#8aa6f7"/><rect x="30" y="30" width="7" height="40" rx="3.5" fill="#8aa6f7"/><rect x="40" y="45" width="7" height="25" rx="3.5" fill="#9aa0f7"/><rect x="50" y="25" width="7" height="45" rx="3.5" fill="#a99cf7"/><rect x="60" y="35" width="7" height="35" rx="3.5" fill="#bb9af7"/><rect x="70" y="50" width="7" height="20" rx="3.5" fill="#bb9af7"/></g><text x="0" y="95" fill="#a9b1d6" font-size="11">bars</text></g><g transform="translate(200 20)"><path d="M0 70 L0 50 C10 50 10 20 20 20 C30 20 30 40 40 40 C50 40 50 10 60 10 C70 10 70 45 80 45 C90 45 90 30 100 30 C110 30 110 55 120 55 L120 70Z" fill="#7aa2f7" fill-opacity=".35" stroke="#7aa2f7" stroke-width="2"/><text x="0" y="95" fill="#a9b1d6" font-size="11">wave</text></g><g transform="translate(470 85)"><circle r="40" fill="#24283b"/><g fill="#bb9af7"><rect x="-2" y="-62" width="4" height="18" rx="2"/><rect x="-2" y="-66" width="4" height="22" rx="2" transform="rotate(30)"/><rect x="-2" y="-56" width="4" height="12" rx="2" transform="rotate(60)"/><rect x="-2" y="-64" width="4" height="20" rx="2" transform="rotate(90)"/><rect x="-2" y="-58" width="4" height="14" rx="2" transform="rotate(120)"/><rect x="-2" y="-68" width="4" height="24" rx="2" transform="rotate(150)"/><rect x="-2" y="-60" width="4" height="16" rx="2" transform="rotate(180)"/><rect x="-2" y="-66" width="4" height="22" rx="2" transform="rotate(210)"/><rect x="-2" y="-56" width="4" height="12" rx="2" transform="rotate(240)"/><rect x="-2" y="-64" width="4" height="20" rx="2" transform="rotate(270)"/><rect x="-2" y="-58" width="4" height="14" rx="2" transform="rotate(300)"/><rect x="-2" y="-68" width="4" height="24" rx="2" transform="rotate(330)"/></g><text x="-14" y="98" fill="#a9b1d6" font-size="11">ring</text></g></svg></div>
+
+<h2 id="getting-the-spectrum">Getting the spectrum<a class="hlink" href="#getting-the-spectrum">#</a></h2>
+<p>cava usually draws bars in a terminal. With <strong>raw output</strong> and the <strong>ascii</strong> format it prints one line per frame instead, each line a list of numbers like <code>12;40;100;67;…</code>. The shell reads those lines.</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">eyecandy/services/Cava.qml</span><code>pragma Singleton
+import QtQuick
+import Quickshell
+import Quickshell.Io
+
+// The audio spectrum, from cava. cava normally draws bars in a terminal; with
+// "raw" output and the "ascii" format it prints one line per frame instead:
+// numbers from 0 to 100 separated by ";", one per bar. We read those lines.
+//
+// cava only runs while something uses it: a widget calls acquire() when it
+// appears and release() when it goes, so a hidden visualizer costs nothing.
+Singleton {
+    id: root
+
+    property int bars: 32
+    property int framerate: 60
+    readonly property bool available: !missing
+    property bool missing: false
+    property var values: new Array(bars).fill(0)      // 0..1 per bar
+    property int users: 0
+    readonly property bool idle: values.every(v =&gt; v === 0)
+
+    function acquire() { users++; }
+    function release() { users = Math.max(0, users - 1); }
+
+    // cava's config, generated, so the shell decides the bars and the rate
+    readonly property string config: `
+[general]
+bars = ${bars}
+framerate = ${framerate}
+sleep_timer = 1
+autosens = 1
+
+[input]
+method = pipewire
+source = auto
+
+[output]
+method = raw
+raw_target = /dev/stdout
+data_format = ascii
+ascii_max_range = 100
+bar_delimiter = 59
+
+[smoothing]
+monstercat = 1
+noise_reduction = 70
+`
+
+    Process {
+        id: proc
+        running: root.users &gt; 0 &amp;&amp; !root.missing
+        // write the config to a file (path and text as arguments), then run cava on it
+        command: ["sh", "-c", 'command -v cava &gt;/dev/null || exit 127; f="${XDG_RUNTIME_DIR:-/tmp}/qs-cava.conf"; printf "%s" "$1" &gt; "$f" &amp;&amp; exec cava -p "$f"', "sh", root.config]
+        stdout: SplitParser {
+            // one line = one frame: "12;40;100;…;"
+            onRead: line =&gt; {
+                const parts = line.split(";");
+                const out = new Array(root.bars);
+                for (let i = 0; i &lt; root.bars; i++)
+                    out[i] = Math.min(1, (Number(parts[i]) || 0) / 100);
+                root.values = out;
+            }
+        }
+        onExited: code =&gt; {
+            if (code === 127) {
+                root.missing = true;
+                console.warn("[Cava] cava is not installed: sudo pacman -S cava");
+            }
+            root.values = new Array(root.bars).fill(0);
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 6–11</span><b>How it works</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// The audio spectrum, from cava. cava normally draws bars in a terminal; with
+// "raw" output and the "ascii" format it prints one line per frame instead:
+// numbers from 0 to 100 separated by ";", one per bar. We read those lines.
+//
+// cava only runs while something uses it: a widget calls acquire() when it
+// appears and release() when it goes, so a hidden visualizer costs nothing.</code></pre></div><div class="seg-e"><p>A singleton, so every visualizer shares one cava process. It only runs while at least one widget is using it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–21</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property int bars: 32
+property int framerate: 60
+readonly property bool available: !missing
+property bool missing: false
+property var values: new Array(bars).fill(0)      // 0..1 per bar
+property int users: 0
+readonly property bool idle: values.every(v =&gt; v === 0)</code></pre></div><div class="seg-e"><p>The number of bars and frames per second, whether cava is missing, the latest values (0 to 1 each), how many widgets are using it, and <code>idle</code> (all zero: nothing is playing).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 23–24</span><b>Users</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function acquire() { users++; }
+function release() { users = Math.max(0, users - 1); }</code></pre></div><div class="seg-e"><p>Widgets call <code>acquire()</code> when they appear and <code>release()</code> when they're destroyed. A visualizer on a hidden panel doesn't keep cava running.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 27–48</span><b>cava's config</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>    readonly property string config: `
+[general]
+bars = ${bars}
+framerate = ${framerate}
+sleep_timer = 1
+autosens = 1
+
+[input]
+method = pipewire
+source = auto
+
+[output]
+method = raw
+raw_target = /dev/stdout
+data_format = ascii
+ascii_max_range = 100
+bar_delimiter = 59
+
+[smoothing]
+monstercat = 1
+noise_reduction = 70
+`</code></pre></div><div class="seg-e"><p>Generated by the shell, so the bar count and frame rate come from the properties. The important parts: input from <strong>PipeWire</strong> (<code>source = auto</code> follows your default output), output <strong>raw</strong> to standard output, <strong>ascii</strong> numbers from 0 to 100, separated by character 59 (<code>;</code>). <code>autosens</code> adjusts sensitivity to the volume, <code>monstercat</code> smooths the bars into hills, <code>noise_reduction</code> makes them less jittery. <code>sleep_timer = 1</code> makes cava stop printing after a second of silence.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 50–54</span><b>Running it</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Process {
+    id: proc
+    running: root.users &gt; 0 &amp;&amp; !root.missing
+    // write the config to a file (path and text as arguments), then run cava on it
+    command: ["sh", "-c", 'command -v cava &gt;/dev/null || exit 127; f="${XDG_RUNTIME_DIR:-/tmp}/qs-cava.conf"; printf "%s" "$1" &gt; "$f" &amp;&amp; exec cava -p "$f"', "sh", root.config]</code></pre></div><div class="seg-e"><p>Only while used. The script checks that cava exists (exit code 127 if not), writes the config to a file in the runtime folder (the text passed as an argument, never pasted into the command), and replaces itself with cava.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 55–63</span><b>One line, one frame</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>stdout: SplitParser {
+    // one line = one frame: "12;40;100;…;"
+    onRead: line =&gt; {
+        const parts = line.split(";");
+        const out = new Array(root.bars);
+        for (let i = 0; i &lt; root.bars; i++)
+            out[i] = Math.min(1, (Number(parts[i]) || 0) / 100);
+        root.values = out;
+    }</code></pre></div><div class="seg-e"><p><code>SplitParser</code> calls <code>onRead</code> for every line cava prints. Split at <code>;</code>, convert each number, scale 0–100 to 0–1, and publish the new array. At 60 frames a second, this is the only work per frame.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 65–71</span><b>When it stops</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>onExited: code =&gt; {
+    if (code === 127) {
+        root.missing = true;
+        console.warn("[Cava] cava is not installed: sudo pacman -S cava");
+    }
+    root.values = new Array(root.bars).fill(0);
+}</code></pre></div><div class="seg-e"><p>Exit code 127 means cava isn't installed: remember that and don't retry. In any case, drop the bars to zero.</p></div></div></div>
+<div class="box note"><div class="bt">A built-in alternative</div><p>Some Quickshell builds (the noctalia fork) have a <code>PwAudioSpectrum</code> type that computes the spectrum inside Quickshell. Upstream Quickshell 0.3 doesn't, so cava is the portable choice; lyne-dots and Caelestia use it too.</p></div>
+<h2 id="bars">Bars<a class="hlink" href="#bars">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">eyecandy/widgets/VisualizerBars.qml</span><code>import QtQuick
+import qs.services
+
+// Spectrum bars. Each bar's height follows one value from cava.
+//   VisualizerBars { width: 300; height: 60; mirrored: true }
+// mirrored: bars grow up and down from the middle (a "waveform" look)
+// gradient: colours from the left bar to the right bar
+Item {
+    id: root
+
+    property bool mirrored: false
+    property real spacing: 3
+    property color colorFrom: "#7dcfff"
+    property color colorTo: "#bb9af7"
+    property real minHeight: 2              // silent bars stay visible as dots
+    readonly property int count: Cava.bars
+
+    Component.onCompleted: Cava.acquire()
+    Component.onDestruction: Cava.release()
+
+    Repeater {
+        model: root.count
+        Rectangle {
+            required property int index
+            readonly property real value: Cava.values[index] ?? 0
+            readonly property real barWidth: (root.width - root.spacing * (root.count - 1)) / root.count
+
+            x: index * (barWidth + root.spacing)
+            width: barWidth
+            height: Math.max(root.minHeight, value * root.height)
+            y: root.mirrored ? (root.height - height) / 2 : root.height - height
+            radius: width / 2
+            // blend the two colours by the bar's place in the row
+            color: Qt.tint(root.colorFrom, Qt.alpha(root.colorTo, index / Math.max(1, root.count - 1)))
+            // cava already smooths; a short animation hides the frame steps
+            Behavior on height { NumberAnimation { duration: 50 } }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 11–16</span><b>Options</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool mirrored: false
+property real spacing: 3
+property color colorFrom: "#7dcfff"
+property color colorTo: "#bb9af7"
+property real minHeight: 2              // silent bars stay visible as dots
+readonly property int count: Cava.bars</code></pre></div><div class="seg-e"><p>Mirrored bars grow both ways from the middle (a waveform look). Two colours make a gradient across the bars. Silent bars stay as small dots (<code>minHeight</code>), so the widget never disappears.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 18–19</span><b>Using the service</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Component.onCompleted: Cava.acquire()
+Component.onDestruction: Cava.release()</code></pre></div><div class="seg-e"><p>Start cava when the widget appears, stop it when it goes.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 21–26</span><b>One bar per value</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Repeater {
+    model: root.count
+    Rectangle {
+        required property int index
+        readonly property real value: Cava.values[index] ?? 0
+        readonly property real barWidth: (root.width - root.spacing * (root.count - 1)) / root.count</code></pre></div><div class="seg-e"><p>Each bar reads its value by index. Widths share the available space minus the gaps.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 28–32</span><b>Size and place</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>x: index * (barWidth + root.spacing)
+width: barWidth
+height: Math.max(root.minHeight, value * root.height)
+y: root.mirrored ? (root.height - height) / 2 : root.height - height
+radius: width / 2</code></pre></div><div class="seg-e"><p>Height follows the value. Normal bars stand on the bottom edge; mirrored bars are centred. Full rounding makes each bar a capsule.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 33–36</span><b>Colour and smoothing</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// blend the two colours by the bar's place in the row
+color: Qt.tint(root.colorFrom, Qt.alpha(root.colorTo, index / Math.max(1, root.count - 1)))
+// cava already smooths; a short animation hides the frame steps
+Behavior on height { NumberAnimation { duration: 50 } }</code></pre></div><div class="seg-e"><p><code>Qt.tint</code> blends the two colours by the bar's position: blue on the left, purple on the right. cava already smooths; a 50 ms animation hides the remaining frame steps.</p></div></div></div>
+<h2 id="a-smooth-wave">A smooth wave<a class="hlink" href="#a-smooth-wave">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">eyecandy/widgets/VisualizerWave.qml</span><code>import QtQuick
+import QtQuick.Shapes
+import qs.services
+
+// A smooth wave through the spectrum values, drawn as one filled shape.
+// Each value is a point; curves between the points make it flow instead
+// of looking like steps.
+Item {
+    id: root
+
+    property color color: "#7aa2f7"
+    property real opacityFill: 0.35
+
+    Component.onCompleted: Cava.acquire()
+    Component.onDestruction: Cava.release()
+
+    // the points, recomputed every frame: x spread across the width, y from the value
+    readonly property var points: {
+        const v = Cava.values, n = v.length, pts = [];
+        for (let i = 0; i &lt; n; i++)
+            pts.push(Qt.point(i / (n - 1) * width, height - (v[i] ?? 0) * height * 0.9));
+        return pts;
+    }
+
+    // SVG path text: start at the bottom left, curve through every point, close at the bottom right.
+    // Each curve's control points sit halfway between two points, which gives a smooth line.
+    readonly property string path: {
+        const p = points;
+        if (p.length &lt; 2)
+            return "";
+        let d = `M 0 ${height} L ${p[0].x} ${p[0].y}`;
+        for (let i = 1; i &lt; p.length; i++) {
+            const mx = (p[i - 1].x + p[i].x) / 2;
+            d += ` C ${mx} ${p[i - 1].y} ${mx} ${p[i].y} ${p[i].x} ${p[i].y}`;
+        }
+        return d + ` L ${width} ${height} Z`;
+    }
+
+    Shape {
+        anchors.fill: parent
+        preferredRendererType: Shape.CurveRenderer
+        ShapePath {
+            strokeColor: root.color
+            strokeWidth: 2
+            fillColor: Qt.alpha(root.color, root.opacityFill)
+            PathSvg { path: root.path }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 18–23</span><b>Points</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var points: {
+    const v = Cava.values, n = v.length, pts = [];
+    for (let i = 0; i &lt; n; i++)
+        pts.push(Qt.point(i / (n - 1) * width, height - (v[i] ?? 0) * height * 0.9));
+    return pts;
+}</code></pre></div><div class="seg-e"><p>One point per value: spread across the width, higher for louder (90% of the height at most).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 27–37</span><b>A smooth path</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property string path: {
+    const p = points;
+    if (p.length &lt; 2)
+        return "";
+    let d = `M 0 ${height} L ${p[0].x} ${p[0].y}`;
+    for (let i = 1; i &lt; p.length; i++) {
+        const mx = (p[i - 1].x + p[i].x) / 2;
+        d += ` C ${mx} ${p[i - 1].y} ${mx} ${p[i].y} ${p[i].x} ${p[i].y}`;
+    }
+    return d + ` L ${width} ${height} Z`;
+}</code></pre></div><div class="seg-e"><p>An SVG path string: start at the bottom left, rise to the first point, then a <strong>cubic curve</strong> to each next point. The trick for smoothness: both control points sit at the horizontal midpoint between two points, at the heights of each end. Curves then meet with matching slopes, so the line flows instead of zig-zagging. Finally down to the bottom right and close.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 39–47</span><b>Drawing it</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Shape {
+    anchors.fill: parent
+    preferredRendererType: Shape.CurveRenderer
+    ShapePath {
+        strokeColor: root.color
+        strokeWidth: 2
+        fillColor: Qt.alpha(root.color, root.opacityFill)
+        PathSvg { path: root.path }
+    }</code></pre></div><div class="seg-e"><p>A <code>Shape</code> with one <code>ShapePath</code> that draws the SVG path: a 2 px line and a translucent fill below it. The path is rebuilt every frame; Qt's curve renderer handles that easily for 32 points.</p></div></div></div>
+<h2 id="a-ring">A ring<a class="hlink" href="#a-ring">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">eyecandy/widgets/VisualizerRing.qml</span><code>import QtQuick
+import qs.services
+
+// Bars arranged in a circle, pointing outwards: put album art in the middle
+// and the music pulses around it.
+//   VisualizerRing { width: 300; height: 300; radius: 100 }
+Item {
+    id: root
+
+    property real radius: Math.min(width, height) / 2 * 0.62   // inner circle where bars start
+    property real maxLength: Math.min(width, height) / 2 - radius
+    property real barWidth: 4
+    property color colorFrom: "#7dcfff"
+    property color colorTo: "#bb9af7"
+    // cava's bars once around the circle, then mirrored, so the ring is symmetric
+    readonly property int count: Cava.bars * 2
+
+    Component.onCompleted: Cava.acquire()
+    Component.onDestruction: Cava.release()
+
+    Repeater {
+        model: root.count
+        Item {
+            required property int index
+            // which cava bar: 0 … bars-1, then back down, mirrored
+            readonly property int source: index &lt; Cava.bars ? index : root.count - 1 - index
+            readonly property real value: Cava.values[source] ?? 0
+
+            // an item at the centre, rotated to this bar's angle; the bar sits on it
+            x: root.width / 2
+            y: root.height / 2
+            rotation: index / root.count * 360
+
+            Rectangle {
+                x: -root.barWidth / 2
+                y: -root.radius - height               // outward from the inner circle
+                width: root.barWidth
+                height: Math.max(2, parent.value * root.maxLength)
+                radius: width / 2
+                color: Qt.tint(root.colorFrom, Qt.alpha(root.colorTo, parent.source / Math.max(1, Cava.bars - 1)))
+                Behavior on height { NumberAnimation { duration: 50 } }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–14</span><b>Geometry</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property real radius: Math.min(width, height) / 2 * 0.62   // inner circle where bars start
+property real maxLength: Math.min(width, height) / 2 - radius
+property real barWidth: 4
+property color colorFrom: "#7dcfff"
+property color colorTo: "#bb9af7"</code></pre></div><div class="seg-e"><p><code>radius</code> is the inner circle where bars start (leave room for the cover); <code>maxLength</code> is how far they can reach, up to the item's edge.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 16</span><b>Twice the bars</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property int count: Cava.bars * 2</code></pre></div><div class="seg-e"><p>cava's bars go once around half the circle and mirrored around the other half, so the ring is symmetric: bass at the top and bottom meets nicely instead of a jump from loud to quiet at one point.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 23–32</span><b>One rotated item per bar</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Item {
+    required property int index
+    // which cava bar: 0 … bars-1, then back down, mirrored
+    readonly property int source: index &lt; Cava.bars ? index : root.count - 1 - index
+    readonly property real value: Cava.values[source] ?? 0
+
+    // an item at the centre, rotated to this bar's angle; the bar sits on it
+    x: root.width / 2
+    y: root.height / 2
+    rotation: index / root.count * 360</code></pre></div><div class="seg-e"><p>Each bar sits on an item placed at the centre and <strong>rotated</strong> to its angle. Rotating the item rotates everything on it, so there's no trigonometry.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 34–41</span><b>The bar</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    x: -root.barWidth / 2
+    y: -root.radius - height               // outward from the inner circle
+    width: root.barWidth
+    height: Math.max(2, parent.value * root.maxLength)
+    radius: width / 2
+    color: Qt.tint(root.colorFrom, Qt.alpha(root.colorTo, parent.source / Math.max(1, Cava.bars - 1)))
+    Behavior on height { NumberAnimation { duration: 50 } }</code></pre></div><div class="seg-e"><p>Placed just above the centre, from the inner radius outward (<code>y</code> is negative: up), with its length from the value. Because its parent is rotated, "up" is a different direction for each bar.</p></div></div></div>
+<p>Put a cover in the middle with a round clip (<a class="xref" href="../ch/e3-now-playing.html">Eye Candy 3: Now Playing and Album-Art Colours</a> and <a class="xref" href="../ch/e4-music-rice.html">Eye Candy 4: The Music Rice</a> do):</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>Item {
+    width: 380; height: 380
+    VisualizerRing { anchors.fill: parent; radius: 120 }
+    ClippingRectangle {                     // Quickshell.Widgets: clips to the round shape
+        anchors.centerIn: parent; width: 220; height: 220; radius: 110
+        Image { anchors.fill: parent; source: Player.artUrl; fillMode: Image.PreserveAspectCrop }
+    }
+}</code></pre></div>
+<h2 id="performance">Performance<a class="hlink" href="#performance">#</a></h2>
+<p>Visualizers redraw up to 60 times a second, so a few habits matter:</p>
+<ul>
+<li><strong>Run cava only while visible</strong>: the <code>acquire</code>/<code>release</code> pattern. Put visualizers on panels that unload when closed (<code>LazyLoader</code>), and they stop by themselves.</li>
+<li><strong>Fewer bars</strong> in small places: 32 is plenty for a bar, 64 at most for a big desktop widget.</li>
+<li><strong>Lower the frame rate</strong> on laptops: <code>Cava.framerate = 30</code> halves the work and still looks fluid.</li>
+<li>cava's <code>sleep_timer</code> already stops the frames during silence.</li>
+</ul>
+<div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Warm-up</span><b>In your bar</b></div><div class="ex-b"><p>Put a 60 × 18 <code>VisualizerBars { mirrored: true }</code> in your bar, next to the clock.</p></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Peak dots</b></div><div class="ex-b"><p>Add a small dot above each bar that jumps to the bar's top and then falls slowly, like a classic hi-fi display.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Give each bar a <code>property real peak</code>; when <code>value</code> is higher, set <code>peak = value</code>; a <code>Timer</code> every 50 ms lowers it by 0.02.</p></div></details></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Challenge</span><b>Beat flash</b></div><div class="ex-b"><p>Detect bass hits (the average of the first four bars jumping above 0.8) and briefly flash your bar's border in the accent.</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/e0-overview.html"><small>← Previous</small><span>Eye Candy 0: Showcase Rices</span></a><a class="pn-next" href="../ch/e2-lyrics.html"><small>Next →</small><span>Eye Candy 2: Synced Lyrics</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#getting-the-spectrum">Getting the spectrum</a><a class="l2" href="#bars">Bars</a><a class="l2" href="#a-smooth-wave">A smooth wave</a><a class="l2" href="#a-ring">A ring</a><a class="l2" href="#performance">Performance</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

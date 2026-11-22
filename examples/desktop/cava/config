@@ -1,0 +1,29 @@
+; ~/.config/cava/config: the terminal visualizer, in the theme's colours.
+; (The shell's visualizer runs its own cava with its own settings: Part E.)
+
+[general]
+framerate = 60
+bars = 0                 ; 0 = as many as fit the terminal
+bar_width = 2
+bar_spacing = 1
+sleep_timer = 3          ; stop drawing after 3 s of silence
+
+[input]
+method = pipewire
+source = auto
+
+[output]
+method = noncurses
+
+[color]
+; a vertical gradient from the bottom up
+gradient = 1
+gradient_count = 4
+gradient_color_1 = '#7dcfff'
+gradient_color_2 = '#7aa2f7'
+gradient_color_3 = '#bb9af7'
+gradient_color_4 = '#f7768e'
+
+[smoothing]
+monstercat = 1           ; smooth "hills" between bars
+noise_reduction = 77

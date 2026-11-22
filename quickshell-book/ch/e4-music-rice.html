@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eye Candy 4: The Music Rice · The Quickshell Book</title>
+<meta name="description" content="Eye Candy 4: The Music Rice">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details><summary><span class="pn">L</span>Ricing lyne-dots</summary>
+<a class="ch" href="../ch/ly1-overview.html"><span class="num">ly1</span>lyne-dots 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/ly2-state.html"><span class="num">ly2</span>lyne-dots 2: One File for Every Setting</a>
+<a class="ch" href="../ch/ly3-config-theme.html"><span class="num">ly3</span>lyne-dots 3: Design Tokens, Themes and the Colour Fade</a>
+<a class="ch" href="../ch/ly4-components.html"><span class="num">ly4</span>lyne-dots 4: The Building Blocks</a>
+<a class="ch" href="../ch/ly5-bar.html"><span class="num">ly5</span>lyne-dots 5: The Bar</a>
+<a class="ch" href="../ch/ly6-panels.html"><span class="num">ly6</span>lyne-dots 6: Panels That Grow Out of the Bar</a>
+<a class="ch" href="../ch/ly7-launcher.html"><span class="num">ly7</span>lyne-dots 7: The Launcher</a>
+<a class="ch" href="../ch/ly8-notifications-osd.html"><span class="num">ly8</span>lyne-dots 8: Notifications, Audio and the OSD</a>
+<a class="ch" href="../ch/ly9-lock-power.html"><span class="num">ly9</span>lyne-dots 9: Lock Screen, Power Menu and Idle</a>
+<a class="ch" href="../ch/ly10-screenshot-wallpaper.html"><span class="num">ly10</span>lyne-dots 10: Screenshots and Wallpapers</a>
+<a class="ch" href="../ch/ly11-settings.html"><span class="num">ly11</span>lyne-dots 11: The Settings App</a>
+<a class="ch" href="../ch/ly12-assemble.html"><span class="num">ly12</span>lyne-dots 12: Assembling the Shell and Configuring Hyprland</a>
+<a class="ch" href="../ch/ly13-rice-it.html"><span class="num">ly13</span>lyne-dots 13: Ricing lyne-dots, Start to Finish</a>
+</details>
+<details><summary><span class="pn">D</span>Ricing the Whole Desktop</summary>
+<a class="ch" href="../ch/d0-overview.html"><span class="num">d0</span>Desktop Ricing 0: The Whole Rice</a>
+<a class="ch" href="../ch/d1-terminal.html"><span class="num">d1</span>Desktop Ricing 1: The Terminal</a>
+<a class="ch" href="../ch/d2-shell.html"><span class="num">d2</span>Desktop Ricing 2: Shell, Prompt, Fetch and Terminal Apps</a>
+<a class="ch" href="../ch/d3-neovim.html"><span class="num">d3</span>Desktop Ricing 3: Neovim</a>
+<a class="ch" href="../ch/d4-gtk-qt.html"><span class="num">d4</span>Desktop Ricing 4: GTK, Qt, Icons, Cursors and Fonts</a>
+<a class="ch" href="../ch/d5-hyprland-look.html"><span class="num">d5</span>Desktop Ricing 5: The Look of Hyprland</a>
+<a class="ch" href="../ch/d6-boot-login.html"><span class="num">d6</span>Desktop Ricing 6: Boot and Login</a>
+<a class="ch" href="../ch/d7-apps.html"><span class="num">d7</span>Desktop Ricing 7: Browser, Spotify and Discord</a>
+<a class="ch" href="../ch/d8-dotfiles.html"><span class="num">d8</span>Desktop Ricing 8: Keeping and Sharing Your Dotfiles</a>
+</details>
+<details open><summary><span class="pn">E</span>Eye-Candy Rices</summary>
+<a class="ch" href="../ch/e0-overview.html"><span class="num">e0</span>Eye Candy 0: Showcase Rices</a>
+<a class="ch" href="../ch/e1-visualizer.html"><span class="num">e1</span>Eye Candy 1: The Audio Visualizer</a>
+<a class="ch" href="../ch/e2-lyrics.html"><span class="num">e2</span>Eye Candy 2: Synced Lyrics</a>
+<a class="ch" href="../ch/e3-now-playing.html"><span class="num">e3</span>Eye Candy 3: Now Playing and Album-Art Colours</a>
+<a class="ch active" href="../ch/e4-music-rice.html"><span class="num">e4</span>Eye Candy 4: The Music Rice</a>
+<a class="ch" href="../ch/e5-more.html"><span class="num">e5</span>Eye Candy 5: Video Wallpapers and Live Weather</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-e">Part E: Eye-Candy Rices</a> › Eye Candy 4: The Music Rice</div><article><div class="ch-head"><div class="ch-part">Part E · Eye-Candy Rices</div><h1><span class="ch-num">e4</span>Eye Candy 4: The Music Rice</h1></div><p>Everything from the last three chapters, assembled into a desktop built around music: a <strong>music corner</strong> on the desktop with the cover spinning inside a ring visualizer and lyrics scrolling beside it, <strong>floating karaoke lyrics</strong> over your windows, a <strong>bar chip</strong> with tiny bars and the current line, and Spotify and the terminal in matching colours.</p>
+<div class="preview"><svg style="width:min(100%,960px)" width="640" height="320" viewBox="0 0 640 320"><defs><linearGradient id="mr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e85d75"/><stop offset="1" stop-color="#2b1b3d"/></linearGradient></defs><rect width="640" height="320" fill="#120d16"/><rect x="0" y="0" width="640" height="30" fill="#1a1b26" opacity=".9"/><rect x="230" y="5" width="180" height="20" rx="10" fill="#e85d75" opacity=".25"/><text x="244" y="19" fill="#fff" font-size="10">▂▅▇▃  One thing I never see…</text><g transform="translate(120 140)"><g fill="#e85d75"><rect x="-2" y="-92" width="4" height="20" rx="2"/><rect x="-2" y="-96" width="4" height="24" rx="2" transform="rotate(30)"/><rect x="-2" y="-86" width="4" height="14" rx="2" transform="rotate(60)"/><rect x="-2" y="-94" width="4" height="22" rx="2" transform="rotate(90)"/><rect x="-2" y="-88" width="4" height="16" rx="2" transform="rotate(120)"/><rect x="-2" y="-98" width="4" height="26" rx="2" transform="rotate(150)"/><rect x="-2" y="-90" width="4" height="18" rx="2" transform="rotate(180)"/><rect x="-2" y="-96" width="4" height="24" rx="2" transform="rotate(210)"/><rect x="-2" y="-86" width="4" height="14" rx="2" transform="rotate(240)"/><rect x="-2" y="-94" width="4" height="22" rx="2" transform="rotate(270)"/><rect x="-2" y="-88" width="4" height="16" rx="2" transform="rotate(300)"/><rect x="-2" y="-98" width="4" height="26" rx="2" transform="rotate(330)"/></g><circle r="66" fill="url(#mr)"/></g><rect x="20" y="245" width="200" height="60" rx="14" fill="#20121f"/><rect x="28" y="253" width="44" height="44" rx="8" fill="url(#mr)"/><text x="80" y="272" fill="#fff" font-size="11" font-weight="700">Instant Crush</text><text x="80" y="288" fill="#fff" opacity=".6" font-size="10">Daft Punk</text><g font-family="sans-serif"><text x="260" y="110" fill="#fff" opacity=".3" font-size="13">I didn't want to be the one to forget</text><text x="260" y="140" fill="#e85d75" font-size="18" font-weight="700">One thing I never see</text><text x="260" y="168" fill="#fff" opacity=".4" font-size="13">I don't believe in him, his lips on the ground</text></g><text x="250" y="290" fill="#fff" font-size="20" font-weight="700" opacity=".95">One thing I never see the same…</text></svg></div>
+
+<h2 id="the-music-corner">The music corner<a class="hlink" href="#the-music-corner">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">eyecandy/modules/MusicDesktop.qml</span><code>import QtQuick
+import QtQuick.Layouts
+import Quickshell
+import Quickshell.Wayland
+import Quickshell.Widgets
+import qs.services
+import qs.widgets
+
+// A music corner on the desktop (behind your windows): the album cover inside
+// a pulsing ring visualizer, the scrolling lyrics beside it, and the
+// now-playing card under the ring. Everything takes its colours from the cover.
+PanelWindow {
+    id: root
+
+    anchors { bottom: true; left: true }
+    margins { bottom: 60; left: 60 }
+    implicitWidth: 980
+    implicitHeight: 560
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    visible: Player.active !== null
+    WlrLayershell.layer: WlrLayer.Bottom              // on the desktop, under windows
+    WlrLayershell.namespace: "eyecandy_music"
+    mask: Region {}                                  // decoration only: clicks go to the desktop
+
+    RowLayout {
+        anchors.fill: parent
+        spacing: 40
+
+        ColumnLayout {
+            Layout.preferredWidth: 420
+            Layout.fillWidth: false
+            spacing: 16
+
+            // ── the ring, with the cover in the middle ──
+            Item {
+                Layout.alignment: Qt.AlignHCenter
+                implicitWidth: 380
+                implicitHeight: 380
+
+                VisualizerRing {
+                    anchors.fill: parent
+                    radius: 120
+                    barWidth: 5
+                    colorFrom: ArtColors.accent
+                    colorTo: Qt.lighter(ArtColors.accent, 1.5)
+                }
+                // ClippingRectangle clips its content to the rounded shape
+                // (plain `clip` would only clip to the square bounding box)
+                ClippingRectangle {
+                    anchors.centerIn: parent
+                    width: 220
+                    height: 220
+                    radius: 110
+                    color: ArtColors.background
+                    Image {
+                        id: cover
+                        anchors.fill: parent
+                        source: Player.artUrl
+                        fillMode: Image.PreserveAspectCrop
+                        asynchronous: true
+                        // the cover slowly spins while playing, like a record
+                        RotationAnimation on rotation {
+                            running: Player.playing
+                            from: cover.rotation
+                            to: cover.rotation + 360
+                            duration: 30000
+                            loops: Animation.Infinite
+                        }
+                    }
+                }
+            }
+            NowPlayingCard { Layout.fillWidth: true }
+        }
+
+        // ── lyrics ──
+        LyricsView {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            accent: ArtColors.accent
+            fontSize: 24
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 9–24</span><b>A desktop window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// A music corner on the desktop (behind your windows): the album cover inside
+// a pulsing ring visualizer, the scrolling lyrics beside it, and the
+// now-playing card under the ring. Everything takes its colours from the cover.
+PanelWindow {
+    id: root
+
+    anchors { bottom: true; left: true }
+    margins { bottom: 60; left: 60 }
+    implicitWidth: 980
+    implicitHeight: 560
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    visible: Player.active !== null
+    WlrLayershell.layer: WlrLayer.Bottom              // on the desktop, under windows
+    WlrLayershell.namespace: "eyecandy_music"
+    mask: Region {}                                  // decoration only: clicks go to the desktop</code></pre></div><div class="seg-e"><p>In the bottom-left corner, on the <strong>bottom layer</strong>, so it sits on the wallpaper behind your windows, like a desktop widget. <code>mask: Region {}</code> makes it ignore clicks: it's decoration, and clicks go to the desktop. Hidden when nothing plays.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 26–34</span><b>Two columns</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>RowLayout {
+    anchors.fill: parent
+    spacing: 40
+
+    ColumnLayout {
+        Layout.preferredWidth: 420
+        Layout.fillWidth: false
+        spacing: 16
+</code></pre></div><div class="seg-e"><p>On the left the ring and card (a fixed 420 px column: <code>Layout.fillWidth: false</code> stops the layout from stretching it), on the right the lyrics.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 35–47</span><b>The ring</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── the ring, with the cover in the middle ──
+Item {
+    Layout.alignment: Qt.AlignHCenter
+    implicitWidth: 380
+    implicitHeight: 380
+
+    VisualizerRing {
+        anchors.fill: parent
+        radius: 120
+        barWidth: 5
+        colorFrom: ArtColors.accent
+        colorTo: Qt.lighter(ArtColors.accent, 1.5)
+    }</code></pre></div><div class="seg-e"><p>The ring visualizer (<a class="xref" href="../ch/e1-visualizer.html">Eye Candy 1: The Audio Visualizer</a>) in the cover's accent, fading to a lighter version of it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 48–72</span><b>The spinning cover</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>    // ClippingRectangle clips its content to the rounded shape
+    // (plain `clip` would only clip to the square bounding box)
+    ClippingRectangle {
+        anchors.centerIn: parent
+        width: 220
+        height: 220
+        radius: 110
+        color: ArtColors.background
+        Image {
+            id: cover
+            anchors.fill: parent
+            source: Player.artUrl
+            fillMode: Image.PreserveAspectCrop
+            asynchronous: true
+            // the cover slowly spins while playing, like a record
+            RotationAnimation on rotation {
+                running: Player.playing
+                from: cover.rotation
+                to: cover.rotation + 360
+                duration: 30000
+                loops: Animation.Infinite
+            }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>The cover in a round <code>ClippingRectangle</code>, slowly turning (one turn every 30 s) while playing, like a vinyl record. <code>from: cover.rotation</code> makes it continue from where it stopped instead of jumping back after a pause.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 73</span><b>The card</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>NowPlayingCard { Layout.fillWidth: true }</code></pre></div><div class="seg-e"><p>The now-playing card from <a class="xref" href="../ch/e3-now-playing.html">Eye Candy 3: Now Playing and Album-Art Colours</a>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 76–82</span><b>Lyrics</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── lyrics ──
+LyricsView {
+    Layout.fillWidth: true
+    Layout.fillHeight: true
+    accent: ArtColors.accent
+    fontSize: 24
+}</code></pre></div><div class="seg-e"><p>The karaoke view (<a class="xref" href="../ch/e2-lyrics.html">Eye Candy 2: Synced Lyrics</a>), filling lines with the cover's accent.</p></div></div></div>
+<h2 id="floating-lyrics">Floating lyrics<a class="hlink" href="#floating-lyrics">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">eyecandy/modules/LyricsOverlay.qml</span><code>import QtQuick
+import QtQuick.Effects
+import Quickshell
+import Quickshell.Io
+import Quickshell.Wayland
+import qs.services
+import qs.widgets
+
+// Floating lyrics over everything, like a karaoke subtitle: the current line
+// big and filling with colour, the next line small under it. It never takes
+// clicks, so it can sit over your windows. Toggle: qs ipc call overlay toggle
+PanelWindow {
+    id: root
+
+    anchors.bottom: true
+    margins.bottom: 90
+    implicitWidth: 1100
+    implicitHeight: 110
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    property bool enabled: true
+    visible: enabled &amp;&amp; Lyrics.lines.length &gt; 0 &amp;&amp; Player.playing
+    IpcHandler { target: "overlay"; function toggle(): void { root.enabled = !root.enabled; } }
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.namespace: "eyecandy_lyrics"
+    mask: Region {}
+
+    Column {
+        anchors.centerIn: parent
+        spacing: 6
+
+        Item {
+            id: line
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: base.implicitWidth
+            height: base.implicitHeight
+
+            Text {
+                id: base
+                text: Lyrics.currentText
+                color: "white"
+                font.family: "Inter"
+                font.pixelSize: 34
+                font.bold: true
+            }
+            // the sung part in the accent, clipped by progress
+            Item {
+                width: base.width * Lyrics.lineProgress
+                height: base.height
+                clip: true
+                Text { text: base.text; color: ArtColors.accent; font: base.font }
+            }
+            // a dark glow makes it readable on any background
+            layer.enabled: true
+            layer.effect: MultiEffect {
+                shadowEnabled: true
+                shadowColor: "black"
+                shadowBlur: 0.8
+                shadowOpacity: 0.9
+            }
+        }
+        Text {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: Lyrics.nextText
+            color: Qt.alpha("white", 0.65)
+            font.family: "Inter"
+            font.pixelSize: 18
+            style: Text.Outline
+            styleColor: Qt.alpha("black", 0.6)
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 12–27</span><b>Over everything, touching nothing</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    id: root
+
+    anchors.bottom: true
+    margins.bottom: 90
+    implicitWidth: 1100
+    implicitHeight: 110
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    property bool enabled: true
+    visible: enabled &amp;&amp; Lyrics.lines.length &gt; 0 &amp;&amp; Player.playing
+    IpcHandler { target: "overlay"; function toggle(): void { root.enabled = !root.enabled; } }
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.namespace: "eyecandy_lyrics"
+    mask: Region {}
+</code></pre></div><div class="seg-e"><p>A wide window near the bottom on the <strong>overlay</strong> layer, above your windows, with an empty input mask, so you can click and type through it. It only shows while music with synced lyrics is playing. <code>qs ipc call overlay toggle</code> turns it off and on (bind it to a key).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 32–45</span><b>The current line</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Item {
+    id: line
+    anchors.horizontalCenter: parent.horizontalCenter
+    width: base.implicitWidth
+    height: base.implicitHeight
+
+    Text {
+        id: base
+        text: Lyrics.currentText
+        color: "white"
+        font.family: "Inter"
+        font.pixelSize: 34
+        font.bold: true
+    }</code></pre></div><div class="seg-e"><p>Big and bold in white.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 46–52</span><b>The sung part</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// the sung part in the accent, clipped by progress
+Item {
+    width: base.width * Lyrics.lineProgress
+    height: base.height
+    clip: true
+    Text { text: base.text; color: ArtColors.accent; font: base.font }
+}</code></pre></div><div class="seg-e"><p>The same text in the cover's accent, clipped to <code>lineProgress</code>: the colour sweeps across as the line is sung.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 53–60</span><b>Readable anywhere</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// a dark glow makes it readable on any background
+layer.enabled: true
+layer.effect: MultiEffect {
+    shadowEnabled: true
+    shadowColor: "black"
+    shadowBlur: 0.8
+    shadowOpacity: 0.9
+}</code></pre></div><div class="seg-e"><p>A soft black shadow behind the whole line (<a class="api qt" href="../qt-index.html#multieffect"><code>MultiEffect</code></a> as a layer effect), so it stays readable over a white web page or a dark terminal.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 62–70</span><b>The next line</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Text {
+    anchors.horizontalCenter: parent.horizontalCenter
+    text: Lyrics.nextText
+    color: Qt.alpha("white", 0.65)
+    font.family: "Inter"
+    font.pixelSize: 18
+    style: Text.Outline
+    styleColor: Qt.alpha("black", 0.6)
+}</code></pre></div><div class="seg-e"><p>Smaller, dimmer, with a thin outline.</p></div></div></div>
+<h2 id="a-chip-for-your-bar">A chip for your bar<a class="hlink" href="#a-chip-for-your-bar">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">eyecandy/modules/MusicChip.qml</span><code>import QtQuick
+import QtQuick.Layouts
+import qs.services
+import qs.widgets
+
+// For your bar: tiny live bars and the current lyric (or the song title when
+// there are no lyrics). Click to play/pause, scroll to skip.
+//   in any bar's RowLayout:  MusicChip {}
+Rectangle {
+    id: root
+
+    visible: Player.active !== null
+    implicitWidth: row.implicitWidth + 20
+    implicitHeight: 28
+    radius: height / 2
+    color: Qt.alpha(ArtColors.accent, 0.18)
+    Behavior on implicitWidth { NumberAnimation { duration: 250; easing.type: Easing.OutCubic } }
+
+    RowLayout {
+        id: row
+        anchors.centerIn: parent
+        spacing: 8
+        VisualizerBars {
+            implicitWidth: 34
+            implicitHeight: 16
+            Layout.preferredWidth: 34
+            Layout.preferredHeight: 16
+            mirrored: true
+            spacing: 2
+            colorFrom: ArtColors.accent
+            colorTo: Qt.lighter(ArtColors.accent, 1.4)
+        }
+        LyricsLine {
+            Layout.preferredWidth: Math.min(360, implicitWidth)
+            visible: Lyrics.currentText !== ""
+        }
+        Text {
+            visible: Lyrics.currentText === ""
+            text: Player.title + (Player.artist ? "  ·  " + Player.artist : "")
+            color: "white"
+            font.pixelSize: 13
+            elide: Text.ElideRight
+            Layout.maximumWidth: 300
+        }
+    }
+    TapHandler { onTapped: Player.active.togglePlaying() }
+    WheelHandler { onWheel: e =&gt; e.angleDelta.y &gt; 0 ? Player.active.previous() : Player.active.next() }
+}</code></pre></div>
+<p>A pill tinted with the cover's accent: tiny mirrored bars, then the current lyric, or the title and artist when the song has no synced lyrics. Its width animates as the lyric changes. Click to play or pause, scroll to skip. Drop it into any bar's <code>RowLayout</code>: the gallery shell (<a class="xref" href="../ch/g10-full-shell.html">Gallery: Build a Whole Shell from the Gallery</a>) or the lyne rebuild (<a class="xref" href="../ch/ly5-bar.html">lyne-dots 5: The Bar</a>) for example.</p>
+<h2 id="the-demo-shell">The demo shell<a class="hlink" href="#the-demo-shell">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">eyecandy/shell.qml</span><code>//@ pragma UseQApplication
+import QtQuick
+import Quickshell
+import qs.services
+import qs.modules
+
+// The eye-candy demo: a music desktop, floating lyrics, a weather card and a
+// small top bar with the music chip. Each module also works on its own:
+// copy the module, the widgets it uses and the services into your shell.
+ShellRoot {
+    MusicDesktop {}
+    LyricsOverlay {}
+    WeatherCard {}
+
+    // a minimal bar, just to show the chip in context
+    PanelWindow {
+        anchors { top: true; left: true; right: true }
+        implicitHeight: 40
+        color: "transparent"
+        Rectangle {
+            anchors.fill: parent
+            anchors.margins: 6
+            radius: 14
+            color: Qt.alpha("#1a1b26", 0.9)
+            MusicChip { anchors.centerIn: parent }
+        }
+    }
+
+    // video wallpaper: uncomment and point it at a video
+    // AnimatedWallpaper { source: Quickshell.env("HOME") + "/Videos/wallpaper.mp4" }
+}</code></pre></div>
+<p>All of it running together, with a minimal bar to show the chip. Run it with <code>qs -p examples/eyecandy</code> while some music plays.</p>
+<h2 id="matching-the-rest-of-the-desktop">Matching the rest of the desktop<a class="hlink" href="#matching-the-rest-of-the-desktop">#</a></h2>
+<p>A music rice looks best when Spotify and the terminal join in:</p>
+<ul>
+<li><strong>Spotify</strong>: a spicetify theme in your palette (<a class="xref" href="../ch/d7-apps.html">Desktop Ricing 7: Browser, Spotify and Discord</a>). For colours that follow each album, spicetify's "Dynamic" themes (like <code>DribbblishDynamic</code>) tint Spotify from the cover, just as <code>ArtColors</code> does for the shell.</li>
+<li><strong>The terminal</strong>: cava with the same gradient (<a class="xref" href="../ch/d2-shell.html">Desktop Ricing 2: Shell, Prompt, Fetch and Terminal Apps</a>) in a small floating kitty window makes a classic screenshot. A Hyprland rule floats it: <code>class = "cava"</code> with <code>kitty --class cava cava</code>.</li>
+<li><strong>The dynamic island</strong> from <a class="xref" href="../ch/g3-islands-popups.html">Gallery: Dynamic Islands, Popups and OSDs</a> can show the track and a progress ring at the top of the screen.</li>
+<li><strong>Hyprland</strong>: blur behind the overlay and the music corner (<code>layerrule = blur, eyecandy_.*</code>) gives them a glassy look.</li>
+</ul>
+<div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Warm-up</span><b>Your corner</b></div><div class="ex-b"><p>Move the music corner to the right side of your screen and make the cover a rounded square instead of a circle.</p></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Show only while playing</b></div><div class="ex-b"><p>Fade the whole music corner out after 30 seconds of pause, and back in when playback resumes.</p></div></div>
+<div class="ex ex-project"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Mini project</span><b>Your music rice</b></div><div class="ex-b"><p>Combine the music corner, the overlay and the chip with your own bar, theme Spotify and cava to match, and take a screenshot with a song playing.</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/e3-now-playing.html"><small>← Previous</small><span>Eye Candy 3: Now Playing and Album-Art Colours</span></a><a class="pn-next" href="../ch/e5-more.html"><small>Next →</small><span>Eye Candy 5: Video Wallpapers and Live Weather</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#the-music-corner">The music corner</a><a class="l2" href="#floating-lyrics">Floating lyrics</a><a class="l2" href="#a-chip-for-your-bar">A chip for your bar</a><a class="l2" href="#the-demo-shell">The demo shell</a><a class="l2" href="#matching-the-rest-of-the-desktop">Matching the rest of the desktop</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

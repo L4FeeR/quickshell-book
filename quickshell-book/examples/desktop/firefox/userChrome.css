@@ -1,0 +1,50 @@
+/* <profile>/chrome/userChrome.css
+   Turn on toolkit.legacyUserProfileCustomizations.stylesheets in about:config,
+   find your profile folder in about:support, create chrome/ in it, restart.
+   A compact, rounded Tokyo Night toolbar. */
+
+:root {
+    --rice-bg: #1a1b26;
+    --rice-surface: #24283b;
+    --rice-raised: #292e42;
+    --rice-text: #c0caf5;
+    --rice-muted: #545c7e;
+    --rice-accent: #7aa2f7;
+
+    --toolbar-bgcolor: var(--rice-bg) !important;
+    --toolbar-color: var(--rice-text) !important;
+    --toolbar-field-background-color: var(--rice-surface) !important;
+    --toolbar-field-focus-background-color: var(--rice-raised) !important;
+    --toolbar-field-color: var(--rice-text) !important;
+    --toolbar-field-focus-border-color: var(--rice-accent) !important;
+    --tab-selected-bgcolor: var(--rice-raised) !important;
+    --arrowpanel-background: var(--rice-surface) !important;
+    --arrowpanel-color: var(--rice-text) !important;
+}
+
+/* the tab strip and toolbars share one colour */
+#navigator-toolbox, #TabsToolbar, #nav-bar {
+    background: var(--rice-bg) !important;
+    border: none !important;
+}
+
+/* rounded tabs with a little space around them */
+.tab-background {
+    border-radius: 10px !important;
+    margin-block: 4px !important;
+}
+.tabbrowser-tab[selected] .tab-label {
+    color: var(--rice-accent) !important;
+}
+
+/* a pill-shaped address bar */
+#urlbar-background {
+    border-radius: 999px !important;
+    border: 1px solid transparent !important;
+}
+#urlbar[focused] #urlbar-background {
+    border-color: var(--rice-accent) !important;
+}
+
+/* hide clutter */
+#tabs-newtab-button, .titlebar-spacer { display: none !important; }
