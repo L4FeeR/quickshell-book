@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>lyne-dots 2: One File for Every Setting · The Quickshell Book</title>
+<meta name="description" content="lyne-dots 2: One File for Every Setting">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details open><summary><span class="pn">L</span>Ricing lyne-dots</summary>
+<a class="ch" href="../ch/ly1-overview.html"><span class="num">ly1</span>lyne-dots 1: What It Is and How It's Built</a>
+<a class="ch active" href="../ch/ly2-state.html"><span class="num">ly2</span>lyne-dots 2: One File for Every Setting</a>
+<a class="ch" href="../ch/ly3-config-theme.html"><span class="num">ly3</span>lyne-dots 3: Design Tokens, Themes and the Colour Fade</a>
+<a class="ch" href="../ch/ly4-components.html"><span class="num">ly4</span>lyne-dots 4: The Building Blocks</a>
+<a class="ch" href="../ch/ly5-bar.html"><span class="num">ly5</span>lyne-dots 5: The Bar</a>
+<a class="ch" href="../ch/ly6-panels.html"><span class="num">ly6</span>lyne-dots 6: Panels That Grow Out of the Bar</a>
+<a class="ch" href="../ch/ly7-launcher.html"><span class="num">ly7</span>lyne-dots 7: The Launcher</a>
+<a class="ch" href="../ch/ly8-notifications-osd.html"><span class="num">ly8</span>lyne-dots 8: Notifications, Audio and the OSD</a>
+<a class="ch" href="../ch/ly9-lock-power.html"><span class="num">ly9</span>lyne-dots 9: Lock Screen, Power Menu and Idle</a>
+<a class="ch" href="../ch/ly10-screenshot-wallpaper.html"><span class="num">ly10</span>lyne-dots 10: Screenshots and Wallpapers</a>
+<a class="ch" href="../ch/ly11-settings.html"><span class="num">ly11</span>lyne-dots 11: The Settings App</a>
+<a class="ch" href="../ch/ly12-assemble.html"><span class="num">ly12</span>lyne-dots 12: Assembling the Shell and Configuring Hyprland</a>
+<a class="ch" href="../ch/ly13-rice-it.html"><span class="num">ly13</span>lyne-dots 13: Ricing lyne-dots, Start to Finish</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-l">Part L: Ricing lyne-dots</a> › lyne-dots 2: One File for Every Setting</div><article><div class="ch-head"><div class="ch-part">Part L · Ricing lyne-dots</div><h1><span class="ch-num">ly2</span>lyne-dots 2: One File for Every Setting</h1></div><p>In most rices, settings are scattered: colours in one file, bar options in another, a few numbers hard-coded in widgets. lyne puts <strong>every</strong> setting in a single JSON file, <code>state.json</code>, and gives the whole shell one way to read and change it. That decision is what makes its 27-page Settings app possible, and it's the first thing we build.</p>
+<h2 id="the-idea">The idea<a class="hlink" href="#the-idea">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="js"><code>{
+  "theme": { "name": "nord" },
+  "bar": { "style": "floating", "workspaces": { "style": "dots" } }
+}</code></pre></div>
+<p>A widget never opens this file. It asks the <strong>state service</strong> for a <strong>key path</strong>:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>StateService.get("bar.style", "docked")        // "floating"
+StateService.get("bar.height", 33)             // not in the file → from defaults.json, else 33
+StateService.set("bar.workspaces.style", "numbers")</code></pre></div>
+<p>Three rules make it work:</p>
+<ol>
+<li><strong>Only keys you changed are in <code>state.json</code>.</strong> Everything else comes from <strong><code>defaults.json</code></strong>, which ships with the shell. A fresh install has no <code>state.json</code> at all.</li>
+<li><strong><code>get()</code> is reactive.</strong> A binding that calls <code>get("bar.style")</code> re-evaluates when that value changes, whether it was changed by the Settings app, by <code>qs ipc call state set …</code>, or by you editing the file in a text editor.</li>
+<li><strong><code>set()</code> saves by itself</strong>, a moment later, in one write.</li>
+</ol>
+<h2 id="the-defaults">The defaults<a class="hlink" href="#the-defaults">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="js"><span class="fname">lyne/defaults.json</span><code>{
+  "theme": { "name": "tokyonight" },
+  "opacity": { "background": 0.9 },
+  "geometry": { "radiusSmall": 5, "radius": 10, "radiusLarge": 15, "spacing": 8, "padding": 6 },
+  "typography": {
+    "font": "CaskaydiaCove Nerd Font",
+    "sizeSmall": 12, "sizeNormal": 14, "sizeLarge": 16,
+    "iconSmall": 18, "icon": 22, "iconLarge": 28
+  },
+  "animations": { "short": 100, "normal": 200, "long": 400, "themeTransition": true },
+  "bar": {
+    "height": 33,
+    "style": "docked-corners",
+    "position": "top",
+    "margin": 8,
+    "autoHide": false,
+    "workspaces": { "style": "pills", "count": 10 },
+    "tray": { "open": false }
+  },
+  "launcher": { "favorites": [], "usage": {} },
+  "notifications": { "timeout": 5000, "maxPopups": 4, "width": 350, "dnd": false },
+  "osd": { "style": "attached", "timeout": 1500 },
+  "idle": { "lockTimeout": 300, "dpmsTimeout": 600, "caffeine": false },
+  "power": { "countdown": 3 },
+  "wallpaper": { "folder": "~/.local/wallpapers", "current": "" },
+  "screenshot": { "folder": "", "dim": 60 }
+}</code></pre></div>
+<p>These are the values the shell uses until you change them. The groups mirror lyne's own <code>defaults.json</code> (in the original it's <code>.data/quickshell/defaults.json</code>, with about 40 groups): <code>theme</code>, <code>opacity</code>, <code>geometry</code> (corner radii, spacing, padding), <code>typography</code>, <code>animations</code> (three durations in milliseconds), <code>bar</code>, <code>launcher</code>, <code>notifications</code>, <code>osd</code>, <code>idle</code>, <code>power</code>, <code>wallpaper</code> and <code>screenshot</code>.</p>
+<p>When lyne-dots updates, <code>lyne update</code> adds new keys to <code>defaults.json</code>, and you get them without your <code>state.json</code> being touched. That's the benefit of storing only what you changed.</p>
+<h2 id="the-state-service-line-by-line">The state service, line by line<a class="hlink" href="#the-state-service-line-by-line">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">lyne/services/StateService.qml</span><code>pragma Singleton
+import QtQuick
+import Quickshell
+import qs.services
+import Quickshell.Io
+
+// Every setting of the shell lives in ONE file, ~/.config/lyne/state.json.
+// Widgets never read the file: they ask for a key path like "bar.style",
+// and get the value from state.json, or from defaults.json when it isn't set.
+Singleton {
+    id: root
+
+    readonly property string statePath: Quickshell.env("HOME") + "/.config/lyne/state.json"
+    readonly property string defaultsPath: Quickshell.shellPath("defaults.json")
+
+    property var state: ({})              // what's in state.json
+    property var defaults: ({})           // what's in defaults.json
+    property bool isLoading: true         // true until state.json has been read once
+
+    // --- Telling bindings that something changed ---------------------------
+    // `state` is a plain JavaScript object changed in place, which QML can't
+    // see. So every top-level key ("bar", "theme"…) gets a small counter
+    // object. get("bar.style") reads the "bar" counter, which makes the
+    // binding depend on it; set("bar.style", …) bumps the counter, and only
+    // bindings that read something under "bar" re-evaluate.
+    property var _counters: ({})
+    property int revision: 0              // bumped when defaults.json (re)loads
+
+    Component {
+        id: counterComponent
+        QtObject { property int rev: 0 }
+    }
+
+    function _depend(path) {
+        const top = path.split(".")[0];
+        let counter = _counters[top];
+        if (!counter) {
+            counter = counterComponent.createObject(root);
+            _counters[top] = counter;
+        }
+        return counter.rev;               // reading it is what creates the dependency
+    }
+    function _bump(top) {
+        if (_counters[top])
+            _counters[top].rev++;
+    }
+
+    // --- Reading and writing with dot paths -------------------------------
+    function _lookup(obj, path) {
+        let current = obj;
+        for (const key of path.split(".")) {
+            if (current !== null &amp;&amp; typeof current === "object" &amp;&amp; key in current)
+                current = current[key];
+            else
+                return undefined;
+        }
+        return current;
+    }
+
+    function _assign(obj, path, value) {
+        const keys = path.split(".");
+        let current = obj;
+        for (let i = 0; i &lt; keys.length - 1; i++) {
+            if (typeof current[keys[i]] !== "object" || current[keys[i]] === null)
+                current[keys[i]] = {};
+            current = current[keys[i]];
+        }
+        current[keys[keys.length - 1]] = value;
+    }
+
+    // state.json first, then defaults.json, then the fallback written in the code
+    function get(path, fallback) {
+        root.revision;
+        _depend(path);
+        const value = _lookup(state, path);
+        if (value !== undefined)
+            return value;
+        const def = _lookup(defaults, path);
+        return def === undefined ? fallback : def;
+    }
+
+    function isDefault(path) {
+        root.revision;
+        _depend(path);
+        const value = _lookup(state, path);
+        return value === undefined || JSON.stringify(value) === JSON.stringify(_lookup(defaults, path));
+    }
+
+    function set(path, value) {
+        if (JSON.stringify(_lookup(state, path)) === JSON.stringify(value))
+            return;                       // nothing changes: no write, no re-evaluation
+        _assign(state, path, value);
+        _bump(path.split(".")[0]);
+        if (!isLoading)
+            saveTimer.restart();
+    }
+
+    function reset(path) {
+        const def = _lookup(defaults, path);
+        if (def !== undefined)
+            set(path, JSON.parse(JSON.stringify(def)));
+    }
+
+    // --- The files ------------------------------------------------------------
+    function _apply(text) {
+        let next;
+        try {
+            next = JSON.parse(text);
+        } catch (e) {
+            console.warn("[State] state.json is not valid JSON:", e);
+            isLoading = false;
+            return;
+        }
+        // which top-level keys differ from what we have now?
+        const keys = new Set([...Object.keys(state), ...Object.keys(next)]);
+        const changed = [...keys].filter(k =&gt; JSON.stringify(state[k]) !== JSON.stringify(next[k]));
+        state = next;
+        isLoading = false;
+        for (const key of changed)
+            _bump(key);
+    }
+
+    // many set() calls in a row (dragging a slider) become one write
+    Timer {
+        id: saveTimer
+        interval: 300
+        onTriggered: stateFile.setText(JSON.stringify(root.state, null, 2) + "\n")
+    }
+
+    FileView {
+        id: defaultsFile
+        path: root.defaultsPath
+        watchChanges: true
+        onFileChanged: reload()
+        onLoaded: {
+            try {
+                root.defaults = JSON.parse(text());
+                root.revision++;
+            } catch (e) {
+                console.warn("[State] defaults.json is not valid JSON:", e);
+            }
+        }
+    }
+
+    FileView {
+        id: stateFile
+        path: root.statePath
+        watchChanges: true                // edits from a text editor or a script apply live
+        atomicWrites: true                // never leave a half-written file behind
+        printErrors: false
+        onFileChanged: reload()
+        onLoaded: root._apply(text())
+        onLoadFailed: {
+            // first start: no state.json yet. Everything comes from defaults,
+            // and the first set() creates the file.
+            root.isLoading = false;
+        }
+    }
+
+    IpcHandler {
+        target: "state"
+        function get(path: string): string { return JSON.stringify(root.get(path, null)); }
+        function set(path: string, json: string): void { root.set(path, JSON.parse(json)); }
+        function reset(path: string): void { root.reset(path); }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">line 1</span><b>A singleton</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>pragma Singleton</code></pre></div><div class="seg-e"><p><code>pragma Singleton</code> makes exactly one <code>StateService</code> for the whole shell (<a class="xref" href="../ch/33-singletons.html">Singletons and Global State</a>). Any file that writes <code>import qs.services</code> can call <code>StateService.get(…)</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 2–5</span><b>Imports</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>import QtQuick
+import Quickshell
+import qs.services
+import Quickshell.Io</code></pre></div><div class="seg-e"><p><code>QtQuick</code> for the basics, <code>Quickshell</code> for <code>Singleton</code> and <code>Quickshell.env</code>, <code>Quickshell.Io</code> for <code>FileView</code> and <code>IpcHandler</code>. <code>qs.services</code> is this file's own folder; importing it keeps the linter happy about the other singletons in it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–14</span><b>Where the files are</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property string statePath: Quickshell.env("HOME") + "/.config/lyne/state.json"
+readonly property string defaultsPath: Quickshell.shellPath("defaults.json")</code></pre></div><div class="seg-e"><p><code>state.json</code> in <code>~/.config/lyne/</code> (the original uses <code>~/.config/quickshell/state.json</code>). <code>Quickshell.shellPath("defaults.json")</code> is the file next to <code>shell.qml</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 16–18</span><b>The data</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property var state: ({})              // what's in state.json
+property var defaults: ({})           // what's in defaults.json
+property bool isLoading: true         // true until state.json has been read once</code></pre></div><div class="seg-e"><p><code>state</code> and <code>defaults</code> are plain JavaScript objects (<code>var</code>). <code>isLoading</code> is true until <code>state.json</code> has been read; <code>set()</code> doesn't save during that time, and the idle monitors in <code>shell.qml</code> wait for it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 20–27</span><b>The reactivity problem</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// --- Telling bindings that something changed ---------------------------
+// `state` is a plain JavaScript object changed in place, which QML can't
+// see. So every top-level key ("bar", "theme"…) gets a small counter
+// object. get("bar.style") reads the "bar" counter, which makes the
+// binding depend on it; set("bar.style", …) bumps the counter, and only
+// bindings that read something under "bar" re-evaluate.
+property var _counters: ({})
+property int revision: 0              // bumped when defaults.json (re)loads</code></pre></div><div class="seg-e"><p>QML notices when a <strong>property</strong> is assigned. But <code>state.bar.style = "dots"</code> changes something <em>inside</em> an object: the property <code>state</code> itself still holds the same object, so nothing would update. The fix is a small <strong>counter per top-level key</strong>. Reading a counter inside <code>get()</code> makes the calling binding depend on it; changing it later makes that binding run again.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 29–32</span><b>A counter</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Component {
+    id: counterComponent
+    QtObject { property int rev: 0 }
+}</code></pre></div><div class="seg-e"><p>A tiny object with one <code>int</code>. A <code>Component</code> lets us create as many as needed.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 34–42</span><b>Depending on a key</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function _depend(path) {
+    const top = path.split(".")[0];
+    let counter = _counters[top];
+    if (!counter) {
+        counter = counterComponent.createObject(root);
+        _counters[top] = counter;
+    }
+    return counter.rev;               // reading it is what creates the dependency
+}</code></pre></div><div class="seg-e"><p>For <code>"bar.workspaces.style"</code> the top key is <code>"bar"</code>. The first time it's needed, a counter is created and remembered in <code>_counters</code>. Then its <code>rev</code> is <strong>read</strong>, and reading is all it takes: QML records that the current binding used <code>rev</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 43–46</span><b>Announcing a change</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function _bump(top) {
+    if (_counters[top])
+        _counters[top].rev++;
+}</code></pre></div><div class="seg-e"><p>Adding one to <code>rev</code> notifies every binding that read it. Only bindings that read something under that top key run again, so changing <code>bar.style</code> doesn't re-evaluate every theme binding in the shell.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 49–58</span><b>Following a path</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function _lookup(obj, path) {
+    let current = obj;
+    for (const key of path.split(".")) {
+        if (current !== null &amp;&amp; typeof current === "object" &amp;&amp; key in current)
+            current = current[key];
+        else
+            return undefined;
+    }
+    return current;
+}</code></pre></div><div class="seg-e"><p>Split <code>"bar.workspaces.style"</code> at the dots and walk into the object one key at a time. If a step is missing, the answer is <code>undefined</code> instead of an error.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 60–69</span><b>Writing at a path</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function _assign(obj, path, value) {
+    const keys = path.split(".");
+    let current = obj;
+    for (let i = 0; i &lt; keys.length - 1; i++) {
+        if (typeof current[keys[i]] !== "object" || current[keys[i]] === null)
+            current[keys[i]] = {};
+        current = current[keys[i]];
+    }
+    current[keys[keys.length - 1]] = value;
+}</code></pre></div><div class="seg-e"><p>The same walk, creating empty objects for missing steps, so <code>set("a.b.c", 1)</code> works even when <code>a</code> doesn't exist yet.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 72–80</span><b>get()</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function get(path, fallback) {
+    root.revision;
+    _depend(path);
+    const value = _lookup(state, path);
+    if (value !== undefined)
+        return value;
+    const def = _lookup(defaults, path);
+    return def === undefined ? fallback : def;
+}</code></pre></div><div class="seg-e"><p>First <code>state.json</code>, then <code>defaults.json</code>, then the fallback written in the code. Reading <code>revision</code> makes every <code>get()</code> re-run when <code>defaults.json</code> reloads.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 82–87</span><b>isDefault()</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function isDefault(path) {
+    root.revision;
+    _depend(path);
+    const value = _lookup(state, path);
+    return value === undefined || JSON.stringify(value) === JSON.stringify(_lookup(defaults, path));
+}</code></pre></div><div class="seg-e"><p>True when the key isn't in <code>state.json</code>, or holds the same value as the default. Settings rows use it to show a reset button only for changed values (<a class="xref" href="../ch/ly11-settings.html">lyne-dots 11: The Settings App</a>). <code>JSON.stringify</code> compares lists and objects by content.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 89–96</span><b>set()</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function set(path, value) {
+    if (JSON.stringify(_lookup(state, path)) === JSON.stringify(value))
+        return;                       // nothing changes: no write, no re-evaluation
+    _assign(state, path, value);
+    _bump(path.split(".")[0]);
+    if (!isLoading)
+        saveTimer.restart();
+}</code></pre></div><div class="seg-e"><p>If the value doesn't change, do nothing: no save, no re-evaluation. Otherwise store it, bump the top key's counter (bindings update immediately) and restart the save timer.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 98–102</span><b>reset()</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function reset(path) {
+    const def = _lookup(defaults, path);
+    if (def !== undefined)
+        set(path, JSON.parse(JSON.stringify(def)));
+}</code></pre></div><div class="seg-e"><p>Set the key back to its default. <code>JSON.parse(JSON.stringify(…))</code> copies it, so later changes to the state can't change the defaults object.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 105–113</span><b>Applying the file</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function _apply(text) {
+    let next;
+    try {
+        next = JSON.parse(text);
+    } catch (e) {
+        console.warn("[State] state.json is not valid JSON:", e);
+        isLoading = false;
+        return;
+    }</code></pre></div><div class="seg-e"><p>Parse the text. A broken file (say, a missing comma after a hand edit) is reported and ignored, and the shell keeps its current settings.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 114–120</span><b>Only bump what changed</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// which top-level keys differ from what we have now?
+const keys = new Set([...Object.keys(state), ...Object.keys(next)]);
+const changed = [...keys].filter(k =&gt; JSON.stringify(state[k]) !== JSON.stringify(next[k]));
+state = next;
+isLoading = false;
+for (const key of changed)
+    _bump(key);</code></pre></div><div class="seg-e"><p>Compare each top-level key before and after, and bump only the ones that differ. When you edit <code>bar.height</code> by hand, only bar bindings re-run.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 123–128</span><b>Saving</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// many set() calls in a row (dragging a slider) become one write
+Timer {
+    id: saveTimer
+    interval: 300
+    onTriggered: stateFile.setText(JSON.stringify(root.state, null, 2) + "\n")
+}</code></pre></div><div class="seg-e"><p>300 ms after the last <code>set()</code>, the whole state is written, nicely indented. Dragging a slider calls <code>set()</code> dozens of times but writes once.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 130–143</span><b>Reading the defaults</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FileView {
+    id: defaultsFile
+    path: root.defaultsPath
+    watchChanges: true
+    onFileChanged: reload()
+    onLoaded: {
+        try {
+            root.defaults = JSON.parse(text());
+            root.revision++;
+        } catch (e) {
+            console.warn("[State] defaults.json is not valid JSON:", e);
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>A <a class="api" href="../ref/FileView.html"><code>FileView</code></a> reads the file; <code>watchChanges</code> reloads it when it changes on disk.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 145–152</span><b>Reading state.json</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FileView {
+    id: stateFile
+    path: root.statePath
+    watchChanges: true                // edits from a text editor or a script apply live
+    atomicWrites: true                // never leave a half-written file behind
+    printErrors: false
+    onFileChanged: reload()
+    onLoaded: root._apply(text())</code></pre></div><div class="seg-e"><p><code>watchChanges</code> again, so editing the file by hand (or with lyne's CLI, which edits the same file) applies live. <code>atomicWrites</code> writes to a temporary file and renames it, so a crash mid-write can never leave a half-written file.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 153–157</span><b>No file yet</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>onLoadFailed: {
+    // first start: no state.json yet. Everything comes from defaults,
+    // and the first set() creates the file.
+    root.isLoading = false;
+}</code></pre></div><div class="seg-e"><p>On the very first start the file doesn't exist; everything comes from the defaults, and the first <code>set()</code> creates it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 160–165</span><b>From the terminal</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>IpcHandler {
+    target: "state"
+    function get(path: string): string { return JSON.stringify(root.get(path, null)); }
+    function set(path: string, json: string): void { root.set(path, JSON.parse(json)); }
+    function reset(path: string): void { root.reset(path); }
+}</code></pre></div><div class="seg-e"><p><code>qs -c lyne ipc call state get bar.style</code> prints the value as JSON. <code>set</code> takes JSON too, so strings need quotes: <code>qs -c lyne ipc call state set bar.style '"islands"'</code>.</p></div></div></div>
+<h2 id="trying-it">Trying it<a class="hlink" href="#trying-it">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="sh"><code>qs -c lyne ipc call state set bar.style '"floating"'
+qs -c lyne ipc call state set bar.workspaces.style '"numbers"'
+cat ~/.config/lyne/state.json
+qs -c lyne ipc call state reset bar.style</code></pre></div>
+<p>Or open <code>~/.config/lyne/state.json</code> in your editor, change a value, and save: the shell follows within a moment.</p>
+<div class="box note"><div class="bt">In the original</div><p><code>services/StateService.qml</code> in lyne-dots does the same with two extras: changes you make while an outside edit arrives are merged on top of it (<code>_unsaved</code>), and it emits <code>stateLoaded(keys)</code> so services can react to outside edits. The <code>lyne state</code> command opens the file, <code>lyne state sync</code> adds new default keys after an update.</p></div>
+<h2 id="practice">Practice<a class="hlink" href="#practice">#</a></h2>
+<div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Warm-up</span><b>Your first setting</b></div><div class="ex-b"><p>Add <code>"clock": { "seconds": false }</code> to <code>defaults.json</code>. Then, in a scratch widget, show the time with seconds only when <code>StateService.get("clock.seconds", false)</code> is true. Toggle it from the terminal.</p></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>A toggle helper</b></div><div class="ex-b"><p>Add <code>function toggle(path)</code> to the service that flips a boolean setting, and an IPC function for it. Then <code>qs -c lyne ipc call state toggle bar.autoHide</code> should hide and show the bar.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><div class="codewrap"><pre class="code" data-lang="qml"><code>function toggle(path) { set(path, !get(path, false)); }
+// in the IpcHandler:
+function toggle(path: string): void { root.toggle(path); }</code></pre></div></div></details></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>Prove the reactivity trick</b></div><div class="ex-b"><p>Remove <code>_depend(path);</code> from <code>get()</code>, restart, and change <code>bar.style</code> from the terminal. What happens, and why? Put it back.</p></div><details class="ex-d ex-why"><summary>🧠 Why it works</summary><div class="ex-db"><p>Without reading the counter, the bindings that call <code>get()</code> don't depend on anything that changes, so they never re-run: the file changes, but the bar keeps its old style until a restart.</p></div></details></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Challenge</span><b>Undo</b></div><div class="ex-b"><p>Keep the last 20 changes in a list (<code>{ path, before }</code>) inside <code>set()</code>, and add <code>undo()</code> that restores the most recent one. Expose it over IPC.</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/ly1-overview.html"><small>← Previous</small><span>lyne-dots 1: What It Is and How It's Built</span></a><a class="pn-next" href="../ch/ly3-config-theme.html"><small>Next →</small><span>lyne-dots 3: Design Tokens, Themes and the Colour Fade</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#the-idea">The idea</a><a class="l2" href="#the-defaults">The defaults</a><a class="l2" href="#the-state-service-line-by-line">The state service, line by line</a><a class="l2" href="#trying-it">Trying it</a><a class="l2" href="#practice">Practice</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

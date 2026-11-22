@@ -1,0 +1,58 @@
+{
+  "name": "Catppuccin Mocha",
+  "variant": "dark",
+  "palette": {
+    "background": "#1e1e2e",
+    "surface0": "#313244",
+    "surface1": "#45475a",
+    "surface2": "#585b70",
+    "surface3": "#6c7086",
+    "text": "#cdd6f4",
+    "textReverse": "#1e1e2e",
+    "subtext": "#bac2de",
+    "accent": "#cba6f7",
+    "success": "#a6e3a1",
+    "warning": "#f9e2af",
+    "error": "#f38ba8",
+    "muted": "#7f849c"
+  },
+  "opacity": {
+    "background": 0.9
+  },
+  "hyprland": {
+    "activeBorder": "cba6f7ff",
+    "inactiveBorder": "585b70aa",
+    "shadowColor": "1a1a1aee"
+  },
+  "terminal": {
+    "background": "#1e1e2e",
+    "foreground": "#cdd6f4",
+    "selectionBackground": "#585b70",
+    "selectionForeground": "#cdd6f4",
+    "urlColor": "#cba6f7",
+    "cursor": "#cdd6f4",
+    "cursorTextColor": "#1e1e2e",
+    "activeTabBackground": "#cba6f7",
+    "activeTabForeground": "#1e1e2e",
+    "inactiveTabBackground": "#45475a",
+    "inactiveTabForeground": "#7f849c",
+    "activeBorderColor": "#cba6f7",
+    "inactiveBorderColor": "#45475a",
+    "color0": "#45475a",
+    "color1": "#f38ba8",
+    "color2": "#a6e3a1",
+    "color3": "#f9e2af",
+    "color4": "#89b4fa",
+    "color5": "#f5c2e7",
+    "color6": "#94e2d5",
+    "color7": "#bac2de",
+    "color8": "#585b70",
+    "color9": "#f38ba8",
+    "color10": "#a6e3a1",
+    "color11": "#f9e2af",
+    "color12": "#89b4fa",
+    "color13": "#f5c2e7",
+    "color14": "#94e2d5",
+    "color15": "#a6adc8"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "name": "Catppuccin Latte",
+  "variant": "light",
+  "palette": {
+    "background": "#eff1f5",
+    "surface0": "#e6e9ef",
+    "surface1": "#ccd0da",
+    "surface2": "#bcc0cc",
+    "surface3": "#acb0be",
+    "text": "#4c4f69",
+    "textReverse": "#eff1f5",
+    "subtext": "#5c5f77",
+    "accent": "#8839ef",
+    "success": "#40a02b",
+    "warning": "#df8e1d",
+    "error": "#d20f39",
+    "muted": "#8c8fa1"
+  },
+  "opacity": {
+    "background": 0.92
+  },
+  "hyprland": {
+    "activeBorder": "8839efff",
+    "inactiveBorder": "bcc0ccaa",
+    "shadowColor": "1a1a1aee"
+  },
+  "terminal": {
+    "background": "#eff1f5",
+    "foreground": "#4c4f69",
+    "selectionBackground": "#bcc0cc",
+    "selectionForeground": "#4c4f69",
+    "urlColor": "#8839ef",
+    "cursor": "#4c4f69",
+    "cursorTextColor": "#eff1f5",
+    "activeTabBackground": "#8839ef",
+    "activeTabForeground": "#eff1f5",
+    "inactiveTabBackground": "#ccd0da",
+    "inactiveTabForeground": "#8c8fa1",
+    "activeBorderColor": "#8839ef",
+    "inactiveBorderColor": "#ccd0da",
+    "color0": "#5c5f77",
+    "color1": "#d20f39",
+    "color2": "#40a02b",
+    "color3": "#df8e1d",
+    "color4": "#1e66f5",
+    "color5": "#ea76cb",
+    "color6": "#179299",
+    "color7": "#acb0be",
+    "color8": "#6c6f85",
+    "color9": "#d20f39",
+    "color10": "#40a02b",
+    "color11": "#df8e1d",
+    "color12": "#1e66f5",
+    "color13": "#ea76cb",
+    "color14": "#179299",
+    "color15": "#bcc0cc"
+  }
+}

@@ -1,0 +1,1160 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>lyne-dots 11: The Settings App · The Quickshell Book</title>
+<meta name="description" content="lyne-dots 11: The Settings App">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details open><summary><span class="pn">L</span>Ricing lyne-dots</summary>
+<a class="ch" href="../ch/ly1-overview.html"><span class="num">ly1</span>lyne-dots 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/ly2-state.html"><span class="num">ly2</span>lyne-dots 2: One File for Every Setting</a>
+<a class="ch" href="../ch/ly3-config-theme.html"><span class="num">ly3</span>lyne-dots 3: Design Tokens, Themes and the Colour Fade</a>
+<a class="ch" href="../ch/ly4-components.html"><span class="num">ly4</span>lyne-dots 4: The Building Blocks</a>
+<a class="ch" href="../ch/ly5-bar.html"><span class="num">ly5</span>lyne-dots 5: The Bar</a>
+<a class="ch" href="../ch/ly6-panels.html"><span class="num">ly6</span>lyne-dots 6: Panels That Grow Out of the Bar</a>
+<a class="ch" href="../ch/ly7-launcher.html"><span class="num">ly7</span>lyne-dots 7: The Launcher</a>
+<a class="ch" href="../ch/ly8-notifications-osd.html"><span class="num">ly8</span>lyne-dots 8: Notifications, Audio and the OSD</a>
+<a class="ch" href="../ch/ly9-lock-power.html"><span class="num">ly9</span>lyne-dots 9: Lock Screen, Power Menu and Idle</a>
+<a class="ch" href="../ch/ly10-screenshot-wallpaper.html"><span class="num">ly10</span>lyne-dots 10: Screenshots and Wallpapers</a>
+<a class="ch active" href="../ch/ly11-settings.html"><span class="num">ly11</span>lyne-dots 11: The Settings App</a>
+<a class="ch" href="../ch/ly12-assemble.html"><span class="num">ly12</span>lyne-dots 12: Assembling the Shell and Configuring Hyprland</a>
+<a class="ch" href="../ch/ly13-rice-it.html"><span class="num">ly13</span>lyne-dots 13: Ricing lyne-dots, Start to Finish</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-l">Part L: Ricing lyne-dots</a> › lyne-dots 11: The Settings App</div><article><div class="ch-head"><div class="ch-part">Part L · Ricing lyne-dots</div><h1><span class="ch-num">ly11</span>lyne-dots 11: The Settings App</h1></div><p>lyne-dots' big promise is "no config files to edit": almost everything is set from its own Settings window, applied live. Thanks to <a class="xref" href="../ch/ly2-state.html">lyne-dots 2: One File for Every Setting</a>, that's simpler than it sounds. Every setting is a key in <code>state.json</code>, and every row in the Settings app is a control bound to one key. This chapter builds the row types and the window.</p>
+<div class="preview"><svg style="width:min(100%,930px)" width="620" height="300" viewBox="0 0 620 300"><g font-size="11"><rect width="620" height="300" rx="10" fill="#1a1b26"/><rect width="170" height="300" rx="10" fill="#24283b"/><text x="20" y="34" fill="#c0caf5" font-size="13" font-weight="700">Settings</text><rect x="10" y="50" width="150" height="28" rx="8" fill="#292e42"/><text x="22" y="68" fill="#7aa2f7">🎨</text><text x="44" y="68" fill="#c0caf5" font-weight="700">Appearance</text><text x="44" y="98" fill="#c0caf5">Bar</text><text x="44" y="126" fill="#c0caf5">Notifications</text><text x="44" y="154" fill="#c0caf5">OSD</text><text x="44" y="182" fill="#c0caf5">Idle and lock</text><text x="44" y="210" fill="#c0caf5">Wallpaper</text><text x="190" y="36" fill="#c0caf5" font-size="14" font-weight="700">Bar</text><rect x="190" y="50" width="410" height="40" rx="8" fill="#24283b"/><text x="204" y="74" fill="#c0caf5">Style</text><rect x="340" y="58" width="250" height="24" rx="12" fill="#292e42"/><text x="352" y="74" fill="#c0caf5" font-size="10">Docked</text><rect x="398" y="60" width="60" height="20" rx="10" fill="#7aa2f7"/><text x="408" y="74" fill="#1a1b26" font-size="10">Corners</text><text x="468" y="74" fill="#c0caf5" font-size="10">Floating  Islands</text><rect x="190" y="98" width="410" height="40" rx="8" fill="#24283b"/><text x="204" y="122" fill="#c0caf5">Height</text><text x="410" y="122" fill="#a9b1d6" font-size="10">36 px</text><rect x="450" y="115" width="140" height="6" rx="3" fill="#414868"/><rect x="450" y="115" width="70" height="6" rx="3" fill="#7aa2f7"/><circle cx="520" cy="118" r="8" fill="#c0caf5"/><text x="380" y="122" fill="#a9b1d6">⟲</text><rect x="190" y="146" width="410" height="48" rx="8" fill="#24283b"/><text x="204" y="166" fill="#c0caf5">Auto-hide</text><text x="204" y="182" fill="#545c7e" font-size="9">Slides away; touch the screen edge to bring it back</text><rect x="546" y="157" width="44" height="24" rx="12" fill="#414868"/><circle cx="558" cy="169" r="9" fill="#c0caf5"/><text x="200" y="230" fill="#a9b1d6" font-size="10">⟲ = this value differs from defaults.json; click to reset it</text></g></svg></div>
+
+<h2 id="why-it-s-easy">Why it's easy<a class="hlink" href="#why-it-s-easy">#</a></h2>
+<p>A Settings row needs to do three things: show the current value, change it, and update when it changes elsewhere. With <code>StateService</code>:</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>value: StateService.get("bar.height", 33)       // show, and stay in sync
+onMoved: v =&gt; StateService.set("bar.height", v) // change: saved, and the bar follows</code></pre></div>
+<p>So each row type only needs to know its <strong>key path</strong>. The rest of the shell already reads the same keys through <code>Config</code>, so a change in Settings appears everywhere the moment you make it.</p>
+<h2 id="the-row-frame">The row frame<a class="hlink" href="#the-row-frame">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">lyne/modules/settings/SettingRow.qml</span><code>import QtQuick
+import QtQuick.Layouts
+import qs.config
+import qs.services
+import qs.components
+
+// The frame shared by every setting: a title, an optional description,
+// the control on the right, and a "reset" button that appears once the
+// value differs from defaults.json. `path` is the state.json key.
+Rectangle {
+    id: root
+
+    property string path
+    property string title
+    property string description: ""
+    default property alias control: slot.data
+    readonly property var value: StateService.get(path, null)
+
+    Layout.fillWidth: true
+    implicitHeight: Math.max(56, labels.implicitHeight + Config.spacing * 2)
+    radius: Config.radius
+    color: Config.cardColor
+
+    RowLayout {
+        anchors.fill: parent
+        anchors.leftMargin: Config.spacing * 2
+        anchors.rightMargin: Config.spacing
+        spacing: Config.spacing
+        ColumnLayout {
+            id: labels
+            Layout.fillWidth: true
+            spacing: 1
+            StyledText { Layout.fillWidth: true; text: root.title; font.pixelSize: Config.fontSizeNormal }
+            StyledText { Layout.fillWidth: true; visible: text !== ""; text: root.description; font.pixelSize: Config.fontSizeSmall; color: Config.mutedColor; wrapMode: Text.Wrap }
+        }
+        BarButton {                                        // reset to default
+            visible: !StateService.isDefault(root.path)
+            onClicked: StateService.reset(root.path)
+            Glyph { text: Icons.restart; font.pixelSize: Config.fontSizeSmall + 2; color: Config.subtextColor }
+        }
+        Item {
+            id: slot
+            implicitWidth: childrenRect.width
+            implicitHeight: childrenRect.height
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–17</span><b>Inputs</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property string path
+property string title
+property string description: ""
+default property alias control: slot.data
+readonly property var value: StateService.get(path, null)</code></pre></div><div class="seg-e"><p>The key path, a title, an optional description, and the control (whatever is placed inside the row). <code>value</code> is the key's current value, live.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 20</span><b>Height</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>implicitHeight: Math.max(56, labels.implicitHeight + Config.spacing * 2)</code></pre></div><div class="seg-e"><p>At least 56 px, taller for a long description.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 29–35</span><b>Title and description</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ColumnLayout {
+    id: labels
+    Layout.fillWidth: true
+    spacing: 1
+    StyledText { Layout.fillWidth: true; text: root.title; font.pixelSize: Config.fontSizeNormal }
+    StyledText { Layout.fillWidth: true; visible: text !== ""; text: root.description; font.pixelSize: Config.fontSizeSmall; color: Config.mutedColor; wrapMode: Text.Wrap }
+}</code></pre></div><div class="seg-e"><p>The description is muted and wraps.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 36–40</span><b>Reset</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>BarButton {                                        // reset to default
+    visible: !StateService.isDefault(root.path)
+    onClicked: StateService.reset(root.path)
+    Glyph { text: Icons.restart; font.pixelSize: Config.fontSizeSmall + 2; color: Config.subtextColor }
+}</code></pre></div><div class="seg-e"><p>Shown only when the value differs from <code>defaults.json</code> (<code>isDefault</code>, <a class="xref" href="../ch/ly2-state.html">lyne-dots 2: One File for Every Setting</a>). Clicking it puts the default back. You always know what you've changed, and can undo it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 41–45</span><b>The control slot</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Item {
+    id: slot
+    implicitWidth: childrenRect.width
+    implicitHeight: childrenRect.height
+}</code></pre></div><div class="seg-e"><p>Children of the row go here, on the right. Each row type below places its control in this slot.</p></div></div></div>
+<h2 id="three-row-types">Three row types<a class="hlink" href="#three-row-types">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">lyne/modules/settings/SwitchRow.qml</span><code>import QtQuick
+import qs.config
+import qs.services
+
+// An on/off setting:  SwitchRow { path: "bar.autoHide"; title: "Auto-hide" }
+SettingRow {
+    id: root
+    readonly property bool on: value === true
+
+    Rectangle {
+        width: 46
+        height: 26
+        radius: 13
+        color: root.on ? Config.accentColor : Config.surface2Color
+        Behavior on color { ColorAnimation { duration: Config.animDuration } }
+        Rectangle {
+            width: 20
+            height: 20
+            radius: 10
+            y: 3
+            x: root.on ? parent.width - width - 3 : 3
+            color: root.on ? Config.textReverseColor : Config.textColor
+            Behavior on x { NumberAnimation { duration: Config.animDuration; easing.type: Easing.OutCubic } }
+        }
+        MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: StateService.set(root.path, !root.on) }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 6–8</span><b>A row with a switch</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>SettingRow {
+    id: root
+    readonly property bool on: value === true</code></pre></div><div class="seg-e"><p>A <code>SettingRow</code> whose value is on or off.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–15</span><b>The track</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    width: 46
+    height: 26
+    radius: 13
+    color: root.on ? Config.accentColor : Config.surface2Color
+    Behavior on color { ColorAnimation { duration: Config.animDuration } }</code></pre></div><div class="seg-e"><p>Accent when on, grey when off.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 16–24</span><b>The knob</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    width: 20
+    height: 20
+    radius: 10
+    y: 3
+    x: root.on ? parent.width - width - 3 : 3
+    color: root.on ? Config.textReverseColor : Config.textColor
+    Behavior on x { NumberAnimation { duration: Config.animDuration; easing.type: Easing.OutCubic } }
+}</code></pre></div><div class="seg-e"><p>Slides from left to right.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 25</span><b>Clicking</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: StateService.set(root.path, !root.on) }</code></pre></div><div class="seg-e"><p>Writes the opposite value to the key. Nothing else: the knob moves because <code>value</code> changed.</p></div></div></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">lyne/modules/settings/ChoiceRow.qml</span><code>import QtQuick
+import qs.config
+import qs.services
+import qs.components
+
+// One of a few values, as a segmented control:
+//   ChoiceRow { path: "bar.style"; options: [["docked", "Docked"], ["floating", "Floating"]] }
+SettingRow {
+    id: root
+    property var options: []                       // [[value, label], …]
+
+    Rectangle {
+        width: row.implicitWidth + 6
+        height: 32
+        radius: 16
+        color: Config.surface1Color
+        Row {
+            id: row
+            anchors.centerIn: parent
+            Repeater {
+                model: root.options
+                Rectangle {
+                    required property var modelData
+                    readonly property bool chosen: root.value === modelData[0]
+                    width: label.implicitWidth + 22
+                    height: 26
+                    radius: 13
+                    color: chosen ? Config.accentColor : "transparent"
+                    StyledText {
+                        id: label
+                        anchors.centerIn: parent
+                        text: parent.modelData[1]
+                        font.pixelSize: Config.fontSizeSmall
+                        color: parent.chosen ? Config.textReverseColor : Config.textColor
+                    }
+                    MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: StateService.set(root.path, parent.modelData[0]) }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 7–10</span><b>Options</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>//   ChoiceRow { path: "bar.style"; options: [["docked", "Docked"], ["floating", "Floating"]] }
+SettingRow {
+    id: root
+    property var options: []                       // [[value, label], …]</code></pre></div><div class="seg-e"><p>A list of <code>[value, label]</code> pairs, like <code>[["top", "Top"], ["bottom", "Bottom"]]</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 12–17</span><b>A segmented control</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    width: row.implicitWidth + 6
+    height: 32
+    radius: 16
+    color: Config.surface1Color
+    Row {</code></pre></div><div class="seg-e"><p>A rounded track holding one segment per option.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 22–36</span><b>A segment</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    required property var modelData
+    readonly property bool chosen: root.value === modelData[0]
+    width: label.implicitWidth + 22
+    height: 26
+    radius: 13
+    color: chosen ? Config.accentColor : "transparent"
+    StyledText {
+        id: label
+        anchors.centerIn: parent
+        text: parent.modelData[1]
+        font.pixelSize: Config.fontSizeSmall
+        color: parent.chosen ? Config.textReverseColor : Config.textColor
+    }
+    MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: StateService.set(root.path, parent.modelData[0]) }</code></pre></div><div class="seg-e"><p>Accent-filled when it's the current value; a click writes its value to the key.</p></div></div></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">lyne/modules/settings/SliderRow.qml</span><code>import QtQuick
+import qs.config
+import qs.services
+import qs.components
+
+// A number in a range:
+//   SliderRow { path: "geometry.radius"; from: 0; to: 24; step: 1; unit: " px" }
+SettingRow {
+    id: root
+    property real from: 0
+    property real to: 100
+    property real step: 1
+    property string unit: ""
+    property real factor: 1                        // shown value = stored value × factor (e.g. 100 for %)
+
+    Row {
+        spacing: Config.spacing
+        StyledText {
+            width: 56
+            anchors.verticalCenter: parent.verticalCenter
+            horizontalAlignment: Text.AlignRight
+            text: Math.round(root.value * root.factor * 100) / 100 + root.unit
+            font.pixelSize: Config.fontSizeSmall
+            color: Config.subtextColor
+        }
+        Item {
+            width: 180
+            height: 26
+            Rectangle {
+                anchors.verticalCenter: parent.verticalCenter
+                width: parent.width
+                height: 6
+                radius: 3
+                color: Config.surface2Color
+                Rectangle {
+                    width: parent.width * (root.value - root.from) / (root.to - root.from)
+                    height: parent.height
+                    radius: 3
+                    color: Config.accentColor
+                }
+            }
+            Rectangle {                              // the handle
+                x: (parent.width - width) * (root.value - root.from) / (root.to - root.from)
+                anchors.verticalCenter: parent.verticalCenter
+                width: 18
+                height: 18
+                radius: 9
+                color: Config.textColor
+            }
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                function setFrom(x) {
+                    const raw = root.from + Math.max(0, Math.min(1, x / width)) * (root.to - root.from);
+                    StateService.set(root.path, Number((Math.round(raw / root.step) * root.step).toFixed(4)));   // toFixed: no 0.30000000000000004
+                }
+                onPressed: m =&gt; setFrom(m.x)
+                onPositionChanged: m =&gt; { if (pressed) setFrom(m.x); }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–14</span><b>Range</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property real from: 0
+property real to: 100
+property real step: 1
+property string unit: ""
+property real factor: 1                        // shown value = stored value × factor (e.g. 100 for %)</code></pre></div><div class="seg-e"><p><code>from</code>, <code>to</code>, the <code>step</code> to round to, a unit for the label, and <code>factor</code> for showing a value differently from how it's stored: opacity is stored as 0.9 and shown as 90% (<code>factor: 100</code>), timeouts are stored in milliseconds and shown in seconds (<code>factor: 0.001</code>).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 18–25</span><b>The label</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>StyledText {
+    width: 56
+    anchors.verticalCenter: parent.verticalCenter
+    horizontalAlignment: Text.AlignRight
+    text: Math.round(root.value * root.factor * 100) / 100 + root.unit
+    font.pixelSize: Config.fontSizeSmall
+    color: Config.subtextColor
+}</code></pre></div><div class="seg-e"><p>The value times the factor, rounded to two decimals, with its unit.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 26–48</span><b>Track, fill and knob</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Item {
+    width: 180
+    height: 26
+    Rectangle {
+        anchors.verticalCenter: parent.verticalCenter
+        width: parent.width
+        height: 6
+        radius: 3
+        color: Config.surface2Color
+        Rectangle {
+            width: parent.width * (root.value - root.from) / (root.to - root.from)
+            height: parent.height
+            radius: 3
+            color: Config.accentColor
+        }
+    }
+    Rectangle {                              // the handle
+        x: (parent.width - width) * (root.value - root.from) / (root.to - root.from)
+        anchors.verticalCenter: parent.verticalCenter
+        width: 18
+        height: 18
+        radius: 9
+        color: Config.textColor</code></pre></div><div class="seg-e"><p>Positioned by the value's place between <code>from</code> and <code>to</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 50–58</span><b>Dragging</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>MouseArea {
+    anchors.fill: parent
+    cursorShape: Qt.PointingHandCursor
+    function setFrom(x) {
+        const raw = root.from + Math.max(0, Math.min(1, x / width)) * (root.to - root.from);
+        StateService.set(root.path, Number((Math.round(raw / root.step) * root.step).toFixed(4)));   // toFixed: no 0.30000000000000004
+    }
+    onPressed: m =&gt; setFrom(m.x)
+    onPositionChanged: m =&gt; { if (pressed) setFrom(m.x); }</code></pre></div><div class="seg-e"><p>Turn the pointer position into a value, round it to the step, and write it. <code>toFixed(4)</code> removes floating-point noise: 0.1 + 0.2 is 0.30000000000000004 in JavaScript, and nobody wants that in their <code>state.json</code>. Every write is saved by <code>StateService</code> a moment after you stop dragging.</p></div></div></div>
+<h2 id="the-window">The window<a class="hlink" href="#the-window">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">lyne/modules/settings/SettingsWindow.qml</span><code>import QtQuick
+import QtQuick.Layouts
+import Quickshell
+import qs.config
+import qs.services
+import qs.components
+
+// The Settings app (Super+I). A normal window, so it can stay open while you
+// try things: every row writes to state.json immediately and the shell
+// follows live. Pages on the left, the current page on the right.
+FloatingWindow {
+    id: root
+
+    title: "lyne settings"
+    implicitWidth: 860
+    implicitHeight: 620
+    minimumSize: Qt.size(640, 420)
+    color: Config.backgroundColor
+    onClosed: SettingsService.close()             // the window's own close button
+
+    readonly property var pages: [
+        { id: "appearance",    label: "Appearance",    icon: Icons.palette },
+        { id: "bar",           label: "Bar",           icon: Icons.window },
+        { id: "notifications", label: "Notifications", icon: Icons.bell },
+        { id: "osd",           label: "OSD",           icon: Icons.volumeHigh },
+        { id: "idle",          label: "Idle and lock", icon: Icons.lock },
+        { id: "wallpaper",     label: "Wallpaper",     icon: Icons.wallpaper }
+    ]
+
+    RowLayout {
+        anchors.fill: parent
+        spacing: 0
+
+        // ── sidebar ──
+        Rectangle {
+            Layout.fillHeight: true
+            Layout.preferredWidth: 220
+            color: Config.surface0Color
+            ColumnLayout {
+                anchors.fill: parent
+                anchors.margins: Config.spacing
+                spacing: 2
+                Row {
+                    Layout.margins: Config.spacing
+                    spacing: Config.spacing
+                    LyneMark { height: 22; width: 26 }
+                    StyledText { text: "Settings"; font.bold: true; font.pixelSize: Config.fontSizeLarge }
+                }
+                Repeater {
+                    model: root.pages
+                    Rectangle {
+                        id: nav
+                        required property var modelData
+                        readonly property bool current: SettingsService.page === modelData.id
+                        Layout.fillWidth: true
+                        implicitHeight: 38
+                        radius: Config.radius
+                        color: current ? Config.surface1Color : navMouse.containsMouse ? Qt.alpha(Config.surface1Color, 0.5) : "transparent"
+                        Row {
+                            anchors.verticalCenter: parent.verticalCenter
+                            x: Config.spacing
+                            spacing: Config.spacing
+                            Glyph { text: nav.modelData.icon; color: nav.current ? Config.accentColor : Config.subtextColor }
+                            StyledText { text: nav.modelData.label; font.bold: nav.current }
+                        }
+                        MouseArea { id: navMouse; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor; onClicked: SettingsService.page = nav.modelData.id }
+                    }
+                }
+                Item { Layout.fillHeight: true }
+                StyledText {
+                    Layout.margins: Config.spacing
+                    Layout.fillWidth: true
+                    text: "Saved in ~/.config/lyne/state.json"
+                    wrapMode: Text.Wrap
+                    font.pixelSize: Config.fontSizeSmall - 1
+                    color: Config.mutedColor
+                }
+            }
+        }
+
+        // ── the page ──
+        Flickable {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            contentHeight: page.implicitHeight + Config.spacing * 6
+            clip: true
+            boundsBehavior: Flickable.StopAtBounds
+
+            Loader {
+                id: page
+                x: Config.spacing * 3
+                y: Config.spacing * 3
+                width: parent.width - Config.spacing * 6
+                sourceComponent: ({ appearance: appearancePage, bar: barPage, notifications: notifPage, osd: osdPage, idle: idlePage, wallpaper: wallpaperPage })[SettingsService.page] ?? appearancePage
+            }
+        }
+    }
+
+    component Heading: StyledText {
+        Layout.topMargin: Config.spacing
+        font.bold: true
+        font.pixelSize: Config.fontSizeLarge + 2
+    }
+
+    // ── Pages ──────────────────────────────────────────────────────────────
+    Component {
+        id: appearancePage
+        ColumnLayout {
+            spacing: Config.spacing
+            Heading { text: "Theme" }
+            GridLayout {                                   // one tile per theme, painted in its own colours
+                Layout.fillWidth: true
+                columns: 3
+                rowSpacing: Config.spacing
+                columnSpacing: Config.spacing
+                Repeater {
+                    model: ThemeService.list
+                    Rectangle {
+                        id: tile
+                        required property var modelData
+                        readonly property bool current: ThemeService.currentName === modelData.slug
+                        Layout.fillWidth: true
+                        implicitHeight: 84
+                        radius: Config.radius
+                        color: modelData.palette.background
+                        border.width: current ? 3 : 1
+                        border.color: current ? Config.accentColor : Config.surface2Color
+                        Column {
+                            anchors.fill: parent
+                            anchors.margins: Config.spacing + 2
+                            spacing: Config.spacing
+                            StyledText { text: tile.modelData.name; color: tile.modelData.palette.text; font.bold: true; font.pixelSize: Config.fontSizeSmall }
+                            Row {
+                                spacing: 4
+                                Repeater {
+                                    model: ["accent", "success", "warning", "error", "surface2", "subtext"]
+                                    Rectangle { required property string modelData; width: 16; height: 16; radius: 8; color: tile.modelData.palette[modelData] }
+                                }
+                            }
+                        }
+                        MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: ThemeService.set(tile.modelData.slug) }
+                    }
+                }
+            }
+            SwitchRow { path: "animations.themeTransition"; title: "Fade between themes"; description: "Colours glide to the new theme instead of switching at once" }
+            Heading { text: "Look" }
+            SliderRow { path: "opacity.background"; title: "Background opacity"; from: 0.5; to: 1; step: 0.05; factor: 100; unit: "%" }
+            SliderRow { path: "geometry.radius"; title: "Corner radius"; from: 0; to: 20; step: 1; unit: " px" }
+            SliderRow { path: "geometry.radiusLarge"; title: "Panel corner radius"; from: 0; to: 28; step: 1; unit: " px" }
+            SliderRow { path: "typography.sizeNormal"; title: "Text size"; from: 10; to: 20; step: 1; unit: " px" }
+            SliderRow { path: "animations.normal"; title: "Animation speed"; description: "Length of most animations"; from: 0; to: 600; step: 10; unit: " ms" }
+        }
+    }
+
+    Component {
+        id: barPage
+        ColumnLayout {
+            spacing: Config.spacing
+            Heading { text: "Bar" }
+            ChoiceRow { path: "bar.style"; title: "Style"; options: [["docked", "Docked"], ["docked-corners", "Corners"], ["floating", "Floating"], ["islands", "Islands"]] }
+            ChoiceRow { path: "bar.position"; title: "Position"; options: [["top", "Top"], ["bottom", "Bottom"]] }
+            SliderRow { path: "bar.height"; title: "Height"; from: 26; to: 48; step: 1; unit: " px" }
+            SliderRow { path: "bar.margin"; title: "Gap around a floating bar"; from: 0; to: 24; step: 1; unit: " px" }
+            SwitchRow { path: "bar.autoHide"; title: "Auto-hide"; description: "Slides away; touch the screen edge to bring it back" }
+            Heading { text: "Workspaces" }
+            ChoiceRow { path: "bar.workspaces.style"; title: "Style"; options: [["pills", "Pills"], ["dots", "Dots"], ["numbers", "Numbers"]] }
+            SliderRow { path: "bar.workspaces.count"; title: "Workspaces shown"; from: 3; to: 10; step: 1 }
+        }
+    }
+
+    Component {
+        id: notifPage
+        ColumnLayout {
+            spacing: Config.spacing
+            Heading { text: "Notifications" }
+            SwitchRow { path: "notifications.dnd"; title: "Do not disturb"; description: "Only critical notifications pop up" }
+            SliderRow { path: "notifications.timeout"; title: "Popup time"; from: 1000; to: 15000; step: 500; factor: 0.001; unit: " s" }
+            SliderRow { path: "notifications.maxPopups"; title: "Popups at once"; from: 1; to: 8; step: 1 }
+            SliderRow { path: "notifications.width"; title: "Width"; from: 280; to: 480; step: 10; unit: " px" }
+        }
+    }
+
+    Component {
+        id: osdPage
+        ColumnLayout {
+            spacing: Config.spacing
+            Heading { text: "On-screen display" }
+            ChoiceRow { path: "osd.style"; title: "Style"; options: [["attached", "Attached"], ["pill", "Pill"]] }
+            SliderRow { path: "osd.timeout"; title: "Visible for"; from: 500; to: 5000; step: 100; factor: 0.001; unit: " s" }
+        }
+    }
+
+    Component {
+        id: idlePage
+        ColumnLayout {
+            spacing: Config.spacing
+            Heading { text: "Idle" }
+            SwitchRow { path: "idle.caffeine"; title: "Caffeine"; description: "Never lock or turn the screen off on idle" }
+            SliderRow { path: "idle.lockTimeout"; title: "Lock after"; description: "0 = never"; from: 0; to: 1800; step: 60; factor: 1 / 60; unit: " min" }
+            SliderRow { path: "idle.dpmsTimeout"; title: "Screen off after"; description: "0 = never"; from: 0; to: 3600; step: 60; factor: 1 / 60; unit: " min" }
+            Heading { text: "Power menu" }
+            SliderRow { path: "power.countdown"; title: "Countdown before restart or shut down"; from: 0; to: 10; step: 1; unit: " s" }
+        }
+    }
+
+    Component {
+        id: wallpaperPage
+        ColumnLayout {
+            spacing: Config.spacing
+            Heading { text: "Wallpaper" }
+            SettingRow {
+                path: "wallpaper.current"
+                title: "Current"
+                description: WallpaperService.current || "None chosen yet"
+                BarButton { onClicked: WallpaperService.togglePicker(); Glyph { text: Icons.image } StyledText { text: "Choose…"; font.pixelSize: Config.fontSizeSmall } }
+            }
+            SettingRow {
+                path: "wallpaper.folder"
+                title: "Folder"
+                description: WallpaperService.folder + "  (" + WallpaperService.files.length + " images)"
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 11–19</span><b>A normal window</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>FloatingWindow {
+    id: root
+
+    title: "lyne settings"
+    implicitWidth: 860
+    implicitHeight: 620
+    minimumSize: Qt.size(640, 420)
+    color: Config.backgroundColor
+    onClosed: SettingsService.close()             // the window's own close button</code></pre></div><div class="seg-e"><p>A <a class="api" href="../ref/FloatingWindow.html"><code>FloatingWindow</code></a>, not a layer-shell panel: it can stay open, be moved and resized while you try things. Its title lets Hyprland float and centre it (<a class="xref" href="../ch/ly12-assemble.html">lyne-dots 12: Assembling the Shell and Configuring Hyprland</a>). Closing it with its own close button tells the service.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 21–28</span><b>The pages</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var pages: [
+    { id: "appearance",    label: "Appearance",    icon: Icons.palette },
+    { id: "bar",           label: "Bar",           icon: Icons.window },
+    { id: "notifications", label: "Notifications", icon: Icons.bell },
+    { id: "osd",           label: "OSD",           icon: Icons.volumeHigh },
+    { id: "idle",          label: "Idle and lock", icon: Icons.lock },
+    { id: "wallpaper",     label: "Wallpaper",     icon: Icons.wallpaper }
+]</code></pre></div><div class="seg-e"><p>Id, label and icon for the sidebar.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 34–79</span><b>The sidebar</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── sidebar ──
+Rectangle {
+    Layout.fillHeight: true
+    Layout.preferredWidth: 220
+    color: Config.surface0Color
+    ColumnLayout {
+        anchors.fill: parent
+        anchors.margins: Config.spacing
+        spacing: 2
+        Row {
+            Layout.margins: Config.spacing
+            spacing: Config.spacing
+            LyneMark { height: 22; width: 26 }
+            StyledText { text: "Settings"; font.bold: true; font.pixelSize: Config.fontSizeLarge }
+        }
+        Repeater {
+            model: root.pages
+            Rectangle {
+                id: nav
+                required property var modelData
+                readonly property bool current: SettingsService.page === modelData.id
+                Layout.fillWidth: true
+                implicitHeight: 38
+                radius: Config.radius
+                color: current ? Config.surface1Color : navMouse.containsMouse ? Qt.alpha(Config.surface1Color, 0.5) : "transparent"
+                Row {
+                    anchors.verticalCenter: parent.verticalCenter
+                    x: Config.spacing
+                    spacing: Config.spacing
+                    Glyph { text: nav.modelData.icon; color: nav.current ? Config.accentColor : Config.subtextColor }
+                    StyledText { text: nav.modelData.label; font.bold: nav.current }
+                }
+                MouseArea { id: navMouse; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor; onClicked: SettingsService.page = nav.modelData.id }
+            }
+        }
+        Item { Layout.fillHeight: true }
+        StyledText {
+            Layout.margins: Config.spacing
+            Layout.fillWidth: true
+            text: "Saved in ~/.config/lyne/state.json"
+            wrapMode: Text.Wrap
+            font.pixelSize: Config.fontSizeSmall - 1
+            color: Config.mutedColor
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>The logo and title, one entry per page (lit when current), and at the bottom a reminder of where everything is saved.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 81–97</span><b>The page area</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>    // ── the page ──
+    Flickable {
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        contentHeight: page.implicitHeight + Config.spacing * 6
+        clip: true
+        boundsBehavior: Flickable.StopAtBounds
+
+        Loader {
+            id: page
+            x: Config.spacing * 3
+            y: Config.spacing * 3
+            width: parent.width - Config.spacing * 6
+            sourceComponent: ({ appearance: appearancePage, bar: barPage, notifications: notifPage, osd: osdPage, idle: idlePage, wallpaper: wallpaperPage })[SettingsService.page] ?? appearancePage
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>A scrollable area with a <code>Loader</code> showing the current page's component.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 99–103</span><b>Headings</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>component Heading: StyledText {
+    Layout.topMargin: Config.spacing
+    font.bold: true
+    font.pixelSize: Config.fontSizeLarge + 2
+}</code></pre></div><div class="seg-e"><p>A larger bold label between groups of rows.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 106–152</span><b>Appearance</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Component {
+    id: appearancePage
+    ColumnLayout {
+        spacing: Config.spacing
+        Heading { text: "Theme" }
+        GridLayout {                                   // one tile per theme, painted in its own colours
+            Layout.fillWidth: true
+            columns: 3
+            rowSpacing: Config.spacing
+            columnSpacing: Config.spacing
+            Repeater {
+                model: ThemeService.list
+                Rectangle {
+                    id: tile
+                    required property var modelData
+                    readonly property bool current: ThemeService.currentName === modelData.slug
+                    Layout.fillWidth: true
+                    implicitHeight: 84
+                    radius: Config.radius
+                    color: modelData.palette.background
+                    border.width: current ? 3 : 1
+                    border.color: current ? Config.accentColor : Config.surface2Color
+                    Column {
+                        anchors.fill: parent
+                        anchors.margins: Config.spacing + 2
+                        spacing: Config.spacing
+                        StyledText { text: tile.modelData.name; color: tile.modelData.palette.text; font.bold: true; font.pixelSize: Config.fontSizeSmall }
+                        Row {
+                            spacing: 4
+                            Repeater {
+                                model: ["accent", "success", "warning", "error", "surface2", "subtext"]
+                                Rectangle { required property string modelData; width: 16; height: 16; radius: 8; color: tile.modelData.palette[modelData] }
+                            }
+                        }
+                    }
+                    MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: ThemeService.set(tile.modelData.slug) }
+                }
+            }
+        }
+        SwitchRow { path: "animations.themeTransition"; title: "Fade between themes"; description: "Colours glide to the new theme instead of switching at once" }
+        Heading { text: "Look" }
+        SliderRow { path: "opacity.background"; title: "Background opacity"; from: 0.5; to: 1; step: 0.05; factor: 100; unit: "%" }
+        SliderRow { path: "geometry.radius"; title: "Corner radius"; from: 0; to: 20; step: 1; unit: " px" }
+        SliderRow { path: "geometry.radiusLarge"; title: "Panel corner radius"; from: 0; to: 28; step: 1; unit: " px" }
+        SliderRow { path: "typography.sizeNormal"; title: "Text size"; from: 10; to: 20; step: 1; unit: " px" }
+        SliderRow { path: "animations.normal"; title: "Animation speed"; description: "Length of most animations"; from: 0; to: 600; step: 10; unit: " ms" }
+    }</code></pre></div><div class="seg-e"><p>A tile for every theme, <strong>painted in that theme's own colours</strong> from <code>ThemeService.list</code>, so you see each theme before choosing it. Then the fade switch, opacity, corner radii, text size and animation speed. Each line is one row bound to one key.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 155–169</span><b>Bar</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Component {
+    id: barPage
+    ColumnLayout {
+        spacing: Config.spacing
+        Heading { text: "Bar" }
+        ChoiceRow { path: "bar.style"; title: "Style"; options: [["docked", "Docked"], ["docked-corners", "Corners"], ["floating", "Floating"], ["islands", "Islands"]] }
+        ChoiceRow { path: "bar.position"; title: "Position"; options: [["top", "Top"], ["bottom", "Bottom"]] }
+        SliderRow { path: "bar.height"; title: "Height"; from: 26; to: 48; step: 1; unit: " px" }
+        SliderRow { path: "bar.margin"; title: "Gap around a floating bar"; from: 0; to: 24; step: 1; unit: " px" }
+        SwitchRow { path: "bar.autoHide"; title: "Auto-hide"; description: "Slides away; touch the screen edge to bring it back" }
+        Heading { text: "Workspaces" }
+        ChoiceRow { path: "bar.workspaces.style"; title: "Style"; options: [["pills", "Pills"], ["dots", "Dots"], ["numbers", "Numbers"]] }
+        SliderRow { path: "bar.workspaces.count"; title: "Workspaces shown"; from: 3; to: 10; step: 1 }
+    }
+}</code></pre></div><div class="seg-e"><p>Style, position, height, the floating gap, auto-hide, the workspace style and count.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 171–181</span><b>Notifications</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Component {
+    id: notifPage
+    ColumnLayout {
+        spacing: Config.spacing
+        Heading { text: "Notifications" }
+        SwitchRow { path: "notifications.dnd"; title: "Do not disturb"; description: "Only critical notifications pop up" }
+        SliderRow { path: "notifications.timeout"; title: "Popup time"; from: 1000; to: 15000; step: 500; factor: 0.001; unit: " s" }
+        SliderRow { path: "notifications.maxPopups"; title: "Popups at once"; from: 1; to: 8; step: 1 }
+        SliderRow { path: "notifications.width"; title: "Width"; from: 280; to: 480; step: 10; unit: " px" }
+    }
+}</code></pre></div><div class="seg-e"><p>Do not disturb, popup time (stored in ms, shown in seconds), maximum popups, width.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 183–191</span><b>OSD</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Component {
+    id: osdPage
+    ColumnLayout {
+        spacing: Config.spacing
+        Heading { text: "On-screen display" }
+        ChoiceRow { path: "osd.style"; title: "Style"; options: [["attached", "Attached"], ["pill", "Pill"]] }
+        SliderRow { path: "osd.timeout"; title: "Visible for"; from: 500; to: 5000; step: 100; factor: 0.001; unit: " s" }
+    }
+}</code></pre></div><div class="seg-e"><p>Style and how long it stays.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 193–204</span><b>Idle and lock</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Component {
+    id: idlePage
+    ColumnLayout {
+        spacing: Config.spacing
+        Heading { text: "Idle" }
+        SwitchRow { path: "idle.caffeine"; title: "Caffeine"; description: "Never lock or turn the screen off on idle" }
+        SliderRow { path: "idle.lockTimeout"; title: "Lock after"; description: "0 = never"; from: 0; to: 1800; step: 60; factor: 1 / 60; unit: " min" }
+        SliderRow { path: "idle.dpmsTimeout"; title: "Screen off after"; description: "0 = never"; from: 0; to: 3600; step: 60; factor: 1 / 60; unit: " min" }
+        Heading { text: "Power menu" }
+        SliderRow { path: "power.countdown"; title: "Countdown before restart or shut down"; from: 0; to: 10; step: 1; unit: " s" }
+    }
+}</code></pre></div><div class="seg-e"><p>Caffeine, lock and screen-off timeouts (stored in seconds, shown in minutes), and the power menu's countdown.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 206–223</span><b>Wallpaper</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Component {
+    id: wallpaperPage
+    ColumnLayout {
+        spacing: Config.spacing
+        Heading { text: "Wallpaper" }
+        SettingRow {
+            path: "wallpaper.current"
+            title: "Current"
+            description: WallpaperService.current || "None chosen yet"
+            BarButton { onClicked: WallpaperService.togglePicker(); Glyph { text: Icons.image } StyledText { text: "Choose…"; font.pixelSize: Config.fontSizeSmall } }
+        }
+        SettingRow {
+            path: "wallpaper.folder"
+            title: "Folder"
+            description: WallpaperService.folder + "  (" + WallpaperService.files.length + " images)"
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>A plain <code>SettingRow</code> with a button inside: the row frame works with any control.</p></div></div></div>
+<h2 id="adding-a-setting-start-to-finish">Adding a setting, start to finish<a class="hlink" href="#adding-a-setting-start-to-finish">#</a></h2>
+<p>Every new setting follows the same four steps. Here's "bar height when floating":</p>
+<ol>
+<li><strong>Default</strong>: add it to <code>defaults.json</code> → <code>"bar": { …, "floatingHeight": 30 }</code>.</li>
+<li><strong>Token</strong>: read it in <code>Config</code> → <code>readonly property int barFloatingHeight: getState("bar.floatingHeight", 30)</code>.</li>
+<li><strong>Use</strong>: use the token where it matters → <code>height: Config.barFloating ? Config.barFloatingHeight : Config.barHeight</code>.</li>
+<li><strong>Row</strong>: add a row → <code>SliderRow { path: "bar.floatingHeight"; title: "Floating height"; from: 24; to: 48; step: 1; unit: " px" }</code>.</li>
+</ol>
+<p>That's how lyne grew to 27 pages without becoming hard to maintain.</p>
+<div class="box note"><div class="bt">In the original</div><p>lyne's <code>modules/settings/</code> has 27 pages, a search over every row (each row registers its title and keywords), live previews of bar, launcher, OSD and lock templates, a monitor arrangement map with a "keep these settings?" countdown, a keybind editor that records keys, and a theme creator with an OKLCH colour picker. Hyprland settings are written to <code>~/.config/hypr/local/settings.lua</code>, which the Lua config loads.</p></div>
+<h2 id="practice">Practice<a class="hlink" href="#practice">#</a></h2>
+<div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Warm-up</span><b>Use it</b></div><div class="ex-b"><p>Open Settings (Super+I) and change the corner radius, the bar style and the workspace style. Look at <code>~/.config/lyne/state.json</code> afterwards, then reset one value with its ⟲ button.</p></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>A text row</b></div><div class="ex-b"><p>Make a <code>TextRow</code> with a text field that saves on Enter, and use it for <code>typography.font</code>.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><div class="codewrap"><pre class="code" data-lang="qml"><code>// TextRow.qml
+import QtQuick
+import qs.config
+import qs.services
+SettingRow {
+    id: root
+    Rectangle {
+        width: 220; height: 32; radius: 16; color: Config.surface1Color
+        TextInput {
+            anchors.fill: parent; anchors.leftMargin: 12; anchors.rightMargin: 12
+            verticalAlignment: TextInput.AlignVCenter
+            color: Config.textColor; font.family: Config.font
+            text: root.value ?? ""
+            onAccepted: StateService.set(root.path, text)
+        }
+    }
+}</code></pre></div></div></details></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>Follow the four steps</b></div><div class="ex-b"><p>Add a setting for the launcher's width, through all four steps.</p></div></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Challenge</span><b>Search</b></div><div class="ex-b"><p>Add a search field above the sidebar. Give each page a list of <code>{ title, keywords }</code> for its rows, and show matching rows' titles as results that switch to their page.</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/ly10-screenshot-wallpaper.html"><small>← Previous</small><span>lyne-dots 10: Screenshots and Wallpapers</span></a><a class="pn-next" href="../ch/ly12-assemble.html"><small>Next →</small><span>lyne-dots 12: Assembling the Shell and Configuring Hyprland</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#why-it-s-easy">Why it's easy</a><a class="l2" href="#the-row-frame">The row frame</a><a class="l2" href="#three-row-types">Three row types</a><a class="l2" href="#the-window">The window</a><a class="l2" href="#adding-a-setting-start-to-finish">Adding a setting, start to finish</a><a class="l2" href="#practice">Practice</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

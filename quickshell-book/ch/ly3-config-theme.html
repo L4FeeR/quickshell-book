@@ -1,0 +1,1223 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>lyne-dots 3: Design Tokens, Themes and the Colour Fade · The Quickshell Book</title>
+<meta name="description" content="lyne-dots 3: Design Tokens, Themes and the Colour Fade">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details open><summary><span class="pn">L</span>Ricing lyne-dots</summary>
+<a class="ch" href="../ch/ly1-overview.html"><span class="num">ly1</span>lyne-dots 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/ly2-state.html"><span class="num">ly2</span>lyne-dots 2: One File for Every Setting</a>
+<a class="ch active" href="../ch/ly3-config-theme.html"><span class="num">ly3</span>lyne-dots 3: Design Tokens, Themes and the Colour Fade</a>
+<a class="ch" href="../ch/ly4-components.html"><span class="num">ly4</span>lyne-dots 4: The Building Blocks</a>
+<a class="ch" href="../ch/ly5-bar.html"><span class="num">ly5</span>lyne-dots 5: The Bar</a>
+<a class="ch" href="../ch/ly6-panels.html"><span class="num">ly6</span>lyne-dots 6: Panels That Grow Out of the Bar</a>
+<a class="ch" href="../ch/ly7-launcher.html"><span class="num">ly7</span>lyne-dots 7: The Launcher</a>
+<a class="ch" href="../ch/ly8-notifications-osd.html"><span class="num">ly8</span>lyne-dots 8: Notifications, Audio and the OSD</a>
+<a class="ch" href="../ch/ly9-lock-power.html"><span class="num">ly9</span>lyne-dots 9: Lock Screen, Power Menu and Idle</a>
+<a class="ch" href="../ch/ly10-screenshot-wallpaper.html"><span class="num">ly10</span>lyne-dots 10: Screenshots and Wallpapers</a>
+<a class="ch" href="../ch/ly11-settings.html"><span class="num">ly11</span>lyne-dots 11: The Settings App</a>
+<a class="ch" href="../ch/ly12-assemble.html"><span class="num">ly12</span>lyne-dots 12: Assembling the Shell and Configuring Hyprland</a>
+<a class="ch" href="../ch/ly13-rice-it.html"><span class="num">ly13</span>lyne-dots 13: Ricing lyne-dots, Start to Finish</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-l">Part L: Ricing lyne-dots</a> › lyne-dots 3: Design Tokens, Themes and the Colour Fade</div><article><div class="ch-head"><div class="ch-part">Part L · Ricing lyne-dots</div><h1><span class="ch-num">ly3</span>lyne-dots 3: Design Tokens, Themes and the Colour Fade</h1></div><p>Open any widget in lyne and you won't find <code>"#7aa2f7"</code> or <code>radius: 12</code>. You'll find <code>Config.accentColor</code> and <code>Config.radius</code>. These names are <strong>design tokens</strong>: one place decides what "the accent" or "a normal corner" means, and every widget follows. This chapter builds the three files behind them: the theme files, the theme service that loads and exports them, and <code>Config</code>, which turns settings and themes into tokens and fades between themes.</p>
+<h2 id="a-theme-file">A theme file<a class="hlink" href="#a-theme-file">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="js"><span class="fname">lyne/themes/tokyonight.json</span><code>{
+  "name": "Tokyo Night",
+  "variant": "dark",
+  "palette": {
+    "background": "#1a1b26",
+    "surface0": "#24283b",
+    "surface1": "#292e42",
+    "surface2": "#414868",
+    "surface3": "#565f89",
+    "text": "#c0caf5",
+    "textReverse": "#1a1b26",
+    "subtext": "#a9b1d6",
+    "accent": "#7aa2f7",
+    "success": "#9ece6a",
+    "warning": "#e0af68",
+    "error": "#f7768e",
+    "muted": "#545c7e"
+  },
+  "opacity": {
+    "background": 0.9
+  },
+  "hyprland": {
+    "activeBorder": "7aa2f7ff",
+    "inactiveBorder": "414868aa",
+    "shadowColor": "1a1a1aee"
+  },
+  "terminal": {
+    "background": "#1a1b26",
+    "foreground": "#c0caf5",
+    "selectionBackground": "#414868",
+    "selectionForeground": "#c0caf5",
+    "urlColor": "#7aa2f7",
+    "cursor": "#c0caf5",
+    "cursorTextColor": "#1a1b26",
+    "activeTabBackground": "#7aa2f7",
+    "activeTabForeground": "#1a1b26",
+    "inactiveTabBackground": "#292e42",
+    "inactiveTabForeground": "#545c7e",
+    "activeBorderColor": "#7aa2f7",
+    "inactiveBorderColor": "#292e42",
+    "color0": "#15161e",
+    "color1": "#f7768e",
+    "color2": "#9ece6a",
+    "color3": "#e0af68",
+    "color4": "#7aa2f7",
+    "color5": "#bb9af7",
+    "color6": "#7dcfff",
+    "color7": "#a9b1d6",
+    "color8": "#414868",
+    "color9": "#f7768e",
+    "color10": "#9ece6a",
+    "color11": "#e0af68",
+    "color12": "#7aa2f7",
+    "color13": "#bb9af7",
+    "color14": "#7dcfff",
+    "color15": "#c0caf5"
+  }
+}</code></pre></div>
+<p>This is lyne-dots' theme format, so a theme made for the real dots works in the rebuild and the other way round. Copy a file into <code>~/.local/themes/</code> and it appears in both.</p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Used for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code>, <code>variant</code></td>
+<td>the name in pickers; <code>"dark"</code> or <code>"light"</code> (GTK follows it)</td>
+</tr>
+<tr>
+<td><code>palette</code></td>
+<td><strong>the shell's colours</strong>, by role (table below)</td>
+</tr>
+<tr>
+<td><code>opacity.background</code></td>
+<td>how see-through panels are (the original applies it; the rebuild keeps its own setting)</td>
+</tr>
+<tr>
+<td><code>hyprland</code></td>
+<td>window border and shadow colours, as <code>rrggbbaa</code> hex without <code>#</code></td>
+</tr>
+<tr>
+<td><code>terminal</code></td>
+<td>kitty's colours: background, cursor, tabs, and the 16 (or 18) ANSI colours</td>
+</tr>
+</tbody>
+</table>
+<p>The palette roles:</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>background</code></td>
+<td>panels and the bar</td>
+</tr>
+<tr>
+<td><code>surface0</code> … <code>surface3</code></td>
+<td>raised layers, lightest last in a dark theme: cards, hover, borders, inactive items</td>
+</tr>
+<tr>
+<td><code>text</code>, <code>subtext</code>, <code>muted</code></td>
+<td>normal text, secondary text, hints and empty states</td>
+</tr>
+<tr>
+<td><code>textReverse</code></td>
+<td>text <strong>on</strong> the accent colour</td>
+</tr>
+<tr>
+<td><code>accent</code></td>
+<td>the one highlight colour: active workspace, selection, sliders</td>
+</tr>
+<tr>
+<td><code>success</code>, <code>warning</code>, <code>error</code></td>
+<td>charging, caution, critical</td>
+</tr>
+</tbody>
+</table>
+<p>Roles describe <strong>purpose</strong>, not looks. Widgets ask for "the colour for secondary text", so any palette that fills the roles works everywhere (<a class="xref" href="../ch/th1-colour-basics.html">Theming 1: Colours, Palettes and Roles</a> explains the idea in depth).</p>
+<h2 id="mixing-colours-properly">Mixing colours properly<a class="hlink" href="#mixing-colours-properly">#</a></h2>
+<p>Fading from Tokyo Night's blue accent to Gruvbox's orange in plain RGB passes through a dull grey-brown in the middle. lyne fades in <strong>OKLab</strong>, a colour space designed so that equal steps look like equal changes. The maths is a few matrix multiplications:</p>
+<div class="codewrap"><pre class="code" data-lang="js"><span class="fname">lyne/services/color.js</span><code>// Colour maths for theme fades. Mixing two colours halfway in plain RGB goes
+// through muddy greys (blue + yellow = grey). OKLab is a colour space where
+// a straight line between two colours looks like an even change to our eyes,
+// so the fade from one theme to the next stays clean.
+.pragma library
+
+function toLinear(c) {
+    return c &lt;= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+}
+function toGamma(c) {
+    return c &lt;= 0.0031308 ? c * 12.92 : 1.055 * Math.pow(c, 1 / 2.4) - 0.055;
+}
+
+// a Qt color (r, g, b, a from 0 to 1) -&gt; [L, a, b, alpha]
+function toOklab(color) {
+    const r = toLinear(color.r), g = toLinear(color.g), b = toLinear(color.b);
+    const l = Math.cbrt(0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b);
+    const m = Math.cbrt(0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b);
+    const s = Math.cbrt(0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b);
+    return [
+        0.2104542553 * l + 0.7936177850 * m - 0.0040720468 * s,
+        1.9779984951 * l - 2.4285922050 * m + 0.4505937099 * s,
+        0.0259040371 * l + 0.7827717662 * m - 0.8086757660 * s,
+        color.a
+    ];
+}
+
+// [L, a, b, alpha] -&gt; [r, g, b, alpha], each 0..1
+function fromOklab(lab) {
+    const l = Math.pow(lab[0] + 0.3963377774 * lab[1] + 0.2158037573 * lab[2], 3);
+    const m = Math.pow(lab[0] - 0.1055613458 * lab[1] - 0.0638541728 * lab[2], 3);
+    const s = Math.pow(lab[0] - 0.0894841775 * lab[1] - 1.2914855480 * lab[2], 3);
+    const clamp = x =&gt; Math.max(0, Math.min(1, x));
+    return [
+        clamp(toGamma(4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s)),
+        clamp(toGamma(-1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s)),
+        clamp(toGamma(-0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s)),
+        lab[3]
+    ];
+}
+
+// the colour a fraction t (0..1) of the way from one OKLab colour to another
+function mix(fromLab, toLab, t) {
+    return fromOklab(fromLab.map((v, i) =&gt; v + (toLab[i] - v) * t));
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">line 5</span><b>A library</b></div><div class="codewrap"><pre class="code" data-lang="js"><code>.pragma library</code></pre></div><div class="seg-e"><p><code>.pragma library</code> shares one copy of this file between every QML file that imports it, and keeps it free of any QML context. It's pure JavaScript.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 7–12</span><b>Undoing the screen's curve</b></div><div class="codewrap"><pre class="code" data-lang="js"><code>function toLinear(c) {
+    return c &lt;= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+}
+function toGamma(c) {
+    return c &lt;= 0.0031308 ? c * 12.92 : 1.055 * Math.pow(c, 1 / 2.4) - 0.055;
+}</code></pre></div><div class="seg-e"><p>Colour values on screen aren't proportional to light: <code>0.5</code> is much darker than half of <code>1.0</code>. <code>toLinear</code> converts a channel to real light intensity, <code>toGamma</code> converts back. These are the standard sRGB formulas.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–26</span><b>To OKLab</b></div><div class="codewrap"><pre class="code" data-lang="js"><code>// a Qt color (r, g, b, a from 0 to 1) -&gt; [L, a, b, alpha]
+function toOklab(color) {
+    const r = toLinear(color.r), g = toLinear(color.g), b = toLinear(color.b);
+    const l = Math.cbrt(0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b);
+    const m = Math.cbrt(0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b);
+    const s = Math.cbrt(0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b);
+    return [
+        0.2104542553 * l + 0.7936177850 * m - 0.0040720468 * s,
+        1.9779984951 * l - 2.4285922050 * m + 0.4505937099 * s,
+        0.0259040371 * l + 0.7827717662 * m - 0.8086757660 * s,
+        color.a
+    ];
+}</code></pre></div><div class="seg-e"><p>Linear RGB goes through two fixed matrices with a cube root in between (from the OKLab specification). The result is <code>L</code> (lightness), <code>a</code> (green ↔ red) and <code>b</code> (blue ↔ yellow), plus the alpha kept as is.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 28–40</span><b>Back to RGB</b></div><div class="codewrap"><pre class="code" data-lang="js"><code>// [L, a, b, alpha] -&gt; [r, g, b, alpha], each 0..1
+function fromOklab(lab) {
+    const l = Math.pow(lab[0] + 0.3963377774 * lab[1] + 0.2158037573 * lab[2], 3);
+    const m = Math.pow(lab[0] - 0.1055613458 * lab[1] - 0.0638541728 * lab[2], 3);
+    const s = Math.pow(lab[0] - 0.0894841775 * lab[1] - 1.2914855480 * lab[2], 3);
+    const clamp = x =&gt; Math.max(0, Math.min(1, x));
+    return [
+        clamp(toGamma(4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s)),
+        clamp(toGamma(-1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s)),
+        clamp(toGamma(-0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s)),
+        lab[3]
+    ];
+}</code></pre></div><div class="seg-e"><p>The same steps in reverse. <code>clamp</code> keeps each channel between 0 and 1, because a mix can land just outside what a screen can show.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 42–45</span><b>mix()</b></div><div class="codewrap"><pre class="code" data-lang="js"><code>// the colour a fraction t (0..1) of the way from one OKLab colour to another
+function mix(fromLab, toLab, t) {
+    return fromOklab(fromLab.map((v, i) =&gt; v + (toLab[i] - v) * t));
+}</code></pre></div><div class="seg-e"><p>A straight line between two OKLab colours: each component moves the fraction <code>t</code> of the way. <code>t = 0</code> is the start colour, <code>t = 1</code> the end.</p></div></div></div>
+<h2 id="the-theme-service">The theme service<a class="hlink" href="#the-theme-service">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">lyne/services/ThemeService.qml</span><code>pragma Singleton
+import QtQuick
+import Quickshell
+import qs.services
+import Quickshell.Io
+
+// Loads the theme files, publishes the chosen palette, and paints the rest of
+// the desktop with it: kitty, Hyprland's borders and GTK's light/dark mode.
+// A theme file is JSON in lyne-dots' format (themes/*.json shows it), so the
+// themes you make for the real lyne-dots work here too, and the other way round.
+Singleton {
+    id: root
+
+    // built-in themes ship with the shell; your own go in ~/.local/themes
+    readonly property string builtinDir: Quickshell.shellPath("themes")
+    readonly property string userDir: Quickshell.env("HOME") + "/.local/themes"
+    readonly property string kittyPath: Quickshell.env("HOME") + "/.config/kitty/current-theme.conf"
+
+    // slug ("tokyonight") -&gt; parsed file
+    property var themes: ({})
+    // [{ slug, name, variant, palette }] sorted by name, for pickers
+    readonly property var list: Object.keys(themes).sort((a, b) =&gt; themes[a].name.localeCompare(themes[b].name))
+        .map(slug =&gt; ({ slug: slug, name: themes[slug].name, variant: themes[slug].variant ?? "dark", palette: themes[slug].palette }))
+
+    readonly property string currentName: StateService.get("theme.name", "tokyonight")
+    readonly property var current: themes[currentName] ?? null
+    readonly property bool isDark: (current?.variant ?? "dark") === "dark"
+
+    // What Config fades to. Only replaced when the colours really change.
+    property var palette: ({})
+
+    // Start the shell with LYNE_NO_EXPORT=1 to try it without touching kitty,
+    // Hyprland or GTK (on another desktop, for example).
+    readonly property bool exportEnabled: !Quickshell.env("LYNE_NO_EXPORT")
+
+    function set(slug) {
+        if (themes[slug])
+            StateService.set("theme.name", slug);
+    }
+    function step(delta) {
+        const slugs = list.map(t =&gt; t.slug);
+        const i = slugs.indexOf(currentName);
+        set(slugs[(i + delta + slugs.length) % slugs.length]);
+    }
+
+    onCurrentChanged: {
+        if (!current)
+            return;
+        palette = current.palette;
+        if (!exportEnabled)
+            return;
+        _applyKitty(current.terminal);
+        _applyHyprland(current.hyprland);
+        _applyGtk();
+    }
+
+    // ── Loading every theme file with one process ─────────────────────────
+    // It prints each file's name, its contents, then a line with the ASCII
+    // record separator (\036), which never appears in JSON.
+    function reload() { loader.running = true; }
+    Component.onCompleted: reload()
+
+    Process {
+        id: loader
+        command: ["sh", "-c", 'for f in "$1"/*.json "$2"/*.json; do [ -f "$f" ] || continue; basename "$f" .json; cat "$f"; printf "\\n\\036\\n"; done',
+            "sh", root.builtinDir, root.userDir]
+        stdout: StdioCollector {
+            onStreamFinished: {
+                const out = {};
+                for (const chunk of text.split("\x1e")) {
+                    const nl = chunk.trim().indexOf("\n");
+                    if (nl &lt; 0)
+                        continue;
+                    const slug = chunk.trim().slice(0, nl);
+                    try {
+                        const data = JSON.parse(chunk.trim().slice(nl + 1));
+                        if (data.palette)
+                            out[slug] = data;           // later files (yours) replace built-ins
+                    } catch (e) {
+                        console.warn("[Theme] skipping broken theme", slug, e);
+                    }
+                }
+                root.themes = out;
+            }
+        }
+    }
+
+    // ── Painting the desktop ────────────────────────────────────────────────
+    // Writes text to a file through `sh`. The path and the text are passed
+    // as arguments, never pasted into the command, so quotes can't break it.
+    function _write(path, text, after) {
+        Quickshell.execDetached(["sh", "-c", 'mkdir -p "$(dirname "$1")" &amp;&amp; printf "%s" "$2" &gt; "$1"; ' + (after ?? ""), "sh", path, text]);
+    }
+
+    // kitty: `include current-theme.conf` in kitty.conf, then SIGUSR1 reloads every window
+    function _applyKitty(t) {
+        if (!t)
+            return;
+        const keys = {
+            background: "background", foreground: "foreground", cursor: "cursor", cursorTextColor: "cursor_text_color",
+            selectionBackground: "selection_background", selectionForeground: "selection_foreground", urlColor: "url_color",
+            activeTabBackground: "active_tab_background", activeTabForeground: "active_tab_foreground",
+            inactiveTabBackground: "inactive_tab_background", inactiveTabForeground: "inactive_tab_foreground",
+            activeBorderColor: "active_border_color", inactiveBorderColor: "inactive_border_color"
+        };
+        const lines = ["# written by the lyne shell: do not edit"];
+        for (const k in keys)
+            if (t[k]) lines.push(keys[k] + " " + t[k]);
+        for (let i = 0; i &lt; 18; i++)
+            if (t["color" + i]) lines.push("color" + i + " " + t["color" + i]);
+        _write(kittyPath, lines.join("\n") + "\n", "pkill -USR1 -x kitty; true");
+    }
+
+    // Hyprland: borders and shadow, applied now. A Lua config (hyprland.lua)
+    // takes `hyprctl eval` with hl.config(); a classic config takes `keyword`.
+    function _applyHyprland(h) {
+        if (!h)
+            return;
+        const lua = `hl.config({ general = { col = { active_border = "rgba(${h.activeBorder})", inactive_border = "rgba(${h.inactiveBorder})" } },`
+            + ` decoration = { shadow = { color = "rgba(${h.shadowColor})" } } })`;
+        const classic = `keyword general:col.active_border rgba(${h.activeBorder}); keyword general:col.inactive_border rgba(${h.inactiveBorder});`
+            + ` keyword decoration:shadow:color rgba(${h.shadowColor})`;
+        Quickshell.execDetached(["sh", "-c", 'if [ -f "$HOME/.config/hypr/hyprland.lua" ]; then hyprctl eval "$1"; else hyprctl --batch "$2"; fi',
+            "sh", lua, classic]);
+    }
+
+    // GTK 4 / libadwaita apps, Firefox and websites follow this preference
+    function _applyGtk() {
+        Quickshell.execDetached(["gsettings", "set", "org.gnome.desktop.interface", "color-scheme", isDark ? "prefer-dark" : "prefer-light"]);
+    }
+
+    IpcHandler {
+        target: "theme"
+        function set(slug: string): void { root.set(slug); }
+        function next(): void { root.step(1); }
+        function previous(): void { root.step(-1); }
+        function get(): string { return root.currentName; }
+        function list(): string { return root.list.map(t =&gt; t.slug).join("\n"); }
+        function reload(): void { root.reload(); }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–17</span><b>Folders</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// built-in themes ship with the shell; your own go in ~/.local/themes
+readonly property string builtinDir: Quickshell.shellPath("themes")
+readonly property string userDir: Quickshell.env("HOME") + "/.local/themes"
+readonly property string kittyPath: Quickshell.env("HOME") + "/.config/kitty/current-theme.conf"</code></pre></div><div class="seg-e"><p>Built-in themes are in the shell's <code>themes/</code> folder; yours go in <code>~/.local/themes</code>, which is also where lyne-dots keeps them. <code>kittyPath</code> is the file kitty includes.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 19–23</span><b>All themes</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// slug ("tokyonight") -&gt; parsed file
+property var themes: ({})
+// [{ slug, name, variant, palette }] sorted by name, for pickers
+readonly property var list: Object.keys(themes).sort((a, b) =&gt; themes[a].name.localeCompare(themes[b].name))
+    .map(slug =&gt; ({ slug: slug, name: themes[slug].name, variant: themes[slug].variant ?? "dark", palette: themes[slug].palette }))</code></pre></div><div class="seg-e"><p><code>themes</code> maps a slug (the file name, like <code>tokyonight</code>) to its parsed contents. <code>list</code> is the same as an array sorted by name, ready for a picker; the Settings app draws a tile for each.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 25–27</span><b>The current theme</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property string currentName: StateService.get("theme.name", "tokyonight")
+readonly property var current: themes[currentName] ?? null
+readonly property bool isDark: (current?.variant ?? "dark") === "dark"</code></pre></div><div class="seg-e"><p>The name comes from the state (<code>theme.name</code>), so choosing a theme is just <code>StateService.set("theme.name", …)</code>: it's saved, survives restarts, and editing <code>state.json</code> by hand works too. <code>current</code> updates when either the name or the list of themes changes.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 29–30</span><b>The palette Config fades to</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// What Config fades to. Only replaced when the colours really change.
+property var palette: ({})</code></pre></div><div class="seg-e"><p>A separate property, so <code>Config</code> reacts only when a real palette arrives.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 32–34</span><b>A switch for testing</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// Start the shell with LYNE_NO_EXPORT=1 to try it without touching kitty,
+// Hyprland or GTK (on another desktop, for example).
+readonly property bool exportEnabled: !Quickshell.env("LYNE_NO_EXPORT")</code></pre></div><div class="seg-e"><p>With <code>LYNE_NO_EXPORT=1</code> in the environment, the shell still themes itself but doesn't write kitty's file or change GTK and Hyprland. Useful on a desktop you don't want touched.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 36–44</span><b>Choosing</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function set(slug) {
+    if (themes[slug])
+        StateService.set("theme.name", slug);
+}
+function step(delta) {
+    const slugs = list.map(t =&gt; t.slug);
+    const i = slugs.indexOf(currentName);
+    set(slugs[(i + delta + slugs.length) % slugs.length]);
+}</code></pre></div><div class="seg-e"><p><code>set()</code> ignores names that don't exist. <code>step()</code> moves through the sorted list, wrapping around at both ends (<code>+ slugs.length</code> keeps the index positive going backwards).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 46–55</span><b>When the theme changes</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>onCurrentChanged: {
+    if (!current)
+        return;
+    palette = current.palette;
+    if (!exportEnabled)
+        return;
+    _applyKitty(current.terminal);
+    _applyHyprland(current.hyprland);
+    _applyGtk();
+}</code></pre></div><div class="seg-e"><p>Publish the palette, then paint the rest of the desktop.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 57–66</span><b>One process for all files</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── Loading every theme file with one process ─────────────────────────
+// It prints each file's name, its contents, then a line with the ASCII
+// record separator (\036), which never appears in JSON.
+function reload() { loader.running = true; }
+Component.onCompleted: reload()
+
+Process {
+    id: loader
+    command: ["sh", "-c", 'for f in "$1"/*.json "$2"/*.json; do [ -f "$f" ] || continue; basename "$f" .json; cat "$f"; printf "\\n\\036\\n"; done',
+        "sh", root.builtinDir, root.userDir]</code></pre></div><div class="seg-e"><p>Starting a process per file would be slow, so one shell loop prints every file: its name, its contents, then the ASCII <em>record separator</em> character (<code>\036</code>), which never appears in JSON. Both folder paths are passed as arguments (<code>$1</code>, <code>$2</code>), never pasted into the command text.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 67–86</span><b>Splitting the output</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>    stdout: StdioCollector {
+        onStreamFinished: {
+            const out = {};
+            for (const chunk of text.split("\x1e")) {
+                const nl = chunk.trim().indexOf("\n");
+                if (nl &lt; 0)
+                    continue;
+                const slug = chunk.trim().slice(0, nl);
+                try {
+                    const data = JSON.parse(chunk.trim().slice(nl + 1));
+                    if (data.palette)
+                        out[slug] = data;           // later files (yours) replace built-ins
+                } catch (e) {
+                    console.warn("[Theme] skipping broken theme", slug, e);
+                }
+            }
+            root.themes = out;
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>Cut at the separators; the first line of each chunk is the slug, the rest is JSON. A broken file is skipped with a warning instead of breaking theming. Your folder is read second, so a file of yours with a built-in's name replaces it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 91–93</span><b>Writing a file safely</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function _write(path, text, after) {
+    Quickshell.execDetached(["sh", "-c", 'mkdir -p "$(dirname "$1")" &amp;&amp; printf "%s" "$2" &gt; "$1"; ' + (after ?? ""), "sh", path, text]);
+}</code></pre></div><div class="seg-e"><p><code>printf "%s" "$2" &gt; "$1"</code> writes the text exactly, whatever characters it contains, because the text is an argument and not part of the command.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 95–112</span><b>kitty</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// kitty: `include current-theme.conf` in kitty.conf, then SIGUSR1 reloads every window
+function _applyKitty(t) {
+    if (!t)
+        return;
+    const keys = {
+        background: "background", foreground: "foreground", cursor: "cursor", cursorTextColor: "cursor_text_color",
+        selectionBackground: "selection_background", selectionForeground: "selection_foreground", urlColor: "url_color",
+        activeTabBackground: "active_tab_background", activeTabForeground: "active_tab_foreground",
+        inactiveTabBackground: "inactive_tab_background", inactiveTabForeground: "inactive_tab_foreground",
+        activeBorderColor: "active_border_color", inactiveBorderColor: "inactive_border_color"
+    };
+    const lines = ["# written by the lyne shell: do not edit"];
+    for (const k in keys)
+        if (t[k]) lines.push(keys[k] + " " + t[k]);
+    for (let i = 0; i &lt; 18; i++)
+        if (t["color" + i]) lines.push("color" + i + " " + t["color" + i]);
+    _write(kittyPath, lines.join("\n") + "\n", "pkill -USR1 -x kitty; true");
+}</code></pre></div><div class="seg-e"><p>Turn the <code>terminal</code> section into kitty's format (<code>selection_background #283457</code>…), write it, then send <code>SIGUSR1</code> to every kitty: kitty reloads its config on that signal, so open terminals change colour at once. You add <code>include current-theme.conf</code> to <code>kitty.conf</code> once.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 114–125</span><b>Hyprland's borders</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// Hyprland: borders and shadow, applied now. A Lua config (hyprland.lua)
+// takes `hyprctl eval` with hl.config(); a classic config takes `keyword`.
+function _applyHyprland(h) {
+    if (!h)
+        return;
+    const lua = `hl.config({ general = { col = { active_border = "rgba(${h.activeBorder})", inactive_border = "rgba(${h.inactiveBorder})" } },`
+        + ` decoration = { shadow = { color = "rgba(${h.shadowColor})" } } })`;
+    const classic = `keyword general:col.active_border rgba(${h.activeBorder}); keyword general:col.inactive_border rgba(${h.inactiveBorder});`
+        + ` keyword decoration:shadow:color rgba(${h.shadowColor})`;
+    Quickshell.execDetached(["sh", "-c", 'if [ -f "$HOME/.config/hypr/hyprland.lua" ]; then hyprctl eval "$1"; else hyprctl --batch "$2"; fi',
+        "sh", lua, classic]);
+}</code></pre></div><div class="seg-e"><p>lyne-dots configures Hyprland in <strong>Lua</strong>, where settings change with <code>hyprctl eval 'hl.config({ … })'</code>. A classic <code>hyprland.conf</code> uses <code>hyprctl keyword</code>. The script checks which kind of config you have and runs the matching command. Both strings travel as arguments.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 127–130</span><b>GTK</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// GTK 4 / libadwaita apps, Firefox and websites follow this preference
+function _applyGtk() {
+    Quickshell.execDetached(["gsettings", "set", "org.gnome.desktop.interface", "color-scheme", isDark ? "prefer-dark" : "prefer-light"]);
+}</code></pre></div><div class="seg-e"><p><code>color-scheme</code> is the desktop-wide light/dark preference. GTK 4 apps, Firefox and many websites follow it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 132–140</span><b>From the terminal</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>IpcHandler {
+    target: "theme"
+    function set(slug: string): void { root.set(slug); }
+    function next(): void { root.step(1); }
+    function previous(): void { root.step(-1); }
+    function get(): string { return root.currentName; }
+    function list(): string { return root.list.map(t =&gt; t.slug).join("\n"); }
+    function reload(): void { root.reload(); }
+}</code></pre></div><div class="seg-e"><p><code>qs -c lyne ipc call theme set nord</code>, <code>… next</code>, <code>… list</code>, and <code>reload</code> after adding a theme file.</p></div></div></div>
+<div class="box note"><div class="bt">In the original</div><p>lyne's <code>ThemeService.qml</code> (about 1,000 lines) also writes a Neovim colour scheme and sends it to running editors, generates GTK CSS and a Qt/KDE colour scheme, fades Hyprland's borders inside Hyprland with an <code>hl.timer</code>, picks the light or dark twin of a theme, runs matugen for "Material You" themes from the wallpaper, and saves themes made in its theme creator.</p></div>
+<h2 id="config-the-tokens">Config: the tokens<a class="hlink" href="#config-the-tokens">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">lyne/config/Config.qml</span><code>pragma Singleton
+import QtQuick
+import Quickshell
+import qs.services
+import "../services/color.js" as Color
+
+// Design tokens: every colour, size, font and duration the shell uses.
+// Widgets write Config.accentColor or Config.radius, never a number or a hex
+// code, so changing a setting (or the theme) restyles the whole shell.
+Singleton {
+    id: root
+
+    function getState(path, fallback) {
+        return StateService.get(path, fallback);
+    }
+
+    // ── COLOURS ─────────────────────────────────────────────────────────────
+    // They come from the theme file. On a theme switch each one fades from
+    // the old palette to the new one (see the fade machinery further down).
+    readonly property color backgroundColor: _shown("background", "#1a1b26")
+    readonly property real backgroundOpacity: getState("opacity.background", 0.9)
+    readonly property color backgroundTransparentColor: Qt.alpha(backgroundColor, backgroundOpacity)
+    readonly property color surface0Color: _shown("surface0", "#24283b")
+    readonly property color surface1Color: _shown("surface1", "#292e42")
+    readonly property color surface2Color: _shown("surface2", "#414868")
+    readonly property color surface3Color: _shown("surface3", "#565f89")
+    readonly property color cardColor: Qt.alpha(surface0Color, backgroundOpacity)
+    readonly property color cardHoverColor: Qt.alpha(surface1Color, backgroundOpacity)
+
+    readonly property color textColor: _shown("text", "#c0caf5")
+    readonly property color textReverseColor: _shown("textReverse", "#1a1b26")
+    readonly property color subtextColor: _shown("subtext", "#a9b1d6")
+    readonly property color mutedColor: _shown("muted", "#545c7e")
+
+    readonly property color accentColor: _shown("accent", "#7aa2f7")
+    readonly property color successColor: _shown("success", "#9ece6a")
+    readonly property color warningColor: _shown("warning", "#e0af68")
+    readonly property color errorColor: _shown("error", "#f7768e")
+
+    // dimming behind overlays (power menu, screenshot): black on every theme
+    readonly property color scrimColor: "black"
+
+    // ── GEOMETRY ────────────────────────────────────────────────────────────
+    readonly property int radiusSmall: getState("geometry.radiusSmall", 5)
+    readonly property int radius: getState("geometry.radius", 10)
+    readonly property int radiusLarge: getState("geometry.radiusLarge", 15)
+    readonly property int spacing: getState("geometry.spacing", 8)
+    readonly property int padding: getState("geometry.padding", 6)
+
+    // ── BAR ─────────────────────────────────────────────────────────────────
+    readonly property int barHeight: getState("bar.height", 33)
+    readonly property bool barAutoHide: getState("bar.autoHide", false)
+    readonly property bool barOnBottom: getState("bar.position", "top") === "bottom"
+    // "docked" | "docked-corners" | "floating" | "islands"
+    readonly property string barStyle: getState("bar.style", "docked-corners")
+    readonly property bool barIslands: barStyle === "islands"
+    readonly property bool barFloating: barStyle === "floating"
+    readonly property bool barCorners: barStyle === "docked-corners"
+    readonly property int barMargin: barFloating ? getState("bar.margin", 8) : 0
+    readonly property int barCornerSize: barCorners ? radiusLarge : 0
+    readonly property int barReservedHeight: barHeight + barMargin
+    readonly property int barIslandHeight: barHeight - padding
+    readonly property int barButtonHeight: barIslandHeight - Math.round(padding * 2 / 3)
+    // "pills" | "dots" | "numbers"
+    readonly property string barWorkspaceStyle: getState("bar.workspaces.style", "pills")
+    readonly property int barWorkspaceCount: getState("bar.workspaces.count", 10)
+
+    // ── TYPOGRAPHY ──────────────────────────────────────────────────────────
+    // A Nerd Font: one font for the text AND the icons (icons are glyphs)
+    readonly property string font: getState("typography.font", "CaskaydiaCove Nerd Font")
+    readonly property int fontSizeSmall: getState("typography.sizeSmall", 12)
+    readonly property int fontSizeNormal: getState("typography.sizeNormal", 14)
+    readonly property int fontSizeLarge: getState("typography.sizeLarge", 16)
+    readonly property int fontSizeIconSmall: getState("typography.iconSmall", 18)
+    readonly property int fontSizeIcon: getState("typography.icon", 22)
+    readonly property int fontSizeIconLarge: getState("typography.iconLarge", 28)
+
+    // ── MOTION ──────────────────────────────────────────────────────────────
+    readonly property int animDurationShort: getState("animations.short", 100)
+    readonly property int animDuration: getState("animations.normal", 200)
+    readonly property int animDurationLong: getState("animations.long", 400)
+    readonly property bool themeTransition: getState("animations.themeTransition", true)
+
+    // ── OTHER MODULES ───────────────────────────────────────────────────────
+    readonly property int notifWidth: getState("notifications.width", 350)
+    readonly property int notifTimeout: getState("notifications.timeout", 5000)
+    readonly property int notifMaxPopups: getState("notifications.maxPopups", 4)
+    readonly property string osdStyle: getState("osd.style", "attached")     // "attached" | "pill"
+    readonly property int osdTimeout: getState("osd.timeout", 1500)
+
+    // ── THE THEME FADE ──────────────────────────────────────────────────────
+    // _target is the palette being shown. During a fade, _t runs from 0 to 1
+    // and each colour is mixed from _fromLab to _toLab (both in OKLab).
+    property var _target: ({})
+    property var _fromLab: ({})
+    property var _toLab: ({})
+    property real _t: 1
+    readonly property bool themeTransitioning: fade.running
+
+    function _shown(key, fallback) {
+        const to = _target[key] ?? fallback;
+        if (_t &gt;= 1 || !_fromLab[key] || !_toLab[key])
+            return to;
+        const c = Color.mix(_fromLab[key], _toLab[key], _t);
+        return Qt.rgba(c[0], c[1], c[2], c[3]);
+    }
+
+    function _setPalette(pal) {
+        const empty = Object.keys(_target).length === 0;
+        if (empty || !themeTransition) {          // first palette: no fade
+            fade.stop();
+            _t = 1;
+            _target = pal;
+            return;
+        }
+        const from = {}, to = {};
+        for (const key in pal) {
+            to[key] = Color.toOklab(Qt.color(pal[key]));
+            // start from what is on screen right now, even in the middle of a fade
+            from[key] = Color.toOklab(Qt.color(_shown(key, pal[key])));
+        }
+        fade.stop();
+        _fromLab = from;
+        _toLab = to;
+        _target = pal;
+        _t = 0;
+        fade.start();
+    }
+
+    Component.onCompleted: _setPalette(ThemeService.palette)
+    Connections {
+        target: ThemeService
+        function onPaletteChanged() { root._setPalette(ThemeService.palette); }
+    }
+
+    NumberAnimation {
+        id: fade
+        target: root
+        property: "_t"
+        from: 0
+        to: 1
+        duration: root.animDurationLong * 2
+        easing.type: Easing.InOutQuad
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 1–5</span><b>A singleton in its own folder</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>pragma Singleton
+import QtQuick
+import Quickshell
+import qs.services
+import "../services/color.js" as Color</code></pre></div><div class="seg-e"><p><code>config/</code> is the <code>qs.config</code> module, imported by every widget. It reads from the services (<code>qs.services</code>) and uses <code>color.js</code> for the fade.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–15</span><b>A short helper</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function getState(path, fallback) {
+    return StateService.get(path, fallback);
+}</code></pre></div><div class="seg-e"><p><code>getState("bar.height", 33)</code> reads better than the full call, and there are dozens of them below.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 17–28</span><b>Background and surfaces</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── COLOURS ─────────────────────────────────────────────────────────────
+// They come from the theme file. On a theme switch each one fades from
+// the old palette to the new one (see the fade machinery further down).
+readonly property color backgroundColor: _shown("background", "#1a1b26")
+readonly property real backgroundOpacity: getState("opacity.background", 0.9)
+readonly property color backgroundTransparentColor: Qt.alpha(backgroundColor, backgroundOpacity)
+readonly property color surface0Color: _shown("surface0", "#24283b")
+readonly property color surface1Color: _shown("surface1", "#292e42")
+readonly property color surface2Color: _shown("surface2", "#414868")
+readonly property color surface3Color: _shown("surface3", "#565f89")
+readonly property color cardColor: Qt.alpha(surface0Color, backgroundOpacity)
+readonly property color cardHoverColor: Qt.alpha(surface1Color, backgroundOpacity)</code></pre></div><div class="seg-e"><p>Each colour is <code>_shown(role, fallback)</code>: the palette's colour for that role, mixed during a fade (explained below). The fallbacks are Tokyo Night, so the very first frame looks right before the theme files are read. <code>backgroundTransparentColor</code> combines the background with the opacity setting; cards use the same opacity so they don't look solid on a see-through panel.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 30–38</span><b>Text and accents</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property color textColor: _shown("text", "#c0caf5")
+readonly property color textReverseColor: _shown("textReverse", "#1a1b26")
+readonly property color subtextColor: _shown("subtext", "#a9b1d6")
+readonly property color mutedColor: _shown("muted", "#545c7e")
+
+readonly property color accentColor: _shown("accent", "#7aa2f7")
+readonly property color successColor: _shown("success", "#9ece6a")
+readonly property color warningColor: _shown("warning", "#e0af68")
+readonly property color errorColor: _shown("error", "#f7768e")</code></pre></div><div class="seg-e"><p>The same pattern for every role in the palette.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 40–41</span><b>The scrim</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// dimming behind overlays (power menu, screenshot): black on every theme
+readonly property color scrimColor: "black"</code></pre></div><div class="seg-e"><p>The dim layer behind the power menu and screenshot overlay is black in every theme, light ones included.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 43–48</span><b>Geometry</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── GEOMETRY ────────────────────────────────────────────────────────────
+readonly property int radiusSmall: getState("geometry.radiusSmall", 5)
+readonly property int radius: getState("geometry.radius", 10)
+readonly property int radiusLarge: getState("geometry.radiusLarge", 15)
+readonly property int spacing: getState("geometry.spacing", 8)
+readonly property int padding: getState("geometry.padding", 6)</code></pre></div><div class="seg-e"><p>Three corner radii (small for chips, normal, large for panels), the gap between items, and the padding inside them. Changing <code>geometry.radius</code> in Settings rounds the whole shell at once.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 50–66</span><b>Bar tokens</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── BAR ─────────────────────────────────────────────────────────────────
+readonly property int barHeight: getState("bar.height", 33)
+readonly property bool barAutoHide: getState("bar.autoHide", false)
+readonly property bool barOnBottom: getState("bar.position", "top") === "bottom"
+// "docked" | "docked-corners" | "floating" | "islands"
+readonly property string barStyle: getState("bar.style", "docked-corners")
+readonly property bool barIslands: barStyle === "islands"
+readonly property bool barFloating: barStyle === "floating"
+readonly property bool barCorners: barStyle === "docked-corners"
+readonly property int barMargin: barFloating ? getState("bar.margin", 8) : 0
+readonly property int barCornerSize: barCorners ? radiusLarge : 0
+readonly property int barReservedHeight: barHeight + barMargin
+readonly property int barIslandHeight: barHeight - padding
+readonly property int barButtonHeight: barIslandHeight - Math.round(padding * 2 / 3)
+// "pills" | "dots" | "numbers"
+readonly property string barWorkspaceStyle: getState("bar.workspaces.style", "pills")
+readonly property int barWorkspaceCount: getState("bar.workspaces.count", 10)</code></pre></div><div class="seg-e"><p>The settings, plus values <strong>derived</strong> from them, so the arithmetic lives in one place: a floating bar has a margin, only the "corners" style has concave corners, the reserved height is bar plus margin, and islands and buttons are a little shorter than the bar.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 68–76</span><b>Typography</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── TYPOGRAPHY ──────────────────────────────────────────────────────────
+// A Nerd Font: one font for the text AND the icons (icons are glyphs)
+readonly property string font: getState("typography.font", "CaskaydiaCove Nerd Font")
+readonly property int fontSizeSmall: getState("typography.sizeSmall", 12)
+readonly property int fontSizeNormal: getState("typography.sizeNormal", 14)
+readonly property int fontSizeLarge: getState("typography.sizeLarge", 16)
+readonly property int fontSizeIconSmall: getState("typography.iconSmall", 18)
+readonly property int fontSizeIcon: getState("typography.icon", 22)
+readonly property int fontSizeIconLarge: getState("typography.iconLarge", 28)</code></pre></div><div class="seg-e"><p>One Nerd Font for text <strong>and</strong> icons: Nerd Fonts contain thousands of icon glyphs, so an icon is just a character (see <code>Icons</code> below).</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 78–82</span><b>Motion</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── MOTION ──────────────────────────────────────────────────────────────
+readonly property int animDurationShort: getState("animations.short", 100)
+readonly property int animDuration: getState("animations.normal", 200)
+readonly property int animDurationLong: getState("animations.long", 400)
+readonly property bool themeTransition: getState("animations.themeTransition", true)</code></pre></div><div class="seg-e"><p>Three durations used by every animation, short (100 ms), normal (200 ms) and long (400 ms). Set them to 0 in <code>state.json</code> and the whole shell stops animating.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 84–89</span><b>Other modules</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── OTHER MODULES ───────────────────────────────────────────────────────
+readonly property int notifWidth: getState("notifications.width", 350)
+readonly property int notifTimeout: getState("notifications.timeout", 5000)
+readonly property int notifMaxPopups: getState("notifications.maxPopups", 4)
+readonly property string osdStyle: getState("osd.style", "attached")     // "attached" | "pill"
+readonly property int osdTimeout: getState("osd.timeout", 1500)</code></pre></div><div class="seg-e"><p>Notification and OSD settings used by more than one file.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 91–98</span><b>The fade's state</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── THE THEME FADE ──────────────────────────────────────────────────────
+// _target is the palette being shown. During a fade, _t runs from 0 to 1
+// and each colour is mixed from _fromLab to _toLab (both in OKLab).
+property var _target: ({})
+property var _fromLab: ({})
+property var _toLab: ({})
+property real _t: 1
+readonly property bool themeTransitioning: fade.running</code></pre></div><div class="seg-e"><p><code>_target</code> is the palette being shown. During a fade, <code>_t</code> runs from 0 to 1, and <code>_fromLab</code>/<code>_toLab</code> hold each colour's start and end in OKLab. <code>themeTransitioning</code> lets widgets switch off their own colour animations during a fade, so two animations don't fight.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 100–106</span><b>_shown()</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function _shown(key, fallback) {
+    const to = _target[key] ?? fallback;
+    if (_t &gt;= 1 || !_fromLab[key] || !_toLab[key])
+        return to;
+    const c = Color.mix(_fromLab[key], _toLab[key], _t);
+    return Qt.rgba(c[0], c[1], c[2], c[3]);
+}</code></pre></div><div class="seg-e"><p>After a fade (<code>_t</code> is 1), the target colour. During it, the mix of start and end at <code>_t</code>. Because every colour binding calls <code>_shown</code>, and <code>_shown</code> reads <code>_t</code>, animating <code>_t</code> re-evaluates every colour in the shell each frame: one animation drives hundreds of colours.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 108–115</span><b>The first palette</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function _setPalette(pal) {
+    const empty = Object.keys(_target).length === 0;
+    if (empty || !themeTransition) {          // first palette: no fade
+        fade.stop();
+        _t = 1;
+        _target = pal;
+        return;
+    }</code></pre></div><div class="seg-e"><p>On startup there's nothing to fade from, so the palette applies at once. So it does when the fade setting is off.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 116–121</span><b>Where to start from</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>const from = {}, to = {};
+for (const key in pal) {
+    to[key] = Color.toOklab(Qt.color(pal[key]));
+    // start from what is on screen right now, even in the middle of a fade
+    from[key] = Color.toOklab(Qt.color(_shown(key, pal[key])));
+}</code></pre></div><div class="seg-e"><p>For each role, compute the end colour and the start colour. The start is what's <strong>on screen right now</strong>, so switching again mid-fade continues smoothly from wherever the colours are instead of jumping.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 122–127</span><b>Go</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>fade.stop();
+_fromLab = from;
+_toLab = to;
+_target = pal;
+_t = 0;
+fade.start();</code></pre></div><div class="seg-e"><p>Store both ends, show the new palette, reset <code>_t</code> to 0 and start the animation.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 130–134</span><b>Listening to the theme service</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Component.onCompleted: _setPalette(ThemeService.palette)
+Connections {
+    target: ThemeService
+    function onPaletteChanged() { root._setPalette(ThemeService.palette); }
+}</code></pre></div><div class="seg-e"><p>The first palette at startup, then every new one.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 136–144</span><b>The animation</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>NumberAnimation {
+    id: fade
+    target: root
+    property: "_t"
+    from: 0
+    to: 1
+    duration: root.animDurationLong * 2
+    easing.type: Easing.InOutQuad
+}</code></pre></div><div class="seg-e"><p>Twice the "long" duration (800 ms by default), easing in and out.</p></div></div></div>
+<h2 id="icons-as-text">Icons as text<a class="hlink" href="#icons-as-text">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">lyne/config/Icons.qml</span><code>pragma Singleton
+import QtQuick
+import Quickshell
+
+// Icon glyphs from the Nerd Font (its Material Design range, "nf-md-…").
+// lyne-dots writes the codes inline ("\u{f057e}"); naming them here keeps
+// the widgets readable. Find more at nerdfonts.com/cheat-sheet.
+Singleton {
+    readonly property string apps: "\u{f003b}"
+    readonly property string magnify: "\u{f0349}"
+    readonly property string lightning: "\u{f140b}"
+    readonly property string calculator: "\u{f00ec}"
+    readonly property string clipboard: "\u{f014d}"
+    readonly property string copy: "\u{f018f}"
+    readonly property string close: "\u{f0156}"
+    readonly property string check: "\u{f012c}"
+    readonly property string chevronLeft: "\u{f0141}"
+    readonly property string chevronRight: "\u{f0142}"
+    readonly property string chevronDown: "\u{f0140}"
+    readonly property string chevronUp: "\u{f0143}"
+    readonly property string back: "\u{f004d}"
+    readonly property string cog: "\u{f0493}"
+    readonly property string trash: "\u{f09e7}"
+    readonly property string star: "\u{f04ce}"
+    readonly property string starOutline: "\u{f04d2}"
+
+    readonly property var wifi: ["\u{f092e}", "\u{f091f}", "\u{f0922}", "\u{f0925}", "\u{f0928}"]   // 0 = none … 4 = full
+    readonly property string wifiOff: "\u{f05aa}"
+    readonly property string ethernet: "\u{f0200}"
+    readonly property string bluetooth: "\u{f00af}"
+    readonly property string bluetoothOff: "\u{f00b2}"
+    readonly property string volumeHigh: "\u{f057e}"
+    readonly property string volumeMute: "\u{f075f}"
+    readonly property string mic: "\u{f036c}"
+    readonly property string micOff: "\u{f036d}"
+    readonly property string brightness: "\u{f00df}"
+    readonly property string battery: "\u{f0079}"
+    readonly property string batteryHalf: "\u{f007e}"
+    readonly property string batteryLow: "\u{f007b}"
+    readonly property string batteryAlert: "\u{f0083}"
+    readonly property string batteryCharging: "\u{f0084}"
+
+    readonly property string bell: "\u{f009a}"
+    readonly property string bellBadge: "\u{f116b}"
+    readonly property string bellOff: "\u{f009b}"
+    readonly property string clearAll: "\u{f039f}"
+    readonly property string coffee: "\u{f0176}"
+    readonly property string coffeeOutline: "\u{f06ca}"
+    readonly property string night: "\u{f0594}"
+    readonly property string palette: "\u{f03d8}"
+    readonly property string themeMode: "\u{f050e}"
+
+    readonly property string lock: "\u{f033e}"
+    readonly property string power: "\u{f0425}"
+    readonly property string restart: "\u{f0709}"
+    readonly property string sleep: "\u{f04b2}"
+    readonly property string logout: "\u{f0343}"
+
+    readonly property string play: "\u{f040a}"
+    readonly property string pause: "\u{f03e4}"
+    readonly property string next: "\u{f04ad}"
+    readonly property string previous: "\u{f04ae}"
+    readonly property string music: "\u{f075a}"
+
+    readonly property string cpu: "\u{f0ee0}"
+    readonly property string memory: "\u{f035b}"
+    readonly property string disk: "\u{f02ca}"
+    readonly property string temperature: "\u{f050f}"
+    readonly property string clock: "\u{f0150}"
+    readonly property string calendar: "\u{f00ed}"
+
+    readonly property string screenshot: "\u{f0e51}"
+    readonly property string region: "\u{f0a6d}"
+    readonly property string window: "\u{f05af}"
+    readonly property string screen: "\u{f0293}"
+    readonly property string image: "\u{f02e9}"
+    readonly property string wallpaper: "\u{f0e09}"
+    readonly property string tray: "\u{f1294}"
+    readonly property string keyboard: "\u{f030c}"
+
+    readonly property string saver: "\u{f032a}"
+    readonly property string balanced: "\u{f05d1}"
+    readonly property string performance: "\u{f04c5}"
+}</code></pre></div>
+<p>Nerd Fonts put icons in the "private use" area of Unicode. <code>"\u{f057e}"</code> is the volume icon (named <code>nf-md-volume_high</code> on nerdfonts.com/cheat-sheet). lyne writes these codes directly in its widgets; the rebuild names them once here so code reads <code>Icons.volumeHigh</code>. To add an icon, search the cheat sheet, copy its code, and add a line. <code>wifi</code> is a list from no signal to full, so a widget can pick <code>Icons.wifi[strength]</code>.</p>
+<h2 id="practice">Practice<a class="hlink" href="#practice">#</a></h2>
+<div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Warm-up</span><b>Make a theme</b></div><div class="ex-b"><p>Copy <code>tokyonight.json</code> to <code>~/.local/themes/mine.json</code>, change <code>name</code> and a few palette colours (try a pink accent), then <code>qs -c lyne ipc call theme reload</code> and <code>… theme set mine</code>.</p></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Slow-motion fade</b></div><div class="ex-b"><p>Make the fade length a setting: add <code>animations.themeFade</code> (milliseconds) to <code>defaults.json</code> and use it for the fade's duration. Set it to 3000 and watch a theme switch.</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><div class="codewrap"><pre class="code" data-lang="qml"><code>duration: root.getState("animations.themeFade", root.animDurationLong * 2)</code></pre></div></div></details></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>RGB versus OKLab</b></div><div class="ex-b"><p>Temporarily change <code>Color.mix</code> to mix the RGB channels directly, then switch between Tokyo Night and Gruvbox with a 3-second fade. Compare the middle of the fade with the OKLab version.</p></div></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Challenge</span><b>Light/dark twin</b></div><div class="ex-b"><p>Add <code>twin</code> to theme files (<code>"twin": "catppuccin-latte"</code> in Mocha) and a <code>toggleVariant()</code> that switches to it. Bind it over IPC.</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/ly2-state.html"><small>← Previous</small><span>lyne-dots 2: One File for Every Setting</span></a><a class="pn-next" href="../ch/ly4-components.html"><small>Next →</small><span>lyne-dots 4: The Building Blocks</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#a-theme-file">A theme file</a><a class="l2" href="#mixing-colours-properly">Mixing colours properly</a><a class="l2" href="#the-theme-service">The theme service</a><a class="l2" href="#config-the-tokens">Config: the tokens</a><a class="l2" href="#icons-as-text">Icons as text</a><a class="l2" href="#practice">Practice</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

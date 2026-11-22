@@ -199,7 +199,7 @@ def render_blocks(text, rel, ctx, hold):
     counter = [0]
     def last_code(upto):
         fences = list(re.finditer(r'(?m)^[ \t]*```(\w+)?[^\n]*\n(.*?)\n[ \t]*```[ \t]*$', text[:upto], flags=re.S))
-        qml = [f for f in fences if (f.group(1) or "") == "qml"] or fences     # walk the last QML block
+        qml = [f for f in fences if (f.group(1) or "") in ("qml", "js", "lua")] or fences     # walk the last code block
         return (qml[-1].group(1) or "qml", qml[-1].group(2).split("\n")) if qml else ("qml", [])
     def ex(m):
         head, body = m.group(2).strip(), m.group(3)
@@ -246,7 +246,7 @@ def expand_includes(text):
         if not os.path.exists(path):
             print("WARN missing include", rel, file=sys.stderr); return m.group(0)
         code = open(path, encoding="utf-8").read().rstrip("\n")
-        lang = {"qml": "qml", "toml": "toml", "conf": "ini", "json": "json", "template": "json", "py": "python", "css": "css", "yaml": "text"}.get(rel.rsplit(".", 1)[-1], "text")
+        lang = {"qml": "qml", "toml": "toml", "conf": "ini", "json": "json", "template": "json", "py": "python", "css": "css", "yaml": "text", "lua": "lua", "js": "js"}.get(rel.rsplit(".", 1)[-1], "text")
         return f'```{lang} file="{rel}"\n{code}\n```'
     return re.sub(r'(?m)^@include[ \t]+(\S+)[ \t]*$', inc, text)
 

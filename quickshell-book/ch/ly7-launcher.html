@@ -1,0 +1,1128 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>lyne-dots 7: The Launcher · The Quickshell Book</title>
+<meta name="description" content="lyne-dots 7: The Launcher">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details open><summary><span class="pn">L</span>Ricing lyne-dots</summary>
+<a class="ch" href="../ch/ly1-overview.html"><span class="num">ly1</span>lyne-dots 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/ly2-state.html"><span class="num">ly2</span>lyne-dots 2: One File for Every Setting</a>
+<a class="ch" href="../ch/ly3-config-theme.html"><span class="num">ly3</span>lyne-dots 3: Design Tokens, Themes and the Colour Fade</a>
+<a class="ch" href="../ch/ly4-components.html"><span class="num">ly4</span>lyne-dots 4: The Building Blocks</a>
+<a class="ch" href="../ch/ly5-bar.html"><span class="num">ly5</span>lyne-dots 5: The Bar</a>
+<a class="ch" href="../ch/ly6-panels.html"><span class="num">ly6</span>lyne-dots 6: Panels That Grow Out of the Bar</a>
+<a class="ch active" href="../ch/ly7-launcher.html"><span class="num">ly7</span>lyne-dots 7: The Launcher</a>
+<a class="ch" href="../ch/ly8-notifications-osd.html"><span class="num">ly8</span>lyne-dots 8: Notifications, Audio and the OSD</a>
+<a class="ch" href="../ch/ly9-lock-power.html"><span class="num">ly9</span>lyne-dots 9: Lock Screen, Power Menu and Idle</a>
+<a class="ch" href="../ch/ly10-screenshot-wallpaper.html"><span class="num">ly10</span>lyne-dots 10: Screenshots and Wallpapers</a>
+<a class="ch" href="../ch/ly11-settings.html"><span class="num">ly11</span>lyne-dots 11: The Settings App</a>
+<a class="ch" href="../ch/ly12-assemble.html"><span class="num">ly12</span>lyne-dots 12: Assembling the Shell and Configuring Hyprland</a>
+<a class="ch" href="../ch/ly13-rice-it.html"><span class="num">ly13</span>lyne-dots 13: Ricing lyne-dots, Start to Finish</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-l">Part L: Ricing lyne-dots</a> › lyne-dots 7: The Launcher</div><article><div class="ch-head"><div class="ch-part">Part L · Ricing lyne-dots</div><h1><span class="ch-num">ly7</span>lyne-dots 7: The Launcher</h1></div><p>Tap Super and lyne's launcher opens: start typing and the best app is already selected, press Enter. The same box does more with a <strong>prefix</strong>: <code>&gt;</code> runs shell actions, <code>=</code> is a calculator, <code>;</code> searches your clipboard history. This chapter builds the fuzzy matcher, the service that turns a query into a list of results, and the window.</p>
+<div class="preview"><svg style="width:min(100%,840px)" width="560" height="250" viewBox="0 0 560 250"><g font-size="12"><rect x="10" y="10" width="540" height="230" rx="15" fill="#1a1b26" stroke="#292e42"/><rect x="20" y="20" width="520" height="40" rx="10" fill="#24283b"/><rect x="26" y="26" width="104" height="28" rx="5" fill="#7aa2f7" opacity=".2"/><text x="36" y="45" fill="#7aa2f7">ϟ Actions</text><text x="140" y="45" fill="#c0caf5">&gt;th</text><rect x="20" y="68" width="520" height="44" rx="10" fill="#292e42"/><text x="40" y="95" fill="#7aa2f7" font-size="16">🎨</text><text x="70" y="95" fill="#c0caf5" font-weight="700">Next theme</text><text x="40" y="141" fill="#7aa2f7" font-size="16">⚙</text><text x="70" y="141" fill="#c0caf5">Settings</text><text x="40" y="187" fill="#7aa2f7" font-size="16">⏻</text><text x="70" y="187" fill="#c0caf5">Power menu</text><text x="30" y="226" fill="#545c7e" font-size="11">(nothing) apps   &gt; actions   = calculator   ; clipboard   ·   Ctrl+Tab: next mode</text></g></svg></div>
+
+<h2 id="fuzzy-matching">Fuzzy matching<a class="hlink" href="#fuzzy-matching">#</a></h2>
+<p>Typing "ffx" should find Firefox, and "vsc" should find Visual Studio Code. A <strong>fuzzy matcher</strong> accepts a query whose letters appear in order, not necessarily next to each other, and scores how good the match is.</p>
+<div class="codewrap"><pre class="code" data-lang="js"><span class="fname">lyne/services/fuzzy.js</span><code>// Fuzzy matching for the launcher: "ffx" finds "Firefox".
+// The query's letters must appear in order; the score rewards letters that
+// start a word, letters that follow each other, and a match at the start.
+.pragma library
+
+// returns a score (higher = better) or -1 when the query doesn't match
+function score(query, text) {
+    query = query.toLowerCase();
+    const lower = text.toLowerCase();
+    if (query === "")
+        return 0;
+    if (lower.startsWith(query))
+        return 1000 - text.length;            // a prefix beats everything; shorter wins
+    let total = 0, last = -2, from = 0;
+    for (const ch of query) {
+        const i = lower.indexOf(ch, from);
+        if (i &lt; 0)
+            return -1;                        // a letter is missing: no match
+        const wordStart = i === 0 || " -_.".includes(lower[i - 1]);
+        total += 10 + (wordStart ? 30 : 0) + (i === last + 1 ? 20 : 0);
+        last = i;
+        from = i + 1;
+    }
+    return total - lower.length * 0.5;        // shorter names win ties
+}
+
+// the best score over several fields (name, generic name, keywords…)
+function best(query, fields) {
+    let top = -1;
+    for (const f of fields)
+        if (f) top = Math.max(top, score(query, f));
+    return top;
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 7–11</span><b>Setup</b></div><div class="codewrap"><pre class="code" data-lang="js"><code>function score(query, text) {
+    query = query.toLowerCase();
+    const lower = text.toLowerCase();
+    if (query === "")
+        return 0;</code></pre></div><div class="seg-e"><p>Lowercase both, so case doesn't matter. An empty query matches everything with score 0.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 12–13</span><b>Prefixes win</b></div><div class="codewrap"><pre class="code" data-lang="js"><code>if (lower.startsWith(query))
+    return 1000 - text.length;            // a prefix beats everything; shorter wins</code></pre></div><div class="seg-e"><p>If the name starts with the query, give a very high score, higher for shorter names: typing "code" puts "Code" above "Code - OSS".</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–23</span><b>Letters in order</b></div><div class="codewrap"><pre class="code" data-lang="js"><code>let total = 0, last = -2, from = 0;
+for (const ch of query) {
+    const i = lower.indexOf(ch, from);
+    if (i &lt; 0)
+        return -1;                        // a letter is missing: no match
+    const wordStart = i === 0 || " -_.".includes(lower[i - 1]);
+    total += 10 + (wordStart ? 30 : 0) + (i === last + 1 ? 20 : 0);
+    last = i;
+    from = i + 1;
+}</code></pre></div><div class="seg-e"><p>Look for each query letter after the previous one. A missing letter means no match (−1). Each found letter scores 10, plus 30 if it starts a word ("<strong>v</strong>isual <strong>s</strong>tudio <strong>c</strong>ode") and 20 if it directly follows the previous match ("<strong>fir</strong>efox").</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 24</span><b>Shorter wins ties</b></div><div class="codewrap"><pre class="code" data-lang="js"><code>return total - lower.length * 0.5;        // shorter names win ties</code></pre></div><div class="seg-e"><p>A small penalty for long names.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 27–33</span><b>Several fields</b></div><div class="codewrap"><pre class="code" data-lang="js"><code>// the best score over several fields (name, generic name, keywords…)
+function best(query, fields) {
+    let top = -1;
+    for (const f of fields)
+        if (f) top = Math.max(top, score(query, f));
+    return top;
+}</code></pre></div><div class="seg-e"><p>An app matches on its name, its generic name ("Web Browser") or its keywords. The best field counts.</p></div></div></div>
+<div class="box note"><div class="bt">In the original</div><p>lyne's <code>services/fuzzy.js</code> is more thorough (it highlights the matched letters in the results and handles accents), but the idea is the same.</p></div>
+<h2 id="the-actions">The actions<a class="hlink" href="#the-actions">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">lyne/services/LauncherActions.qml</span><code>pragma Singleton
+import QtQuick
+import Quickshell
+import qs.services
+import qs.config
+
+// The commands of the launcher's "&gt;" mode. Each one is a name, an icon,
+// some search words and a function to run.
+Singleton {
+    readonly property var items: [
+        { name: "Lock screen",     icon: Icons.lock,       keywords: "lock",                run: () =&gt; LockService.lock() },
+        { name: "Power menu",      icon: Icons.power,      keywords: "shutdown reboot off", run: () =&gt; PowerService.open() },
+        { name: "Settings",        icon: Icons.cog,        keywords: "preferences config",  run: () =&gt; SettingsService.open("") },
+        { name: "Next theme",      icon: Icons.palette,    keywords: "theme colors",        run: () =&gt; ThemeService.step(1) },
+        { name: "Wallpaper",       icon: Icons.wallpaper,  keywords: "background picture",  run: () =&gt; WallpaperService.togglePicker() },
+        { name: "Caffeine",        icon: Icons.coffee,     keywords: "idle awake sleep",    run: () =&gt; IdleService.toggleCaffeine() },
+        { name: "Do not disturb",  icon: Icons.bellOff,    keywords: "notifications dnd",   run: () =&gt; NotificationService.toggleDnd() },
+        { name: "Clear notifications", icon: Icons.clearAll, keywords: "notifications",    run: () =&gt; NotificationService.clearAll() },
+        { name: "Reload shell",    icon: Icons.restart,    keywords: "quickshell restart",  run: () =&gt; Quickshell.reload(true) }
+    ]
+}</code></pre></div>
+<p>The <code>&gt;</code> mode's list. Each action is a name, an icon, words to search for, and a function. They call services directly, so an action does exactly what the matching button elsewhere does. Add your own by adding a line: <code>{ name: "Screenshot", icon: Icons.screenshot, keywords: "capture", run: () =&gt; … }</code>.</p>
+<h2 id="the-launcher-service">The launcher service<a class="hlink" href="#the-launcher-service">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">lyne/services/LauncherService.qml</span><code>pragma Singleton
+import QtQuick
+import Quickshell
+import qs.services
+import Quickshell.Io
+import qs.config
+import "fuzzy.js" as Fuzzy
+
+// The launcher's brain. The window only draws `entries`; everything about
+// what to show and what Enter does lives here.
+//
+// The first character of the query picks the mode:
+//   (nothing)  apps          "&gt;"  actions
+//   "="        calculator    ";"  clipboard history
+Singleton {
+    id: root
+
+    property bool visible: false
+    property string query: ""
+    property int selectedIndex: 0
+
+    readonly property var modes: [
+        { id: "apps",      prefix: "",  label: "Apps",       icon: Icons.apps,       placeholder: "Search apps…  (&gt; actions, = calculator, ; clipboard)" },
+        { id: "actions",   prefix: "&gt;", label: "Actions",    icon: Icons.lightning,  placeholder: "Run an action…" },
+        { id: "calc",      prefix: "=", label: "Calculator", icon: Icons.calculator, placeholder: "Calculate…  (2^10, 5 km to mi, 20% of 150)" },
+        { id: "clipboard", prefix: ";", label: "Clipboard",  icon: Icons.clipboard,  placeholder: "Search the clipboard…" }
+    ]
+    readonly property var mode: modes.find(m =&gt; m.prefix !== "" &amp;&amp; query.startsWith(m.prefix)) ?? modes[0]
+    readonly property string term: query.slice(mode.prefix.length).trim()
+
+    // ── Apps ──────────────────────────────────────────────────────────────
+    readonly property var favorites: StateService.get("launcher.favorites", [])   // desktop ids
+    readonly property var usage: StateService.get("launcher.usage", ({}))         // id -&gt; launch count
+
+    readonly property var apps: DesktopEntries.applications.values.filter(a =&gt; !a.noDisplay)
+
+    readonly property var appResults: {
+        if (term === "") {
+            // no query: favourites first, then the most used, then A–Z
+            return apps.slice().sort((a, b) =&gt;
+                (favorites.includes(b.id) - favorites.includes(a.id))
+                || ((usage[b.id] ?? 0) - (usage[a.id] ?? 0))
+                || a.name.localeCompare(b.name));
+        }
+        return apps.map(a =&gt; ({ a: a, s: Fuzzy.best(term, [a.name, a.genericName, a.keywords.join(" ")]) }))
+            .filter(r =&gt; r.s &gt;= 0)
+            .map(r =&gt; ({ a: r.a, s: r.s + Math.min(50, (usage[r.a.id] ?? 0) * 5) }))   // frequent apps float up
+            .sort((x, y) =&gt; y.s - x.s)
+            .map(r =&gt; r.a);
+    }
+
+    // ── Actions ──────────────────────────────────────────────────────────
+    readonly property var actionResults: term === "" ? LauncherActions.items
+        : LauncherActions.items.map(i =&gt; ({ i: i, s: Fuzzy.best(term, [i.name, i.keywords]) }))
+            .filter(r =&gt; r.s &gt;= 0).sort((x, y) =&gt; y.s - x.s).map(r =&gt; r.i)
+
+    // ── Calculator (qalc) ────────────────────────────────────────────────
+    property string calcResult: ""
+    onTermChanged: if (mode.id === "calc") calcDebounce.restart()
+    Timer {
+        id: calcDebounce
+        interval: 150
+        onTriggered: {
+            if (root.term === "") { root.calcResult = ""; return; }
+            calc.command = ["qalc", "-t", root.term];       // -t: terse, only the answer
+            calc.running = true;
+        }
+    }
+    Process {
+        id: calc
+        stdout: StdioCollector { onStreamFinished: root.calcResult = text.trim() }
+    }
+
+    // ── Clipboard (cliphist) ─────────────────────────────────────────────
+    property var clips: []                            // [{ id, text }]
+    Process {
+        id: clipList
+        command: ["cliphist", "list"]
+        stdout: StdioCollector {
+            onStreamFinished: root.clips = text.split("\n").filter(l =&gt; l.includes("\t")).map(l =&gt; {
+                const tab = l.indexOf("\t");
+                return { id: l.slice(0, tab), text: l.slice(tab + 1) };
+            })
+        }
+    }
+    readonly property var clipResults: term === "" ? clips
+        : clips.filter(c =&gt; c.text.toLowerCase().includes(term.toLowerCase()))
+
+    // ── What the window shows ────────────────────────────────────────────
+    // Every entry has the same shape, whatever the mode:
+    // { kind, title, subtitle, icon (glyph) or iconName (app icon), data }
+    readonly property var entries: {
+        switch (mode.id) {
+        case "actions":
+            return actionResults.map(i =&gt; ({ kind: "action", title: i.name, subtitle: "", icon: i.icon, iconName: "", data: i }));
+        case "calc":
+            return calcResult === "" ? [] : [{ kind: "calc", title: calcResult, subtitle: "Enter copies the result", icon: Icons.calculator, iconName: "", data: calcResult }];
+        case "clipboard":
+            return clipResults.map(c =&gt; ({ kind: "clip", title: c.text, subtitle: "", icon: c.text.startsWith("[[ binary") ? Icons.image : Icons.clipboard, iconName: "", data: c }));
+        default:
+            return appResults.slice(0, 60).map(a =&gt; ({ kind: "app", title: a.name, subtitle: a.comment || a.genericName, icon: "", iconName: a.icon, data: a }));
+        }
+    }
+    onEntriesChanged: selectedIndex = 0
+
+    // ── Opening, moving, running ─────────────────────────────────────────
+    function show(prefix) {
+        WindowManagerService.openExclusive("Launcher", () =&gt; {
+            query = prefix ?? "";
+            selectedIndex = 0;
+            visible = true;
+            clipList.running = true;              // the clipboard list is always fresh
+        });
+    }
+    function hide() { visible = false; }
+    function toggle() { visible ? hide() : show(""); }
+    function toggleMode(prefix) { visible &amp;&amp; mode.prefix === prefix ? hide() : show(prefix); }
+
+    function move(delta) {
+        if (entries.length &gt; 0)
+            selectedIndex = (selectedIndex + delta + entries.length) % entries.length;
+    }
+
+    function activate(index) {
+        const e = entries[index ?? selectedIndex];
+        if (!e)
+            return;
+        hide();
+        if (e.kind === "app") {
+            const counts = Object.assign({}, usage);      // copy, change, set: so the state notices
+            counts[e.data.id] = (counts[e.data.id] ?? 0) + 1;
+            StateService.set("launcher.usage", counts);
+            e.data.execute();
+        } else if (e.kind === "action") {
+            e.data.run();
+        } else if (e.kind === "calc") {
+            Quickshell.execDetached(["wl-copy", e.data]);
+        } else if (e.kind === "clip") {
+            // id and text go to sh as arguments: nothing in them can run as a command
+            Quickshell.execDetached(["sh", "-c", 'printf "%s\\t%s" "$1" "$2" | cliphist decode | wl-copy', "sh", e.data.id, e.data.text]);
+        }
+    }
+
+    function toggleFavorite(app) {
+        const list = favorites.includes(app.id) ? favorites.filter(id =&gt; id !== app.id) : favorites.concat([app.id]);
+        StateService.set("launcher.favorites", list);
+    }
+
+    Connections {
+        target: WindowManagerService
+        function onCloseRequested(except) { if (except !== "Launcher") root.hide(); }
+    }
+    onVisibleChanged: visible ? WindowManagerService.registerOpen("Launcher") : WindowManagerService.registerClose("Launcher")
+
+    IpcHandler {
+        target: "launcher"
+        function toggle(): void { root.toggle(); }
+        function clipboard(): void { root.toggleMode(";"); }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 18–20</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool visible: false
+property string query: ""
+property int selectedIndex: 0</code></pre></div><div class="seg-e"><p>Open or not, what's typed, and which result is selected. The window binds to these; keybinds and IPC change them.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 22–26</span><b>Modes</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var modes: [
+    { id: "apps",      prefix: "",  label: "Apps",       icon: Icons.apps,       placeholder: "Search apps…  (&gt; actions, = calculator, ; clipboard)" },
+    { id: "actions",   prefix: "&gt;", label: "Actions",    icon: Icons.lightning,  placeholder: "Run an action…" },
+    { id: "calc",      prefix: "=", label: "Calculator", icon: Icons.calculator, placeholder: "Calculate…  (2^10, 5 km to mi, 20% of 150)" },
+    { id: "clipboard", prefix: ";", label: "Clipboard",  icon: Icons.clipboard,  placeholder: "Search the clipboard…" }</code></pre></div><div class="seg-e"><p>Each mode has a prefix, a label, an icon and placeholder text. The apps mode has no prefix.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 28–29</span><b>Which mode</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var mode: modes.find(m =&gt; m.prefix !== "" &amp;&amp; query.startsWith(m.prefix)) ?? modes[0]
+readonly property string term: query.slice(mode.prefix.length).trim()</code></pre></div><div class="seg-e"><p>The first mode whose prefix the query starts with, otherwise apps. <code>term</code> is the query without the prefix: for <code>=2^10</code>, the term is <code>2^10</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 32–35</span><b>Apps, favourites and usage</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var favorites: StateService.get("launcher.favorites", [])   // desktop ids
+readonly property var usage: StateService.get("launcher.usage", ({}))         // id -&gt; launch count
+
+readonly property var apps: DesktopEntries.applications.values.filter(a =&gt; !a.noDisplay)</code></pre></div><div class="seg-e"><p>Favourites (a list of desktop ids) and launch counts are <strong>settings</strong>, saved in <code>state.json</code> with everything else. <code>apps</code> is every installed application that isn't marked hidden.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 37–44</span><b>No query</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property var appResults: {
+    if (term === "") {
+        // no query: favourites first, then the most used, then A–Z
+        return apps.slice().sort((a, b) =&gt;
+            (favorites.includes(b.id) - favorites.includes(a.id))
+            || ((usage[b.id] ?? 0) - (usage[a.id] ?? 0))
+            || a.name.localeCompare(b.name));
+    }</code></pre></div><div class="seg-e"><p>Favourites first, then the most launched, then alphabetical. The <code>-</code> between two booleans gives −1, 0 or 1, which is what <code>sort</code> wants; <code>||</code> moves to the next rule on a tie.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 45–49</span><b>A query</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>return apps.map(a =&gt; ({ a: a, s: Fuzzy.best(term, [a.name, a.genericName, a.keywords.join(" ")]) }))
+    .filter(r =&gt; r.s &gt;= 0)
+    .map(r =&gt; ({ a: r.a, s: r.s + Math.min(50, (usage[r.a.id] ?? 0) * 5) }))   // frequent apps float up
+    .sort((x, y) =&gt; y.s - x.s)
+    .map(r =&gt; r.a);</code></pre></div><div class="seg-e"><p>Score every app, drop non-matches, add a bonus for frequently used apps (up to 50, so usage can't outweigh a much better match), and sort by score.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 52–55</span><b>Actions</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── Actions ──────────────────────────────────────────────────────────
+readonly property var actionResults: term === "" ? LauncherActions.items
+    : LauncherActions.items.map(i =&gt; ({ i: i, s: Fuzzy.best(term, [i.name, i.keywords]) }))
+        .filter(r =&gt; r.s &gt;= 0).sort((x, y) =&gt; y.s - x.s).map(r =&gt; r.i)</code></pre></div><div class="seg-e"><p>All actions without a query, or the fuzzy-matched ones.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 57–72</span><b>Calculator</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── Calculator (qalc) ────────────────────────────────────────────────
+property string calcResult: ""
+onTermChanged: if (mode.id === "calc") calcDebounce.restart()
+Timer {
+    id: calcDebounce
+    interval: 150
+    onTriggered: {
+        if (root.term === "") { root.calcResult = ""; return; }
+        calc.command = ["qalc", "-t", root.term];       // -t: terse, only the answer
+        calc.running = true;
+    }
+}
+Process {
+    id: calc
+    stdout: StdioCollector { onStreamFinished: root.calcResult = text.trim() }
+}</code></pre></div><div class="seg-e"><p>150 ms after you stop typing, run <code>qalc -t</code> (terse: only the answer) on the term. qalc understands a lot: <code>2^10</code>, <code>5 km to mi</code>, <code>20% of 150</code>, <code>10 USD to EUR</code>. The result arrives asynchronously and updates the entries.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 74–87</span><b>Clipboard</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── Clipboard (cliphist) ─────────────────────────────────────────────
+property var clips: []                            // [{ id, text }]
+Process {
+    id: clipList
+    command: ["cliphist", "list"]
+    stdout: StdioCollector {
+        onStreamFinished: root.clips = text.split("\n").filter(l =&gt; l.includes("\t")).map(l =&gt; {
+            const tab = l.indexOf("\t");
+            return { id: l.slice(0, tab), text: l.slice(tab + 1) };
+        })
+    }
+}
+readonly property var clipResults: term === "" ? clips
+    : clips.filter(c =&gt; c.text.toLowerCase().includes(term.toLowerCase()))</code></pre></div><div class="seg-e"><p><code>cliphist list</code> prints one line per entry: an id, a tab, a preview. It's reloaded every time the launcher opens. A query filters by text.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 89–103</span><b>One shape for every result</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── What the window shows ────────────────────────────────────────────
+// Every entry has the same shape, whatever the mode:
+// { kind, title, subtitle, icon (glyph) or iconName (app icon), data }
+readonly property var entries: {
+    switch (mode.id) {
+    case "actions":
+        return actionResults.map(i =&gt; ({ kind: "action", title: i.name, subtitle: "", icon: i.icon, iconName: "", data: i }));
+    case "calc":
+        return calcResult === "" ? [] : [{ kind: "calc", title: calcResult, subtitle: "Enter copies the result", icon: Icons.calculator, iconName: "", data: calcResult }];
+    case "clipboard":
+        return clipResults.map(c =&gt; ({ kind: "clip", title: c.text, subtitle: "", icon: c.text.startsWith("[[ binary") ? Icons.image : Icons.clipboard, iconName: "", data: c }));
+    default:
+        return appResults.slice(0, 60).map(a =&gt; ({ kind: "app", title: a.name, subtitle: a.comment || a.genericName, icon: "", iconName: a.icon, data: a }));
+    }
+}</code></pre></div><div class="seg-e"><p>Whatever the mode, each entry has a <code>kind</code>, a <code>title</code>, a <code>subtitle</code>, an icon (a glyph, or an app's icon name) and the original <code>data</code>. The window draws them all the same way and never needs to know the mode.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 104</span><b>New list, back to the top</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>onEntriesChanged: selectedIndex = 0</code></pre></div><div class="seg-e"><p>Every time the results change, select the first one, the best match.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 107–113</span><b>Opening</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function show(prefix) {
+    WindowManagerService.openExclusive("Launcher", () =&gt; {
+        query = prefix ?? "";
+        selectedIndex = 0;
+        visible = true;
+        clipList.running = true;              // the clipboard list is always fresh
+    });</code></pre></div><div class="seg-e"><p>Close every other popup, set the query (<code>show("&gt;")</code> opens in actions mode), select the first entry, and refresh the clipboard list.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 115–117</span><b>Toggling</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function hide() { visible = false; }
+function toggle() { visible ? hide() : show(""); }
+function toggleMode(prefix) { visible &amp;&amp; mode.prefix === prefix ? hide() : show(prefix); }</code></pre></div><div class="seg-e"><p><code>toggleMode(";")</code> closes the launcher if it's already open in that mode, otherwise opens it there. That's what makes Super+V toggle the clipboard.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 119–122</span><b>Moving</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function move(delta) {
+    if (entries.length &gt; 0)
+        selectedIndex = (selectedIndex + delta + entries.length) % entries.length;
+}</code></pre></div><div class="seg-e"><p>Down and up wrap around the list.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 124–133</span><b>Running an app</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function activate(index) {
+    const e = entries[index ?? selectedIndex];
+    if (!e)
+        return;
+    hide();
+    if (e.kind === "app") {
+        const counts = Object.assign({}, usage);      // copy, change, set: so the state notices
+        counts[e.data.id] = (counts[e.data.id] ?? 0) + 1;
+        StateService.set("launcher.usage", counts);
+        e.data.execute();</code></pre></div><div class="seg-e"><p>Close the launcher, add one to the app's launch count (copy, change, set, so the state notices), and <code>execute()</code> the desktop entry, which handles <code>%U</code>-style placeholders and terminal apps.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 134–141</span><b>Running the rest</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>} else if (e.kind === "action") {
+    e.data.run();
+} else if (e.kind === "calc") {
+    Quickshell.execDetached(["wl-copy", e.data]);
+} else if (e.kind === "clip") {
+    // id and text go to sh as arguments: nothing in them can run as a command
+    Quickshell.execDetached(["sh", "-c", 'printf "%s\\t%s" "$1" "$2" | cliphist decode | wl-copy', "sh", e.data.id, e.data.text]);
+}</code></pre></div><div class="seg-e"><p>Actions run their function. The calculator copies its result. A clipboard entry is decoded by cliphist back to its original data and put on the clipboard; its id and text go to <code>sh</code> as arguments.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 144–147</span><b>Favourites</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function toggleFavorite(app) {
+    const list = favorites.includes(app.id) ? favorites.filter(id =&gt; id !== app.id) : favorites.concat([app.id]);
+    StateService.set("launcher.favorites", list);
+}</code></pre></div><div class="seg-e"><p>Add or remove an app's id in the saved list.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 149–159</span><b>Polite, and scriptable</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Connections {
+    target: WindowManagerService
+    function onCloseRequested(except) { if (except !== "Launcher") root.hide(); }
+}
+onVisibleChanged: visible ? WindowManagerService.registerOpen("Launcher") : WindowManagerService.registerClose("Launcher")
+
+IpcHandler {
+    target: "launcher"
+    function toggle(): void { root.toggle(); }
+    function clipboard(): void { root.toggleMode(";"); }
+}</code></pre></div><div class="seg-e"><p>The usual close request and registration; <code>qs -c lyne ipc call launcher toggle</code> and <code>… clipboard</code>.</p></div></div></div>
+<h2 id="the-window">The window<a class="hlink" href="#the-window">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">lyne/modules/launcher/Launcher.qml</span><code>import QtQuick
+import QtQuick.Layouts
+import Quickshell
+import Quickshell.Wayland
+import Quickshell.Widgets
+import Quickshell.Hyprland
+import qs.config
+import qs.services
+import qs.components
+
+// The launcher window ("spotlight" style: a box in the upper middle of the
+// focused screen). It only draws LauncherService.entries and forwards keys;
+// the service decides what's in the list and what Enter does.
+PanelWindow {
+    id: root
+
+    screen: Quickshell.screens.find(s =&gt; s.name === Hyprland.focusedMonitor?.name) ?? Quickshell.screens[0]
+    anchors.top: true
+    margins.top: Math.round((screen?.height ?? 1080) * 0.2)
+    implicitWidth: 620
+    implicitHeight: box.implicitHeight + 40
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.namespace: "lyne_launcher"
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+
+    HyprlandFocusGrab { active: true; windows: [root]; onCleared: LauncherService.hide() }
+
+    Rectangle {
+        id: box
+        width: parent.width - 40
+        x: 20
+        y: 10
+        implicitHeight: col.implicitHeight + Config.spacing * 2
+        radius: Config.radiusLarge
+        color: Config.backgroundTransparentColor
+        border.color: Config.surface1Color
+
+        // open: fade in while growing from 92% (lyne's popup motion)
+        scale: 0.92
+        opacity: 0
+        Component.onCompleted: { scale = 1; opacity = 1; }
+        Behavior on scale { NumberAnimation { duration: Config.animDuration; easing.type: Easing.OutExpo } }
+        Behavior on opacity { NumberAnimation { duration: Config.animDuration } }
+
+        ColumnLayout {
+            id: col
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.margins: Config.spacing
+            spacing: Config.spacing
+
+            // ── the search field, with the mode's icon on a chip ──
+            Rectangle {
+                Layout.fillWidth: true
+                implicitHeight: 46
+                radius: Config.radius
+                color: Config.cardColor
+                RowLayout {
+                    anchors.fill: parent
+                    anchors.leftMargin: Config.padding
+                    anchors.rightMargin: Config.spacing * 2
+                    spacing: Config.spacing
+                    Rectangle {
+                        implicitWidth: modeRow.implicitWidth + Config.spacing * 2
+                        implicitHeight: 32
+                        radius: Config.radiusSmall
+                        color: LauncherService.mode.id === "apps" ? "transparent" : Qt.alpha(Config.accentColor, 0.2)
+                        Row {
+                            id: modeRow
+                            anchors.centerIn: parent
+                            spacing: Config.padding
+                            Glyph { text: LauncherService.mode.icon; color: Config.accentColor }
+                            StyledText { visible: LauncherService.mode.id !== "apps"; text: LauncherService.mode.label; font.pixelSize: Config.fontSizeSmall; color: Config.accentColor }
+                        }
+                    }
+                    TextInput {
+                        id: input
+                        Layout.fillWidth: true
+                        focus: true
+                        text: LauncherService.query
+                        onTextEdited: LauncherService.query = text
+                        color: Config.textColor
+                        font.family: Config.font
+                        font.pixelSize: Config.fontSizeLarge
+                        clip: true
+                        Keys.onEscapePressed: LauncherService.hide()
+                        Keys.onDownPressed: LauncherService.move(1)
+                        Keys.onUpPressed: LauncherService.move(-1)
+                        Keys.onReturnPressed: LauncherService.activate()
+                        Keys.onEnterPressed: LauncherService.activate()
+                        Keys.onTabPressed: e =&gt; {
+                            // Ctrl+Tab: next mode (puts its prefix in the field)
+                            if (e.modifiers &amp; Qt.ControlModifier) {
+                                const m = LauncherService.modes;
+                                const next = m[(m.indexOf(LauncherService.mode) + 1) % m.length];
+                                LauncherService.query = next.prefix + LauncherService.term;
+                            } else {
+                                LauncherService.move(1);
+                            }
+                        }
+                        StyledText {
+                            visible: parent.text === "" || parent.text === LauncherService.mode.prefix
+                            anchors.verticalCenter: parent.verticalCenter
+                            x: parent.text === "" ? 0 : parent.contentWidth + 4
+                            text: LauncherService.mode.placeholder
+                            color: Config.mutedColor
+                            font.pixelSize: Config.fontSizeNormal
+                        }
+                    }
+                }
+            }
+
+            // ── results ──
+            ListView {
+                id: list
+                Layout.fillWidth: true
+                implicitHeight: Math.min(contentHeight, 7 * 52)
+                visible: count &gt; 0
+                clip: true
+                spacing: 2
+                model: LauncherService.entries
+                currentIndex: LauncherService.selectedIndex
+                highlightMoveDuration: Config.animDurationShort
+                highlight: Rectangle { radius: Config.radius; color: Config.cardHoverColor }
+
+                delegate: Item {
+                    id: row
+                    required property var modelData
+                    required property int index
+                    width: ListView.view.width
+                    height: 50
+
+                    RowLayout {
+                        anchors.fill: parent
+                        anchors.leftMargin: Config.spacing
+                        anchors.rightMargin: Config.spacing
+                        spacing: Config.spacing
+                        Item {
+                            implicitWidth: 32
+                            implicitHeight: 32
+                            IconImage {
+                                anchors.fill: parent
+                                visible: row.modelData.iconName !== ""
+                                source: Quickshell.iconPath(row.modelData.iconName, "application-x-executable")
+                                asynchronous: true
+                            }
+                            Glyph {
+                                anchors.centerIn: parent
+                                visible: row.modelData.iconName === ""
+                                text: row.modelData.icon
+                                font.pixelSize: Config.fontSizeIcon
+                                color: Config.accentColor
+                            }
+                        }
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            spacing: 0
+                            StyledText { Layout.fillWidth: true; text: row.modelData.title; maximumLineCount: 1; font.bold: row.index === list.currentIndex }
+                            StyledText { Layout.fillWidth: true; visible: text !== ""; text: row.modelData.subtitle ?? ""; font.pixelSize: Config.fontSizeSmall; color: Config.mutedColor }
+                        }
+                        Glyph {                                   // favourite star for apps
+                            visible: row.modelData.kind === "app" &amp;&amp; (row.index === list.currentIndex || LauncherService.favorites.includes(row.modelData.data.id))
+                            text: LauncherService.favorites.includes(row.modelData.data?.id) ? Icons.star : Icons.starOutline
+                            color: Config.warningColor
+                            MouseArea { anchors.fill: parent; anchors.margins: -6; cursorShape: Qt.PointingHandCursor; onClicked: LauncherService.toggleFavorite(row.modelData.data) }
+                        }
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        anchors.rightMargin: 40
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onEntered: LauncherService.selectedIndex = row.index
+                        onClicked: LauncherService.activate(row.index)
+                    }
+                }
+            }
+
+            StyledText {
+                visible: list.count === 0 &amp;&amp; LauncherService.term !== ""
+                Layout.alignment: Qt.AlignHCenter
+                Layout.margins: Config.spacing
+                text: LauncherService.mode.id === "calc" ? "…" : "No results"
+                color: Config.mutedColor
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–26</span><b>Where and how</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PanelWindow {
+    id: root
+
+    screen: Quickshell.screens.find(s =&gt; s.name === Hyprland.focusedMonitor?.name) ?? Quickshell.screens[0]
+    anchors.top: true
+    margins.top: Math.round((screen?.height ?? 1080) * 0.2)
+    implicitWidth: 620
+    implicitHeight: box.implicitHeight + 40
+    exclusionMode: ExclusionMode.Ignore
+    color: "transparent"
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.namespace: "lyne_launcher"
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive</code></pre></div><div class="seg-e"><p>On the focused screen, a fifth of the way down, 620 px wide. Overlay layer, and <strong>exclusive</strong> keyboard focus: while it's open, your typing goes to it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 28</span><b>Click outside to close</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>HyprlandFocusGrab { active: true; windows: [root]; onCleared: LauncherService.hide() }</code></pre></div><div class="seg-e"><p>Clicking any other window clears the focus grab, which hides the launcher.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 30–45</span><b>The box and its entrance</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: box
+    width: parent.width - 40
+    x: 20
+    y: 10
+    implicitHeight: col.implicitHeight + Config.spacing * 2
+    radius: Config.radiusLarge
+    color: Config.backgroundTransparentColor
+    border.color: Config.surface1Color
+
+    // open: fade in while growing from 92% (lyne's popup motion)
+    scale: 0.92
+    opacity: 0
+    Component.onCompleted: { scale = 1; opacity = 1; }
+    Behavior on scale { NumberAnimation { duration: Config.animDuration; easing.type: Easing.OutExpo } }
+    Behavior on opacity { NumberAnimation { duration: Config.animDuration } }</code></pre></div><div class="seg-e"><p>Grows from 92% to full size while fading in, lyne's popup motion. Setting <code>scale</code> and <code>opacity</code> in <code>Component.onCompleted</code> (instead of starting at 1) is what triggers the <code>Behavior</code>s.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 55–78</span><b>The search field and mode chip</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── the search field, with the mode's icon on a chip ──
+Rectangle {
+    Layout.fillWidth: true
+    implicitHeight: 46
+    radius: Config.radius
+    color: Config.cardColor
+    RowLayout {
+        anchors.fill: parent
+        anchors.leftMargin: Config.padding
+        anchors.rightMargin: Config.spacing * 2
+        spacing: Config.spacing
+        Rectangle {
+            implicitWidth: modeRow.implicitWidth + Config.spacing * 2
+            implicitHeight: 32
+            radius: Config.radiusSmall
+            color: LauncherService.mode.id === "apps" ? "transparent" : Qt.alpha(Config.accentColor, 0.2)
+            Row {
+                id: modeRow
+                anchors.centerIn: parent
+                spacing: Config.padding
+                Glyph { text: LauncherService.mode.icon; color: Config.accentColor }
+                StyledText { visible: LauncherService.mode.id !== "apps"; text: LauncherService.mode.label; font.pixelSize: Config.fontSizeSmall; color: Config.accentColor }
+            }
+        }</code></pre></div><div class="seg-e"><p>The mode's icon sits on a chip; outside the apps mode, the chip is tinted and shows the mode's name.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 79–88</span><b>The input</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>TextInput {
+    id: input
+    Layout.fillWidth: true
+    focus: true
+    text: LauncherService.query
+    onTextEdited: LauncherService.query = text
+    color: Config.textColor
+    font.family: Config.font
+    font.pixelSize: Config.fontSizeLarge
+    clip: true</code></pre></div><div class="seg-e"><p>Its text follows <code>LauncherService.query</code>, and <code>onTextEdited</code> (only fired for typing, not for the binding) writes back to it. The service, not the window, owns the query, so <code>show("&gt;")</code> can fill it in.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 89–103</span><b>Keys</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Keys.onEscapePressed: LauncherService.hide()
+Keys.onDownPressed: LauncherService.move(1)
+Keys.onUpPressed: LauncherService.move(-1)
+Keys.onReturnPressed: LauncherService.activate()
+Keys.onEnterPressed: LauncherService.activate()
+Keys.onTabPressed: e =&gt; {
+    // Ctrl+Tab: next mode (puts its prefix in the field)
+    if (e.modifiers &amp; Qt.ControlModifier) {
+        const m = LauncherService.modes;
+        const next = m[(m.indexOf(LauncherService.mode) + 1) % m.length];
+        LauncherService.query = next.prefix + LauncherService.term;
+    } else {
+        LauncherService.move(1);
+    }
+}</code></pre></div><div class="seg-e"><p>Escape closes, arrows move, Enter runs. Tab moves down; Ctrl+Tab switches to the next mode by replacing the prefix and keeping what you typed.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 104–111</span><b>Placeholder</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>StyledText {
+    visible: parent.text === "" || parent.text === LauncherService.mode.prefix
+    anchors.verticalCenter: parent.verticalCenter
+    x: parent.text === "" ? 0 : parent.contentWidth + 4
+    text: LauncherService.mode.placeholder
+    color: Config.mutedColor
+    font.pixelSize: Config.fontSizeNormal
+}</code></pre></div><div class="seg-e"><p>Shown when the field is empty or holds only the prefix, right after the prefix.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 117–127</span><b>The results list</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ListView {
+    id: list
+    Layout.fillWidth: true
+    implicitHeight: Math.min(contentHeight, 7 * 52)
+    visible: count &gt; 0
+    clip: true
+    spacing: 2
+    model: LauncherService.entries
+    currentIndex: LauncherService.selectedIndex
+    highlightMoveDuration: Config.animDurationShort
+    highlight: Rectangle { radius: Config.radius; color: Config.cardHoverColor }</code></pre></div><div class="seg-e"><p>At most seven rows tall. Its selection follows the service's <code>selectedIndex</code>, and a highlight rectangle glides between rows.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 129–157</span><b>A row's icon</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>delegate: Item {
+    id: row
+    required property var modelData
+    required property int index
+    width: ListView.view.width
+    height: 50
+
+    RowLayout {
+        anchors.fill: parent
+        anchors.leftMargin: Config.spacing
+        anchors.rightMargin: Config.spacing
+        spacing: Config.spacing
+        Item {
+            implicitWidth: 32
+            implicitHeight: 32
+            IconImage {
+                anchors.fill: parent
+                visible: row.modelData.iconName !== ""
+                source: Quickshell.iconPath(row.modelData.iconName, "application-x-executable")
+                asynchronous: true
+            }
+            Glyph {
+                anchors.centerIn: parent
+                visible: row.modelData.iconName === ""
+                text: row.modelData.icon
+                font.pixelSize: Config.fontSizeIcon
+                color: Config.accentColor
+            }
+        }</code></pre></div><div class="seg-e"><p>An app's icon from the icon theme, or a glyph for actions, the calculator and clipboard entries.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 158–163</span><b>Title and subtitle</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ColumnLayout {
+    Layout.fillWidth: true
+    spacing: 0
+    StyledText { Layout.fillWidth: true; text: row.modelData.title; maximumLineCount: 1; font.bold: row.index === list.currentIndex }
+    StyledText { Layout.fillWidth: true; visible: text !== ""; text: row.modelData.subtitle ?? ""; font.pixelSize: Config.fontSizeSmall; color: Config.mutedColor }
+}</code></pre></div><div class="seg-e"><p>The selected row's title is bold; the subtitle (an app's description) is muted and hidden when empty.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 164–170</span><b>Favourite star</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>    Glyph {                                   // favourite star for apps
+        visible: row.modelData.kind === "app" &amp;&amp; (row.index === list.currentIndex || LauncherService.favorites.includes(row.modelData.data.id))
+        text: LauncherService.favorites.includes(row.modelData.data?.id) ? Icons.star : Icons.starOutline
+        color: Config.warningColor
+        MouseArea { anchors.fill: parent; anchors.margins: -6; cursorShape: Qt.PointingHandCursor; onClicked: LauncherService.toggleFavorite(row.modelData.data) }
+    }
+}</code></pre></div><div class="seg-e"><p>On apps: filled for favourites, outlined on the selected row. Clicking it toggles the favourite.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 171–178</span><b>Mouse</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>MouseArea {
+    anchors.fill: parent
+    anchors.rightMargin: 40
+    hoverEnabled: true
+    cursorShape: Qt.PointingHandCursor
+    onEntered: LauncherService.selectedIndex = row.index
+    onClicked: LauncherService.activate(row.index)
+}</code></pre></div><div class="seg-e"><p>Hovering selects a row; clicking runs it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 182–188</span><b>Nothing found</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>StyledText {
+    visible: list.count === 0 &amp;&amp; LauncherService.term !== ""
+    Layout.alignment: Qt.AlignHCenter
+    Layout.margins: Config.spacing
+    text: LauncherService.mode.id === "calc" ? "…" : "No results"
+    color: Config.mutedColor
+}</code></pre></div><div class="seg-e"><p>"No results", or "…" while the calculator is still working.</p></div></div></div>
+<h2 id="opening-it-with-super">Opening it with Super<a class="hlink" href="#opening-it-with-super">#</a></h2>
+<p>lyne opens the launcher when you <strong>tap</strong> Super alone, without breaking Super+1 and every other Super shortcut. Hyprland can do that with a bind on the key's release, which only fires when no other key was pressed in between. One catch: inside a release bind, Hyprland sends a global shortcut as "released" only, and the shell reacts to "pressed". So lyne dispatches it a moment later, outside the bind (<a class="xref" href="../ch/ly12-assemble.html">lyne-dots 12: Assembling the Shell and Configuring Hyprland</a> has the whole file):</p>
+<div class="codewrap"><pre class="code" data-lang="js"><code>hl.bind("SUPER + SUPER_L", function()
+    LYNE_TAP = hl.timer(function() hl.dispatch(hl.dsp.global("quickshell:app_launcher")) end,
+                        { timeout = 1, type = "oneshot" })
+end, { release = true })</code></pre></div>
+<h2 id="practice">Practice<a class="hlink" href="#practice">#</a></h2>
+<div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Warm-up</span><b>Your own action</b></div><div class="ex-b"><p>Add an action "Toggle bar style" that switches <code>bar.style</code> between "floating" and "docked-corners".</p></div><details class="ex-d ex-solution"><summary>✅ Solution</summary><div class="ex-db"><div class="codewrap"><pre class="code" data-lang="qml"><code>{ name: "Toggle bar style", icon: Icons.window, keywords: "bar layout",
+  run: () =&gt; StateService.set("bar.style", StateService.get("bar.style", "") === "floating" ? "docked-corners" : "floating") }</code></pre></div></div></details></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>A web-search mode</b></div><div class="ex-b"><p>Add a mode with the prefix <code>?</code> that shows one entry, "Search the web for …", and opens <code>https://duckduckgo.com/?q=&lt;term&gt;</code> with <code>xdg-open</code>.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Add the mode to <code>modes</code>, a case in <code>entries</code> returning one entry of kind <code>"web"</code>, and a branch in <code>activate()</code> running <code>Quickshell.execDetached(["xdg-open", "https://duckduckgo.com/?q=" + encodeURIComponent(e.data)])</code>.</p></div></details></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>Highlight the match</b></div><div class="ex-b"><p>Show the matched letters of app names in the accent colour. Make <code>score()</code> also return the positions it matched, and build the title as rich text with <code>&lt;font color=…&gt;</code> around those letters.</p></div></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Challenge</span><b>Emoji mode</b></div><div class="ex-b"><p>Add a <code>:</code> mode that searches a list of emoji by name (keep a small JSON file next to the service) and copies the chosen one.</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/ly6-panels.html"><small>← Previous</small><span>lyne-dots 6: Panels That Grow Out of the Bar</span></a><a class="pn-next" href="../ch/ly8-notifications-osd.html"><small>Next →</small><span>lyne-dots 8: Notifications, Audio and the OSD</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#fuzzy-matching">Fuzzy matching</a><a class="l2" href="#the-actions">The actions</a><a class="l2" href="#the-launcher-service">The launcher service</a><a class="l2" href="#the-window">The window</a><a class="l2" href="#opening-it-with-super">Opening it with Super</a><a class="l2" href="#practice">Practice</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

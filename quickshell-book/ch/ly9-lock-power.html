@@ -1,0 +1,1313 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>lyne-dots 9: Lock Screen, Power Menu and Idle · The Quickshell Book</title>
+<meta name="description" content="lyne-dots 9: Lock Screen, Power Menu and Idle">
+<link rel="stylesheet" href="../assets/style.css?v=fb9dc3f8">
+<script>try{var t=localStorage.getItem('qsb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head><body data-rel="../">
+<header class="top">
+ <button class="ib" id="menuBtn" aria-label="Menu">☰</button>
+ <a class="brand" href="../index.html">The <b>Quickshell</b> Book</a>
+ <div class="search"><input id="q" type="search" placeholder="Search types, properties, chapters…  ( / )" autocomplete="off"><div id="qres"></div></div>
+ <button class="ib" id="themeBtn" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+<aside class="side" id="side"><nav class="side-nav">
+<a class="home" href="../index.html">⌂ Cover &amp; Contents</a>
+<details><summary><span class="pn">I</span>Welcome to Ricing</summary>
+<a class="ch" href="../ch/01-what-is-ricing.html"><span class="num">01</span>What Ricing Is (and How a Linux Desktop Works)</a>
+<a class="ch" href="../ch/02-linux-survival.html"><span class="num">02</span>Linux Survival Kit for Ricers</a>
+<a class="ch" href="../ch/03-install.html"><span class="num">03</span>Installing Quickshell and Your Toolbox</a>
+<a class="ch" href="../ch/04-first-shell.html"><span class="num">04</span>Your First Shell and the Dev Loop</a>
+<a class="ch" href="../ch/05-editor.html"><span class="num">05</span>Setting Up Your Editor</a>
+</details>
+<details><summary><span class="pn">II</span>The QML Language</summary>
+<a class="ch" href="../ch/06-objects-properties.html"><span class="num">06</span>Objects and Properties</a>
+<a class="ch" href="../ch/07-value-types.html"><span class="num">07</span>Value Types in Depth</a>
+<a class="ch" href="../ch/08-ids-scope.html"><span class="num">08</span>ids, parent and Scope</a>
+<a class="ch" href="../ch/09-bindings.html"><span class="num">09</span>Bindings: The Heart of QML</a>
+<a class="ch" href="../ch/10-signals.html"><span class="num">10</span>Signals, Handlers and Connections</a>
+<a class="ch" href="../ch/11-javascript.html"><span class="num">11</span>The JavaScript You Need</a>
+<a class="ch" href="../ch/12-components.html"><span class="num">12</span>Components, Files and Imports</a>
+<a class="ch" href="../ch/13-attached-enums.html"><span class="num">13</span>Attached, Grouped and Enum Properties</a>
+<a class="ch" href="../ch/14-lifecycle.html"><span class="num">14</span>Object Lifecycle and Dynamic Creation</a>
+</details>
+<details><summary><span class="pn">III</span>Qt Quick: Drawing Things</summary>
+<a class="ch" href="../ch/15-item.html"><span class="num">15</span>Item and the Visual Tree</a>
+<a class="ch" href="../ch/16-rect-text-image.html"><span class="num">16</span>Rectangle, Text and Image</a>
+<a class="ch" href="../ch/17-sizing.html"><span class="num">17</span>Sizing and Implicit Size</a>
+<a class="ch" href="../ch/18-anchors.html"><span class="num">18</span>Anchors</a>
+<a class="ch" href="../ch/19-layouts.html"><span class="num">19</span>Positioners and Layouts</a>
+<a class="ch" href="../ch/20-models-views.html"><span class="num">20</span>Models, Repeater and ListView</a>
+<a class="ch" href="../ch/21-input.html"><span class="num">21</span>Mouse, Touchpad and Keyboard Input</a>
+<a class="ch" href="../ch/22-controls.html"><span class="num">22</span>Qt Quick Controls and Restyling Them</a>
+<a class="ch" href="../ch/23-animation-basics.html"><span class="num">23</span>Animation I: Behaviors and Easing</a>
+<a class="ch" href="../ch/24-animation-advanced.html"><span class="num">24</span>Animation II: States, Transitions, Sequences</a>
+<a class="ch" href="../ch/25-effects.html"><span class="num">25</span>Effects: Shadows, Blur, Masks, Tints</a>
+<a class="ch" href="../ch/26-shapes-canvas.html"><span class="num">26</span>Shapes and Canvas</a>
+<a class="ch" href="../ch/27-fonts-icons.html"><span class="num">27</span>Fonts and Icons</a>
+<a class="ch" href="../ch/28-timers-time.html"><span class="num">28</span>Timers, Dates and Time</a>
+</details>
+<details><summary><span class="pn">IV</span>Quickshell Concepts</summary>
+<a class="ch" href="../ch/29-shell-structure.html"><span class="num">29</span>Shell Structure, Pragmas and Reloading</a>
+<a class="ch" href="../ch/30-panel-windows.html"><span class="num">30</span>Windows: PanelWindow, Layers and Exclusive Zones</a>
+<a class="ch" href="../ch/31-multi-monitor.html"><span class="num">31</span>Multiple Monitors with Variants</a>
+<a class="ch" href="../ch/32-popups-menus.html"><span class="num">32</span>Popups, Anchors and Menus</a>
+<a class="ch" href="../ch/33-singletons.html"><span class="num">33</span>Singletons and Global State</a>
+<a class="ch" href="../ch/34-lazy-loading.html"><span class="num">34</span>Lazy Loading and Memory</a>
+<a class="ch" href="../ch/35-masks.html"><span class="num">35</span>Masks, Regions and Click-Through</a>
+<a class="ch" href="../ch/36-models.html"><span class="num">36</span>ObjectModel and ScriptModel</a>
+<a class="ch" href="../ch/37-processes.html"><span class="num">37</span>Running Commands with Process</a>
+<a class="ch" href="../ch/38-files-json.html"><span class="num">38</span>Files, Watching and JSON Config</a>
+<a class="ch" href="../ch/39-ipc-keybinds.html"><span class="num">39</span>IPC, Keybinds and Sockets</a>
+<a class="ch" href="../ch/40-compositors.html"><span class="num">40</span>Talking to Your Compositor</a>
+<a class="ch" href="../ch/41-services-tour.html"><span class="num">41</span>A Tour of the System Services</a>
+</details>
+<details><summary><span class="pn">V</span>Design and Architecture</summary>
+<a class="ch" href="../ch/42-project-layout.html"><span class="num">42</span>Project Layout of a Real Shell</a>
+<a class="ch" href="../ch/43-design-system.html"><span class="num">43</span>Building a Design System</a>
+<a class="ch" href="../ch/44-theming.html"><span class="num">44</span>Colors and Wallpaper Theming</a>
+<a class="ch" href="../ch/45-motion.html"><span class="num">45</span>Motion Design</a>
+<a class="ch" href="../ch/46-state.html"><span class="num">46</span>Orchestrating Panels and State</a>
+</details>
+<details><summary><span class="pn">VI</span>Build-Along Projects</summary>
+<a class="ch" href="../ch/47-proj-bar.html"><span class="num">47</span>Project: The Bar</a>
+<a class="ch" href="../ch/48-proj-workspaces.html"><span class="num">48</span>Project: Workspace Indicators (All Compositors)</a>
+<a class="ch" href="../ch/49-proj-clock-calendar.html"><span class="num">49</span>Project: Clock and Calendar Popup</a>
+<a class="ch" href="../ch/50-proj-tray.html"><span class="num">50</span>Project: System Tray with Custom Menus</a>
+<a class="ch" href="../ch/51-proj-notifications.html"><span class="num">51</span>Project: Notification Daemon</a>
+<a class="ch" href="../ch/52-proj-launcher.html"><span class="num">52</span>Project: App Launcher</a>
+<a class="ch" href="../ch/53-proj-osd.html"><span class="num">53</span>Project: Volume and Brightness OSD</a>
+<a class="ch" href="../ch/54-proj-media.html"><span class="num">54</span>Project: Media Player</a>
+<a class="ch" href="../ch/55-proj-control-center.html"><span class="num">55</span>Project: Control Center</a>
+<a class="ch" href="../ch/56-proj-session.html"><span class="num">56</span>Project: Power Menu</a>
+<a class="ch" href="../ch/57-proj-lock.html"><span class="num">57</span>Project: Lock Screen</a>
+<a class="ch" href="../ch/58-proj-overview.html"><span class="num">58</span>Project: Workspace Overview</a>
+<a class="ch" href="../ch/59-proj-dock.html"><span class="num">59</span>Project: Dock</a>
+<a class="ch" href="../ch/60-proj-wallpaper.html"><span class="num">60</span>Project: Wallpaper and Theme Switcher</a>
+<a class="ch" href="../ch/61-proj-clipboard.html"><span class="num">61</span>Project: Clipboard Manager</a>
+<a class="ch" href="../ch/62-proj-desktop.html"><span class="num">62</span>Project: Desktop Widgets and Screen Corners</a>
+<a class="ch" href="../ch/63-proj-polkit.html"><span class="num">63</span>Project: Polkit Authentication Agent</a>
+<a class="ch" href="../ch/64-proj-greeter.html"><span class="num">64</span>Project: Login Greeter</a>
+<a class="ch" href="../ch/65-proj-drawers.html"><span class="num">65</span>Project: Edge Drawers (Caelestia Style)</a>
+</details>
+<details><summary><span class="pn">VII</span>Mastery</summary>
+<a class="ch" href="../ch/66-debugging.html"><span class="num">66</span>Debugging</a>
+<a class="ch" href="../ch/67-performance.html"><span class="num">67</span>Performance</a>
+<a class="ch" href="../ch/68-reading-rices.html"><span class="num">68</span>Reading Other People's Rices</a>
+<a class="ch" href="../ch/69-cookbook.html"><span class="num">69</span>Cookbook: 60 Small Recipes</a>
+<a class="ch" href="../ch/70-beyond.html"><span class="num">70</span>Beyond QML: Plugins and Helpers</a>
+<a class="ch" href="../ch/71-sharing.html"><span class="num">71</span>Sharing and Maintaining Your Rice</a>
+</details>
+<details><summary><span class="pn">R</span>Ricing Guides</summary>
+<a class="ch" href="../ch/r0-theme-system.html"><span class="num">r0</span>Ricing: The Process and a Switchable Theme System</a>
+<a class="ch" href="../ch/r1-bar.html"><span class="num">r1</span>Ricing the Bar, Module by Module</a>
+<a class="ch" href="../ch/r2-lockscreen.html"><span class="num">r2</span>Ricing the Lock Screen, Module by Module</a>
+<a class="ch" href="../ch/r3-launcher.html"><span class="num">r3</span>Ricing the Launcher, Module by Module</a>
+<a class="ch" href="../ch/r4-notifications.html"><span class="num">r4</span>Ricing Notifications, Module by Module</a>
+<a class="ch" href="../ch/r5-control-center.html"><span class="num">r5</span>Ricing the Control Center, Module by Module</a>
+<a class="ch" href="../ch/r6-osd-power.html"><span class="num">r6</span>Ricing OSDs and the Power Menu</a>
+<a class="ch" href="../ch/r7-dock.html"><span class="num">r7</span>Ricing the Dock, Module by Module</a>
+<a class="ch" href="../ch/r8-desktop.html"><span class="num">r8</span>Ricing the Desktop: Wallpaper, Widgets, Corners</a>
+<a class="ch" href="../ch/r9-assemble.html"><span class="num">r9</span>Putting It Together: One Shell, Many Rices</a>
+</details>
+<details><summary><span class="pn">F</span>Rebuilding Famous Rices</summary>
+<a class="ch" href="../ch/f0-famous-rices.html"><span class="num">f0</span>Rebuilding Famous Rices: How This Part Works</a>
+<a class="ch" href="../ch/cae1-overview.html"><span class="num">cae1</span>Caelestia 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/cae2-foundations.html"><span class="num">cae2</span>Caelestia 2: Tokens, Colours and Building Blocks</a>
+<a class="ch" href="../ch/cae3-frame.html"><span class="num">cae3</span>Caelestia 3: The Frame and the Drawer System</a>
+<a class="ch" href="../ch/cae4-bar.html"><span class="num">cae4</span>Caelestia 4: The Vertical Bar and Its Popouts</a>
+<a class="ch" href="../ch/cae5-dashboard.html"><span class="num">cae5</span>Caelestia 5: The Dashboard</a>
+<a class="ch" href="../ch/cae6-launcher.html"><span class="num">cae6</span>Caelestia 6: The Launcher</a>
+<a class="ch" href="../ch/cae7-right-drawers.html"><span class="num">cae7</span>Caelestia 7: Notifications, Sidebar, Session, OSD, Utilities</a>
+<a class="ch" href="../ch/cae8-lock-background.html"><span class="num">cae8</span>Caelestia 8: Lock Screen, Wallpaper and Shortcuts</a>
+<a class="ch" href="../ch/cae9-assemble.html"><span class="num">cae9</span>Caelestia 9: Assembling, Theming and Making It Yours</a>
+<a class="ch" href="../ch/ii1-overview.html"><span class="num">ii1</span>end-4 1: What illogical-impulse Is and How It's Built</a>
+<a class="ch" href="../ch/ii2-foundations.html"><span class="num">ii2</span>end-4 2: Appearance, Config and Common Widgets</a>
+<a class="ch" href="../ch/ii3-bar.html"><span class="num">ii3</span>end-4 3: The Bar</a>
+<a class="ch" href="../ch/ii4-workspaces.html"><span class="num">ii4</span>end-4 4: The Workspace Indicator</a>
+<a class="ch" href="../ch/ii5-sidebars.html"><span class="num">ii5</span>end-4 5: The Left and Right Sidebars</a>
+<a class="ch" href="../ch/ii6-overview.html"><span class="num">ii6</span>end-4 6: The Overview and Search</a>
+<a class="ch" href="../ch/ii7-popups.html"><span class="num">ii7</span>end-4 7: OSD, Notification Popups and Screen Corners</a>
+<a class="ch" href="../ch/ii8-lock-session.html"><span class="num">ii8</span>end-4 8: Lock Screen, Session Screen and Background</a>
+<a class="ch" href="../ch/ii9-assemble.html"><span class="num">ii9</span>end-4 9: Assembling, Theming and Making It Yours</a>
+</details>
+<details open><summary><span class="pn">L</span>Ricing lyne-dots</summary>
+<a class="ch" href="../ch/ly1-overview.html"><span class="num">ly1</span>lyne-dots 1: What It Is and How It's Built</a>
+<a class="ch" href="../ch/ly2-state.html"><span class="num">ly2</span>lyne-dots 2: One File for Every Setting</a>
+<a class="ch" href="../ch/ly3-config-theme.html"><span class="num">ly3</span>lyne-dots 3: Design Tokens, Themes and the Colour Fade</a>
+<a class="ch" href="../ch/ly4-components.html"><span class="num">ly4</span>lyne-dots 4: The Building Blocks</a>
+<a class="ch" href="../ch/ly5-bar.html"><span class="num">ly5</span>lyne-dots 5: The Bar</a>
+<a class="ch" href="../ch/ly6-panels.html"><span class="num">ly6</span>lyne-dots 6: Panels That Grow Out of the Bar</a>
+<a class="ch" href="../ch/ly7-launcher.html"><span class="num">ly7</span>lyne-dots 7: The Launcher</a>
+<a class="ch" href="../ch/ly8-notifications-osd.html"><span class="num">ly8</span>lyne-dots 8: Notifications, Audio and the OSD</a>
+<a class="ch active" href="../ch/ly9-lock-power.html"><span class="num">ly9</span>lyne-dots 9: Lock Screen, Power Menu and Idle</a>
+<a class="ch" href="../ch/ly10-screenshot-wallpaper.html"><span class="num">ly10</span>lyne-dots 10: Screenshots and Wallpapers</a>
+<a class="ch" href="../ch/ly11-settings.html"><span class="num">ly11</span>lyne-dots 11: The Settings App</a>
+<a class="ch" href="../ch/ly12-assemble.html"><span class="num">ly12</span>lyne-dots 12: Assembling the Shell and Configuring Hyprland</a>
+<a class="ch" href="../ch/ly13-rice-it.html"><span class="num">ly13</span>lyne-dots 13: Ricing lyne-dots, Start to Finish</a>
+</details>
+<details><summary><span class="pn">S</span>Building a Settings App</summary>
+<a class="ch" href="../ch/set1-overview.html"><span class="num">set1</span>Settings App 1: How Rices Build Settings</a>
+<a class="ch" href="../ch/set2-building-blocks.html"><span class="num">set2</span>Settings App 2: Setting Rows and Controls</a>
+<a class="ch" href="../ch/set3-window.html"><span class="num">set3</span>Settings App 3: The Window, Navigation and Search</a>
+<a class="ch" href="../ch/set4-pages.html"><span class="num">set4</span>Settings App 4: The Pages</a>
+<a class="ch" href="../ch/set5-profiles.html"><span class="num">set5</span>Settings App 5: Managing the Rice, and Testing It</a>
+</details>
+<details><summary><span class="pn">T</span>Theming</summary>
+<a class="ch" href="../ch/th1-colour-basics.html"><span class="num">th1</span>Theming 1: Colours, Palettes and Roles</a>
+<a class="ch" href="../ch/th2-theme-files.html"><span class="num">th2</span>Theming 2: Theme Files and the 19 Built-in Themes</a>
+<a class="ch" href="../ch/th3-theme-service.html"><span class="num">th3</span>Theming 3: The Theme Service</a>
+<a class="ch" href="../ch/th4-themed-widgets.html"><span class="num">th4</span>Theming 4: Making Widgets Themeable</a>
+<a class="ch" href="../ch/th5-theme-switcher.html"><span class="num">th5</span>Theming 5: The Theme Switcher</a>
+<a class="ch" href="../ch/th6-adding-themes.html"><span class="num">th6</span>Theming 6: Adding and Creating Themes</a>
+<a class="ch" href="../ch/th7-beyond-the-shell.html"><span class="num">th7</span>Theming 7: Theming Your Whole Desktop</a>
+</details>
+<details><summary><span class="pn">G</span>Widget Gallery</summary>
+<a class="ch" href="../ch/g0-overview.html"><span class="num">g0</span>Widget Gallery: Overview and Test Harness</a>
+<a class="ch" href="../ch/g1-bar-modules.html"><span class="num">g1</span>Gallery: Bar Modules</a>
+<a class="ch" href="../ch/g2-system-monitors.html"><span class="num">g2</span>Gallery: System Monitors and Live Stats</a>
+<a class="ch" href="../ch/g3-islands-popups.html"><span class="num">g3</span>Gallery: Dynamic Islands, Popups and OSDs</a>
+<a class="ch" href="../ch/g4-panels.html"><span class="num">g4</span>Gallery: Panels and Menus</a>
+<a class="ch" href="../ch/g5-desktop.html"><span class="num">g5</span>Gallery: Desktop Widgets</a>
+<a class="ch" href="../ch/g6-effects.html"><span class="num">g6</span>Gallery: Effects, Decorations and Interactions</a>
+<a class="ch" href="../ch/g7-bar-modules-2.html"><span class="num">g7</span>Gallery: More Bar Modules</a>
+<a class="ch" href="../ch/g8-popups-menus-2.html"><span class="num">g8</span>Gallery: Popups, Menus and Pickers</a>
+<a class="ch" href="../ch/g9-system.html"><span class="num">g9</span>Gallery: System Pieces</a>
+<a class="ch" href="../ch/g10-full-shell.html"><span class="num">g10</span>Gallery: Build a Whole Shell from the Gallery</a>
+</details>
+<details><summary><span class="pn">A</span>Animation Library</summary>
+<a class="ch" href="../ch/a0-overview.html"><span class="num">a0</span>Animation Library: Overview and Every Easing Curve</a>
+<a class="ch" href="../ch/a1-types.html"><span class="num">a1</span>Animations: Every Animation Type</a>
+<a class="ch" href="../ch/a2-enter-exit.html"><span class="num">a2</span>Animations: Entrances and Exits</a>
+<a class="ch" href="../ch/a3-hover-press.html"><span class="num">a3</span>Animations: Hover and Press Micro-interactions</a>
+<a class="ch" href="../ch/a4-loops.html"><span class="num">a4</span>Animations: Loops, Loaders and Ambient Motion</a>
+<a class="ch" href="../ch/a5-morphs.html"><span class="num">a5</span>Animations: Morphs, Indicators and Transitions</a>
+</details>
+<details><summary><span class="pn">Q</span>Qt Quick Reference</summary>
+<a class="ch" href="../ch/q1-qt-visual.html"><span class="num">q1</span>Qt Reference: Visual Types</a>
+<a class="ch" href="../ch/q2-qt-layout.html"><span class="num">q2</span>Qt Reference: Positioning and Layouts</a>
+<a class="ch" href="../ch/q3-qt-input.html"><span class="num">q3</span>Qt Reference: Input Types</a>
+<a class="ch" href="../ch/q4-qt-views.html"><span class="num">q4</span>Qt Reference: Models and Views</a>
+<a class="ch" href="../ch/q5-qt-animation.html"><span class="num">q5</span>Qt Reference: Animation Types</a>
+<a class="ch" href="../ch/q6-qt-controls.html"><span class="num">q6</span>Qt Reference: Controls</a>
+<a class="ch" href="../ch/q7-qt-effects.html"><span class="num">q7</span>Qt Reference: Effects, Shapes, Canvas</a>
+<a class="ch" href="../ch/q8-qt-globals.html"><span class="num">q8</span>Qt Reference: The Qt Object and JS Globals</a>
+</details>
+<details><summary><span class="pn">API</span>Quickshell API Reference</summary>
+<a class="ch" href="../ref/index.html"><span class="num">★</span>All modules</a>
+<details class="mod"><summary>Quickshell</summary>
+<a class="ty" href="../ref/mod-quickshell.html">Module overview</a>
+<a class="ty" href="../ref/QuickshellSettings.html">QuickshellSettings</a>
+<a class="ty" href="../ref/Quickshell.html">Quickshell<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ShellScreen.html">ShellScreen</a>
+<a class="ty" href="../ref/Reloadable.html">Reloadable</a>
+<a class="ty" href="../ref/Scope.html">Scope</a>
+<a class="ty" href="../ref/ShellRoot.html">ShellRoot</a>
+<a class="ty" href="../ref/Variants.html">Variants</a>
+<a class="ty" href="../ref/RegionShape.html">RegionShape<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Intersection.html">Intersection<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Region.html">Region</a>
+<a class="ty" href="../ref/PersistentProperties.html">PersistentProperties</a>
+<a class="ty" href="../ref/QsWindow.html">QsWindow</a>
+<a class="ty" href="../ref/ExclusionMode.html">ExclusionMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PanelWindow.html">PanelWindow</a>
+<a class="ty" href="../ref/FloatingWindow.html">FloatingWindow</a>
+<a class="ty" href="../ref/PopupWindow.html">PopupWindow</a>
+<a class="ty" href="../ref/Singleton.html">Singleton</a>
+<a class="ty" href="../ref/LazyLoader.html">LazyLoader</a>
+<a class="ty" href="../ref/EasingCurve.html">EasingCurve</a>
+<a class="ty" href="../ref/TransformWatcher.html">TransformWatcher</a>
+<a class="ty" href="../ref/BoundComponent.html">BoundComponent</a>
+<a class="ty" href="../ref/ObjectModel.html">ObjectModel</a>
+<a class="ty" href="../ref/ElapsedTimer.html">ElapsedTimer</a>
+<a class="ty" href="../ref/DesktopEntry.html">DesktopEntry</a>
+<a class="ty" href="../ref/DesktopAction.html">DesktopAction</a>
+<a class="ty" href="../ref/DesktopEntries.html">DesktopEntries<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/QsMenuButtonType.html">QsMenuButtonType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuHandle.html">QsMenuHandle</a>
+<a class="ty" href="../ref/QsMenuEntry.html">QsMenuEntry</a>
+<a class="ty" href="../ref/QsMenuOpener.html">QsMenuOpener</a>
+<a class="ty" href="../ref/Retainable.html">Retainable</a>
+<a class="ty" href="../ref/RetainableLock.html">RetainableLock</a>
+<a class="ty" href="../ref/PopupAdjustment.html">PopupAdjustment<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PopupAnchor.html">PopupAnchor</a>
+<a class="ty" href="../ref/Edges.html">Edges<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/QsMenuAnchor.html">QsMenuAnchor</a>
+<a class="ty" href="../ref/SystemClock.html">SystemClock</a>
+<a class="ty" href="../ref/ObjectComparison.html">ObjectComparison<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ScriptModel.html">ScriptModel</a>
+<a class="ty" href="../ref/ColorQuantizer.html">ColorQuantizer</a>
+</details>
+<details class="mod"><summary>Quickshell.Io</summary>
+<a class="ty" href="../ref/mod-quickshell-io.html">Module overview</a>
+<a class="ty" href="../ref/DataStream.html">DataStream</a>
+<a class="ty" href="../ref/DataStreamParser.html">DataStreamParser</a>
+<a class="ty" href="../ref/SplitParser.html">SplitParser</a>
+<a class="ty" href="../ref/StdioCollector.html">StdioCollector</a>
+<a class="ty" href="../ref/Socket.html">Socket</a>
+<a class="ty" href="../ref/SocketServer.html">SocketServer</a>
+<a class="ty" href="../ref/Process.html">Process</a>
+<a class="ty" href="../ref/FileViewError.html">FileViewError<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/FileView.html">FileView</a>
+<a class="ty" href="../ref/FileViewAdapter.html">FileViewAdapter</a>
+<a class="ty" href="../ref/JsonObject.html">JsonObject</a>
+<a class="ty" href="../ref/JsonAdapter.html">JsonAdapter</a>
+<a class="ty" href="../ref/IpcHandler.html">IpcHandler</a>
+</details>
+<details class="mod"><summary>Quickshell.Widgets</summary>
+<a class="ty" href="../ref/mod-quickshell-widgets.html">Module overview</a>
+<a class="ty" href="../ref/WrapperManager.html">WrapperManager</a>
+<a class="ty" href="../ref/MarginWrapperManager.html">MarginWrapperManager</a>
+<a class="ty" href="../ref/IconImage.html">IconImage</a>
+<a class="ty" href="../ref/ClippingRectangle.html">ClippingRectangle</a>
+<a class="ty" href="../ref/WrapperItem.html">WrapperItem</a>
+<a class="ty" href="../ref/WrapperMouseArea.html">WrapperMouseArea</a>
+<a class="ty" href="../ref/WrapperRectangle.html">WrapperRectangle</a>
+<a class="ty" href="../ref/ClippingWrapperRectangle.html">ClippingWrapperRectangle</a>
+</details>
+<details class="mod"><summary>Quickshell.Wayland</summary>
+<a class="ty" href="../ref/mod-quickshell-wayland.html">Module overview</a>
+<a class="ty" href="../ref/WlrLayer.html">WlrLayer<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrKeyboardFocus.html">WlrKeyboardFocus<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WlrLayershell.html">WlrLayershell</a>
+<a class="ty" href="../ref/WlSessionLock.html">WlSessionLock</a>
+<a class="ty" href="../ref/WlSessionLockSurface.html">WlSessionLockSurface</a>
+<a class="ty" href="../ref/Toplevel.html">Toplevel</a>
+<a class="ty" href="../ref/ToplevelManager.html">ToplevelManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/ScreencopyView.html">ScreencopyView</a>
+<a class="ty" href="../ref/IdleInhibitor.html">IdleInhibitor</a>
+<a class="ty" href="../ref/IdleMonitor.html">IdleMonitor</a>
+<a class="ty" href="../ref/ShortcutInhibitor.html">ShortcutInhibitor</a>
+<a class="ty" href="../ref/BackgroundEffect.html">BackgroundEffect</a>
+</details>
+<details class="mod"><summary>Quickshell.Hyprland</summary>
+<a class="ty" href="../ref/mod-quickshell-hyprland.html">Module overview</a>
+<a class="ty" href="../ref/HyprlandEvent.html">HyprlandEvent</a>
+<a class="ty" href="../ref/HyprlandMonitor.html">HyprlandMonitor</a>
+<a class="ty" href="../ref/HyprlandWorkspace.html">HyprlandWorkspace</a>
+<a class="ty" href="../ref/HyprlandToplevel.html">HyprlandToplevel</a>
+<a class="ty" href="../ref/Hyprland.html">Hyprland<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/HyprlandFocusGrab.html">HyprlandFocusGrab</a>
+<a class="ty" href="../ref/GlobalShortcut.html">GlobalShortcut</a>
+<a class="ty" href="../ref/HyprlandWindow.html">HyprlandWindow</a>
+</details>
+<details class="mod"><summary>Quickshell.I3</summary>
+<a class="ty" href="../ref/mod-quickshell-i3.html">Module overview</a>
+<a class="ty" href="../ref/I3Event.html">I3Event</a>
+<a class="ty" href="../ref/I3.html">I3<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/I3Workspace.html">I3Workspace</a>
+<a class="ty" href="../ref/I3Monitor.html">I3Monitor</a>
+<a class="ty" href="../ref/I3IpcListener.html">I3IpcListener</a>
+</details>
+<details class="mod"><summary>Quickshell.Niri</summary>
+<a class="ty" href="../ref/mod-quickshell-niri.html">Module overview</a>
+<a class="ty" href="../ref/NiriEvent.html">NiriEvent</a>
+<a class="ty" href="../ref/NiriOutput.html">NiriOutput</a>
+<a class="ty" href="../ref/NiriWorkspace.html">NiriWorkspace</a>
+<a class="ty" href="../ref/NiriWindow.html">NiriWindow</a>
+<a class="ty" href="../ref/Niri.html">Niri<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DWL</summary>
+<a class="ty" href="../ref/mod-quickshell-dwl.html">Module overview</a>
+<a class="ty" href="../ref/DwlIpc.html">DwlIpc<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/DwlIpcOutput.html">DwlIpcOutput</a>
+<a class="ty" href="../ref/DwlTag.html">DwlTag</a>
+</details>
+<details class="mod"><summary>Quickshell.WindowManager</summary>
+<a class="ty" href="../ref/mod-quickshell-windowmanager.html">Module overview</a>
+<a class="ty" href="../ref/WindowManager.html">WindowManager<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Windowset.html">Windowset</a>
+<a class="ty" href="../ref/WindowsetProjection.html">WindowsetProjection</a>
+<a class="ty" href="../ref/ScreenProjection.html">ScreenProjection</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pipewire</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pipewire.html">Module overview</a>
+<a class="ty" href="../ref/Pipewire.html">Pipewire<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/PwNodeLinkTracker.html">PwNodeLinkTracker</a>
+<a class="ty" href="../ref/PwNodeAudio.html">PwNodeAudio</a>
+<a class="ty" href="../ref/PwNode.html">PwNode</a>
+<a class="ty" href="../ref/PwLink.html">PwLink</a>
+<a class="ty" href="../ref/PwLinkGroup.html">PwLinkGroup</a>
+<a class="ty" href="../ref/PwObjectTracker.html">PwObjectTracker</a>
+<a class="ty" href="../ref/PwNodePeakMonitor.html">PwNodePeakMonitor</a>
+<a class="ty" href="../ref/PwLinkState.html">PwLinkState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwAudioChannel.html">PwAudioChannel<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PwNodeType.html">PwNodeType<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Mpris</summary>
+<a class="ty" href="../ref/mod-quickshell-services-mpris.html">Module overview</a>
+<a class="ty" href="../ref/MprisPlaybackState.html">MprisPlaybackState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisLoopState.html">MprisLoopState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/MprisPlayer.html">MprisPlayer</a>
+<a class="ty" href="../ref/Mpris.html">Mpris<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.UPower</summary>
+<a class="ty" href="../ref/mod-quickshell-services-upower.html">Module overview</a>
+<a class="ty" href="../ref/UPower.html">UPower<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/UPowerDeviceState.html">UPowerDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDeviceType.html">UPowerDeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/UPowerDevice.html">UPowerDevice</a>
+<a class="ty" href="../ref/PowerProfile.html">PowerProfile<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PerformanceDegradationReason.html">PerformanceDegradationReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PowerProfiles.html">PowerProfiles<span class="tb tb-S">S</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.SystemTray</summary>
+<a class="ty" href="../ref/mod-quickshell-services-systemtray.html">Module overview</a>
+<a class="ty" href="../ref/SystemTray.html">SystemTray<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Status.html">Status<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Category.html">Category<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/SystemTrayItem.html">SystemTrayItem</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Notifications</summary>
+<a class="ty" href="../ref/mod-quickshell-services-notifications.html">Module overview</a>
+<a class="ty" href="../ref/NotificationServer.html">NotificationServer</a>
+<a class="ty" href="../ref/NotificationUrgency.html">NotificationUrgency<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NotificationCloseReason.html">NotificationCloseReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/Notification.html">Notification</a>
+<a class="ty" href="../ref/NotificationAction.html">NotificationAction</a>
+</details>
+<details class="mod"><summary>Quickshell.Bluetooth</summary>
+<a class="ty" href="../ref/mod-quickshell-bluetooth.html">Module overview</a>
+<a class="ty" href="../ref/Bluetooth.html">Bluetooth<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/BluetoothAdapterState.html">BluetoothAdapterState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothAdapter.html">BluetoothAdapter</a>
+<a class="ty" href="../ref/BluetoothDeviceState.html">BluetoothDeviceState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/BluetoothDevice.html">BluetoothDevice</a>
+</details>
+<details class="mod"><summary>Quickshell.Networking</summary>
+<a class="ty" href="../ref/mod-quickshell-networking.html">Module overview</a>
+<a class="ty" href="../ref/Networking.html">Networking<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/Network.html">Network</a>
+<a class="ty" href="../ref/NetworkDevice.html">NetworkDevice</a>
+<a class="ty" href="../ref/WifiNetwork.html">WifiNetwork</a>
+<a class="ty" href="../ref/WifiDevice.html">WifiDevice</a>
+<a class="ty" href="../ref/WiredDevice.html">WiredDevice</a>
+<a class="ty" href="../ref/NetworkConnectivity.html">NetworkConnectivity<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NetworkBackendType.html">NetworkBackendType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionState.html">ConnectionState<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/ConnectionFailReason.html">ConnectionFailReason<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/DeviceType.html">DeviceType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiSecurityType.html">WifiSecurityType<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/WifiDeviceMode.html">WifiDeviceMode<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/NMSettings.html">NMSettings</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Pam</summary>
+<a class="ty" href="../ref/mod-quickshell-services-pam.html">Module overview</a>
+<a class="ty" href="../ref/PamContext.html">PamContext</a>
+<a class="ty" href="../ref/PamResult.html">PamResult<span class="tb tb-E">E</span></a>
+<a class="ty" href="../ref/PamError.html">PamError<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Polkit</summary>
+<a class="ty" href="../ref/mod-quickshell-services-polkit.html">Module overview</a>
+<a class="ty" href="../ref/AuthFlow.html">AuthFlow</a>
+<a class="ty" href="../ref/PolkitAgent.html">PolkitAgent</a>
+</details>
+<details class="mod"><summary>Quickshell.Services.Greetd</summary>
+<a class="ty" href="../ref/mod-quickshell-services-greetd.html">Module overview</a>
+<a class="ty" href="../ref/Greetd.html">Greetd<span class="tb tb-S">S</span></a>
+<a class="ty" href="../ref/GreetdState.html">GreetdState<span class="tb tb-E">E</span></a>
+</details>
+<details class="mod"><summary>Quickshell.DBusMenu</summary>
+<a class="ty" href="../ref/mod-quickshell-dbusmenu.html">Module overview</a>
+<a class="ty" href="../ref/DBusMenuItem.html">DBusMenuItem</a>
+<a class="ty" href="../ref/DBusMenuHandle.html">DBusMenuHandle</a>
+</details>
+</details>
+<div class="side-sep">Appendices</div>
+<a class="ch" href="../qt-index.html">Qt Type Index</a>
+<a class="ch" href="../glossary.html">Glossary</a>
+<a class="ch" href="../az.html">A–Z Index</a>
+<a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
+<a class="ch" href="../print.html">Whole Book (print / PDF)</a>
+</nav></aside>
+<main class="content"><div class="crumbs"><a href="../index.html#part-l">Part L: Ricing lyne-dots</a> › lyne-dots 9: Lock Screen, Power Menu and Idle</div><article><div class="ch-head"><div class="ch-part">Part L · Ricing lyne-dots</div><h1><span class="ch-num">ly9</span>lyne-dots 9: Lock Screen, Power Menu and Idle</h1></div><p>Three pieces that deal with the session: a <strong>lock screen</strong> that checks your real password and can't be bypassed, lyne's <strong>power menu</strong> with a key for every action and a countdown before restarting, and <strong>idle handling</strong> that locks the screen and turns the displays off when you walk away.</p>
+<div class="preview"><svg style="width:min(100%,930px)" width="620" height="300" viewBox="0 0 620 300"><defs><filter id="lyb"><feGaussianBlur stdDeviation="6"/></filter></defs><rect width="620" height="300" fill="#1a1b26"/><g filter="url(#lyb)" opacity=".7"><circle cx="120" cy="80" r="70" fill="#7aa2f7"/><circle cx="480" cy="220" r="90" fill="#bb9af7"/><circle cx="330" cy="40" r="50" fill="#7dcfff"/></g><text x="310" y="110" fill="#c0caf5" font-size="62" font-weight="700" text-anchor="middle">14:58</text><text x="310" y="136" fill="#a9b1d6" font-size="13" text-anchor="middle">Sunday, 22 November</text><circle cx="310" cy="175" r="20" fill="#7aa2f7"/><text x="310" y="182" fill="#1a1b26" font-size="18" font-weight="700" text-anchor="middle">L</text><rect x="210" y="208" width="200" height="34" rx="17" fill="#1a1b26" opacity=".9" stroke="#414868" stroke-width="2"/><g fill="#c0caf5"><circle cx="286" cy="225" r="4"/><circle cx="298" cy="225" r="4"/><circle cx="310" cy="225" r="4"/><circle cx="322" cy="225" r="4"/><circle cx="334" cy="225" r="4"/></g><text x="24" y="284" fill="#c0caf5" font-size="11">▮ 70%</text><rect x="220" y="262" width="180" height="28" rx="14" fill="#1a1b26" opacity=".9"/><text x="234" y="281" fill="#c0caf5" font-size="10">♪ Instant Crush  ⏮ ⏸ ⏭</text><g fill="#1a1b26" opacity=".9"><circle cx="530" cy="276" r="13"/><circle cx="562" cy="276" r="13"/><circle cx="594" cy="276" r="13"/></g><text x="526" y="281" fill="#c0caf5" font-size="10">z  ⟳  ⏻</text></svg></div>
+
+<h2 id="the-lock-state">The lock state<a class="hlink" href="#the-lock-state">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">lyne/services/LockService.qml</span><code>pragma Singleton
+import QtQuick
+import Quickshell
+import qs.services
+import Quickshell.Io
+import Quickshell.Services.Pam
+
+// Whether the session is locked, what has been typed, and checking it.
+// Every monitor's lock surface edits the same `buffer`, so typing works
+// whichever monitor has the keyboard.
+Singleton {
+    id: root
+
+    property bool locked: false
+    // the lock windows exist a little longer than `locked`, so the
+    // compositor is told "unlocked" before the windows are destroyed
+    property bool surfaceActive: false
+    property string buffer: ""
+    property bool checking: false
+    property bool failed: false
+
+    function lock() { buffer = ""; failed = false; surfaceActive = true; locked = true; }
+
+    function submit() {
+        if (checking || buffer === "")
+            return;
+        checking = true;
+        failed = false;
+        pam.start();
+    }
+
+    PamContext {
+        id: pam
+        // PAM asks for the password: answer with what was typed
+        onPamMessage: if (responseRequired) respond(root.buffer)
+        onCompleted: result =&gt; {
+            root.checking = false;
+            root.buffer = "";
+            if (result === PamResult.Success) {
+                root.locked = false;
+                release.restart();
+            }
+            else
+                root.failed = true;
+        }
+    }
+
+    Timer { id: release; interval: 500; onTriggered: root.surfaceActive = false }
+
+    IpcHandler {
+        target: "lock"
+        function lock(): void { root.lock(); }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 8–10</span><b>One buffer for every screen</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// Whether the session is locked, what has been typed, and checking it.
+// Every monitor's lock surface edits the same `buffer`, so typing works
+// whichever monitor has the keyboard.</code></pre></div><div class="seg-e"><p>Each monitor gets a lock surface, and you might type on any of them. So what you type is kept here, in one place, and every surface edits and shows the same <code>buffer</code>.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 14–20</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool locked: false
+// the lock windows exist a little longer than `locked`, so the
+// compositor is told "unlocked" before the windows are destroyed
+property bool surfaceActive: false
+property string buffer: ""
+property bool checking: false
+property bool failed: false</code></pre></div><div class="seg-e"><p>Locked or not; whether the lock windows exist (below); the typed text; whether PAM is checking; whether the last try failed.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 15–17</span><b>Why surfaceActive?</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// the lock windows exist a little longer than `locked`, so the
+// compositor is told "unlocked" before the windows are destroyed
+property bool surfaceActive: false</code></pre></div><div class="seg-e"><p>If the lock windows were destroyed at the same moment the compositor is told to unlock, the two could race and leave the screen locked. So <code>locked</code> turns false first (the compositor unlocks), and the windows go half a second later.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 22</span><b>Locking</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function lock() { buffer = ""; failed = false; surfaceActive = true; locked = true; }</code></pre></div><div class="seg-e"><p>Clear any old input and errors, create the lock windows and lock.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 24–30</span><b>Submitting</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function submit() {
+    if (checking || buffer === "")
+        return;
+    checking = true;
+    failed = false;
+    pam.start();
+}</code></pre></div><div class="seg-e"><p>Ignore Enter while already checking or with nothing typed, then start a PAM conversation.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 32–46</span><b>PAM</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>PamContext {
+    id: pam
+    // PAM asks for the password: answer with what was typed
+    onPamMessage: if (responseRequired) respond(root.buffer)
+    onCompleted: result =&gt; {
+        root.checking = false;
+        root.buffer = "";
+        if (result === PamResult.Success) {
+            root.locked = false;
+            release.restart();
+        }
+        else
+            root.failed = true;
+    }
+}</code></pre></div><div class="seg-e"><p><a class="api" href="../ref/PamContext.html"><code>PamContext</code></a> runs the same authentication as your login screen (the <code>login</code> PAM service by default), so your normal password works, and so do fingerprint readers if PAM is set up for them. When PAM asks a question that needs an answer, the typed text is the answer. On success, unlock; otherwise mark the failure. The text is cleared either way.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 48</span><b>Removing the windows</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Timer { id: release; interval: 500; onTriggered: root.surfaceActive = false }</code></pre></div><div class="seg-e"><p>Half a second after a successful unlock, <code>surfaceActive</code> turns false and <code>shell.qml</code> destroys the lock windows.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 50–53</span><b>From the terminal</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>IpcHandler {
+    target: "lock"
+    function lock(): void { root.lock(); }
+}</code></pre></div><div class="seg-e"><p><code>qs -c lyne ipc call lock lock</code>.</p></div></div></div>
+<h2 id="the-lock-screen">The lock screen<a class="hlink" href="#the-lock-screen">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">lyne/modules/lock/LockScreen.qml</span><code>import QtQuick
+import QtQuick.Layouts
+import QtQuick.Effects
+import Quickshell
+import Quickshell.Wayland
+import Quickshell.Hyprland
+import Quickshell.Services.Mpris
+import Quickshell.Services.UPower
+import qs.config
+import qs.services
+import qs.components
+
+// The lock screen (lyne's "center" template). Every monitor gets the blurred
+// wallpaper; the monitor that was focused when locking also gets the clock,
+// the password field, the player and the power buttons.
+//
+// Security comes from ext-session-lock: while locked, the compositor shows
+// only these surfaces and sends them all input. If the shell crashed, the
+// screen would stay locked.
+WlSessionLock {
+    id: root
+
+    locked: LockService.locked
+    readonly property string mainScreen: Hyprland.focusedMonitor?.name ?? ""
+    readonly property MprisPlayer player: Mpris.players.values.find(p =&gt; p.isPlaying) ?? null
+
+    WlSessionLockSurface {
+        id: surface
+        readonly property bool isMain: screen?.name === root.mainScreen || Quickshell.screens.length === 1
+        color: Config.backgroundColor
+
+        // ── the blurred wallpaper ──
+        Image {
+            id: wall
+            anchors.fill: parent
+            source: WallpaperService.current ? "file://" + WallpaperService.current : ""
+            fillMode: Image.PreserveAspectCrop
+            sourceSize: Qt.size(surface.width / 2, surface.height / 2)     // blur hides the detail anyway
+            visible: false
+        }
+        MultiEffect {
+            anchors.fill: wall
+            source: wall
+            blurEnabled: true
+            blur: 1
+            blurMax: 64
+            brightness: -0.15
+        }
+
+        SystemClock { id: clock; precision: SystemClock.Seconds }
+
+        // every surface has an input: whichever has the keyboard edits the shared buffer
+        TextInput {
+            id: hidden
+            opacity: 0                       // not visible: false (invisible items get no keyboard)
+            focus: true
+            text: LockService.buffer
+            onTextEdited: { LockService.buffer = text; LockService.failed = false; }
+            Keys.onReturnPressed: LockService.submit()
+            Keys.onEnterPressed: LockService.submit()
+            Keys.onEscapePressed: LockService.buffer = ""
+        }
+
+        // ── centre: clock, user, password ──
+        ColumnLayout {
+            anchors.centerIn: parent
+            spacing: Config.spacing * 2
+
+            StyledText {
+                Layout.alignment: Qt.AlignHCenter
+                text: Qt.formatDateTime(clock.date, "hh:mm")
+                font.pixelSize: 110
+                font.bold: true
+            }
+            StyledText {
+                Layout.alignment: Qt.AlignHCenter
+                text: Qt.formatDateTime(clock.date, "dddd, d MMMM")
+                font.pixelSize: Config.fontSizeLarge + 2
+                color: Config.subtextColor
+            }
+
+            ColumnLayout {
+                visible: surface.isMain
+                Layout.alignment: Qt.AlignHCenter
+                Layout.topMargin: Config.spacing * 4
+                spacing: Config.spacing * 2
+
+                Rectangle {                               // avatar: ~/.face, or the first letter
+                    Layout.alignment: Qt.AlignHCenter
+                    implicitWidth: 72
+                    implicitHeight: 72
+                    radius: 36
+                    color: Config.accentColor
+                    clip: true
+                    StyledText { anchors.centerIn: parent; text: (Quickshell.env("USER") || "?")[0].toUpperCase(); font.pixelSize: 32; font.bold: true; color: Config.textReverseColor }
+                    Image { anchors.fill: parent; source: "file://" + Quickshell.env("HOME") + "/.face"; fillMode: Image.PreserveAspectCrop; asynchronous: true }
+                }
+
+                Rectangle {                               // the field: one dot per character
+                    id: field
+                    Layout.alignment: Qt.AlignHCenter
+                    implicitWidth: 300
+                    implicitHeight: 46
+                    radius: height / 2
+                    color: Config.backgroundTransparentColor
+                    border.width: 2
+                    border.color: LockService.failed ? Config.errorColor : LockService.checking ? Config.warningColor : Config.surface2Color
+
+                    transform: Translate { id: shake }
+                    SequentialAnimation {
+                        id: shakeAnim
+                        loops: 2
+                        NumberAnimation { target: shake; property: "x"; to: -10; duration: 50 }
+                        NumberAnimation { target: shake; property: "x"; to: 10; duration: 100 }
+                        NumberAnimation { target: shake; property: "x"; to: 0; duration: 50 }
+                    }
+                    Connections {
+                        target: LockService
+                        function onFailedChanged() { if (LockService.failed) shakeAnim.restart(); }
+                    }
+
+                    Row {
+                        anchors.centerIn: parent
+                        spacing: 6
+                        Repeater {
+                            model: LockService.buffer.length
+                            Rectangle { width: 10; height: 10; radius: 5; color: Config.textColor }
+                        }
+                    }
+                    StyledText {
+                        anchors.centerIn: parent
+                        visible: LockService.buffer.length === 0
+                        text: LockService.checking ? "Checking…" : LockService.failed ? "Wrong password" : "Enter password"
+                        color: LockService.failed ? Config.errorColor : Config.mutedColor
+                    }
+                    MouseArea { anchors.fill: parent; onClicked: hidden.forceActiveFocus() }
+                }
+            }
+        }
+
+        // ── bottom left: battery and keyboard hint ──
+        Row {
+            visible: surface.isMain &amp;&amp; (UPower.displayDevice?.isLaptopBattery ?? false)
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
+            anchors.margins: Config.spacing * 4
+            spacing: Config.padding
+            Glyph { text: UPower.onBattery ? Icons.battery : Icons.batteryCharging }
+            StyledText { text: Math.round((UPower.displayDevice?.percentage ?? 0) * 100) + "%" }
+        }
+
+        // ── bottom centre: the player ──
+        Rectangle {
+            visible: surface.isMain &amp;&amp; root.player !== null
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: Config.spacing * 4
+            implicitWidth: playerRow.implicitWidth + Config.spacing * 4
+            implicitHeight: 48
+            radius: height / 2
+            color: Config.backgroundTransparentColor
+            RowLayout {
+                id: playerRow
+                anchors.centerIn: parent
+                spacing: Config.spacing
+                Glyph { text: Icons.music; color: Config.accentColor }
+                StyledText { Layout.maximumWidth: 260; text: (root.player?.trackTitle ?? "") + (root.player?.trackArtist ? "  ·  " + root.player.trackArtist : "") }
+                BarButton { onClicked: root.player.previous(); Glyph { text: Icons.previous } }
+                BarButton { onClicked: root.player.togglePlaying(); Glyph { text: root.player?.isPlaying ? Icons.pause : Icons.play } }
+                BarButton { onClicked: root.player.next(); Glyph { text: Icons.next } }
+            }
+        }
+
+        // ── bottom right: suspend, restart, shut down ──
+        Row {
+            visible: surface.isMain
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            anchors.margins: Config.spacing * 4
+            spacing: Config.spacing
+            Repeater {
+                model: [[Icons.sleep, ["systemctl", "suspend"]], [Icons.restart, ["systemctl", "reboot"]], [Icons.power, ["systemctl", "poweroff"]]]
+                Rectangle {
+                    required property var modelData
+                    width: 44
+                    height: 44
+                    radius: 22
+                    color: pMouse.containsMouse ? Config.surface1Color : Config.backgroundTransparentColor
+                    Glyph { anchors.centerIn: parent; text: parent.modelData[0] }
+                    MouseArea { id: pMouse; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor; onClicked: Quickshell.execDetached(parent.modelData[1]) }
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 17–19</span><b>Why it's secure</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// Security comes from ext-session-lock: while locked, the compositor shows
+// only these surfaces and sends them all input. If the shell crashed, the
+// screen would stay locked.</code></pre></div><div class="seg-e"><p><a class="api" href="../ref/WlSessionLock.html"><code>WlSessionLock</code></a> uses the ext-session-lock protocol. While locked, the <strong>compositor</strong> shows only the lock surfaces and sends them all input; no window, shortcut or notification can appear above them. If the shell crashed while locked, the compositor would keep the session locked (showing a solid colour) instead of revealing your desktop.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 23–25</span><b>Lock state and shared data</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>locked: LockService.locked
+readonly property string mainScreen: Hyprland.focusedMonitor?.name ?? ""
+readonly property MprisPlayer player: Mpris.players.values.find(p =&gt; p.isPlaying) ?? null</code></pre></div><div class="seg-e"><p>Locked follows the service. The main screen is the one focused when locking, and the player is whatever is playing.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 27–30</span><b>One surface per screen</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>WlSessionLockSurface {
+    id: surface
+    readonly property bool isMain: screen?.name === root.mainScreen || Quickshell.screens.length === 1
+    color: Config.backgroundColor</code></pre></div><div class="seg-e"><p><code>WlSessionLock</code> creates a <code>WlSessionLockSurface</code> for every monitor by itself. <code>isMain</code> decides which one shows the password field.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 32–48</span><b>Blurred wallpaper</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── the blurred wallpaper ──
+Image {
+    id: wall
+    anchors.fill: parent
+    source: WallpaperService.current ? "file://" + WallpaperService.current : ""
+    fillMode: Image.PreserveAspectCrop
+    sourceSize: Qt.size(surface.width / 2, surface.height / 2)     // blur hides the detail anyway
+    visible: false
+}
+MultiEffect {
+    anchors.fill: wall
+    source: wall
+    blurEnabled: true
+    blur: 1
+    blurMax: 64
+    brightness: -0.15
+}</code></pre></div><div class="seg-e"><p>The current wallpaper, decoded at half size (a blur hides the detail anyway, and it's faster), hidden, and drawn through a <a class="api qt" href="../qt-index.html#multieffect"><code>MultiEffect</code></a> with full blur and slightly darkened, so white text reads well on any image.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 52–62</span><b>The hidden input</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// every surface has an input: whichever has the keyboard edits the shared buffer
+TextInput {
+    id: hidden
+    opacity: 0                       // not visible: false (invisible items get no keyboard)
+    focus: true
+    text: LockService.buffer
+    onTextEdited: { LockService.buffer = text; LockService.failed = false; }
+    Keys.onReturnPressed: LockService.submit()
+    Keys.onEnterPressed: LockService.submit()
+    Keys.onEscapePressed: LockService.buffer = ""
+}</code></pre></div><div class="seg-e"><p>Every surface has an invisible text field holding the keyboard focus, bound to the shared buffer. Whichever surface has the keyboard, typing edits the same text. It's made invisible with <code>opacity: 0</code>, <strong>not</strong> <code>visible: false</code>: Qt never gives keyboard focus to an item that isn't visible.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 64–80</span><b>Clock and date</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── centre: clock, user, password ──
+ColumnLayout {
+    anchors.centerIn: parent
+    spacing: Config.spacing * 2
+
+    StyledText {
+        Layout.alignment: Qt.AlignHCenter
+        text: Qt.formatDateTime(clock.date, "hh:mm")
+        font.pixelSize: 110
+        font.bold: true
+    }
+    StyledText {
+        Layout.alignment: Qt.AlignHCenter
+        text: Qt.formatDateTime(clock.date, "dddd, d MMMM")
+        font.pixelSize: Config.fontSizeLarge + 2
+        color: Config.subtextColor
+    }</code></pre></div><div class="seg-e"><p>Big, centred, on every screen.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 82–97</span><b>The avatar</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>ColumnLayout {
+    visible: surface.isMain
+    Layout.alignment: Qt.AlignHCenter
+    Layout.topMargin: Config.spacing * 4
+    spacing: Config.spacing * 2
+
+    Rectangle {                               // avatar: ~/.face, or the first letter
+        Layout.alignment: Qt.AlignHCenter
+        implicitWidth: 72
+        implicitHeight: 72
+        radius: 36
+        color: Config.accentColor
+        clip: true
+        StyledText { anchors.centerIn: parent; text: (Quickshell.env("USER") || "?")[0].toUpperCase(); font.pixelSize: 32; font.bold: true; color: Config.textReverseColor }
+        Image { anchors.fill: parent; source: "file://" + Quickshell.env("HOME") + "/.face"; fillMode: Image.PreserveAspectCrop; asynchronous: true }
+    }</code></pre></div><div class="seg-e"><p>On the main screen: a circle with your initial, covered by <code>~/.face</code> if you have one.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 99–108</span><b>The field</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {                               // the field: one dot per character
+    id: field
+    Layout.alignment: Qt.AlignHCenter
+    implicitWidth: 300
+    implicitHeight: 46
+    radius: height / 2
+    color: Config.backgroundTransparentColor
+    border.width: 2
+    border.color: LockService.failed ? Config.errorColor : LockService.checking ? Config.warningColor : Config.surface2Color
+</code></pre></div><div class="seg-e"><p>Its border is red after a wrong password, yellow while checking.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 109–120</span><b>Shaking</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>transform: Translate { id: shake }
+SequentialAnimation {
+    id: shakeAnim
+    loops: 2
+    NumberAnimation { target: shake; property: "x"; to: -10; duration: 50 }
+    NumberAnimation { target: shake; property: "x"; to: 10; duration: 100 }
+    NumberAnimation { target: shake; property: "x"; to: 0; duration: 50 }
+}
+Connections {
+    target: LockService
+    function onFailedChanged() { if (LockService.failed) shakeAnim.restart(); }
+}</code></pre></div><div class="seg-e"><p>A wrong password shakes the field left and right twice.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 122–129</span><b>Dots instead of letters</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Row {
+    anchors.centerIn: parent
+    spacing: 6
+    Repeater {
+        model: LockService.buffer.length
+        Rectangle { width: 10; height: 10; radius: 5; color: Config.textColor }
+    }
+}</code></pre></div><div class="seg-e"><p>One dot per typed character, drawn from the buffer's length.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 130–136</span><b>Hint</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>StyledText {
+    anchors.centerIn: parent
+    visible: LockService.buffer.length === 0
+    text: LockService.checking ? "Checking…" : LockService.failed ? "Wrong password" : "Enter password"
+    color: LockService.failed ? Config.errorColor : Config.mutedColor
+}
+MouseArea { anchors.fill: parent; onClicked: hidden.forceActiveFocus() }</code></pre></div><div class="seg-e"><p>"Enter password", "Checking…" or "Wrong password" while the field is empty. Clicking the field gives the hidden input focus.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 141–150</span><b>Battery</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── bottom left: battery and keyboard hint ──
+Row {
+    visible: surface.isMain &amp;&amp; (UPower.displayDevice?.isLaptopBattery ?? false)
+    anchors.left: parent.left
+    anchors.bottom: parent.bottom
+    anchors.margins: Config.spacing * 4
+    spacing: Config.padding
+    Glyph { text: UPower.onBattery ? Icons.battery : Icons.batteryCharging }
+    StyledText { text: Math.round((UPower.displayDevice?.percentage ?? 0) * 100) + "%" }
+}</code></pre></div><div class="seg-e"><p>Bottom left, on laptops.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 152–172</span><b>Player</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// ── bottom centre: the player ──
+Rectangle {
+    visible: surface.isMain &amp;&amp; root.player !== null
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.bottom: parent.bottom
+    anchors.bottomMargin: Config.spacing * 4
+    implicitWidth: playerRow.implicitWidth + Config.spacing * 4
+    implicitHeight: 48
+    radius: height / 2
+    color: Config.backgroundTransparentColor
+    RowLayout {
+        id: playerRow
+        anchors.centerIn: parent
+        spacing: Config.spacing
+        Glyph { text: Icons.music; color: Config.accentColor }
+        StyledText { Layout.maximumWidth: 260; text: (root.player?.trackTitle ?? "") + (root.player?.trackArtist ? "  ·  " + root.player.trackArtist : "") }
+        BarButton { onClicked: root.player.previous(); Glyph { text: Icons.previous } }
+        BarButton { onClicked: root.player.togglePlaying(); Glyph { text: root.player?.isPlaying ? Icons.pause : Icons.play } }
+        BarButton { onClicked: root.player.next(); Glyph { text: Icons.next } }
+    }
+}</code></pre></div><div class="seg-e"><p>Bottom centre, while something plays, with controls.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 174–194</span><b>Power buttons</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>    // ── bottom right: suspend, restart, shut down ──
+    Row {
+        visible: surface.isMain
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.margins: Config.spacing * 4
+        spacing: Config.spacing
+        Repeater {
+            model: [[Icons.sleep, ["systemctl", "suspend"]], [Icons.restart, ["systemctl", "reboot"]], [Icons.power, ["systemctl", "poweroff"]]]
+            Rectangle {
+                required property var modelData
+                width: 44
+                height: 44
+                radius: 22
+                color: pMouse.containsMouse ? Config.surface1Color : Config.backgroundTransparentColor
+                Glyph { anchors.centerIn: parent; text: parent.modelData[0] }
+                MouseArea { id: pMouse; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor; onClicked: Quickshell.execDetached(parent.modelData[1]) }
+            }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>Bottom right: suspend, restart and shut down work from the lock screen without unlocking.</p></div></div></div>
+<div class="box warn"><div class="bt">Test with a way back in</div><p>Before relying on any lock screen, test it with a TTY login available (Ctrl+Alt+F3): if something is wrong, you can log in there and run <code>pkill qs</code> (Hyprland then shows a red screen; <code>hyprctl dispatch exit</code> or a TTY <code>loginctl unlock-session</code> gets you out).</p></div>
+<div class="box note"><div class="bt">In the original</div><p>lyne has several lock templates (chosen in Settings › Lock screen), status pills, a session fade-out after a correct password, and guards against the lock being created twice.</p></div>
+<h2 id="the-power-menu">The power menu<a class="hlink" href="#the-power-menu">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">lyne/services/PowerService.qml</span><code>pragma Singleton
+import QtQuick
+import Quickshell
+import qs.services
+import Quickshell.Io
+import qs.config
+
+// The power menu: a list of actions, each with its own key, and a short
+// countdown before the dangerous ones run (any key or click cancels it).
+Singleton {
+    id: root
+
+    property bool visible: false
+    property int selected: 0
+    property int countdown: 0                 // seconds left, 0 = not counting
+    property int pending: -1                  // action waiting for the countdown
+
+    readonly property int countdownLength: StateService.get("power.countdown", 3)
+    readonly property var actions: [
+        { id: "lock",     key: "L", label: "Lock",      icon: Icons.lock,    confirm: false, command: [] },
+        { id: "suspend",  key: "S", label: "Suspend",   icon: Icons.sleep,   confirm: false, command: ["systemctl", "suspend"] },
+        { id: "logout",   key: "E", label: "Log out",   icon: Icons.logout,  confirm: true,  command: [] },
+        { id: "reboot",   key: "R", label: "Restart",   icon: Icons.restart, confirm: true,  command: ["systemctl", "reboot"] },
+        { id: "shutdown", key: "P", label: "Shut down", icon: Icons.power,   confirm: true,  command: ["systemctl", "poweroff"] }
+    ]
+
+    function open() {
+        WindowManagerService.openExclusive("Power", () =&gt; {
+            selected = 0;
+            cancel();
+            visible = true;
+        });
+    }
+    function close() { cancel(); visible = false; }
+    function toggle() { visible ? close() : open(); }
+
+    function run(index) {
+        const a = actions[index];
+        if (!a)
+            return;
+        if (a.confirm &amp;&amp; countdownLength &gt; 0) {   // start the countdown first
+            pending = index;
+            selected = index;
+            countdown = countdownLength;
+            tick.restart();
+            return;
+        }
+        _execute(a);
+    }
+    function cancel() { tick.stop(); countdown = 0; pending = -1; }
+
+    function _execute(a) {
+        visible = false;
+        cancel();
+        if (a.id === "lock")
+            LockService.lock();
+        else if (a.id === "logout")
+            Hypr.exit();                          // Lua or classic, see Hypr.qml
+        else
+            Quickshell.execDetached(a.command);
+    }
+
+    Timer {
+        id: tick
+        interval: 1000
+        repeat: true
+        onTriggered: {
+            if (--root.countdown &lt;= 0)
+                root._execute(root.actions[root.pending]);
+        }
+    }
+
+    Connections {
+        target: WindowManagerService
+        function onCloseRequested(except) { if (except !== "Power") root.close(); }
+    }
+    onVisibleChanged: visible ? WindowManagerService.registerOpen("Power") : WindowManagerService.registerClose("Power")
+
+    IpcHandler {
+        target: "power"
+        function toggle(): void { root.toggle(); }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 13–16</span><b>State</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>property bool visible: false
+property int selected: 0
+property int countdown: 0                 // seconds left, 0 = not counting
+property int pending: -1                  // action waiting for the countdown</code></pre></div><div class="seg-e"><p>Open or not, the selected action, the seconds left in a countdown, and which action is waiting for it.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 18–25</span><b>The actions</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>readonly property int countdownLength: StateService.get("power.countdown", 3)
+readonly property var actions: [
+    { id: "lock",     key: "L", label: "Lock",      icon: Icons.lock,    confirm: false, command: [] },
+    { id: "suspend",  key: "S", label: "Suspend",   icon: Icons.sleep,   confirm: false, command: ["systemctl", "suspend"] },
+    { id: "logout",   key: "E", label: "Log out",   icon: Icons.logout,  confirm: true,  command: [] },
+    { id: "reboot",   key: "R", label: "Restart",   icon: Icons.restart, confirm: true,  command: ["systemctl", "reboot"] },
+    { id: "shutdown", key: "P", label: "Shut down", icon: Icons.power,   confirm: true,  command: ["systemctl", "poweroff"] }
+]</code></pre></div><div class="seg-e"><p>Each has a key (L, S, E, R, P), a label, an icon, whether it needs a countdown, and its command. Lock and log out have no command; they're handled specially below.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 27–35</span><b>Opening</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function open() {
+    WindowManagerService.openExclusive("Power", () =&gt; {
+        selected = 0;
+        cancel();
+        visible = true;
+    });
+}
+function close() { cancel(); visible = false; }
+function toggle() { visible ? close() : open(); }</code></pre></div><div class="seg-e"><p>Close other popups, select the first action, clear any old countdown, show. Closing also cancels.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 37–49</span><b>Running</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function run(index) {
+    const a = actions[index];
+    if (!a)
+        return;
+    if (a.confirm &amp;&amp; countdownLength &gt; 0) {   // start the countdown first
+        pending = index;
+        selected = index;
+        countdown = countdownLength;
+        tick.restart();
+        return;
+    }
+    _execute(a);
+}</code></pre></div><div class="seg-e"><p>Dangerous actions (log out, restart, shut down) start a countdown instead of running right away, if the countdown setting is above 0. The others run immediately.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">line 50</span><b>Cancelling</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function cancel() { tick.stop(); countdown = 0; pending = -1; }</code></pre></div><div class="seg-e"><p>Stop the countdown and forget the pending action.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 52–61</span><b>Executing</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>function _execute(a) {
+    visible = false;
+    cancel();
+    if (a.id === "lock")
+        LockService.lock();
+    else if (a.id === "logout")
+        Hypr.exit();                          // Lua or classic, see Hypr.qml
+    else
+        Quickshell.execDetached(a.command);
+}</code></pre></div><div class="seg-e"><p>Close the menu, then lock through the lock service, log out through Hyprland (<a class="xref" href="../ch/ly5-bar.html">lyne-dots 5: The Bar</a>'s <code>Hypr</code> helper speaks both config languages), or run the command.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 63–71</span><b>The countdown</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Timer {
+    id: tick
+    interval: 1000
+    repeat: true
+    onTriggered: {
+        if (--root.countdown &lt;= 0)
+            root._execute(root.actions[root.pending]);
+    }
+}</code></pre></div><div class="seg-e"><p>Once a second; at zero, run the pending action.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 73–82</span><b>Polite, and scriptable</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Connections {
+    target: WindowManagerService
+    function onCloseRequested(except) { if (except !== "Power") root.close(); }
+}
+onVisibleChanged: visible ? WindowManagerService.registerOpen("Power") : WindowManagerService.registerClose("Power")
+
+IpcHandler {
+    target: "power"
+    function toggle(): void { root.toggle(); }
+}</code></pre></div><div class="seg-e"><p><code>qs -c lyne ipc call power toggle</code>.</p></div></div></div>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">lyne/modules/power/PowerOverlay.qml</span><code>import QtQuick
+import QtQuick.Layouts
+import Quickshell
+import Quickshell.Wayland
+import Quickshell.Hyprland
+import qs.config
+import qs.services
+import qs.components
+
+// The power menu (lyne's "strip" template): every monitor dims, and on the
+// focused one a column of buttons slides out of the right edge.
+//   letter keys (L S E R P)  run that action
+//   1-5 / arrows             move the selection, Enter runs it
+//   Esc or a click outside   closes (or cancels a countdown)
+Scope {
+    id: root
+
+    readonly property string focusedName: Hyprland.focusedMonitor?.name ?? ""
+
+    Variants {
+        model: Quickshell.screens
+
+        PanelWindow {
+            id: win
+            required property var modelData
+            readonly property bool isMain: modelData.name === root.focusedName || Quickshell.screens.length === 1
+            screen: modelData
+
+            anchors { top: true; bottom: true; left: true; right: true }
+            exclusionMode: ExclusionMode.Ignore
+            color: "transparent"
+            WlrLayershell.layer: WlrLayer.Overlay
+            WlrLayershell.namespace: "lyne_power"
+            WlrLayershell.keyboardFocus: isMain ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
+
+            // the dim backdrop fades in; a click on it closes or cancels
+            Rectangle {
+                anchors.fill: parent
+                color: Config.scrimColor
+                opacity: 0
+                Component.onCompleted: opacity = 0.45
+                Behavior on opacity { NumberAnimation { duration: Config.animDuration } }
+                MouseArea { anchors.fill: parent; onClicked: PowerService.countdown &gt; 0 ? PowerService.cancel() : PowerService.close() }
+            }
+
+            Rectangle {
+                id: strip
+                visible: win.isMain
+                anchors.verticalCenter: parent.verticalCenter
+                width: 76
+                height: col.implicitHeight + Config.spacing * 3
+                radius: Config.radiusLarge
+                color: Config.backgroundTransparentColor
+                // slides in from the right edge: `entered` turns true one tick after
+                // creation (by then the window has its size), and x follows it
+                property bool entered: false
+                Component.onCompleted: Qt.callLater(() =&gt; entered = true)
+                x: entered ? parent.width - width - Config.spacing * 2 : parent.width
+                Behavior on x { NumberAnimation { duration: Config.animDurationLong; easing.type: Easing.OutExpo } }
+                MouseArea { anchors.fill: parent }                  // clicks on the strip don't close
+
+                focus: win.isMain
+                Keys.onPressed: e =&gt; {
+                    if (e.key === Qt.Key_Escape) {
+                        PowerService.countdown &gt; 0 ? PowerService.cancel() : PowerService.close();
+                    } else if (PowerService.countdown &gt; 0) {
+                        PowerService.cancel();                       // any key cancels a countdown
+                    } else if (e.key === Qt.Key_Up || e.key === Qt.Key_K) {
+                        PowerService.selected = (PowerService.selected + PowerService.actions.length - 1) % PowerService.actions.length;
+                    } else if (e.key === Qt.Key_Down || e.key === Qt.Key_J) {
+                        PowerService.selected = (PowerService.selected + 1) % PowerService.actions.length;
+                    } else if (e.key === Qt.Key_Return || e.key === Qt.Key_Enter) {
+                        PowerService.run(PowerService.selected);
+                    } else if (e.text &gt;= "1" &amp;&amp; e.text &lt;= "9") {
+                        PowerService.selected = Math.min(PowerService.actions.length - 1, Number(e.text) - 1);
+                    } else {
+                        const i = PowerService.actions.findIndex(a =&gt; a.key === e.text.toUpperCase());
+                        if (i &gt;= 0) PowerService.run(i);
+                    }
+                }
+
+                ColumnLayout {
+                    id: col
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: parent.top
+                    anchors.topMargin: Config.spacing * 1.5
+                    spacing: Config.spacing
+
+                    Repeater {
+                        model: PowerService.actions
+                        Rectangle {
+                            id: button
+                            required property var modelData
+                            required property int index
+                            readonly property bool selected: index === PowerService.selected
+                            readonly property bool counting: PowerService.pending === index
+                            Layout.alignment: Qt.AlignHCenter
+                            implicitWidth: 56
+                            implicitHeight: 56
+                            radius: selected ? Config.radiusLarge : 28
+                            color: counting ? Config.errorColor : selected ? Config.accentColor : bMouse.containsMouse ? Config.surface2Color : Config.surface1Color
+                            Behavior on radius { NumberAnimation { duration: Config.animDuration } }
+                            Glyph {
+                                anchors.centerIn: parent
+                                text: button.counting ? PowerService.countdown : button.modelData.icon
+                                font.pixelSize: Config.fontSizeIcon
+                                font.bold: button.counting
+                                color: button.selected || button.counting ? Config.textReverseColor : Config.textColor
+                            }
+                            StyledText {                          // the key for this action
+                                anchors.right: parent.right
+                                anchors.bottom: parent.bottom
+                                anchors.margins: 4
+                                text: button.modelData.key
+                                font.pixelSize: 9
+                                font.bold: true
+                                color: button.selected ? Config.textReverseColor : Config.mutedColor
+                            }
+                            MouseArea {
+                                id: bMouse
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                cursorShape: Qt.PointingHandCursor
+                                onEntered: if (PowerService.countdown === 0) PowerService.selected = button.index
+                                onClicked: PowerService.run(button.index)
+                            }
+                        }
+                    }
+                }
+            }
+
+            // the selected action's name (or the countdown), left of the strip
+            StyledText {
+                visible: win.isMain
+                anchors.right: strip.left
+                anchors.rightMargin: Config.spacing * 2
+                anchors.verticalCenter: strip.verticalCenter
+                text: PowerService.countdown &gt; 0
+                    ? PowerService.actions[PowerService.pending].label + " in " + PowerService.countdown + "…  (any key cancels)"
+                    : PowerService.actions[PowerService.selected].label
+                font.pixelSize: Config.fontSizeLarge
+                font.bold: true
+                color: "white"
+            }
+        }
+    }
+}</code></pre></div>
+<div class="walk"><div class="walk-h">Code walkthrough · piece by piece</div><div class="seg"><div class="seg-h"><span class="seg-r">lines 10–14</span><b>How it's used</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// The power menu (lyne's "strip" template): every monitor dims, and on the
+// focused one a column of buttons slides out of the right edge.
+//   letter keys (L S E R P)  run that action
+//   1-5 / arrows             move the selection, Enter runs it
+//   Esc or a click outside   closes (or cancels a countdown)</code></pre></div><div class="seg-e"><p>Keys run actions directly: press P to shut down (after the countdown). Numbers and arrows move the selection.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 20–34</span><b>Every screen dims</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Variants {
+    model: Quickshell.screens
+
+    PanelWindow {
+        id: win
+        required property var modelData
+        readonly property bool isMain: modelData.name === root.focusedName || Quickshell.screens.length === 1
+        screen: modelData
+
+        anchors { top: true; bottom: true; left: true; right: true }
+        exclusionMode: ExclusionMode.Ignore
+        color: "transparent"
+        WlrLayershell.layer: WlrLayer.Overlay
+        WlrLayershell.namespace: "lyne_power"
+        WlrLayershell.keyboardFocus: isMain ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None</code></pre></div><div class="seg-e"><p>One overlay window per monitor, covering everything. Only the focused monitor's window takes the keyboard.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 36–44</span><b>The backdrop</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>// the dim backdrop fades in; a click on it closes or cancels
+Rectangle {
+    anchors.fill: parent
+    color: Config.scrimColor
+    opacity: 0
+    Component.onCompleted: opacity = 0.45
+    Behavior on opacity { NumberAnimation { duration: Config.animDuration } }
+    MouseArea { anchors.fill: parent; onClicked: PowerService.countdown &gt; 0 ? PowerService.cancel() : PowerService.close() }
+}</code></pre></div><div class="seg-e"><p>Black at 45%, faded in. A click on it cancels a countdown or closes the menu.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 46–60</span><b>The strip</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>Rectangle {
+    id: strip
+    visible: win.isMain
+    anchors.verticalCenter: parent.verticalCenter
+    width: 76
+    height: col.implicitHeight + Config.spacing * 3
+    radius: Config.radiusLarge
+    color: Config.backgroundTransparentColor
+    // slides in from the right edge: `entered` turns true one tick after
+    // creation (by then the window has its size), and x follows it
+    property bool entered: false
+    Component.onCompleted: Qt.callLater(() =&gt; entered = true)
+    x: entered ? parent.width - width - Config.spacing * 2 : parent.width
+    Behavior on x { NumberAnimation { duration: Config.animDurationLong; easing.type: Easing.OutExpo } }
+    MouseArea { anchors.fill: parent }                  // clicks on the strip don't close</code></pre></div><div class="seg-e"><p>A column of buttons on the main screen. It starts just off the right edge and slides in. <code>entered</code> turns true one tick after creation, because at creation the window doesn't have its width yet. Clicks on the strip are swallowed so they don't reach the backdrop.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 62–80</span><b>Keys</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>focus: win.isMain
+Keys.onPressed: e =&gt; {
+    if (e.key === Qt.Key_Escape) {
+        PowerService.countdown &gt; 0 ? PowerService.cancel() : PowerService.close();
+    } else if (PowerService.countdown &gt; 0) {
+        PowerService.cancel();                       // any key cancels a countdown
+    } else if (e.key === Qt.Key_Up || e.key === Qt.Key_K) {
+        PowerService.selected = (PowerService.selected + PowerService.actions.length - 1) % PowerService.actions.length;
+    } else if (e.key === Qt.Key_Down || e.key === Qt.Key_J) {
+        PowerService.selected = (PowerService.selected + 1) % PowerService.actions.length;
+    } else if (e.key === Qt.Key_Return || e.key === Qt.Key_Enter) {
+        PowerService.run(PowerService.selected);
+    } else if (e.text &gt;= "1" &amp;&amp; e.text &lt;= "9") {
+        PowerService.selected = Math.min(PowerService.actions.length - 1, Number(e.text) - 1);
+    } else {
+        const i = PowerService.actions.findIndex(a =&gt; a.key === e.text.toUpperCase());
+        if (i &gt;= 0) PowerService.run(i);
+    }
+}</code></pre></div><div class="seg-e"><p>Escape closes (or cancels a countdown); during a countdown, <strong>any</strong> key cancels; up/down or K/J move; Enter runs; 1–9 select; letters run their action.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 82–130</span><b>The buttons</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>    ColumnLayout {
+        id: col
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: Config.spacing * 1.5
+        spacing: Config.spacing
+
+        Repeater {
+            model: PowerService.actions
+            Rectangle {
+                id: button
+                required property var modelData
+                required property int index
+                readonly property bool selected: index === PowerService.selected
+                readonly property bool counting: PowerService.pending === index
+                Layout.alignment: Qt.AlignHCenter
+                implicitWidth: 56
+                implicitHeight: 56
+                radius: selected ? Config.radiusLarge : 28
+                color: counting ? Config.errorColor : selected ? Config.accentColor : bMouse.containsMouse ? Config.surface2Color : Config.surface1Color
+                Behavior on radius { NumberAnimation { duration: Config.animDuration } }
+                Glyph {
+                    anchors.centerIn: parent
+                    text: button.counting ? PowerService.countdown : button.modelData.icon
+                    font.pixelSize: Config.fontSizeIcon
+                    font.bold: button.counting
+                    color: button.selected || button.counting ? Config.textReverseColor : Config.textColor
+                }
+                StyledText {                          // the key for this action
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    anchors.margins: 4
+                    text: button.modelData.key
+                    font.pixelSize: 9
+                    font.bold: true
+                    color: button.selected ? Config.textReverseColor : Config.mutedColor
+                }
+                MouseArea {
+                    id: bMouse
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onEntered: if (PowerService.countdown === 0) PowerService.selected = button.index
+                    onClicked: PowerService.run(button.index)
+                }
+            }
+        }
+    }
+}</code></pre></div><div class="seg-e"><p>The selected one is accent-filled with a squarer shape; the one counting down turns red and shows the seconds instead of its icon. Each shows its key in a corner. Hovering selects (but not during a countdown); clicking runs.</p></div></div><div class="seg"><div class="seg-h"><span class="seg-r">lines 132–145</span><b>The label</b></div><div class="codewrap"><pre class="code" data-lang="qml"><code>    // the selected action's name (or the countdown), left of the strip
+    StyledText {
+        visible: win.isMain
+        anchors.right: strip.left
+        anchors.rightMargin: Config.spacing * 2
+        anchors.verticalCenter: strip.verticalCenter
+        text: PowerService.countdown &gt; 0
+            ? PowerService.actions[PowerService.pending].label + " in " + PowerService.countdown + "…  (any key cancels)"
+            : PowerService.actions[PowerService.selected].label
+        font.pixelSize: Config.fontSizeLarge
+        font.bold: true
+        color: "white"
+    }
+}</code></pre></div><div class="seg-e"><p>Next to the strip: the selected action's name, or "Restart in 3… (any key cancels)".</p></div></div></div>
+<h2 id="idle">Idle<a class="hlink" href="#idle">#</a></h2>
+<div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">lyne/services/IdleService.qml</span><code>pragma Singleton
+import QtQuick
+import Quickshell
+import qs.services
+import Quickshell.Io
+
+// Idle settings, caffeine, and the actions the idle monitors in shell.qml run.
+Singleton {
+    id: root
+
+    readonly property int lockTimeout: StateService.get("idle.lockTimeout", 300)   // seconds, 0 = never
+    readonly property int dpmsTimeout: StateService.get("idle.dpmsTimeout", 600)
+    readonly property bool caffeine: StateService.get("idle.caffeine", false)
+
+    function toggleCaffeine() { StateService.set("idle.caffeine", !caffeine); }
+    function lock() { LockService.lock(); }
+    function dpmsOff() { Hypr.dpms(false); }
+    function dpmsOn() { Hypr.dpms(true); }
+
+    IpcHandler {
+        target: "idle"
+        function toggleCaffeine(): void { root.toggleCaffeine(); }
+    }
+}</code></pre></div>
+<p>The idle settings come from the state: lock after 5 minutes, screens off after 10, both 0 for never, and <strong>caffeine</strong>, which pauses both. The actions themselves are tiny. The idle <strong>monitors</strong> live in <code>shell.qml</code> (<a class="xref" href="../ch/ly12-assemble.html">lyne-dots 12: Assembling the Shell and Configuring Hyprland</a>):</p>
+<div class="codewrap"><pre class="code" data-lang="qml"><code>IdleMonitor {
+    timeout: IdleService.lockTimeout
+    enabled: IdleService.lockTimeout &gt; 0 &amp;&amp; !IdleService.caffeine &amp;&amp; !StateService.isLoading
+    respectInhibitors: true
+    onIsIdleChanged: if (isIdle) IdleService.lock()
+}</code></pre></div>
+<p>An <a class="api" href="../ref/IdleMonitor.html"><code>IdleMonitor</code></a> becomes idle after <code>timeout</code> seconds without input and stops being idle at the first key or movement. <code>respectInhibitors</code> honours apps that ask the compositor not to go idle: video players, games, a browser playing a video. It waits for the state to load, so it doesn't start counting with the wrong timeout.</p>
+<h2 id="practice">Practice<a class="hlink" href="#practice">#</a></h2>
+<div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Warm-up</span><b>Lock and unlock</b></div><div class="ex-b"><p>With a TTY ready, run <code>qs -c lyne ipc call lock lock</code>, type a wrong password, then the right one.</p></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>A greeting</b></div><div class="ex-b"><p>Show "Good morning", "Good afternoon" or "Good evening" with your user name above the clock, depending on the hour.</p></div></div>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 3</span><span class="ex-lvl">Practice</span><b>A firmware entry</b></div><div class="ex-b"><p>Add "Restart to firmware" (key F) to the power menu with <code>systemctl reboot --firmware-setup</code>, with a countdown.</p></div></div>
+<div class="ex ex-challenge"><div class="ex-h"><span class="ex-n">Exercise 4</span><span class="ex-lvl">Challenge</span><b>Dim before locking</b></div><div class="ex-b"><p>Add a third idle stage, 30 seconds before the lock: a black overlay on every screen that fades to 50%, and disappears when you move the mouse.</p></div><details class="ex-d ex-hint"><summary>💡 Hint</summary><div class="ex-db"><p>Another <code>IdleMonitor</code> with <code>timeout: IdleService.lockTimeout - 30</code>, and a <code>Variants</code> of overlay windows whose model is <code>Quickshell.screens</code> while it's idle, <code>[]</code> otherwise. <code>mask: Region {}</code> keeps them from taking clicks.</p></div></details></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/ly8-notifications-osd.html"><small>← Previous</small><span>lyne-dots 8: Notifications, Audio and the OSD</span></a><a class="pn-next" href="../ch/ly10-screenshot-wallpaper.html"><small>Next →</small><span>lyne-dots 10: Screenshots and Wallpapers</span></a></nav>
+<footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
+<aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#the-lock-state">The lock state</a><a class="l2" href="#the-lock-screen">The lock screen</a><a class="l2" href="#the-power-menu">The power menu</a><a class="l2" href="#idle">Idle</a><a class="l2" href="#practice">Practice</a></aside>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/book.js?v=fb9dc3f8"></script>
+</body></html>

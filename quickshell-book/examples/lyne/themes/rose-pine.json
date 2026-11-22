@@ -1,0 +1,58 @@
+{
+  "name": "Rose Pine",
+  "variant": "dark",
+  "palette": {
+    "background": "#191724",
+    "surface0": "#1f1d2e",
+    "surface1": "#26233a",
+    "surface2": "#403d52",
+    "surface3": "#524f67",
+    "text": "#e0def4",
+    "textReverse": "#191724",
+    "subtext": "#908caa",
+    "accent": "#c4a7e7",
+    "success": "#31748f",
+    "warning": "#f6c177",
+    "error": "#eb6f92",
+    "muted": "#6e6a86"
+  },
+  "opacity": {
+    "background": 0.9
+  },
+  "hyprland": {
+    "activeBorder": "c4a7e7ff",
+    "inactiveBorder": "403d52aa",
+    "shadowColor": "1a1a1aee"
+  },
+  "terminal": {
+    "background": "#191724",
+    "foreground": "#e0def4",
+    "selectionBackground": "#403d52",
+    "selectionForeground": "#e0def4",
+    "urlColor": "#c4a7e7",
+    "cursor": "#e0def4",
+    "cursorTextColor": "#191724",
+    "activeTabBackground": "#c4a7e7",
+    "activeTabForeground": "#191724",
+    "inactiveTabBackground": "#26233a",
+    "inactiveTabForeground": "#6e6a86",
+    "activeBorderColor": "#c4a7e7",
+    "inactiveBorderColor": "#26233a",
+    "color0": "#26233a",
+    "color1": "#eb6f92",
+    "color2": "#31748f",
+    "color3": "#f6c177",
+    "color4": "#9ccfd8",
+    "color5": "#c4a7e7",
+    "color6": "#ebbcba",
+    "color7": "#e0def4",
+    "color8": "#6e6a86",
+    "color9": "#eb6f92",
+    "color10": "#31748f",
+    "color11": "#f6c177",
+    "color12": "#9ccfd8",
+    "color13": "#c4a7e7",
+    "color14": "#ebbcba",
+    "color15": "#e0def4"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "theme": { "name": "tokyonight" },
+  "opacity": { "background": 0.9 },
+  "geometry": { "radiusSmall": 5, "radius": 10, "radiusLarge": 15, "spacing": 8, "padding": 6 },
+  "typography": {
+    "font": "CaskaydiaCove Nerd Font",
+    "sizeSmall": 12, "sizeNormal": 14, "sizeLarge": 16,
+    "iconSmall": 18, "icon": 22, "iconLarge": 28
+  },
+  "animations": { "short": 100, "normal": 200, "long": 400, "themeTransition": true },
+  "bar": {
+    "height": 33,
+    "style": "docked-corners",
+    "position": "top",
+    "margin": 8,
+    "autoHide": false,
+    "workspaces": { "style": "pills", "count": 10 },
+    "tray": { "open": false }
+  },
+  "launcher": { "favorites": [], "usage": {} },
+  "notifications": { "timeout": 5000, "maxPopups": 4, "width": 350, "dnd": false },
+  "osd": { "style": "attached", "timeout": 1500 },
+  "idle": { "lockTimeout": 300, "dpmsTimeout": 600, "caffeine": false },
+  "power": { "countdown": 3 },
+  "wallpaper": { "folder": "~/.local/wallpapers", "current": "" },
+  "screenshot": { "folder": "", "dim": 60 }
+}
