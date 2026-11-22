@@ -14,7 +14,7 @@ A shell is the centrepiece of a rice, but people judge a screenshot by **everyth
 | editor | Neovim | `~/.config/nvim/init.lua` | [[ch:d3-neovim]] |
 | app theme, icons, cursor, fonts | GTK, Qt, Papirus, Bibata | `gtk-3.0/`, `gtk-4.0/`, `qt6ct/`, gsettings | [[ch:d4-gtk-qt]] |
 | windows | Hyprland | `hyprland.lua` or `hyprland.conf` | [[ch:d5-hyprland-look]] |
-| boot, login | GRUB, Plymouth, SDDM | `/etc/default/grub`, `/usr/share/sddm/themes/` | [[ch:d6-boot-login]] |
+| boot, login | GRUB, Plymouth, SDDM | `/etc/default/grub`, `/usr/share/sddm/themes/` | [[ch:d6-boot-login]], [[ch:d9-grub]], [[ch:d10-sddm]] |
 | apps | Firefox, Spotify, Discord | `userChrome.css`, spicetify, Vencord | [[ch:d7-apps]] |
 | keeping it all | git + GNU Stow | a dotfiles repository | [[ch:d8-dotfiles]] |
 

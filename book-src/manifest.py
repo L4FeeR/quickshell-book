@@ -141,6 +141,8 @@ PARTS = [
         ("d4-gtk-qt", "Desktop Ricing 4: GTK, Qt, Icons, Cursors and Fonts"),
         ("d5-hyprland-look", "Desktop Ricing 5: The Look of Hyprland"),
         ("d6-boot-login", "Desktop Ricing 6: Boot and Login"),
+        ("d9-grub", "Desktop Ricing 9: GRUB Ricing"),
+        ("d10-sddm", "Desktop Ricing 10: SDDM Ricing"),
         ("d7-apps", "Desktop Ricing 7: Browser, Spotify and Discord"),
         ("d8-dotfiles", "Desktop Ricing 8: Keeping and Sharing Your Dotfiles"),
     ]),

@@ -156,6 +156,8 @@
 <a class="ch" href="../ch/d4-gtk-qt.html"><span class="num">d4</span>Desktop Ricing 4: GTK, Qt, Icons, Cursors and Fonts</a>
 <a class="ch" href="../ch/d5-hyprland-look.html"><span class="num">d5</span>Desktop Ricing 5: The Look of Hyprland</a>
 <a class="ch active" href="../ch/d6-boot-login.html"><span class="num">d6</span>Desktop Ricing 6: Boot and Login</a>
+<a class="ch" href="../ch/d9-grub.html"><span class="num">d9</span>Desktop Ricing 9: GRUB Ricing</a>
+<a class="ch" href="../ch/d10-sddm.html"><span class="num">d10</span>Desktop Ricing 10: SDDM Ricing</a>
 <a class="ch" href="../ch/d7-apps.html"><span class="num">d7</span>Desktop Ricing 7: Browser, Spotify and Discord</a>
 <a class="ch" href="../ch/d8-dotfiles.html"><span class="num">d8</span>Desktop Ricing 8: Keeping and Sharing Your Dotfiles</a>
 </details>
@@ -441,52 +443,10 @@
 <a class="ch" href="../cheatsheet.html">Cheat Sheet</a>
 <a class="ch" href="../print.html">Whole Book (print / PDF)</a>
 </nav></aside>
-<main class="content"><div class="crumbs"><a href="../index.html#part-d">Part D: Ricing the Whole Desktop</a> › Desktop Ricing 6: Boot and Login</div><article><div class="ch-head"><div class="ch-part">Part D · Ricing the Whole Desktop</div><h1><span class="ch-num">d6</span>Desktop Ricing 6: Boot and Login</h1></div><p>The first thing your computer shows isn't your bar, it's the boot menu, a splash screen and a login screen. Theming them finishes the rice from power button to desktop. This chapter covers a <strong>GRUB</strong> theme, a <strong>Plymouth</strong> splash and an <strong>SDDM</strong> login theme, which is written in QML, so everything from this book applies.</p>
+<main class="content"><div class="crumbs"><a href="../index.html#part-d">Part D: Ricing the Whole Desktop</a> › Desktop Ricing 6: Boot and Login</div><article><div class="ch-head"><div class="ch-part">Part D · Ricing the Whole Desktop</div><h1><span class="ch-num">d6</span>Desktop Ricing 6: Boot and Login</h1></div><p>The first thing your computer shows isn't your bar, it's the boot menu, a splash screen and a login screen. Theming them finishes the rice from power button to desktop. This chapter is the overview: how GRUB themes are installed, a <strong>Plymouth</strong> splash, and a first <strong>SDDM</strong> login theme in QML. The next two chapters go all the way: <a class="xref" href="../ch/d9-grub.html">Desktop Ricing 9: GRUB Ricing</a> and <a class="xref" href="../ch/d10-sddm.html">Desktop Ricing 10: SDDM Ricing</a>.</p>
 <div class="box warn"><div class="bt">These need root and can stop your system booting</div><p>Keep a live USB at hand, change one thing at a time, and reboot to test before moving on. All three can be undone by switching back to the default theme.</p></div>
 <h2 id="grub">GRUB<a class="hlink" href="#grub">#</a></h2>
-<p>GRUB (the boot menu many Arch installs use; systemd-boot has no themes) loads a theme from a folder with a <code>theme.txt</code>, a background and fonts:</p>
-<div class="codewrap"><pre class="code" data-lang="text"><span class="fname">desktop/grub/theme.txt</span><code># /boot/grub/themes/tokyo/theme.txt: a minimal GRUB theme.
-# Put a 1920x1080 background.png and a font (see the chapter) next to it,
-# then GRUB_THEME="/boot/grub/themes/tokyo/theme.txt" in /etc/default/grub.
-
-title-text: ""
-desktop-image: "background.png"
-desktop-color: "#1a1b26"
-terminal-font: "Terminus Regular 18"
-
-+ boot_menu {
-    left = 30%
-    top = 35%
-    width = 40%
-    height = 40%
-    item_font = "Terminus Regular 18"
-    item_color = "#a9b1d6"
-    selected_item_color = "#7aa2f7"
-    item_height = 40
-    item_padding = 12
-    item_spacing = 8
-    icon_width = 0
-    icon_height = 0
-}
-
-+ label {
-    top = 85%
-    left = 0
-    width = 100%
-    align = "center"
-    id = "__timeout__"
-    text = "Booting in %d seconds"
-    color = "#545c7e"
-    font = "Terminus Regular 16"
-}</code></pre></div>
-<p><code>desktop-image</code> and <code>desktop-color</code> set the background; <code>+ boot_menu</code> is the list of entries, placed in percentages of the screen, with its font and colours; <code>+ label</code> with <code>id = "__timeout__"</code> shows the countdown. To install it:</p>
-<div class="codewrap"><pre class="code" data-lang="sh"><code>sudo mkdir -p /boot/grub/themes/tokyo
-sudo cp theme.txt background.png /boot/grub/themes/tokyo/
-# a GRUB font from any TTF:
-sudo grub-mkfont -s 18 -o /boot/grub/themes/tokyo/terminus18.pf2 /usr/share/fonts/TTF/JetBrainsMonoNerdFont-Regular.ttf
-# in /etc/default/grub:  GRUB_THEME="/boot/grub/themes/tokyo/theme.txt"
-sudo grub-mkconfig -o /boot/grub/grub.cfg</code></pre></div>
-<p>Ready-made themes (catppuccin/grub, vinceliuice/grub2-themes) follow the same layout.</p>
+<p>GRUB, the boot menu many Arch installs use, can show a graphical theme with a background, icons, a highlight bar and a countdown. <a class="xref" href="../ch/d9-grub.html">Desktop Ricing 9: GRUB Ricing</a> builds a complete one, generates its pictures and fonts with a script, and previews it in a virtual machine so you never reboot to test. (systemd-boot, used by some installs instead, has no themes: <code>bootctl status</code> tells you which you have.)</p>
 <h2 id="plymouth">Plymouth<a class="hlink" href="#plymouth">#</a></h2>
 <p>Plymouth shows a graphical splash while the disk is unlocked and the system starts.</p>
 <div class="codewrap"><pre class="code" data-lang="sh"><code>sudo pacman -S plymouth
@@ -496,7 +456,7 @@ plymouth-set-default-theme -l                 # installed themes
 sudo plymouth-set-default-theme -R spinner    # set one and rebuild the initramfs</code></pre></div>
 <p>Themes like <code>catppuccin-plymouth</code> or the many animated ones in <code>plymouth-themes</code> (AUR) install into <code>/usr/share/plymouth/themes/</code>. Test without rebooting: <code>sudo plymouthd; sudo plymouth --show-splash; sleep 5; sudo plymouth quit</code>.</p>
 <h2 id="sddm-a-login-screen-in-qml">SDDM: a login screen in QML<a class="hlink" href="#sddm-a-login-screen-in-qml">#</a></h2>
-<p>SDDM is the login manager most rices use, and its themes are <strong>QML files</strong>. Here's a complete theme matching the rest of the rice: blurred wallpaper, a big clock, the user, a password field that shakes on a wrong password, session switching and power buttons.</p>
+<p>SDDM is the login manager most rices use, and its themes are <strong>QML files</strong>. Here's a first theme in a single file, to see how SDDM and a theme talk: blurred wallpaper, a big clock, the user, a password field that shakes on a wrong password, session switching and power buttons. <a class="xref" href="../ch/d10-sddm.html">Desktop Ricing 10: SDDM Ricing</a> then builds a complete, multi-file theme with a user picker, a Caps Lock warning, a session menu, keyboard layouts and a preview that runs without SDDM.</p>
 <div class="codewrap"><pre class="code" data-lang="qml"><span class="fname">desktop/sddm/tokyo-login/Main.qml</span><code>import QtQuick
 import QtQuick.Effects
 
@@ -904,7 +864,7 @@ sddm-greeter-qt6 --test-mode --theme /usr/share/sddm/themes/tokyo-login   # prev
 <h2 id="greetd-instead-of-sddm">greetd instead of SDDM<a class="hlink" href="#greetd-instead-of-sddm">#</a></h2>
 <p>greetd is a tiny login daemon; its "greeters" can be anything, including a Quickshell config (<code>Quickshell.Services.Greetd</code> talks to it). A Quickshell greeter can share your shell's components and theme exactly.</p>
 <div class="ex ex-warm"><div class="ex-h"><span class="ex-n">Exercise 1</span><span class="ex-lvl">Warm-up</span><b>Preview it</b></div><div class="ex-b"><p>Install the SDDM theme, preview it with <code>--test-mode</code>, and swap in your own wallpaper.</p></div></div>
-<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Avatars</b></div><div class="ex-b"><p>Show the user's avatar (role 260 of <code>userModel</code> is the icon path, <code>Qt.UserRole + 4</code>) instead of the initial, in a round clip.</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/d5-hyprland-look.html"><small>← Previous</small><span>Desktop Ricing 5: The Look of Hyprland</span></a><a class="pn-next" href="../ch/d7-apps.html"><small>Next →</small><span>Desktop Ricing 7: Browser, Spotify and Discord</span></a></nav>
+<div class="ex ex-practice"><div class="ex-h"><span class="ex-n">Exercise 2</span><span class="ex-lvl">Practice</span><b>Avatars</b></div><div class="ex-b"><p>Show the user's avatar (role 260 of <code>userModel</code> is the icon path, <code>Qt.UserRole + 4</code>) instead of the initial, in a round clip.</p></div></div></article><nav class="prevnext"><a class="pn-prev" href="../ch/d5-hyprland-look.html"><small>← Previous</small><span>Desktop Ricing 5: The Look of Hyprland</span></a><a class="pn-next" href="../ch/d9-grub.html"><small>Next →</small><span>Desktop Ricing 9: GRUB Ricing</span></a></nav>
 <footer class="foot">The Quickshell Book · Quickshell 0.3.x (upstream) · Niri/DWL modules from the noctalia-qs fork</footer></main>
 <aside class="otp"><div class="otp-t">On this page</div><a class="l2" href="#grub">GRUB</a><a class="l2" href="#plymouth">Plymouth</a><a class="l2" href="#sddm-a-login-screen-in-qml">SDDM: a login screen in QML</a><a class="l2" href="#greetd-instead-of-sddm">greetd instead of SDDM</a></aside>
 </div>

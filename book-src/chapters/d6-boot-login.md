@@ -1,28 +1,13 @@
 # Desktop Ricing 6: Boot and Login
 
-The first thing your computer shows isn't your bar, it's the boot menu, a splash screen and a login screen. Theming them finishes the rice from power button to desktop. This chapter covers a **GRUB** theme, a **Plymouth** splash and an **SDDM** login theme, which is written in QML, so everything from this book applies.
+The first thing your computer shows isn't your bar, it's the boot menu, a splash screen and a login screen. Theming them finishes the rice from power button to desktop. This chapter is the overview: how GRUB themes are installed, a **Plymouth** splash, and a first **SDDM** login theme in QML. The next two chapters go all the way: [[ch:d9-grub]] and [[ch:d10-sddm]].
 
 > [!WARNING] These need root and can stop your system booting
 > Keep a live USB at hand, change one thing at a time, and reboot to test before moving on. All three can be undone by switching back to the default theme.
 
 ## GRUB
 
-GRUB (the boot menu many Arch installs use; systemd-boot has no themes) loads a theme from a folder with a `theme.txt`, a background and fonts:
-
-@include desktop/grub/theme.txt
-
-`desktop-image` and `desktop-color` set the background; `+ boot_menu` is the list of entries, placed in percentages of the screen, with its font and colours; `+ label` with `id = "__timeout__"` shows the countdown. To install it:
-
-```bash
-sudo mkdir -p /boot/grub/themes/tokyo
-sudo cp theme.txt background.png /boot/grub/themes/tokyo/
-# a GRUB font from any TTF:
-sudo grub-mkfont -s 18 -o /boot/grub/themes/tokyo/terminus18.pf2 /usr/share/fonts/TTF/JetBrainsMonoNerdFont-Regular.ttf
-# in /etc/default/grub:  GRUB_THEME="/boot/grub/themes/tokyo/theme.txt"
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-```
-
-Ready-made themes (catppuccin/grub, vinceliuice/grub2-themes) follow the same layout.
+GRUB, the boot menu many Arch installs use, can show a graphical theme with a background, icons, a highlight bar and a countdown. [[ch:d9-grub]] builds a complete one, generates its pictures and fonts with a script, and previews it in a virtual machine so you never reboot to test. (systemd-boot, used by some installs instead, has no themes: `bootctl status` tells you which you have.)
 
 ## Plymouth
 
@@ -40,7 +25,7 @@ Themes like `catppuccin-plymouth` or the many animated ones in `plymouth-themes`
 
 ## SDDM: a login screen in QML
 
-SDDM is the login manager most rices use, and its themes are **QML files**. Here's a complete theme matching the rest of the rice: blurred wallpaper, a big clock, the user, a password field that shakes on a wrong password, session switching and power buttons.
+SDDM is the login manager most rices use, and its themes are **QML files**. Here's a first theme in a single file, to see how SDDM and a theme talk: blurred wallpaper, a big clock, the user, a password field that shakes on a wrong password, session switching and power buttons. [[ch:d10-sddm]] then builds a complete, multi-file theme with a user picker, a Caps Lock warning, a session menu, keyboard layouts and a preview that runs without SDDM.
 
 @include desktop/sddm/tokyo-login/Main.qml
 

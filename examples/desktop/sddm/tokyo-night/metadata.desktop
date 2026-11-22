@@ -1,0 +1,11 @@
+[SddmGreeterTheme]
+Name=Tokyo Night
+Description=A complete SDDM theme: user picker, password box, sessions, layouts and power
+Author=The Quickshell Book
+License=MIT
+Type=sddm-theme
+Version=1.0
+MainScript=Main.qml
+ConfigFile=theme.conf
+Screenshot=preview.png
+QtVersion=6

@@ -246,7 +246,7 @@ def expand_includes(text):
         if not os.path.exists(path):
             print("WARN missing include", rel, file=sys.stderr); return m.group(0)
         code = open(path, encoding="utf-8").read().rstrip("\n")
-        lang = {"qml": "qml", "toml": "toml", "conf": "ini", "json": "json", "template": "json", "py": "python", "css": "css", "yaml": "text", "lua": "lua", "js": "js"}.get(rel.rsplit(".", 1)[-1], "text")
+        lang = {"qml": "qml", "toml": "toml", "conf": "ini", "json": "json", "template": "json", "py": "python", "css": "css", "yaml": "text", "lua": "lua", "js": "js", "sh": "bash"}.get(rel.rsplit(".", 1)[-1], "text")
         return f'```{lang} file="{rel}"\n{code}\n```'
     return re.sub(r'(?m)^@include[ \t]+(\S+)[ \t]*$', inc, text)
 
